@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE authorgroup PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<authorgroup>
+        <author>
+               <firstname>建盛</firstname>
+               <surname>李</surname>
+               <affiliation><orgname>eayun.inc</orgname><orgdiv></orgdiv></affiliation>
+               <email>jiansheng.li@eayun.com</email>
+       </author>
+        <author>
+               <firstname>敦荣</firstname>
+               <surname>黄</surname>
+               <affiliation><orgname>eayun.inc</orgname><orgdiv></orgdiv></affiliation>
+               <email>dunrong.huang@eayun.com</email>
+       </author>
+</authorgroup>

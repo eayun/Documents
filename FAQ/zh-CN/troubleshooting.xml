@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+
+<qandaset defaultlabel='qanda'>
+<qandaentry>
+<question>
+<para>
+eayunOS是什么东东？
+</para>
+</question>
+<answer>
+<para>
+从OpenStack变种而来.
+</para>
+</answer>
+</qandaentry>
+</qandaset>
