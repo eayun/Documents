@@ -1,13 +1,29 @@
 Documents for building eayun doc
 ==========
 
+Install
+=======
+
+#### On ubuntu
+```bash
+$ sudo apt-get -y install publican
+```
+
 Setup and build
 ========
+
+克隆项目
+=======
+
+```bash
+$ git clone git@github.com:eayun/Documents.git
+```
 
 建立文档
 =======
 
 ```bash
+$ cd Documents
 $ publican create --name=FAQ --version=0.1 --product=eayun-documents --brand=eayun --lang=zh-CN --type=article
 ```
 
