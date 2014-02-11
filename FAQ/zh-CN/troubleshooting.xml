@@ -1,18 +1,41 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
 ]>
-
 <qandaset defaultlabel='qanda'>
-<qandaentry>
-<question>
-<para>
-eayunOS是什么东东？
-</para>
-</question>
-<answer>
-<para>
-从OpenStack变种而来.
-</para>
-</answer>
-</qandaentry>
+   <qandadiv><title>安装eayunOS</title>
+    <qandaentry>
+      <question>
+            <para>eayunOS是什么东东？</para>
+      </question>
+      <answer>
+            <para>从OpenStack变种而来.</para>
+      </answer>
+    </qandaentry>
+    <qandaentry>
+      <question>
+            <para>为什么一定要设置FQDN？</para>
+      </question>
+      <answer>
+            <para>将视野定位到真正的数据中心，你会发现IP地址的记忆就是你的噩梦。</para>
+      </answer>
+    </qandaentry>
+   </qandadiv>
+   <qandadiv><title>配置eayunOS</title>
+    <qandaentry>
+      <question>
+            <para>VDSM无法启动？</para>
+      </question>
+      <answer>
+            <para>请检查您的权限设置</para>
+      </answer>
+    </qandaentry>
+    <qandaentry>
+      <question>
+            <para>为什么node无法从443端口注册</para>
+      </question>
+      <answer>
+            <para>请尝试80端口</para>
+      </answer>
+    </qandaentry>
+   </qandadiv>
 </qandaset>
