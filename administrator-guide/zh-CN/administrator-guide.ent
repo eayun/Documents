@@ -1,0 +1,4 @@
+<!ENTITY PRODUCT "Documents">
+<!ENTITY BOOKID "administrator-guide">
+<!ENTITY YEAR "2014">
+<!ENTITY HOLDER "| You need to change the HOLDER entity in the zh-CN/administrator-guide.ent file |">
