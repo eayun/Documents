@@ -3,10 +3,28 @@
 <qandaset defaultlabel="number">
   <qandaentry>
     <question>
-      <para/>
+      <para>
+        eayun ovirt 的基本组件有哪些, 版本号分别是什么?
+      </para>
     </question>
     <answer>
-      <para/>
+      <para>基本的组件有以下:</para>
+      <para>基本系统: centos 6.5</para>
+      <para>ovirt engine 版本: 3.3.1</para>
+      <para>vdsm: 4.13</para>
+      <para>kernel: 2.6.32-431</para>
+      <para>qemu-kvm: 0.12.1.2-2.415</para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        在管理端添加主机失败怎么办?
+      </para>
+    </question>
+    <answer>
+      <para>如果是在中文环境下, 请把语言切换到英文环境再添加, 如果还失败, 请联系客服人员</para>
     </answer>
   </qandaentry>
 </qandaset>
