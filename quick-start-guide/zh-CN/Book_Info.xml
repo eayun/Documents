@@ -5,14 +5,14 @@
 ]>
 <bookinfo id="book-Documents-quick-start-guide-quick_start_guide">
 	<title>quick-start-guide</title>
-	<subtitle>Enter a short description here.</subtitle>
-	<productname>Documents</productname>
+	<subtitle></subtitle>
+	<productname>eayunOS Documents</productname>
 	<productnumber>0.1</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>
 	<abstract>
 		<para>
-			A short overview and summary of the book's subject and purpose, traditionally no more than one paragraph long. Note: the abstract will appear in the front matter of your book and will also be placed in the description field of the book's RPM spec file.
+                    为用户提供一个快速搭建eayunOS的环境的步骤和方法
 		</para>
 	</abstract>
 	<corpauthor>

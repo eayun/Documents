@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "quick-start-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-quick-start-guide-Chapter_introduction">
+	<title>快速入门概览</title>
+	<para>
+             此文档是为系统管理员们提供最快捷、直接的方式搭建eayunOS的虚拟化管理平台，目的是能够减少对复杂系统的恐惧，轻松入门。
+	</para>
+	<section id="sect-Documents-quick-start-guide-Chapter_introduction-Section_1">
+		<title>三步让你部署平台</title>
+		<para>
+                   大体上有以下三大步骤即可完成：
+			<itemizedlist>
+				<listitem>
+					<para>
+                                       安装eayunOS 管理平台和Hypervisor  
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+                                        配置主机、存储、网络、集群 
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+                                         创建虚拟机，并通过virt-view访问虚拟机。
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+	</section>
+	
+	<section id="sect-Documents-quick-start-guide-Chapter_introduction_Section_2">
+		<title>主机配置要求</title>
+		<para>
+                  本手册按照最小配置（规模角度）来说明。
+		</para>
+	</section>
+
+</chapter>
+

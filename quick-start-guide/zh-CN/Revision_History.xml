@@ -11,13 +11,13 @@
 				<revnumber>0.0-0</revnumber>
 				<date>Wed Feb 12 2014</date>
 				<author>
-					<firstname>Enter your first name here.</firstname>
-					<surname>Enter your surname here.</surname>
-					<email>Enter your email address here.</email>
+					<firstname>李</firstname>
+					<surname>建盛</surname>
+					<email>jiansheng.li@eayun.com</email>
 				</author>
 				<revdescription>
 					<simplelist>
-						<member>Initial creation by publican</member>
+						<member>建立文档，基于publican.</member>
 					</simplelist>
 				</revdescription>
 			</revision>
