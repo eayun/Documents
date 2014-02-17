@@ -4,23 +4,23 @@
 %BOOK_ENTITIES;
 ]>
 <bookinfo id="book-Documents-technical-reference-guide-technical_reference_guide">
-	<title>technical-reference-guide</title>
-	<subtitle>Enter a short description here.</subtitle>
-	<productname>Documents</productname>
+	<title>技术参考手册</title>
+	<subtitle>为用户提供的技术参考手册</subtitle>
+	<productname>易云eayunOS文档</productname>
 	<productnumber>0.1</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>
 	<abstract>
 		<para>
-			A short overview and summary of the book's subject and purpose, traditionally no more than one paragraph long. Note: the abstract will appear in the front matter of your book and will also be placed in the description field of the book's RPM spec file.
+                  EayunOS 作为数据中心级的虚拟化管理平台，采用KVM虚拟化技术。
 		</para>
 	</abstract>
 	<corpauthor>
-		<inlinemediaobject>
+		   <inlinemediaobject>
 			<imageobject>
 				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
 			</imageobject>
-		</inlinemediaobject>
+		   </inlinemediaobject>
 	</corpauthor>
 	<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />

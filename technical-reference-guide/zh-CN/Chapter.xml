@@ -4,25 +4,37 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-technical-reference-guide-Test_Chapter">
-	<title>Test Chapter</title>
+	<title>介绍</title>
 	<para>
-		This is a test paragraph
+		eayunOS 虚拟化管理平台
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
+		<title>eayunOS 管理平台</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+                    中心化的管理平台。		
+ 		</para>
+                <para>
+		   <inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" />
+			</imageobject>
+		   </inlinemediaobject>
+                </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
+		<title>eayunOS hypervisor</title>
 		<para>
-			This is a test paragraph in Section 2
+		 基于KVM的全虚拟化。	
 			<orderedlist>
 				<listitem>
 					<para>
-						This is a test listitem.
+					 qemu	
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					 libvirt	
 					</para>
 				</listitem>
 			</orderedlist>
