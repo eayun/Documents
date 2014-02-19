@@ -30,6 +30,18 @@
 				</listitem>
 			</itemizedlist>
 		</para>
+		 <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_workflow_setup.png" format="PNG" scale="60"/>
+			</imageobject>
+                        <textobject>
+                               <phrase>eayunOS 安装配置工作流示意图</phrase>
+                        </textobject>
+                        <caption>
+                        <para>eayunOS 安装配置工作流示意图
+                        </para>
+                        </caption>
+		 </mediaobject>
 	</section>
 	
 	<section id="sect-Documents-quick-start-guide-Chapter_introduction_Section_2">
