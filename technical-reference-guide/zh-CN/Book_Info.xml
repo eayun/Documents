@@ -4,9 +4,9 @@
 %BOOK_ENTITIES;
 ]>
 <bookinfo id="book-Documents-technical-reference-guide-technical_reference_guide">
-	<title>技术参考手册</title>
+	<title>technical-reference-guide</title>
 	<subtitle>为用户提供的技术参考手册</subtitle>
-	<productname>易云eayunOS文档</productname>
+	<productname>eayunOS Documents</productname>
 	<productnumber>0.1</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>

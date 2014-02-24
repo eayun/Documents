@@ -16,7 +16,7 @@
                 <para>
 		   <inlinemediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" />
+				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" scale="60"/>
 			</imageobject>
 		   </inlinemediaobject>
                 </para>
