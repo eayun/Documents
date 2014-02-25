@@ -11,35 +11,221 @@
 	<section id="sect-Documents-technical-reference-guide-Test_Chapter-Test_Section_1">
 		<title>eayunOS 管理平台</title>
 		<para>
-                    中心化的管理平台。		
+                    eayunOS虚拟化管理平台是一个集中式的、中心化的管理平台，提供了如下图所示的多种访问方式，针对不同用户，如使用者、开发者、命令行控。方式虽有不同，但可管理的性质是不变的。
  		</para>
-                <para>
-		   <inlinemediaobject>
+                
+                <figure id="eayunos-manager-architecture"><title>eayunOS管理平台架构图</title>
+		   <mediaobject>
 			<imageobject>
 				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" scale="60"/>
 			</imageobject>
-		   </inlinemediaobject>
+		   </mediaobject>
+                </figure>
+                <para>
+                   每种接口，即访问方式，均通过jboss 应用服务来完成所需要的操作，持久化的数据保存在关系型数据库postgresql中。这基本上就是一个直观的印象，更进一步的细节，如运行在jboss应用服务中有那些企业java Bean? 请参考eayunOS管理员手册或开发文档。
                 </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Test_Chapter-Test_Section_2">
 		<title>eayunOS hypervisor</title>
 		<para>
-		 基于KVM的全虚拟化。	
-			<orderedlist>
-				<listitem>
-					<para>
-					 qemu	
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-					 libvirt	
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                    eayunOS 虚拟化环境中可以包含多个物理主机，当然物理主机是可以支持硬件虚拟化的，如intel VT 或AMD-V技术。
+                </para>
+                <para>
+                    eayunOS hypervisor 是一个经过定制的、容量最小化的（只包含需要的组件）、只读的无状态的特殊的linux发行版。
+                </para>
+                <figure id="eayunos-host-architecture"><title>eayunOS主机架构组件图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_host_architecture.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                    
+                <formalpara><title>基于内核的虚拟机(KVM)</title>
+                   <para>
+                    KVM的英文全称是kernel-based Virtual Machine,支持Intel VT和AMD-V的硬件扩展的全虚拟化技术，在Linux内核中表现就是一个模块，kvm是运行中内核态空间，而QEMU作为一个独立的进程运行在用户态空间，通过主机的/dev/kvm来和QEMU模拟的设备交互。
+                   </para>
+                </formalpara>
+                <formalpara><title>QEMU</title>
+                   <para>
+                     QEMU是一个可以模拟各种平台的模拟器，从模拟的角度考虑：QEMU可以模拟整个PC,CPU、外设等，QEMU可以启动各式各样的操作系统或者debug系统级别的代码，QEMU为KVM提供所有的外设，通过/dev/kvm全面的协作，实现一个全虚拟化的x86架构的平台。
+                   </para>
+                </formalpara>
+                <formalpara><title>主机代理：VDSM</title>
+                   <para>
+                      作为管理端在主机的代理程序，VDSM可以操作系统内的资源例如：虚拟机、存储等，可以监控主机资源如：内存、存储、网络等，也担任着任务跟踪诸如虚拟机的建立、存储空间的分配、日志记录等。其运行在每个主机中并通过端口54321接受来自管理端的指令。
+                     注册到管理端的程序：VDSM-REG
+                       VDSM-REG是一个将eayunOS hypervisor注册到eayunOS管理端的程序，管理端程序是以apache作为前端的服务，使用80和443端口，VDSM-REG均支持。
+                      </para>
+                </formalpara>
+                <formalpara><title>libvirt</title>
+                   <para>
+                      libvirt可以管理基于KVM/QEMU的虚拟机全生命周期,以及外围设备等的管理。eayunOS 使用VDSM来调用libvirt。
+                   </para>
+                </formalpara>
+                <formalpara><title>存储池管理者，SPM</title>
+                   <para>
+                    SPM是一台主机，在一个数据中心中同一时间内只能有一台SPM，它管理着整个数据中心存储的元数据，包括虚拟机镜像、快照、模板等的创建、删除、操作，SPM支持在数据中心内的迁移，
+                    eayunOS管理端必须保证一个数据中心中SPM是必须可用的，一旦有错误，就会尝试将这个角色赋予给其它的主机。</para>
+                </formalpara>
+
+                <formalpara><title>客户机操作系统</title>
+                   <para>
+                      在&OVIRT;的虚拟化环境中，用户可以安装不需要作任何修改的操作系统。客户机操作系统以及在其中运行的应用程序对虚拟化是没有任何感知的。
+                      &OVIRT;通过使用virtio技术，增强客户机操作系统访问外设的性能，如网络设备、存储系统，所以需要在客户机操作系统安装一些驱动程序。另外，eayunOS亦提供客户机操作系统的agent，来完成诸如<acronym>SSO</acronym>,及时的cpu/memory负载以及网络的流量信息。
+                   </para>
+                </formalpara>
+                <!--<para>
+                <itemizedlist>
+			<listitem>
+				<para>
+				 qemu	
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+				 libvirt	
+				</para>
+			</listitem>
+               </itemizedlist>
+               </para>-->
 	</section>
 
+	<section id="sect-Documents-technical-reference-guide-Test_Chapter-Test_Section_3">
+		<title>特性列表</title>
+                <para>
+                </para>
+                   <table id="Feature_References_eayunOS_4.0_table">
+                          <title>eayunOS4.0的特性列表</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                           特性 
+                                         </entry> 
+                                         <entry>
+                                            详细描述
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                            虚拟机迁移使用libvirt to libvirt
+                                         </entry> 
+                                         <entry>
+                                            由于kvm重度依赖于CPU的特性支持，这样的好处是更加可靠，兼容性更强，但是会占用更多的cpu负载
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           可以设置网络专门用于迁移
+                                         </entry> 
+                                         <entry>
+                                           目前支持的网络角色有：显示、存储、迁移，迁移对网络的占用是非常大的，这样的分离，可以避免影响其他功能的正常使用。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            每个逻辑网络可以自定义网关
+                                         </entry> 
+                                         <entry>
+                                            可以从管理网络中分离出来单独定义，可定制性更加突出
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            基于内存的快照
+                                         </entry> 
+                                         <entry>
+                                            可以支持保存虚拟机当前的内存状态到快照中，不仅仅是基于磁盘的。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           为虚拟机优化的<acronym>iSCSI</acronym>设备驱动 
+                                         </entry> 
+                                         <entry>
+                                           虚拟机可以直接使用用户环境中的<acronym>iSCSI</acronym>存储，即直接使用virtio-scsi替代了virtio-blk驱动程序
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            内存的过量使用支持<acronym>MOM</acronym>的管理程序
+                                         </entry> 
+                                         <entry>
+                                            <acronym>MOM</acronym>是一个基于规则驱动的实现内存过量使用的工具，目前支持两种实现方式，分别是：内存气球及<acronym>KSM</acronym>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           GlusterFS数据域 
+                                         </entry> 
+                                         <entry>
+                                            可以建立基于Gluster的数据中心，原生支持Glusterfs。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            支持自定义虚拟机设备属性
+                                         </entry> 
+                                         <entry>
+                                            诸如viodiskcache,vhost,macspoof,sndbuf等外围设备更加细化的属性设置。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            可以扫描虚拟硬盘的对齐（alignment）
+                                         </entry> 
+                                         <entry>
+                                            当虚拟磁盘已经存在文件系统，可以使用这个特性，可以优化性能。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           扩展虚拟磁盘镜像 
+                                         </entry> 
+                                         <entry>
+                                           可以按照需要扩展。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            集成OpenStack的镜像服务
+                                         </entry> 
+                                         <entry>
+                                            &OVIRT;支持OpenStack的glance服务，可以直接导入/导出镜像到OpenStack的镜像仓库中。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            网络的QoS保证
+                                         </entry> 
+                                         <entry>
+                                            支持虚拟网卡级别的出/入流量限制
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                            支持Cloud-init
+                                         </entry> 
+                                         <entry>
+                                            <trademark>Windows</trademark>系列的操作系统支持Prepsys,Cloud-init可以帮助<trademark>Linux</trademark>设置诸如主机名、IP地址、认证的密钥等
+                                         </entry> 
+                                   </row>
+                                  <!-- <row>
+                                         <entry>
+                                            
+                                         </entry> 
+                                         <entry>
+                                            
+                                         </entry> 
+                                   </row>-->
+                             </tbody>
+                          </tgroup>
+                   </table>
+
+        </section>       
 </chapter>
 

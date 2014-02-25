@@ -8,6 +8,9 @@
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-eayunOS-arch.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-storage-arch.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-network-arch.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-power-manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<index />
 </book>
