@@ -6,49 +6,253 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-eayunOS-arch">
 	<title>eayunOS架构</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-eayunOS-arch-Section_1">
 		<title>管理端访问接口</title>
-		<para>
-                      
-		</para>
+                <formalpara><title>用户门户</title>
+		   <para>
+                         谈到用户门户，不得不解释下桌面虚拟化，它可以为用户提供类似物理PC的桌面环境。&OVIRT;提供了Virtual Desktop Infrastructure给用户，用户可以通过用户门户访问和显示虚拟的桌面，当然，关于访问控制是由管理员来决定那台虚拟桌面可以被谁访问的。普通用户可以启动、关闭和使用虚拟桌面，拥有权限的用户可以做些更多的操作，普通用户和拥有权限用户使用同一个URL来访问，而在登录时系统会根据其权限级别来决定，然后界面将会不同。
+			<itemizedlist>
+				<listitem>
+					<para>
+                                         普通用户
+					</para>
+                                        <para>
+                                         普通用户可以使用部分的界面（相对整个用户门户而言，及与拥有权限用户对比），来完成启动、关闭虚拟机，以及访问他们，目前支持的远程协议有：Simple Protocol for Independent Computing Environments (SPICE) 和 Virtual Network Computing(VNC)。
+                                        </para>
+				</listitem>
+				<listitem>
+					<para>
+                                         拥有权限用户
+					</para>
+                                        <para>
+                                           和普通用户比较，拥有权限的用户有下列的权限：
+                                            <itemizedlist mark="square">
+                                                <listitem>
+                                                   <para>创建、编辑、删除虚拟机。</para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>管理虚拟磁盘和虚拟网卡。</para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>可以将某虚拟机分配到某个普通用户。</para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>创建及使用模板，方便快速部署虚拟机。</para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>监控资源的使用，和查看一些事件。</para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>创建、和恢复快照，</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </para>
+				</listitem>
+			</itemizedlist>
+		   </para>
+                </formalpara>
+                <formalpara><title>管理员门户</title>
+                       <para>
+                          管理员门户是&OVIRT;服务提供给管理员的管理界面程序，管理员只需要通过浏览器，可以管理、监控、维护整个虚拟环境中的所有元素，大体包含如下内容：
+                          <itemizedlist>
+                              <listitem>
+                                 <para>创建和管理基础设施，如网络和存储。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>安装、管理系统到物理主机。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>创建和管理数据中心、集群等逻辑上的操作。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>创建和管理虚拟机，全生命周期（创建、启动、关闭、暂停、销毁、重启等）</para>
+                              </listitem>
+                              <listitem>
+                                 <para>用户和权限管理。</para>
+                              </listitem>
+                          </itemizedlist>
+                       </para>
+                </formalpara>
+                <formalpara><title>表述性状态转移应用程序接口</title>
+                       <para>
+                            &OVIRT;提供基于表述性状态转移应用程序接口，供用户集成和管理&OVIRT;,并提供给用户响应的SDK工具。
+                            使用REST API ，开发者或者管理员可以做如下事项：
+                          <itemizedlist>
+                              <listitem>
+                                 <para>集成&OVIRT;到已有的系统中。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>集成其他的第三方的虚拟化管理工具。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>自动化的运维方案以及错误的时间跟踪。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>使用脚本来完成一些维护工作，比如经常手动重复的内容。</para>
+                              </listitem>
+                          </itemizedlist>
+                       </para>
+                </formalpara>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-eayunOS-arch-Section_2">
 		<title>eayunOS管理端支撑组件</title>
-                   <para>Jboss Application Server 7.1</para>
+                 <formalpara><title>Jboss Application Server 7.1</title>
                     <para>
                           Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
-                    </para>
                     <important>
                         <para>
-                           
+                           Jboss Application Server的项目名称已经变更为wildfly.
                         </para>
                     </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                    </para>
+                 </formalpara>
+                 <formalpara><title>报表和历史数据</title>
+                    <para>
+                        在&OVIRT;初始化时会建立两个数据库，分别是：ovirt_engine和ovirt_engine_history。
+                    <important>
+                        <para>
+                               &OVIRT;暂时不支持。
+                        </para>
+                    </important>
+                    </para>
+                 </formalpara>
+                 <formalpara><title>目录服务</title>
+                    <para>
+                      &OVIRT;默认情况是只有一个用户在内部internal域中，需要外挂目录服务，目录服务提供基于网络的中心化的管理用户和企业信息，比如应用程序设置、用户profile、用户组数据、访问控制等信息。目前&OVIRT;支持的目录服务有Active Directory, Identity Management (IdM), OpenLDAP, and Red Hat Directory Server 9,以及FreeIPA.
+                    <important>
+                        <para>
+                          鉴于目前国内用户的普遍情况，&OVIRT;建议使用<acronym>Microsoft Active Directory</acronym>。
+                        </para>
+                    </important>
+                    </para>
+                 </formalpara>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-eayunOS-arch-Section_3">
 		<title>存储</title>
 		<para>
-                      
+                  &OVIRT;采用中心化的存储系统，用于用户虚拟机的磁盘、模板、快照以及ISO文件等。在&OVIRT;中，有存储池的概念，由各个存储组成。每个存储域里保存着存储的用量、描述其本身的结构的元数据，&OVIRT;存储域分三种类型，分别是：数据域、导出域、ISO域。
 		</para>
+                <para>
+                 在&OVIRT;中，每个数据中心只需要一个数据存储域，导出域和ISO域属于选项，存储域属于共享类型，在数据中心内的全部主机必须能够对存储有访问权限。
+                </para>
+                <para>
+                 支持网络存储的有：Network File System (NFS), Internet Small Computer System Interface (iSCSI), or Fibre Channel Protocol (FCP).另外支持本地（linux文件系统，如ext2/3/4,xfs）,以及支持POSIX标准的文件系统。
+                </para>
+                <para>
+                 在NFS(或者其他的POSIX的文件系统中)的存储域中，所有的虚拟机磁盘、模板、以及快照均表现为一个稀疏/数据文件。
+                </para>
+                <para>
+                 在SAN(iSCSI/FCP)的存储域中，块设备是由逻辑卷（LVM）来管理，&OVIRT;会将用户的存储空间设置为一个大的卷组（VG），虚拟机磁盘、模板、快照均是一个逻辑卷。
+                </para>
+                <figure id="eayunos-storage-architecture"><title>&OVIRT;存储架构组件图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_storage_architecture.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                 <formalpara><title>数据存储域</title>
+                    <para>
+                     数据域存放着整个虚拟化环境下所有的虚拟机的磁盘，模板和快照也是。数据域不可在数据中心间共享，数据域必须和数据中心的类型保持一致。
+                    <important>
+                        <para>
+                          &OVIRT;将在下个版本中，去掉存储类型决定数据中心类型。
+                        </para>
+                    </important>
+                    </para>
+                 </formalpara>
+                 <formalpara><title>导出数据域</title>
+                    <para>
+                      导出数据域用于数据中心间的复制虚拟磁盘镜像，可用于备份虚拟机磁盘镜像和模板。可以在各个数据中心间切换，但是每次只能被一个数据中心使用。
+                    </para>
+                 </formalpara>
+                 <formalpara><title>ISO数据域</title>
+                    <para>
+                     ISO数据域用于存储用户的ISO文件，ISO文件用于安装操作系统或是应用程序，使用虚拟机的CD-ROM设备。ISO数据域可以在数据中心间共享并可同时使用而互不影响。
+                    </para>
+                 </formalpara>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-eayunOS-arch-Section_4">
 		<title>网络</title>
 		<para>
-                      
+                     &OVIRT;虚拟化网络架构用于连接虚拟化环境下的各个元素，不仅支持网络的连接，也支持网络的隔离。 
 		</para>
+                <figure id="eayunos-network-architecture"><title>&OVIRT;网络架构图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_network_architecture.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                <para>
+                     &OVIRT;定义了几个网络层次，物理上的网络基础设施必须是实现配置好的，并能够在&OVIRT;的虚拟环境中及物理主机间是互通的。
+                </para>
+                <formalpara><title>网络基础设施层</title>
+                  <para>
+                        大致分为如下几个概念：                     
+                          <itemizedlist>
+                              <listitem>
+                                 <para>物理网卡，是物理主机连接到网络环境的介质。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>虚拟网卡，利用物理网卡实现的逻辑上的网卡，可以使虚拟机与网络环境保持互联互通。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>绑定设备，即物理网卡绑定(Bond),将多块物理网卡当一块使用。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>网桥，是一种交换技术，是实现逻辑网络的主要实现方式。</para>
+                              </listitem>
+                          </itemizedlist>
+                  </para>
+                </formalpara>
+                <formalpara><title>逻辑网络</title>
+                  <para>
+                     逻辑网络可以根据网络的流量来进行隔离，类型大致分如下几种： 
+                          <itemizedlist>
+                              <listitem>
+                                 <para>负责虚拟网卡的流量</para>
+                              </listitem>
+                              <listitem>
+                                 <para>不负责虚拟网卡流量的</para>
+                              </listitem>
+                              <listitem>
+                                 <para>可选的逻辑网络</para>
+                              </listitem>
+                              <listitem>
+                                 <para>必需的网络</para>
+                              </listitem>
+                          </itemizedlist>
+                        默认情况下，&OVIRT;在安装/初始化配置时默认配置一个管理的逻辑网络:ovirt-mgmt.
+                        其他的逻辑网络管理员可以在管理员门户中设置，如专门走存储的逻辑网络，专门走显示的逻辑网络，由于虚拟机迁移对网络的要求很高，所以可以专门为虚拟机迁移设置一逻辑网络。
+                  </para>
+                </formalpara>
+                <formalpara><title>对逻辑网络在不同层次的解释</title>
+                   <para>
+                       在&OVIRT;环境下，不同层次的逻辑网络有不同的表现：
+                          <itemizedlist>
+                              <listitem>
+                                 <para>数据中心：必须在此个层次定义，可以设置是否作为VM Network使用，以及设置MTU的大小。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>集群：可以看到数据中心的逻辑网络，但如果要使用逻辑网络必须加入到集群才可使用，默认情况下每个集群都会加入管理网络，</para>
+                              </listitem>
+                              <listitem>
+                                 <para>主机: 虚拟机的网络必须是主机的某个网卡设置为网桥方式实现，如果不是用于虚拟机网络，则可以直接使用主机中的网卡，每个主机必须有一个管理网络（网桥）。</para>
+                              </listitem>
+                              <listitem>
+                                 <para>虚拟机：只是使用上述层层分配下来的逻辑网络，对应于虚拟网卡。</para>
+                              </listitem>
+                          </itemizedlist>
+                   </para>
+                </formalpara>
+                <example><title>管理网络</title>
+                     <para>ovirt-mgmt，在&OVIRT;初始化配置时默认建立逻辑网络，主要用于管理端和各个host的网络通信，如果你没有设置其他的逻辑网络如迁移/显示/存储等，默认都是走的管理网络。 </para>
+                </example>
 	</section>
 
 </chapter>
