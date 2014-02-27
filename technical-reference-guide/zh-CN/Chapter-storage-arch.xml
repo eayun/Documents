@@ -13,27 +13,121 @@
 		</para>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-1">
                     <title>数据中心</title>
-                    <para></para>
+                    <para>
+                      数据中心在&OVIRT;中是一个最高级别的抽象容器，每个数据中心包括下面三种类型的子容器：
+                    </para>
+                    <para>
+                          <itemizedlist>
+                              <listitem>
+                                 <para>
+                                   <emphasis>存储容器</emphasis>保存了存储类型、存储域以及存储域的连接状态等信息，存储由数据中心来定义，并能够提供给数据中心内所有的集群，一个数据中心下的所有集群内的主机访问的是同一个数据域。
+                                 </para>
+                              </listitem>
+                              <listitem>
+                                 <para>
+                                    <emphasis>网络容器</emphasis>，体现了数据中心的逻辑网络的信息。包括网络地址、VLAN标签、以及STP的支持情况。逻辑网络在数据中定义，在集群中实现。
+                                 </para>
+                              </listitem>
+                              <listitem>
+                                 <para>
+                                    <emphasis>集群容器</emphasis>，集群是一组物理主机的逻辑组合，在&OVIRT;中，集群还必须是根据CPU类型来定义。集群还是一个迁移的范围约定，在某个集群内主机中运行的虚拟机，其在线迁移功能不能迁移到另外的集群内的主机中。一个数据中心可以有多个集群，一个集群可包含多个主机，就是这么一个逻辑关系。
+                                 </para>
+                              </listitem>
+                          </itemizedlist>
+                   </para>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-2">
                     <title>数据域概览</title>
-                    <para></para>
+                    <para>
+                     数据域是中心化的存放虚拟机镜像和存储元数据的仓库，诸如虚拟机镜像、ISO镜像、快照以及存储本身的元数据信息等，供数据中心内所有的主机访问。 
+                    </para>
+                    <para>
+                      &OVIRT;数据域同时支持基于文件和基于快设备的存储，支持的具体的有：网络文件系统（NFS），iSCSI,FCoE,以及SAS。
+                    </para>
+                    <para>
+                      这里特别强调的一点是，&OVIRT;支持并行网络文件系统，即pNFS,这是NFSv4.1的一个扩展特性，用于处理高性能I/O的集群服务，有以下三点好处：并行I/O、快速的伸缩性、高性能。 pNFS将元数据保存在不同的服务器上，从而将元数据和数据做到分离，元数据服务为客户端提供基本的分布信息，让客户端并行的访问数据。Hypervisor/主机通过pNFS实现一个会话多个连接的访问虚拟机的数据，而且连接可以分布到不同的网卡。pNFS支持块设备、对象存储以及文件的形式。
+                    </para>
+                    <para>
+                      数据域有三种类型：数据存储域、ISO存储域以及导出存储域。  
+                    </para>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-3">
-                    <title>可以作为存储域的存储类型</title>
-                    <para></para>
+                    <title>存储域后端存储类型</title>
+                    <para>可作为存储域后端的存储，&OVIRT;同时支持基于块设备和基于文件系统的存储。</para>
+                    <formalpara><title>基于文件系统的存储</title>
+                         <para>
+                            在&OVIRT;中支持文件系统存储的有NFS以及本地文件系统。
+                            <note><title>注意</title>
+                            <para>
+                                &OVIRT;支持POSIX标准的任何网络文件系统，但是不提供技术支持。
+                            </para>
+                            </note>
+                            &OVIRT;不支持文件系统本身的管理，仅限于使用，所以需要额外的配置。
+                         </para>
+                    </formalpara>
+                    <formalpara><title>基于块设备的存储</title>
+                         <para>
+                          基于块设备的存储即使用未格式化的块设备，&OVIRT;使用逻辑卷管理将所分配到的块设备聚合为一个大的卷组，每个主机都会运行一个LVM实例，并且并不知道其他主机亦运行，这个需要VDSM来完成，VDSM会扫描逻辑卷的变化，一旦发现，VDSM就会通知其他主机刷新逻辑卷的信息。至于扩展更多的存储给已有的存储域，&OVIRT;会通知VDSM来完成所有主机的刷新操作。
+                          逻辑单元号（LUN）是特殊的块设备，iSCSI,FoE,SAS等协议都是通过LUN来连接的，&OVIRT;管理端使用软件的iSCSI来连接LUN。这里要提到的是存储池管理，基于块设备的存储的任何变化，诸如：创建逻辑卷、扩展或删除逻辑卷、添加新的LUN，都是通过这个特殊的主机来完成的。
+                         </para>
+                    </formalpara>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-4">
                     <title>存储域的类型</title>
-                    <para></para>
+                    <para>
+                          <itemizedlist>
+                              <listitem>
+                              <para>
+                                 <emphasis>数据存储域</emphasis>存储这所有的虚拟机磁盘。数据存储域支持的类型有：NFS,iSCSI,FCP,posix兼容的文件系统，以及Linux本地文件系统。数据存储域不可以在多个数据中心间共享，另外，数据中心类型必须和数据存储域保持一致（比如都是iscsi)
+                              </para>
+                              </listitem>
+                              <listitem>
+                              <para>
+                                 <emphasis>导出存储域</emphasis>提供在数据中心之间转换虚拟机磁盘及模板，当然，它还可以用于备份，支持NFS类型的存储，它可以让多个数据中心使用，但每次仅能用于某一个数据中心。
+                              </para>
+                              </listitem>
+                              <listitem>
+                              <para>
+                                 <emphasis>ISO存储域</emphasis>保存ISO文件（也通常叫镜像），ISO文件也就是通常CD或DVD中的内容，在&OVIRT;中ISO的类型有操作系统安装盘、应用程序安装盘、或者是客户操作系统的agent程序等，这些镜像可以挂接到虚拟机，和现实中物理通过光驱启动或安装是一个道理。
+                              ISO存储域提供ISO文件，数据中心内所有的主机都可访问，也可同时挂载到多个数据中心。
+                              </para>
+                              </listitem>
+                          </itemizedlist>
+                    </para>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-5">
                     <title>虚拟磁盘镜像的文件格式</title>
-                    <para></para>
+                    <formalpara><title>QOW2格式</title>
+                      <para>
+                        QCOW2是一种虚拟机磁盘镜像的存储格式，全称是<emphasis>QEMU copy on write</emphasis>。QCOW2通过增加一个逻辑块和物理块的隐射来实现从物理磁盘到虚拟磁盘的解藕，每一个逻辑的块设备都对应有物理块设备的偏移量，从而使QCOW的实际使用量仅是基础盘所增加的那部分，进而实现磁盘过量使用、虚拟机快照等功能。
+                      </para>
+                    </formalpara>
+                    <formalpara><title>RAW</title>
+                      <para>
+                       RAW格式的I/O性能相比于QCOW2有一定的优势，它不需要主机做任何的操作，当虚拟机需要写数据时，它会给虚拟磁盘一个偏移量，它会源封不动的将这个偏移量写到基础盘或者是逻辑卷。
+                       在&OVIRT;中，RAW在设置磁盘类型为预分配时会占用和大小相同的物理空间，当然这个仅限于使用文件系统，当使用SAN存储时因为有LVM的管理，所以此时也可设置磁盘类型为RAW。
+                      </para>
+                    </formalpara>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-6">
                     <title>虚拟磁盘镜像的存储规则</title>
-                    <para></para>
+                    <formalpara><title>预分配</title>
+                      <para>
+                            顾名思义，就是在创建虚拟机时决定的虚拟机磁盘大小会占用相等的实际物理空间，比如创建一个大小为50GB的虚拟磁盘，那么就会占用存储域里50GB的容量。预分配从技术角度讲，就是在写数据的时候不需要增加额外的计算，性能会有所提升，但坏处是无法再扩展，所以&OVIRT;建议在一些高I/O,容错性更强的应用中使用，比如虚拟机用作服务器，数据库等。
+                            <note><title>注意</title>
+                            <para>
+                               如果正在使用的存储后端提供的自动精简配置功能， 预分配的存储仍然能够从管理门户选中时配置存储虚拟机。
+                               (测试结果无法验证：by lijiansheng)
+                            </para>
+                            </note>
+                      </para>
+                    </formalpara>
+                    <formalpara><title>精简置备</title>
+                      <para>
+                            当虚拟机创建时所设置大小其实是一个上限值，实际上它仅占用很少的一部分存储域容量，只有当虚拟机写数据时才真正的分配，一直达到上限为止。在文件系统中，如ext3/4,xfs中，此表现为一个稀疏文件。
+                            此模式适用于低I/O负载的，可以忍受一点的宕机的场景，比如桌面系统。 
+                      </para>
+                    </formalpara>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-7">
                     <title>存储域的自动恢复功能</title>
