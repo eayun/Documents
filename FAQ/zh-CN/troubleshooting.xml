@@ -125,4 +125,15 @@
       <para>从管理界面关机的原理是这样的, 第一次关机的时候, 会向虚拟机代理程序发送一个关机的指令, 如果虚拟机没有安装代理程序, 那么这次指令发送就失败, 当你第二次点击关机按钮的时候, 虚拟机管理程序会直接发送电源关闭事件, 类似于在你的 pc 机器上按按强制关闭按钮, 所以, 为了方便的管理你的虚拟机, 建议你在虚拟机里面安装 "Ovirt Guest Agent", 安装细节参照上一条说明</para>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        为什么我的虚拟机上网速度很慢, 比主机慢很多?
+      </para>
+    </question>
+    <answer>
+      <para>你在创建虚拟机的时候应该 virtio 的网卡, 如果是 windows 系统, 还需要安装 virtio 网卡的驱动, 这样你的上网速度就会飞快了</para>
+    </answer>
+  </qandaentry>
 </qandaset>
