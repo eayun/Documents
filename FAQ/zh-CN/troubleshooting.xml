@@ -61,4 +61,15 @@
       <para>这是因为 node 的防火墙规则覆盖了 manager 的防火墙规则, 导致 http/https 端口被阻拦了, 只要 add host 的时候不要勾选"设置防火墙"选项就没有该问题</para>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        add host 的时候失败怎么办?
+      </para>
+    </question>
+    <answer>
+      <para>首先, 请确保 host 的 ssh 服务是开启的, 如果没有开启, add host 是不会成功的</para>
+    </answer>
+  </qandaentry>  
 </qandaset>
