@@ -136,4 +136,15 @@
       <para>你在创建虚拟机的时候应该 virtio 的网卡, 如果是 windows 系统, 还需要安装 virtio 网卡的驱动, 这样你的上网速度就会飞快了</para>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        为什么我的虚拟机的硬盘速度比主机的慢很多, 拷贝文件很慢?
+      </para>
+    </question>
+    <answer>
+      <para>你在创建虚拟机的时候应该 virtio 磁盘, 如果是 windows 系统, 还需要安装 virtio 磁盘的驱动, virtio 的设备(网卡, 磁盘)是特别为虚拟化开发的硬件技术, 使用这类设备之后, 体验会提高很多</para>
+    </answer>
+  </qandaentry>
 </qandaset>
