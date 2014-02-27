@@ -50,4 +50,15 @@
       <para>并联系客服人员</para>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        把一台 manager 也配置为 node 节点, 重启后管理界面访问不了, 怎么修复?
+      </para>
+    </question>
+    <answer>
+      <para>这是因为 node 的防火墙规则覆盖了 manager 的防火墙规则, 导致 http/https 端口被阻拦了, 只要 add host 的时候不要勾选"设置防火墙"选项就没有该问题</para>
+    </answer>
+  </qandaentry>
 </qandaset>
