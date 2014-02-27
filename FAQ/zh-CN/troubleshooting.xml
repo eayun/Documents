@@ -71,5 +71,47 @@
     <answer>
       <para>首先, 请确保 host 的 ssh 服务是开启的, 如果没有开启, add host 是不会成功的</para>
     </answer>
-  </qandaentry>  
+  </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        为什么在管理界面的虚拟机页面上不能显示虚拟机的 IP 地址和安装的应用程序?
+      </para>
+    </question>
+    <answer>
+      <para>管理端获取虚拟机的 IP 地址等信息是通过虚拟机里面的一个叫 "OVirt Guest Agent" 的代理程序实现的, 请先安装这个程序, 具体的安装信息如下:
+	  <itemizedlist>
+		<listitem>
+		  <para>如果虚拟机系统是 ubuntu:
+		  </para>
+		</listitem>
+	  </itemizedlist>
+	  <programlisting language="Bash">
+# wget https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu/+files/ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
+# dpkg -i ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
+# apt-get -f install
+	  </programlisting>
+
+	  <itemizedlist>
+		<listitem>
+		  <para>如果虚拟机系统是 centos/fedora:
+		  </para>
+		</listitem>
+	  </itemizedlist>
+	  <programlisting language="Bash">
+# yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# yum install -y ovirt-guest-agent
+	  </programlisting>
+
+	  <itemizedlist>
+		<listitem>
+		  <para>如果虚拟机系统是 windows:
+		  </para>
+		</listitem>
+	  </itemizedlist>
+	  请按照 <ulink url="http://www.ovirt.org/OVirt_Guest_Agent_For_Windows">这个页面</ulink> 安装 agent, 或者联系易云的客服人员提供安装包
+	  </para>
+    </answer>
+  </qandaentry>
 </qandaset>
