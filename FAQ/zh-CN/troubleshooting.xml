@@ -114,4 +114,15 @@
 	  </para>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+    <question>
+      <para>
+        为什么在管理界面上关机需要点击两次才能关机?
+      </para>
+    </question>
+    <answer>
+      <para>从管理界面关机的原理是这样的, 第一次关机的时候, 会向虚拟机代理程序发送一个关机的指令, 如果虚拟机没有安装代理程序, 那么这次指令发送就失败, 当你第二次点击关机按钮的时候, 虚拟机管理程序会直接发送电源关闭事件, 类似于在你的 pc 机器上按按强制关闭按钮, 所以, 为了方便的管理你的虚拟机, 建议你在虚拟机里面安装 "Ovirt Guest Agent", 安装细节参照上一条说明</para>
+    </answer>
+  </qandaentry>
 </qandaset>
