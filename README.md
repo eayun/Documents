@@ -39,5 +39,6 @@ $ publican build --formats=html,pdf,html-single,html-desktop,txt,epub --langs=zh
 =======
 
 ```bash
+$ publican build --publish --formats=html,html-single --langs=zh-CN --brand_dir=[your-doc-path]
 $ sudo publican install_book --site_config=[configure-file*.cfg] --lang=zh-CN
 ```
