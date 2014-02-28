@@ -6,7 +6,42 @@
 <book>
 	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-using-guide.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-basic.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <part id="part-resource-manger">
+        <title>资源管理</title>
+      <partintro>
+       <para>
+        此部分主要是讲解&OVIRT;管理端能够管理什么。
+       </para>
+     </partintro>
+	<xi:include href="Chapter-data-center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-logical-network.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-storage-domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-virtual-machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-templates.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-virtual-machine-disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-third-party.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+   </part>
+    <part label="II">
+         <title>资源管理</title>
+      <partintro>
+        <para>
+        此部分主要是讲解&OVIRT;管理端能够管理什么。
+        </para>
+      </partintro>
+	<xi:include href="Chapter-user-roles.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-quotas-sla.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-event-notifi.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-utilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-log-files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-update.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-backup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </part>
+    
 	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<index />
 </book>

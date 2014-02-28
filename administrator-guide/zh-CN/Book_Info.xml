@@ -6,8 +6,8 @@
 <bookinfo id="book-Documents-administrator-guide-administrator_guide">
 	<title>administrator-guide</title>
 	<subtitle>Enter a short description here.</subtitle>
-	<productname>Documents</productname>
-	<productnumber>0.1</productnumber>
+	<productname>&OVIRT;</productname>
+	<productnumber>4.0</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>
 	<abstract>
