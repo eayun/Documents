@@ -4,30 +4,195 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-storage-domain">
-  <title>Test Chapter</title>
+  <title>&OVIRT;存储域</title>
   <para>
 	This is a test paragraph
   </para>
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_1">
-	<title>Test Section 1</title>
+	<title>理解&OVIRT;存储域</title>
 	<para>
-	  This is a test paragraph in a section
 	</para>
   </section>
-  
+
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_2">
-	<title>Test Section 2</title>
+	<title>在&OVIRT;虚拟化中的存储域元数据</title>
 	<para>
-	  This is a test paragraph in Section 2
-	  <orderedlist>
-		<listitem>
-		  <para>
-			This is a test listitem.
-		  </para>
-		</listitem>
-	  </orderedlist>
 	</para>
   </section>
 
-</chapter>
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3">
+	<title>添加基于文件的存储域</title>
+	<para>
+	</para>
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-1">
+	  <title>准备 NFS 存储</title>
+	  <para>
+	  </para>
+	</section>
 
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-2">
+	  <title>添加 NFS 存储</title>
+	  <para>
+	  </para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-3">
+	  <title>准备本地存储</title>
+	  <para>
+	  </para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-4">
+	  <title>添加本地存储</title>
+	  <para>
+	  </para>
+	</section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_4">
+	<title>添加 Glusterfs 的存储域</title>
+	<para>
+	  TODO
+	</para>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5">
+	<title>添加兼容 POSIX 的存储域</title>
+	<para>
+	</para>
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-1">
+	  <title>添加兼容 POSIX 的存储域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-2">
+	  <title>准备 pNFS 存储</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-3">
+	  <title>添加 pNFS 存储</title>
+	  <para>
+	  </para>
+	</section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6">
+	<title>添加基于块设备的存储域</title>
+	<para>
+	</para>
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-1">
+	  <title>准备 iSCSI 存储</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-2">
+	  <title>添加 iSCSI 存储</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-3">
+	  <title>添加 FCP 存储</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-4">
+	  <title>在&OVIRT;虚拟化中不可用的 LUNS</title>
+	  <para>
+	  </para>
+	</section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7">
+	<title>&OVIRT;存储域的操作</title>
+	<para>
+	</para>
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-1">
+	  <title>导入存在的 "ISO 域"或者"导出域"</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-2">
+	  <title>上传 ISO 到 ISO 域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-3">
+	  <title>存储域的维护模式</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-4">
+	  <title>编辑资源</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-5">
+	  <title>激活存储域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-6">
+	  <title>移除存储域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-7">
+	  <title>销毁存储域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-8">
+	  <title>从数据中心分离存储域</title>
+	  <para>
+	  </para>
+	</section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-9">
+	  <title>添加存储域到数据中心</title>
+	  <para>
+	  </para>
+	</section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_8">
+	<title>&OVIRT;存储域的权限管理</title>
+	<para>
+	</para>
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_8-1">
+	  <title>管理存储域的系统权限</title>
+	  <para>
+	  </para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_8-2">
+	  <title>存储管理员的角色解析</title>
+	  <para>
+	  </para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_8-3">
+	  <title>给资源分配管理或者用户权限</title>
+	  <para>
+	  </para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_8-4">
+	  <title>从资源中删除管理或者用户权限</title>
+	  <para>
+	  </para>
+	</section>
+  </section>
+</chapter>
