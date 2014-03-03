@@ -4,30 +4,30 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-storage-domain">
-	<title>Test Chapter</title>
+  <title>Test Chapter</title>
+  <para>
+	This is a test paragraph
+  </para>
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_1">
+	<title>Test Section 1</title>
 	<para>
-		This is a test paragraph
+	  This is a test paragraph in a section
 	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  </section>
+  
+  <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_2">
+	<title>Test Section 2</title>
+	<para>
+	  This is a test paragraph in Section 2
+	  <orderedlist>
+		<listitem>
+		  <para>
+			This is a test listitem.
+		  </para>
+		</listitem>
+	  </orderedlist>
+	</para>
+  </section>
 
 </chapter>
 
