@@ -161,8 +161,44 @@
 
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-2">
 	  <title>添加 NFS 存储</title>
-	  <para>
+	  <para>NFS存储域可以用来存放虚拟机镜像文件, ISO 文件, 或者用来作为导出域.
 	  </para>
+	  <procedure><title>添加 NFS 存储</title>
+	  <step>
+		<para>
+		  在 &OVIRT;管理界面中打开"存储"标签
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击新建存储域
+		</para>
+		<figure id="add-nfs"><title>添加 NFS 存储</title>
+		<mediaobject>
+          <imageobject>
+			<imagedata fileref="images/storage-add-nfs.png" format="PNG" scale="100"/>
+          </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  输入存储域的名字(比如 test-nfs)
+		</para>
+	  </step>
+	  <step>
+		<para>
+		  选择数据中心, 存储类型, 和一台用于挂载存储的主机
+		</para>
+	  </step>
+	  <step>
+		<para>
+		  最后, 填写 NFS 服务器的完整路径, 比如 192.168.176.157:/exports/iso, 然后点击确定, 一段时间之后, 你会看见我们新建的存储域已经在存储列表里面了
+		</para>
+	  </step>
+	  </procedure>
 	</section>
 
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-3">
