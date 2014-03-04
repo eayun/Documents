@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "quick-start-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-quick-start-guide-Chapter_configure">
+	<title>配置&OVIRT;</title>
+	<para>
+	</para>
+	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_1">
+		<title>配置概览</title>
+		<para>
+		</para>
+	</section>
+	
+	<section id="sect-Documents-quick-start-guide-Chapter-configure_Section_2">
+		<title>配置数据中心</title>
+		<para>
+			<orderedlist>
+				<listitem>
+					<para>
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_3">
+		<title>配置集群</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_4">
+		<title>配置网络</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5">
+		<title>配置主机</title>
+		<para>
+		</para>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-1">
+	               <title>配置主机</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-2">
+	               <title>批准hypervisor加入</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-3">
+	               <title>从管理门户加入主机</title>
+		       <para>
+		       </para>
+	      </section>
+
+	</section>
+	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6">
+		<title>配置存储</title>
+		<para>
+		</para>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-1">
+	               <title>选择存储类型</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-2">
+	               <title>创建一个NFS类型的数据域</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-3">
+	               <title>创建一个iSCSI的数据域</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-4">
+	               <title>创建一个FCP的数据域</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-5">
+	               <title>加入光盘镜像域</title>
+		       <para>
+		       </para>
+	      </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-6">
+	               <title>上传光盘镜像</title>
+		       <para>
+		       </para>
+	      </section>
+	</section>
+
+</chapter>
+

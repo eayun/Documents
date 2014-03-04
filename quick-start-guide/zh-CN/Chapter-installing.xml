@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "quick-start-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-quick-start-guide-Chapter_installing">
+	<title>安装&OVIRT;</title>
+	<para>
+	</para>
+	<section id="sect-Documents-quick-start-guide-Chapter_installing-Section_1">
+		<title>安装概览</title>
+		<para>
+		</para>
+	</section>
+	
+	<section id="sect-Documents-quick-start-guide-Chapter_installing-Section_2">
+		<title>安装&OVIRT;管理端程序</title>
+		<para>
+		</para>
+	</section>
+
+	<section id="sect-Documents-quick-start-guide-Chapter-installing_Section_3">
+		<title>安装&OVIRT;主机</title>
+		<para>
+		</para>
+	       <section id="sect-Documents-quick-start-guide-Chapter-installing_Section_3-1">
+	        	<title>安装&OVIRT;hypervisor节点</title>
+		       <para>
+		      </para>
+	       </section>
+                
+	</section>
+
+	<section id="sect-Documents-quick-start-guide-Chapter-installing_Section_4">
+		<title>将主机添加到管理端门户</title>
+		<para>
+		</para>
+	       <section id="sect-Documents-quick-start-guide-Chapter-installing_Section_4-1">
+	        	<title>访问&OVIRT;基于web的管理门户</title>
+		       <para>
+		      </para>
+	       </section>
+	       <section id="sect-Documents-quick-start-guide-Chapter-installing_Section_4-2">
+	        	<title>管理门户简单浏览</title>
+		       <para>
+		      </para>
+	       </section>
+                
+	</section>
+
+</chapter>
+
