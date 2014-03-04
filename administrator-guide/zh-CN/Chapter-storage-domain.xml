@@ -44,7 +44,7 @@
 
   <para>目前, &OVIRT;有三种类型的存储域:
   </para>
-    <itemizedlist>
+  <itemizedlist>
 	<listitem>
 	  <para>数据存储域 存放虚拟机镜像, 快照, 模板等内容. 数据存储域不能在不同的数据中心中共享. 并且数据存储域的类型要和数据中心的类型一致, 只有在数据存储域被添加到了数据中心之后, 其它类型的存储域才能被添加.
 	  </para>
@@ -68,8 +68,22 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_2">
 	<title>在&OVIRT;虚拟化中的存储域元数据</title>
-	<para>
+	<para>对于存储域的管理, &OVIRT;虚拟化管理平台把存储域的元数据信息也保存在存储域本身. 目前存储域有下面几个版本:
 	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>V1: TODO
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>V2: TODO
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>V3: TODO
+		</para>
+	  </listitem>
+	</itemizedlist>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3">
