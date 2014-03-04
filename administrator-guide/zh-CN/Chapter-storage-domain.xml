@@ -92,8 +92,71 @@
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-1">
 	  <title>准备 NFS 存储</title>
-	  <para>
-	  </para>
+	  <procedure><title>An Example Procedure</title>
+	  <step>
+		<para>
+		  安装 NFS 软件包
+		</para>
+		<programlisting language="Bash">
+# yum install nfs-utils
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  配置 NFS 开机启动
+		</para>
+		<programlisting language="Bash">
+# chkconfig --add rpcbind # chkconfig --add nfs
+# chkconfig rpcbind on
+# chkconfig nfs on
+		</programlisting>
+		<para>
+		  如果是第一次配置, 需要手动把 nfs 服务启动
+		</para>
+		<programlisting language="Bash">
+# service rpcbind start
+# service nfs start
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  创建共享目录(以/export/iso为例子)
+		</para>
+		<para>
+		  注意:共享目录的属组和拥有者必须是 vdsm和kvm
+		</para>
+		<programlisting language="Bash">
+# mkdir /exports/iso
+# chown -R 36:36 /exports/iso
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  配置共享目录
+		</para>
+		<para>
+		  打开 nfs 的配置文件 /etc/exports, 添加一行
+		</para>
+		<programlisting language="Bash">
+/exports/iso * (rw)
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  重载 NFS 服务
+		</para>
+		<para>
+		  因为我们已经添加了一个新的共享目录, 需要重载 NFS 的配置使它生效
+		</para>
+		<programlisting language="Bash">
+# service nfs reload
+		</programlisting>
+	  </step>
+	  </procedure>
 	</section>
 
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-2">
