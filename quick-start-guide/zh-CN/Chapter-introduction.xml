@@ -45,10 +45,134 @@
 	</section>
 	
 	<section id="sect-Documents-quick-start-guide-Chapter_introduction_Section_2">
-		<title>主机配置要求</title>
+		<title>安装配置要求</title>
 		<para>
-                  本手册按照最小配置（规模角度）来说明。
+                  本手册按照最小配置（规模角度）来说明。请用户根据自己的实际环境，如规模、负载等情形再行决定，或者联系易云捷讯公司咨询。
 		</para>
+                <formalpara><title>&OVIRT;管理端</title>
+                   <para>
+                          <itemizedlist>
+                              <listitem>
+                              <para>
+                               最小--4GB内存，双核CPU，25GB的空闲空间，千兆网卡。
+                              </para>
+                              </listitem>
+                              <listitem>
+                              <para>
+                               建议配置：Dual Sockets/Quad core，16GB内存，50GB的空闲空间（最好是有RAID5之类的），千兆网卡。
+                              </para>
+                              <para>
+                                  下面是具体系统的最低极限：
+                                 <itemizedlist>
+                                    <listitem>
+                                      <para>&OVIRT;最低要求1GB内存，5GB的本地空间。</para>
+                                    </listitem>
+                                    <listitem>
+                                      <para>&OVIRT;管理端程序最低要求3GB内存，3GB的本地空间，以及千兆网卡。</para>
+                                    </listitem>
+                                    <listitem>
+                                      <para>如果ISO数据域和&OVIRT;在同一物理主机，则需要额外的至少15GB的硬盘空间。</para>
+                                    </listitem>
+                                 </itemizedlist>
+                              </para>
+                              </listitem>
+                              <listitem>
+                              <para>
+                                  客户端连接到&OVIRT;管理端的软件要求：
+                                 <itemizedlist>
+                                    <listitem>
+                                      <para>Linux: Mozilla firefox 17或更高版本。</para>
+                                    </listitem>
+                                    <listitem>
+                                      <para>Windows: IE 9或更高版本。</para>
+                                    </listitem>
+                                 </itemizedlist>
+                              </para>
+                              </listitem>
+                          </itemizedlist>
+                   </para>
+                </formalpara>
+                <formalpara><title>&OVIRT; hypervisor 或 &OVIRT;</title>
+                  <para>
+                      <itemizedlist>
+                        <listitem>
+                          <para>最低配置：Dual core server，2GB内存，10GB存储，千兆网卡</para>
+                        </listitem>
+                        <listitem>
+                          <para>
+                            建议配置：Dual socket server，16GB内存，50GB存储，两块千兆网卡
+                            <itemizedlist>
+                              <listitem>
+                               <para>具体：支持AMD-V 或 Intel VT , AMD64 或 Intel 64位扩展，3GB空闲硬盘空间，一千兆网卡。</para>
+                              </listitem>
+                           </itemizedlist>
+                          </para>
+                        </listitem>
+                      </itemizedlist>
+                  </para>
+                </formalpara>
+                <formalpara><title>存储和网络需求</title>
+                  <para>
+                      <itemizedlist>
+                        <listitem>
+                          <para>
+                             至少有NFS，iSCSI,或FCP其中一种类型的存储.
+                            <itemizedlist>
+                              <listitem>
+                               <para>如果是NFS的存储，即是一个活动着的可以是vdsm:kvm权限可访问的NFS服务（IP:/export/path）</para>
+                              </listitem>
+                              <listitem>
+                               <para>如果是iSCSI存储，则iscsi的target是保证可用的（ip:3360）</para>
+                              </listitem>
+                           </itemizedlist>
+                          </para>
+                        </listitem>
+                        <listitem>
+                          <para>保证所有主机（&OVIRT;&OVIRT; hypervisor）均拥有静态IP，不建议使用DHCP。</para>
+                        </listitem>
+                        <listitem>
+                          <para>最好是有一个DNS服务器，保证所有主机名都是可解析的。</para>
+                        </listitem>
+                        <listitem>
+                          <para>可以有一个DHCP服务，以供虚拟机启动时获得有效的IP地址。</para>
+                        </listitem>
+                      </itemizedlist>
+                  </para>
+                </formalpara>
+                <formalpara><title>关于虚拟机支持的操作系统状态</title>
+                  <para>
+                      <itemizedlist>
+                        <listitem>
+                          <para>
+                           &OVIRT;支持下列操作系统： 
+                            <itemizedlist>
+                              <listitem>
+                               <para>Microsoft Windows XP, 7, 2003 or 2008.</para>
+                              </listitem>
+                              <listitem>
+                               <para>Red Hat Enterprise Linux 3, 4, 5 or 6.</para>
+                              </listitem>
+                           </itemizedlist>
+                          </para>
+                        </listitem>
+                        <listitem>
+                          <para>请支持正版！</para>
+                        </listitem>
+                      </itemizedlist>
+                  </para>
+                </formalpara>
+                <formalpara><title>&OVIRT;用户门户需要的客户端要求</title>
+                 <para> 
+                    <itemizedlist>
+                                    <listitem>
+                                      <para>Linux: Mozilla firefox 17或更高版本。</para>
+                                    </listitem>
+                                    <listitem>
+                                      <para>Windows: IE 9或更高版本。</para>
+                                    </listitem>
+                   </itemizedlist>
+                 </para>
+               </formalpara>
 	</section>
 
 </chapter>
