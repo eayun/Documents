@@ -147,4 +147,43 @@
       <para>你在创建虚拟机的时候应该 virtio 磁盘, 如果是 windows 系统, 还需要安装 virtio 磁盘的驱动, virtio 的设备(网卡, 磁盘)是特别为虚拟化开发的硬件技术, 使用这类设备之后, 体验会提高很多</para>
     </answer>
   </qandaentry>
+  <qandaentry>
+    <question>
+      <para>创建虚拟机安装操作系统，系统重启以后会自动又一次进入系统安装盘怎么办？      
+      </para>
+    </question>
+    <answer>
+      <para>创建虚拟机时在基础信息设置里面只设置名称、操作系统、内存、CPU及磁盘大小，选择 run once 方式运行虚拟机安装操作系统，系统安装后重启不会再进入系统安装盘</para>
+    </answer>
+  </qandaentry>
+  <qandaentry>
+    <question>
+      <para>创建某些Windows虚拟机，安装Windows操作系统时，找不到硬盘怎么办？
+      </para>
+    </question>
+    <answer>
+      <para>创建Windows系统的虚拟机时，安装过程需要进行两次changeCD</para>
+      <para>第一次：run once 运行虚拟机进入虚拟机后，开始安装操作系统，此时登录虚拟化管理平台界面changeCD 选择驱动，再回到虚拟机安装界面加载驱动</para>
+      <para>第二次：添加完驱动后，刷新界面可以看到安装的磁盘，此时回到虚拟机管理平台界面上changeCD 选择安装iso文件，回到虚拟机安装界面继续安装</para>
+    </answer>
+  </qandaentry>
+  <qandaentry>
+    <question>
+      <para>将主机切换到其它数据中心操作有时被禁用，是为什么？
+      </para>
+    </question>
+    <answer>
+      <para>主机切换数据中心具体操作如下：</para>
+      <para>登录管理系统，在左侧树形面板点击Expand All->System,在右侧详细面板菜单中点击Host,在Host列表下选择要变更数据中心的host,将其变为维护模式,点击edit重新选择数据中心</para>
+    </answer>
+  </qandaentry>
+  <qandaentry>
+    <question>
+      <para>安装完engine（Host并没有重新安装）,系统已经添加存储域后，重新cleanup再setup系统或重新安装系统，原存储域添加不进来，虚拟机状态不正常，发生这种情况怎么办？
+      </para>
+    </question>
+    <answer>
+      <para>重启所有的host即可</para>
+    </answer>
+  </qandaentry>
 </qandaset>
