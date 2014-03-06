@@ -10,11 +10,28 @@
 	<section id="sect-Documents-quick-start-guide-Chapter_installing-Section_1">
 		<title>安装概览</title>
 		<para>
+                  &OVIRT;定义完整的环境必须有至少一个管理端程序和至少一个hypervisor。
+                    <itemizedlist>
+                                    <listitem>
+                                      <para><emphasis>&OVIRT;管理端</emphasis>提供基于web浏览器的访问，可以集中的管理所有的&OVIRT;物理和逻辑资源，&OVIRT;是基于CentOS 6服务器版操作系统。</para>
+                                    </listitem>
+                                    <listitem>
+                                      <para><emphasis>&OVIRT; Hypervisor</emphasis>主要是运行虚拟机。除&OVIRT;提供的&OVIRT; hypervisor之外，&OVIRT;本身也可被配置成为运行虚拟机的主机。</para>
+                                    </listitem>
+                   </itemizedlist>
+                  
 		</para>
 	</section>
 	
 	<section id="sect-Documents-quick-start-guide-Chapter_installing-Section_2">
 		<title>安装&OVIRT;管理端程序</title>
+                <figure id="eayunos-quick-start-install-eayunos-manager"><title>&OVIRT;存储架构组件图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_install_eayunos_manager.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
 		<para>
 		</para>
 	</section>
