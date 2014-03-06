@@ -204,13 +204,71 @@
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-3">
 	  <title>准备本地存储</title>
 	  <para>
+		本地存储域是在一个主机上建立的, 在主机上建立本地存储的时候, 这个主机会自动加入到一个新的数据中心和集群上, 这个数据中心和集群很特殊, 其它主机不能加入到它之上. 另外, 由于是本地存储的关系, 在这个主机域上运行的虚拟机只能在该主机上运行, 并且不能迁移到其它主机上.
 	  </para>
+	  <procedure><title>准备本地存储</title>
+	  <step>
+		<para>在主机上, 创建本地存储域需要的目录, 注意目录名称必须是 /data/images
+		</para>
+		<programlisting language="Bash">
+# mkdir -p /data/images
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>修改主机域的目录权限
+		</para>
+		<programlisting language="Bash">
+# chown 36:36 /data /data/images
+# chmod 0755 /data /data/images
+		</programlisting>
+	  </step>
+	  </procedure>
 	</section>
 
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-4">
 	  <title>添加本地存储</title>
 	  <para>
+		在一个主机上添加本地存储域, 同时配置了一个新的数据中心, 新的集群, 并把该主机加入到该集群上.
 	  </para>
+	  <procedure><title>添加本地存储</title>
+	  <step>
+		<para>
+		  选择 host 标签
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击维护模式, 把 host 设置为维护模式
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击配置本地存储, 打开配置本地存储窗口.
+		</para>
+		<!-- TODO: picture -->
+	  </step>
+
+	  <step>
+		<para>
+		  分别点击数据中心, 集群, 存储的编辑按钮配置他们的名字
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  设置该本地存储域的名字
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击 OK, 保存
+		</para>
+	  </step>
+	  </procedure>
 	</section>
   </section>
 
