@@ -33,7 +33,201 @@
 		   </mediaobject>
                 </figure>
 		<para>
+                   &OVIRT;管理程序是整个&OVIRT;虚拟化环境的中心，它可以完成定义诸如数据中心、集群、主机，添加存储、设置网络、建立虚拟机、管理用户及权限控制等一系列功能。
 		</para>
+                <procedure><title>安装&OVIRT;管理程序</title>
+                   <step>
+                      <para>
+                        安装&OVIRT;，这是个全自动的安装，自动会将所有的安装包安装到用户的服务器系统。详情请参考&OVIRT;安装手册。
+                      </para>
+                      <important>
+                          <para>请设置主机名符合FQDN的要求，及静态IP地址。</para>
+                      </important>
+                   </step>
+                   <step>
+                      <para>
+                         <programlisting language="bash">
+                          <![CDATA[# engien-setup
+]]>
+                         </programlisting>
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       engine-setup初始化向导需要用户交互式的回答一些问题。如下面的例子。
+                      </para>
+                      <example><title>&OVIRT;初始化配置实例</title>
+                         <programlisting language="bash">
+                          <![CDATA[
+[ INFO  ] Stage: Initializing 
+[ INFO  ] Stage: Environment setup 
+          Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging-aio.conf', '/etc/ovirt-engine-setup.conf.d/10-packaging.conf'] 
+          Log file: /var/log/ovirt-engine/setup/ovirt-engine-setup-20140307080456.log 
+          Version: otopi-1.1.2 (otopi-1.1.2-1.el6) 
+[ INFO  ] Hardware supports virtualization 
+[ INFO  ] Stage: Environment packages setup 
+[ INFO  ] Stage: Programs detection 
+[ INFO  ] Stage: Environment setup 
+[ INFO  ] Stage: Environment customization 
+         
+          --== PACKAGES ==-- 
+         
+[ INFO  ] Checking for product updates... 
+[ INFO  ] No product updates found 
+         
+          --== ALL IN ONE CONFIGURATION ==-- 
+         
+          Configure VDSM on this host? (Yes, No) [No]: yes 
+          Local storage domain path [/var/lib/images]: 
+          Local storage domain name [local_storage]: 
+         
+          --== NETWORK CONFIGURATION ==-- 
+         
+          Host fully qualified DNS name of this server [localhost.localdomain]: backup.eayun.com 
+[WARNING] Failed to resolve backup.eayun.com using DNS, it can be resolved only locally 
+          Setup can automatically configure the firewall on this system. 
+          Note: automatic configuration of the firewall may overwrite current settings. 
+          Do you want Setup to configure the firewall? (Yes, No) [Yes]: no 
+         
+          --== DATABASE CONFIGURATION ==-- 
+         
+          Where is the database located? (Local, Remote) [Local]: 
+          Setup can configure the local postgresql server automatically for the engine to run. This may conflict with existing applications. 
+          Would you like Setup to automatically configure postgresql, or prefer to perform that manually? (Automatic, Manual) [Automatic]: 
+         
+          --== OVIRT ENGINE CONFIGURATION ==-- 
+         
+          Engine admin password: 
+          Confirm engine admin password: 
+[WARNING] Password is weak: it is too simplistic/systematic 
+          Use weak password? (Yes, No) [No]: yes 
+          Application mode (Both, Virt, Gluster) [Both]: 
+          Default storage type: (NFS, FC, ISCSI, POSIXFS) [NFS]: 
+         
+          --== PKI CONFIGURATION ==-- 
+         
+          Organization name for certificate [eayun.com]: 
+         
+          --== APACHE CONFIGURATION ==-- 
+         
+          Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications. 
+          Do you wish to set the application as the default page of the web server? (Yes, No) [Yes]: 
+          Setup can configure apache to use SSL using a certificate issued from the internal CA. 
+          Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]: 
+         
+          --== SYSTEM CONFIGURATION ==-- 
+         
+          Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [Yes]: 
+          Local ISO domain path [/var/lib/exports/iso]: 
+          Local ISO domain name [ISO_DOMAIN]: 
+          Configure WebSocket Proxy on this machine? (Yes, No) [Yes]: 
+]]>
+                         </programlisting>
+                          
+                      </example>
+                   </step>
+                   <step>
+                      <para>
+                        当配置完所有项后，&OVIRT;管理端初始化程序，提供汇总的信息。
+                      </para>
+                      <example><title>&OVIRT;初始化配置汇总信息实例</title>
+                         <programlisting>
+                          <![CDATA[
+           --== END OF CONFIGURATION ==-- 
+         
+[ INFO  ] Stage: Setup validation 
+[WARNING] Cannot validate host name settings, reason: resolved host does not match any of the local addresses 
+         
+          --== CONFIGURATION PREVIEW ==-- 
+         
+          Database name                      : engine 
+          Database secured connection        : False 
+          Database host                      : localhost 
+          Database user name                 : engine 
+          Database host name validation      : False 
+          Datbase port                       : 5432 
+          NFS setup                          : True 
+          PKI organization                   : eayun.com 
+          Application mode                   : both 
+          Update Firewall                    : False 
+          Configure WebSocket Proxy          : True 
+          Host FQDN                          : backup.eayun.com 
+          NFS mount point                    : /var/lib/exports/iso 
+          Datacenter storage type            : nfs 
+          Configure local database           : True 
+          Set application as default page    : True 
+          Configure Apache SSL               : True 
+          Configure VDSM on this host        : True 
+          Local storage domain directory     : /var/lib/images 
+         
+          Please confirm installation settings (OK, Cancel) [OK]: 
+]]>
+                         </programlisting>
+                      </example>
+                   </step>
+                   <step>
+                      <para>初始化成功，有如下面的输出内容：
+                       <example><title></title>
+                         <programlisting language="bash">
+                          <![CDATA[
+[ INFO ] Stage: Transaction setup
+[ INFO ] Stopping engine service
+[ INFO ] Stopping websocket-proxy service
+[ INFO ] Stage: Misc configuration
+[ INFO ] Stage: Package installation
+[ INFO ] Stage: Misc configuration
+[ INFO ] Creating PostgreSQL database
+[ INFO ] Configuring PostgreSQL
+[ INFO ] Creating database schema
+[ INFO ] Creating CA
+[ INFO ] Configuring WebSocket Proxy
+[ INFO ] Generating post install configuration file '/etc/ovirt-engine-
+setup.conf.d/20-setup-ovirt-post.conf'
+[ INFO ] Stage: Transaction commit
+[ INFO ] Stage: Closing up
+--== SUMMARY ==--
+An ISO NFS share has been created on this host.
+If IP based access restrictions are required, edit:
+entry /var/lib/exports/iso-20131219172449 in /etc/exports
+SSH fingerprint: fingerprint
+Internal CA A9: certificate
+Web access is enabled at:
+http://localhost.localdomain:80/ovirt-engine
+https://localhost.localdomain:443/ovirt-engine
+Please use the user "admin" and password specified in order to
+login into oVirt Engine
+--== END OF SUMMARY ==--
+[ INFO ] Starting engine service
+[ INFO ] Restarting httpd
+[ INFO ] Restarting nfs services
+[ INFO ] Generating answer file '/var/lib/ovirt-
+engine/setup/answers/20131219122536-setup.conf'
+[ INFO ] Stage: Clean up
+Log file is located at /var/log/ovirt-engine/setup/ovirt-engine-
+setup-20131219122349.log
+[ INFO ] Stage: Pre-termination
+[ INFO ] Stage: Termination
+[ INFO ] Execution of setup completed successfully
+
+]]>
+                         </programlisting>
+                       </example>
+                      </para>
+                   </step>
+                </procedure>
+                   <para>
+                     此时&OVIRT;管理程序的服务已经启动，按照上述提示信息访问&OVIRT;管理员门户，使用admin@internal,密码即是用户刚才在向导里所设置。
+                   </para>
+                   <important>
+                    <para>
+                      &OVIRT;初始化程序会自动建立internal这个域，也仅有一个管理员用户，请务必添加额外的LDAP服务，如微软的ActiveDirectory,OpenLDAP等，可使用&OVIRT;提供的程序：<emphasis>engine-manage-domains</emphasis>来完成添加。详细内容，请参考管理员手册。
+                    </para>
+                   </important>
+                   <note>
+                    <para>
+                       &OVIRT;亦可以将管理程序支持做成支持OVF格式的applicance，使用ovirt-hosted-engine-ha，用虚拟机来替代实际物理主机。
+                    </para>
+                   </note>
 	</section>
 
 	<section id="sect-Documents-quick-start-guide-Chapter-installing_Section_3">
