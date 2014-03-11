@@ -439,14 +439,83 @@ setup-20131219122349.log
 		<para>
 		</para>
 	       <section id="sect-Documents-quick-start-guide-Chapter-installing_Section_4-1">
-	        	<title>访问&OVIRT;基于web的管理门户</title>
-		       <para>
-		      </para>
+	        	<title>连接到&OVIRT; web管理门户</title>
+                 <figure id="eayunos-quick-start-connect-eayunos-manager"><title>连接到&OVIRT;管理门户</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_connect_eayunOS-M.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                 </figure>
+		     <para>
+                       现在需要登录&OVIRT;管理员门户配置虚拟化环境了，在linux环境下使用firefox登录，在windows下使用IE访问。下面是详细步骤：
+		     </para>
+                <procedure><title>本地浏览器配置</title>
+                   <step>
+                      <para>
+                         打开浏览器，在地址栏输入在&OVIRT;管理端配置成功后的URL，如https://example.eayunOS.com。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       在程序入口处选择，管理员用户门户。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       如果您是第一次访问此站点，浏览器会希望你接受ca.cer证书文件，尽管接受好了。如果有疑问，请联系客服。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       此时您看到的是用户登录界面，在用户名项输入admin,密码则是您在执行engine-setup时设置的密码，选择internal域，然后点击登录。
+                      </para>
+                   </step>
+                </procedure>
+                  <para>
+                   登录后，您就可以配置和管理所有的资源了。且看下节：
+                  </para>
 	       </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter-installing_Section_4-2">
 	        	<title>管理门户简单浏览</title>
 		       <para>
+                          整个界面可以区分为下面的5大块。
 		      </para>
+                 <figure id="eayunos-quick-start-eayunos-manager"><title>&OVIRT;管理门户</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_manager_gui_feature.png" format="PNG" scale="30"/>
+			</imageobject>
+		   </mediaobject>
+                 </figure>
+                 <procedure><title></title>
+                   <step>
+                      <para>
+                           页面顶部：包含已经登录的用户信息，注销的功能按钮，以及配置用户角色的功能按钮。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                        导航面板（左侧）：可以按照树形结构、标签、书签的方式导航，在树形结构中，可以看到整个虚拟化环境的架构。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       资源列表：在此您可以操作真个虚拟环境的所有资源：数据中心、集群、主机、虚拟机等等。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                       现有资源列表：这个列表表示为已经有的资源，如默认的数据中心、集群等。你可以通过单选或多选，通过一些动作来操作。
+                      </para>
+                   </step>
+                   <step>
+                      <para>
+                      细节面板：当您选择一个资源时，这个面板会显示更加详细的内容，比如和另外的资源的关联等，当然也可以在此做一些需要在其他资源列表中操作的内容。
+                      </para>
+                   </step>
+                 </procedure>
+                  <para>当您熟悉了管理员门户的构成，现在可以开始配置的步骤了。</para> 
 	       </section>
                 
 	</section>
