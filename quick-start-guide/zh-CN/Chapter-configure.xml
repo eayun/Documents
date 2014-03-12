@@ -10,29 +10,91 @@
 	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_1">
 		<title>配置概览</title>
 		<para>
+                 紧接着第二章，此时，您可以登录&OVIRT;管理员门户，开始&OVIRT;的配置之旅了，如定义数据中心、集群、逻辑网络以及存储等资源。
 		</para>
 	</section>
 	
 	<section id="sect-Documents-quick-start-guide-Chapter-configure_Section_2">
 		<title>配置数据中心</title>
 		<para>
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
 		</para>
+                <figure id="eayunos-quick-start-configure-datacenter"><title>配置数据中心</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_datacenter.png" format="PNG" scale="60"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+                <para>
+                 数据中心是一个逻辑上的概念，在&OVIRT;虚拟化环境中表现为包含物理或逻辑资源的单元，可以想象下，它是一个容器，里面有主机、存储、网络、虚拟机等资源。
+                </para>
+                <para>
+                 默认情况下，&OVIRT;会自动建立一个Default的数据中心，其类型可在执行engine-setup的时候选择。如果要访问Default数据中心，从导航面板的树形结构中，点击“展开所有”,在数据中心项下选择"Default",在右边的“数据中心”栏里，整体内容见下图所示：
+                </para>
+                <figure id="eayunos-quick-start-configure-datacenter-tab"><title>数据中心概览</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_datacenter_tab.png" format="PNG" scale="30"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+                <para>
+                  在本手册中仅使用Default数据中心，如果您想自行建立，请参考&OVIRT;管理员手册。
+                </para>
 	</section>
 	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_3">
 		<title>配置集群</title>
 		<para>
 		</para>
+                <figure id="eayunos-quick-start-configure-cluster"><title>配置集群</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_cluster.png" format="PNG" scale="60"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+                <para>
+                 集群是一组具有相同CPU型号的物理服务器的集合。在同一集群内的主机可共享相同的网络、相同的存储。且迁移这个非常重要的特性，也是在同一集群内从一台主机迁移到另外一台主机。 
+                </para>
+                <para>
+                 默认情况下，&OVIRT;在安装时会建立默认的集群（和上述的数据中心一致），如下图所示，查看Default集群的详细：
+                </para>
+                <figure id="eayunos-quick-start-configure-cluster-tab"><title>配置集群</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_cluster_tab.png" format="PNG" scale="30"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+                <para>
+                 此手册，以将&OVIRT; hypervisor加入到默认的集群为例，如果您有进一步的意向，请参考&OVIRT;管理员手册。
+                </para>
 	</section>
 	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_4">
 		<title>配置网络</title>
+                <figure id="eayunos-quick-start-configure-network"><title>配置网络</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_network.png" format="PNG" scale="60"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
 		<para>
+                  在安装时，&OVIRT;为数据中心定义了一个称之为管理网络，此网络的作用于管理端和主机端的通信，&OVIRT;可以实现用于存储、显示以及迁移的网络分离，更加充分的利用网络资源。
 		</para>
+                <para>
+                  这里，我们仅以默认的管理网络为例，作一示范图：
+                </para>
+                <figure id="eayunos-quick-start-configure-network-tab"><title>配置网络</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_network-tab.png" format="PNG" scale="30"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+                <para>
+                  ovirtmgmt这个默认的逻辑网络是&OVIRT;初始化时建立的，如果您有进一步的意向，请参考&OVIRT;管理员手册。或者联系易云的客户服务。
+                </para>
 	</section>
 	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5">
 		<title>配置主机</title>
@@ -40,54 +102,637 @@
 		</para>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-1">
 	               <title>配置主机</title>
-		       <para>
-		       </para>
+                <figure id="eayunos-quick-start-configure-host"><title>配置主机</title>
+		  <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_host.png" format="PNG" scale="60"/>
+			</imageobject>
+		  </mediaobject>
+                </figure>
+		      <para>
+                      在<link linkend="sect-Documents-quick-start-guide-Chapter-installing_Section_4">第二章添加主机到管理端</link>时，我们已经将主机加入到管理端，但是还需要一步操作，需要在管理端作一个授权/批准的动作。
+		      </para>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-2">
 	               <title>批准hypervisor加入</title>
 		       <para>
+                          
 		       </para>
+                    <procedure><title>授权/批准hypervisor步骤</title>
+                      <step>
+                        <para>
+                          在操作面板中选择主机列表，选中刚才加入的hypervisor主机的名称， 
+                         </para>
+                      </step>
+                      <step>
+                        <para>
+                          点击批准按钮，弹出编辑和批准主机的对话框，接受默认值即可，点击确认按钮。
+                         </para>
+                        <para>
+                         在高级的设置里，可以比较主机的 ssh fingerprint。可以避免加错了主机。
+                        </para>
+                      </step>
+                      <step>
+                        <para>
+                         主机的状态会从Non Operational变为Up。
+                         </para>
+                      </step>
+                    </procedure>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_5-3">
 	               <title>从管理门户加入主机</title>
 		       <para>
+                         目前为止，&OVIRT;做的还没有那么的智能，也就是说不能自动扫描到安装有&OVIRT; hypervisor，所以需要手动的添加：
 		       </para>
+                    <procedure><title>加入主机</title>
+                      <step>
+                        <para>
+                         在主机的主界面，选择新建
+                         </para>
+                      </step>
+                      <step>
+                        <para>
+                          新建主机的对话框：
+                         </para>
+                         <figure id="eayunos-quick-start-configure-host-attach"><title>添加主机</title>
+		           <mediaobject>
+			     <imageobject>
+				<imagedata fileref="images/eayun_configure_host_attach.png" format="PNG" scale="60"/>
+			     </imageobject>
+		           </mediaobject>
+                         </figure>
+                         <para>
+                          需要在下面的输入框中输入相应的内容：
+                         </para>
+                         <itemizedlist mark="triangle">
+                              <listitem>
+                                <para>
+                                数据中心：主机所属的数据中心，下拉列表选择，此处选择Default。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                集群： 主机所属的集群，多个集群可以从下拉列表选择，此处选择Default。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                名称：给主机命名。（建议使用FQDN的hypervisor的主机名称。）
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                注释： 对于主机的简单描述。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                地址： 输入合法的&OVIRT; hypervisor主机IP地址。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                ssh端口：&OVIRT; hypervisor中ssh服务监听的端口号，如默认的22。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                密码：root用户的密码。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                SSH公共密钥：&OVIRT;管理端的公共密钥，可将之添加到主机的/root/.know_hosts，用于无需密码的认证。
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                               自动配置的主机防火墙: 是否覆盖&OVIRT; hypervisor主机默认的防火墙设置。  
+                                </para>
+                              </listitem>
+                              <listitem>
+                                <para>
+                                 SSH 指印： 主要用于比较是否是您要添加的主机。
+                                </para>
+                              </listitem>
+                         </itemizedlist>
+                      </step>
+                      <step>
+                        <para>
+                          &OVIRT;支持带外（Out of Band）的电源管理,选择电源管理项，勾选激活电源管理，填写如下几项信息：
+                         </para>
+                         <itemizedlist>
+                             <listitem>
+                               <para>
+                                 地址：主机所在的电源管理的IP地址。
+                               </para>
+                             </listitem>
+                             <listitem>
+                               <para>
+                                 用户名：主机所在的电源管理的用户名称。
+                               </para>
+                             </listitem>
+                             <listitem>
+                               <para>
+                                密码：主机所在的电源管理的密码。
+                               </para>
+                             </listitem>
+                             <listitem>
+                               <para>
+                                类型：从下拉列表框里选择您使用的电源管理设备：
+                                  
+                               </para>
+                   <table id="menu_power_device_table">
+                          <title>电源设备说明</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                           设备名
+                                         </entry> 
+                                         <entry>
+                                            全称解释
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>alom
+                                         </entry> 
+                                         <entry>Sun Advanced Lights Out Manager
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>apc
+                                         </entry> 
+                                         <entry>American Power Conversion Master MasterSwitch network power switch
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>bladecenter
+                                         </entry> 
+                                         <entry>IBM Bladecentre Remote Supervisor Adapter
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>drac5
+                                         </entry> 
+                                         <entry>Dell Remote Access Controller for Dell computers
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>eps
+                                         </entry> 
+                                         <entry>ePowerSwitch 8M+ network power switch
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>ilo
+                                         </entry> 
+                                         <entry>HP Integrated Lights Out standard
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>ilo3
+                                         </entry> 
+                                         <entry>HP Integrated Lights Out 3 standard
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>ipmiman
+                                         </entry> 
+                                         <entry>Intelligent Platform Management Interface
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>rsa
+                                         </entry> 
+                                         <entry>IBM Remote Supervisor Adaptor
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>rsb
+                                         </entry> 
+                                         <entry>Fujitsu-Siemens RSB management interface
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>wti
+                                         </entry> 
+                                         <entry>Western T elematic Inc Network PowerSwitch
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>cisco_ucs
+                                         </entry> 
+                                         <entry>Cisco Unified Computing System Integrated Management Controller
+                                         </entry> 
+                                   </row>
+                             </tbody>
+                         </tgroup>
+                   </table>
+                             </listitem>
+                             <listitem>
+                               <para>
+                                属性：fence agent 根据不同的设备会有不同的命令行参数，具体请参考fence agent的man帮助。
+                               </para>
+                               <para>
+                                配置完成后，可以使用测试按钮，测试是否正确。
+                               </para>
+                             </listitem>
+                         </itemizedlist>   
+                      </step>
+                      <step>
+                        <para>
+                          点击确认按钮，如果您没有配置电源管理，会弹出对话框确认您是否不再配置电源管理模块，点击确认继续。
+                         </para>
+                      </step>
+                      <step>
+                        <para>
+                           此主机在主机列表里显示，最初是正在安装的状态，当安装完成后，主机会重新启动并处于等待状态，当主机状态是Up时，表示此主机处于了可用、可操作状态。
+                         </para>
+                      </step>
+                    </procedure>
+       
 	      </section>
 
 	</section>
 	<section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6">
 		<title>配置存储</title>
 		<para>
+                  现在我们开始配置存储相关。
 		</para>
+                    <figure id="eayunos-quick-start-configure-storage"><title>配置存储</title>
+		      <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_configure_storage.png" format="PNG" scale="60"/>
+			</imageobject>
+		      </mediaobject>
+                    </figure>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-1">
 	               <title>选择存储类型</title>
 		       <para>
+                         &OVIRT;为虚拟机镜像及其快照提供中心化的共享存储系统。支持网络文件系统（NFS）、Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP)， 使用存储域这个概念，来完成存储的定义、类型、功能的封装。
 		       </para>
+                       <para>
+                         本手册提供建立两种类型的存储域，第一是使用NFS来存放ISO镜像，在执行engine-setup的时候，您已经建立了一个iso存储域；第二是数据域，用来存放虚拟机镜像。
+                       </para>
+                       <procedure><title>检查支持的存储类型，然后决定使用那种类型做数据域</title>
+                          <step>
+                            <para>
+                            选择数据中心列表，选中Default,点击编辑。
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                            在弹出的对话框中，在类型的下拉列表框中选择。
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                             然后，建立相应的存储域。
+                            </para>
+                          </step>
+                       </procedure>
+                       <note>
+                           <para>
+                             本手册由于是默认的配置，所以挂接和激活存储域均为自动。如果您自己新增域，出现其他的情况，请参考&OVIRT;管理员手册。
+                           </para>
+                       </note>
+                       <para>请参考:</para>
+                       <itemizedlist>
+                          <listitem>
+                            <para>
+                           <link  linkend="sect-Documents-quick-start-guide-Chapter_configure-Section_6-2">创建一个NFS类型的数据域</link>
+                            </para>
+                          </listitem>
+                          <listitem>
+                            <para>
+                            <link  linkend="sect-Documents-quick-start-guide-Chapter_configure-Section_6-3">创建一个iSCSI类型的数据域</link>
+                            </para>
+                          </listitem>
+                          <listitem>
+                            <para>
+                            <link  linkend="sect-Documents-quick-start-guide-Chapter_configure-Section_6-4">创建一个FCP类型的数据域</link>
+                            </para>
+                          </listitem>
+                        </itemizedlist>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-2">
 	               <title>创建一个NFS类型的数据域</title>
 		       <para>
+                        在&OVIRT;管理程序初始化配置时，选择默认的存储域类型为NFS。NFS存储域是将NFS服务所共享出来的文件系统挂接到数据中心，供存储虚拟机镜像使用。
 		       </para>
+                       <important>
+                           <para>
+                            在使用NFS存储域之前，您需要自行建立NFS服务，且导出目录的属主为vdsm,属主组为kvm，数字表示法则为36:36.更多详情，请参考&OVIRT;安装手册。
+                           </para>
+                       </important>
+                       <procedure><title>添加NFS存储</title>
+                           <step>
+                             <para>
+                                选中存储的主页，点击按钮新建域。
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                               新建存储域的窗口弹出。
+                             </para>
+                             <para>
+                               依次配置下列属性：
+                             </para>
+                             <orderedlist numeration="lowerroman">
+                                <listitem>
+                                   <para>
+                                     名称：为此存储域命名，比如nfsdata。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    数据中心：从下拉列表框中选择，如Default。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    域功能/存储类型， 选择Data/NFS。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    使用主机：从下拉列表框中选择主机，均在同一数据中心的主机可见。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                   </para>
+                                </listitem>
+                             </orderedlist>
+                           </step>
+                           <step>
+                             <para>
+                              点击确认，一个新的NFS的存储域现在在列表中，在一小段时间它会处于锁定状态（写入元数据），当它完成后，会自动挂接到默认的数据中心。
+                             </para>
+                           </step>
+                       </procedure>
+                       <para>
+                        建立数据域完成后，你可以挂接ISO域，上传ISO镜像，然后就可以创建虚拟机了。
+                       </para>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-3">
 	               <title>创建一个iSCSI的数据域</title>
 		       <para>
+                        在&OVIRT;管理程序初始化配置时，选择默认的存储域类型为iSCSI,您须按照如下步骤建立iSCSI存储域，&OVIRT;支持跨多逻辑单元数字（LUNs）。
 		       </para>
+                       <procedure>
+                           <step>
+                             <para>
+                                选中存储的主页，点击按钮新建域。
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                               新建存储域的窗口弹出。
+                             </para>
+                             <para>
+                               依次配置下列属性：
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                             </para>
+                             <orderedlist numeration="lowerroman">
+                                <listitem>
+                                   <para>
+                                     名称：为此存储域命名，比如iscsidata。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    数据中心：从下拉列表框中选择，如Default。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    域功能/存储类型， 选择Data/iSCSI。当您选下时，窗口下方会自动出现“使用主机”和“发现目标”。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    使用主机：从下拉列表框中选择主机，均在同一数据中心的主机可见。
+                                   </para>
+                                </listitem>
+                             </orderedlist>
+                           </step>
+                           <step>
+                             <para>
+                                 连接到iSCSI target，须填写如下几项内容：
+                             </para>
+                             <orderedlist numeration="lowerroman">
+                                <listitem>
+                                   <para>
+                                     地址：输入iSCSI target的IP地址。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                     端口：输入iSCSI target监听的端口，默认为3260。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                     用户验证：如果您的iSCSI target是设置了需要验证的信息时，请正确填写用户名和密码。
+                                   </para>
+                                </listitem>
+                             </orderedlist>
+                           </step>
+                           <step>
+                             <para>
+                               点击发现按钮，&OVIRT;会自动扫描可用的LUN，结果会出现在下方。
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                              选择您要使用的target,点击最后一列的登录按钮。选择添加LUN。
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                              点击确认，一个新的iSCSI的存储域现在在列表中，在一小段时间它会处于锁定状态（写入元数据），当它完成后，会自动挂接到默认的数据中心。
+                             </para>
+                           </step>
+                       </procedure>
+                       <para>
+                        建立数据域完成后，你可以挂接ISO域，上传ISO镜像，然后就可以创建虚拟机了。
+                       </para>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-4">
 	               <title>创建一个FCP的数据域</title>
 		       <para>
+                        在&OVIRT;管理程序初始化配置时，选择默认的存储域类型为FC,您须按照如下步骤建立FC存储域，&OVIRT;支持跨多逻辑单元数字（LUNs）。
 		       </para>
+                       <procedure>
+                           <step>
+                             <para>
+                                选中存储的主页，点击按钮新建域。
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                               新建存储域的窗口弹出。
+                             </para>
+                             <para>
+                               依次配置下列属性：
+                             </para>
+                           </step>
+                           <step>
+                             <para>
+                             </para>
+                             <orderedlist numeration="lowerroman">
+                                <listitem>
+                                   <para>
+                                     名称：为此存储域命名，比如fcdata。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    数据中心：从下拉列表框中选择，如Default。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    域功能/存储类型， 选择Data/FCP。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    使用主机：从下拉列表框中选择主机，均在同一数据中心的主机可见。
+                                   </para>
+                                </listitem>
+                                <listitem>
+                                   <para>
+                                    可用的LUN出现在列表中。选中添加LUN。
+                                   </para>
+                                </listitem>
+                             </orderedlist>
+                           </step>
+                           <step>
+                             <para>
+                              点击确认，一个新的FC的存储域现在在列表中，在一小段时间它会处于锁定状态（写入元数据），当它完成后，会自动挂接到默认的数据中心。
+                             </para>
+                           </step>
+                       </procedure>
+                       <para>
+                        建立数据域完成后，你可以挂接ISO域，上传ISO镜像，然后就可以创建虚拟机了。
+                       </para>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-5">
 	               <title>加入光盘镜像域</title>
 		       <para>
+                        接下来我们来建立第二个数据域--iso存储域。由于在执行engine-setup的时候，系统自动建立了此存储域，所以这里我们仅将之挂接到数据存储域即可。
 		       </para>
+                       <procedure>
+                          <step>
+                            <para>
+                             展开数据中心.
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                             选择Default，以便于看到细节列表。
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                             在细节列表的存储列表中，点击附加ISO按钮。
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                            在弹出的对话框中，选择默认的数据存储域，点击确认。
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                               ISO域即出现在数据项的列表中，在激活之前，有一小段时间是处于锁定状态（写入元数据信息）。
+                            </para>
+                          </step>
+                      </procedure>
 	      </section>
 	       <section id="sect-Documents-quick-start-guide-Chapter_configure-Section_6-6">
 	               <title>上传光盘镜像</title>
 		       <para>
+                       建立完ISO域之后，我们就可以给&OVIRT;添加一些光盘镜像了。因为为虚拟机安装操作系统，必须有这样一个可以全局共享的镜像库。
 		       </para>
+                       <para>
+                        登录&OVIRT;管理的服务器主机，使用终端完成下列操作：
+                       </para>
+                       <procedure>
+                          <step>
+                            <para>准备一张光盘镜像。如&OVIRT;提供的p2v/v2v的镜像，/usr/share/p2v/*.iso
+                            </para>
+                          </step>
+                          <step>
+                            <para>
+                             接下来准备上传，不过首先得确认ISO域是否可用：
+                            </para>
+                            <programlisting language="bash">
+                   <![CDATA[
+ $ sudo ovirt-iso-uploader list
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort): 
+ISO Storage Domain Name   | Datacenter                | ISO Domain Status
+iso                       | local_datacenter          | active
+]]>
+                            </programlisting>
+                            <para>
+                             如果得到类似如上信息，那么表示ISO域可用，现在可以使用如下命令上传您的镜像：
+                            </para>
+                            <programlisting language="bash">
+                   <![CDATA[
+ ovirt-iso-uploader [options] upload FILE [FILE]...[FILE]
+]]>
+                            </programlisting>
+                            <para>
+                             此处是正在上传的例子：（上传的速度是由您的存储性能所决定。）
+                            </para>
+                            <programlisting language="bash">
+                   <![CDATA[
+# ovirt-iso-uploader -i iso upload eayun-pre-alpha-x86_64-DVD.iso 
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort): 
+Uploading, please wait...
+INFO: Start uploading eayun-pre-alpha-x86_64-DVD.iso 
+INFO: eayun-pre-alpha-x86_64-DVD.iso uploaded successfully
+]]>
+
+                            </programlisting>
+                          </step>
+                          <step>
+                            <para>
+                             当文件上传完成后，检查下在管理员门户中镜像是否可用：
+                            </para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                  <para>
+                                    在左侧的树形结构中，点击全部展开。
+                                  </para>
+                                </listitem>
+                                <listitem>
+                                  <para>
+                                     在数据下，点击ISO域的名称，将展示在结果列表里，点击它查看详细。
+                                  </para>
+                                </listitem>
+                                <listitem>
+                                  <para>
+                                    在细节面板里，选择镜像列表，您刚才上传的镜像应该出现在这里，表示可用。
+                                  </para>
+                                </listitem>
+                            </orderedlist>
+                            <note>
+                               <para>
+                                另外需要说明的一点是，关于windows的驱动盘（光盘及软盘镜像）默认都是自动上传到ISO域中的。
+                               </para>
+                            </note>
+                          </step>
+                      </procedure>
 	      </section>
 	</section>
 
