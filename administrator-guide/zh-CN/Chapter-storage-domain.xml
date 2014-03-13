@@ -285,7 +285,7 @@
 	  &OVIRT; 管理系统支持兼容 POSIX 的文件系统作为存储域, 用户可以使用这类文件系统作为它们的存储环境, 而不仅仅是 NFS, iSCSI, 或者 FCP 之类的存储
 	</para>
 	<para>
-	  但是请注意, 你选择的 POSIX 文件系统必须支持稀疏文件特性和直接 I/O, 否则, 是不能被 $OVIRT 管理系统兼容的, 比如 CIFS由于不支持直接 I/O, 所以和我们的管理系统不兼容.
+	  但是请注意, 你选择的 POSIX 文件系统必须支持稀疏文件特性和直接 I/O, 否则, 是不能被 &OVIRT; 管理系统兼容的, 比如 CIFS由于不支持直接 I/O, 所以和我们的管理系统不兼容.
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-1">
 	  <title>添加兼容 POSIX 的存储域</title>
@@ -353,7 +353,7 @@
 
 	  <step>
 		<para>
-		  点击确定保存设置, 新加该存储到 $OVIRT 系统中.
+		  点击确定保存设置, 新加该存储到 &OVIRT; 系统中.
 		</para>
 	  </step>
 	  </procedure>
@@ -384,7 +384,7 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-3">
 	  <title>添加 pNFS 存储</title>
 	  <para>
-		pNFS 存储域是通过兼容 POSIX 的方式来添加的, 它可以为 $OVIRT; 提供虚拟机镜像文件, ISO 镜像等服务.
+		pNFS 存储域是通过兼容 POSIX 的方式来添加的, 它可以为 &OVIRT; 提供虚拟机镜像文件, ISO 镜像等服务.
 	  </para>
 	  <procedure><title>添加 pNFS 存储</title>
 	  <step>
@@ -438,7 +438,7 @@
 
 	  <step>
 		<para>
-		  点击确定保存设置, 新加该存储到 $OVIRT 系统中.
+		  点击确定保存设置, 新加该存储到 &OVIRT; 系统中.
 		</para>
 	  </step>
 
