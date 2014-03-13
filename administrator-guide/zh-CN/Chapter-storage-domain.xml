@@ -384,7 +384,65 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-3">
 	  <title>添加 pNFS 存储</title>
 	  <para>
+		pNFS 存储域是通过兼容 POSIX 的方式来添加的, 它可以为 $OVIRT; 提供虚拟机镜像文件, ISO 镜像等服务.
 	  </para>
+	  <procedure><title>添加 pNFS 存储</title>
+	  <step>
+		<para>
+		  点击存储标签
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击新建存储域, 打开新建存储域窗口, 如图:
+		</para>
+		<figure id="add-pnfs"><title>添加 pNFS 存储</title>
+		<mediaobject>
+          <imageobject>
+			<imagedata fileref="images/storage-add-pnfs.png" format="PNG" scale="100"/>
+          </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  输入存储域的名称, 描述和评论(这两项可选)
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  选择适当的数据中心, 域功能/存储域类型, 和适当的主机.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  输入 pNFS 到处域的路径. 如: 192.168.176.41:/pnfs-export
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在 VFS 类型这里, 输入 nfs4
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  挂载选项这里, 填写 minorversion=1
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击确定保存设置, 新加该存储到 $OVIRT 系统中.
+		</para>
+	  </step>
+
+	  </procedure>
 	</section>
   </section>
 
