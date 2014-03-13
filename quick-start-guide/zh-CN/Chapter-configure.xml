@@ -675,7 +675,7 @@
                             <para>
                              接下来准备上传，不过首先得确认ISO域是否可用：
                             </para>
-                            <programlisting language="bash">
+                            <programlisting language="Bash">
                    <![CDATA[
  $ sudo ovirt-iso-uploader list
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort): 
@@ -686,7 +686,7 @@ iso                       | local_datacenter          | active
                             <para>
                              如果得到类似如上信息，那么表示ISO域可用，现在可以使用如下命令上传您的镜像：
                             </para>
-                            <programlisting language="bash">
+                            <programlisting language="Bash">
                    <![CDATA[
  ovirt-iso-uploader [options] upload FILE [FILE]...[FILE]
 ]]>
@@ -694,7 +694,7 @@ iso                       | local_datacenter          | active
                             <para>
                              此处是正在上传的例子：（上传的速度是由您的存储性能所决定。）
                             </para>
-                            <programlisting language="bash">
+                            <programlisting language="Bash">
                    <![CDATA[
 # ovirt-iso-uploader -i iso upload eayun-pre-alpha-x86_64-DVD.iso 
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort): 

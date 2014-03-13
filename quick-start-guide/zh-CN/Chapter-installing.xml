@@ -46,7 +46,7 @@
                    </step>
                    <step>
                       <para>
-                         <programlisting language="bash">
+                         <programlisting language="Bash">
                           <![CDATA[# engien-setup
 ]]>
                          </programlisting>
@@ -57,7 +57,7 @@
                        engine-setup初始化向导需要用户交互式的回答一些问题。如下面的例子。
                       </para>
                       <example><title>&OVIRT;初始化配置实例</title>
-                         <programlisting language="bash">
+                         <programlisting language="Bash">
                           <![CDATA[
 [ INFO  ] Stage: Initializing 
 [ INFO  ] Stage: Environment setup 
@@ -168,7 +168,7 @@
                    <step>
                       <para>初始化成功，有如下面的输出内容：
                        <example><title></title>
-                         <programlisting language="bash">
+                         <programlisting language="Bash">
                           <![CDATA[
 [ INFO ] Stage: Transaction setup
 [ INFO ] Stopping engine service
@@ -280,7 +280,7 @@ setup-20131219122349.log
                    <step>
                       <para>
                          将上述的光盘镜像下载到linux系统，将空白的碟片，加载到物理机的光盘刻录机，使用如下命令完成刻录：
-                         <programlisting language="bash">
+                         <programlisting language="Bash">
                           <![CDATA[
 # cdrecord dev=/dev/cdrw /usr/share/rhev-hypervisor/rhev-hypervisor.iso
 ]]>
