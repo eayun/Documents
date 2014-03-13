@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-technical-reference-guide-Chapter-technical-limits">
+	<title>技术局限性</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_1">
+		<title>最小需求及支持的有限性</title>
+		<para>
+                      
+		</para>
+	</section>
+	
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_2">
+		<title>数据中心局限</title>
+                   <para>Jboss Application Server 7.1</para>
+                    <para>
+                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                    </para>
+                    <important>
+                        <para>
+                           
+                        </para>
+                    </important>
+		<para>
+	             目录服务	
+			<orderedlist>
+				<listitem>
+					<para>
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_3">
+		<title>集群的局限</title>
+		<para>
+                      
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_4">
+		<title>存储域的局限</title>
+		<para>
+                      
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_5">
+		<title>&OVIRT;管理端的局限</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_6">
+		<title>hypervisor的硬性需求</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_7">
+		<title>客户机的硬性需求及支持的局限</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_8">
+		<title>SPICE的局限</title>
+		<para>
+                      
+		</para>
+	</section>
+</chapter>

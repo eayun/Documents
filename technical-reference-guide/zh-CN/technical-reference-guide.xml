@@ -11,6 +11,13 @@
 	<xi:include href="Chapter-storage-arch.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-network-arch.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-power-manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-load-balancing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-directory-services.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-template-pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-vm-snapshots.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-harddriver-devices.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-technical-limits.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-additional-references.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<index />
 </book>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-technical-reference-guide-Chapter-template-pool">
+	<title>模板和池</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_1">
+		<title>模板和虚拟机池</title>
+		<para>
+                      
+		</para>
+	</section>
+	
+	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_2">
+		<title>模板</title>
+                   <para>Jboss Application Server 7.1</para>
+                    <para>
+                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                    </para>
+                    <important>
+                        <para>
+                           
+                        </para>
+                    </important>
+		<para>
+	             目录服务	
+			<orderedlist>
+				<listitem>
+					<para>
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_3">
+		<title>池</title>
+		<para>
+                      
+		</para>
+	</section>
+
+
+</chapter>

@@ -3,20 +3,20 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-technical-reference-guide-Chapter-power-manager">
-	<title>电源管理和隔离</title>
+<chapter id="chap-Documents-technical-reference-guide-Chapter-vm-snapshots">
+	<title>虚拟机快照</title>
 	<para>
 		This is a test paragraph
 	</para>
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_1">
-		<title>对电源管理和隔离技术的介绍</title>
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_1">
+		<title>在线快照</title>
 		<para>
                       
 		</para>
 	</section>
 	
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_2">
-		<title>&OVIRT;充当代理的电源管理</title>
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_2">
+		<title>创建快照</title>
                    <para>Jboss Application Server 7.1</para>
                     <para>
                           Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
@@ -37,29 +37,15 @@
 		</para>
 	</section>
 
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_3">
-		<title>电源管理</title>
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_3">
+		<title>预览快照</title>
 		<para>
                       
 		</para>
 	</section>
 
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_4">
-		<title>隔离</title>
-		<para>
-                      
-		</para>
-	</section>
-
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_5">
-		<title>主机自我隔离</title>
-		<para>
-                      
-		</para>
-	</section>
-
-	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_6">
-		<title>使用多电源管理的隔离代理</title>
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_4">
+		<title>删除快照</title>
 		<para>
                       
 		</para>

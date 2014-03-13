@@ -131,11 +131,57 @@
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-7">
                     <title>存储域的自动恢复功能</title>
-                    <para></para>
+                    <para>
+                      连接到存储的所有主机均会通过读取元数据来监控存储域的状态，一旦存储域出现问题，所有的主机都会报告它们不能访问到存储域。但是重试不属于主机的职责，&OVIRT;管理程序会在每隔5分钟尝试重新激活存储域，这样一旦存储恢复，就可以使用了，而无需管理员干涉。
+                    </para>
                 </section>
+
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-8">
                     <title>存储池管理</title>
-                    <para></para>
+                    <para>
+                     &OVIRT;使用元数据来描述存储域的内部结构，存储域的结构化数据会跟踪虚拟机镜像、快照的建立、删除，以及卷的扩展等。元数据会写入每个数据域，主机遵守每次只能有一台写入，多台主机读取的原则。
+                    </para>
+                    <para>
+                     每个数据中心只能有一台主机做存储池管理，其他主机可以读取元数据，只有SPM可以对数据域的结构做改变，SPM来把控所有的元数据变动，诸如创建、删除磁盘镜像，创建、合并快照，在不同的数据域间复制虚拟磁盘镜像，创建模板，以及为块设备分配空间。
+                    </para>
+                    <para>
+                     每个主机都可以手动的设置为SPM，当然您也可以不用理会，交给&OVIRT;管理程序自动分配。&OVIRT;管理分配给SPM这个角色，承担着基于存储为中心的租約。在租約期内SPM主机可以写入元数据，基于存储为中心的写入明显的好处就是无须管理端或主机来跟踪。
+                    </para>
+                    <para>
+                     在以块设备为存储域时（iSCSI/FCP),基于存储为中心的租約写入一个特别的逻辑卷，称之为租約；元数据亦写入一个特别的逻辑卷，称之为元数据。对元数据逻辑卷的改动受到租約逻辑卷的保护。
+                    </para>
+                    <para>
+                      有spmstart这个程序来告诉主机，什么时候来接受基于存储为中心的租約。
+                    </para>
+                    <para>
+                     管理端基于下面原因会迁移SPM到其他的主机  
+                    </para>
+                    <para>
+                     <itemizedlist>
+                        <listitem>
+                           <para>
+                           SPM主机除能够访问主存储域之外，不能访问任何的存储域。
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                           SPM主机因为与存储失去连接而无法续租，或者是租約逻辑卷写满，无法作写入操作。
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                           SPM主机崩溃。
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                    </para>
+                         <figure id="eayunos-technical-reference-spm-metadata"><title>SPM写入结构化元数据示意图</title>
+		           <mediaobject>
+			     <imageobject>
+				<imagedata fileref="images/eayun_storage_spm_metadata.png" format="PNG" scale="60"/>
+			     </imageobject>
+		           </mediaobject>
+                         </figure>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-9">
                     <title>选择主机为存储池管理的流程</title>

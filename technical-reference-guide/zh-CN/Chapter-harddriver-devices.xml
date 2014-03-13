@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-technical-reference-guide-Chapter-harddirver-devices">
+	<title>硬件驱动和设备</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_1">
+		<title>虚拟硬件</title>
+		<para>
+                      
+		</para>
+	</section>
+	
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_2">
+		<title>可用的硬件设备地址</title>
+                   <para>Jboss Application Server 7.1</para>
+                    <para>
+                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                    </para>
+                    <important>
+                        <para>
+                           
+                        </para>
+                    </important>
+		<para>
+	             目录服务	
+			<orderedlist>
+				<listitem>
+					<para>
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_3">
+		<title>中央处理单元（CPU）</title>
+		<para>
+                      
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_4">
+		<title>系统设备</title>
+		<para>
+                      
+		</para>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_5">
+		<title>网络设备</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_6">
+		<title>显卡设备</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_7">
+		<title>存储设备</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_8">
+		<title>声卡设备</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_9">
+		<title>串口设备</title>
+		<para>
+                      
+		</para>
+	</section>
+	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_10">
+		<title>“气球”设备</title>
+		<para>
+                      
+		</para>
+	</section>
+</chapter>
