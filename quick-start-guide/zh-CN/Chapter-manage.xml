@@ -6,6 +6,7 @@
 <chapter id="chap-Documents-quick-start-guide-Chapter_manage">
 	<title>管理虚拟机</title>
 	<para>
+          此章将带领您进入虚拟机的整个生命周期的管理：创建/部署/维护虚拟机，以及如何使用模板，分配权限，最后还将介绍如何从用户门户登录，以远程桌面的方式访问虚拟机。
 	</para>
 	<section id="sect-Documents-quick-start-guide-Chapter_manage-Section_1">
 		<title>创建虚拟机</title>
@@ -13,31 +14,274 @@
 		</para>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_1-1">
 		      <title>创建虚拟机额要介绍</title>
+                      <figure id="eayunos-quick-start-manager"><title>创建虚拟机</title>
+		         <mediaobject>
+			  <imageobject>
+				<imagedata fileref="images/eayun_configure_manager.png" format="PNG" scale="60"/>
+		          </imageobject>
+		         </mediaobject>
+                      </figure>
 		      <para>
+                       此处仅涉及使用ISO镜像来创建虚拟机。&OVIRT;支持从模板创建，或者复制，等方式来创建虚拟机，更多详情请参考&OVIRT;管理员手册。
 		      </para>
 	        </section>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_1-2">
 		      <title>创建Linux虚拟机</title>
 		      <para>
+                         现在我们以CentOS为例，在&OVIRT;环境中创建Linux服务器，当然前提条件是您须上传一个CentOS的安装光盘镜像。
 		      </para>
+                      <procedure><title>建立CentOS Linux</title>
+                         <step>
+                            <para>
+                             在左侧的导航树形结构中，选择集群下的虚拟机项，在结果面板中点击新建虚拟机按钮。在弹出的窗口（如下图所示）
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm"><title>创建虚拟机</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_create_vm.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <para>
+                               因为是快速安装手册，您只需要填写名称，并选择Red Hat Enterprise Linux 6.x，其余的均为默认即可。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             点击确认后，&OVIRT;会自动弹出新建虚拟机向导窗口，建议您为虚拟机添加虚拟磁盘。
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm-guide"><title>虚拟机操作向导</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_create_vm_guide.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <para>依照下图中的内容，填写/选择必要的内容，如磁盘大小等</para>
+                            <figure id="eayunos-quick-start-create-vm-disk"><title>添加虚拟磁盘信息</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_add_virtual_disk.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                         </step>
+                         <step>
+                            <para>
+                             点击稍后配置关闭向导窗口。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             添加虚拟网卡。
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm-network"><title>添加虚拟网卡</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_add_virtual_network.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                         </step>
+                      </procedure>
+                      <para>
+                         现在您已经建立了一台完整的虚拟机了，但是如果要使用它，还得为它安装操作系统。
+                      </para>
+                      <procedure><title>为虚拟机安装操作系统</title>
+                         <step>
+                            <para>
+                             右键点击虚拟机，选择只运行一次，在弹出窗口中填写正确的信息，如选择操作系统安装光盘镜像等。
+                            </para>
+                            <figure id="eayunos-quick-start-runonce-vm"><title>一次性运行虚拟机配置</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_run_once_vm.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <itemizedlist>
+                                 <listitem>
+                                    <para>
+                                      附加CD：在下拉列表框里选择CentOS。
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>
+                                       启动顺序：选择光盘为第一引导。
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>
+                                      显示协议：选择SPICE，相比VNC它支持更多的特性，如声音重定向，USB重定向等。
+                                    </para>
+                                 </listitem>
+                            </itemizedlist>
+                         </step>
+                         <step>
+                            <para>
+                               选中刚刚建立的虚拟机，右键点击终端，此时浏览器会提示您安装Spice Active X和virt-viewer。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                              当您按照提示安装好之后，重复上面的操作，这次您就可以连接到虚拟机了，并能看到CentOS的安装引导界面。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                              接下来就按照CentOS的步骤，安装操作系统。当完成后，直接重启即可。
+                            </para>
+                         </step>
+                      </procedure>
+                      <para>
+                         稍等片刻，当虚拟机的状态显示为启动状态后，此时虚拟机是可用的了。
+                      </para>
 	        </section>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_1-3">
 		      <title>创建windows虚拟机</title>
 		      <para>
 		      </para>
-	        </section>
-	</section>
-	
-	<section id="sect-Documents-quick-start-guide-Chapter-manage_Section_2">
-		<title>使用模板</title>
-		<para>
-			<orderedlist>
+		      <para>
+                         安装windows和上述linux没有什么不同，除了需要加载额外的驱动之外，当然前提条件是您须上传一个Windows的安装光盘镜像。这里的例子是windows2008 R2。
+		      </para>
+                      <procedure><title>建立CentOS Linux</title>
+                         <step>
+                            <para>
+                             在左侧的导航树形结构中，选择集群下的虚拟机项，在结果面板中点击新建虚拟机按钮。在弹出的窗口（如下图所示）
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm-windows"><title>创建虚拟机</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_create_vm_windows.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <para>
+                               因为是快速安装手册，您只需要填写名称，并选择windows 2008 R2 ，其余的均为默认即可。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             点击确认后，&OVIRT;会自动弹出新建虚拟机向导窗口，建议您为虚拟机添加虚拟磁盘。
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm-guide-1"><title>虚拟机操作向导</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_create_vm_guide.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <para>依照下图中的内容，填写/选择必要的内容，如磁盘大小等</para>
+                            <figure id="eayunos-quick-start-create-vm-disk-1"><title>添加虚拟磁盘信息</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_add_virtual_disk.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                         </step>
+                         <step>
+                            <para>
+                             点击稍后配置关闭向导窗口。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             添加虚拟网卡。
+                            </para>
+                            <figure id="eayunos-quick-start-create-vm-network-1"><title>添加虚拟网卡</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_add_virtual_network.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                         </step>
+                      </procedure>
+                      <para>
+                         现在您已经建立了一台完整的虚拟机了，但是如果要使用它，还得为它安装操作系统。
+                      </para>
+                      <procedure><title>为虚拟机安装windows操作系统</title>
+                         <step>
+                            <para>
+                             右键点击虚拟机，选择只运行一次，在弹出窗口中填写正确的信息，如选择操作系统安装光盘镜像等。
+                            </para>
+                            <figure id="eayunos-quick-start-runonce-vm-1"><title>一次性运行虚拟机配置</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_run_once_vm.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <itemizedlist>
+                                 <listitem>
+                                    <para>
+                                      附加软盘：在下拉列表框里选择virtio-win。
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>
+                                      附加CD：在下拉列表框里选择windows。
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>
+                                       启动顺序：选择光盘为第一引导。
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>
+                                      显示协议：选择SPICE，相比VNC它支持更多的特性，如声音重定向，USB重定向等。
+                                    </para>
+                                 </listitem>
+                            </itemizedlist>
+                         </step>
+                         <step>
+                            <para>
+                               选中刚刚建立的虚拟机，右键点击终端，此时浏览器会提示您安装Spice Active X和virt-viewer。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                              当您按照提示安装好之后，重复上面的操作，这次您就可以连接到虚拟机了，并能看到windows2008的安装引导界面。当到选择磁盘步骤时，windows会找不到磁盘，需要您手动的参与，选择软盘中的如下两项驱动程序：
+                            </para>
+                              <itemizedlist>
+                                 <listitem>
+                                    <para>Red Hat VirtIO Ethernet Adapter
+                                    </para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>Red Hat VirtIO SCSI Controller
+                                    </para>
+                                 </listitem>
+                              </itemizedlist>
+                         </step>
+                         <step>
+                            <para>
+                              当完成后，重启操作系统。安装&OVIRT;提供的必要的agent程序。
+                            </para>
+			    <orderedlist>
 				<listitem>
 					<para>
 					</para>
 				</listitem>
-			</orderedlist>
+		            </orderedlist>
+                         </step>
+                      </procedure>
+	        </section>
+	</section>
+	<!-->在管理员手册中此处有详细的步骤。忽略。
+	<section id="sect-Documents-quick-start-guide-Chapter-manage_Section_2">
+		<title>使用模板</title>
+		<para>
 		</para>
+                      <figure id="eayunos-quick-start-template"><title>创建虚拟机模板</title>
+		         <mediaobject>
+			  <imageobject>
+				<imagedata fileref="images/eayun_create_template.png" format="PNG" scale="60"/>
+		          </imageobject>
+		         </mediaobject>
+                      </figure>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_2-1">
 		      <title>使用模板</title>
 		      <para>
@@ -74,24 +318,112 @@
 		      </para>
 	        </section>
 	</section>
+        <-->
 	<section id="sect-Documents-quick-start-guide-Chapter_manage-Section_3">
 		<title>使用虚拟机</title>
 		<para>
 		</para>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_3-1">
 		      <title>将虚拟机赋予给普通用户</title>
+                            <figure id="eayunos-quick-start-permissions"><title>赋予权限</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_Assign_Permissions.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
 		      <para>
+                        &OVIRT;拥有非常完善的用户角色与权限控制，对于资源来说，必须赋予给某些用户，用户才可使用。更多详细内容请参考&OVIRT;管理员手册。
 		      </para>
 	        </section>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_3-2">
 		      <title>为特权用户赋予权限</title>
+                      <procedure>
+                         <step>
+                            <para>
+                              在左侧导航树形结构中，点击全部展开，在集群Defualt下点击虚拟机，右侧出现虚拟机的列表。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             选中刚才建立的虚拟机，在详细面板中选择权限，点击添加。
+                            </para>
+                         </step>
+                         <step>
+
+                            <figure id="eayunos-quick-start-permissions-user"><title>赋予权限</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_add_permission.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                            <para>
+                             在弹出的窗口中，选择域，输入用户名关键字，点击执行，系统的用户会自动列出，然后选中你要赋予的用户。
+                            </para>
+                         </step>
+                         <step>
+                            <para>
+                             在下方要分配的角色的下拉列表框里选择相应的角色，这里选择PowerUserRole，点击确认。
+                            </para>
+                         </step>
+                      </procedure>
 		      <para>
+                        此时，虚拟机可以为您选择的用户所访问了（使用用户门户）。
 		      </para>
+                      <important>
+                          <para>
+                          &OVIRT;默认仅有一个admin@internal用户，如果需要完善的账户体系，请使用LDAP服务器，如OpenLDAP,ActiveDirectory。关于添加LDAP服务到&OVIRT;管理端操作请参考&OVIRT;管理员手册。
+                          </para>
+                      </important>
 	        </section>
 	        <section id="sect-Documents-quick-start-guide-Chapter_manage-Section_3-3">
 		      <title>从用户门户登录</title>
+                            <figure id="eayunos-quick-start-login-user"><title>访问用户门户</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_login_to_userportal.png" format="PNG" scale="50"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
 		      <para>
+                       用户admin登录到用户门户，因为他拥有了操作上述建立的虚拟机的权限。
 		      </para>
+                      <procedure>
+                          <step>
+                             <para>
+                              打开浏览器，在地址栏输入：https://example.domain.com/UserPortal/ （FQDN主机名请根据实际情况替换），这里的地址是&OVIRT;管理端所在的服务。
+                             </para>
+                          </step>
+                          <step>
+                             <para>
+                              当login界面出现时，在用户名输入：admin，密码是您在engien-setup时设置的，选择internal域，点击登录。
+                             </para>
+                          </step>
+                      </procedure>
+                           <para>
+                             当您登录后，因为刚才我们设置admin为poweruser，所以默认看到的界面是扩展界面，如下图所示：
+                           </para>
+                            <figure id="eayunos-quick-start-userportal-extended"><title>用户门户扩展视图</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_userportal_extended_view.png" format="PNG" scale="30"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
+                           <para>
+                            poweruser可以自行建立虚拟机以及创建模板，甚至是查看一些资源的使用状况。
+                           </para>
+                           <para>
+                           您也可以切换到基本界面，（如下图所示），基本界面是普通用户登录后默认的界面，在此界面下，用户无须关心任何的配置相关，只需要使用即可。更多支持SSO等特性，请参考&OVIRT;用户手册。
+                           </para>
+                            <figure id="eayunos-quick-start-userportal-basic"><title>用户门户基本视图</title>
+		              <mediaobject>
+			        <imageobject>
+				  <imagedata fileref="images/eayun_userportal_basic_view.png" format="PNG" scale="30"/>
+		                </imageobject>
+		              </mediaobject>
+                            </figure>
 	        </section>
 	</section>
 	<section id="sect-Documents-quick-start-guide-Chapter_manage-Section_4">
