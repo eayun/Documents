@@ -282,11 +282,81 @@
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5">
 	<title>添加兼容 POSIX 的存储域</title>
 	<para>
+	  &OVIRT; 管理系统支持兼容 POSIX 的文件系统作为存储域, 用户可以使用这类文件系统作为它们的存储环境, 而不仅仅是 NFS, iSCSI, 或者 FCP 之类的存储
+	</para>
+	<para>
+	  但是请注意, 你选择的 POSIX 文件系统必须支持稀疏文件特性和直接 I/O, 否则, 是不能被 $OVIRT 管理系统兼容的, 比如 CIFS由于不支持直接 I/O, 所以和我们的管理系统不兼容.
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-1">
 	  <title>添加兼容 POSIX 的存储域</title>
-	  <para>
-	  </para>
+	  <procedure><title>添加兼容 POSIX 的文件系统</title>
+	  <step>
+		<para>
+		  点击存储标签
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击新建存储域, 打开新建存储域窗口, 如图:
+		</para>
+		<figure id="add-posix"><title>添加 NFS 存储</title>
+		<mediaobject>
+          <imageobject>
+			<imagedata fileref="images/storage-add-posix.png" format="PNG" scale="100"/>
+          </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  输入存储域的名称, 描述和评论(这两项可选)
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在数据中心的下拉框里, 选择关联的数据中心, 注意, 这个数据中心必须得是 POSIX 类型的, 如果 POSIX 类型的数据中心不存在, 可以暂时选择 none.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  从域功能/存储域类型下拉菜单中选择 Data/POSIX complaint FS
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在使用主机下拉菜单, 选择适当的主机
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  填写 POSIX 文件系统的路径, 和 mount 参数的路径是一致的
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  填写 VFS 类型, 和 mount 的 "-t" 参数是一致的
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  填写挂载选项, 和 mount 的 "-o" 参数是一致的
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击确定保存设置, 新加该存储到 $OVIRT 系统中.
+		</para>
+	  </step>
+	  </procedure>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-2">
