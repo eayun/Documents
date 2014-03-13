@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "evaluation-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-evaluation-guide-Chapter_installation">
+        <title>实验一、安装与配置基础系统&OVIRT;</title>
+        <para>
+        </para>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_1">
+                <title>实验目标</title>
+                <para>安装支持虚拟化的基础系统，并且演示如何安装和配置主机、存储和网络。这个实验的目标产出是可以创建和准备虚拟化环境。
+                </para>
+		<para>本实验需要三台服务器和共享存储。
+                </para>
+		<para>
+			<itemizedlist>
+		        	          <listitem>
+                                	  <para>安装EayunOS虚拟化管理平台</para>
+                                	  </listitem>
+                                	  <listitem>
+                                	  <para>安装EayunOS Hypervisor</para>
+                                	  </listitem>
+					  <listitem>
+                                          <para>连接到EayunOS虚拟化管理平台</para>
+                                          </listitem>
+					  <listitem>
+                                          <para>配置逻辑网络</para>
+                                          </listitem>
+					  <listitem>
+                                          <para>配置存储</para>
+                                          </listitem>
+					  <listitem>
+                                          <para>创建和填充ISO Domain</para>
+                                          </listitem>
+
+             		</itemizedlist>
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter_installation-Section_2">
+		<title>安装EayunOS虚拟化管理平台</title>
+		<para>
+			<itemizedlist>
+					<listitem>
+					<para>安装EayunOS管理节点操作系统，流程如下:</para>
+					<para>图1，选中【install or upgrade an existing sustem】,按Enter</para>
+			                <figure id="eayunos-install-eayunos-manager-0"><title>&OVIRT;图1</title>
+						<mediaobject>
+							<imageobject>
+			                                	<imagedata fileref="images/eayunos-manager-1.png" format="PNG" scale="60"/>
+                       				 	</imageobject>
+                   				</mediaobject>
+                			</figure>
+                                        <para>图2，准备开始安装，等待</para>
+                                        <figure id="eayunos-install-eayunos-manager-1"><title>&OVIRT;图2</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                        <para>图3，输入密码及确认密码</para>
+                                        <figure id="eayunos-install-eayunos-manager-2"><title>&OVIRT;图3</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                        <para>图4，选中【Use All Space】，按下一步</para>
+                                        <figure id="eayunos-install-eayunos-manager-3"><title>&OVIRT;图4</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                        <para>图5，系统进入格式化中，等待</para>
+                                        <figure id="eayunos-install-eayunos-manager-4"><title>&OVIRT;图5</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                        <para>图6，开始安装操作系统</para>
+                                        <figure id="eayunos-install-eayunos-manager-5"><title>&OVIRT;图6</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                        <para>图7，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
+                                        <figure id="eayunos-install-eayunos-manager-6"><title>&OVIRT;图7</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>                        
+					</listitem>
+                                        <listitem>
+                                        <para>初始化配置
+						<itemizedlist>
+								<listitem>
+									<para>配置静态ip</para>
+								</listitem>
+                                                                <listitem>
+                                                                        <para>修改/etc/reslov.conf文件内容如下:</para>
+									<para>  ;generated by /sbin/dhclient-script nameserver 219.234.181.239 </para>
+                                                                </listitem>
+                                                                <listitem>
+                                                                        <para>修改主机名同时修改本地Hosts文件 vi /etc/hosts 添加ip name.eayunos.com </para>
+                                                                </listitem>
+                                                                <listitem>
+                                                                        <para>运行命令 engine-setup</para>
+									<para>图8，提示是否在本机配置VDSM，此项设为Yes</para>
+				                                        <figure id="eayunos-install-eayunos-manager-7"><title>&OVIRT;图8</title>
+				                                                <mediaobject>
+				                                                        <imageobject>
+				                                                                <imagedata fileref="images/eayunos-manager-8.png" format="PNG" scale="60"/>
+				                                                        </imageobject>
+				                                                </mediaobject>
+				                                        </figure>
+                                                                        <para>图9，按如图所示配置其它项</para>
+                                                                        <figure id="eayunos-install-eayunos-manager-8"><title>&OVIRT;图9</title>
+                                                                                <mediaobject>
+                                                                                        <imageobject>
+                                                                                                <imagedata fileref="images/eayunos-manager-9.png" format="PNG" scale="60"/>
+                                                                                        </imageobject>
+                                                                                </mediaobject>
+                                                                        </figure>
+                                                                        <para>图10，配置完成后，显示所有之前配置项，确认配置</para>
+                                                                        <figure id="eayunos-install-eayunos-manager-9"><title>&OVIRT;图10</title>
+                                                                                <mediaobject>
+                                                                                        <imageobject>
+                                                                                                <imagedata fileref="images/eayunos-manager-10.png" format="PNG" scale="60"/>
+                                                                                        </imageobject>
+                                                                                </mediaobject>
+                                                                        </figure>
+                                                                        <para>图11，显示配置成功完成</para>
+                                                                        <figure id="eayunos-install-eayunos-manager-10"><title>&OVIRT;图11</title>
+                                                                                <mediaobject>
+                                                                                        <imageobject>
+                                                                                                <imagedata fileref="images/eayunos-manager-11.png" format="PNG" scale="60"/>
+                                                                                        </imageobject>
+                                                                                </mediaobject>
+                                                                        </figure>
+                                                                </listitem>
+						</itemizedlist>
+					</para>
+					</listitem>
+		       </itemizedlist>
+                </para>		
+	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_3">
+                <title>安装EayunOS Hypervisor</title>
+                <para>
+                        <itemizedlist>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_4">
+                <title>连接到EayunOS虚拟化管理平台</title>
+                <para>
+                        <itemizedlist>
+                                          <listitem>
+                                          <para>打开浏览器，输入http://ip.com(http://192.168.176.91)</para>
+                                          </listitem>
+                                          <listitem>
+                                          <para>在门户（Portal）标题下，点击【管理员门户】（Administration Portal）</para>
+                                          </listitem>
+                                          <listitem>
+                                          <para>如果是首次访问该网站，EayunOS管理系统将对浏览器进行安全认证，点击继续浏览此网站</para>
+                                          </listitem>
+                                          <listitem>
+                                          <para>显示门户登录界面，输入用户名、密码及域（这里我们输入admin、abc123、internal），点击【登录】</para>
+                                          <para>你已经成功登录了EayunOS虚拟化管理系统</para>
+                                          <para>管理员门户图形界面如下图：</para>
+					  <figure id="eayunos-install-eayunos-manager-11"><title>&OVIRT;图12</title>
+						<mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/web-0.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                          </figure>
+                                          </listitem>
+
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_5">
+                <title>批准EayunOS Hypervisor</title>
+                <para>
+                        <itemizedlist>
+                                          <listitem>
+                                          <para>在EayunOS虚拟化管理平台树形面板点击【展开所有】（Expand All）按键，在默认的集群下，点击主机项，主机列表下显示可用的EayunOS Hypervisor</para>
+                                          </listitem>
+                                          <listitem>
+                                          <para>选择你安装的hypervisor,点击菜单内的【批准】（Approve）按键，显示【Edit and Approve Host】对话框，点击【确定】（OK）</para>
+                                          </listitem>
+                                          <listitem>
+                                          <para>提示配置电源管理，在这里可以设置也可以不设置，点击【继续】（OK），完成后主机状态从Non Operational->Up</para>
+                                          <figure id="eayunos-install-eayunos-manager-12"><title>&OVIRT;图13</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                          </figure>
+                                          </listitem>
+
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_6">
+                <title>配置逻辑网络</title>
+                <para>
+                        <itemizedlist>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          </listitem>
+                                          <listitem>
+                                          <para></para>
+                                          <figure id="eayunos-install-eayunos-manager-13"><title>&OVIRT;图13</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                          </figure>
+                                          </listitem>
+
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_7">
+                <title>配置存储</title>
+                <para>
+                        <itemizedlist>
+                                          <listitem>
+                                          <para>创建NFS数据域</para>
+						<itemizedlist>
+								<listitem>
+								<para>在EayunOS虚拟化管理平台树形面板点击【展开所有】（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
+								</listitem>
+                                                                <listitem>
+                                                                <para>显示新建域对话框，如图： </para>
+								<figure id="eayunos-install-eayunos-manager-14"><title>&OVIRT;图15</title>
+									<mediaobject>
+										<imageobject>
+											<imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+										</imageobject>
+									</mediaobject>
+								</figure>
+								<para>配置以下选项：
+									<itemizedlist>
+											<listitem>
+											<para>名称：Storage-NFS</para>
+											</listitem>
+                                                                                        <listitem>
+                                                                                        <para>数据中心：默认的数据中心</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>存储类型：Data/NFS</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>使用的主机：</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>输出路径：192.168.176.157:/home/export</para>
+                                                                                        </listitem>
+
+									</itemizedlist>
+								</para>
+								
+                                                                </listitem>
+                                                                <listitem>
+                                                                <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active </para>
+                                                                </listitem>
+						</itemizedlist>
+                                          </listitem>
+                                          <listitem>
+                                          <para>创建ISCSI数据域</para>
+					  <para>因为在安装管理节点时你已经设定默认存储类型为ISCSI，所以现在创建一个ISCSI存储域。EayunOS虚拟化管理平台支持ISCSI存储域</para>
+						<itemizedlist>
+								<listitem>
+								<para>在EayunOS管理平台树形面板点击展开所有（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
+								</listitem>
+                                                                <listitem>
+                                                                <para>显示新建域对话框 如图：</para>
+                                                                <figure id="eayunos-install-eayunos-manager-15"><title>&OVIRT;图16</title>
+                                                                        <mediaobject>
+                                                                                <imageobject>
+                                                                                        <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+                                                                                </imageobject>
+                                                                        </mediaobject>
+                                                                </figure>
+								<para>配置以下选项:</para>
+                                                                        <itemizedlist>
+                                                                                        <listitem>
+                                                                                        <para>名称：Storage-ISCSI</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>数据中心：默认的数据中心</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>存储类型：Data/iSCSI</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>使用的主机：</para>
+                                                                                        </listitem>
+                                                                                        <listitem>
+                                                                                        <para>连接目标iSCSI存储，输入地址、端口号、用户认证，点击发现（Discover），iSCSI存储显示在列表里，选择存储后点击进入（Login）如图:</para>
+			                                                                <figure id="eayunos-install-eayunos-manager-16"><title>&OVIRT;图17</title>
+			                                                                        <mediaobject>
+			                                                                                <imageobject>
+			                                                                                        <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+			                                                                                </imageobject>
+			                                                                        </mediaobject>
+			                                                                </figure>
+                                                                                        </listitem>
+                                                                        </itemizedlist>
+                                                                </listitem>
+                                                                <listitem>
+                                                                <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active</para>
+                                                                </listitem>
+						</itemizedlist>
+                                          </listitem>
+                                          <listitem>
+                                          <para>创建ISO域</para>
+						<itemizedlist>
+								<listitem>
+								<para>在EayunOS管理平台树形面板先点击【展开所有】（Expand All）按键，点击本地存储数据中心，显示数据中心列表，选择数据中心</para>
+								</listitem>
+                                                                <listitem>
+                                                                <para>在该数据中心详细面板下，选择存储列表，点击【新建ISO】（Attach ISO）按键</para>
+                                                                </listitem>
+                                                                <listitem>
+                                                                <para>在Attach ISO Library对话框下选择本地ISO域，点击OK</para>
+                                                                </listitem>
+                                                                <listitem>
+                                                                <para>ISO域显示在存储列表内，同时状态为活跃（Active）</para>
+                                                                </listitem>
+                                                                <listitem>
+                                                                <para>上传ISO镜像</para>
+								<para>使用engine-iso-loader工具上传ISO（engine-iso-loader --iso-domain=ISO_DOMAIN upload /tmp/CentOS-6.5-x86_64-LiveDVD.iso）</para>
+                                                                </listitem>
+						</itemizedlist>
+                                          </listitem>
+
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_8">
+                <title>本章小结</title>
+                <para>你已经成功安装了EayunOS虚拟化基础系统，可以在这个系统进行创建虚拟机等操作</para>
+        </section>
+</chapter>
