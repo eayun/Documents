@@ -5,14 +5,14 @@
 ]>
 <bookinfo id="book-Documents-administrator-guide-administrator_guide">
 	<title>administrator-guide</title>
-	<subtitle>Enter a short description here.</subtitle>
-	<productname>eayunOS Documents</productname>
+	<subtitle>EayunOS 系统管理员手册</subtitle>
+	<productname>eayunOS</productname>
 	<productnumber>4.0</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>
 	<abstract>
 		<para>
-			A short overview and summary of the book's subject and purpose, traditionally no more than one paragraph long. Note: the abstract will appear in the front matter of your book and will also be placed in the description field of the book's RPM spec file.
+                  本手册会详细介绍如果管理EayunOS4.0虚拟化解决方案。
 		</para>
 	</abstract>
 	<corpauthor>

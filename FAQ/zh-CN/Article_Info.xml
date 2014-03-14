@@ -1,4 +1,25 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE articleinfo PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
 ]>
-<articleinfo><title>FAQ</title><subtitle>以问答的形式回答常见问题</subtitle><productname>eayun-documents</productname><productnumber>0.1</productnumber><edition>0</edition><pubsnumber>0</pubsnumber><abstract><para>A short overview and summary of the book&apos;s subject and purpose, traditionally no more than one paragraph long. Note: the abstract will appear in the front matter of your book and will also be placed in the description field of the book&apos;s RPM spec file.</para></abstract><corpauthor><inlinemediaobject><imageobject><imagedata fileref="Common_Content/images/title_logo.svg" format="SVG"></imagedata></imageobject></inlinemediaobject></corpauthor><xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include><xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include></articleinfo>
+<articleinfo>
+   <title>FAQ</title> 
+   <subtitle>以问答的形式回答常见问题</subtitle>
+   <productname>EayunOS</productname>
+   <productnumber>4.0</productnumber>
+   <edition>0</edition>
+   <pubsnumber>0</pubsnumber>
+   <abstract>
+         <para>
+        </para>
+   </abstract>
+   <corpauthor>
+        <inlinemediaobject>
+            <imageobject>
+                 <imagedata fileref="Common_Content/images/title_logo.svg" format="SVG">
+                 </imagedata>
+           </imageobject>
+       </inlinemediaobject>
+   </corpauthor>
+   <xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
+   <xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
+</articleinfo>
