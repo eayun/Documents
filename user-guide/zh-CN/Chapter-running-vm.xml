@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "user-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-user-guide-running-vm_Chapter">
+	<title>运行虚拟机</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_1">
+		<title>运行虚拟机-概览</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_2">
+		<title>启动虚拟机</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_3">
+		<title>访问启动的虚拟机</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_4">
+		<title>注销虚拟机</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_5">
+		<title>当设置了配额后有何表现</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+
+</chapter>

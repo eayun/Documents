@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE authorgroup PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
-<!ENTITY % BOOK_ENTITIES SYSTEM "user-guide.ent">
+<!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
 %BOOK_ENTITIES;
 ]>
 <authorgroup>
 	<author>
-		<firstname>Enter your first name here.</firstname>
-		<surname>Enter your surname here.</surname>
+		<firstname>李</firstname>
+		<surname>建盛</surname>
 		<affiliation>
-			<orgname>Enter your organisation's name here.</orgname>
-			<orgdiv>Enter your organisational division here.</orgdiv>
+			<orgname>易云捷讯</orgname>
+			<orgdiv>虚拟化文档组</orgdiv>
 		</affiliation>
-		<email>Enter your email address here.</email>
+		<email>jiansheng.li@eayun.com</email>
 	</author>
 </authorgroup>
 

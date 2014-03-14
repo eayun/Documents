@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "user-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-user-guide-using-vm_Chapter">
+	<title>使用虚拟机：高级特性</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_1">
+		<title>桌面协议介绍</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_2">
+		<title>SPICE的属性配置</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+
+	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_3">
+		<title>SPICE快捷键</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_4">
+		<title>多显示器支持</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_5">
+		<title>使用USB重定向</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+</chapter>

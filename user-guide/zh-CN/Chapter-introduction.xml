@@ -3,19 +3,19 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "user-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-user-guide-Test_Chapter">
-	<title>Test Chapter</title>
+<chapter id="chap-Documents-user-guide-introduction_Chapter">
+	<title>关于本文档</title>
 	<para>
 		This is a test paragraph
 	</para>
-	<section id="sect-Documents-user-guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
+	<section id="sect-Documents-user-guide-Chapter-introduction_Section_1">
+		<title>用户门户简要介绍</title>
 		<para>
 			This is a test paragraph in a section
 		</para>
 	</section>
 	
-	<section id="sect-Documents-user-guide-Test_Chapter-Test_Section_2">
+	<section id="sect-Documents-user-guide-Chapter-introduction_Section_2">
 		<title>Test Section 2</title>
 		<para>
 			This is a test paragraph in Section 2
@@ -30,4 +30,3 @@
 	</section>
 
 </chapter>
-

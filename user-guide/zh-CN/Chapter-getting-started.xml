@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "user-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documents-user-guide-getting-started_Chapter">
+	<title>入门</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_1">
+		<title>登录用户门户</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_2">
+		<title>登出用户门户</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_3">
+		<title>第一次登录</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_4">
+		<title>在linux系统中使用firefox浏览器，安装SPICE插件</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_5">
+		<title>在windows系统中使用Internet Explorer浏览器，安装SPICE控件</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_6">
+		<title>在windows系统中安装USB clerk</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_7">
+		<title>在windows系统中安装Remote viewer</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_8">
+		<title>安装CA证书</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_9">
+		<title>用户门户界面</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+</chapter>
