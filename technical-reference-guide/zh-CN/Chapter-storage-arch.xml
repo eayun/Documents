@@ -184,12 +184,68 @@
                          </figure>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-9">
-                    <title>选择主机为存储池管理的流程</title>
-                    <para></para>
+                    <title>选择主机为存储池管理(SPM)的流程</title>
+                    <para>
+                      如果用户不是手动的将某个主机设置为SPM,则这个过程有&OVIRT;管理程序来自动选举，下面是基本的流程。
+                    </para>
+                    <para>
+                     首先&OVIRT;会要求主机所在的VDSM确认它是否是基于以存储为中心的租约。
+                    </para>
+                    <para>
+                      &OVIRT;管理程序本身会跟踪自一个存储域创建到现在的所有SPM分配的历史，有以下三种方法可以确认SPM角色：
+                       <itemizedlist>
+                          <listitem>
+                            <para>
+                              使用一个叫做"getSPMstatus"的命令，VDSM可以为管理端程序提供此主机为SPM的三种状态："SPM""Contending", or "Free"。
+                            </para>
+                          </listitem>
+                          <listitem>
+                            <para>
+                             在数据中的元数据卷里存放着SPM的状态的主机信息。
+                            </para>
+                          </listitem>
+                          <listitem>
+                            <para>
+                            在数据中的元数据卷里存放着拥有SPM的状态主机信息的版本。
+                            </para>
+                          </listitem>
+                       </itemizedlist>
+                    </para>
+                    <para>
+                      如果操作成功，响应主机保留了存储为中心的租约，&OVIRT;会在管理员门户将主机标记为SPM，然后就没有然后了。
+                    </para>
+                    <para>
+                     假设SPM主机没有响应，系统就认为它不可达，这时如果您设置了电源管理，&OVIRT;会将这台主机强制断电隔离，假如没有设置的话，则需要您手动的确认将这台主机隔离。&OVIRT;认为原先的SPM不被隔离，则有权拒绝将SPM再分配，及时您有再多的主机。 
+                    </para>
+                    <para>
+                     当SPM角色空闲、存储为中心的租约是有可租用的，那么&OVIRT;会从数据中心内随机的找一台机器来充当SPM这个角色。 
+                    </para>
+                    <para>
+                     假如在赋予某主机为SPM时失败了，&OVIRT;则会将此主机统统加到一个叫做失败者的列表中，然后他会接着在余下的主机中继续随机的挑选。  
+                    </para>
+                    <para>
+                     只要出现SPM无响应或者不可达的情况，&OVIRT;选择主机为存储池管理(SPM)的流程就会启动。
+                    </para>
+                    <para>
+ 
+                    </para>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-10">
                     <title>关于独占资源及sanlock原理介绍</title>
-                    <para></para>
+                    <para>在&OVIRT;环境中，某些资源是必须以独占的方式访问的。</para>
+                    <para>
+                      SPM即是这样的资源，如果一个数据中心同时有两台主机是SPM的话，那么就会出现两台主机同时写入数据到一个地方，即破坏数据。
+                    </para>
+                    <para>
+                     在&OVIRT;早期版本中，SPM独占是VDSM的一个子功能叫安全租用来维护和跟踪的，安全租用在写在一个特别的地方，数据中心内所有的主机以独立于网络的方式访问这个区域。VDSM的安全租用技术仅限于一种类型的独占资源：SPM。 
+                    </para>
+                    <para>
+                      因为VDSM的安全租用技术的局限性，所以引入了sanlock这个程序，sanlock不仅可以实现VDSM的安全租用的功能，而且还可以管理其他的类似的独占资源。如果某个程序需要独占资源可以向sanlock提出申请，一旦申请成功，sanlock便不再让任何其他的程序访问。在SPM的处理方面，vdsm不再去锁定（安全租用）资源，而是向sanlock提出申请。
+                    </para>
+                    <para>
+                      “所”的跟踪是利用一种叫做lockspace的空间，在每个存储域中都有一块这样的空间，
+                    </para>
+                    <!-- TO DO actualy i not understand sanlock and vdsm how to works detials.so i need read more.-->
                 </section>
 	</section>
 	
@@ -200,11 +256,33 @@
                     </para>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_2-1">
                     <title>精简模式与存储的过量使用</title>
-                    <para></para>
+                    <para>
+                     &OVIRT;支持虚拟机镜像的精简模式，以达到可以分配超出用户物理存储容量的效果。
+                    </para>
+                    <para>
+                     为了在块设备中支持这种模式，VDSM在实际使用的存储空间和逻辑上的空间定义了一个阀值，这个阀值保证实际写入磁盘的数据要小于后端逻辑卷的容量。QEMU会标识一个最高的偏移，它表示可以使用的最大容量。VDSM会监控这个偏移量，确保实际使用不会超过阀值。
+                    </para>
+                    <para>
+                     当数据不断增长，开始接近所设定的阀值时，VDSM会通知&OVIRT;管理程序，目前虚拟磁盘所使用的逻辑卷空间不足，&OVIRT;管理端会向SPM申请扩展逻辑卷。这样的流程只要是后端存储一直有空间，就会不断的重演。当后端存储也快耗尽的时候，你需要联系存储厂商继续扩展了。
+                    </para>
                 </section>
 	        <section id="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_2-2">
                     <title>关于逻辑卷扩展</title>
-                    <para></para>
+                    <para>
+                      上节谈到的当存储超出设定的阀值的时候，需要再分配给虚拟磁盘空间，这个实现就是由逻辑卷（LVM）的扩展实现的。
+                    </para>
+                    <para>
+                     &OVIRT;使用逻辑卷来实现精简模式，使用QCOW2存储格式。这里举个例子，当在管理端定义一个100G的精简模式的虚拟磁盘，对应的逻辑卷最开始会分配1G的逻辑卷，当qemu使用的存储达到VDSM所设定的阀值时，本地的VDSM向SPM提出申请1G的空间，SPM则会使用逻辑卷扩展来增加1G，然后会刷新卷组信息并确认扩展成功。
+                    </para>
+                    <para>
+                     逻辑卷的扩展机制在&OVIRT;中无需手动去同步，&OVIRT;实现了一套邮箱系统来互通信息，在每个存储域中有一个专用的邮箱，当需要扩展逻辑卷的那台主机执行了逻辑卷扩展时，它会往邮箱里写入一段信息，一旦发出，主机则会在每隔2秒去扫描一次是否有回复；SPM则会间断性的去读新来的邮件，但收到扩展时，则会作出回应，当主机收到来自SPM的回应时，她才开始刷新卷组信息，同步到内核，执行成功。
+                    </para>
+                    <para>
+                     当后端的存储的空间满时，也就是说虚拟磁盘的扩展再也申请不到资源的时候，QEMU会报出enospc error,从程序的角度来讲，这意味着没有任何的存储资源可以使用，这时，正在运行的虚拟机会是暂停状态。这个时候需要用户您介入，给卷组加入更多LUN。   
+                    </para>
+                   <para>
+                    当新的LUN加入到卷组后，SPM会自动将之前的“债”还完，这是个自动化的过程，一旦有了空间，虚拟机被中断的操作会继续，停止的虚拟机会恢复。
+                   </para>
                 </section>
 	</section>
 

@@ -10,8 +10,25 @@
 	<section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_1">
 		<title>网络架构概述</title>
 		<para>
-                      
-		</para>
+                  &OVIRT;的网络可以分成三个部分来说明：网络基础、集群中的网络和主机的网络配置。 
+                    <itemizedlist>
+                        <listitem>
+                         <para>
+                          网络基础其实就是介绍一些术语，即相关的硬件、软件。
+                         </para>
+                        </listitem>
+                        <listitem>
+                         <para>
+                          集群中网络也就是集群这个逻辑概念下的一些对象如：逻辑网络、虚拟机网络、主机网络等。
+                         </para>
+                        </listitem>
+                        <listitem>
+                         <para>
+                          主机的网络配置，就是诸如网卡绑定、VLAN等常见的主机配置。
+                         </para>
+                        </listitem>
+                    </itemizedlist>
+		</para> 
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2">
@@ -19,14 +36,42 @@
                    <para></para>
                     <important>
                         <para>
-                           
                         </para>
                     </important>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-1">
-		     <title>介绍，网络基础</title>
+		     <title>介绍，网络术语</title>
 		       <para>
-                      
+                        &OVIRT;所使用到的网络术语有如下几项，包括主机、虚拟机以及网络设备   
+                         <itemizedlist>
+                           <listitem>
+                             <para>
+                                网卡
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                                网桥
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                                网卡绑定
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                                虚拟网卡
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para> 
+                                虚拟局域网(VLAN)
+                             </para>
+                           </listitem>
+                         </itemizedlist>
+                          网卡、网桥、虚拟网卡可实现主机、虚拟机、本地网络以及Internet相互通信，网卡绑定以及VLAN属于可选项，可实现诸如安全、容错及增强。
 		       </para>
+                      
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-2">
 		     <title>物理网卡</title>
