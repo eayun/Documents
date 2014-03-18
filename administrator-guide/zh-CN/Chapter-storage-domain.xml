@@ -472,8 +472,8 @@
 		<programlisting language="XML" role="XML">
 		  <![CDATA[
 <target iqn.2014-03.com.example:server.target0>
-    backing-store /dev/vdb # LUN 1
-    backing-store /dev/vdc # LUN 2
+    backing-store /dev/sdb # LUN 1
+    backing-store /dev/sdc # LUN 2
 </target>
 		  ]]>
 		</programlisting>
