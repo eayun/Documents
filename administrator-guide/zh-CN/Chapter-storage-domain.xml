@@ -453,7 +453,69 @@
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-1">
 	  <title>准备 iSCSI 存储</title>
 	  <para>
+		为了添加 iSCSI 存储域, 我们必须在 iSCSI 服务器上导出 iSCSI 服务.
 	  </para>
+	  <procedure><title>准备 iSCSI 存储</title>
+	  <step>
+		<para>
+		  安装相关软件包
+		</para>
+		<programlisting language="Bash">
+# yum install -y scsi-target-utils
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  编辑 /etc/tgt/targets.conf 文件, 增加类似的以下几行(根据你的实际情况调整)
+		</para>
+		<programlisting language="XML" role="XML">
+		  <![CDATA[
+<target iqn.2014-03.com.example:server.target0>
+    backing-store /dev/vdb # LUN 1
+    backing-store /dev/vdc # LUN 2
+</target>
+		  ]]>
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  重启 tgtd 服务
+		</para>
+		<programlisting language="Bash">
+# service tgtd restart
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  让 tgtd 服务开机启动
+		</para>
+		<programlisting language="Bash">
+# chkconfig tgtd on
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  如果配置了 iptables 防火墙, 必须把 iSCSI 用来和客户端通信的端口(默认是 3260)打开:
+		</para>
+		<programlisting language="Bash">
+# iptables -I INPUT 6 -p tcp --dport 3260 -j ACCEPT
+		</programlisting>
+	  </step>
+
+	  <step>
+		<para>
+		  保存 iptables 的配置
+		</para>
+		<programlisting language="Bash">
+# service iptables save
+		</programlisting>
+	  </step>
+
+	  </procedure>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-2">
