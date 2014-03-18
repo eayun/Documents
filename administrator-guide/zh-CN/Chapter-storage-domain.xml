@@ -657,7 +657,58 @@
 	<section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-1">
 	  <title>导入存在的 "ISO 域"或者"导出域"</title>
 	  <para>
+		如果已经有一个存在的 ISO 域或者导出域, 现在想把它添加到数据中心中, 这个时候只需要把这个存储域导入数据中心:
 	  </para>
+	  <procedure><title>导入存在的 ISO/导出域</title>
+	  <step>
+		<para>
+		  点击存储标签, 列出目前存在的所有存储域
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击导入域按钮, 打开导入域窗口, 如图:
+		</para>
+		<figure id="import-domain"><title>导入存储域</title>
+		<mediaobject>
+          <imageobject>
+			<imagedata fileref="images/storage-import-domain.png" format="PNG" scale="100"/>
+          </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  在数据中心下拉框选择一个想到导入到的数据中心
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  从域功能/存储域类型下拉菜单中选择 ISO/NFS, ISO/POSIX Complaint FS, 或者 Export/NFS
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在使用主机下拉菜单, 选择适当的主机
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  填写导出路径, 如: 192.168.3.157:/home/ovirt/iso
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击确定, 创建 iSCSI 存储域, 并关闭窗口.
+		</para>
+	  </step>
+	  </procedure>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-2">
