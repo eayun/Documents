@@ -61,7 +61,7 @@ USAGE:
                          <step>
                           <para>
                           以下是使用全部参数的例子：
-                          <programlisting language="bash">
+                          <programlisting language="Bash">
                             <![CDATA[
  engine-backup --mode=backup --scope=all --file=backup --log=backup.log --change-db-credentials --db-host=localhost --db-port=5432 --db-user=engine --db-password=ffdC9lhX --db-name=engine
 Backing up...
