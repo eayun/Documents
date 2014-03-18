@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
-<!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent">
-%BOOK_ENTITIES;
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [ <!ENTITY % BOOK_ENTITIES SYSTEM "technical-reference-guide.ent"> %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-technical-reference-guide-Chapter-network-arch">
 	<title>&OVIRT;网络架构</title>
@@ -76,26 +74,100 @@
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-2">
 		     <title>物理网卡</title>
 		       <para>
-                      
+                        物理网卡的作用是连接计算机到用户的网络环境，提供物理层和数据链路层的网络连接。&OVIRT;要求用户的主机上至少拥有一块物理网卡，要达到很好的性能要求，&OVIRT;建议尽可能多的网卡配置。                      
 		       </para>
+                       <para>
+                        物理网卡的另一个作用是和多个虚拟网卡建立逻辑上的互联互通，虚拟网卡在虚拟机中的表现则是一块物理网卡，为了区分物理网卡和虚拟网卡的区别，&OVIRT;会为每个虚拟网卡分配一个独一无二的MAC地址。
+                       </para>
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-3">
 		     <title>网桥</title>
 		       <para>
-                      
+                        网桥是一个软件实现的设备，主要用于交换网络中的包的转发。它能够实现在一块物理网卡的情况下多个虚拟网卡设备共享连接，并且区分的非常清楚，往前会侦查数据包的源地址来均定相应目标地址，一旦目标地址均定了，网桥会在数据包中加上响应的地址，这样就能够实现网桥中的所有虚拟物理网卡的转发功能。 
 		       </para>
+                       <para>
+                       &OVIRT;中逻辑网络的实现即是使用了网桥，在实际的工作中，由网桥来接管主机的物理网卡的IP地址，尽管网桥的子网不必和虚拟网卡的子网一样，相对独立，但是我们建议分配同样的子网，这样也就是真正的意义所在，客户操作系统使用虚拟网卡来和网桥通信，网桥使用物理网卡和外界通信。
+                       </para>
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-4">
 		     <title>Bond</title>
 		       <para>
-                      
+                       网卡Bond技术是聚合多块物理网卡当作一块来使用，以增加容错能力、增强传输速率等。当然，网卡的Bond有个硬性的需求，那就是必须是同样的型号、以及同样的厂家产品。
 		       </para>
+                       <para>
+                        网卡Bond有几种模式，每种模式使用了不同的算法实现。
+                       </para>
+                       <formalpara><title>Bond的7中模式</title>
+                         <para>
+                          &OVIRT;默认使用模式4.
+                         <itemizedlist>
+                            <listitem>
+                              <para>
+                                模式0：（轮循）
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                                模式1：（主备）
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                                模式2：（XOR）
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                                模式3：（广播）
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                              模式4：（聚合）  
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                                模式5：（自适应传输负载均衡）
+                              </para>
+                            </listitem>
+                            <listitem>
+                              <para>
+                                模式6：（自适应负载均衡）
+                              </para>
+                            </listitem>
+                         </itemizedlist>
+                        </para>
+                       </formalpara>
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-5">
 		     <title>bonding下的交换机设置</title>
 		       <para>
-                      
+                        以下是一个常见的实例，请您根据自身的实际情况设定，或联系交换机厂商。
 		       </para>
+                            <programlisting language="python">
+                   <![CDATA[
+interface Port-channel11
+switchport access vlan 153
+switchport mode access
+spanning-tree portfast disable
+spanning-tree bpduguard disable
+spanning-tree guard root
+interface GigabitEthernet0/16
+switchport access vlan 153
+switchport mode access
+channel-group 11 mode active
+interface GigabitEthernet0/17
+switchport access vlan 153
+switchport mode access
+]]>
+
+                            </programlisting>
+                         <important>
+                             <para>
+                                对于不管何种型号的交换机来说，设置网卡Bond，以支持Link Aggregation Control Protocol (LACP)协议都是非常重要的一个环节。请注意协议，不是思科Port Aggregation Protocol (PAgP)协议。
+                             </para>
+                         </important>       
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_2-6">
 		     <title>虚拟机网卡</title>
