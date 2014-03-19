@@ -714,7 +714,43 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-2">
 	  <title>上传 ISO 到 ISO 域</title>
 	  <para>
+		&OVIRT; 管理平台提供了一个简单的脚本, 用来上传 ISO 文件到 ISO 存储域, 并设置合理的访问权限.
 	  </para>
+	  <procedure>
+		<title>上传 ISO 到 ISO 存储域</title>
+		<step>
+		  <para>
+			首先, 复制需要上传的 ISO 文件到运行 &OVIRT; 管理平台的系统的临时目录下.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			使用 root 用户登录到 &OVIRT; 管理平台系统.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			使用 engine-iso-uploader 命令查看存在的 ISO 存储域的名字
+		  </para>
+		  <programlisting language="Bash">
+# engine-iso-uploader list
+		  </programlisting>
+		</step>
+
+		<step>
+		  <para>
+			使用 engine-iso-uploader 命令上传 ISO 文件
+		  </para>
+		  <programlisting language="Bash">
+# engine-iso-uploader --iso-domain=ISO-DOMAIN upload /tmp/ovirt-node-iso-3.1.0-0.999.456.el6.iso
+		  </programlisting>
+		  <para>
+			该命令需要一个 ISO 存储域的名称作为参数, 通过上面讲到的命令获取, 还需要需要上床的 ISO 文件的完整了路径, 该命令会提示用户输入 REST API 的密码.
+		  </para>
+		</step>
+	  </procedure>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-3">
