@@ -31,13 +31,9 @@
                 <title>创建Linux系统的虚拟机</title>
                 <para>在进行该实验之前，你的虚拟化系统已经有至少一台可用于运行虚拟机的主机和一个包含有ISO镜像的ISO域。本实验以安装CentOS系统为例
                 </para>
-                <para>
-                        <itemizedlist>
-                                          <listitem>
-                                          <para>EayunOS虚拟化管理平台创建虚拟机</para>
-						<itemizedlist>
-								<listitem>
-								<para>在EayunOS管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【虚拟机】，在虚拟机列表下，点击【新建虚拟机】，如图：</para>
+                <procedure><title>&OVIRT;虚拟化管理平台创建虚拟机</title>
+                     <step>
+			<para>在EayunOS管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【虚拟机】，在虚拟机列表下，点击【新建虚拟机】，如图:
 								<figure id="eayunos-createvm-0"><title>图1</title>
 									<mediaobject>
 										<imageobject>
@@ -45,10 +41,14 @@
 										</imageobject>
 									</mediaobject>
 								</figure>
-								<para>输入名称、设置内存（本实验设置2GB）、设置操作系统（本实验设置Red Hat Enterprise Linux6.x 64）,你可以根据实际改变其它选项，本实验选择保留默认设置，点击【确定】</para>
-								</listitem>
-                                                                <listitem>
-                                                                <para>在【新建虚拟机-引导操作】窗口，为虚拟机设置磁盘，添加存储，如图：</para>
+                       </para>
+                     </step>
+                     <step>
+			<para>输入名称、设置内存（本实验设置2GB）、设置操作系统（本实验设置Red Hat Enterprise Linux6.x 64）,你可以根据实际改变其它选项，本实验选择保留默认设置，点击【确定】
+                        </para>
+                     </step>
+                     <step>
+                           <para>在【新建虚拟机-引导操作】窗口，为虚拟机设置磁盘，添加存储，如图:
                                                                 <figure id="eayunos-createvm-1"><title>图2</title>
 									<mediaobject>
                                                                         	<imageobject>
@@ -56,19 +56,19 @@
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
-								<para>设置磁盘大小（本实验设置10GB），其它项保留默认设置，点击【确定】</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>点击【稍后配置】，关闭该窗口，新建的虚拟机显示在虚拟机列表里</para>
-                                                                </listitem>
-
-						</itemizedlist>
-                                          </listitem>
-                                          <listitem>
-                                          <para>虚拟机创建完成，在使用该虚拟机之前，先为其安装操作系统</para>
-                                                <itemizedlist>
-                                                                <listitem>
-                                                                <para>在虚拟机列表下，找到新创建的虚拟机，选中该虚拟机，点击【只运行一次】如图：</para>
+                          </para>
+                    </step>
+                    <step>
+			<para>设置磁盘大小（本实验设置10GB），其它项保留默认设置，点击【确定】</para>
+                    </step>
+                    <step>
+                        <para>点击【稍后配置】，关闭该窗口，新建的虚拟机显示在虚拟机列表里</para>
+                    </step>
+                    <step>
+                          <para>虚拟机创建完成，在使用该虚拟机之前，先为其安装操作系统</para>
+                   </step>
+                   <step>
+                         <para>在虚拟机列表下，找到新创建的虚拟机，选中该虚拟机，点击【只运行一次】如图:
                                                                 <figure id="eayunos-createvm-2"><title>图3</title>
 									<mediaobject>
                                                                         	<imageobject>
@@ -76,21 +76,22 @@
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
-                                                                <para>选择【引导选项】->【附加CD】，选择iso,将CD-ROM置于顶部，点击【确定】</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>虚拟机运行，点击【控制台】绿色的电脑图标，进入虚拟机，安装操作系统</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>操作系统安装完成后，点击【修改CD】，将光盘弹出</para>
-                                                                </listitem>
-                                                </itemizedlist>
-                                          </listitem>
-                                          <listitem>
-                                          <para>为虚拟机分配网络</para>
-                                                <itemizedlist>
-                                                                <listitem>
-                                                                <para>在创建的虚拟机的详细面板下，点击【网络接口】，点击【新建】如图：</para>
+                         </para>
+                  </step>
+                  <step>
+                        <para>选择【引导选项】->【附加CD】，选择iso,将CD-ROM置于顶部，点击【确定】</para>
+                  </step>
+                  <step>
+                        <para>虚拟机运行，点击【控制台】绿色的电脑图标，进入虚拟机，安装操作系统</para>
+                  </step>
+                  <step>
+                        <para>操作系统安装完成后，点击【修改CD】，将光盘弹出</para>
+                  </step>
+                  <step>
+                        <para>为虚拟机分配网络</para>
+                  </step>
+                  <step>
+                        <para>在创建的虚拟机的详细面板下，点击【网络接口】，点击【新建】如图：
                                                                 <figure id="eayunos-createvm-3"><title>图4</title>
 									<mediaobject>
                                                                         	<imageobject>
@@ -98,13 +99,12 @@
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
-                                                                <para>输入名称，选择配置，本实验保留默认配置，点击【确定】</para>
-                                                                </listitem>
-                                                </itemizedlist>
-
-					  </listitem>
-                        </itemizedlist>
-                </para>
+                       </para>
+                  </step>
+                  <step>
+                        <para>输入名称，选择配置，本实验保留默认配置，点击【确定】</para>
+                  </step>
+                  </procedure>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter-createvm-Section_3">
                 <title>创建Linux系统的模板</title>
