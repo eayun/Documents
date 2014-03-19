@@ -4,30 +4,132 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-live-migration">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实验3、虚拟机动态迁移</title>
+	<para></para>
 	<section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_1">
-		<title>Test Section 1</title>
+		<title>实验目标</title>
+		<para>实验内容：</para>
 		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
+			<itemizedlist>
 				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
+					<para>虚拟机动态迁移从一个主机到另一主机。</para>
 				</listitem>
-			</orderedlist>
+                                <listitem>
+                                        <para>当虚拟机所在的主机为维护状态，虚拟机自动迁移到其它主机。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>定义集群的节能策略，当主机负载超过它本身的临界值时，虚拟机自动进行动态迁移。</para>
+                                </listitem>
+			</itemizedlist>
 		</para>
 	</section>
-
+	<section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_2">
+		<title>动态迁移场景</title>
+		<para>
+			动态迁移使你能够移动你的虚拟机（正在运行）到其它主机上，移动后的虚拟机及其上的应用程序仍然可以正常运行。当虚拟机运行的主机为维护状态或者无响应状态，你能够激活虚拟机自动动态迁移。在进行该实验之前，你已经完成对虚拟机的设置同时至少有两个虚拟机运行在你的主机上。在实验结束后，你将已经配置了集群的策略并且能够均衡主机负载。
+		</para>
+	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_3">
+                <title>激活虚拟机动态迁移</title>
+                <para>
+                        前提：除待迁移虚拟机所在主机外，至少有一个可用的主机
+                        <itemizedlist>
+                                <listitem>
+                                        <para>
+                                                在EayunOS虚拟化管理平台树形面板，点击【展开所有】，在集群下，点击【虚拟机】，在虚拟机列表下显示可用的虚拟机。
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                选择一个或多个虚拟机，点击【迁移】，显示迁移虚拟机对话框如图:
+					</para>
+					<figure id="eayunos-live-migration-0"><title>图1</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/live-migration-virtual-machine-1.png" format="PNG" scale="100"/>
+							</imageobject>
+						</mediaobject>
+					</figure>
+					<para>
+						选择一个目标主机或运行系统自动选择该集群下可用的主机。
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                点击【确定】，虚拟机将动态迁移到该集群下另一台主机上。
+                                        </para>
+                                </listitem>
+                        </itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_4">
+                <title>将主机移动到维护模式</title>
+                <para>
+                        <itemizedlist>
+                                <listitem>
+                                        <para>
+                                                在EayunOS虚拟化管理平台树形面板，点击【展开所有】，在集群下，点击【主机】，在主机列表下显示可用的主机。
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                选择主机，点击【维护】，显示维护主机对话框如图:
+                                        </para>
+                                        <figure id="eayunos-live-migration-1"><title>图2</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/live-migration-virtual-machine-2.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                点击【确定】，该主机上的所有虚拟机将动态迁移到该集群下另一台主机上，该主机状态由“Preparing for Maintenance”->“Maintenance”。
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                现在已经完成主机维护，若想重新激活主机，点击【激活】。
+                                        </para>
+                                </listitem>
+			</itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_5">
+                <title>定义集群策略</title>
+                <para>
+                        <itemizedlist>
+                                <listitem>
+                                        <para>
+                                                在EayunOS管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【集群】，在集群列表下，点击【编辑】。
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                在“集群策略”->“选择策略”下拉框内选择策略（例如：选择“Power_Saving”，设置属性“CpuOverCommitDurationMinutes”、“HighUtilization”、“LowUtilization”；选择“Evently_Distributed”，设置属性“CpuOverCommitDurationMinutes”、“HighUtilization”；），选择“调度优化”（“Optimize for Utilization”，“Optimize for Speed”），“其他属性”（“启用信用的服务”）如图：
+                                        </para>
+                                        <figure id="eayunos-live-migration-2"><title>图3</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/live-migration-virtual-machine-3.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                点击【确定】。
+                                        </para>
+                                </listitem>
+			</itemizedlist>
+                </para>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_6">
+                <title>本章小结</title>
+                <para>
+                        本章完成了为虚拟机动态迁移配置集群策略的目标。在这个实验，动态迁移虚拟机在主机状态移入维护状态的情况和配置集群策略去激活虚拟机动态迁移在主机负载超过自身的临界值的情况。
+                </para>
+        </section>
 </chapter>
 
