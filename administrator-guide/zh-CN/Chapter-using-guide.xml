@@ -4,19 +4,19 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-using-guide">
-	<title>Test Chapter</title>
+	<title>手册使用向导</title>
 	<para>
 		This is a test paragraph
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_1">
-		<title>Test Section 1</title>
+		<title>阅读管理员手册前的准备</title>
 		<para>
 			This is a test paragraph in a section
 		</para>
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_2">
-		<title>Test Section 2</title>
+		<title>本手册的层次结构</title>
 		<para>
 			This is a test paragraph in Section 2
 			<orderedlist>
@@ -29,5 +29,30 @@
 		</para>
 	</section>
 
+	<section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_3">
+		<title>流程实例</title>
+		<para>
+		</para>
+	       <section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_3-1">
+	        	<title>概览</title>
+		        <para>
+		        </para>
+	       </section>
+	       <section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_3-2">
+	        	<title>流程示例之创建iscsi数据中心</title>
+		        <para>
+		        </para>
+	       </section>
+	       <section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_3-3">
+	        	<title>流程示例之负载</title>
+		        <para>
+		        </para>
+	       </section>
+	       <section id="sect-Documents-administrator-guide-Chapter-using-guide-Section_3-4">
+	        	<title>流程示例之供用户组使用的模板</title>
+		        <para>
+		        </para>
+	       </section>
+	</section>
 </chapter>
 

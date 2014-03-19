@@ -4,19 +4,28 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-data-center">
-	<title>Test Chapter</title>
+	<title>数据中心</title>
 	<para>
 		This is a test paragraph
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_1">
-		<title>Test Section 1</title>
+		<title>什么是数据中心</title>
 		<para>
-			This is a test paragraph in a section
+		</para>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
+		<title>存储池管理者（SPM）</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_3">
+		<title>SPM优先级</title>
+		<para>
 		</para>
 	</section>
 	
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
-		<title>Test Section 2</title>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_4">
+		<title>通过查看事件来定位问题</title>
 		<para>
 			This is a test paragraph in Section 2
 			<orderedlist>
@@ -27,6 +36,101 @@
 				</listitem>
 			</orderedlist>
 		</para>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5">
+		<title>数据中心里需要做的工作</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">
+		    <title>创建数据中心</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-2">
+		    <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-3">
+		    <title>编辑资源</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-4">
+		    <title>在数据中心或集群中建立逻辑网络</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-5">
+		    <title>重新初始化数据中心</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-6">
+		    <title>删除数据中心</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-7">
+		    <title>强制删除数据中心</title>
+		    <para>
+		    </para>
+	       </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6">
+		<title>数据中心和存储域以及它们之间的关系</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-1">
+		    <title>给数据中心附加一个已经存在的数据存储域</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-2">
+		    <title>给数据中心附加一个已经存在的ISO存储域</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-3">
+		    <title>给数据中心附加一个已经存在的导出存储域</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-4">
+		    <title>从数据中心卸载一个存储域</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-5">
+		    <title>从维护模式激活存储域</title>
+		    <para>
+		    </para>
+	       </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7">
+		<title>数据中心和权限控制</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-1">
+		    <title>在数据中心中管理系统权限</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-2">
+		    <title>数据中心管理员角色的诠释</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-3">
+		    <title>为资源分配管理员或用户角色</title>
+		    <para>
+		    </para>
+	       </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-4">
+		    <title>将已经分配过的管理员或用户角色，从资源中去掉</title>
+		    <para>
+		    </para>
+	       </section>
 	</section>
 
 </chapter>
