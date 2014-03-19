@@ -747,7 +747,7 @@
 # engine-iso-uploader --iso-domain=ISO-DOMAIN upload /tmp/ovirt-node-iso-3.1.0-0.999.456.el6.iso
 		  </programlisting>
 		  <para>
-			该命令需要一个 ISO 存储域的名称作为参数, 通过上面讲到的命令获取, 还需要需要上床的 ISO 文件的完整了路径, 该命令会提示用户输入 REST API 的密码.
+			该命令需要一个 ISO 存储域的名称作为参数, 通过上面讲到的命令获取, 还需要输入 ISO 文件的完整路径, 该命令会提示用户输入 REST API 的密码.
 		  </para>
 		</step>
 	  </procedure>
@@ -756,7 +756,42 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-3">
 	  <title>存储域的维护模式</title>
 	  <para>
+		在从数据中心中分离存储域或者删除该存储域时, 需要先将该存储域置为维护模式, 如果该存储域是主存储域, 必须先制定另一个存储域作为主存储域才能置为维护模式.
 	  </para>
+	  <procedure>
+		<title>设置存储域为维护模式</title>
+		<step>
+		  <para>
+			点击存储标签, 列出目前存在的所有存储域.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			关闭所有运行在待维护存储的虚拟机, 并把这些虚拟机镜像移走.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			在存储域的详细信息面板上, 点击数据中心标签, 点击该存储域属于的数据中心.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			点击"维护"
+		  </para>
+		</step>
+	  </procedure>
+	  <para>
+		现在, 你可以从数据中心编辑, 分离, 移除, 或者重新激活该存储域.
+	  </para>
+	  <note>
+		<para>
+		  你也可以通过数据中心具体信息面板的存储标签激活, 分离, 或者设置存储域为维护模式.
+		</para>
+	  </note>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-4">
