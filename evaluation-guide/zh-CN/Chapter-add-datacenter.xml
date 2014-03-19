@@ -4,30 +4,305 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-add-datacenter">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实验七、添加额外的数据中心</title>
 	<section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
+		<title>实验目标</title>
+		<para>实验内容：</para>
+		<itemizedlist>
+			<listitem>
+				<para>创建一个新的数据中心</para>
+			</listitem>
+                        <listitem>
+                                <para>为新创建的数据中心创建一个集群</para>
+                        </listitem>
+                        <listitem>
+                                <para>创建主机在虚拟化管理平台</para>
+                        </listitem>
+                        <listitem>
+                                <para>定义网络</para>
+                        </listitem>
+                        <listitem>
+                                <para>定义存储（NFS、ISCSI），创建数据存储域</para>
+                        </listitem>
+                        <listitem>
+                                <para>创建ISO存储域</para>
+                        </listitem>
+		</itemizedlist>
+	</section>	
 	<section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+		<title>创建一个新的数据中心</title>
+		<procedure>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，点击【系统】，选择【数据中心】</para>
+			</step>
+                        <step>
+                                <para>点击【新建】，显示新建数据中心对话框如图：</para>
+				<para>
+					<figure id="eayunos-add-datacenter-0"><title>图1</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/add-datacenter-1.png" format="PNG" scale="100"/>
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</para>
+				<para>输入名称及描述，选择数据中心的类型。数据中心类型必须与该数据中心的存储类型一致。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，显示“创建数据中心-引导操作”对话框，提供参考没有配置的组件，可以直接配置也可以选择稍后配置。如图:
+                                	<figure id="eayunos-add-datacenter-1"><title>图2</title>
+                                        	<mediaobject>
+                                                	<imageobject>
+                                                        	<imagedata fileref="images/add-datacenter-2.png" format="PNG" scale="100"/>
+                                                	</imageobject>
+                                        	</mediaobject>
+                                	</figure>
+				</para>
+                        </step>
+		</procedure>
 	</section>
-
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_3">
+                <title>创建集群</title>
+                <procedure>
+                        <step>
+                                <para>可以在创建完数据中心后显示的“创建数据中心-引导操作”对话框内直接配置集群。若没有直接配置集群则在EayunOS虚拟化平台选择新创建的数据中心，点击【引导操作】，在这个对话框点击【配置集群】。</para>
+                        </step>
+                        <step>
+                                <para>在显示的“新建集群”对话框可以看到左侧的树形列表，对该列表内的每一项进行设置。如图：</para>
+				<para>
+                                        <figure id="eayunos-add-datacenter-2"><title>图3</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-3.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+				</para>
+                                <para>配置：
+					<orderedlist>
+						<listitem>
+							<para>在“常规”列表内输入“名称”及“描述”、“CPU名称”、其它选项可以保留默认设置</para>
+						</listitem>
+                                                <listitem>
+                                                        <para>在“优化”列表内设置“内存优化”、“CPU线程”、“内存Balloon”，这里我们选择保留默认设置。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“Resilience策略”列表内保留默认设置“移植虚拟机”。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“集群策略”列表内设置“选择策略”、“属性”、“Scheduler Optimization”及“其他属性”，这里我们也保留默认设置。</para>
+                                                </listitem>
+					</orderedlist>
+				</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，仍显示“引导操作”对话框。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_4">
+                <title>创建&OVIRT;主机</title>
+                <procedure>
+                        <step>
+                                <para>可以在创建完数据中心后显示的“创建数据中心-引导操作”对话框内直接配置主机。若没有直接配置主机则在EayunOS虚拟化平台选择新创建的数据中心，点击【引导操作】，在这个对话框点击【配置主机】。</para>
+                        </step>
+                        <step>
+                                <para>在显示的“新建主机”对话框可以看到左侧的树形列表，对该列表内的每一项进行设置。如图：</para>
+                                <para>
+                                        <figure id="eayunos-add-datacenter-3"><title>图4</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-4.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                                <para>配置：
+                                        <orderedlist>
+                                                <listitem>
+                                                        <para>在“常规”列表内输入“名称”及“注释”、“主机地址”、“密码”其它选项可以保留默认设置，在“在高级参数”下获取指纹，同时取消“自动配置主机防火墙”。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“电源管理”列表内勾选“启用电源管理”后，输入“地址”、“用户名”、“密码”、“类型”这里设置为ipmilan，点击【测试】，显示测试成功。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“SPM”列表内设置“SPM优先级”，默认设置“正常”。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“控制台”项，保留默认设置。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>在“网络供应商”项，保留默认设置。</para>
+                                                </listitem>
+                                        </orderedlist>
+                                </para>
+                        </step>
+                        <step>
+                                <para>点击【确定】。在EayunOS虚拟化管理平台左侧树形面板，点击【展开所有】，选择主机，主机显示在主机列表内，状态“Installing->Reboot->Waiting->Up”。</para>
+                        </step>
+                        <step>
+                                <para>主机安装完成可以使用时，状态为“Up”。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_5">
+                <title>配置网络</title>
+                <procedure><title>在集群上配置网络</title>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】->【系统】，选择新创建的数据中心，显示该数据中心的详细面板。</para>
+			</step>
+			<step>
+				<para>在详细面板内，点击【逻辑网络】，点击【新建】显示“新建逻辑网络”对话框，输入“名称”及“描述”，在“集群”列表下标记“分配网络到集群”。</para>
+			</step>
+			<step>
+				<para>点击【确定】，完成创建网络</para>
+			</step>
+		</procedure>
+		<procedure><title>为主机添加网络</title>
+                        <step>
+                                <para>在EayunOS虚拟化管理平台树形面板，点击新创建的数据中心->集群->主机，在主机列表下显示该集群下所有可用的主机。</para>
+                        </step>
+                        <step>
+                                <para>在显示的“新建主机”对话框可以看到左侧的树形列表，对该列表内的每一项进行设置。如图：</para>
+                                <para>为每个主机，完成以下操作：
+                                        <orderedlist>
+                                                <listitem>
+                                                        <para>点击主机，显示主机的详细面板，点击【网络接口】。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>显示网络接口列表。</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>选择接口配置存储网络，点击【设置主机网络】，显示“设置主机网络”窗口，如图：</para>
+			                                <para>
+                        			                <figure id="eayunos-add-datacenter-4"><title>图5</title>
+                                                			<mediaobject>
+                                                      			  	<imageobject>
+                                                                			<imagedata fileref="images/add-datacenter-5.png" format="PNG" scale="100"/>
+                                                        			</imageobject>
+                                                			</mediaobject>
+                                        			</figure>
+                                			</para>
+                                                </listitem>
+                                                <listitem>
+                                                        <para>配置完成后，点击【确定】。</para>
+                                                </listitem>
+                                        </orderedlist>
+                                </para>
+                        </step>
+                        <step>
+                                <para>点击【确定】。在EayunOS虚拟化管理平台左侧树形面板，点击【展开所有】，选择主机，主机显示在主机列表内，状态“Installing->Reboot->Waiting->Up”。</para>
+                        </step>
+                        <step>
+                                <para>主机安装完成可以使用时，状态为“Up”。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_6">
+                <title>配置存储</title>
+                <procedure><title>添加NFS数据存储域</title>
+                        <step>
+                                <para>在&OVIRT;虚拟化管理系统树形面板，点击【展开所有】->【系统】，点击新建数据中心下【存储】，显示存储列表，点击【新建域】。</para>
+                        </step>
+                        <step>
+                                <para>显示“新建域”窗口如图：</para>
+				<para>
+					<figure id="eayunos-add-datacenter-5"><title>图6</title>
+						<mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-6.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+				<para>输入“名称”、“描述”、“注释”；选择“存储类型”为Data/NFS、选择“使用的主机”；输入“导出路径”，其它项保留默认设置。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，新建的存储域显示在存储列表下，状态由“Locked->Active”。</para>
+                        </step>
+                </procedure>
+                <procedure><title>添加ISCSI数据存储域</title>
+                        <step>
+                                <para>在EayunOS虚拟化管理系统树形面板，点击【展开所有】->【系统】，点击新建数据中心下【存储】，显示存储列表，点击【新建域】。</para>
+                        </step>
+                        <step>
+                                <para>显示“新建域”窗口如图：</para>
+                                <para>
+                                        <figure id="eayunos-add-datacenter-6"><title>图7</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-7.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                                <para>输入“名称”、“描述”、“注释”；选择“存储类型”为Data/iSCSI、选择“使用的主机”；“发现目标”下输入“地址”及“端口”，其它项保留默认设置。点击【发现】。</para>
+				<para>选中待挂载的磁盘，如图：</para>
+                                <para>
+                                        <figure id="eayunos-add-datacenter-7"><title>图8</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-8.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，新建的存储域显示在存储列表下，状态由“Locked->Active”。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_7">
+                <title>配置ISO域</title>
+                <procedure><title>创建一个新的ISO域</title>
+                        <step>
+                                <para>在&OVIRT;虚拟化管理系统树形面板，点击【展开所有】->【系统】，点击新建数据中心下【存储】，显示存储列表，点击【新建域】。</para>
+                        </step>
+                        <step>
+                                <para>显示“新建域”窗口如图：</para>
+                                <para>
+                                        <figure id="eayunos-add-datacenter-8"><title>图9</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-9.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                                <para>输入“名称”、“描述”、“注释”；选择“存储类型”为ISO/NFS；选择“使用的主机”；输入“导出路径”，其它项保留默认设置。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，新建的ISO域显示在存储列表下，状态由“Locked->Active”。</para>
+                        </step>
+                </procedure>
+                <procedure><title>创建一个已经存在的ISO域</title>
+                        <step>
+                                <para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】->【系统】，选择新创建的数据中心，显示该数据中心的详细面板。</para>
+                        </step>
+                        <step>
+                                <para>在详细面板下，点击【存储】，点击【附加ISO】，在“附加ISO库”下选择本地域，点击【确定】如图：</para>
+                                <para>
+                                        <figure id="eayunos-add-datacenter-9"><title>图10</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/add-datacenter-10.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                        <step>
+                                <para>ISO域显示在存储列表下，状态由“Locked->Inactive”。</para>
+                        </step>
+                        <step>
+                                <para>选择该ISO域，点击【激活】，状态由“Locked”->“Active”。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_8">
+                <title>本章小结</title>
+                <para>你已经完成了本章实验。在这个实验里，你成功的创建了一个新的数据中心，并为其配置集群->添加主机->配置存储（Data存储域和ISO存储域）->配置网络->创建虚拟机这一完整过程。</para>
+        </section>
 </chapter>
 
