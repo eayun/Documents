@@ -883,7 +883,31 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-7">
 	  <title>销毁存储域</title>
 	  <para>
+		如果发生一些错误, 存储域也许通过正常的手段移除. 销毁一个存储域是强制的把它从 &OVIRT; 管理系统移除, 而不考虑存储域导出目录.
 	  </para>
+	  <para>
+		如果想使用一个被销毁的存储域, 必须手动修复该存储域的导出目录.
+	  </para>
+	  <procedure>
+		<title>销毁一个存储域</title>
+		<step>
+		  <para>
+			点击存储标签, 找到待激活的存储域
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			右键点击该存储域, 选择"销毁", 弹出销毁存储域确认对话框
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			选择"同意操作", 然后点击"确定"来销毁存储域
+		  </para>
+		</step>
+	  </procedure>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-8">
