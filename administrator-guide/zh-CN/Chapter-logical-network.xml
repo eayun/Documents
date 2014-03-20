@@ -4,19 +4,18 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-logical-network">
-	<title>Test Chapter</title>
+	<title>逻辑网络</title>
 	<para>
 		This is a test paragraph
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_1">
-		<title>Test Section 1</title>
+		<title>逻辑网络介绍</title>
 		<para>
-			This is a test paragraph in a section
 		</para>
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_2">
-		<title>Test Section 2</title>
+		<title>端口镜像</title>
 		<para>
 			This is a test paragraph in Section 2
 			<orderedlist>
@@ -29,5 +28,136 @@
 		</para>
 	</section>
 
+	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_3">
+		<title>必须网络、可选网络以及虚拟机网络</title>
+		<para>
+		</para>
+	</section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4">
+		<title>虚拟网卡profiles和QoS</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-1">
+		    <title>QoS概览</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-2">
+		    <title>添加QoS</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-3">
+		    <title>创建、编辑网络QoS窗口设置解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-4">
+		    <title>删除QoS</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-5">
+		    <title>虚拟网卡profiles概览</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-6">
+		    <title>创建虚拟网卡profile</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-7">
+		    <title>虚拟机网卡profile窗口解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-8">
+		    <title>删除虚拟网卡profile</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_4-9">
+		    <title>虚拟网卡的用户权限</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5">
+		<title>逻辑网络的任务</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-1">
+		    <title>在数据中心或集群创建逻辑网络</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-2">
+		    <title>创建、编辑逻辑网络窗口的设置解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-3">
+		    <title>编辑逻辑网络</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-4">
+		    <title>通过管理网络窗口将逻辑网络根据不同的网络流量分配不同的类型</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-5">
+		    <title>管理网络窗口设置解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-6">
+		    <title>为单块网卡设置多个VLAN</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-7">
+		    <title>使用网络主窗口</title>
+		     <para>
+		     </para>
+	             <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-7-1">
+		          <title>从第三方提供商导入网络</title>
+		          <para>
+		          </para>
+	             </section>
+	             <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_5-7-2">
+		          <title>第三方网络的一些局限性</title>
+		          <para>
+		          </para>
+	             </section>
+	        </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_6">
+		<title>逻辑网络和权限</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_6-1">
+		    <title>管理系统权限</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_6-2">
+		    <title>网络管理员和角色的解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_6-3">
+		    <title>为资源分配管理员或用户角色</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-logical-network_Section_6-4">
+		    <title>删除资源中已经分配的管理员或用户角色</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
 </chapter>
 

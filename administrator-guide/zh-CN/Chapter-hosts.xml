@@ -4,19 +4,17 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-hosts">
-	<title>Test Chapter</title>
+	<title>主机</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_1">
-		<title>Test Section 1</title>
+		<title>&OVIRT;主机介绍</title>
 		<para>
-			This is a test paragraph in a section
 		</para>
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_2">
-		<title>Test Section 2</title>
+		<title>&OVIRT; hypervisor 主机</title>
 		<para>
 			This is a test paragraph in Section 2
 			<orderedlist>
@@ -29,5 +27,205 @@
 		</para>
 	</section>
 
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_3">
+		<title>Foreman托管</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_4">
+		<title>&OVIRT; all in one 主机</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5">
+		<title>主机的任务</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-1">
+		    <title>添加&OVIRT; all in one 主机</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-2">
+		    <title>添加Foreman主机</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-3">
+		    <title>批准&OVIRT; hypervisor</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4">
+		    <title>创建、编辑主机窗口的设置解释</title>
+		     <para>
+		     </para>
+	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-1">
+		        <title>主机常规设置解释</title>
+		         <para>
+		         </para>
+	             </section>
+	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-2">
+		        <title>主机电源管理解释</title>
+		         <para>
+		         </para>
+	             </section>
+	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-3">
+		        <title>SPM优先级解释</title>
+		         <para>
+		         </para>
+	             </section>
+	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-4">
+		        <title>主机访问终端解释</title>
+		         <para>
+		         </para>
+	             </section>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-5">
+		    <title>配置主机电源管理设置</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-6">
+		    <title>配置存储池管理者设置</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-7">
+		    <title>手动选择SPM</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-8">
+		    <title>编辑资源</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-9">
+		    <title>将主机切换到维护模式</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-10">
+		    <title>将主机从维护模式中激活</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-11">
+		    <title>删除主机</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-12">
+		    <title>使用tag定制主机</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6">
+		<title>主机和网络</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-1">
+		    <title>刷新新增物理网卡</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-2">
+		    <title>编辑主机网卡，给主机添加逻辑网络</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-3">
+		    <title>&OVIRT;的Bonding逻辑</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-4">
+		    <title>绑定的模式</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-5">
+		    <title>在管理员门户中建立bond设备</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-6">
+		    <title>一个定制bond选项的实例</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-7">
+		    <title>保存主机的网络设置</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-8">
+		    <title>多网关配置</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7">
+		<title>弹性的主机</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-1">
+		    <title>主机高可用</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-2">
+		    <title>使用电源管理代理</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-3">
+		    <title>在主机中设置Fencing参数</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-4">
+		    <title>Self-Fencing主机</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-5">
+		    <title>使用主机电源管理功能</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-6">
+		    <title>手动隔离没有响应的主机</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8">
+		<title>主机和权限</title>
+		<para>
+		</para>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-1">
+		    <title>管理主机的系统权限</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-2">
+		    <title>主机的管理员和角色解释</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-3">
+		    <title>为资源分配主机的管理员或用户权限</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-4">
+		    <title>删除资源已经分配的管理员或用户权限</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
 </chapter>
 
