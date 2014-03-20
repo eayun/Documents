@@ -835,6 +835,48 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-6">
 	  <title>移除存储域</title>
 	  <para>
+		下面的步骤描述如何移除一个数据中心中的存储域:
+	  </para>
+	  <procedure>
+		<title>移除存储域</title>
+		<step>
+		  <para>
+			点击存储标签, 找到待移除的存储域
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			把该存储域置为维护模式, 是它变为 "deactivate" 的
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			从数据中心中分离该存储域
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			点击 "删除" 按钮, 弹出删除存储域窗口.
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			从列表中选择适当的主机
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			点击确定移除该存储域, 并关闭该窗口.
+		  </para>
+		</step>
+	  </procedure>
+	  <para>
+		之后, 可以看到存储域已经被移除了.
 	  </para>
 	</section>
 
