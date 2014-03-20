@@ -303,6 +303,12 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <para>
                         逻辑网络均在数据中定义，在主机中具体实现。必须的逻辑网络则要求在集群内所有的主机都得有。
                        </para>
+                       <para>
+                        每个虚拟机的逻辑网络的背后都必须有主机中的网桥设备在起作用，因此，在集群中定义虚拟机的逻辑网络，在集群内所有的主机中，相应的网桥必须先创建，然后才可被虚拟机使用。&OVIRT;是上述所有步骤都自动化了。
+                       </para>
+                       <para>
+                        
+                       </para>
                 <figure id="eayunos-technical-reference-ovirtmgmt-logical-network"><title>ovirtmgmt逻辑网络示意图</title>
 		   <mediaobject>
 			<imageobject>
@@ -310,11 +316,34 @@ ovirtmgmt		8000.002590c3b324	no		eth0
 			</imageobject>
 		   </mediaobject>
                 </figure>
+                      <example id="eayun-logical-network-example"><title>一个使用逻辑网络的典型示例</title>
+                          <para>
+                           这里假设用户已经有一个叫做“果园”的数据中心，包含一个叫做“桃树”的集群，此集群下有两台主机分别叫做“毛桃”和“油桃”，此二主机都使用默认的逻辑网络，ovirtmgmt,实现所有的网络功能。这时有一个需求，为了测试一个web站点，需要将此站点的虚拟机的网络和其它的隔离开来，于是，用户决定建立一个新的逻辑网络，名称都起好了，叫做“大道”。
+                          </para>
+                          <para>
+                           首先，用户在"果园“中定义此逻辑网络，并将之加入到“桃树”，这时将主机“毛桃”中所有运行的虚拟机迁移到“油桃”，然后将“毛桃”设置为维护模式，然后使用主机的网络设置向导，注意这里是html5实现的界面，将物理网卡加入到“大道”，保存，由于逻辑网络必须在所有的主机中都配置，所以此时，激活“毛桃”，将“油桃”中运行的虚拟机迁移到“毛桃”，重复上述步骤。
+                          </para>
+                          <para>
+                            这时，一个逻辑网络就算是创建完成，可供虚拟机使用了。
+                          </para>
+                      </example>
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_3-3">
-		     <title>网络的需求、可选的网络以及虚拟机的网络</title>
+		     <title>必须的网络、可选的网络以及虚拟机的网络</title>
 		       <para>
-                      
+                         必须的网络，顾名思义，集群内所有的主机必须有这个网络，而且是永远处于可操作状态。&OVIRT;默认的逻辑网络就是必须网络。
+		       </para>
+		       <para>
+                        假如必须网络处于了不可操作状态，和此网络相关的虚拟机会迁移到其他的主机上，这对于你有运行关键任务工作负载的机器是一个好的机制。
+		       </para>
+		       <para>
+                        可选的逻辑网络，没有必须的逻辑那么的关键，用户根据自己的实际情况而定，主要是分流的作用。
+		       </para>
+		       <para>
+                        使用“管理网络“按钮可以将某些网络指定为必须。
+		       </para>
+		       <para>
+                        虚拟机网络，是指定的仅承载虚拟机网络流量的逻辑网络，可以是必须的，也可以可选的。
 		       </para>
 	         </section>
 	</section>
@@ -325,58 +354,131 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                       
 		</para>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-1">
-		     <title>网络架构概述</title>
+		     <title>虚拟机的连通性</title>
 		       <para>
-                      
+                       在&OVIRT;虚拟化环境中，在虚拟机创建时，包含在逻辑网络中的虚拟网卡也会同时创建，所以虚拟机本身是可以和在此网络中的任何网络设备通信。 
 		       </para>
+		       <para>
+                     从主机的角度来看，当一个虚拟机在一个逻辑网络中，虚拟机的网卡，其后端的VNIC作为成员加入到桥接设备的逻辑网络。例如：如果一个虚拟机在ovirtmgmt的逻辑网络中，虚拟机运行所使用的VNIC必须是ovirtmgmt网桥的成员。 
+		       </para>
+ 
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-2">
-		     <title>虚拟机的连接</title>
+		     <title>端口镜像</title>
 		       <para>
-                      
+                        端口镜像是基于给定的逻辑网络和主机将复制3层的网络流量给虚拟机的虚拟网卡，虚拟机可基于此来实现调试、优化、入侵检查，并可以监控此主机和逻辑网络下所以其他虚拟机的网络。                
+      		       </para>
+		       <para>
+                       端口镜像仅可用于一台主机的一个逻辑网络中，虽然对于主机来说没有额外的网络流量，但是它会增加主机的CPU和内存的负载。 
+		       </para>
+		       <para>
+                       打开和关掉端口镜像的配置在编辑虚拟机的网卡中实现。另外端口镜像需要一个IPV4的地址。               
 		       </para>
 	         </section>
 	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-3">
-		     <title>端口镜像</title>
-		       <para>
-                      
-		       </para>
-	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-4">
 		     <title>主机网络配置</title>
 		       <para>
-                      
+                       在&OVIRT;中常见的主机网络配置有如下几种类型，后面会一一作分别介绍：
 		       </para>
+                       <itemizedlist>
+                           <listitem>
+                              <para>
+                            网桥和网卡的配置
+                              </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                              网桥、VLAN和网卡的配置
+                              </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                               网桥、Bond和VLAN的配置
+                              </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                              多网桥、多VLAN，网卡的配置
+                              </para>
+                           </listitem>
+                       </itemizedlist>
 	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-5">
+	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-4">
 		     <title>网桥配置</title>
 		       <para>
-                      
+                       在&OVIRT;环境中最简单的主机配置也就是网桥和网卡的配置，如<link linkend="eayunos-technical-reference-bridge-configuration" >图 4.3. 网桥、网卡的配置</link>显示，这个配置说明了主机的网卡通过一个网桥连接多个虚拟机。
 		       </para>
+                       <figure id="eayunos-technical-reference-bridge-configuration"><title>网桥、网卡的配置</title>
+		         <mediaobject>
+		 	    <imageobject>
+				<imagedata fileref="images/eayun_bridge_and_nic_configuration.png" format="PNG" scale="60"/>
+		       	    </imageobject>
+		         </mediaobject>
+                       </figure>
+                       <para>
+                        此典型的配置也是在安装&OVIRT;管理端程序默认建立的ovirtmgmt的配置，同样，当安装节点主机时，在VDSM初始化时亦会建立ovirtmgmt的网桥设备。ovirtmgmt首先完成的是主机节点和管理端程序的通信。
+                       </para>
 	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-6">
+	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-5">
 		     <title>VLAN配置</title>
 		       <para>
-                      
+                        <link linkend="eayunos-technical-reference-bridge-vlan-configuration">图4.4. 网桥、VLAN、网卡的配置</link>说明了，主机的网卡和网桥是如何连接到虚拟局域网（VLAN）的。 
 		       </para>
+                       <figure id="eayunos-technical-reference-bridge-vlan-configuration"><title>网桥、VLAN、网卡的配置</title>
+		         <mediaobject>
+		 	    <imageobject>
+				<imagedata fileref="images/eayun_bridge_vlan_and_nic_configuration.png" format="PNG" scale="60"/>
+		       	    </imageobject>
+		         </mediaobject>
+                       </figure>
+                       <para>
+                       VLAN可以实现数据传输的安全通道，也可以支持在只有一块物理网卡的情况下，是多个网桥设备连接到多个VLAN。
+                       </para>
 	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-7">
+	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-6">
 		     <title>网桥和Bond的配置</title>
 		       <para>
-                      
+                       <link linkend="eayunos-technical-reference-bridge-bond-configuration">图 4.5. 网桥、Bond、网卡的配置</link>说明了，将两块物理网卡绑定，实现网桥及网络功能。 
 		       </para>
+                       <figure id="eayunos-technical-reference-bridge-bond-configuration"><title>网桥、Bond、网卡的配置</title>
+		         <mediaobject>
+		 	    <imageobject>
+				<imagedata fileref="images/eayun_bridge_bond_nic_configuration.png" format="PNG" scale="60"/>
+		       	    </imageobject>
+		         </mediaobject>
+                       </figure>
+                       <para>
+                        Bond的作用是可以将多块物理网卡实现为一个逻辑上的一个链接，根据不同的bond模式，以实现诸如容错、带宽扩展等功能。
+                       </para>
 	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-8">
+	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-7">
 		     <title>多网桥、多VLAN，网卡的配置</title>
 		       <para>
-                      
+                        <link linkend="eayunos-technical-reference-mbridge-mvlan-configuration">图 4.6. 多网桥、多VLAN、网卡的配置</link>说明了，一个单网卡连接到两个VLAN的配置，假定用户的网络环境已经通过大标记的方式实现了两个VLAN，主机使用两个虚拟网卡分别对应不同的VLAN来实现分离网络的效果，虚拟网卡再配置网桥，而网桥可以支持多个虚拟机。 
 		       </para>
+                       <figure id="eayunos-technical-reference-mbridge-mvlan-configuration"><title>多网桥、多VLAN、网卡的配置</title>
+		         <mediaobject>
+		 	    <imageobject>
+				<imagedata fileref="images/eayun_mbridge_mvlan_and_nic_configuration.png" format="PNG" scale="60"/>
+		       	    </imageobject>
+		         </mediaobject>
+                       </figure>
 	         </section>
-	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-9">
+	         <section id="sect-Documents-technical-reference-guide-Chapter-network-arch-Section_4-8">
 		     <title>多网桥、多VLAN、bond的配置</title>
 		       <para>
-                      
+                        <link linkend="eayunos-technical-reference-mbridge-mvlan-mnic-bond-configuration">图 4.7. 多网桥、多VLAN、多网卡、Bond的配置</link>说明了,bond多块网卡连接到多个VLAN。
 		       </para>
+                       <figure id="eayunos-technical-reference-mbridge-mvlan-mnic-bond-configuration"><title>多网桥、多VLAN、多网卡、Bond的配置</title>
+		         <mediaobject>
+		 	    <imageobject>
+				<imagedata fileref="images/eayun_mbridge_mvlan_mnic_bond_configuration.png" format="PNG" scale="60"/>
+		       	    </imageobject>
+		         </mediaobject>
+                       </figure>
+                      <para>
+                       在此配置中，VLAN都是连接到多个网卡的Bond设备，每个VLAN连接到对应的网桥设备，而每个网桥会对应一个或多个虚拟机(guest)。
+                      </para>
 	         </section>
 	</section>
 
