@@ -6,35 +6,39 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-power-manager">
 	<title>电源管理和隔离</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_1">
 		<title>对电源管理和隔离技术的介绍</title>
 		<para>
-                      
+                 在&OVIRT;虚拟化环境中，设置了电源管理及fencing后，会使您的环境更具灵活和可用性。电源管理赋予了&OVIRT;管理程序控制主机电源的操作权限，尤其是在发现主机有问题时重启主机。fencing用来隔离出问题的主机，可以交给&OVIRT;管理程序去重新启动它们，已达到防止性能下降的功能，隔离的主机一旦恢复，则可重新加入到&OVIRT;虚拟化环境中。             
 		</para>
+                <para>
+                  电源管理和fencing技术使用特别的硬件，以独立于主机操作系统之外的方式重新启动主机，&OVIRT;使用IP地址或主机名连接到电源管理设备。在&OVIRT;环境上下文中，电源管理设备和Fening设备是等同的。
+                </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_2">
 		<title>&OVIRT;充当代理的电源管理</title>
-                   <para>Jboss Application Server 7.1</para>
+                   <para>&OVIRT;管理程序是不能和fence代理直接相通信的，取而代之的是，管理程序使用代理给主机的电源管理设备发送指令，管理程序是VDSM来执行电源管理设备的动作，所以其他主机需要使用fence代理 </para>
                     <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                    您可以从如下两种方式中选择代理主机：
                     </para>
-                    <important>
+                   
+                    <itemizedlist>
+                      <listitem>
                         <para>
-                           
+                      在同一集群中的任何主机来充当fencing     
                         </para>
-                    </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                      </listitem>
+                      <listitem>
+                        <para>
+                           在同一数据中心的任何主机来充当fencing
+                        </para>
+                      </listitem>
+                    </itemizedlist>
+                  <para>
+                   一个在运行或维护模式的fence代理主机均有效。
+                  </para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_3">
