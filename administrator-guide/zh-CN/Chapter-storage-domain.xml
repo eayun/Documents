@@ -797,13 +797,39 @@
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-4">
 	  <title>编辑资源</title>
 	  <para>
+		<!-- TODO -->
 	  </para>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-5">
 	  <title>激活存储域</title>
 	  <para>
+		如果相对数据中心的存储域做一些修改, 必须首先把该存储域置于维护模式, 然后再激活它.
 	  </para>
+	  <itemizedlist>
+		<listitem>
+		  <para>
+			1. 点击存储标签, 找到待激活的存储域
+		  </para>
+		</listitem>
+
+		<listitem>
+		  <para>
+			在存储域的详细信息面板上, 点击数据中心标签, 点击该存储域属于的数据中心.
+		  </para>
+		</listitem>
+
+		<listitem>
+		  <para>
+			点击"激活"
+		  </para>
+		</listitem>
+	  </itemizedlist>
+	  <important>
+		<para>
+		  如果待激活的存储域是一个 ISO 域, 但是该数据中心里没有活动中的数据域, 那么激活将会失败, 并会显示一个错误.
+		</para>
+	  </important>
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-6">
