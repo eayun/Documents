@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-V2V-guide-V2V-guide-references_Chapter">
+	<title>参考</title>
+	<para>
+	</para>
+	<section id="sect-V2V-guide-V2V-guide-references_Section_1">
+		<title>virt-v2v 参数参考</title>
+		<para>
+		</para>
+	</section>
+	
+	<section id="sect-V2V-guide-V2V-guide-references_Section_2">
+		<title>配置</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	        <section id="sect-V2V-guide-V2V-guide-references_Section_2-1">
+		    <title>配置linux虚拟机</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-V2V-guide-V2V-guide-references_Section_2-2">
+		    <title>配置windows虚拟机</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+
+</chapter>
+

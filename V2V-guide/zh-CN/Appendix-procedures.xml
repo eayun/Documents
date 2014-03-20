@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "V2V_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-V2V_Guide-appendix-appendix-procedures_Chapter">
+	<title>额外的过程</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-V2V_Guide-appendix-appendix-procedures_Chapter_Section_1">
+		<title>制作可启动的介质</title>
+		<para>
+		</para>
+	        <section id="sect-V2V_Guide-appendix-appendix-procedures_Chapter_Section_1-1">
+		    <title>制作P2V客户端的启动CD</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-V2V_Guide-appendix-appendix-procedures_Chapter_Section_1-2">
+		    <title>制作P2V客户端的启动USB</title>
+		     <para>
+		     </para>
+	        </section>
+	        <section id="sect-V2V_Guide-appendix-appendix-procedures_Chapter_Section_1-3">
+		    <title>制作PXE启动镜像</title>
+		     <para>
+		     </para>
+	        </section>
+	</section>
+	
+</appendix>
+

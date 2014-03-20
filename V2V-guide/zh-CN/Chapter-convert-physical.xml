@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-V2V-guide-V2V-guide-convert-physical_Chapter">
+	<title>将物理机器转换到虚拟机</title>
+	<para>
+		This is a test paragraph
+	</para>
+	<section id="sect-V2V-guide-V2V-guide-convert-physical_Section_1">
+		<title>服务器的配置需求</title>
+		<para>
+		</para>
+	</section>
+	
+	<section id="sect-V2V-guide-V2V-guide-convert-physical_Section_2">
+		<title>转换前的准备工作</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	        <section id="sect-V2V-guide-V2V-guide-convert-physical_Section_2-1">
+		        <title>在服务器上安装virt-v2v</title>
+		        <para>
+		        </para>
+	        </section>
+	        <section id="sect-V2V-guide-V2V-guide-convert-physical_Section_2-2">
+		        <title>激活root用户可以使用ssh服务</title>
+		        <para>
+		        </para>
+	        </section>
+	        <section id="sect-V2V-guide-V2V-guide-convert-physical_Section_2-3">
+		        <title>在virt-v2v.conf定义目标profile</title>
+		        <para>
+		        </para>
+	        </section>
+	        <section id="sect-V2V-guide-V2V-guide-convert-physical_Section_2-4">
+		        <title>创建可启动的livecd介质</title>
+		        <para>
+		        </para>
+	        </section>
+	</section>
+	<section id="sect-V2V-guide-V2V-guide-convert-physical_Section_3">
+		<title>转换物理机器到虚拟机</title>
+		<para>
+		</para>
+	</section>
+	<section id="sect-V2V-guide-V2V-guide-convert-physical_Section_4">
+		<title>在目标hypervisor中导入并运行转换后的虚拟机</title>
+		<para>
+		</para>
+	</section>
+
+</chapter>
+

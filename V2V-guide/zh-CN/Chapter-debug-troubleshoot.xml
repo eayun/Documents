@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-V2V-guide-V2V-guide-debug-troubleshoot_Chapter">
+	<title>调试和故障排查</title>
+	<para>
+	</para>
+	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_1">
+		<title>Debug v2v</title>
+		<para>
+		</para>
+	</section>
+	
+	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_2">
+		<title>Debug P2V</title>
+		<para>
+			This is a test paragraph in Section 2
+			<orderedlist>
+				<listitem>
+					<para>
+						This is a test listitem.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_3">
+		<title>在iscsi/scsi/mpath下已知的问题</title>
+		<para>
+		</para>
+	</section>
+
+</chapter>
+
