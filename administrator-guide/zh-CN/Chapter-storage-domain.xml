@@ -953,8 +953,44 @@
 	</section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-9">
-	  <title>添加存储域到数据中心</title>
+	  <title>添加导出域到数据中心</title>
 	  <para>
+		下面的步骤描述如何添加一个导出域到数据中心:
+	  </para>
+	  <procedure>
+		<title>添加导出域到数据中心</title>
+		<step>
+		  <para>
+			点击存储标签, 找到待添加的导出域
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			在存储域的详细信息面板上, 点击数据中心标签
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			点击"附加", 打开一个新窗口
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			选择要附加到的数据中心
+		  </para>
+		</step>
+
+		<step>
+		  <para>
+			点击确定, 附加该存储域
+		  </para>
+		</step>
+	  </procedure>
+	  <para>
+		操作结束后, 该导出域就从数据中心分离了, 可以加入到另一个数据中心中.
 	  </para>
 	</section>
   </section>
