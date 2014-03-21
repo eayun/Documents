@@ -4,30 +4,255 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-highavailabe">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实验六、高可用场景</title>
 	<section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_1">
-		<title>Test Section 1</title>
+		<title>实验目标</title>
 		<para>
-			This is a test paragraph in a section
+			本实验任务是配置和测试EayunOS虚拟化环境的可靠性。
 		</para>
-	</section>
-	
-	<section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
+		<para>实验要求：
+		</para>
+		<para>在开始实验之前，确保已经有一个正在使用的EayunOS虚拟化环境，同时为了成功的完成本实验，必须达到以下要求：
 			<orderedlist>
 				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
+					<para>EayunOS虚拟化环境中的所有主机都必须配置电源管理（本实验采用IPMI设备）。</para>
 				</listitem>
+                                <listitem>
+                                        <para>通过管理员门户访问系统和访问该环境下的主机。你讲指示如何启用远程登录模式访问你的主机。</para>
+                                </listitem>
 			</orderedlist>
 		</para>
-	</section>
+		<para>实验场景：
+                        <orderedlist>
+                                <listitem>
+                                        <para>主机重启。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>虚拟机中断。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>主机不可操作。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>主机无响应。</para>
+                                </listitem>
+                        </orderedlist>
 
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_2">
+		<title>配置电源管理</title>
+		<procedure><title>禁用集群策略</title>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，点击【系统】，点击【集群】，在集群的详细面板下选择集群（本实验使用的集群），点击【编辑】。</para>
+			</step>
+                        <step>
+                                <para>在左侧列表点击【集群策略】，如图：</para>
+				<para>
+					<figure id="eayunos-highavailabe-0"><title>图1</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/highavailabe-1.png" format="PNG" scale="100"/>
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</para>
+                        </step>
+                        <step>
+                                <para>“选择策略”项设置为None其它项保留默认设置，点击【确定】。</para>
+                        </step>
+		</procedure>
+		<procedure><title>为主机配置电源管理</title>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，点击【主机】（本实验使用集群下的主机），主机列表下显示所有可用的主机。</para>
+			</step>
+                        <step>
+                                <para>选择一主机，点击【编辑】，显示“编辑主机”对话框。</para>
+                        </step>
+                        <step>
+                                <para>选择“电源管理”列表，如图：</para>
+				<para>
+                                        <figure id="eayunos-highavailabe-1"><title>图2</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-2.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>					
+				</para>
+                                <para>勾选中“启用电源管理”，输入地址、用户名、密码及类型（本实验类型设置为ipmilan），点击【测试】，显示测试成功。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】，返回到主机列表下，注意到主机名称旁的叹号标记消失，表示主机电源管理已经成功配置。</para>
+                        </step>
+		</procedure>
+	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_3">
+                <title>配置虚拟机高可用</title>
+		<procedure>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【虚拟机】，在虚拟机列表下选择你想标记作为高可用的虚拟机，点击【编辑】。</para>
+			</step>
+                        <step>
+                                <para>在显示的“编辑虚拟机”对话框，选择“高可用性”，勾选中“高度可用的”，设置“运行/移植队列的优先级”为“高”，其它项保留默认设置。如图：</para>
+				<para>
+                                        <figure id="eayunos-highavailabe-2"><title>图3</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-3.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>			
+				</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】保存这些设置。重复这个过程对其他你想设置为高可用的虚拟机。</para>
+                        </step>
+		</procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_4">
+                <title>主机重启</title>
+                <procedure>
+                        <step>
+                                <para>可EayunOS虚拟化平台树形面板，选择【虚拟机】，在虚拟机列表下显示之前设置的那些高可用的虚拟机，如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-3"><title>图4</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-4.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+				<para>图中两个虚拟机创建在ovirthost1-pj.eayun这台主机上，该集群上还有另一台可用的主机为ovirt-host90.eayun.com。</para>
+                        </step>
+                        <step>
+                                <para>在树形面板，选择【主机】，在主机列表下显示可用的主机，选择虚拟机所在的主机（ovirthost1-pj.eayun），点击【电源管理】菜单下的【重启】如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-4"><title>图5</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-5.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                        <step>
+                                <para>显示“重启主机”对话框。点击【确定】，该主机状态由“Reboot->Non-Responsive”如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-5"><title>图6</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-6.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                        <step>
+                                <para>主机正在重启中，在树形面板，点击【虚拟机】，虚拟机列表下显示高可用的虚拟机在另一台主机上开始运行。如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-6"><title>图7</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-7.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+				<para>高可用的虚拟机自动重启，状态由“Down->Wait for launch->Powering Up”。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_5">
+                <title>虚拟机中断</title>
+                <procedure>
+                        <step>
+                                <para>模拟虚拟机崩溃，我们杀掉虚拟机进程。需要远程登录虚拟机所在的主机上。本实验使用的EayunOS 主机，默认可以ssh登录。</para>
+				<para>打开终端，运行ssh 主机，输入用户名和密码，连接到主机。</para>
+				<para>使用vdsClient工具，运行命令：</para>
+				<para>[root@ovirthost1-pj ~]# vdsClient -s 0 list table</para>
+				<para>该命令列出运行在该主机上的虚拟机的进程号、名称及状态如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-7"><title>图8</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-8.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                        <step>
+                                <para>在树形面板，选择【主机】，在主机列表下显示可用的主机，选择虚拟机所在的主机（ovirthost1-pj.eayun），点击【电源管理】菜单下的【重启】如图：</para>
+                                <para>kill这两个高可用的虚拟机，执行以下命令：</para>
+				<para>[root@ovirthost1-pj ~]# kill -9 15572</para>
+				<para>[root@ovirthost1-pj ~]# kill -9 15603</para>
+                        </step>
+                        <step>
+                                <para>在EayunOS虚拟化平台，虚拟机列表下看到这两个高可用的虚拟机自动重启，如图：</para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-8"><title>图9</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-9.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                                <para>
+                                        <figure id="eayunos-highavailabe-9"><title>图10</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/highavailabe-10.png" format="PNG" scale="100"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
+                                </para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_6">
+                <title>主机无响应</title>
+                <procedure>
+                                <para>主机无响应情况有两种：主机连接中断、主机重启（6.4节介绍）。</para>
+                                <para>主机连接中断：</para>
+			<step>
+				<para>
+					<orderedlist>
+						<listitem>
+							<para>在EayunOS虚拟化管理系统树形面板，点击【主机】，选择高可用虚拟机所在的主机（本实验选择ovirt-host90.eayun.com），点击该主机，显示该主机的详细面板，点击【网络接口】，查看网卡名字为eth1。</para>
+						</listitem>
+						<listitem>
+							<para>远程登录主机（ssh 主机ovirt-host90.eayun.com）并断开网络：执行命令：</para>
+							<para># ifdown eth1</para>
+						</listitem>
+						<listitem>
+							<para>在EayunOS虚拟化管理系统树形面板，点击【虚拟机】，在虚拟机列表下高可用虚拟机在另一台主机（本实验ovirthost1-pj.eayun）上重新启动起来，如图：</para>
+							<para>
+								<figure id="eayunos-highavailabe-10"><title>图11</title>
+									<mediaobject>
+										<imageobject>
+											<imagedata fileref="images/highavailabe-11.png" format="PNG" scale="100"/>
+										</imageobject>
+									</mediaobject>
+								</figure>
+							</para>
+						</listitem>
+						<listitem>
+							<para>回到EayunOS虚拟化管理系统树形面板，点击【主机】，在主机列表下可以看到，主机Reboot（ovirt-host90.eayun.com）。</para>
+						</listitem>
+					</orderedlist>
+				</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-highavailabe_Section_7">
+                <title>本章小结</title>
+                <para>
+                        你已经完成了高可用实验。在这个实验里，你成功的为主机配置电源管理及为虚拟机配置高可用。同时测试了在几种场景下虚拟机的高可用功能。
+                </para>
+	</section>
 </chapter>
 
