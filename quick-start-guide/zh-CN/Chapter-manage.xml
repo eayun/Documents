@@ -17,7 +17,7 @@
                       <figure id="eayunos-quick-start-manager"><title>创建虚拟机</title>
 		         <mediaobject>
 			  <imageobject>
-				<imagedata fileref="images/eayun_configure_manager.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_configure_manager.svg" format="SVG" scale="60"/>
 		          </imageobject>
 		         </mediaobject>
                       </figure>
@@ -328,7 +328,7 @@
                             <figure id="eayunos-quick-start-permissions"><title>赋予权限</title>
 		              <mediaobject>
 			        <imageobject>
-				  <imagedata fileref="images/eayun_Assign_Permissions.png" format="PNG" scale="50"/>
+				  <imagedata fileref="images/eayun_Assign_Permissions.svg" format="SVG" />
 		                </imageobject>
 		              </mediaobject>
                             </figure>
@@ -382,7 +382,7 @@
                             <figure id="eayunos-quick-start-login-user"><title>访问用户门户</title>
 		              <mediaobject>
 			        <imageobject>
-				  <imagedata fileref="images/eayun_login_to_userportal.png" format="PNG" scale="50"/>
+				  <imagedata fileref="images/eayun_login_to_userportal.svg" format="SVG" />
 		                </imageobject>
 		              </mediaobject>
                             </figure>

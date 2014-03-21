@@ -28,7 +28,7 @@
                 <figure id="eayunos-quick-start-install-eayunos-manager"><title>&OVIRT;存储架构组件图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_install_eayunos_manager.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_install_eayunos_manager.svg" format="SVG" />
 			</imageobject>
 		   </mediaobject>
                 </figure>
@@ -241,7 +241,7 @@ setup-20131219122349.log
                 <figure id="eayunos-quick-start-install-eayunos-hosts"><title>安装&OVIRT;hypervisor 主机</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_install_eayunos_hosts.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_install_eayunos_hosts.svg" format="SVG" />
 			</imageobject>
 		   </mediaobject>
                 </figure>
@@ -443,7 +443,7 @@ setup-20131219122349.log
                  <figure id="eayunos-quick-start-connect-eayunos-manager"><title>连接到&OVIRT;管理门户</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_connect_eayunOS-M.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_connect_eayunOS-M.svg" format="SVG" />
 			</imageobject>
 		   </mediaobject>
                  </figure>
@@ -484,7 +484,7 @@ setup-20131219122349.log
                  <figure id="eayunos-quick-start-eayunos-manager"><title>&OVIRT;管理门户</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_manager_gui_feature.png" format="PNG" scale="30"/>
+				<imagedata fileref="images/eayun_manager_gui_feature.png" format="PNG" scale="60"/>
 			</imageobject>
 		   </mediaobject>
                  </figure>

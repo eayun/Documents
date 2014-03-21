@@ -32,7 +32,7 @@
 		</para>
 		 <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_workflow_setup.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_workflow_setup.svg" format="SVG" />
 			</imageobject>
                         <textobject>
                                <phrase>eayunOS 安装配置工作流示意图</phrase>
