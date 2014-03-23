@@ -15,8 +15,52 @@
 	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-1">
 	  <title>&OVIRT;架构</title>
 	  <para>
+        &OVIRT;系统是由以下组件所组成的:
 	  </para>
+	  <itemizedlist>
+        <listitem>
+          <para>
+            用来运行虚拟机的<keycap>主机</keycap> 利用了 KVM 来提供虚拟化的功能.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <keycap>代理程序和工具</keycap> 包括 VDSM, QEMU 和 libvirt. 这些工具提供了对本地虚拟机, 网络, 存储等的管理.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <keycap>&OVIRT;虚拟化管理工具</keycap> 是 &OVIRT; 系统的管理平台. 它提供了一个图形化的管理界面, 方便用户来管理 &OVIRT; 系统
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <keycap>存储域</keycap> 用来存储虚拟机的镜像资源, 模板, 和 ISO 文件等.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <keycap>数据库</keycap> 用来保存系统的信息.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <keycap>外部目录服务器</keycap> 用来提供用户权限管理
+		  </para>
+        </listitem>
+		<listitem>
+          <para>
+            <keycap>外部目录服务器</keycap> 用来提供用户权限管理
+		  </para>
+        </listitem>
+		<listitem>
+          <para>
+            <keycap>网络管理</keycap> 管理整个环境的网络, 包括物理网卡的管理, 和逻辑网络的管理
+		  </para>
+        </listitem>
+	  </itemizedlist>
 	</section>
+
 	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-2">
 	  <title>&OVIRT;系统组件</title>
 	  <para>
