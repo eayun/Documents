@@ -156,29 +156,140 @@
 	</section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_3">
                 <title>安装EayunOS Hypervisor</title>
-                <para>
-                        <itemizedlist>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-
-                        </itemizedlist>
-                </para>
+		<procedure>
+		<step>
+                         <para>安装界面中选择“Install or Upgrade” 按“Enter”键，如图：</para>
+	         	 <para>
+				<figure id="eayunos-install-eayunos-manager-11"><title>&OVIRT;图12</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/eayunos-manager-12.png" format="PNG" scale="60"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+			 </para>
+		</step>
+		<step>
+                         <para>选择“Install Hypervisor 版本号 ” 按“Enter”键，如图：</para>
+                         <para>
+                                <figure id="eayunos-install-eayunos-manager-12"><title>&OVIRT;图13</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-13.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>选择“U.S.English”  按“Enter”键，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-13"><title>&OVIRT;图14</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-14.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>选择“Location Device Name  Size” 按“Continue”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-14"><title>&OVIRT;图15</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-15.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>在Storage Volumes 按“Continue”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-15"><title>&OVIRT;图16</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-16.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>输入Password及Confirm Password 按“Install”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-16"><title>&OVIRT;图17</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-17.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>等待安装，安装完成，按“Reboot”重启，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-17"><title>&OVIRT;图18</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-18.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>重启后进入Console界面，在Console界面下配置Network项，设置Hostname(本实验ovirt-host183.eayun.com)设置DNS Server 1(8.8.8.8)，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-18"><title>&OVIRT;图19</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-19.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>在Console界面下配置Security，选中“Enable SSH Password”设置admin用户的密码及确认密码，按“Save”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-19"><title>&OVIRT;图20</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-20.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>配置网卡IPv4 选择Static 、IP Address、Netmask、Gateway（本实验eth0网卡，192.168.3.183、255.255.252.0、192.168.0.1）按“save”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-20"><title>&OVIRT;图21</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-21.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>
+		<step>
+                         <para>在Console界面下配置oVirt Engine项，设置Management Server (192.168.3.123)，Management Server Port（这里设置80），设置通过界面添加Host的ssh密码及确认密码，按“Save Register”，如图：</para>
+                         <para>
+                                 <figure id="eayunos-install-eayunos-manager-21"><title>&OVIRT;图22</title>
+                                         <mediaobject>
+                                                 <imageobject>
+                                                         <imagedata fileref="images/eayunos-manager-22.png" format="PNG" scale="60"/>
+                                                 </imageobject>
+                                         </mediaobject>
+                                 </figure>
+                         </para>
+		</step>  
+                </procedure>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_4">
                 <title>连接到EayunOS虚拟化管理平台</title>
@@ -197,7 +308,7 @@
                                           <para>显示门户登录界面，输入用户名、密码及域（这里我们输入admin、abc123、internal），点击【登录】</para>
                                           <para>你已经成功登录了EayunOS虚拟化管理系统</para>
                                           <para>管理员门户图形界面如下图：</para>
-					  <figure id="eayunos-install-eayunos-manager-11"><title>&OVIRT;图12</title>
+					  <figure id="eayunos-install-eayunos-manager-24"><title>&OVIRT;图25</title>
 						<mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/web-0.png" format="PNG" scale="60"/>
@@ -221,7 +332,7 @@
                                           </listitem>
                                           <listitem>
                                           <para>提示配置电源管理，在这里可以设置也可以不设置，点击【继续】（OK），完成后主机状态从Non Operational->Up</para>
-                                          <figure id="eayunos-install-eayunos-manager-12"><title>&OVIRT;图13</title>
+                                          <figure id="eayunos-install-eayunos-manager-25"><title>&OVIRT;图26</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
@@ -245,7 +356,7 @@
                                           </listitem>
                                           <listitem>
                                           <para></para>
-                                          <figure id="eayunos-install-eayunos-manager-13"><title>&OVIRT;图13</title>
+                                          <figure id="eayunos-install-eayunos-manager-26"><title>&OVIRT;图27</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
@@ -269,7 +380,7 @@
 								</listitem>
                                                                 <listitem>
                                                                 <para>显示新建域对话框，如图： </para>
-								<figure id="eayunos-install-eayunos-manager-14"><title>&OVIRT;图15</title>
+								<figure id="eayunos-install-eayunos-manager-28"><title>&OVIRT;图28</title>
 									<mediaobject>
 										<imageobject>
 											<imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
@@ -312,7 +423,7 @@
 								</listitem>
                                                                 <listitem>
                                                                 <para>显示新建域对话框 如图：</para>
-                                                                <figure id="eayunos-install-eayunos-manager-15"><title>&OVIRT;图16</title>
+                                                                <figure id="eayunos-install-eayunos-manager-29"><title>&OVIRT;图29</title>
                                                                         <mediaobject>
                                                                                 <imageobject>
                                                                                         <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
@@ -335,7 +446,7 @@
                                                                                         </listitem>
                                                                                         <listitem>
                                                                                         <para>连接目标iSCSI存储，输入地址、端口号、用户认证，点击发现（Discover），iSCSI存储显示在列表里，选择存储后点击进入（Login）如图:</para>
-			                                                                <figure id="eayunos-install-eayunos-manager-16"><title>&OVIRT;图17</title>
+			                                                                <figure id="eayunos-install-eayunos-manager-30"><title>&OVIRT;图30</title>
 			                                                                        <mediaobject>
 			                                                                                <imageobject>
 			                                                                                        <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
