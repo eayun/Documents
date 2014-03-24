@@ -99,13 +99,72 @@ tar -jxvf backup
 	        <section id="sect-Documents-administrator-guide-Chapter-backup_Section_2-1">
 		     <title>配置全新环境</title>
 		      <para>
-                       
+                      <programlisting language="Bash">
+                       <![CDATA[
+#engine-setup --config-append=answerfile #加载原来生成的应答文件
+]]>
+                      </programlisting> 
 		      </para>
+                      <important>
+                       <para>
+                       一定要和原来的环境保持一致，比如目录路径、CA证书的颁发组织等
+                       </para>
+                      </important>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-backup_Section_2-2">
-		     <title>使用engine-backup恢复原来的环境</title>
-		      <para>
-		      </para>
+		     <title>恢复原来的环境</title>
+                     <procedure><title>手动恢复</title>
+                       <step>
+		         <para>
+                          <programlisting>
+                               <![CDATA[
+#su postgres
+$dropdb engine;
+]]>
+                          </programlisting> 
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          <programlisting>
+                               <![CDATA[
+#tar -jxvf backup 
+#cd files
+#mv /etc/pki/ovirt-engine/ /etc/pki/ovirt-engine.backup
+#cp -rvcpf pki/ovirt-engine/ /etc/pki/
+#mv /etc/httpd/conf.d/ conf.d.backup
+# cp -vrcpf httpd/conf.d/ /etc/httpd/
+#mv /etc/ovirt-engine ovirt-engine.backup
+#cp -vrcfp ovirt-engine /etc/
+]]>
+                          </programlisting> 
+                         
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          <programlisting>
+                               <![CDATA[
+#cd ../db
+#su postgres
+$createdb -U postgres engine;
+$psql engine -U postgres -c "ALTER ROLE postgres WITH ENCRYPTED PASSWORD '${DB_PASS}';" #DB_PASS是/etc/ovirt-engine/engine.conf.d/10-setup-database.conf中的数据库密码.
+]]>
+                          </programlisting> 
+                         
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          <programlisting>
+                               <![CDATA[
+#service ovirt-engine start
+]]>
+                          </programlisting> 
+                         
+		         </para>
+                       </step>
+                     </procedure>
                     <!-- TODO  have bugs.so i can't finish this step.-->
 	        </section>
 	        <!--<section id="sect-Documents-administrator-guide-Chapter-backup_Section_2-3">
