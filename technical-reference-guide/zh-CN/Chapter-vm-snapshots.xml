@@ -17,6 +17,34 @@
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_2">
 		<title>创建快照</title>
+                <figure id="eayunos-technical-reference-eayun_initial_snapshot_creation"><title>快照初始化</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_tech_initial_snapshot_creation.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                <figure id="eayunos-technical-reference-eayun_tech_additional_snapshot_creation"><title>额外的建立快照</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_tech_additional_snapshot_creation.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                <figure id="eayunos-technical-reference-eayun_tech_preview_snapshot"><title>预览快照</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_tech_preview_snapshot.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                <figure id="eayunos-technical-reference-eayun_tech_snapshot_delete"><title>删除快照的原理示意图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_tech_snapshot_delete.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
                    <para>Jboss Application Server 7.1</para>
                     <para>
                           Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>

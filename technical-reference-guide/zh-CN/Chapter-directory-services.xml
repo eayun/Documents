@@ -39,6 +39,13 @@
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-directory-services-Section_3">
 		<title>使用GSSAPI远程认证</title>
+                <figure id="eayunos-technical-reference-eayun_gssapi_authentication"><title>GSSAPI认证示意图</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/eayun_gssapi_authentication.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
 		<para>
                       
 		</para>
