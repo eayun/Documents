@@ -44,29 +44,152 @@
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_3">
 		<title>电源管理</title>
 		<para>
-                      
+                 &OVIRT;管理端可利用电源管理来完成两件事，1、将利用不足的主机关闭以达到省电的效果。2、将状态为不可操作或无响应的主机重启。但是前提是需要配置电源设备。&OVIRT;支持如下几种电源管理设备：
 		</para>
+                <itemizedlist mark="triangle">
+                    <listitem>
+                      <para>
+                      American Power Conversion (apc).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      IBM 刀片Bladecenter.
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Cisco Unified Computing System (cisco_ucs).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Dell Remote Access Card 5 (drac5).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Electronic Power Switch (eps).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Integrated Lights Out (ilo, ilo2, ilo3, ilo4).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Intelligent Platform Management Interface (ipmilan).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      Remote Supervisor Adapter (rsa).
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                     rsb.
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                       Western Telematic, Inc (wti).
+                      </para>
+                    </listitem>
+                </itemizedlist>
+                <note>
+                 <para>
+                   apc的代理脚本不支持APC5.x设备，请使用apc_snmp来替代。
+                 </para>
+                </note>
+                <para>
+                   &OVIRT;是通过fence agent这个程序来实现和上述的电源管理设备的通信，&OVIRT;管理端的图形界面可完成配置电源管理设备的基本工作，更高级的功能由于各家厂商不一样，需要根据厂商提供的信息来完成。&OVIRT;提供的基本操作：
+                </para>
+                <itemizedlist mark="triangle">
+                    <listitem>
+                      <para>
+                      状态：查看主机的电源状态
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                     启动：给主机加电
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      停止：关闭主机
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                      重新启动：重启主机，但实际上的实现是：关闭、状态、启动、状态的几次重复。
+                      </para>
+                    </listitem>
+                </itemizedlist>
+                <para>
+                 不过最常见的莫过于测试这项功能了，当你第一次配置的时候会使用，偶尔当您心存疑虑担心其是否正常工作时亦会经常使用。
+                </para>
+                <para>
+                 在整个&OVIRT;虚拟化的环境的所有主机中，电源管理起到了弹性的作用。Fencing agent可以被&OVIRT;管理端通过主机所操控，一旦发现有问题的主机，会将之隔离并尝试重启。即使是SPM角色的主机出了问题，管理端就会重新分配；如果设置了高可用，运行在出问题的主机上的虚拟机会被安全的转移到其他运行良好的主机上。
+                </para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_4">
 		<title>隔离</title>
 		<para>
-                      
+                 正如在上文中介绍的，隔离技术就是&OVIRT;管理端通过fence agent在为电源管理设备发送重启指令，电源管理设备无条件执行的过程。这样就可以为&OVIRT;集群拥有诸如：应对出故障的主机、节省电力、负载均衡、虚拟机高可用等提供了必要的技术保障。
 		</para>
+                <para>
+                 隔离技术还必须保障一个为SPM角色永远是可用的。一旦SPM的主机出问题，并被隔离，SPM必须马上被重新分配到运行良好的主机。因为在一个数据中心中，仅有一台主机为SPM角色，也只有它可以写入存储的元数据信息，如果出现了SPM主机无响应而又未被隔离（SPM就不会被分配到其它主机），那么就会出现不能创建虚拟机、不能销毁虚拟机、不能制作快照、不能做逻辑卷扩展，更准确点说就是所有需要操作写入元数据的动作都不可进行。
+                </para>
+                <para>
+                现在我们考虑一个假设没有隔离技术的场景：一台运行着虚拟机的主机没有响应了（不表示其宕机，也许仅仅是网络出现问题），运行在它上面的所有虚拟机这个时候也失去了响应，那么在存储中的所就会被释放，然后这些虚拟机就会尝试在第二台主机重新启动，这个时候会出现用户最不想看到的事情，那就是数据丢失。
+                </para>
+                <para>
+                 隔离技术容许&OVIRT;假设虚拟机磁盘的锁已经释放，&OVIRT;管理端从fence agent出确认出问题的机器已经重启，一旦确认，&OVIRT;管理端就会将原来运行在出问题的机器上的虚拟机在其它运行良好的机器上启动，而且不存在数据丢失现象（因为出问题的机器重启，原来的qemu-kvm进程也全部丢失。）。隔离技术也是虚拟机高可用最基础的组件。
+                </para>
+                <para>
+                 一般情况下，如果主机失去响应，&OVIRT;管理端会在做任何操作之前给它预留30秒的间隙期，如果30秒内仍然没有恢复，&OVIRT;会通过fence agent通知电源管理设备将此机器关闭，在确认关闭，然后启动，然后再确认是否真的启动，当主机启动完毕，会尝试重新加入原来的集群。如果问题由于重新启动而解决，&OVIRT;会将之设置为UP状态，这个时候它就可以继续在其上启动虚拟机了。
+                </para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_5">
-		<title>主机自我隔离</title>
+		<title>主机软隔离</title>
 		<para>
-                      
+                 在&OVIRT;环境中，有的时候并非主机本身出了问题，而有可能是VDSM的进程失去了响应，然而对于&OVIRT;来说，仍然是主机无响应，那么这个时候，如果采用上述隔离技术，代价稍有点大，那么&OVIRT;预料到了这样的情况，试图找出一个办法，仅仅是去重新启动VDSM进程，于是通过SSH实现主机软fencing。当主机失去响应时，首先尝试使用软的办法，如果无法解决，再采用上述fence agent告诉真正的电源管理设备来处理。
 		</para>
+                <para>
+                SSH 软的fencing的工作机制：首先在主机中必须配置和激活fencing,一台充当代理的主机（非本机、处于up状态并且在同一数据中心内），当管理端和这台主机失去联系时，会发生如下流程：首先，管理端会将这台主机的状态置为“正在连接”，然后会做下面两件事的其中一件：1、尝试发出询问VDSM三次，2、由主机的负载决定的等待时间间隔。等待的时间计算公式（可配置）：重置VDSM的超时秒数（默认是60秒） + 每个虚拟机的延迟秒数 (默认是0.5秒)*(主机中运行的虚拟机数量) + SPM的延迟描述（默认是20秒）* 1 (如果此主机是SPM的话) 或者 0 (如果此主机不是SPM的话)，做这些的目的就是为了给VDSM尽可能的多点时间，毕竟这个还比重启机器的代价要小的多，如果在这个时间内，VDSM仍然没有响应，SSH代理就会发出vdsm restart的指令，如果这个指令发出后，仍然没有生效，这个时候管理端就将此主机的状态置为没有响应，如果用户配置了电源管理设备，这个时候就开始工作了，否则，就视这台主机出了问题，需手动介入。
+                </para>
+                <note>
+                  <para>
+                  SSH 软fencing是可以工作在没有电源管理配置的主机上的，这和真正的fencing是有根本的不同：fencing必须是工作在配置了电源管理的主机上的。
+                  </para>
+               </note>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-power-manager-Section_6">
 		<title>使用多电源管理的隔离代理</title>
 		<para>
-                      
+                 为主机配置多个电源管理看起来也是必要的，因为不可避免，有的时候电源设备本身也会出问题。一旦电源管理关闭出问题的机器失败，在&OVIRT;管理端就会将这台主机永远的置为无响应，除非人工介入。如果有了多电源，那么即使第一个失败了，剩下的仍可完成工作。    
 		</para>
+                <para>
+                 在&OVIRT;中，定义两个电源管理设备，有并行和顺序两种方式可供选择：
+                </para>
+                <itemizedlist>
+                      <listitem>
+                        <para>
+                            并行：主和次的设备会同时响应关闭指令，无论是那个设备接受到启动指令，机器都会去启动。
+                        </para>
+                     </listitem>
+                      <listitem>
+                        <para>
+                           顺序：无论是关闭还是启动主机，主设备是优先生效的，除非它失败，次要设备才接受指令（相当于足球运动中的替补球员）。
+                        </para>
+                     </listitem>
+                </itemizedlist>
 	</section>
 
 </chapter>
