@@ -37,123 +37,149 @@
              		</itemizedlist>
 		</para>
 	</section>
-	<section id="sect-Documents-evaluation-guide-Chapter_installation-Section_2">
-		<title>安装EayunOS虚拟化管理平台</title>
-		<para>
-			<itemizedlist>
-					<listitem>
-					<para>安装EayunOS管理节点操作系统，流程如下:</para>
-					<para>图1，选中【install or upgrade an existing sustem】,按Enter</para>
-			                <figure id="eayunos-install-eayunos-manager-0"><title>&OVIRT;图1</title>
-						<mediaobject>
-							<imageobject>
-			                                	<imagedata fileref="images/eayunos-manager-1.png" format="PNG" scale="60"/>
-                       				 	</imageobject>
-                   				</mediaobject>
-                			</figure>
-                                        <para>图2，准备开始安装，等待</para>
-                                        <figure id="eayunos-install-eayunos-manager-1"><title>&OVIRT;图2</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>
-                                        <para>图3，输入密码及确认密码</para>
-                                        <figure id="eayunos-install-eayunos-manager-2"><title>&OVIRT;图3</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>
-                                        <para>图4，选中【Use All Space】，按下一步</para>
-                                        <figure id="eayunos-install-eayunos-manager-3"><title>&OVIRT;图4</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>
-                                        <para>图5，系统进入格式化中，等待</para>
-                                        <figure id="eayunos-install-eayunos-manager-4"><title>&OVIRT;图5</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>
-                                        <para>图6，开始安装操作系统</para>
-                                        <figure id="eayunos-install-eayunos-manager-5"><title>&OVIRT;图6</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>
-                                        <para>图7，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
-                                        <figure id="eayunos-install-eayunos-manager-6"><title>&OVIRT;图7</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                        </figure>                        
-					</listitem>
-                                        <listitem>
-                                        <para>初始化配置
-						<itemizedlist>
-								<listitem>
-									<para>配置静态ip</para>
-								</listitem>
-                                                                <listitem>
-                                                                        <para>修改/etc/reslov.conf文件内容如下:</para>
-									<para>  ;generated by /sbin/dhclient-script nameserver 219.234.181.239 </para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                        <para>修改主机名同时修改本地Hosts文件 vi /etc/hosts 添加ip name.eayunos.com </para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                        <para>运行命令 engine-setup</para>
-									<para>图8，提示是否在本机配置VDSM，此项设为Yes</para>
-				                                        <figure id="eayunos-install-eayunos-manager-7"><title>&OVIRT;图8</title>
-				                                                <mediaobject>
-				                                                        <imageobject>
-				                                                                <imagedata fileref="images/eayunos-manager-8.png" format="PNG" scale="60"/>
-				                                                        </imageobject>
-				                                                </mediaobject>
-				                                        </figure>
-                                                                        <para>图9，按如图所示配置其它项</para>
-                                                                        <figure id="eayunos-install-eayunos-manager-8"><title>&OVIRT;图9</title>
-                                                                                <mediaobject>
-                                                                                        <imageobject>
-                                                                                                <imagedata fileref="images/eayunos-manager-9.png" format="PNG" scale="60"/>
-                                                                                        </imageobject>
-                                                                                </mediaobject>
-                                                                        </figure>
-                                                                        <para>图10，配置完成后，显示所有之前配置项，确认配置</para>
-                                                                        <figure id="eayunos-install-eayunos-manager-9"><title>&OVIRT;图10</title>
-                                                                                <mediaobject>
-                                                                                        <imageobject>
-                                                                                                <imagedata fileref="images/eayunos-manager-10.png" format="PNG" scale="60"/>
-                                                                                        </imageobject>
-                                                                                </mediaobject>
-                                                                        </figure>
-                                                                        <para>图11，显示配置成功完成</para>
-                                                                        <figure id="eayunos-install-eayunos-manager-10"><title>&OVIRT;图11</title>
-                                                                                <mediaobject>
-                                                                                        <imageobject>
-                                                                                                <imagedata fileref="images/eayunos-manager-11.png" format="PNG" scale="60"/>
-                                                                                        </imageobject>
-                                                                                </mediaobject>
-                                                                        </figure>
-                                                                </listitem>
-						</itemizedlist>
-					</para>
-					</listitem>
-		       </itemizedlist>
-                </para>		
-	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_2">
+                <title>安装EayunOS虚拟化管理平台</title>
+                <procedure>
+                <step>
+                        <para>安装EayunOS管理节点操作系统，流程如下：</para>
+                        <para>图中，选中【install or upgrade an existing system】，按Enter</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-0"><title>图1</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-1.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>准备开始安装，等待</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-1"><title>图2</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>图中，输入密码及确认密码</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-2"><title>图3</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>图中，选中【Use All Space】，按“下一步”</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-3"><title>图4</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>图中，系统进入格式化中，等待</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-4"><title>图5</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>开始安装操作系统</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-5"><title>图6</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>图中，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
+                        <para>
+                                <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="100"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                </step>
+                <step>
+                        <para>初始化配置</para>
+                        <orderedlist>
+                                <listitem>
+                                        <para>
+                                                配置静态ip
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                修改/etc/reslov.conf，添加nameserver 219.234.181.239
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                修改主机名同时修改本地Hosts文件 vi /etc/hosts 添加ip name.eayunos.com
+                                        </para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                运行命令 engine-setup
+                                        </para>
+                                        <para>图中，提示是否在本机配置VDSM，此项设为Yes</para>
+                                        <para>
+                                                <figure id="eayunos-install-eayunos-manager-7"><title>图8</title>
+                                                        <mediaobject>
+                                                                <imageobject>
+                                                                        <imagedata fileref="images/eayunos-manager-8.png" format="PNG" scale="100"/>
+                                                                </imageobject>
+                                                        </mediaobject>
+                                                </figure>
+                                        </para>
+                                        <para>按如图所示配置其它项</para>
+                                        <para>
+                                                <figure id="eayunos-install-eayunos-manager-8"><title>图9</title>
+                                                        <mediaobject>
+                                                                <imageobject>
+                                                                        <imagedata fileref="images/eayunos-manager-9.png" format="PNG" scale="100"/>
+                                                                </imageobject>
+                                                        </mediaobject>
+                                                </figure>
+                                        </para>
+                                        <para>配置完成后，显示所有之前配置项，确认配置</para>
+                                        <para>
+                                                <figure id="eayunos-install-eayunos-manager-9"><title>图10</title>
+                                                        <mediaobject>
+                                                                <imageobject>
+                                                                        <imagedata fileref="images/eayunos-manager-10.png" format="PNG" scale="100"/>
+                                                                </imageobject>
+                                                        </mediaobject>
+                                                </figure>
+                                        </para>
+                                        <para>显示配置成功完成</para>
+                                        <para>
+                                                <figure id="eayunos-install-eayunos-manager-10"><title>图11</title>
+                                                        <mediaobject>
+                                                                <imageobject>
+                                                                        <imagedata fileref="images/eayunos-manager-11.png" format="PNG" scale="100"/>
+                                                                </imageobject>
+                                                        </mediaobject>
+                                                </figure>
+                                        </para>
+                                </listitem>
+                        </orderedlist>
+                </step>
+                </procedure>
+        </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_3">
                 <title>安装EayunOS Hypervisor</title>
 		<procedure>
