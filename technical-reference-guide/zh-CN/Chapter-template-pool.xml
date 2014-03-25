@@ -6,42 +6,45 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-template-pool">
 	<title>模板和池</title>
 	<para>
-		This is a test paragraph
+          &OVIRT;为系统管理员提供了方便、快捷的部署虚拟机工具，就是模板和虚拟机池。
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_1">
 		<title>模板和虚拟机池</title>
 		<para>
-                      
+                   所谓的模板就是基于已经安装了操作系统并已经配置的虚拟机快速的建立更多的虚拟机，类似于使用虚拟器件，例如：用户将虚拟机用于提供web服务，加入用户的所在的机构大量使用类似的web服务，那么管理员只需要一次性的建立虚拟机、安装操作系统、配置，然后做成模板，以后随时据此模板创建虚拟机的周期将大大的缩短。
 		</para>
+                <para>
+                 虚拟机池是一组基于指定的模板创建的虚拟机，可用于快速的分发给最终用户。为虚拟机池里的虚拟机授权，直接为池授权即可，用户一旦被赋予了访问池，则池里的任意虚拟机用户就可以访问。因为有池的概念，所以用户访问池里的虚拟机是随机性较强的，如果用户有需要保存的数据，那么是不适宜使用池的。所以虚拟机池适用的场景是用户的数据是放在其他地方的，或者干脆就不在乎数据的情形下。在创建完成虚拟机池后，虚拟机默认都是处于关闭状态的，如果用户有请求，则分配并启动。 
+                </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_2">
 		<title>模板</title>
-                   <para>Jboss Application Server 7.1</para>
+                   <para>
+                    创建模板，其实就是创建并定制虚拟机。安装完应有的软件包、定制化的配置完毕，此时虚拟机要尽可能考虑到怎么样才能变化最小。我们建议用户，制作模板时，尽可能的做到通用，何为通用？也就说去掉个性化的内容，诸如建立用户、根用户密码、时区、网络IP地址、主机名等配置，当基于此模板启动时，可以将这些信息再写入，例如<trademark>windows</trademark>使用sys-prep,Redhat系列使用sysunconfig实现个性化内容的配置。
+                   </para>
                     <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                     当虚拟机配置完成，也符合上述通用的特性，那么将之关闭，从&OVIRT;管理端将之制作成模板。制作模板的过程是将原来虚拟机的镜像复制一份，然后将之设置为只读模式。这个只读的镜像文件也将会是以后所有虚拟机的backing镜像，换句话说，模板本质上是一个可以定制外围硬件配置的只读镜像。虚拟机的硬件配置是可变换的，磁盘除外（因为这个最花时间），比如模板的内容是1GB，用户可以调整为想要的，但是磁盘的大小是固定的。
                     </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                    <para>
+                      一旦模板创建成功，它便可派生很多的虚拟机。基于模板的虚拟机磁盘可以有两种方式选择，1、精简置备 2、克隆。克隆的方式，就是将只读的模板镜像复制一份，虚拟机可写、可操作，而精简置备就是以模板镜像为backing镜像，只保留和模板不一样的数据。（前提条件是他们处于同一存储域中）     
+                    </para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-template-pool-Section_3">
 		<title>池</title>
 		<para>
-                      
+                  虚拟机池可以快速的将同质的虚拟机赋予给批量用户。用户一旦被赋予权限可以访问虚拟机池后，那么他就会被顺序的分配一台虚拟机。池里的虚拟机是不保留数据的，每次虚拟机回收后，都会将状态重置为制作为模板的状态。    
 		</para>
+		<para>
+                 虚拟机池是基于模板创建的。池里所有的虚拟机都基于只读的镜像，动态的数据存放在复制时写入的镜像中，不同于其他方式的镜像，这个镜像会在虚拟机回收是删除。     
+		</para>
+                <example><title>虚拟机池使用场景</title>
+		  <para>
+                    在学校的机房中，一般情况是一个年级分几个班，上课按照班级来上，假设这个年级共有50人，每个班25人，老师只需要创建一个25个虚拟机的池即可，轮流使用，每个学生可以将自己的数据存放在别处。这样解决资源紧张和维护的问题。  
+		  </para>
+                       
+                </example>
 	</section>
 
 
