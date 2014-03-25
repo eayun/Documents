@@ -6,20 +6,41 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-harddirver-devices">
 	<title>硬件驱动和设备</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_1">
 		<title>虚拟硬件</title>
 		<para>
-                      
+                 &OVIRT;为客户操作系统提供了三种不同的设备类型，事实上是根据设备驱动的工作方式不同而区分的。     
 		</para>
+                <variablelist>
+                  <varlistentry><term><filename>模拟设备</filename></term>
+                         <listitem>
+                            <para>
+                              模拟设备，有时候也称之为虚拟设备，因为是纯粹软件实现的硬件设备。
+                            </para>
+                         </listitem>
+                  </varlistentry>
+                  <varlistentry><term><filename>半虚拟化设备</filename></term>
+                         <listitem>
+                            <para>
+                            半虚拟化的设备需要在客户操作系统中安装必要的驱动来实现和宿主机hypervisor的通信。
+                            </para>
+                         </listitem>
+                  </varlistentry>
+                  <varlistentry><term><filename>物理设备分享</filename></term>
+                         <listitem>
+                            <para>
+                             更多的称呼是：穿透技术，也就是将虚拟机可以直接访问物理硬件设备。
+                            </para>
+                         </listitem>
+                  </varlistentry>
+                </variablelist>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_2">
 		<title>可用的硬件设备地址</title>
                    <para>Jboss Application Server 7.1</para>
                     <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
                     </para>
                     <important>
                         <para>
@@ -27,7 +48,6 @@
                         </para>
                     </important>
 		<para>
-	             目录服务	
 			<orderedlist>
 				<listitem>
 					<para>

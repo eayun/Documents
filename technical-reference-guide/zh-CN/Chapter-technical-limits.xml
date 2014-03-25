@@ -6,73 +6,549 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-technical-limits">
 	<title>技术局限性</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_1">
 		<title>最小需求及支持的有限性</title>
 		<para>
-                      
+                  &OVIRT;有一些物理和逻辑上限制，正如所有的事物一样，我们还不够完善，虽然这是我们最终追求的目标。基于此，不能满足&OVIRT;虚拟化环境的是不被支持的。
 		</para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_2">
 		<title>数据中心局限</title>
-                   <para>Jboss Application Server 7.1</para>
                     <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                     前文提过，在&OVIRT;环境中，数据中心是最高级别的资源管理容器，下面表格描述了它的一些限制条件：
                     </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                   <table id="References_EayunOS_data-center-limited_table">
+                          <title>&OVIRT;数据中心限制条件</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                         项
+                                         </entry> 
+                                         <entry>
+                                         具体限制
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                          最低存储域数量
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist>
+                                                 <listitem>
+                                                    <para>
+                                                      存储域至少要有两个，一个数据域，一个ISO域.
+                                                    </para>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                         支持的主机数量
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist>
+                                                 <listitem>
+                                                    <para>
+                                                     &OVIRT;建议最大不要超过200台主机在同一个数据中心
+                                                    </para>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                             </tbody>
+                         </tgroup>
+                 </table>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_3">
 		<title>集群的局限</title>
 		<para>
-                      
+                 集群是主机的集合，也为虚拟机提供一个资源池的概念。处在同一集群中的主机共享网络、存储等资源，一个集群也是虚拟机从一个主机迁移到另外的主机的范围，但是&OVIRT;集群有以下限制条件：     
 		</para>
+                <itemizedlist>
+                     <listitem>
+                       <para>
+                         所有的主机必须是同一集群中。
+                       </para>
+                     </listitem>        
+                     <listitem>
+                       <para>
+                        在同一集群中的主机必须用于一样的CPU型号，且<acronym>Intel</acronym>和<acronym>AMD</acronym> 的主机是不能在一个集群中共存的。
+                       </para>
+                     </listitem>        
+               </itemizedlist>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_4">
 		<title>存储域的局限</title>
 		<para>
-                      
+                  存储域为虚拟机磁盘、ISO镜像、导入/导出虚拟机等提供存储空间，当在同一数据中心中建立多个存储域时，&OVIRT;有以下限制 
 		</para>
+                   <table id="References_EayunOS_storage-domain-limited_table">
+                          <title>&OVIRT;存储域限制条件</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                         项
+                                         </entry> 
+                                         <entry>
+                                         具体限制
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                          存储域类型
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist mark="bullet">
+                                                 <listitem>
+                                                    <para>
+                                                     支持的存储类型有：   
+                                                    </para>
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                             光纤通道协议（FCP）
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             互联小型系统接口(iSCSI)
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                            网络文件系统(NFS)
+                                                          </para>
+                                                        </listitem>
+                                                     </itemizedlist>
+                                                 </listitem>
+                                                 <listitem>
+                                                    <para>
+                                                     数据存储域的类型必须和数据中心的类型一致，
+                                                    </para>
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                           存储域必须是FCP,ISCSI，NFS三者之间的一种。
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                            ISO域和导出域必须是NFS。
+                                                          </para>
+                                                        </listitem>
+                                                     </itemizedlist>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                         逻辑单元数字（LUNs）
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist>
+                                                 <listitem>
+                                                    <para>
+                                                     无论是FCP还是ISCSI,提供的LUNs不要超过300。
+                                                    </para>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                         逻辑卷（LVS）
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist mark="bullet">
+                                                 <listitem>
+                                                    <para>
+                                                    在&OVIRT;虚拟化环境中，逻辑卷可为虚拟机、模板、快照等提供虚拟磁盘。
+                                                    </para>
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                            无论是FCP还是ISCSI,所提供的每个存储域，在其上建立的逻辑卷不要超过350个，如果硬性需求，可以考虑分为多个存储域。
+                                                          </para>
+                                                        </listitem>
+                                                      </itemizedlist>
+                                                    <para>
+                                                     这个限制主要是由于LVM的元数据引起的，随着逻辑卷的增加，LVM的元数据也在随着增加，当元数据超过1MB的时候，会出现性能问题，诸如创建磁盘、删除快照、以及逻辑卷扩展都会等待非常长的时间。
+                                                    </para>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                             </tbody>
+                         </tgroup>
+                 </table>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_5">
 		<title>&OVIRT;管理端的局限</title>
 		<para>
-                      
+                  &OVIRT;对于硬件的要求如下表： 
 		</para>
+                   <table id="References_EayunOS_manger-limited_table">
+                          <title>&OVIRT;管理端限制条件</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                         项
+                                         </entry> 
+                                         <entry>
+                                         具体限制
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                          内存
+                                         </entry> 
+                                         <entry>
+                                           最少3GB
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                         网卡
+                                         </entry> 
+                                         <entry>
+                                          至少一块千兆网卡
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          存储
+                                         </entry> 
+                                         <entry>
+                                          最少保留本地存储拥有10GB的空间
+                                         </entry> 
+                                   </row>
+                             </tbody>
+                           </tgroup>
+                  </table>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_6">
 		<title>hypervisor的硬性需求</title>
 		<para>
-                      
+                 &OVIRT; Hypervisor对硬件要求及支持的局限列表如下：     
 		</para>
+                   <table id="References_EayunOS_hypervisor-limited_table">
+                          <title>&OVIRT; hypervisor限制条件</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                         项
+                                         </entry> 
+                                         <entry>
+                                         具体限制
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                         CPU 
+                                         </entry> 
+                                         <entry>
+                                          <itemizedlist mark="bullet">
+                                                 <listitem>
+                                                    <para>
+                                                     至少一颗如下列表中的CPU类型：   
+                                                    </para>
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                          AMD Opteron G1   
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             AMD Opteron G2
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             AMD Opteron G3
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             AMD Opteron G4
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             AMD Opteron G5
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             Intel Conroe
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             Intel Penryn
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                             Intel Nehalem
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                            Intel Westmere
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                           Intel Haswell
+                                                          </para>
+                                                        </listitem>
+                                                     </itemizedlist>
+                                                   <para>
+                                                   <acronym>CPU</acronym>必须是支持 <trademark class='registered'>Intel</trademark>64 和AMD64，且<trademark class='trade'>AMD-V</trademark>或<trademark class='registered'>Intel-VT</trademark>的虚拟化扩展打开，并确认NX指令集是必须的。
+                                                   </para>
+                                                 </listitem>
+                                          </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          内存
+                                         </entry> 
+                                         <entry>
+                                         <itemizedlist>
+                                            <listitem>
+                                             <para>
+                                              安装hypervisor本身需要的内存最低需要2G.
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para> 
+                                                  额外的内存需求取决于虚拟机本身的需求：
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                           客户操作系统的需求。
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                           客户机的应用程序的需求
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                           内存的活跃情况等
+                                                          </para>
+                                                        </listitem>
+                                                     </itemizedlist>
+                                                 </para>
+                                             </listitem>
+                                            <listitem>
+                                             <para>
+                                              另外KVM还支持虚拟机内存的过量使用。
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                             <para>
+                                             最大支持内存为2TB
+                                             </para>
+                                            </listitem>
+                                         </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                         网卡
+                                         </entry> 
+                                         <entry>
+                                          至少一块千兆网卡
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          存储
+                                         </entry> 
+                                         <entry>
+                                          仅本地存储而言，hypervisor的最小要求列表如下： 
+                                         <itemizedlist>
+                                            <listitem>
+                                             <para>
+                                             根分区至少需要512MB  
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                             <para>
+                                              配置分区至少需要8MB
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                             <para>
+                                              日志分区至少保留2GB
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                             <para>
+                                              数据分区至少需要256MB，此分区主要用于从&OVIRT;管理端升级hypervisor是使用。
+                                             </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para> 
+                                                    交换分区至少需要8MB，但是由于&OVIRT;支持内存过量使用，所以这里建议您根据实际情况来划分，下面是一些典型场景的计算公式：（默认的过量使用率是50%）
+                                                     <itemizedlist mark="box">
+                                                        <listitem>
+                                                          <para>
+                                                           按预期的过量使用比例乘以系统的内存实际大小。
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                           如果有4GB的内存，则交换分区为2GB
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                           如果内存在4到16GB之间，那么交换分区为4GB.
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                          如果内存在16到64GB之间，则交换分区为8GB.
+                                                          </para>
+                                                        </listitem>
+                                                        <listitem>
+                                                          <para>
+                                                          如果内存在64到256GB之间，交换分区则设置为16GB.
+                                                          </para>
+                                                        </listitem>
+                                                     </itemizedlist>
+                                                     <example><title>计算交换分区示例 </title>
+                                                        <para>如果系统拥有8GB的内容，则计算公式如下：</para>
+                                                        <programlisting>
+                                                         <![CDATA[
+ (8 GB x 0.5) + 4 GB = 8 GB
+]]>
+                                                        </programlisting>
+                                                     </example>
+                                                 </para>
+                                             </listitem>
+                                         </itemizedlist>
+                                          这里需要重申的是请使用hypervisor默认的分区方案。                                         
+                                         </entry> 
+                                   </row>
+                             </tbody>
+                           </tgroup>
+                  </table>
+                 <important>
+                  <para>
+	           &OVIRT; hypervisor不支持 fackraid 设备。此时用户需要重新配置物理机器，不能再使用此RAID模式：
+                  </para>
+                   <orderedlist>
+                       <listitem>
+                        <para>进入BIOS的RADI控制界面，删除所有的逻辑磁盘。</para>
+                       </listitem>
+                       <listitem>
+                        <para>设置控制器模式为非RADI模式。</para>
+                       </listitem>
+                   </orderedlist>
+                  <para>更进一步的操作请联系您的物理服务器厂商。</para>
+                </important>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_7">
 		<title>客户机的硬性需求及支持的局限</title>
 		<para>
-                      
+                    如下列表是客户机的需求和支持的局限： 
 		</para>
+                   <table id="References_EayunOS_guest-limited_table">
+                          <title>&OVIRT; hypervisor限制条件</title>
+                          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                             <thead>
+                                   <row>
+                                         <entry>
+                                         项
+                                         </entry> 
+                                         <entry>
+                                         具体限制
+                                         </entry> 
+                                   </row>
+                             </thead>
+                             <tbody>
+                                   <row>
+                                         <entry>
+                                          CPU
+                                         </entry> 
+                                         <entry>
+                                          每个客户机最多支持160个虚拟CPU。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          内存
+                                         </entry> 
+                                         <entry>
+                                          不同的客户机对内存的要求是不同的。主要取决于所安装的操作系统。以下是提醒：
+                                            <itemizedlist>
+                                                  <listitem>
+                                                      <para>
+                                                       最小的512MB的虚拟内存是支持的。
+                                                      </para>
+                                                  </listitem> 
+                                                  <listitem>
+                                                      <para>
+                                                      如果客户机是64位的，最大可支持512GB的虚拟内存分配。
+                                                      </para>
+                                                  </listitem> 
+                                                  <listitem>
+                                                      <para>
+                                                      如果客户机是32位的，有以下几种情况：1、最大支持到4GB，一般情况。2、打开PAE(内存页扩展)可支持到32GB.
+                                                      </para>
+                                                  </listitem> 
+                                            </itemizedlist>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          PCI 设备
+                                         </entry> 
+                                         <entry>
+                                          最多支持31个PCI设备，有些强制性的设备是不计入此数字的，例如PCI host bridge, ISA bridge, USB bridge, board bridge, graphics card, and the IDE or VirtIO block device.
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          存储设备
+                                         </entry> 
+                                         <entry>
+                                          最多支持28个，包括3个IDE设备和25个VirtIO设备。
+                                         </entry> 
+                                   </row>
+                          </tbody>
+                       </tgroup> 
+                 </table>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-technical-limits-Section_8">
 		<title>SPICE的局限</title>
 		<para>
-                      
+                   当前SPICE支持的最大分辨率是2560x1600像素。  
 		</para>
 	</section>
 </chapter>
