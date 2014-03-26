@@ -5,40 +5,54 @@
 ]>
 <chapter id="chap-Documents-technical-reference-guide-Chapter-directory-services">
 	<title>目录服务</title>
-	<para>
-		This is a test paragraph
-	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-directory-services-Section_1">
 		<title>目录服务介绍</title>
-		<para>
-                      
-		</para>
+	       <para>
+          &OVIRT;对于用户的认证和授权是使用目录服务。所有用于交互的接口：管理员门户、用户门户、特权用户门户以及REST应用程序接口本身是没有任何的认证和授权机制的。当然，&OVIRT;也支持客户操作系统使用目录服务，从而统一实现了单点认证。目前支持的目录服务有：Identity Management (IdM), Red Hat Directory Server 9 (RHDS), Active Directory (AD), and OpenLDAP.&OVIRT;管理端使用目录服务主要实现了以下三个目的：
+	    </para>
+            <itemizedlist>
+                  <listitem>
+                     <para>
+                      登录系统（管理员门户、用户门户、特权用户门户、REST应用程序接口）
+                     </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                       查询并显示用户的信息。
+                     </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                      将管理端加入域
+                     </para>
+                  </listitem>
+             </itemizedlist>
+	    <para>
+           认证就是验证和鉴定所生成数据的部分，并且会确定生成数据的完整性。主要是对身份进行验证。
+	    </para>
+	    <para>
+            保密和授权和认证亦密切相关。
+	   </para>
+	   <para>
+           在初始配置过程中，&OVIRT;默认会设置一名内部域的超级用户（管理员），额外的目录服务，需要在配置完成，&OVIRT;管理端启动后加入。           
+	   </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-directory-services-Section_2">
 		<title>本地认证：内部域</title>
-                   <para>Jboss Application Server 7.1</para>
                     <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                     &OVIRT;管理端在初始化配置时会自动创建一个受限的称之为内部的管理域，即internal。此域不用于目录服务如AD，IdM等，它是将数据以字段的方式存储在postgresql数据库中的。内部域不同于目录服务的域的另外一个特征是，它仅拥有一个用户：admin@internal。因为它是管理员，所以可以做任何事情，包括将目录服务加入到&OVIRT;环境中，当出现问题时也需要它来跟踪、调试。
                     </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
 		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
+                   用户admin@internal在初始配置&OVIRT;管理起着非常重要的作用，比如，添加/批准主机加入、外部目录服务AD等的加入、删除/赋予用户权限等。
 		</para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-directory-services-Section_3">
 		<title>使用GSSAPI远程认证</title>
+		<para>
+                  上文提到，&OVIRT;管理端对于认证是通过远程的目录服务来完成的，前提是使用engine-manage-domains这个程序将AD/IdM/RHDS等目录服务地址等信息加入到&OVIRT;管理端的数据库中，当然在加入的过程成，需要拥有AD/IdM/RHDS的操作权限，一旦加入，用户就可以使用目录服务中的用户名和密码登录到&OVIRT;门户了。&OVIRT;管理端使用的程序接口框架 Simple Authentication and Security Layer (SASL)，反过来，目录服务使用Generic Security Services Application Program Interface (GSSAPI) ，从而达到验证用户的效果，并完成授权。
+		</para>
                 <figure id="eayunos-technical-reference-eayun_gssapi_authentication"><title>GSSAPI认证示意图</title>
 		   <mediaobject>
 			<imageobject>
@@ -46,9 +60,6 @@
 			</imageobject>
 		   </mediaobject>
                 </figure>
-		<para>
-                      
-		</para>
 	</section>
 
 
