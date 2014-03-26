@@ -567,7 +567,7 @@
 		中心的所有资源按照继承的方式显示出来, 从最顶层的数据中心到最底层的虚拟机.
 		推荐用树形模式来管理 &OVIRT; 系统.
 	  </para>
-	  <figure id="tree-mode"><title>图 2.2 树形模式</title>
+	  <figure id="tree-mode"><title>树形模式</title>
 	  <mediaobject>
         <imageobject>
 		  <imagedata fileref="images/basic-tree-mode.png" format="PNG" scale="100"/>
@@ -590,7 +590,7 @@
 		<keycap>系统</keycap>, 就进入了扁平模式了, 此时可以看到
 		<keycap>池</keycap>和<keycap>用户</keycap>标签.
 	  </para>
-	  <figure id="flat-mode"><title>图 2.3 扁平模式</title>
+	  <figure id="flat-mode"><title>扁平模式</title>
 	  <mediaobject>
         <imageobject>
 		  <imagedata fileref="images/basic-flat-mode.png" format="PNG" scale="100"/>
@@ -612,7 +612,7 @@
 	  <para>
 		如下图, 是数据中心的引导操作:
 	  </para>
-	  <figure id="guide-me"><title>图 2.4 数据中心的引导操作</title>
+	  <figure id="guide-me"><title>数据中心的引导操作</title>
 	  <mediaobject>
         <imageobject>
 		  <imagedata fileref="images/basic-guide-me.png" format="PNG" scale="100"/>
