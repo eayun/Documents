@@ -4,30 +4,374 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-power-userportal">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实验四、超级用户门户</title>
 	<section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_1">
-		<title>Test Section 1</title>
+		<title>实验目标</title>
+		<para>超级用户门户是管理员门户的一个精简版，用于最终用户自己来配置虚拟机。同时是通过网关登录虚拟机，完成创建虚拟机和管理虚拟机资源。本章实验主要是说明对于有超级用户权限用户可用的超级用户门户功能。实验完成后，你能够通登录超级用户门户创建和管理虚拟机。</para>
+		<para>实验内容：</para>
+		<para>实验前提是你已经安装和配置好EayunOS虚拟化环境，你可以登录到超级用户门户。你至少有两个虚拟机在你的虚拟化环境里。；录到超级用户门户，你需要有EayunOS虚拟化linux 客户端运行Firefox3.5及以上版本；</para>
 		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
 			<orderedlist>
 				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
+					<para>超级用户门户下创建虚拟机和分配用户权限。</para>
 				</listitem>
 			</orderedlist>
 		</para>
 	</section>
-
+	<section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_2">
+		<title>添加IdM域</title>
+		<para>前提你已经安装好一个AD（Active Directory）服务器（本实验AD地址：192.168.3.115下的虚拟机windowsad）。</para>
+		<para>在EayunOS虚拟化管理服务器完成以下操作：
+			<orderedlist>
+				<listitem>
+					<para>
+						登录EayunOS虚拟化管理服务控制台（本实验ssh）。
+					</para>
+				</listitem>
+                                <listitem>
+                                        <para>
+                                                运行以下命令和提供域管理员密码，本实验：
+                                        </para>
+					<para>#engine-manage-domains  -action=add  -domain=eayunos.com  -user=admin  interactive</para>
+                                </listitem>
+                                <listitem>
+                                        <para>
+                                                重启服务：
+                                        </para>
+					<para>#service  ovirt-engine r  restart</para>
+					<para>重启后IdM域被添加到EayunOS虚拟化管理系统。</para>
+                                </listitem>
+			</orderedlist>
+		</para>
+	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_3">
+                <title>在IdM目录添加新用户</title>
+		<procedure>
+		<step>
+			<para>在AD所在的主机上的服务器管理器，如图“Server Manager”窗口左侧树形面板下点击“Roles”，点击“DNS Server”下“Forward Lookup Zones”，找到之前添加的域（本实验中域为eayunos.com)，右键点击该域点击“New Host”，显示“New Host”窗口，如图：</para>
+			<para>
+				<figure id="eayunos-power-userportal-0"><title>图1</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/power-userportal-1.png" format="PNG" scale="60"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+			<para>输入名称、IP地址及根据实际需要选择是否勾选中图中下面的两项，（本实验输入：ovirt-manager、192.168.3.123）添加主机成功，点击“Add Host”，在“ServerManager”窗口右侧列表下显示新添加的主机，如图：</para>
+			<para>
+                                <figure id="eayunos-power-userportal-1"><title>图2</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-2.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+			</para>
+		</step>
+		<step>
+			<para>返回“Server Manager”左侧树形面板，点击“Roles”，点击“DNS Server”下“Reverse Lookup Zones”，右键点击xx.xx.xx.in-addr.arpa（本实验3.168.192.in-addr.arpa），选择“New Pointer”，显示“New Resource Record”窗口，如图：</para>
+			<para>
+                                <figure id="eayunos-power-userportal-2"><title>图3</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-3.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+			</para>
+			<para>输入主机IP地址及名称，点击“OK”。</para>
+		</step>
+                <step>
+                        <para>返回“Server Manager”左侧树形面板，点击“Roles”，点击“Active Directory Domain Services”下的前面所添加的域（本实验域为：eayunos.com），右键该域选择“New”下的“User”，如图：</para>
+                        <para>
+                                <figure id="eayunos-power-userportal-3"><title>图4</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-4.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                        <para>显示“New Object-User”窗口，如图：</para>
+			<para>
+                                <figure id="eayunos-power-userportal-4"><title>图5</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-5.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+			</para>
+			<para>输入First name、Last name及User logon name，点击“Next”显示如图：</para>
+			<para>
+                                <figure id="eayunos-power-userportal-5"><title>图6</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-6.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+			</para>
+			<para>输入密码及确认密码，根据实际需要勾选下面的选项，点击“Next”显示如图：</para>
+			<para>
+                                <figure id="eayunos-power-userportal-6"><title>图7</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-7.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+			</para>
+			<para>点击“Finish”，在“Server Manager”右侧列表下显示新创建的用户（本实验tangyan）</para>
+                        <para>
+                                <figure id="eayunos-power-userportal-7"><title>图8</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/power-userportal-8.png" format="PNG" scale="60"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+                        </para>
+                </step>
+		<step>
+			<para>登录EayunOS虚拟化管理服务控制台（本实验ssh 192.168.3.123），将AD服务器的Ip地址添加到/etc/resolv.conf文件中：</para>
+			<para>vi /etc/resolv.conf添加nameserver ip（本实验nameserver 192.168.3.104）。</para>
+		</step>
+		<step>
+			<para>
+				<orderedlist>
+					<listitem>
+						<para>先将密码写入/var/tmp/password（可以指定其它路径，本实验采用该路径）。</para>
+					</listitem>
+                                        <listitem>
+                                                <para>添加用户（此步骤完成后用户没有权限登录系统）：engine-manage-domains -action=add -domain=eayunos.com -user=tangyan -provider=ActiveDirectory -passwordFile=/var/tmp/password </para>
+                                        </listitem>
+                                        <listitem>
+                                                <para>/etc/init.d/ovirt-engine restart</para>
+                                        </listitem>
+                                        <listitem>
+                                                <para>为用户添加权限（也可以通过在EayunOS管理界面上为用户分配权限）：engine-manage-domains -action=edit -domain=eayunos.com -user=tangyan -provider=ActiveDirectory -passwordFile=/var/tmp/password -addPermissions</para>
+                                        </listitem>
+                                        <listitem>
+                                                <para>/etc/init.d/ovirt-engine restart</para>
+                                        </listitem>
+				</orderedlist>
+			</para>
+		</step>
+		<step>
+		<para>到此，添加用户并为其分配权限以完成，登录管理系统，可以在用户列表下看到新添加的用户，该用户权限为UserRole，（本实验tanyan可以通过用户门户登录系统）如图：图</para>
+		<para>
+			<figure id="eayunos-power-userportal-8"><title>图9</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-9.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+		</para>
+		</step>
+		</procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_4">
+                <title>PowerUserRole权限分配</title>
+		<procedure>
+		<step>
+			<para>在EayunOS虚拟化管理系统树形面板，点击【展开所有】，选择“Default”数据中心，在“Default”数据中心详细面板下点击【权限】，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-9"><title>图10</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-10.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+		</step>
+		<step>
+			<para>点击【添加】添加一个已经存在的用户，在“添加权限”窗口，“搜索区域”输入域（本实验eayunos.com），点击【执行】。</para>
+		</step>
+		<step>
+			<para>在“分配角色”下拉菜单内选择“PowerUserRole”，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-10"><title>图11</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-11.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+		</step>
+		<step>
+			<para>点击【确定】，在权限列表下显示该用户，权限标记为PowerUserRole，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-11"><title>图12</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-12.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+		</step>
+		</procedure>
+	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_5">
+                <title>在现有虚拟机上分配PowerUserRole权限</title>
+		<para>上一节已经完成了为用户分配对数据中心的PowerUserRole权限，但该用户不能自动继承PowerUserRole权限在该数据中心下的虚拟机。</para>
+                <procedure>
+                <step>
+                        <para>在EayunOS虚拟化管理平台树形面板，点击“Default”数据中心下的【虚拟机】，在“虚拟机列表”下显示所有虚拟机，选择其中一个（本实验选择centos-live）。</para>
+                </step>
+                <step>
+                        <para>点击该虚拟机，显示虚拟机的详细面板，点击【权限】，点击【添加】，显示“添加权限”窗口，在搜索区域添加域（本实验eayunos.com，tang），点击【执行】。</para>
+                </step>
+                <step>
+                        <para>“分配角色”下拉菜单中选择PowerUserRole，点击【确定】。</para>
+                </step>
+                <step>
+                        <para>在权限列表下显示添加的用户权限为PowerUserRole。</para>
+                </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_6">
+                <title>登录超级用户门户</title>
+                <procedure>
+                <step>
+                        <para>打开浏览器，输入https://ip.com，在门户标题下，点击【用户门户】。EayunOS管理系统将对你的浏览器进行安全认证，点击继续浏览此网站。</para>
+                </step>
+                <step>
+     		<para>在显示的登录窗口，输入用户名、密码及在域下拉菜单中选择域（本实验tangyan、password、eayunos.com），点击【登录】。如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-12"><title>图13</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-13.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para> 
+                <para>在这个界面下可以看到分配给该用户权限内的虚拟机（centos-live）。</para>
+                </step>
+               </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_7">
+                <title>创建Linux桌面版虚拟机</title>
+                <procedure>
+                <step>
+                        <para>确保你在扩展的用户门户，点击【新建虚拟机】，显示“新建虚拟机窗口”，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-13"><title>图14</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-14.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+                <para>在“常规”列表下“基于模板”下选择模板（centos-template）、操作系统、名称及描述信息；在“资源分配”列表下“模板 Provisioning”下选择“克隆”。</para>
+                </step>
+		<step>
+			<para>其他项保留默认设置，点击【确定】，开始创建虚拟机（centos-vm）。</para>
+		</step>
+               </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_8">
+                <title>打开虚拟机控制台</title>
+                <procedure>
+		<step>
+			<para>选择上一节创建的虚拟机（centos-vm），点击【运行】按钮（绿色向上箭头图标），开启虚拟机。</para>
+		</step>
+                <step>
+                        <para>虚拟机运行起来后，绿色图标箭头方向指向虚拟机名称，代表虚拟机准备连接，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-14"><title>图15</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-15.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+		</step>
+                <step>
+                        <para>点击【CONSOLE】按钮连接虚拟机。</para>
+                </step>
+		<step>
+			<para>显示虚拟机SPICE窗口，现在可以使用虚拟机。</para>
+		</step>
+               </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_9">
+                <title>虚拟机制作模板</title>
+                <procedure>
+                <step>
+                        <para>在虚拟机列表下，选择要创建模板的虚拟机（本实验选择centos-live），同时确保该虚拟机为关闭状态，点击【创建模板】，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-15"><title>图16</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-16.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+                </step>
+                <step>
+                        <para>显示“创建模板”对话框，如图：</para>
+                <para>
+                        <figure id="eayunos-power-userportal-16"><title>图17</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-17.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
+		<para>输入名称、描述、主机集群、存储域及允许所有用户访问该模板</para>
+                </step>
+                <step>
+                        <para>点击【确定】，开始创建模板，虚拟机将被锁定直到创建模板完成，创建完成后在模板列表下可以看到创建的模板</para>
+                </step>
+               </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_10">
+                <title>验证虚拟机及模板的权限</title>
+		<procedure>
+		<para>现在在超级用户门户已经完成创建虚拟机及使用虚拟机创建模板操作。接下来，我们将通过admin用户在管理员门户完成以下操作：</para>
+		<step>
+		<para>虚拟机：
+			<orderedlist>
+				<listitem>
+					<para>选择虚拟机列表，验证之前创建的虚拟机（centos-vm），显示在虚拟机列表下。</para>
+				</listitem>
+                                <listitem>
+                                        <para>点击该虚拟机（centos-vm），在该虚拟机详细面板下点击【权限】，核对用户名（tangyan）已经继承了UserVm Manager权限对该虚拟机。</para>
+                                </listitem>
+			</orderedlist>
+		</para>
+		</step>
+                <step>
+                <para>模板：
+                        <orderedlist>
+                                <listitem>
+                                        <para>选择模板列表，验证之前创建的模板（centos-live-template），显示在模板列表下。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>点击该模板（centos-live-template），在该模板详细面板下点击【权限】，模板的创建者（tangyan）已经继承了PowerUserRole的权限，同时admin管理员已经继承了SuperUser权限对该模板，除此之外没有其他人能够使用该模板。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>相反，点击其他模板（centos-template），在该模板的详细面板下的权限列表下显示已经分配给所有用户UserT em plateBasedVm权限，意味着所有用户都能使用该模板。</para>
+                                </listitem>
+                        </orderedlist>
+                </para>
+                </step>
+               </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_11">
+		<title>本章小结</title>
+		<para>你已经完成了用户门户实验，你成功的创建虚拟机在超级用户门户下并分配给用户访问虚拟机和模板的权限。</para>
+	</section>
 </chapter>
 
