@@ -362,7 +362,7 @@
                                         <para>点击该模板（centos-live-template），在该模板详细面板下点击【权限】，模板的创建者（tangyan）已经继承了PowerUserRole的权限，同时admin管理员已经继承了SuperUser权限对该模板，除此之外没有其他人能够使用该模板。</para>
                                 </listitem>
                                 <listitem>
-                                        <para>相反，点击其他模板（centos-template），在该模板的详细面板下的权限列表下显示已经分配给所有用户UserT em plateBasedVm权限，意味着所有用户都能使用该模板。</para>
+                                        <para>相比之下，点击其他模板（centos-template），在该模板的详细面板下的权限列表下显示已经分配给Everyone用户UserT em plateBasedVm权限，意味着该系统所有用户都能使用该模板。</para>
                                 </listitem>
                         </orderedlist>
                 </para>
