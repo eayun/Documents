@@ -6,62 +6,83 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-load-balancing">
 	<title>负载均衡、资源调度以及迁移技术</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_1">
 		<title>负载均衡、资源调度以及迁移技术介绍</title>
 		<para>
-                      
+                  单台的服务器，尤其是x86架构的所谓的PC服务器，资源不仅有限，而且还很容易出故障。为了解决这一问题，将它们组成集群，达到资源共享的目的。&OVIRT;积极的响应着这样的技术，在集群范围内实现负载均衡、资源灵活调度以及迁移技术。&OVIRT;管理端不仅可以在保证集群内所有的虚拟机不会都运行在同一台主机中，而且相反，它还能够识别未被充分利用的主机，将运行在上虚拟机迁移到其他主机中，然后关闭这台主机，以达到省电的效果。              
 		</para>
+                <para>
+                  &OVIRT;会根据以下三类事件的结果确定资源的情况：
+                </para>
+                <itemizedlist>
+                     <listitem>
+                        <para>
+                         虚拟机启动--检查资源情况以决定此虚拟机在那台主机上启动。
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                         虚拟机迁移--检查资源情况以决定那台虚拟机可以成为迁移的目标主机。
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                        定时-- &OVIRT;会在一定时间间隔内去查看各个主机的负载情况，以决定是否让负载均衡的策略生效。
+                        </para>
+                     </listitem>
+                </itemizedlist> 
+               <para>
+                 &OVIRT;管理端会及时响应负载均衡的策略，然后去调度，以决定迁移的发生。更多内容，以下分节叙说。
+               </para>
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_2">
 		<title>负载均衡策略</title>
-                   <para>Jboss Application Server 7.1</para>
-                    <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
+                   <para>
+                     负载均衡策略是定义在集群层面的一个概念，一个集群内有各式各样的主机，比如有内存大的，有外设多的。&OVIRT;管理端利用负载均衡策略来决定虚拟机应该在那台主机上启动，也决定着虚拟机应该从那台主机迁移到另外那台主机。 
                     </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+                    <para>
+                      负载均衡进程每一分钟会运行一次，主要是查看系统的负载是否达到预订的策略，策略有三种类型，分别是：<emphasis>None</emphasis>,<emphasis>Even Distribution</emphasis>,<emphasis>Power Saving</emphasis>。
+                    </para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_3">
 		<title>负载均衡策略之没有策略</title>
 		<para>
-                      
+                  如果用户选择<emphasis>None</emphasis>，也就是不使用管理端的负载策略，虚拟机会在集群中的CPU负载最低和拥有足够内存的主机上启动，而均定CPU的负载元素有拥有多少虚拟CPU以及整体的CPU使用百分比。此种策略下的虚拟机是不会自动迁移的。
 		</para>
+                <para>
+                  在此策略下，系统管理员必须人为的决定虚拟机迁移的目标主机，即使是某些主机的负载特别高，某些又特别低，也必须人工的介入去手动迁移虚拟机。
+                </para>
+                <note>
+                  <para>
+                   &OVIRT;为还有一种支持虚拟机的策略，那就是使用pinning技术，将虚拟机pinning到某个特定的主机。
+                  </para>
+                </note>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_4">
 		<title>负载均衡策略之平均分配</title>
 		<para>
-                      
+                 即选择了<emphasis>Even Distribution</emphasis>,基于此策略，会根据主机的CPU使用率（最低）来选择运行虚拟机，一旦用户设置了CPU的最高使用率上限，当超出这个限制的时候，策略会试图将之降下来。除此之外，系统管理员还可以设置一个时间，也就是当CPU的使用率在上限的时间持续值，当主机的CPU利用率超出上限并持续的时间也超出了预定的值，此时运行在此主机上的虚拟机就会顺序的迁移到集群内其他CPU利用率较低的主机上，当然，管理端依然会每隔一分钟查看主机的状态，发现CPU的利用率在限制值之下的时候，便会停止迁移的操作。     
 		</para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_5">
 		<title>负载均衡策略之省电</title>
 		<para>
-                      
+                 即选择了<emphasis>Power Saving</emphasis>,对比于上述的平均分配，省电模式是根据系统管理员所设置的CPU利用率的下限来决定的，同样也会设置一个时间间隔，当主机的负载达到设定的下限的时候，并持续时间超出了预设的时间时，&OVIRT;管理端会将运行在此主机上的虚拟机迁移到其他主机，然后，调用电源管理将此台主机关闭，以达到省电的目的。    
 		</para>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_6">
 		<title>资源调度</title>
 		<para>
-                      
+                 在&OVIRT;虚拟化的环境中，调度的本意是指当需要创建或迁移虚拟机时选择主机时的一个参考。对于目标主机来说（无论是启动虚拟机或迁移到）必须有足够的内存和CPU等资源，如果有多个备选的主机，那么这个时候就必须在他们中间作出选择，举例：如果设置了平均分配，管理端会选择最低的CPU利用率的主机，如果设置了省电，则会在最高和最低之间选择。在集群中的主机中还需要考虑一个角色，那就是SPM，当同样的条件成立时，管理端会优先选择非SPM的主机来运行虚拟机或迁移到此。
 		</para>
+                <formalpara><title>请参考</title> 
+                   <para><link linkend="sect-Documents-technical-reference-guide-Chapter-storage-arch-Section_1-8">存储池管理</link></para>
+                </formalpara>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_7">
 		<title>迁移技术</title>
