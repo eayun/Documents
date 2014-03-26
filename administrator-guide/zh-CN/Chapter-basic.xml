@@ -602,8 +602,25 @@
 	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-4">
 	  <title>使用向导</title>
 	  <para>
+		要完成某些资源的配置, 使其能正常工作, 是相对麻烦的(比如数据中心),
+		你需要配置集群, 主机, 存储等等. 为了方便用户使用这些资源, &OVIRT;
+		管理系统提供了一个<keycap>引导操作</keycap>方便这些资源的配置.
+		用户可以在任何时候在待配置资源的配置工具栏上点击<keycap>引导操作</keycap>
+		来使用该功能.
 	  </para>
+
+	  <para>
+		如下图, 是数据中心的引导操作:
+	  </para>
+	  <figure id="guide-me"><title>图 2.4 数据中心的引导操作</title>
+	  <mediaobject>
+        <imageobject>
+		  <imagedata fileref="images/basic-guide-me.png" format="PNG" scale="100"/>
+        </imageobject>
+	  </mediaobject>
+	  </figure>
 	</section>
+
 	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-5">
 	  <title>搜索</title>
 	  <para>
