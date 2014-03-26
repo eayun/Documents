@@ -16,7 +16,7 @@
                   <varlistentry><term><filename>模拟设备</filename></term>
                          <listitem>
                             <para>
-                              模拟设备，有时候也称之为虚拟设备，因为是纯粹软件实现的硬件设备。
+                              模拟设备，有时候也称之为虚拟设备，因为是纯粹软件实现的硬件设备。模拟设备驱动扮演着一个宿主操作系统和客户操作系统之间的转化层。
                             </para>
                          </listitem>
                   </varlistentry>
@@ -38,73 +38,165 @@
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_2">
-		<title>可用的硬件设备地址</title>
-                   <para>Jboss Application Server 7.1</para>
-                    <para>
-                    </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
+		<title>固定的硬件设备地址</title>
+                <para>
+                   在&OVIRT;虚拟化环境中，虚拟机的硬件PCI地址是持久地保存在数据库中的。也就是说一旦虚拟机创建，外围设备的地址是固定的，因为假如有所变动，对于客户机操作系统来说会引起不必要的故障，尤其是windows操作系统。                
+                </para>
+                <para>
+                  在虚拟机创建时<emphasis role="bold">QEMU</emphasis>会自动为设备分配PCI地址，然后通过<emphasis>libvirt</emphasis>报给<emphasis>VDSM</emphasis>,<emphasis>VDSM</emphasis>然后将之传递到管理端，管理端会将之保存到数据库中。
+                </para>
 		<para>
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
+                  当虚拟机启动时，管理端会从数据库调出这些地址，然后发送到<emphasis>VDSM</emphasis>,然后<emphasis>VSDM</emphasis>再告诉<emphasis>libvirt</emphasis>，<emphasis>libvirt</emphasis>会将以这些地址分配相应的设备并启动虚拟机。
+		</para>
+		<para>
+                  当设备被删除时，这些固定的PCI地址也会被从数据库中删除。即使是用相同的设备再来替补这个删除的设备，它的PCI设备也不一定是同样的地址。   
 		</para>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_3">
 		<title>中央处理单元（CPU）</title>
 		<para>
-                      
+                  处于&OVIRT;中的&OVIRT; Hypervisor都会提供一定数量的虚拟CPU，这些CPU就是为了给客户机使用，&OVIRT;管理端在创建集群时，会选择某种类型的CPU，也就是hypervisor可以提供的虚拟CPU的类型。（在同一集群中不可能出现不同型号的CPU的。）    
 		</para>
+                <para>
+                 虚拟CPU所拥有的特性是由和它同名的物理CPU所suo所决定的，对于客户机操作系统来说，虚拟CPU和物理的CPU是没有任何区别的。
+                </para>
+                <note>
+                 <para>
+                  支持x2APIC:
+                 </para>
+                 <para>
+                  由&OVIRT;hypervisor所提供的所有虚拟CPU均支持x2APIC，即高级可编程中断控制器，对于控制中断有跟好的性能。
+                 </para>
+                </note>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_4">
 		<title>系统设备</title>
 		<para>
-                      
+                 系统设备对于客户操作系统来说非常关键而且是不可删除的，每一个系统设备都会占用客户机的一个PCI槽，默认的系统设备有如下几种：    
 		</para>
+                <itemizedlist>
+                     <listitem>
+                          <para>
+                              the host bridge   
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                            the ISA bridge and USB bridge     
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                          显卡
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                          the memory balloon device.
+                          </para>
+                     </listitem>
+                </itemizedlist>
 	</section>
 
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_5">
-		<title>网络设备</title>
+		<title>网卡设备</title>
 		<para>
-                      
+                 &OVIRT;支持三种类型的网卡 ，可以通过&OVIRT;管理界面选择：
 		</para>
+                <itemizedlist>
+                     <listitem>
+                          <para>
+                           e1000,模拟Intel PRO/1000 (e1000) 网卡设备。      
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                          virtio,实现的半虚拟化设备。
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                          rtl8139，模拟Realtek Sem iconductor Corp RT L8139 的网卡设备。
+                          </para>
+                     </listitem>
+                </itemizedlist>
+               <para>
+                 每个虚拟机是可以拥有多块网卡的，当然，没增加一块就会占用一个PCI插槽。
+               </para>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_6">
 		<title>显卡设备</title>
 		<para>
-                      
+                   &OVIRT;提供两种类型的模拟显卡，均可用户SPICE或VNC的连接： 
 		</para>
+                <itemizedlist>
+                     <listitem>
+                          <para>
+                          ac97,模拟Cirrus CLGD 54 4 6 PCI VGA 显卡  
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                          vga,带有BochsVESA扩展（硬件级别，包括非标准的模式）的VGA显卡模拟设备，
+                          </para>
+                     </listitem>
+                </itemizedlist>
+
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_7">
 		<title>存储设备</title>
 		<para>
-                      
+                  物理的存储设备或者是存储池都可通过客户机操作系统的存储设备驱动供客户操作系统当作真实的存储设备来使用。    
 		</para>
+                <itemizedlist>
+                     <listitem>
+                          <para>
+                          IDE设备，此模拟设备可为客户机操作系统提供块设备，可以是硬盘，也可以是CD/DVD光驱设备。
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                           VirtIO设备，实现的半虚拟化设备供客户操作系统使用，表现亦为块设备，除软驱（必须是模拟的）以外，VirtIO提供的设备可以是任何hypervisor所支持的。
+                          </para>
+                     </listitem>
+                </itemizedlist>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_8">
 		<title>声卡设备</title>
 		<para>
-                      
+                  &OVIRT;中使用如下两种模拟的声卡设备：    
 		</para>
+                <itemizedlist>
+                     <listitem>
+                          <para>
+                           ac97，Intel 82801AA AC97 Audio兼容声卡设备。
+                          </para>
+                     </listitem>
+                     <listitem>
+                          <para>
+                            es1370，ENSONIQ AudioPCI ES1370声卡设备。
+                          </para>
+                     </listitem>
+                </itemizedlist>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_9">
-		<title>串口设备</title>
+		<title>串口设备驱动</title>
+		<para>
+                半虚拟化的串口驱动（virtio-serial),是面向字节流的、字符设备驱动，此驱动提供了一个简单的通信接口，可是实现主机的用户空间和客户操作系统 的用户之间的通信，当网络出现问题或者没有配置的时候，它的作用是显而易见的。当然，&OVIRT;还使用此用于监控。      
+		</para>
 		<para>
                       
 		</para>
 	</section>
 	<section id="sect-Documents-technical-reference-guide-Chapter-harddirver-devices-Section_10">
-		<title>“气球”设备</title>
+		<title>balloon驱动</title>
 		<para>
-                      
+                  balloon驱动实现客户操作系统可直接向hypervisor申请需要的内存，同时也支持hypervisor为客户操作系统有效的分配内存。
 		</para>
+                <para>
+                 balloon驱动会标志客户机操作系统的那些内存是没有正在使用的（balloon膨胀），这个时候，Hypervisor会释放这些内存，用于系统的其他进程或者本机中其他的客户操作系统，当客户操作系统再次需要申请内存时，hypervisor会再次分配内存给他（balloon缩小）。
+                </para>
 	</section>
 </chapter>
