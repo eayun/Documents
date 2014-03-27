@@ -270,6 +270,15 @@
                                 </mediaobject>
                         </figure>
                 </para>
+                <para>
+                        <figure id="eayunos-power-userportal-14"><title>图15</title>
+                                <mediaobject>
+                                        <imageobject>
+                                                <imagedata fileref="images/power-userportal-15.png" format="PNG" scale="60"/>
+                                        </imageobject>
+                                </mediaobject>
+                        </figure>
+                </para>
                 <para>在“常规”列表下“基于模板”下选择模板（centos-template）、操作系统、名称及描述信息；在“资源分配”列表下“模板 Provisioning”下选择“克隆”。</para>
                 </step>
 		<step>
@@ -284,12 +293,12 @@
 			<para>选择上一节创建的虚拟机（centos-vm），点击【运行】按钮（绿色向上箭头图标），开启虚拟机。</para>
 		</step>
                 <step>
-                        <para>虚拟机运行起来后，绿色图标箭头方向指向虚拟机名称，代表虚拟机准备连接，如图：</para>
+                        <para>虚拟机运行起来后，绿色图标箭头方向指向上，可以连接虚拟机，如图：</para>
                 <para>
-                        <figure id="eayunos-power-userportal-14"><title>图15</title>
+                        <figure id="eayunos-power-userportal-15"><title>图16</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-15.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-16.png" format="PNG" scale="60"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -309,10 +318,10 @@
                 <step>
                         <para>在虚拟机列表下，选择要创建模板的虚拟机（本实验选择centos-live），同时确保该虚拟机为关闭状态，点击【创建模板】，如图：</para>
                 <para>
-                        <figure id="eayunos-power-userportal-15"><title>图16</title>
+                        <figure id="eayunos-power-userportal-16"><title>图17</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-16.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-17.png" format="PNG" scale="60"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -321,10 +330,10 @@
                 <step>
                         <para>显示“创建模板”对话框，如图：</para>
                 <para>
-                        <figure id="eayunos-power-userportal-16"><title>图17</title>
+                        <figure id="eayunos-power-userportal-17"><title>图18</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-17.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-18.png" format="PNG" scale="60"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
