@@ -4,30 +4,95 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-virtual-desktop">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实验8、虚拟桌面</title>
 	<section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
+		<title>实验目标</title>
+		<para>本实验任务是创建和连接一个Windows虚拟机或有UserRole权限的桌面池。</para>
+		<para>实验内容：
 			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+                                <listitem>
+                                        <para>为使用Windows虚拟机桌面池添加一个AD域在EayunOS虚拟化管理系统。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>创建一个WIndows虚拟机，为其配置存储和网络及安装操作系统。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>使用Windows模板创建一个thin provisioned 虚拟机和应用系统预先准备的配置设置。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>为一个虚拟机分配UserRole权限给一个用户。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>登录用户门户并且连接到一个虚拟机。</para>
+                                </listitem>
+                                <listitem>
+                                        <para>创建一个Windows桌面池，为该桌面池分配UserRole权限，并且在池里连接一个虚拟机。</para>
+                                </listitem>
+                        </orderedlist>
 		</para>
 	</section>
-
+	<section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_2">
+		<title>创建一个Windows虚拟机</title>
+		<para>
+			你已经了解了如何创建一个Linux虚拟机，创建Windows虚拟机的过程与其类似，只是它额外需要virtio驱动。本实验使用的是Windows 7为例，你也可以使用其他操作系统。你可以使用虚拟DVD完成整个安装。
+		</para>
+		<procedure><title>创建虚拟机：</title>
+			<step>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，在Default数据中心Default集群下点击【虚拟机】，如图：</para>
+				<para>
+				</para>
+				<para>输入名称（win7-64），选择操作系统类型为Windows 7，其他项保留默认设置，当然你可以根据自己实际需要来改变这些设置，点击【确定】，创建虚拟机。</para>
+			</step>
+			<step>
+                                <para>显示“新建虚拟机-引导操作”窗口，点击“配置虚拟机磁盘”显示“添加虚拟机磁盘”窗口如图：</para>
+                                <para>
+                                </para>
+                                <para>输入名磁盘大小及描述信息，其它项保留默认设置，点击【确定】返回“新建虚拟机-引导操作”窗口提示“添加另外一个虚拟磁盘”，点击【以后再配置】，窗口关闭。</para>
+			</step>
+			<step>
+				<para>创建的虚拟机显示在虚拟机列表下。</para>
+			</step>
+		</procedure>
+                <procedure><title>安装操作系统：</title>
+                        <step>
+                                <para>选中刚创建的虚拟机（win7-64），点击【只运行一次】，显示“运行虚拟机”窗口，如图：</para>
+                                <para>
+                                </para>
+                                <para>配置“附加CD”并将CD上移置顶、设置显示协议（本实验设置SPICE）、附加软盘可以附加软驱动本实验则不采用软驱动，其它项保留默认设置，点击【确定】，开启虚拟机。</para>
+                        </step>
+                        <step>
+                                <para>选中虚拟机，点击【控制台】图标，连接虚拟机（如果是首次连接虚拟机，需要安装SPICE），显示虚拟机窗口，提示开始安装操作系统。</para>
+			</step>
+			<step>
+                                <para>根据安装提示开始安装操作系统，流程如下：</para>
+                                <para>图中，点击 “下一步”</para>
+				<para>
+				</para>
+                                <para>图中，点击“开始安装”</para>
+                                <para>
+                                </para>
+                                <para>图中，勾选“我接受许可条款”，点击“下一步”</para>
+                                <para>
+                                </para>
+                                <para>图中，选择“自定义”，可以看到“下一步”按钮为不可点击状态</para>
+                                <para>
+                                </para>
+                                <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择驱动，如图：</para>
+                                <para>
+                                </para>
+                                <para>返回虚拟机安装界面，点击 “加载驱动程序”点击“浏览”，在“浏览文件夹”下选择相应的驱动，如图：</para>
+                                <para>
+                                </para>
+                                <para>
+                                </para>
+                                <para>显示磁盘，如图：</para>
+                                <para>
+                                </para>
+                                <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择win7 iso文件，返回虚拟机安装界面，继续安装如图：</para>
+                                <para>
+                                </para>
+                        </step>
+                </procedure>
+	</section>
 </chapter>
 
