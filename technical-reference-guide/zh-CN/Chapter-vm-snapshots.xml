@@ -6,31 +6,92 @@
 <chapter id="chap-Documents-technical-reference-guide-Chapter-vm-snapshots">
 	<title>虚拟机快照</title>
 	<para>
-		This is a test paragraph
+          快照，指的是在某个时间点将虚拟机的所有数据都保存，包括操作系统、应用程序以及数据，便于日后可以恢复到这个时间的这个状态。快照本身会将虚拟镜像保存为一个COW的文件或卷，当然并不是复制镜像，而是基于原来的加上一个新的COW层，所有变化的数据是存放在新的COW层里的。
 	</para>
+        <para>
+        对于理解虚拟机磁盘镜像是多个卷/文件的链非常的重要，这也是快照得以方便、快捷实现的一个重要基础，用户不难想象如果所有的虚拟机、快照、模板都是复制磁盘镜像的可怕。 
+        </para>
+        <para>
+          术语COW卷和COW层可互换使用，然而，层更清楚地认识到的快照的时间特性。我们假设一个场景，用户建立了一个快照，发现没有想要的，可以将这个直接取消，另外的场景就是按照时间线索随意删除不想要的。用户可以想象编辑器的<emphasis>撤销</emphasis>功能。
+        </para>
+        <para>
+           对于虚拟机的操作，主要有以下三种：
+        </para>
+           <itemizedlist>
+                <listitem>
+                  <para>
+                    创建，即第一次创建虚拟机的快照
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    预览：主要的作用是便于决定从那个时间点的快照恢复。
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                   删除：删除不在需要的恢复点。
+                  </para>
+                </listitem>
+           </itemizedlist>
 	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_1">
 		<title>在线快照</title>
 		<para>
-                      
+                   任何的虚拟机无论是正在运行的状态，还是暂停，亦或是停止状态，都可以创建快照。但是正在克隆或者正在迁移，是不可以做快照的。 
 		</para>
+                <note>
+                  <para>快照(无论是否是在线)不支持虚拟磁盘镜像是<emphasis>可共享的</emphasis>以及是<emphasis>Direct LUN</emphasis></para>
+                </note>
+                <para>
+                  在线快照的流程在&OVIRT;中是这样的：当管理员基于某虚拟机创建快照时，管理端会向SPM主机请求新创建一个卷为此虚拟机所用，当新的卷创建完成并可用后，管理端通知运行虚拟机主机中的<emphasis>VDSM</emphasis>，<emphasis>VDSM</emphasis>会调用<emphasis>libvirt</emphasis>，<emphasis>libvirt</emphasis>调用<emphasis>QEMU</emphasis>写入新的卷，如果是可写入的，那么表示快照是可创建的，此时虚拟机会停止写入原有的卷，如果<emphasis>QEUM</emphasis>写入失败，则表示无法创建快照，删除新建的卷。
+                </para>
+                <para>由上述可知，在线快照创建的初始阶段，虚拟机对于它本身拥有的卷和新建的卷是同时拥有读-写权限的。</para>
+                <para>
+                </para>
+                
 	</section>
 	
 	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_2">
 		<title>创建快照</title>
-                <figure id="eayunos-technical-reference-eayun_initial_snapshot_creation"><title>快照初始化</title>
+                <para>
+                 在&OVIRT;创建快照应区分两种情况，初始创建和随后的创建快照，也就是说，第一次创建快照，以后创建快照是基于第一次的快照的，这是不区分磁盘镜像的文件格式的如QCOW2，RAW。第一次创建的快照会被当作基本镜像，随后添加的快照会创建另外的COW层来存储数据。
+                </para>
+                <para>
+                  通常情况下虚拟机的磁盘格式是RAW，但是如果你创建的镜像是精简置备，或特别指定，则可为QCOW2格式，正如示意图<link linkend="eayunos-technical-reference-eayun_initial_snapshot_creation">初始快照的创建</link>，初次创建的快照将会是后来所有创建快照的基础镜像。
+                </para>
+                <figure id="eayunos-technical-reference-eayun_initial_snapshot_creation"><title>初始创建快照</title>
 		   <mediaobject>
 			<imageobject>
 				<imagedata fileref="images/eayun_tech_initial_snapshot_creation.png" format="PNG" scale="60"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
-                <figure id="eayunos-technical-reference-eayun_tech_additional_snapshot_creation"><title>额外的建立快照</title>
+                <para>
+                 一旦初始的快照建立，随后的快照就相对容易理解，用户再创建时，&OVIRT;会建立一个单独的COW层，所有的变动都会存储在这个COW层中，当虚拟机需要修改原来的数据时，虚拟机会从原来的COW层去读，但是写入时会写到新增的COW。当虚拟机查找数据是会从最新到最早一次遍历，而这一切对于虚拟机来说都是透明的。
+                </para>
+                <figure id="eayunos-technical-reference-eayun_tech_additional_snapshot_creation"><title>后续的建立快照</title>
 		   <mediaobject>
 			<imageobject>
 				<imagedata fileref="images/eayun_tech_additional_snapshot_creation.png" format="PNG" scale="60"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_3">
+		<title>预览快照</title>
+		<para>
+                 系统管理员可以通过预览所有的快照，然后决定选择恢复快照。      
+		</para>
+		<para>
+                 所谓的预览，也就是说管理员可以通过查看快照可以看到其内容。如示意图<link linkend="eayunos-technical-reference-eayun_tech_preview_snapshot">预览快照</link>,通过上面的介绍，我们知道每个快照都保存在COW卷中，但预览时，系统会复制一份此COW卷来完成预览，这样为避免数据破坏，用这个预览的来替代真实快照。    
+		</para>
+		<para>
+                  当管理员预览某个快照后，但操作了一些数据后，是可以将这些变化提交到原快照中的，当然，你可以选择不提交，但一旦提交，虚拟机就会将这个刚建立的新的COW，作为快照的层来保存。    
+		</para>
+		<para>
+                 当管理员预览某个快照后,但操作了一些数据后,也可以选择<emphasis>撤销</emphasis>将所做的操作取消，那么虚拟机仍然会使用原来的COW层，所有的数据全部随着删除新建的COW层而消失。
+		</para>
                 <figure id="eayunos-technical-reference-eayun_tech_preview_snapshot"><title>预览快照</title>
 		   <mediaobject>
 			<imageobject>
@@ -38,6 +99,24 @@
 			</imageobject>
 		   </mediaobject>
                 </figure>
+	</section>
+
+	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_4">
+		<title>删除快照</title>
+		<para>
+                 &OVIRT;支持系统管理员删除不需要的快照，但快照的删除是在不丢失任何数据的情况下删除的。举例说明如下：     
+		</para>
+                <example>
+                  <para>
+                     用户现在一共创建了6个快照，现在不想要第四个了，将第四个删除，那么第四个的数据（和第三和第五的差异）就要保存到第五、第六个快照中。
+                  </para>
+                </example>
+                <para>
+                   从某种程度上将，在&OVIRT;虚拟化的环境中，删除快照是无法节省空间的。
+                </para>
+                <para>
+                  当系统管理员删除一个快照时，其实是将删除的快照和它之后建立的快照的数据做了一个合并，合并为一个单一的COM卷，合并以后的卷，不仅包含原有的数据，还包括删除前后的变动数据，没有任何的数据删除，仅仅是一个恢复点的问题。如<link linkend="eayunos-technical-reference-eayun_tech_snapshot_delete">删除快照的原理示意图</link>所示，快照2被删除，其实是快照2和快照3做了一次合并，所有的数据变动又都保存在了快照3(其实是个新的)中。用一个代替了两个。
+                </para>
                 <figure id="eayunos-technical-reference-eayun_tech_snapshot_delete"><title>删除快照的原理示意图</title>
 		   <mediaobject>
 			<imageobject>
@@ -45,38 +124,6 @@
 			</imageobject>
 		   </mediaobject>
                 </figure>
-                   <para>Jboss Application Server 7.1</para>
-                    <para>
-                          Jboss Application Server 是一个java的应用服务，更多参考请访问<ulink url="http://www.jboss.org"><citetitle>jboss</citetitle></ulink>
-                    </para>
-                    <important>
-                        <para>
-                           
-                        </para>
-                    </important>
-		<para>
-	             目录服务	
-			<orderedlist>
-				<listitem>
-					<para>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
-
-	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_3">
-		<title>预览快照</title>
-		<para>
-                      
-		</para>
-	</section>
-
-	<section id="sect-Documents-technical-reference-guide-Chapter-vm-snapshots-Section_4">
-		<title>删除快照</title>
-		<para>
-                      
-		</para>
 	</section>
 
 </chapter>
