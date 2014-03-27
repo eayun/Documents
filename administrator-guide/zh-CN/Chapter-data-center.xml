@@ -39,8 +39,24 @@
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
 	<title>存储池管理者（SPM）</title>
 	<para>
+	  在 &OVIRT; 管理系统中, The Storage Pool Manager(SPM) 指的是一种能管理
+	  数据中心存储资源的权利, 管理员可以把这种权利赋给数据中心中的任何一台主机,
+	  并且只能同时赋予一台. 具有 SPM 权限的主机和一般的主机没有什么不同.
+	</para>
+
+	<para>
+	  SPM 是通过协调存储域上的元数据来控制存储的访问的, 比如创建/删除虚拟机镜像,
+	  对虚拟机镜像做快照, 模板的创建, 等等. 为了保持元数据的一致性, 在一个数据
+	  中心内同一时间只能有一个主机作为 SPM.
+	</para>
+
+	<para>
+	  为了能使用数据中心, &OVIRT; 系统要求在数据中心中至少要有一个 SPM 主机.
+	  如果当前的 SPM 主机出了问题导致不能访问存储, 那么系统会重新选择数据中心
+	  的一台主机重新作为 SPM.
 	</para>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_3">
 	<title>SPM优先级</title>
 	<para>
