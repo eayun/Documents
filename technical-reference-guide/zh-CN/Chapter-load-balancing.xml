@@ -87,8 +87,16 @@
 	<section id="sect-Documents-technical-reference-guide-Chapter-load-balancing-Section_7">
 		<title>迁移技术</title>
 		<para>
-                      
+                  作为负载均衡策略的执行者--迁移，迁移发生的条件：集群内主机的需求及负载均衡策略，或者当主机被隔离，或者主机置为维护模式时。&OVIRT;管理端首选的迁移对象是CPU利用率（百分比）最低的主机，它一般不考虑系统的内存或I/O，除非I/O引起了CPU的负载。
 		</para>
+                <formalpara><title>迁移的一些统计数据</title>
+                  <para>
+                   &OVIRT;在迁移时限制带宽为30 Mbps，迁移也有超时时间的限制，这个时间是300秒或者是虚拟机的内存占有率（Mb）除以2048Mb然后再乘以200秒所得出的结果。
+                  </para>
+                  <para>
+                    默认情况下，每台主机同时迁出的限制是1个CPU核心，或者是5个。
+                  </para>
+                </formalpara>
 	</section>
 </chapter>
 
