@@ -60,6 +60,18 @@
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_3">
 	<title>SPM优先级</title>
 	<para>
+	  SPM 优先级一个主机的属性, 前面说过, 数据中心的任何主机都可以成为 SPM,
+	  一个主机的 SPM 的优先级越大, 系统在为数据中心选择新的 SPM 的时候,
+	  该主机就越有机会成为新的 SPM 主机.
+	</para>
+
+	<para>
+	  主机被赋予 SPM 权限之后, 在执行相应的 SPM 的任务的时候, 会消耗一些主机的
+	  资源. 所以 SPM 优先级较低的主机有更多的资源来运行虚拟机.
+	</para>
+
+	<para>
+	  可以通过编辑主机来修改主机的 SPM 优先级.
 	</para>
   </section>
 
