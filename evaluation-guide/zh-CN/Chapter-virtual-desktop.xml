@@ -77,7 +77,7 @@
                                 <para>图中，选择“自定义”，可以看到“下一步”按钮为不可点击状态</para>
                                 <para>
                                 </para>
-                                <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择驱动，如图：</para>
+                                <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择驱动硬盘及网卡驱动（Red Hat VirtIO Ethernet Adapter、Red Hat VirtIO SCSI Controller），如图（这里只截图硬盘驱动，网卡驱动图略）：</para>
                                 <para>
                                 </para>
                                 <para>返回虚拟机安装界面，点击 “加载驱动程序”点击“浏览”，在“浏览文件夹”下选择相应的驱动，如图：</para>
@@ -92,7 +92,211 @@
                                 <para>
                                 </para>
                         </step>
+			<step>
+				<para>虚拟机安装完成后，安装RHEV-tools，这样做，返回到EayunOS管理系统，选择“修改CD”选择“RHEV-toolsSetup”。</para>
+			</step>
+			<step>
+				<para>在虚拟机里，定位CD驱动（通常D驱动）并安装REHV应用提供的工具。</para>
+			</step>
+			<step>
+			<para>工具安装后，等待几分钟，这个过程中你看不到任何明显的活动，因为这个工具是作为一个服务在运行。客户端自动重启应用。</para>
+			</step>
                 </procedure>
 	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_3">
+                <title>创建一个Windows模板</title>
+                <para>
+                        你已经创建Windows的虚拟机（win7-64），现在保存它作为一个模板。这个模板将保留原始虚拟机的配置，包括虚拟机磁盘、网络接口设置、操作系统机及其应用程序。你可以使用这个模板快速的复制原虚拟机。在虚拟机被创建模板之前，首先保证虚拟机是被封闭的用sysprep，这个确保指定虚拟机设置不会通过模板相互传播。
+                </para>
+                <procedure><title>使用sysprep封闭一个Windows 虚拟机：</title>
+                        <step>
+                                <para>在要创建模板的虚拟机上打开一个命令行终端（win7-64），输入命令：regedit。</para>
+                                <para>显示“注册表编辑器Registry Editor”窗口，如图：</para>
+				<para>
+				</para>
+                                <para>在左边面板，展开HKEY_LOCAL_MACHINE →SYSTEM → SETUP。</para>
+                        </step>
+                        <step>
+                                <para>在主窗口，右键添加一个新的string value 用New → String Value，如图：</para>
+                                <para>
+                                </para>
+                                <para>右键新建的字符串值文件选择“修改”。显示“编辑字符串”对话框。输入数值名称: new string 和数值数据: a:\sysprep.inf。如图：</para>
+				<para>
+				</para>
+                        </step>
+                        <step>
+                                <para>运行 sysprep 从 C:\Windows\System 32\sysprep\sysprep.exe，如图：</para>
+				<para>
+				</para>
+				<para>
+		                        <orderedlist>
+                		                <listitem>
+                                		        <para>在“系统清理操作”, 选择“进入系统全新体验(OOBE)”。</para>
+                               			</listitem>
+                                		<listitem>
+                                        		<para>选中 “通用” 勾选框（如果你需要改变这个计算机系统的认证码SID）。</para>
+                                		</listitem>
+                                		<listitem>
+                                        		<para>在“Shutdown Options”, 选择Shutdown。</para>
+                                		</listitem>
+                        		</orderedlist>
+				</para>
+				<para>点击【OK】。虚拟机立刻开始密封过程并且关闭。</para>
+                        </step>
+                </procedure>
+                <procedure><title>使用一个现有的Windows虚拟机创建模板：</title>
+                        <step>
+                                <para>在管理员门户，点击【虚拟机】，在虚拟机列表下找到刚密封后的Windows虚拟机，确保虚拟机是关闭状态，点击【创建模板】，如图：</para>
+                                <para>
+                                </para>
+                        </step>
+                        <step>
+                                <para>显示“新建虚拟机模板”窗口，输入以下信息：“名称”及“描述信息”、“集群主机”以及选中“允许所有用户使用这个模板”</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】。在这模板列表下显示新创建的模板状态由“Locked”->“OK”。在创建的过程中，模板的一些操作按钮都是禁用状态，创建成功后这些按钮变为可用状态，并且模板可以使用。</para>
+			</step>
+			<step>
+                                <para>模板创建完成，你可以修改它的属性。本实验你将设置它的时区及使它能够加入AD目录服务器。当使用这个模板创建虚拟机时这些参数将传递到sysprep问答文件。</para>
+			</step>
+			<step>
+                                <para>你必须为每个使用这个模板创建的虚拟机激活windows操作系统。自动激活过程，使用the volume license key。</para>
+                                <para>登录EayunOS虚拟机化管理端运行命令：</para>
+                                <para># engine-config -s ProductKeyWindow7x64=&lt;enter your key here&gt;</para>
+                                <para># service ovirt-engine restart</para>
+                        </step>
+                </procedure>
+     	</section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_4">
+                <title>Windows模板创建虚拟机</title>
+                <para>上一节，你已经创建了一个Windows模板，现在 你可以使用这个模板创建虚拟机。</para>
+		<procedure>
+			<step>
+				<para>在EayunOS虚拟化管理系统树形面板，点击【展开所有】，在Default数据中心Default集群下点击【虚拟机】。在虚拟机列表，点击【新建虚拟机】，如图：</para>
+				<para>
+				</para>
+				<para>在“常规”列表，在“基于模板”项选择新创建的Windows模板（windows-template），输入名称及描述信息，其它项保留默认设置（根据实际需要可以改变这些项的设置）。</para>
+			</step>
+			<step>
+				<para>保留其它项默认设置，点击【确定】创建虚拟机。虚拟机显示在虚拟机列表里，状态由“image Locked”->“Up”。</para>
+			</step>
+			<step>
+				<para>点击【运行】绿色箭头图标（这次不需要点击“只运行一次”按钮因为操作系统已经安装完成）。点击【控制台】绿色小电脑图标，连接虚拟机。</para>
+			</step>
+			<step>
+				<para>这个windows虚拟机通过无人值守的安装过程应用由sysprep使用问答文件提供自定义设置进行设置。当这个过程结束后，登录虚拟机，你能看到虚拟机已经加入到AD域。</para>
+			</step>
+		</procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_5">
+                <title>虚拟机分配UserPore权限</title>
+                <para>若想通过EayunOS虚拟化用户门户访问虚拟机，用户必须被赋予权限。在EayunOS虚拟化管理门户或超级用户门户下添加权限。</para>
+                <procedure>
+                        <step>
+                                <para>从管理员门户登录系统，点击【虚拟机】，在虚拟机列表下选择想要赋予UserRole权限的虚拟机（本实验创建的win7-64）。</para>
+                        </step>
+                        <step>
+                                <para>在该虚拟机的详细面板下，点击【权限】，点击【添加】。</para>
+                        </step>
+                        <step>
+                                <para>在“添加权限给用户”对话框，在“搜索”框输入用户名，点击【执行】，列表下显示该用户，勾选中该用户。在“要分配的角色”下选择“UserRole”。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_6">
+                <title>连接虚拟机</title>
+                <para>在上一节，已经创建了一个UserRole用户，使用该用户通过用户门户来直接连接下虚拟机。</para>
+                <procedure>
+                        <step>
+                                <para>选择你想要连接的虚拟机，点击【运行】按钮绿色箭头图标。</para>
+                        </step>
+                        <step>
+                                <para>虚拟机power up。虚拟机开启后，它将不再是灰色。显示“Machine is Ready”在虚拟机图标上。双击虚拟机连接到控制台。如图：</para>
+				<para>
+				</para>
+                        </step>
+                        <step>
+                                <para>显示SPICE 控制台窗口。</para>
+                        </step>
+                        <step>
+                                <para>完成使用该虚拟机后，根据特定指令注销操作系统，返回到用户门户。</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_7">
+                <title>使用虚拟机池</title>
+                <procedure><title>创建一个虚拟机池：</title>
+                        <step>
+                                <para>管理员门户登录系统，在右侧面板点击【池】，显示虚拟机池列表。</para>
+                        </step>
+                        <step>
+                                <para>点击【新建】，打开“新建池”窗口。如图：</para>
+                                <para>
+                                </para>
+				<para>输入“名称”、“虚拟机数量”、“每个用户的最大虚拟机数目”、“基于模板”选择模板（本实验选择win7-template），其它项保留默认设置，当然你可以根据实际需要改变这些设置。点击【确定】创建虚拟机池。</para>
+                        </step>
+                        <step>
+                                <para>返回到虚拟机列表下，你可以看到在虚拟机池里指定数量的虚拟机已经创建。你必须开启每个虚拟机允许sysprep设置虚拟机，添加这些组你急到在你创建模板时指定的域。</para>
+                        </step>
+                        <step>
+                                <para>在虚拟机池里关闭虚拟机。这样做，选择所有的虚拟机在虚拟机池，点击【stop】按钮。虚拟机状态由“Powering Down”->“Down”。</para>
+                        </step>
+                </procedure>
+                <procedure><title>分配UserRole权限给虚拟机池：</title>
+                        <step>
+                                <para>使用虚拟机池资源列表，在系统树形面板，或使用查找功能找到并选择虚拟机池在结果列表下。</para>
+                        </step>
+                        <step>
+                                <para>在虚拟机池详细面板，点击【权限】，点击【添加】。</para>
+                        </step>
+                        <step>
+                                <para>在“添加权限给用户”窗口，搜索框下选择“域”，输入用户名，点击【执行】，在显示的用户列表下勾选中用户，在“分配角色给用户”里选择“UserRole”。</para>
+                        </step>
+                        <step>
+                                <para>点击【确定】。该用户已经有权限访问该虚拟机池。</para>
+                        </step>
+                </procedure>
+                <procedure><title>配置虚拟机：</title>
+			<para>在池里的虚拟机有相同的操作系统及安装的应用程序。池将分配同样的虚拟机给能够访问该池的每个用户。</para>
+			<para>分配一个虚拟机：</para>
+                        <step>
+                                <para>选择你创建的虚拟机池。点击【运行】按钮，在本例中从池中分配一个虚拟机，如图：</para>
+				<para>
+				</para>
+                        </step>
+                        <step>
+                                <para>虚拟机分配给你并开启，虚拟机名称中反应来自的池。如图：</para>
+				<para>
+				</para>
+                        </step>
+                        <step>
+                                <para>当虚拟机显示“Machine is Ready”，双击虚拟机，登录连接到控制台窗口。如图：</para>
+				<para>
+				</para>
+                        </step>
+                        <step>
+                                <para>在池里的虚拟机是无状态的（stateless）；当虚拟机已关闭，任何改变会使虚拟机销毁。在下一节。你将测试一下虚拟机是stateless时通过看你对其做的变化在虚拟机返回到虚拟机池时，这些变化是否被删除。首先，对虚拟机做一些改变，例如创建一个文件在虚拟机里名为test.txt。</para>
+                        </step>
+                </procedure>
+                <procedure><title>释放虚拟机：</title>
+                        <step>
+                                <para>记录虚拟机的名称，然后关闭虚拟机按红色方块图标按钮。现在它已经被释放并且返回到虚拟机池。</para>
+                        </step>
+                        <step>
+                                <para>现在，选择虚拟机池，点击【运行】绿色箭头图标再分配一个虚拟机。</para>
+                        </step>
+                        <step>
+                                <para>你也许获得一个不同的虚拟机从这个池，或者是同样的虚拟机；核对已经分配的虚拟机的名称。</para>
+                                <para>如果是同样的虚拟机，你能核对桌面已经被重建并且因此保留在模板（创建虚拟机使用的模板）中指定唯一设置。这样做，登录虚拟机桌面并且确认之前你做的变化已经被销毁</para>
+                        </step>
+                </procedure>
+        </section>
+        <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_8">
+                <title>本章小结</title>
+		<para>在这个实验，你已经成功创建和使用了Windows虚拟机和虚拟机。</para>
+	</section>	
 </chapter>
 
