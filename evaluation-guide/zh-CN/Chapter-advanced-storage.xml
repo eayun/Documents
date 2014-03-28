@@ -72,7 +72,22 @@
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_3">
 	<title>本实验需要满足的条件</title>
 	<para>
+	  为了完成本章的实验, 需要满足以下条件:
 	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>
+		  已经配置好了标准的 &OVIRT; 的环境, 或者至少配置好了最小化得 &OVIRT; 环境
+		</para>
+	  </listitem>
+
+	  <listitem>
+		<para>
+		  已经配置好 &OVIRT; 环境, 并能利用该环境安装虚拟机
+		</para>
+	  </listitem>
+	</itemizedlist>
+
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_4">
