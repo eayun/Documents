@@ -10,7 +10,47 @@
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_1">
 	<title>实验目标</title>
 	<para>
+	  通过本章的试验, 你将了解和并会使用 &OVIRT; 管理系统提供的高级存储功能.
 	</para>
+
+	<para>包括:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+		  浮动磁盘
+        </para>
+      </listitem>
+
+      <listitem>
+        <para>
+		  共享磁盘
+        </para>
+      </listitem>
+
+      <listitem>
+        <para>
+		  创建虚拟机的在线快照
+        </para>
+      </listitem>
+
+      <listitem>
+        <para>
+		  从快照创建虚拟机
+        </para>
+      </listitem>
+
+      <listitem>
+        <para>
+		  给虚拟机分配 LUNs
+        </para>
+      </listitem>
+
+      <listitem>
+        <para>
+		  给虚拟机分配 FC LUNs
+        </para>
+      </listitem>
+    </itemizedlist>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_2">
