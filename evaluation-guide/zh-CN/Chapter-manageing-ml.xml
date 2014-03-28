@@ -4,30 +4,64 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-manageing-ml">
-	<title>Test Chapter</title>
+	<title>系统管理员不同权限的层级管理</title>
 	<para>
-		This is a test paragraph
 	</para>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_1">
-		<title>Test Section 1</title>
+		<title>管理对象</title>
+                <figure id="eayunos-Documents-evaluation-guide-lab5">
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/EayunOS_evaluation_lab5.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
 		<para>
-			This is a test paragraph in a section
+                 
 		</para>
 	</section>
 	
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_2">
-		<title>Test Section 2</title>
+		<title>需求</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
 		</para>
 	</section>
 
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_3">
+		<title>存储管理员</title>
+		<para>
+
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_4">
+		<title>为存储域分配系统管理角色</title>
+		<para>
+
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_5">
+		<title>虚拟机管理员</title>
+		<para>
+
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_6">
+		<title>用户权限验证</title>
+		<para>
+
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_7">
+		<title>自定义角色</title>
+		<para>
+
+		</para>
+	</section>
+	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_8">
+		<title>总结</title>
+		<para>
+
+		</para>
+	</section>
 </chapter>
 
