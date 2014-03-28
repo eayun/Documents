@@ -10,6 +10,7 @@
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_1">
 		<title>管理对象</title>
                 <figure id="eayunos-Documents-evaluation-guide-lab5">
+                    <title>系统管理员不同权限的层级管理</title>
 		   <mediaobject>
 			<imageobject>
 				<imagedata fileref="images/EayunOS_evaluation_lab5.png" format="PNG" scale="60"/>
