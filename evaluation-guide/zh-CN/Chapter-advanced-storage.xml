@@ -4,30 +4,80 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-advanced-storage">
-	<title>Test Chapter</title>
+  <title>高级存储功能</title>
+  <para>
+  </para>
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_1">
+	<title>实验目标</title>
 	<para>
-		This is a test paragraph
 	</para>
-	<section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_2">
+	<title>高级存储功能</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_3">
+	<title>本实验需要满足的条件</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_4">
+	<title>创建一个虚拟浮动磁盘</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_5">
+	<title>给虚拟机分配浮动磁盘</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_6">
+	<title>创建一个可共享的虚拟磁盘</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_7">
+	<title>共享磁盘给另外的虚拟机</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_8">
+	<title>创建一个虚拟机的在线快照</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_9">
+	<title>从快照创建虚拟机</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_10">
+	<title>给虚拟机直接分配 LUNs</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_11">
+	<title>给虚拟机直接分配 FC LUNs</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_12">
+	<title>总结</title>
+	<para>
+	</para>
+  </section>
 
 </chapter>
 
