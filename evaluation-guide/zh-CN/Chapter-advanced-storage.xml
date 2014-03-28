@@ -56,7 +56,17 @@
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_2">
 	<title>高级存储功能</title>
 	<para>
+	  &OVIRT; 系统提供了很多高级的存储功能, 在本章, 我们将一一探索这些功能.
 	</para>
+	<para>
+	  我们将探索建立一个浮动磁盘, 然后将它分配给一个虚拟机, 创建一个共享磁盘,
+	  共享给另一个磁盘.
+	</para>
+	<para>
+	  我们还将创建一个虚拟机的在线快照, 然后直接用这个快照创建该虚拟机的一个
+	  克隆.
+	</para>
+
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_3">
