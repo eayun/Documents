@@ -8,7 +8,7 @@
 	<para>
 	</para>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_1">
-		<title>管理对象</title>
+		<title>实验目标</title>
                 <figure id="eayunos-Documents-evaluation-guide-lab5">
                     <title>系统管理员不同权限的层级管理</title>
 		   <mediaobject>
@@ -18,27 +18,60 @@
 		   </mediaobject>
                 </figure>
 		<para>
-                 
+                 本实验将为您介绍&OVIRT;的多级的管理权限系统，此系统可以让您根据自己企业的层级关系来层层的赋予不同的管理权限。我们在实验特权用户门户中部分的谈到关于给虚拟机和数据中心赋予权限的说明，此节则会更为详细。             
+		</para>
+		<para>
+                 在&OVIRT;中，将一些实体的可操作的内容称之为对象，对象可分为两类，一类是相对对立的，另外的则是容器，赋予权限其实就是激活用户可以对对象进行操作，相对于独立的容器，如果给某个容器赋予用户操作权限，则此容器内所有的内容均可操作，举个例子：将某用户赋予为某主机的主机管理者角色，此用户则可操作此主机的任何操作，但是，若将此用户赋予为某数据中心的主机管理者角色，则此用户可以操作此数据中心下所有集群内的所有主机，但此时若数据中心加入额外的集群（包含主机），则无法对这些主机进行操作。              
+		</para>
+		<para>
+                  通过此实验您将完成所有的层级管理，前提条件：安装并配置&OVIRT;管理端程序，并加入到目录服务（IdM,AD,FreeIPA等），且此目录服务有若干用户。            
 		</para>
 	</section>
 	
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_2">
 		<title>需求</title>
 		<para>
+                 无论是路线A，还是路线B，额外的需求就是必须保证已加入的目录服务中至少拥有两个用户。
 		</para>
 	</section>
 
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_3">
 		<title>存储管理员</title>
 		<para>
-
+                存储管理员可以管理、创建和删除存储域，但是存储管理员仅限于被赋予的存储域内，对其他存储域视而不见。此种情景非常适合企业拥有不同的存储域，每个存储域必须单独设置管理员的情形。 
+		</para>
+		<para>
+                执行赋予操作，须首先使用超级用户登录&OVIRT;管理门户。在此实验中，使用的用户是<emphasis>admin</emphasis>。
+		</para>
+		<para>
+                 现在您可以为用户<emphasis>tangyan</emphasis>赋予对象存储域<emphasis>local-domain</emphasis>为存储管理员权限。
 		</para>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_4">
-		<title>为存储域分配系统管理角色</title>
+		<title>为存储域分配存储管理角色</title>
 		<para>
 
 		</para>
+                <procedure>
+                     <step>
+			<para>在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【存储】，在<emphasis>存储</emphasis>将展现出所有的存储域。）</para>
+                     </step>
+                     <step>
+                        <para></para>
+                     </step>
+                     <step>
+ 
+                        <para></para>
+                     </step>
+                     <step>
+ 
+                        <para></para>
+                     </step>
+                     <step>
+                        <para></para>
+ 
+                     </step>
+                </procedure>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_5">
 		<title>虚拟机管理员</title>
