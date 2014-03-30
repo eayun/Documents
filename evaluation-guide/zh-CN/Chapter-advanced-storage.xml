@@ -154,8 +154,65 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_5">
 	<title>给虚拟机分配浮动磁盘</title>
-	<para>
-	</para>
+	<formalpara><title>摘要</title>
+    <para>
+	  我们已经在上面创建了一个浮动磁盘, 现在我们把它分配给一个虚拟机.
+    </para>
+    </formalpara>
+
+	<procedure>
+	  <title>给虚拟机分配浮动磁盘</title>
+	  <step>
+		<para>
+		  在导航面板上点击<keycap>虚拟机</keycap>标签.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
+		  方的详细面板上将会显示该虚拟机的所有信息.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+		  上的所有磁盘.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击<keycap>添加</keycap>, 打开<keycap>添加磁盘</keycap>窗口.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  勾选<keycap>附加磁盘</keycap>, 将会列出所有<keycap>浮动磁盘</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  选择上面创建的附加磁盘 <keycap>Disk1</keycap>, 如图:
+		</para>
+		<figure id="attach-float-disk"><title>给虚拟机分配浮动磁盘</title>
+		<mediaobject>
+          <imageobject>
+			<imagedata fileref="images/attach-float-disk.png" format="PNG" scale="100"/>
+          </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘.
+		</para>
+	  </step>
+	</procedure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_6">
