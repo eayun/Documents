@@ -92,8 +92,64 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_4">
 	<title>创建一个虚拟浮动磁盘</title>
-	<para>
-	</para>
+    <formalpara><title>摘要</title>
+    <para>
+	  本章你将会学习到怎样创建一个浮动磁盘
+    </para>
+    </formalpara>
+
+	<procedure>
+	  <title>创建浮动磁盘</title>
+	  <step>
+		<para>
+		  在导航面板上点击<keycap>磁盘</keycap>标签
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
+		  面板将会打开.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在大小的输入框里, 输入<keycap>10</keycap>, 设置磁盘大小为 10GB.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在<keycap>别名</keycap>输入框里, 输入 Alias.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在<keycap>描述</keycap>输入框里输入相关的描述.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  其它设置保留默认.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘.
+		</para>
+	  </step>
+	</procedure>
+
+    <formalpara><title>结果</title>
+    <para>
+	  一个名为 <keycap>Disk1</keycap> 的浮动磁盘已经创建好了, 接下来让我们
+	  看看怎样使用这个浮动磁盘.
+    </para>
+    </formalpara>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_5">
