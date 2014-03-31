@@ -38,14 +38,28 @@
 		</para>
 		<procedure><title>创建虚拟机：</title>
 			<step>
-				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，在Default数据中心Default集群下点击【虚拟机】，如图：</para>
+				<para>在EayunOS虚拟化管理平台树形面板，点击【展开所有】，在Default数据中心Default集群下点击【虚拟机】，点击【新建虚拟机】如图：</para>
 				<para>
+					<figure id="eayunos-virtual-desktop-0"><title>图1</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/virtual-desktop-1.png" format="PNG" scale="60"/>
+							</imageobject>
+						</mediaobject>
+					</figure>
 				</para>
 				<para>输入名称（win7-64），选择操作系统类型为Windows 7，其他项保留默认设置，当然你可以根据自己实际需要来改变这些设置，点击【确定】，创建虚拟机。</para>
 			</step>
 			<step>
                                 <para>显示“新建虚拟机-引导操作”窗口，点击“配置虚拟机磁盘”显示“添加虚拟机磁盘”窗口如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-1"><title>图2</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-2.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>输入名磁盘大小及描述信息，其它项保留默认设置，点击【确定】返回“新建虚拟机-引导操作”窗口提示“添加另外一个虚拟磁盘”，点击【以后再配置】，窗口关闭。</para>
 			</step>
@@ -57,6 +71,13 @@
                         <step>
                                 <para>选中刚创建的虚拟机（win7-64），点击【只运行一次】，显示“运行虚拟机”窗口，如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-2"><title>图3</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-3.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>配置“附加CD”并将CD上移置顶、设置显示协议（本实验设置SPICE）、附加软盘可以附加软驱动本实验则不采用软驱动，其它项保留默认设置，点击【确定】，开启虚拟机。</para>
                         </step>
@@ -67,29 +88,92 @@
                                 <para>根据安装提示开始安装操作系统，流程如下：</para>
                                 <para>图中，点击 “下一步”</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-3"><title>图4</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-4.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
-                                <para>图中，点击“开始安装”</para>
+                                <para>图中，点击“现在安装”</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-4"><title>图5</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-5.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>图中，勾选“我接受许可条款”，点击“下一步”</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-5"><title>图6</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-6.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>图中，选择“自定义”，可以看到“下一步”按钮为不可点击状态</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-6"><title>图7</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-7.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择驱动硬盘及网卡驱动（Red Hat VirtIO Ethernet Adapter、Red Hat VirtIO SCSI Controller），如图（这里只截图硬盘驱动，网卡驱动图略）：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-7"><title>图8</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-8.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>返回虚拟机安装界面，点击 “加载驱动程序”点击“浏览”，在“浏览文件夹”下选择相应的驱动，如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-8"><title>图9</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-9.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-9"><title>图10</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-10.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>显示磁盘，如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-10"><title>图11</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-11.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>返回EayunOS管理系统，选择“修改CD”，在下拉菜单下选择win7 iso文件，返回虚拟机安装界面，继续安装如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-11"><title>图12</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-12.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                         </step>
 			<step>
@@ -113,20 +197,48 @@
                                 <para>在要创建模板的虚拟机上打开一个命令行终端（win7-64），输入命令：regedit。</para>
                                 <para>显示“注册表编辑器Registry Editor”窗口，如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-12"><title>图13</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-13.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                                 <para>在左边面板，展开HKEY_LOCAL_MACHINE →SYSTEM → SETUP。</para>
                         </step>
                         <step>
                                 <para>在主窗口，右键添加一个新的string value 用New → String Value，如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-13"><title>图14</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-14.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                                 <para>右键新建的字符串值文件选择“修改”。显示“编辑字符串”对话框。输入数值名称: new string 和数值数据: a:\sysprep.inf。如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-14"><title>图15</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-15.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                         </step>
                         <step>
                                 <para>运行 sysprep 从 C:\Windows\System 32\sysprep\sysprep.exe，如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-15"><title>图16</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-16.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
 				<para>
 		                        <orderedlist>
@@ -148,6 +260,13 @@
                         <step>
                                 <para>在管理员门户，点击【虚拟机】，在虚拟机列表下找到刚密封后的Windows虚拟机，确保虚拟机是关闭状态，点击【创建模板】，如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-16"><title>图17</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-17.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
                         </step>
                         <step>
@@ -174,6 +293,13 @@
 			<step>
 				<para>在EayunOS虚拟化管理系统树形面板，点击【展开所有】，在Default数据中心Default集群下点击【虚拟机】。在虚拟机列表，点击【新建虚拟机】，如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-17"><title>图18</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-18.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
 				<para>在“常规”列表，在“基于模板”项选择新创建的Windows模板（windows-template），输入名称及描述信息，其它项保留默认设置（根据实际需要可以改变这些项的设置）。</para>
 			</step>
@@ -216,6 +342,13 @@
                         <step>
                                 <para>虚拟机power up。虚拟机开启后，它将不再是灰色。显示“Machine is Ready”在虚拟机图标上。双击虚拟机连接到控制台。如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-18"><title>图19</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-19.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                         </step>
                         <step>
@@ -235,14 +368,18 @@
                         <step>
                                 <para>点击【新建】，打开“新建池”窗口。如图：</para>
                                 <para>
+                                        <figure id="eayunos-virtual-desktop-19"><title>图20</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-20.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
                                 </para>
 				<para>输入“名称”、“虚拟机数量”、“每个用户的最大虚拟机数目”、“基于模板”选择模板（本实验选择win7-template），其它项保留默认设置，当然你可以根据实际需要改变这些设置。点击【确定】创建虚拟机池。</para>
                         </step>
                         <step>
-                                <para>返回到虚拟机列表下，你可以看到在虚拟机池里指定数量的虚拟机已经创建。你必须开启每个虚拟机允许sysprep设置虚拟机，添加这些组你急到在你创建模板时指定的域。</para>
-                        </step>
-                        <step>
-                                <para>在虚拟机池里关闭虚拟机。这样做，选择所有的虚拟机在虚拟机池，点击【stop】按钮。虚拟机状态由“Powering Down”->“Down”。</para>
+                                <para>返回到虚拟机列表下，你可以看到在虚拟机池里指定数量的虚拟机已经创建。你必须开启每个虚拟机允许sysprep设置虚拟机，添加他们到在你创建模板时指定的域。</para>
                         </step>
                 </procedure>
                 <procedure><title>分配UserRole权限给虚拟机池：</title>
@@ -265,16 +402,37 @@
                         <step>
                                 <para>选择你创建的虚拟机池。点击【运行】按钮，在本例中从池中分配一个虚拟机，如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-20"><title>图21</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-21.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                         </step>
                         <step>
                                 <para>虚拟机分配给你并开启，虚拟机名称中反应来自的池。如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-21"><title>图22</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-22.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                         </step>
                         <step>
                                 <para>当虚拟机显示“Machine is Ready”，双击虚拟机，登录连接到控制台窗口。如图：</para>
 				<para>
+                                        <figure id="eayunos-virtual-desktop-22"><title>图23</title>
+                                                <mediaobject>
+                                                        <imageobject>
+                                                                <imagedata fileref="images/virtual-desktop-23.png" format="PNG" scale="60"/>
+                                                        </imageobject>
+                                                </mediaobject>
+                                        </figure>
 				</para>
                         </step>
                         <step>
