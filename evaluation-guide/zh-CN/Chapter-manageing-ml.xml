@@ -274,7 +274,7 @@
                 <itemizedlist>
                    <listitem>
                      <para>
-                      选择路线A，请到<link linend="chap-Documents-evaluation-guide-Chapter-highavailabe">高可用的章节</link>，
+                      选择路线A，请到<link linkend="chap-Documents-evaluation-guide-Chapter-highavailabe">高可用的章节</link>，
                       此实验可以教给您关于配置省电模式及资源管理的规则。
                      </para>
                    </listitem>
@@ -286,6 +286,7 @@
                    </listitem>
                 </itemizedlist>
                 <figure id="eayunos-Documents-evaluation-guide-lab5-next">
+                      <title></title>
 		   <mediaobject>
 			<imageobject>
 				<imagedata fileref="images/EayunOS_evaluation_lab5_next.png" format="PNG" scale="60"/>
