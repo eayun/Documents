@@ -201,7 +201,7 @@
 		<figure id="attach-float-disk"><title>给虚拟机分配浮动磁盘</title>
 		<mediaobject>
           <imageobject>
-			<imagedata fileref="images/attach-float-disk.png" format="PNG" scale="100"/>
+			<imagedata fileref="images/advance-storage-attach-float-disk.png" format="PNG" scale="100"/>
           </imageobject>
 		</mediaobject>
 		</figure>
@@ -213,6 +213,19 @@
 		</para>
 	  </step>
 	</procedure>
+
+	<formalpara><title>结果</title>
+	  <para>
+		我们已经将 Disk1 分配给了虚拟机. 如图:
+    </para>
+    </formalpara>
+	<figure id="float-disk-done"><title>给虚拟机分配浮动磁盘</title>
+	<mediaobject>
+      <imageobject>
+		<imagedata fileref="images/advance-storage-float-disk-done.png" format="PNG" scale="100"/>
+      </imageobject>
+	</mediaobject>
+	</figure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_6">
