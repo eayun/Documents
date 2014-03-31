@@ -230,8 +230,72 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_6">
 	<title>创建一个可共享的虚拟磁盘</title>
+	<formalpara><title>摘要</title>
 	<para>
+	  我们已经在把 Disk1 分配给了一个虚拟机. 现在我们把它设置为可共享的, 然后它
+	  就能共享给另外一个虚拟机了.
 	</para>
+	</formalpara>
+
+	<procedure>
+	  <title>设置共享磁盘</title>
+	  <step>
+		<para>
+		  在导航面板上点击<keycap>虚拟机</keycap>标签.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
+		  方的详细面板上将会显示该虚拟机的所有信息.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+		  上的所有磁盘.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击<keycap>Disk1</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  点击详细信息面板左上角的<keycap>编辑</keycap>, 打开<keycap>编辑虚拟磁盘</keycap>窗口.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+		  勾选编辑窗口右侧的<keycap>是可共享的</keycap>, 如图:
+		</para>
+		<figure id="mark-disk-shareable"><title>创建共享磁盘</title>
+		<mediaobject>
+		  <imageobject>
+			<imagedata fileref="images/advance-storage-mark-disk-shareable.png" format="PNG" scale="100"/>
+		  </imageobject>
+		</mediaobject>
+		</figure>
+	  </step>
+
+	  <step>
+		<para>
+		  点击窗口又下角的<keycap>确定</keycap>设置该磁盘为共享的.
+		</para>
+	  </step>
+	</procedure>
+
+	<formalpara><title>结果</title>
+	<para>
+	  我们已经设置完共享磁盘了, 下一步, 我们把该磁盘附加到另外一个虚拟机上.
+	</para>
+	</formalpara>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_7">
