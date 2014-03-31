@@ -44,7 +44,7 @@
                 执行赋予操作，须首先使用超级用户登录&OVIRT;管理门户。在此实验中，使用的用户是<emphasis>admin</emphasis>。
 		</para>
 		<para>
-                 现在您可以为用户<emphasis>tangyan</emphasis>赋予对象存储域<emphasis>local-domain</emphasis>为存储管理员权限。
+                 现在您可以为用户<emphasis>tangyan</emphasis>赋予对象存储域<emphasis>local-iso</emphasis>为存储管理员权限。
 		</para>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_4">
@@ -54,48 +54,244 @@
 		</para>
                 <procedure>
                      <step>
-			<para>在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【存储】，在<emphasis>存储</emphasis>将展现出所有的存储域。）</para>
+			<para>
+                              在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【存储】，
+                              在<emphasis>存储</emphasis>将展现出所有的存储域。）
+                        </para>
                      </step>
                      <step>
-                        <para></para>
+                        <para>
+                          选择您要为用户<emphasis>tangyan</emphasis>分配权限的存储域，选择子选项卡<emphasis>权限</emphasis>。
+                          本实验采用的例子存储域名叫<emphasis>local_iso</emphasis>。
+                        </para>
                      </step>
                      <step>
- 
-                        <para></para>
+                        <para> 
+                          点击<emphasis>添加</emphasis> 按钮，<emphasis>为用户添加权限</emphasis>对话框会弹出，在<emphasis>搜
+                          索</emphasis>文本框中输入<emphasis>tangyan</emphasis>,然后点击<emphasis>执行</emphasis>按钮。
+                        </para>
                      </step>
                      <step>
- 
-                        <para></para>
+                        <para>
+                          选中搜索结果中的<emphasis>tangyan</emphasis>，在<emphasis>要分配的角色</emphasis>下拉列表框中选择
+                          <emphasis>StorageAdmin</emphasis>。
+                        </para>
+                        <figure id="eayunos-evalutaion-lab5-add-storage-permissions"><title>添加StorageAdmin权限</title>
+		           <mediaobject>
+			     <imageobject>
+				<imagedata fileref="images/EayunOS_lab5_add_storageadmin_permission.png" format="PNG" scale="60"/>
+		             </imageobject>
+		          </mediaobject>
+                        </figure>
                      </step>
                      <step>
-                        <para></para>
- 
+                        <para>
+                         点击<emphasis>确认</emphasis>，用户的信息（头像、用户以及角色）等会自动显示在<emphasis>权限</emphasis>
+                         这项中。
+                        </para>
                      </step>
                 </procedure>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_5">
 		<title>虚拟机管理员</title>
 		<para>
-
+                 特权用户不仅可以创建、管理和删除虚拟机，还可配置存储和网络，甚至都可对虚拟机进行迁移操作。一旦用户被赋予<emphasis>
+                 PowerUserRole</emphasis>就可以对某虚拟机拥有上述权限。                 
 		</para>
+		<para>
+                 和上述添加<emphasis>StorageAdmin</emphasis> 角色一样，完成这一操作需要您登录&OVIRT;管理门户，重复一些个步骤。
+		</para>
+		<para>
+                 我们现将一台名称为<emphasis>Publican</emphasis>的虚拟机，赋予给具有<emphasis>PowerUserRole</emphasis>的用户<emphasis>
+                 tangyan</emphasis>，接下来，然后试图验证下结构是否正是我们所期望的。
+		</para>
+                <procedure>
+                     <step>
+			<para>
+                           在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【虚拟机】，
+                           在<emphasis>虚拟机</emphasis>项下将展现出所有的虚拟机。）
+                        </para>
+                     </step>
+                     <step>
+                       <para>
+                         选择要赋予某用户的虚拟机，然后点击下方<emphasis>权限</emphasis>的细节面板，此例选择的虚拟机叫做<emphasis>
+                         Publican</emphasis>。
+                       </para>
+                     </step>
+                     <step>
+                        <para> 
+                          点击<emphasis>添加</emphasis> 按钮，<emphasis>为用户添加权限</emphasis>对话框会弹出，在<emphasis>搜
+                          索</emphasis>文本框中输入<emphasis>tangyan</emphasis>,然后点击<emphasis>执行</emphasis>按钮。
+                        </para>
+                     </step>
+                     <step>
+                        <para>
+                          选中搜索结果中的<emphasis>tangyan</emphasis>，在<emphasis>要分配的角色</emphasis>下拉列表框中选择
+                          <emphasis>PowerUserRole</emphasis>。
+                        </para>
+                        <figure id="eayunos-evalutaion-lab5-add-poweruser-permissions"><title>添加PowerUser角色</title>
+		           <mediaobject>
+			     <imageobject>
+				<imagedata fileref="images/EayunOS_lab5_add_poweruser_permission.png" format="PNG" scale="60"/>
+		             </imageobject>
+		          </mediaobject>
+                        </figure>
+                     </step>
+                     <step>
+                        <para>
+                         点击<emphasis>确认</emphasis>，用户的信息（头像、用户以及角色）等会自动显示在<emphasis>权限</emphasis>
+                         这项中。
+                        </para>
+                     </step>
+                </procedure>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_6">
 		<title>用户权限验证</title>
 		<para>
-
+                  欲验证存储管理员被正确的赋予了角色，从超级用户退出，使用<emphasis>tangyan</emphasis>登录&OVIRT;管理门户，作几个
+                  关于存储的操作即可。
 		</para>
+                <procedure><title>验证StorageAdmin的权限</title>
+                   <step>
+                     <para>
+                           在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【存储】，
+                           在<emphasis>存储</emphasis>将展现出所有的存储域。）
+                     </para>
+                   </step>
+                   <step>
+                     <para>
+                         选中<emphasis>local_iso</emphasis>,在细节项中，选中<emphasis>数据中心</emphasis>，并点击<emphasis>维护
+                         </emphasis>按钮，此时ISO域的状态为<emphasis>Inactive</emphasis>。
+                     </para>
+                   </step>
+                   <step>
+                     <para>
+                        选中数据存储域，,在细节项中，选中<emphasis>数据中心</emphasis>，并点击<emphasis>维护</emphasis>按钮，
+                        这次将会看到错误消息的对话框：“执行动作时出错：没有授权用户执行这个动作。”这表明用户仅有对ISO存储域的
+                        管理权限，而对存储域是无效的。
+                     </para>
+                   </step>
+                   <step>
+                     <para>
+                       再次选中ISO域，在细节项中，选中<emphasis>数据中心</emphasis>，并点击<emphasis>激活
+                         </emphasis>按钮，此时ISO域的状态为<emphasis>active</emphasis>。    
+                     </para>
+                   </step>
+                </procedure>
+                <para>
+                   接下来，我们来验证PowerUserRole的权限设置。
+                </para>
+                <procedure>
+                    <step>
+                      <para>
+                           在&OVIRT;管理平台树形面板先点击【展开所有】（按键，在默认的数据中心下的默认集群，点击【虚拟机】，
+                           在<emphasis>虚拟机</emphasis>项下将展现出所有的虚拟机。）
+                      </para>
+                    </step>
+                    <step>
+                      <para>
+                       选中虚拟机<emphasis>Publican</emphasis>,如果它正在运行，则尝试关闭它；如果它没有运行，则启动它，这些
+                       均是可以成功的。
+                      </para>
+                    </step>
+                    <step>
+                      <para>
+                       选中其他任意虚拟机，如果它正在运行，则尝试关闭它；如果它没有运行，则启动它，这次&OVIRT;会弹出错误的消息
+                       框：“没有授权用户执行这个动作。“这说明<emphasis>tangyan</emphasis>仅有操作虚拟机<emphasis>Publican</emphasis>
+                       的权限，而对其它虚拟机则无效。
+                      </para>
+                    </step>
+                </procedure>
+                <para>
+                   通过上述几个实验，相信用户此时已经理解对于不同的对象，可以将不同级别的权限赋予不同用户，多层次的管理非常适合拥有
+                   不同需求的多元化组织,基于安全的考虑，此种方式的好处将用户限定到某个局部，而不需要给他整个系统的权限。
+                </para>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_7">
 		<title>自定义角色</title>
 		<para>
-
+                  &OVIRT;还支持除系统预设的角色之外，用户可根据自己的实际需求自定义一些角色。用户可以创建管理员或用户角色，这些角色
+                 可在数据中心下管理不同级别的资源，且看下面的创建新角色的详细步骤（依然使用超级用户登录系统）：
 		</para>
+                <procedure><title>创建新的角色</title>
+                    <step>
+                      <para>
+                      在&OVIRT;管理门户的右上角，点击<emphasis>配置</emphasis>，在<emphasis>配置</emphasis>的对话框中，默认会列出所
+                      有的用户和管理员角色，以及自定义的（如果有的话）
+                      </para>
+                    </step>
+                    <step>
+                      <para>
+                        点击<emphasis>新建</emphasis>，如下图所示：
+                        <figure id="eayunos-evalutaion-lab5-add-new-role"><title>添加新的角色</title>
+		           <mediaobject>
+			     <imageobject>
+				<imagedata fileref="images/EayunOS_lab5_create_new_role.png" format="PNG" scale="60"/>
+		             </imageobject>
+		          </mediaobject>
+                        </figure>
+                       <itemizedlist>
+                           <listitem>
+                             <para>
+                                为新的角色命名及简要的描述信息。
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                               选择一个账户类型：用户或管理员。
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                                点击<emphasis>展开所有</emphasis>，查看所有的可以赋予权限的对象。
+                             </para>
+                           </listitem>
+                           <listitem>
+                             <para>
+                               针对每一个对象，根据你希望的角色选择可以进行的操作。
+                             </para>
+                           </listitem>
+                       </itemizedlist>
+                      </para>
+                    </step>
+                    <step>
+                      <para>
+                        点击<emphasis>确认</emphasis>，新的角色出现在角色的列表中。
+                      </para>
+                    </step>
+                </procedure>
+                <para>
+                  现在用户已经建立了一个角色，并可按照前面的章节，可以将这个角色赋予某个用户操作某个对象。还有一种创建新的角色
+                  的方法，就是复制现有的角色，然后根据实际情形修改这个角色以满足用户的需求。&OVIRT;为用户提供了一个广泛的可能
+                  性来创建权限,用过更多功能的、更细粒度的模型以满足需求。
+                </para>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-manageing-ml_Section_8">
 		<title>总结</title>
 		<para>
-
+                 在本试验中，您已经成功的为某用户赋予了多层级的管理权限。接下来：
 		</para>
+                <itemizedlist>
+                   <listitem>
+                     <para>
+                      选择路线A，请到<link linend="chap-Documents-evaluation-guide-Chapter-highavailabe">高可用的章节</link>，
+                      此实验可以教给您关于配置省电模式及资源管理的规则。
+                     </para>
+                   </listitem>
+                   <listitem>
+                     <para>
+                     选择路线B，请到<link linkend="chap-Documents-evaluation-guide-Chapter-virtual-desktop">虚拟桌面章节</link>,
+                      此实验将教给您关于如何创建和分配桌面池，以及如何从用户门户访问虚拟机。
+                     </para>
+                   </listitem>
+                </itemizedlist>
+                <figure id="eayunos-Documents-evaluation-guide-lab5-next">
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/EayunOS_evaluation_lab5_next.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
 	</section>
 </chapter>
 
