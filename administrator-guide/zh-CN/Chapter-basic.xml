@@ -6,18 +6,18 @@
 <chapter id="chap-Documents-administrator-guide-Chapter-basic">
   <title>基本概念</title>
   <para>
-	This is a test paragraph
+    This is a test paragraph
   </para>
   <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1">
-	<title>介绍</title>
-	<para>
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-1">
-	  <title>&OVIRT;架构</title>
-	  <para>
+    <title>介绍</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-1">
+      <title>&OVIRT;架构</title>
+      <para>
         &OVIRT;系统是由以下组件所组成的:
-	  </para>
-	  <itemizedlist>
+      </para>
+      <itemizedlist>
         <listitem>
           <para>
             用来运行虚拟机的<keycap>主机</keycap> 利用了 KVM 来提供虚拟化的功能.
@@ -46,24 +46,24 @@
         <listitem>
           <para>
             <keycap>外部目录服务器</keycap> 用来提供用户权限管理
-		  </para>
+          </para>
         </listitem>
-		<listitem>
+        <listitem>
           <para>
             <keycap>外部目录服务器</keycap> 用来提供用户权限管理
-		  </para>
+          </para>
         </listitem>
-		<listitem>
+        <listitem>
           <para>
             <keycap>网络管理</keycap> 管理整个环境的网络, 包括物理网卡的管理, 和逻辑网络的管理
-		  </para>
+          </para>
         </listitem>
-	  </itemizedlist>
-	</section>
+      </itemizedlist>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-2">
-	  <title>&OVIRT;系统组件</title>
-	  <para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-2">
+      <title>&OVIRT;系统组件</title>
+      <para>
         &OVIRT; 虚拟化管理系统由一个或者多个运行 &OVIRT;的主机和至少一个运行 &OVIRT; 的管理系统组成.
       </para>
 
@@ -72,618 +72,618 @@
       </para>
 
       <para>
-		对 &OVIRT; 管理端来讲, 它同样需要运行在 &OVIRT; 系统上, 提供一个图形界面来管理整个系统. 利用这个图形界面的接口来管理虚拟机的任务, 存储的分配, 网络的管理, 用户权限
+        对 &OVIRT; 管理端来讲, 它同样需要运行在 &OVIRT; 系统上, 提供一个图形界面来管理整个系统. 利用这个图形界面的接口来管理虚拟机的任务, 存储的分配, 网络的管理, 用户权限
       </para>
 
       <para>
         对用户来讲, &OVIRT; 管理端是使用浏览器来访问和控制的.
-	  </para>
-	</section>
+      </para>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-3">
-	  <title>&OVIRT;对资源的定义</title>
-	  <para>
-		总的来讲, &OVIRT; 系统的资源分为以下两类: 物理资源和逻辑资源. 顾名思义, 物理资源只得是存在实体的资源, 比如主机和存储等. 相反的, 逻辑资源是指不存在物理实体的资源, 比如逻辑网络和虚拟机模板等, 下面对 &OVIRT; 系统中的资源资源做一个概括.
-	  </para>
-	  <itemizedlist>
-		<listitem>
-		  <para>
-			<keycap>数据中心</keycap> 数据中心是在 &OVIRT; 系统中所有物理资源和逻辑资源的最大容器单位, 它是所有虚拟机, 存储, 和网络的集合.
-		  </para>
-		</listitem>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-3">
+      <title>&OVIRT;对资源的定义</title>
+      <para>
+        总的来讲, &OVIRT; 系统的资源分为以下两类: 物理资源和逻辑资源. 顾名思义, 物理资源只得是存在实体的资源, 比如主机和存储等. 相反的, 逻辑资源是指不存在物理实体的资源, 比如逻辑网络和虚拟机模板等, 下面对 &OVIRT; 系统中的资源资源做一个概括.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <keycap>数据中心</keycap> 数据中心是在 &OVIRT; 系统中所有物理资源和逻辑资源的最大容器单位, 它是所有虚拟机, 存储, 和网络的集合.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>集群</keycap> 一个集群指的是物理主机的集合, 在这里, 主机可以看做是虚拟机的资源池. 在同一个集群中的主机共享相同的网络和存储架构, 而且集群中的虚拟机可以在属于该集群的不同的主机之间迁移.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>集群</keycap> 一个集群指的是物理主机的集合, 在这里, 主机可以看做是虚拟机的资源池. 在同一个集群中的主机共享相同的网络和存储架构, 而且集群中的虚拟机可以在属于该集群的不同的主机之间迁移.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>逻辑网络</keycap> 逻辑网络是物理网络在逻辑上的表示, 它把网络负载根据管理流量, 主机流量, 存储流量和虚拟机的流量分组, 从而更好的实现网络的管理和流量的分离.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>逻辑网络</keycap> 逻辑网络是物理网络在逻辑上的表示, 它把网络负载根据管理流量, 主机流量, 存储流量和虚拟机的流量分组, 从而更好的实现网络的管理和流量的分离.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>主机</keycap> 主机就是物理上的服务器, 虚拟机在主机上运行. 一个主机可以运行一个或者虚拟机, 正如上面提到的, 是主机组成了集群. 在一个集群中的虚拟机可以在不同的主机间迁移.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>主机</keycap> 主机就是物理上的服务器, 虚拟机在主机上运行. 一个主机可以运行一个或者虚拟机, 正如上面提到的, 是主机组成了集群. 在一个集群中的虚拟机可以在不同的主机间迁移.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>存储池</keycap> 存储池是一个逻辑上的概念, 包含同一种存储类型的仓库, 比如 iSCSI, Fibre Channel, NFS, 或者 POSIX. 每一中存储池都可以包含几个同类型的存储域, 用来存储虚拟机镜像, ISO 文件, 或者是用来导入/导出存储域.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>存储池</keycap> 存储池是一个逻辑上的概念, 包含同一种存储类型的仓库, 比如 iSCSI, Fibre Channel, NFS, 或者 POSIX. 每一中存储池都可以包含几个同类型的存储域, 用来存储虚拟机镜像, ISO 文件, 或者是用来导入/导出存储域.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>虚拟机</keycap> 虚拟机就像实际的机器一样, 有自己的硬件(CPU, 内存等), 包含操作系统和一系列应用软件. &OVIRT; 系统中的虚拟机有两种: 虚拟桌面和虚拟服务器. 多个同样的虚拟机能同时快速的在一个池里面创建. 注意, 虚拟机的创建, 管理, 删除等操作只能被超级用户和授予相关权限的用户执行.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>虚拟机</keycap> 虚拟机就像实际的机器一样, 有自己的硬件(CPU, 内存等), 包含操作系统和一系列应用软件. &OVIRT; 系统中的虚拟机有两种: 虚拟桌面和虚拟服务器. 多个同样的虚拟机能同时快速的在一个池里面创建. 注意, 虚拟机的创建, 管理, 删除等操作只能被超级用户和授予相关权限的用户执行.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>模板</keycap> 模板是一种虚拟机模型, 这种模型预先定义了虚拟机的很多内容, 比如操作系统等. 通过模板, 可以在简单的一个操作中以最快的方式创建大量的虚拟机.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>模板</keycap> 模板是一种虚拟机模型, 这种模型预先定义了虚拟机的很多内容, 比如操作系统等. 通过模板, 可以在简单的一个操作中以最快的方式创建大量的虚拟机.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>虚拟机池</keycap> 虚拟机池是指一组相同的虚拟机的集合. 对一些特定的目的, 虚拟机池很有用. 比如不同部门虚拟机使用的划分, 一个池给市场部门用, 另一个池给研发部门用, 等等.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>虚拟机池</keycap> 虚拟机池是指一组相同的虚拟机的集合. 对一些特定的目的, 虚拟机池很有用. 比如不同部门虚拟机使用的划分, 一个池给市场部门用, 另一个池给研发部门用, 等等.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>快照</keycap> 快照是指某一个时间点虚拟机操作系统的所有内容的一个状态. 快照有很多用途, 比如在升级虚拟机或者修改虚拟机内容的时候, 可以建立一个快照, 当升级完系统出问题的时候, 可以用快照恢复到之前的状态.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>快照</keycap> 快照是指某一个时间点虚拟机操作系统的所有内容的一个状态. 快照有很多用途, 比如在升级虚拟机或者修改虚拟机内容的时候, 可以建立一个快照, 当升级完系统出问题的时候, 可以用快照恢复到之前的状态.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>用户类型</keycap> &OVIRT; 系统支持不同级别的管理员和用户权限. 系统管理员管理物力资源, 比如数据中心, 主机, 存储资源等. 是系统管理员建立的虚拟机池和虚拟机, 用户具有访问这些虚拟机的能力.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>用户类型</keycap> &OVIRT; 系统支持不同级别的管理员和用户权限. 系统管理员管理物力资源, 比如数据中心, 主机, 存储资源等. 是系统管理员建立的虚拟机池和虚拟机, 用户具有访问这些虚拟机的能力.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>事件和监控</keycap> 报警, 警告和其它关于系统的通知可以帮助系统管理员更好的了解整个系统的性能和资源的状态.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            <keycap>事件和监控</keycap> 报警, 警告和其它关于系统的通知可以帮助系统管理员更好的了解整个系统的性能和资源的状态.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			<keycap>报表</keycap> 从基于 JasperReports 的报表模块, 或是数据库产生需要的报表. 用户也可以使用任何支持 SQL 语句的查询工具查询包含主机, 虚拟机和存储等的监控数据.
-		  </para>
-		</listitem>
-	  </itemizedlist>
-	</section>
+        <listitem>
+          <para>
+            <keycap>报表</keycap> 从基于 JasperReports 的报表模块, 或是数据库产生需要的报表. 用户也可以使用任何支持 SQL 语句的查询工具查询包含主机, 虚拟机和存储等的监控数据.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-4">
-	  <title>&OVIRT;API声明</title>
-	  <para>
-		&OVIRT;系统抛出了一系列使用的接口, 方便用户和整个系统交互. 这些接口
-		是对图形化的用户接口的一个补充. 有了这些接口, 开发人员可以做一些更高级,
-		自动化的开发. 目前为止, &OVIRT; 系统的各个组件抛出了大部分接口, 并且
-		这些接口完全可读写, 仅有少部分接口是只读或者还没有完全被支持.
-	  </para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-4">
+      <title>&OVIRT;API声明</title>
+      <para>
+        &OVIRT;系统抛出了一系列使用的接口, 方便用户和整个系统交互. 这些接口
+        是对图形化的用户接口的一个补充. 有了这些接口, 开发人员可以做一些更高级,
+        自动化的开发. 目前为止, &OVIRT; 系统的各个组件抛出了大部分接口, 并且
+        这些接口完全可读写, 仅有少部分接口是只读或者还没有完全被支持.
+      </para>
 
-	  <para>
-		<keycap>完全支持读写权限的接口</keycap>
-	  </para>
+      <para>
+        <keycap>完全支持读写权限的接口</keycap>
+      </para>
 
-	  <para>
-		以下接口完全具有读写权限, 可以直接利用下列接口和系统中的组件交互
-	  </para>
+      <para>
+        以下接口完全具有读写权限, 可以直接利用下列接口和系统中的组件交互
+      </para>
 
-	  <variablelist>
-		<varlistentry><term>Representational State Transfer(REST) API</term>
-		<listitem>
-		  <para>
-			在 &OVIRT; 系统中, REST API 完全被支持, 你可以使用该接口和系统中
-			的组件交互.
-		  </para>
-		</listitem>
-		</varlistentry>
+      <variablelist>
+        <varlistentry><term>Representational State Transfer(REST) API</term>
+        <listitem>
+          <para>
+            在 &OVIRT; 系统中, REST API 完全被支持, 你可以使用该接口和系统中
+            的组件交互.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>Software Development Kit(SDK)</term>
-		<listitem>
-		  <para>
-			SDK 在 &OVIRT; 中也是被完全支持的, 它是由 ovirt-engine-sdk 软件包
-			提供的.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>Software Development Kit(SDK)</term>
+        <listitem>
+          <para>
+            SDK 在 &OVIRT; 中也是被完全支持的, 它是由 ovirt-engine-sdk 软件包
+            提供的.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>Command Line Shell</term>
-		<listitem>
-		  <para>
-			&OVIRT; 系统完全支持命令行接口, 该接口由 vdsm-cli 和 ovirt-engine-cli
-			软件包提供.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>Command Line Shell</term>
+        <listitem>
+          <para>
+            &OVIRT; 系统完全支持命令行接口, 该接口由 vdsm-cli 和 ovirt-engine-cli
+            软件包提供.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>VDSM Hooks</term>
-		<listitem>
-		  <para>
-			目前, &OVIRT; 系统支持对虚拟机创建 VDSM Hooks, 然后通过该 Hooks
-			修改虚拟机的配置. 但是对主机的 Hooks 还不支持.
-		  </para>
-		</listitem>
-		</varlistentry>
-	  </variablelist>
+        <varlistentry><term>VDSM Hooks</term>
+        <listitem>
+          <para>
+            目前, &OVIRT; 系统支持对虚拟机创建 VDSM Hooks, 然后通过该 Hooks
+            修改虚拟机的配置. 但是对主机的 Hooks 还不支持.
+          </para>
+        </listitem>
+        </varlistentry>
+      </variablelist>
 
-	  <para>
-		<keycap>只支持读权限的接口</keycap>
-	  </para>
+      <para>
+        <keycap>只支持读权限的接口</keycap>
+      </para>
 
-	  <para>
-		以下接口只支持读权限和系统交互:
-	  </para>
+      <para>
+        以下接口只支持读权限和系统交互:
+      </para>
 
-	  <variablelist>
-		<varlistentry><term>&OVIRT; Manager History Database</term>
-		<listitem>
-		  <para>
-			目前仅仅支持 &OVIRT; Manager History Database 的读权限, 写权限是
-			不允许的.
-		  </para>
-		</listitem>
-		</varlistentry>
+      <variablelist>
+        <varlistentry><term>&OVIRT; Manager History Database</term>
+        <listitem>
+          <para>
+            目前仅仅支持 &OVIRT; Manager History Database 的读权限, 写权限是
+            不允许的.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>Libvirt</term>
-		<listitem>
-		  <para>
-			通过命令行 <keycap>virsh -r</keycap> 只读连接到 <keycap>Libvirt</keycap>
-			是完全支持的. 但是写支持还不支持.
-		  </para>
-		</listitem>
-		</varlistentry>
-	  </variablelist>
+        <varlistentry><term>Libvirt</term>
+        <listitem>
+          <para>
+            通过命令行 <keycap>virsh -r</keycap> 只读连接到 <keycap>Libvirt</keycap>
+            是完全支持的. 但是写支持还不支持.
+          </para>
+        </listitem>
+        </varlistentry>
+      </variablelist>
 
-	  <para>
-		<keycap>不支持的接口</keycap>
-	  </para>
+      <para>
+        <keycap>不支持的接口</keycap>
+      </para>
 
-	  <para>
-		以下接口目前还不支持:
-	  </para>
+      <para>
+        以下接口目前还不支持:
+      </para>
 
-	  <variablelist>
-		<varlistentry><term>vdsClient 命令</term>
-		<listitem>
-		  <para>
-			暂不支持使用这个命令和系统交互
-		  </para>
-		</listitem>
-		</varlistentry>
+      <variablelist>
+        <varlistentry><term>vdsClient 命令</term>
+        <listitem>
+          <para>
+            暂不支持使用这个命令和系统交互
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>Hypervisor Console</term>
-		<listitem>
-		  <para>
-			目前暂不支持使用除了用户图形界面以外的工具访问 Hypervisor Console.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>Hypervisor Console</term>
+        <listitem>
+          <para>
+            目前暂不支持使用除了用户图形界面以外的工具访问 Hypervisor Console.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>数据库</term>
-		<listitem>
-		  <para>
-			不支持直接访问和操纵系统的数据库.
-		  </para>
-		</listitem>
-		</varlistentry>
-	  </variablelist>
-	</section>
+        <varlistentry><term>数据库</term>
+        <listitem>
+          <para>
+            不支持直接访问和操纵系统的数据库.
+          </para>
+        </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-5">
-	  <title>SPICE</title>
-	  <para>
-		SPICE 协议主要是用来为用户提供一个图形化的访问虚拟机的方式, 它有以下特点:
-	  </para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-5">
+      <title>SPICE</title>
+      <para>
+        SPICE 协议主要是用来为用户提供一个图形化的访问虚拟机的方式, 它有以下特点:
+      </para>
 
-	  <itemizedlist>
-		<listitem>
-		  <para>
-			支持超过 30FPS(Frames Per Second) 的视频播放
-		  </para>
-		</listitem>
+      <itemizedlist>
+        <listitem>
+          <para>
+            支持超过 30FPS(Frames Per Second) 的视频播放
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			双向音频
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            双向音频
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			双向视频
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            双向视频
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			同一个虚拟机支持多个虚拟显示器连接
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            同一个虚拟机支持多个虚拟显示器连接
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			支持重定向客户端的 USB 端口到虚拟机里面
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            支持重定向客户端的 USB 端口到虚拟机里面
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			支持通过代理连接 SPICE 协议 <!--TODO-->
-		  </para>
-		</listitem>
-	  </itemizedlist>
-	</section>
+        <listitem>
+          <para>
+            支持通过代理连接 SPICE 协议 <!--TODO-->
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-6">
-	  <title>管理和维护&OVIRT;环境</title>
-	  <para>
-		&OVIRT; 管理系统需要一个系统管理员来保持整个系统的良好运行. 作为一个
-		系统管理员, 他需要负责以下的一些工作:
-	  </para>
-	  <itemizedlist>
-		<listitem>
-		  <para>
-			管理物理资源和虚拟资源. 包括升级主机, 添加新的主机, 导入存储域,
-			管理虚拟机池等等
-		  </para>
-		</listitem>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_1-6">
+      <title>管理和维护&OVIRT;环境</title>
+      <para>
+        &OVIRT; 管理系统需要一个系统管理员来保持整个系统的良好运行. 作为一个
+        系统管理员, 他需要负责以下的一些工作:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            管理物理资源和虚拟资源. 包括升级主机, 添加新的主机, 导入存储域,
+            管理虚拟机池等等
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			监控整个系统的运行情况, 发生一些严重问题时候一边可以很快恢复.
-			比如某些主机负载太高, 内存或者存储空间不够等等.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            监控整个系统的运行情况, 发生一些严重问题时候一边可以很快恢复.
+            比如某些主机负载太高, 内存或者存储空间不够等等.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			满足普通用户对虚拟机使用的一些需求, 比如升级虚拟机的操作系统, 给虚拟机分配更多的内存等.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            满足普通用户对虚拟机使用的一些需求, 比如升级虚拟机的操作系统, 给虚拟机分配更多的内存等.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			使用 tags 管理一些特性的对象属性 <!--FIXME-->
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            使用 tags 管理一些特性的对象属性 <!--FIXME-->
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			管理搜索结果, 把它们作为公共的书签 <!--FIXME-->
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            管理搜索结果, 把它们作为公共的书签 <!--FIXME-->
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			管理用户的创建和权限
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            管理用户的创建和权限
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			为一些用户或者虚拟机错误操作恢复环境
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            为一些用户或者虚拟机错误操作恢复环境
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			生成报告			<!--FIXME-->
-		  </para>
-		</listitem>
-	  </itemizedlist>
-	</section>
+        <listitem>
+          <para>
+            生成报告            <!--FIXME-->
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2">
-	<title>使用图形界面的管理员门户</title>
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-1">
-	  <title>管理员门户对客户端的软硬件需求</title>
-	  <para>
-		管理员和用户的门户是通过浏览器进行访问的, 所以对浏览器有一些最低的要求:
-	  </para>
-	  <itemizedlist>
-		<listitem>
-		  <para>
-			管理员和用户门户完全支持 Mozilla Firefox 17 和以后版本
-		  </para>
-		</listitem>
+    <title>使用图形界面的管理员门户</title>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-1">
+      <title>管理员门户对客户端的软硬件需求</title>
+      <para>
+        管理员和用户的门户是通过浏览器进行访问的, 所以对浏览器有一些最低的要求:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            管理员和用户门户完全支持 Mozilla Firefox 17 和以后版本
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			用户门户对 IE 浏览器的要求是 IE 8 和之后的版本, 注意目前仅仅支持
-			桌面版本的 IE 浏览器, 对平板电脑的浏览器暂不支持.
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            用户门户对 IE 浏览器的要求是 IE 8 和之后的版本, 注意目前仅仅支持
+            桌面版本的 IE 浏览器, 对平板电脑的浏览器暂不支持.
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			管理员门户对 IE 浏览器的要求是 IE 9 和之后的版本, 注意目前仅仅支持
-			桌面版本的 IE 浏览器, 对平板电脑的浏览器暂不支持.
-		  </para>
-		</listitem>
-	  </itemizedlist>
+        <listitem>
+          <para>
+            管理员门户对 IE 浏览器的要求是 IE 9 和之后的版本, 注意目前仅仅支持
+            桌面版本的 IE 浏览器, 对平板电脑的浏览器暂不支持.
+          </para>
+        </listitem>
+      </itemizedlist>
 
-	  <para>
-		为了访问虚拟机, 需要安装一个 SPICE 客户端. 目前SPICE 客户端可以在大多
-		数主流的操作系统上安装和使用.
-	  </para>
-	  <itemizedlist>
-		<listitem>
-		  <para>
-			CentOS 5.8(32位或者64位) 及其以上
-		  </para>
-		</listitem>
+      <para>
+        为了访问虚拟机, 需要安装一个 SPICE 客户端. 目前SPICE 客户端可以在大多
+        数主流的操作系统上安装和使用.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            CentOS 5.8(32位或者64位) 及其以上
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			Windows XP 及其以上
-		  </para>
-		</listitem>
+        <listitem>
+          <para>
+            Windows XP 及其以上
+          </para>
+        </listitem>
 
-		<listitem>
-		  <para>
-			主流的 Linux 发行版(2010年以后发布的版本) <!--TODO-->
-		  </para>
-		</listitem>
-	  </itemizedlist>
+        <listitem>
+          <para>
+            主流的 Linux 发行版(2010年以后发布的版本) <!--TODO-->
+          </para>
+        </listitem>
+      </itemizedlist>
 
-	  <note>
-		<para>
-		  请联系 eayun 的客服工程师或者查询易云的相关文档了解各个版本的 SPICE
-		  客户端支持的的特性列表
-		</para>
-	  </note>
+      <note>
+        <para>
+          请联系 eayun 的客服工程师或者查询易云的相关文档了解各个版本的 SPICE
+          客户端支持的的特性列表
+        </para>
+      </note>
 
-	  <para>
-		使用 Mozilla Firefox 访问虚拟机的时候, SPICE 客户端由 spice-xpi 软件包
-		提供, 可以使用发行版提供的包管理器安装该软件包, 比如 <keycap>yum</keycap>
-	  </para>
+      <para>
+        使用 Mozilla Firefox 访问虚拟机的时候, SPICE 客户端由 spice-xpi 软件包
+        提供, 可以使用发行版提供的包管理器安装该软件包, 比如 <keycap>yum</keycap>
+      </para>
 
-	  <para>
-		使用 Internet Explorer 访问虚拟机的时候, SPICE 的 ActiveX 插件会自动
-		下载和安装.				<!--TODO-->
-	  </para>
-	</section>
+      <para>
+        使用 Internet Explorer 访问虚拟机的时候, SPICE 的 ActiveX 插件会自动
+        下载和安装.             <!--TODO-->
+      </para>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-2">
-	  <title>管理员门户的要素</title>
-	  <para>
-		&OVIRT; 系统的管理门户由相关联的面板和各种菜单组成. 主要有两种使用方式:
-		树形模式和扁平模式. 树形模式是以数据中心开始的一个树状的结构, 你可以在
-		这个结构上操作属于该数据中心的一些元素, 我们主要推荐使用树状模式来管理
-		&OVIRT; 系统. 管理门户的组成元素如下:
-	  </para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-2">
+      <title>管理员门户的要素</title>
+      <para>
+        &OVIRT; 系统的管理门户由相关联的面板和各种菜单组成. 主要有两种使用方式:
+        树形模式和扁平模式. 树形模式是以数据中心开始的一个树状的结构, 你可以在
+        这个结构上操作属于该数据中心的一些元素, 我们主要推荐使用树状模式来管理
+        &OVIRT; 系统. 管理门户的组成元素如下:
+      </para>
 
-	  <variablelist>
-		<title>用户接口组成元素</title>
-		<varlistentry><term>头部栏</term>
-		<listitem>
-		  <para>
-			<keycap>头部栏</keycap>包括以下元素: <keycap>登录用户的名字</keycap>,
-			<keycap>配置</keycap>按钮, <keycap>指南</keycap>按钮,
-			<keycap>关于</keycap>按钮, 和<keycap>登出</keycap>按钮.
-			点击关于按钮简单的系统的显示版本信息, 配置按钮允许管理
-			员配置用户的角色和权限, 点击指南按钮会打开一个指向 &OVIRT; 管理
-			系统使用文档的页面, 你可以在上面查找到该系统的使用手册. <!--TODO: 链接到我们的网页-->
-		  </para>
-		</listitem>
-		</varlistentry>
+      <variablelist>
+        <title>用户接口组成元素</title>
+        <varlistentry><term>头部栏</term>
+        <listitem>
+          <para>
+            <keycap>头部栏</keycap>包括以下元素: <keycap>登录用户的名字</keycap>,
+            <keycap>配置</keycap>按钮, <keycap>指南</keycap>按钮,
+            <keycap>关于</keycap>按钮, 和<keycap>登出</keycap>按钮.
+            点击关于按钮简单的系统的显示版本信息, 配置按钮允许管理
+            员配置用户的角色和权限, 点击指南按钮会打开一个指向 &OVIRT; 管理
+            系统使用文档的页面, 你可以在上面查找到该系统的使用手册. <!--TODO: 链接到我们的网页-->
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>搜索栏</term>
-		<listitem>
-		  <para>
-			在<keycap>搜索</keycap>栏这里, 你可以搜索到想要的任何资源, 比如可以简单的用
-			<keycap>host</keycap>关键字搜索所有的主机, 还可以用更复杂的条件搜索
-			更精确的结果. 每次输入搜索条件时, 内置的搜索引擎打开一个下拉框自动
-			提示可能想要搜索的结果. 点击搜索栏右边的的星图标, 你可以把这次搜索
-			保存为书签, 方便下次查看.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>搜索栏</term>
+        <listitem>
+          <para>
+            在<keycap>搜索</keycap>栏这里, 你可以搜索到想要的任何资源, 比如可以简单的用
+            <keycap>host</keycap>关键字搜索所有的主机, 还可以用更复杂的条件搜索
+            更精确的结果. 每次输入搜索条件时, 内置的搜索引擎打开一个下拉框自动
+            提示可能想要搜索的结果. 点击搜索栏右边的的星图标, 你可以把这次搜索
+            保存为书签, 方便下次查看.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>资源标签</term>
-		<listitem>
-		  <para>
-			包括存储, 主机等的所有资源, 都可以通过主面板上的标签找到. 另外,
-			<keycap>事件</keycap>标签所展示的是每个资源的所有事件.
-		  </para>
-		  <para>
-			管理门户提供了以下几类资源标签: 数据中心, 集群, 主机, 存储, 磁盘,
-			虚拟机, 池, 模板, 用户和事件 <!--TODO-->
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>资源标签</term>
+        <listitem>
+          <para>
+            包括存储, 主机等的所有资源, 都可以通过主面板上的标签找到. 另外,
+            <keycap>事件</keycap>标签所展示的是每个资源的所有事件.
+          </para>
+          <para>
+            管理门户提供了以下几类资源标签: 数据中心, 集群, 主机, 存储, 磁盘,
+            虚拟机, 池, 模板, 用户和事件 <!--TODO-->
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>结果列表</term>
-		<listitem>
-		  <para>
-			如果选中相关的资源, 然后在之上执行一个任务, 比如创建新的存储, 等等.
-			关于选中的资源的一些信息就会在详细信息面板上显示出来.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>结果列表</term>
+        <listitem>
+          <para>
+            如果选中相关的资源, 然后在之上执行一个任务, 比如创建新的存储, 等等.
+            关于选中的资源的一些信息就会在详细信息面板上显示出来.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>详细面板</term>
-		<listitem>
-		  <para>
-			<keycap>详细</keycap>信息面板显示选中条目的详细信息, 比如选中一个
-			存储域, 在下方的面板上就会以标签的形式显示该存储域的详细信息, 包括
-			挂载的数据中心, 路径等等.
-		  </para>
-		</listitem>
-		</varlistentry>
+        <varlistentry><term>详细面板</term>
+        <listitem>
+          <para>
+            <keycap>详细</keycap>信息面板显示选中条目的详细信息, 比如选中一个
+            存储域, 在下方的面板上就会以标签的形式显示该存储域的详细信息, 包括
+            挂载的数据中心, 路径等等.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>树/书签/标签 面板</term>
-		<listitem>
-		  <para>
-			<keycap>树形</keycap>面板以树的形式显示了在 &OVIRT; 管理系统中
-			所有资源, 用户可以在这课树上导航到任何资源.
-		  </para>
+        <varlistentry><term>树/书签/标签 面板</term>
+        <listitem>
+          <para>
+            <keycap>树形</keycap>面板以树的形式显示了在 &OVIRT; 管理系统中
+            所有资源, 用户可以在这课树上导航到任何资源.
+          </para>
 
-		  <para>
-			<keycap>书签</keycap>通常用来保存频繁使用的搜索条件, 标签可以增加,
-			编辑, 或者删除.
-		  </para>
+          <para>
+            <keycap>书签</keycap>通常用来保存频繁使用的搜索条件, 标签可以增加,
+            编辑, 或者删除.
+          </para>
 
-		  <para>
-			<keycap>标签</keycap>是一组资源的集合, 比如点击存储标签, 就会显示
-			所有的存储资源.
-		  </para>
-		</listitem>
-		</varlistentry>
+          <para>
+            <keycap>标签</keycap>是一组资源的集合, 比如点击存储标签, 就会显示
+            所有的存储资源.
+          </para>
+        </listitem>
+        </varlistentry>
 
-		<varlistentry><term>警告/事件 面板</term>
-		<listitem>
-		  <para>
-			点击<keycap>警告</keycap>标签, 会列出所有系统的安全方面的事件,
-			例如系统的错误和警告信息.	<keycap>事件</keycap>标签列出所有资源
-			的一般事件, 比如创建了一个虚拟机等等. <keycap>任务</keycap>标签会
-			列出当前运行的所有任务. 通过点击放大/缩小按钮, 可以展开这些标签的面板.
-		  </para>
-		</listitem>
-		</varlistentry>
-	  </variablelist>
-	  <important>
-		<para>
-		  在浏览器中, 管理门户要求的最小分辨率是 1024x768, 如果系统的分辨率
-		  小于这个数值, 管理门户的显示可能会有一些问题.
-		</para>
-	  </important>
-	</section>
+        <varlistentry><term>警告/事件 面板</term>
+        <listitem>
+          <para>
+            点击<keycap>警告</keycap>标签, 会列出所有系统的安全方面的事件,
+            例如系统的错误和警告信息.   <keycap>事件</keycap>标签列出所有资源
+            的一般事件, 比如创建了一个虚拟机等等. <keycap>任务</keycap>标签会
+            列出当前运行的所有任务. 通过点击放大/缩小按钮, 可以展开这些标签的面板.
+          </para>
+        </listitem>
+        </varlistentry>
+      </variablelist>
+      <important>
+        <para>
+          在浏览器中, 管理门户要求的最小分辨率是 1024x768, 如果系统的分辨率
+          小于这个数值, 管理门户的显示可能会有一些问题.
+        </para>
+      </important>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-3">
-	  <title>树形结构和平面视图</title>
-	  <para>
-		&OVIRT; 管理系统提供了两种模式: 树形模式和扁平模式. 树形模式把一个数据
-		中心的所有资源按照继承的方式显示出来, 从最顶层的数据中心到最底层的虚拟机.
-		推荐用树形模式来管理 &OVIRT; 系统.
-	  </para>
-	  <figure id="tree-mode"><title>树形模式</title>
-	  <mediaobject>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-3">
+      <title>树形结构和平面视图</title>
+      <para>
+        &OVIRT; 管理系统提供了两种模式: 树形模式和扁平模式. 树形模式把一个数据
+        中心的所有资源按照继承的方式显示出来, 从最顶层的数据中心到最底层的虚拟机.
+        推荐用树形模式来管理 &OVIRT; 系统.
+      </para>
+      <figure id="tree-mode"><title>树形模式</title>
+      <mediaobject>
         <imageobject>
-		  <imagedata fileref="images/basic-tree-mode.png" format="PNG" scale="100"/>
+          <imagedata fileref="images/basic-tree-mode.png" format="PNG" scale="100"/>
         </imageobject>
-	  </mediaobject>
-	  </figure>
+      </mediaobject>
+      </figure>
 
-	  <para>
-		扁平模式可以让用户在数据中心, 存储域中搜索. 前面谈到, 在树形模式中,
-		所有的资源是按照从上到下继承关系的, 但是在扁平模式中, 没有限定这种
-		限定关系, 用户可以在扁平模式中搜索 &OVIRT; 系统中的所有资源. 比如,
-		你可以在虚拟机标签上搜索所有 CPU 使用率超过 80% 的虚拟机, 搜索的结果
-		属于整个系统, 而不是摸个特定的虚拟机. 此外, 在树形模式中某些没有显示的
-		资源在扁平模式中是可以显示的, 比如<keycap>池</keycap>和<keycap>
-		用户</keycap>.
-	  </para>
+      <para>
+        扁平模式可以让用户在数据中心, 存储域中搜索. 前面谈到, 在树形模式中,
+        所有的资源是按照从上到下继承关系的, 但是在扁平模式中, 没有限定这种
+        限定关系, 用户可以在扁平模式中搜索 &OVIRT; 系统中的所有资源. 比如,
+        你可以在虚拟机标签上搜索所有 CPU 使用率超过 80% 的虚拟机, 搜索的结果
+        属于整个系统, 而不是摸个特定的虚拟机. 此外, 在树形模式中某些没有显示的
+        资源在扁平模式中是可以显示的, 比如<keycap>池</keycap>和<keycap>
+        用户</keycap>.
+      </para>
 
-	  <para>
-		想要访问扁平模式, 点击在左边<keycap>树形</keycap>面板上的
-		<keycap>系统</keycap>, 就进入了扁平模式了, 此时可以看到
-		<keycap>池</keycap>和<keycap>用户</keycap>标签.
-	  </para>
-	  <figure id="flat-mode"><title>扁平模式</title>
-	  <mediaobject>
+      <para>
+        想要访问扁平模式, 点击在左边<keycap>树形</keycap>面板上的
+        <keycap>系统</keycap>, 就进入了扁平模式了, 此时可以看到
+        <keycap>池</keycap>和<keycap>用户</keycap>标签.
+      </para>
+      <figure id="flat-mode"><title>扁平模式</title>
+      <mediaobject>
         <imageobject>
-		  <imagedata fileref="images/basic-flat-mode.png" format="PNG" scale="100"/>
+          <imagedata fileref="images/basic-flat-mode.png" format="PNG" scale="100"/>
         </imageobject>
-	  </mediaobject>
-	  </figure>
-	</section>
+      </mediaobject>
+      </figure>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-4">
-	  <title>使用向导</title>
-	  <para>
-		要完成某些资源的配置, 使其能正常工作, 是相对麻烦的(比如数据中心),
-		你需要配置集群, 主机, 存储等等. 为了方便用户使用这些资源, &OVIRT;
-		管理系统提供了一个<keycap>引导操作</keycap>方便这些资源的配置.
-		用户可以在任何时候在待配置资源的配置工具栏上点击<keycap>引导操作</keycap>
-		来使用该功能.
-	  </para>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-4">
+      <title>使用向导</title>
+      <para>
+        要完成某些资源的配置, 使其能正常工作, 是相对麻烦的(比如数据中心),
+        你需要配置集群, 主机, 存储等等. 为了方便用户使用这些资源, &OVIRT;
+        管理系统提供了一个<keycap>引导操作</keycap>方便这些资源的配置.
+        用户可以在任何时候在待配置资源的配置工具栏上点击<keycap>引导操作</keycap>
+        来使用该功能.
+      </para>
 
-	  <para>
-		如下图, 是数据中心的引导操作:
-	  </para>
-	  <figure id="guide-me"><title>数据中心的引导操作</title>
-	  <mediaobject>
+      <para>
+        如下图, 是数据中心的引导操作:
+      </para>
+      <figure id="guide-me"><title>数据中心的引导操作</title>
+      <mediaobject>
         <imageobject>
-		  <imagedata fileref="images/basic-guide-me.png" format="PNG" scale="100"/>
+          <imagedata fileref="images/basic-guide-me.png" format="PNG" scale="100"/>
         </imageobject>
-	  </mediaobject>
-	  </figure>
-	</section>
+      </mediaobject>
+      </figure>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-5">
-	  <title>搜索</title>
-	  <para>
-		&OVIRT; 管理系统可以管理成千上万的资源, 比如几百个主机, 几千个虚拟机等等.
-		为了能让用户在如此多的资源中方便快捷的找到他所需要的, &OVIRT; 管理系统
-		提供了强大的搜索功能. 只要在搜索栏上输入想要查找的条件, 就可以开始搜索.
-		此外, 搜索条件可以作为书签保存起来, 下次再进行同一个条件的搜索的时候就
-		很方便了.
-	  </para>
-	</section>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-5">
+      <title>搜索</title>
+      <para>
+        &OVIRT; 管理系统可以管理成千上万的资源, 比如几百个主机, 几千个虚拟机等等.
+        为了能让用户在如此多的资源中方便快捷的找到他所需要的, &OVIRT; 管理系统
+        提供了强大的搜索功能. 只要在搜索栏上输入想要查找的条件, 就可以开始搜索.
+        此外, 搜索条件可以作为书签保存起来, 下次再进行同一个条件的搜索的时候就
+        很方便了.
+      </para>
+    </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-6">
-	  <title>把搜索条件保存为书签</title>
-	  <para>
-		前面讲过, 搜索条件可以保存为书签, 方便下次搜索同一内容. 此外, 其他用户也
-		可以共享保存的书签.
-	  </para>
-	  <procedure>
-		<title>把搜索条件保存为书签</title>
-		<step>
-		  <para>
-			在搜索框里输入想要查询的搜索条件, 开始执行一个搜索.
-		  </para>
-		</step>
+    <section id="sect-Documents-administrator-guide-Chapter-basic_Section_2-6">
+      <title>把搜索条件保存为书签</title>
+      <para>
+        前面讲过, 搜索条件可以保存为书签, 方便下次搜索同一内容. 此外, 其他用户也
+        可以共享保存的书签.
+      </para>
+      <procedure>
+        <title>把搜索条件保存为书签</title>
+        <step>
+          <para>
+            在搜索框里输入想要查询的搜索条件, 开始执行一个搜索.
+          </para>
+        </step>
 
-		<step>
-		  <para>
-			查询完, 点击右边的五角心按钮, 打开<keycap>新建书签</keycap>按钮
-		  </para>
-		  <figure id="bookmark"><title>书签按钮</title>
-		  <mediaobject>
-			<imageobject>
-			  <imagedata fileref="images/basic-bookmark.png" format="PNG" scale="100"/>
-			</imageobject>
-		  </mediaobject>
-		  </figure>
-		</step>
+        <step>
+          <para>
+            查询完, 点击右边的五角心按钮, 打开<keycap>新建书签</keycap>按钮
+          </para>
+          <figure id="bookmark"><title>书签按钮</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/basic-bookmark.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
 
-		<step>
-		  <para>
-			输入书签的名称
-		  </para>
-		</step>
+        <step>
+          <para>
+            输入书签的名称
+          </para>
+        </step>
 
-		<step>
-		  <para>
-			如果需要的话, 编辑搜索字符串
-		  </para>
-		</step>
+        <step>
+          <para>
+            如果需要的话, 编辑搜索字符串
+          </para>
+        </step>
 
-		<step>
-		  <para>
-			点击确定保存搜索结果, 关闭该窗口
-		  </para>
-		</step>
+        <step>
+          <para>
+            点击确定保存搜索结果, 关闭该窗口
+          </para>
+        </step>
 
-		<step>
-		  <para>
-			这次的查询结果就被保存了, 点击左侧面板的书签标签, 就可以看到了.
-		  </para>
-		</step>
-	  </procedure>
-	</section>
+        <step>
+          <para>
+            这次的查询结果就被保存了, 点击左侧面板的书签标签, 就可以看到了.
+          </para>
+        </step>
+      </procedure>
+    </section>
   </section>
 </chapter>
 

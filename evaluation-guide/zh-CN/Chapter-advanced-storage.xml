@@ -8,330 +8,330 @@
   <para>
   </para>
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_1">
-	<title>实验目标</title>
-	<para>
-	  通过本章的试验, 你将了解和并会使用 &OVIRT; 管理系统提供的高级存储功能.
-	</para>
+    <title>实验目标</title>
+    <para>
+      通过本章的试验, 你将了解和并会使用 &OVIRT; 管理系统提供的高级存储功能.
+    </para>
 
-	<para>包括:</para>
+    <para>包括:</para>
     <itemizedlist>
       <listitem>
         <para>
-		  浮动磁盘
+          浮动磁盘
         </para>
       </listitem>
 
       <listitem>
         <para>
-		  共享磁盘
+          共享磁盘
         </para>
       </listitem>
 
       <listitem>
         <para>
-		  创建虚拟机的在线快照
+          创建虚拟机的在线快照
         </para>
       </listitem>
 
       <listitem>
         <para>
-		  从快照创建虚拟机
+          从快照创建虚拟机
         </para>
       </listitem>
 
       <listitem>
         <para>
-		  给虚拟机分配 LUNs
+          给虚拟机分配 LUNs
         </para>
       </listitem>
 
       <listitem>
         <para>
-		  给虚拟机分配 FC LUNs
+          给虚拟机分配 FC LUNs
         </para>
       </listitem>
     </itemizedlist>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_2">
-	<title>高级存储功能</title>
-	<para>
-	  &OVIRT; 系统提供了很多高级的存储功能, 在本章, 我们将一一探索这些功能.
-	</para>
-	<para>
-	  我们将探索建立一个浮动磁盘, 然后将它分配给一个虚拟机, 创建一个共享磁盘,
-	  共享给另一个磁盘.
-	</para>
-	<para>
-	  我们还将创建一个虚拟机的在线快照, 然后直接用这个快照创建该虚拟机的一个
-	  克隆.
-	</para>
+    <title>高级存储功能</title>
+    <para>
+      &OVIRT; 系统提供了很多高级的存储功能, 在本章, 我们将一一探索这些功能.
+    </para>
+    <para>
+      我们将探索建立一个浮动磁盘, 然后将它分配给一个虚拟机, 创建一个共享磁盘,
+      共享给另一个磁盘.
+    </para>
+    <para>
+      我们还将创建一个虚拟机的在线快照, 然后直接用这个快照创建该虚拟机的一个
+      克隆.
+    </para>
 
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_3">
-	<title>本实验需要满足的条件</title>
-	<para>
-	  为了完成本章的实验, 需要满足以下条件:
-	</para>
-	<itemizedlist>
-	  <listitem>
-		<para>
-		  已经配置好了标准的 &OVIRT; 的环境, 或者至少配置好了最小化得 &OVIRT; 环境
-		</para>
-	  </listitem>
+    <title>本实验需要满足的条件</title>
+    <para>
+      为了完成本章的实验, 需要满足以下条件:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          已经配置好了标准的 &OVIRT; 的环境, 或者至少配置好了最小化得 &OVIRT; 环境
+        </para>
+      </listitem>
 
-	  <listitem>
-		<para>
-		  已经配置好 &OVIRT; 环境, 并能利用该环境安装虚拟机
-		</para>
-	  </listitem>
-	</itemizedlist>
+      <listitem>
+        <para>
+          已经配置好 &OVIRT; 环境, 并能利用该环境安装虚拟机
+        </para>
+      </listitem>
+    </itemizedlist>
 
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_4">
-	<title>创建一个虚拟浮动磁盘</title>
+    <title>创建一个虚拟浮动磁盘</title>
     <formalpara><title>摘要</title>
     <para>
-	  本章你将会学习到怎样创建一个浮动磁盘
+      本章你将会学习到怎样创建一个浮动磁盘
     </para>
     </formalpara>
 
-	<procedure>
-	  <title>创建浮动磁盘</title>
-	  <step>
-		<para>
-		  在导航面板上点击<keycap>磁盘</keycap>标签
-		</para>
-	  </step>
+    <procedure>
+      <title>创建浮动磁盘</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>磁盘</keycap>标签
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
-		  面板将会打开.
-		</para>
-	  </step>
+      <step>
+        <para>
+          点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
+          面板将会打开.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  在大小的输入框里, 输入<keycap>10</keycap>, 设置磁盘大小为 10GB.
-		</para>
-	  </step>
+      <step>
+        <para>
+          在大小的输入框里, 输入<keycap>10</keycap>, 设置磁盘大小为 10GB.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  在<keycap>别名</keycap>输入框里, 输入 Alias.
-		</para>
-	  </step>
+      <step>
+        <para>
+          在<keycap>别名</keycap>输入框里, 输入 Alias.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  在<keycap>描述</keycap>输入框里输入相关的描述.
-		</para>
-	  </step>
+      <step>
+        <para>
+          在<keycap>描述</keycap>输入框里输入相关的描述.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  其它设置保留默认.
-		</para>
-	  </step>
+      <step>
+        <para>
+          其它设置保留默认.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘.
-		</para>
-	  </step>
-	</procedure>
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘.
+        </para>
+      </step>
+    </procedure>
 
     <formalpara><title>结果</title>
     <para>
-	  一个名为 <keycap>Disk1</keycap> 的浮动磁盘已经创建好了, 接下来让我们
-	  看看怎样使用这个浮动磁盘.
+      一个名为 <keycap>Disk1</keycap> 的浮动磁盘已经创建好了, 接下来让我们
+      看看怎样使用这个浮动磁盘.
     </para>
     </formalpara>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_5">
-	<title>给虚拟机分配浮动磁盘</title>
-	<formalpara><title>摘要</title>
+    <title>给虚拟机分配浮动磁盘</title>
+    <formalpara><title>摘要</title>
     <para>
-	  我们已经在上面创建了一个浮动磁盘, 现在我们把它分配给一个虚拟机.
+      我们已经在上面创建了一个浮动磁盘, 现在我们把它分配给一个虚拟机.
     </para>
     </formalpara>
 
-	<procedure>
-	  <title>给虚拟机分配浮动磁盘</title>
-	  <step>
-		<para>
-		  在导航面板上点击<keycap>虚拟机</keycap>标签.
-		</para>
-	  </step>
+    <procedure>
+      <title>给虚拟机分配浮动磁盘</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
-		  方的详细面板上将会显示该虚拟机的所有信息.
-		</para>
-	  </step>
+      <step>
+        <para>
+          从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
+          方的详细面板上将会显示该虚拟机的所有信息.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
-		  上的所有磁盘.
-		</para>
-	  </step>
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+          上的所有磁盘.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  点击<keycap>添加</keycap>, 打开<keycap>添加磁盘</keycap>窗口.
-		</para>
-	  </step>
+      <step>
+        <para>
+          点击<keycap>添加</keycap>, 打开<keycap>添加磁盘</keycap>窗口.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  勾选<keycap>附加磁盘</keycap>, 将会列出所有<keycap>浮动磁盘</keycap>.
-		</para>
-	  </step>
+      <step>
+        <para>
+          勾选<keycap>附加磁盘</keycap>, 将会列出所有<keycap>浮动磁盘</keycap>.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  选择上面创建的附加磁盘 <keycap>Disk1</keycap>, 如图:
-		</para>
-		<figure id="attach-float-disk"><title>给虚拟机分配浮动磁盘</title>
-		<mediaobject>
+      <step>
+        <para>
+          选择上面创建的附加磁盘 <keycap>Disk1</keycap>, 如图:
+        </para>
+        <figure id="attach-float-disk"><title>给虚拟机分配浮动磁盘</title>
+        <mediaobject>
           <imageobject>
-			<imagedata fileref="images/advance-storage-attach-float-disk.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-attach-float-disk.png" format="PNG" scale="100"/>
           </imageobject>
-		</mediaobject>
-		</figure>
-	  </step>
+        </mediaobject>
+        </figure>
+      </step>
 
-	  <step>
-		<para>
-		  点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘.
-		</para>
-	  </step>
-	</procedure>
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘.
+        </para>
+      </step>
+    </procedure>
 
-	<formalpara><title>结果</title>
-	  <para>
-		我们已经将 Disk1 分配给了虚拟机. 如图:
+    <formalpara><title>结果</title>
+      <para>
+        我们已经将 Disk1 分配给了虚拟机. 如图:
     </para>
     </formalpara>
-	<figure id="float-disk-done"><title>给虚拟机分配浮动磁盘</title>
-	<mediaobject>
+    <figure id="float-disk-done"><title>给虚拟机分配浮动磁盘</title>
+    <mediaobject>
       <imageobject>
-		<imagedata fileref="images/advance-storage-float-disk-done.png" format="PNG" scale="100"/>
+        <imagedata fileref="images/advance-storage-float-disk-done.png" format="PNG" scale="100"/>
       </imageobject>
-	</mediaobject>
-	</figure>
+    </mediaobject>
+    </figure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_6">
-	<title>创建一个可共享的虚拟磁盘</title>
-	<formalpara><title>摘要</title>
-	<para>
-	  我们已经在把 Disk1 分配给了一个虚拟机. 现在我们把它设置为可共享的, 然后它
-	  就能共享给另外一个虚拟机了.
-	</para>
-	</formalpara>
+    <title>创建一个可共享的虚拟磁盘</title>
+    <formalpara><title>摘要</title>
+    <para>
+      我们已经在把 Disk1 分配给了一个虚拟机. 现在我们把它设置为可共享的, 然后它
+      就能共享给另外一个虚拟机了.
+    </para>
+    </formalpara>
 
-	<procedure>
-	  <title>设置共享磁盘</title>
-	  <step>
-		<para>
-		  在导航面板上点击<keycap>虚拟机</keycap>标签.
-		</para>
-	  </step>
+    <procedure>
+      <title>设置共享磁盘</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
-		  方的详细面板上将会显示该虚拟机的所有信息.
-		</para>
-	  </step>
+      <step>
+        <para>
+          从显示的虚拟机列表上选择待操作的虚拟机, 鼠标单击该虚拟机, 可以看到下
+          方的详细面板上将会显示该虚拟机的所有信息.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
-		  上的所有磁盘.
-		</para>
-	  </step>
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+          上的所有磁盘.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  点击<keycap>Disk1</keycap>.
-		</para>
-	  </step>
+      <step>
+        <para>
+          点击<keycap>Disk1</keycap>.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  点击详细信息面板左上角的<keycap>编辑</keycap>, 打开<keycap>编辑虚拟磁盘</keycap>窗口.
-		</para>
-	  </step>
+      <step>
+        <para>
+          点击详细信息面板左上角的<keycap>编辑</keycap>, 打开<keycap>编辑虚拟磁盘</keycap>窗口.
+        </para>
+      </step>
 
-	  <step>
-		<para>
-		  勾选编辑窗口右侧的<keycap>是可共享的</keycap>, 如图:
-		</para>
-		<figure id="mark-disk-shareable"><title>创建共享磁盘</title>
-		<mediaobject>
-		  <imageobject>
-			<imagedata fileref="images/advance-storage-mark-disk-shareable.png" format="PNG" scale="100"/>
-		  </imageobject>
-		</mediaobject>
-		</figure>
-	  </step>
+      <step>
+        <para>
+          勾选编辑窗口右侧的<keycap>是可共享的</keycap>, 如图:
+        </para>
+        <figure id="mark-disk-shareable"><title>创建共享磁盘</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-mark-disk-shareable.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
 
-	  <step>
-		<para>
-		  点击窗口又下角的<keycap>确定</keycap>设置该磁盘为共享的.
-		</para>
-	  </step>
-	</procedure>
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>设置该磁盘为共享的.
+        </para>
+      </step>
+    </procedure>
 
-	<formalpara><title>结果</title>
-	<para>
-	  我们已经设置完共享磁盘了, 下一步, 我们把该磁盘附加到另外一个虚拟机上.
-	</para>
-	</formalpara>
+    <formalpara><title>结果</title>
+    <para>
+      我们已经设置完共享磁盘了, 下一步, 我们把该磁盘附加到另外一个虚拟机上.
+    </para>
+    </formalpara>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_7">
-	<title>共享磁盘给另外的虚拟机</title>
-	<para>
-	</para>
+    <title>共享磁盘给另外的虚拟机</title>
+    <para>
+    </para>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_8">
-	<title>创建一个虚拟机的在线快照</title>
-	<para>
-	</para>
+    <title>创建一个虚拟机的在线快照</title>
+    <para>
+    </para>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_9">
-	<title>从快照创建虚拟机</title>
-	<para>
-	</para>
+    <title>从快照创建虚拟机</title>
+    <para>
+    </para>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_10">
-	<title>给虚拟机直接分配 LUNs</title>
-	<para>
-	</para>
+    <title>给虚拟机直接分配 LUNs</title>
+    <para>
+    </para>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_11">
-	<title>给虚拟机直接分配 FC LUNs</title>
-	<para>
-	</para>
+    <title>给虚拟机直接分配 FC LUNs</title>
+    <para>
+    </para>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_12">
-	<title>总结</title>
-	<para>
-	</para>
+    <title>总结</title>
+    <para>
+    </para>
   </section>
 
 </chapter>

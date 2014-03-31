@@ -8,180 +8,180 @@
   <para>
   </para>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_1">
-	<title>什么是数据中心</title>
-	<para>
-	  数据中心在 &OVIRT; 管理系统中是很重要的一个概念, 它是一个逻辑上的的概念.
-	  定义了一组在系统中的资源集合. 可以把数据中心理解为各种资源的容器: 由集群和
-	  主机组成的<keycap>计算资源</keycap>容器, 由逻辑网络和物理网卡组成的
-	  <keycap>网络资源</keycap>容器, 由存储域组成的<keycap>存储资源</keycap>容器.
-	</para>
+    <title>什么是数据中心</title>
+    <para>
+      数据中心在 &OVIRT; 管理系统中是很重要的一个概念, 它是一个逻辑上的的概念.
+      定义了一组在系统中的资源集合. 可以把数据中心理解为各种资源的容器: 由集群和
+      主机组成的<keycap>计算资源</keycap>容器, 由逻辑网络和物理网卡组成的
+      <keycap>网络资源</keycap>容器, 由存储域组成的<keycap>存储资源</keycap>容器.
+    </para>
 
-	<para>
-	  一个数据中可以包含多个集群, 每个集群同事可以包含多个主机. 在每个数据中心
-	  中, 可以附加多个存储域. 在集群中的每个主机可以运行多个虚拟机. 在 &OVIRT;
-	  管理系统中, 可以同时建立和管理多个数据中心, 每个数据中心是独立的.
-	</para>
+    <para>
+      一个数据中可以包含多个集群, 每个集群同事可以包含多个主机. 在每个数据中心
+      中, 可以附加多个存储域. 在集群中的每个主机可以运行多个虚拟机. 在 &OVIRT;
+      管理系统中, 可以同时建立和管理多个数据中心, 每个数据中心是独立的.
+    </para>
 
-	<para>
-	  在 &OVIRT; 管理系统中, 所有数据中心都是在管理门户管理的, 系统的超级管理
-	  员通过登录管理门户管理所有创建的数据中心.
-	</para>
-	<!-- TODO: picture(Data Centers) -->
+    <para>
+      在 &OVIRT; 管理系统中, 所有数据中心都是在管理门户管理的, 系统的超级管理
+      员通过登录管理门户管理所有创建的数据中心.
+    </para>
+    <!-- TODO: picture(Data Centers) -->
 
-	<para>
-	  在安装 &OVIRT; 系统的时候, 会自动创建一个默认的数据中心. 再使用 &OVIRT;
-	  系统的时候, 即使用不到这个默认的数据中心, 建议不要删除它, 需要的时候重新
-	  创建.
-	</para>
-	<!-- TODO: picture(Data Center Object) -->
+    <para>
+      在安装 &OVIRT; 系统的时候, 会自动创建一个默认的数据中心. 再使用 &OVIRT;
+      系统的时候, 即使用不到这个默认的数据中心, 建议不要删除它, 需要的时候重新
+      创建.
+    </para>
+    <!-- TODO: picture(Data Center Object) -->
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
-	<title>存储池管理者（SPM）</title>
-	<para>
-	  在 &OVIRT; 管理系统中, The Storage Pool Manager(SPM) 指的是一种能管理
-	  数据中心存储资源的权利, 管理员可以把这种权利赋给数据中心中的任何一台主机,
-	  并且只能同时赋予一台. 具有 SPM 权限的主机和一般的主机没有什么不同.
-	</para>
+    <title>存储池管理者（SPM）</title>
+    <para>
+      在 &OVIRT; 管理系统中, The Storage Pool Manager(SPM) 指的是一种能管理
+      数据中心存储资源的权利, 管理员可以把这种权利赋给数据中心中的任何一台主机,
+      并且只能同时赋予一台. 具有 SPM 权限的主机和一般的主机没有什么不同.
+    </para>
 
-	<para>
-	  SPM 是通过协调存储域上的元数据来控制存储的访问的, 比如创建/删除虚拟机镜像,
-	  对虚拟机镜像做快照, 模板的创建, 等等. 为了保持元数据的一致性, 在一个数据
-	  中心内同一时间只能有一个主机作为 SPM.
-	</para>
+    <para>
+      SPM 是通过协调存储域上的元数据来控制存储的访问的, 比如创建/删除虚拟机镜像,
+      对虚拟机镜像做快照, 模板的创建, 等等. 为了保持元数据的一致性, 在一个数据
+      中心内同一时间只能有一个主机作为 SPM.
+    </para>
 
-	<para>
-	  为了能使用数据中心, &OVIRT; 系统要求在数据中心中至少要有一个 SPM 主机.
-	  如果当前的 SPM 主机出了问题导致不能访问存储, 那么系统会重新选择数据中心
-	  的一台主机重新作为 SPM.
-	</para>
+    <para>
+      为了能使用数据中心, &OVIRT; 系统要求在数据中心中至少要有一个 SPM 主机.
+      如果当前的 SPM 主机出了问题导致不能访问存储, 那么系统会重新选择数据中心
+      的一台主机重新作为 SPM.
+    </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_3">
-	<title>SPM优先级</title>
-	<para>
-	  SPM 优先级一个主机的属性, 前面说过, 数据中心的任何主机都可以成为 SPM,
-	  一个主机的 SPM 的优先级越大, 系统在为数据中心选择新的 SPM 的时候,
-	  该主机就越有机会成为新的 SPM 主机.
-	</para>
+    <title>SPM优先级</title>
+    <para>
+      SPM 优先级一个主机的属性, 前面说过, 数据中心的任何主机都可以成为 SPM,
+      一个主机的 SPM 的优先级越大, 系统在为数据中心选择新的 SPM 的时候,
+      该主机就越有机会成为新的 SPM 主机.
+    </para>
 
-	<para>
-	  主机被赋予 SPM 权限之后, 在执行相应的 SPM 的任务的时候, 会消耗一些主机的
-	  资源. 所以 SPM 优先级较低的主机有更多的资源来运行虚拟机.
-	</para>
+    <para>
+      主机被赋予 SPM 权限之后, 在执行相应的 SPM 的任务的时候, 会消耗一些主机的
+      资源. 所以 SPM 优先级较低的主机有更多的资源来运行虚拟机.
+    </para>
 
-	<para>
-	  可以通过编辑主机来修改主机的 SPM 优先级.
-	</para>
+    <para>
+      可以通过编辑主机来修改主机的 SPM 优先级.
+    </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_4">
-	<title>通过查看事件来定位问题</title>
-	<para>
-	  This is a test paragraph in Section 2
-	  <orderedlist>
-		<listitem>
-		  <para>
-			This is a test listitem.
-		  </para>
-		</listitem>
-	  </orderedlist>
-	</para>
+    <title>通过查看事件来定位问题</title>
+    <para>
+      This is a test paragraph in Section 2
+      <orderedlist>
+        <listitem>
+          <para>
+            This is a test listitem.
+          </para>
+        </listitem>
+      </orderedlist>
+    </para>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5">
-	<title>数据中心里需要做的工作</title>
-	<para>
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">
-	  <title>创建数据中心</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-2">
-	  <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-3">
-	  <title>编辑资源</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-4">
-	  <title>在数据中心或集群中建立逻辑网络</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-5">
-	  <title>重新初始化数据中心</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-6">
-	  <title>删除数据中心</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-7">
-	  <title>强制删除数据中心</title>
-	  <para>
-	  </para>
-	</section>
+    <title>数据中心里需要做的工作</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">
+      <title>创建数据中心</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-2">
+      <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-3">
+      <title>编辑资源</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-4">
+      <title>在数据中心或集群中建立逻辑网络</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-5">
+      <title>重新初始化数据中心</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-6">
+      <title>删除数据中心</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-7">
+      <title>强制删除数据中心</title>
+      <para>
+      </para>
+    </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6">
-	<title>数据中心和存储域以及它们之间的关系</title>
-	<para>
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-1">
-	  <title>给数据中心附加一个已经存在的数据存储域</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-2">
-	  <title>给数据中心附加一个已经存在的ISO存储域</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-3">
-	  <title>给数据中心附加一个已经存在的导出存储域</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-4">
-	  <title>从数据中心卸载一个存储域</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-5">
-	  <title>从维护模式激活存储域</title>
-	  <para>
-	  </para>
-	</section>
+    <title>数据中心和存储域以及它们之间的关系</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-1">
+      <title>给数据中心附加一个已经存在的数据存储域</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-2">
+      <title>给数据中心附加一个已经存在的ISO存储域</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-3">
+      <title>给数据中心附加一个已经存在的导出存储域</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-4">
+      <title>从数据中心卸载一个存储域</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-5">
+      <title>从维护模式激活存储域</title>
+      <para>
+      </para>
+    </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7">
-	<title>数据中心和权限控制</title>
-	<para>
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-1">
-	  <title>在数据中心中管理系统权限</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-2">
-	  <title>数据中心管理员角色的诠释</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-3">
-	  <title>为资源分配管理员或用户角色</title>
-	  <para>
-	  </para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-4">
-	  <title>将已经分配过的管理员或用户角色，从资源中去掉</title>
-	  <para>
-	  </para>
-	</section>
+    <title>数据中心和权限控制</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-1">
+      <title>在数据中心中管理系统权限</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-2">
+      <title>数据中心管理员角色的诠释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-3">
+      <title>为资源分配管理员或用户角色</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7-4">
+      <title>将已经分配过的管理员或用户角色，从资源中去掉</title>
+      <para>
+      </para>
+    </section>
   </section>
 
 </chapter>
