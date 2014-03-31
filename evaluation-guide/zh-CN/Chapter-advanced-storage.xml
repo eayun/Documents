@@ -300,8 +300,73 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_7">
     <title>共享磁盘给另外的虚拟机</title>
+    <formalpara><title>摘要</title>
     <para>
+      我们创建了一个共享磁盘 Disk1 了, 下面我们把它共享给另外一个虚拟机.
     </para>
+    </formalpara>
+
+    <procedure>
+      <title>把磁盘共享给另外一台虚拟机.</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          从显示的虚拟机列表上选择想要附加共享磁盘的虚拟机, 鼠标单击该虚拟机,
+          可以看到下方的详细面板上将会显示该虚拟机的所有信息.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+          上的所有磁盘.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          勾选<keycap>附加磁盘</keycap>, 将会列出所有<keycap>浮动磁盘</keycap>.
+          和共享的磁盘, 可以看到我们的<keycap>Disk1</keycap>也在这里面.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          选择上面设置的共享磁盘 <keycap>Disk1</keycap>, 如图:
+        </para>
+        <figure id="attach-shareable-disk"><title>给虚拟机附加共享磁盘</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-attach-shareable-disk.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
+
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>把该磁盘分配给虚拟机.
+        </para>
+      </step>
+    </procedure>
+
+    <formalpara><title>结果</title>
+      <para>
+        我们已经将共享磁盘 Disk1 分配给了虚拟机. 如图:
+    </para>
+    </formalpara>
+    <figure id="attach-shareable-disk-done"><title>虚拟机附加共享磁盘成功</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/advance-storage-attach-shareable-disk-done.png" format="PNG" scale="100"/>
+      </imageobject>
+    </mediaobject>
+    </figure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_8">
