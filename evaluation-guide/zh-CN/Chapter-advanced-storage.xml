@@ -371,8 +371,83 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_8">
     <title>创建一个虚拟机的在线快照</title>
+    <formalpara><title>摘要</title>
     <para>
+      在前几个实验里, 我们完成了浮动磁盘的创建, 分配, 把该磁盘设置为共享的, 再
+      分配给另外一个虚拟机. 这章我们研究从运行中的虚拟机中创建快照.
     </para>
+    </formalpara>
+
+    <procedure>
+      <title>从一个运行的虚拟机中创建快照</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          从显示的虚拟机列表上选择想要创建快照的虚拟机, 鼠标单击该虚拟机,
+          可以看到下方的详细面板上将会显示该虚拟机的所有信息.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          如果该虚拟机是处于关机状态, 则开启它, 用如图的方法:
+        </para>
+        <figure id="run-vm"><title>运行虚拟机</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-run-vm.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
+
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
+          的所有快照.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          点击<keycap>详细面板</keycap>左上角的<keycap>创建</keycap>,
+          打开<keycap>创建快照</keycap>窗口, 输入快照的简单描述.
+        </para>
+        <figure id="create-snapshot"><title>创建快照窗口</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-create-snapshot.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
+
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>创建快照, 过一会儿, 就可以看到
+          快照创建好了, 如图:
+        </para>
+        <figure id="create-snapshot-done"><title>完成快照创建</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-create-snapshot-done.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
+    </procedure>
+
+    <formalpara><title>结果</title>
+      <para>
+        我们已经完成运行中的虚拟机的快照的创建, 下一步我们将研究怎样基于刚刚创建
+        的快照创建一个新的虚拟机.
+    </para>
+    </formalpara>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_9">
