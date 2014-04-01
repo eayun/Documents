@@ -145,7 +145,7 @@
 		       <para>
                         以下是一个常见的实例，请您根据自身的实际情况设定，或联系交换机厂商。
 		       </para>
-                            <programlisting language="python">
+                            <programlisting language="Python">
                    <![CDATA[
 interface Port-channel11
 switchport access vlan 153
