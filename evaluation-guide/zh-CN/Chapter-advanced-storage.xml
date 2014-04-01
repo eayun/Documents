@@ -632,6 +632,8 @@
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_11">
     <title>给虚拟机直接分配 FC LUNs</title>
     <para>
+      给虚拟机知己分配 FC LUNs 和给虚拟机直接分配 iSCSI LUNs 的操作步骤一样,
+      只不过分配 LUNs 的时候不需要发现 FC LUNs.
     </para>
   </section>
 
