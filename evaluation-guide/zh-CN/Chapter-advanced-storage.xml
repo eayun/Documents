@@ -452,8 +452,60 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_9">
     <title>从快照创建虚拟机</title>
+    <formalpara><title>摘要</title>
     <para>
+      这里, 我们使用上面创建的快照克隆一个虚拟机.
     </para>
+    </formalpara>
+
+    <procedure>
+      <title>从快照创建虚拟机</title>
+      <step>
+        <para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          从显示的虚拟机列表上选择刚才创建了快照的虚拟机, 鼠标单击该虚拟机,
+          可以看到下方的详细面板上将会显示该虚拟机的所有信息.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
+          的所有快照.
+        </para>
+      </step>
+
+      <step>
+        <para>
+          鼠标单击需要的快照, 然后点击<keycap>克隆</keycap>,
+          打开<keycap>从快照克隆虚拟机</keycap>窗口, 如图:
+        </para>
+        <figure id="clone-from-snapshot"><title>从克隆快照窗口</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-clone-from-snapshot.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+      </step>
+
+      <step>
+        <para>
+          输入需要的<keycap>名称</keycap>, <keycap>描述(可选)</keycap>,
+          <keycap>注释(可选)</keycap>
+        </para>
+      </step>
+      <step>
+        <para>
+          点击窗口又下角的<keycap>确定</keycap>克隆虚拟机.
+        </para>
+      </step>
+    </procedure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_10">
