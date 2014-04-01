@@ -371,28 +371,102 @@
                 </para>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_6">
-                <title>配置逻辑网络</title>
-                <para>
-                        <itemizedlist>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          </listitem>
-                                          <listitem>
-                                          <para></para>
-                                          <figure id="eayunos-install-eayunos-manager-26"><title>&OVIRT;图27</title>
-                                                <mediaobject>
-                                                        <imageobject>
-                                                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
-                                                        </imageobject>
-                                                </mediaobject>
-                                          </figure>
-                                          </listitem>
+            <title>配置逻辑网络</title>
 
-                        </itemizedlist>
+            <simplesect>
+                <title>添加一个新的逻辑网络</title>
+
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                在&OVIRT;&MANAGER;树形面板中点击【展开所有】
+                                （Expand All）按钮，在默认集群下，点击“网络”项。
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                点击“新建”按钮，填写“名称”、“描述”，取消“虚拟机
+                                网络”选择项。“集群”选项卡中，将默认集群附加到新
+                                建的逻辑网络。
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                点击“确定”按钮，完成逻辑网络的添加。
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                    <figure id="eayunos-install-eayunos-manager-26"><title>&OVIRT;图27</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
+            </simplesect>
+
+            <simplesect>
+                <title>将新建的逻辑网络附加到主机</title>
+
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                在&OVIRT;&MANAGER;树形面板中默认集群下，点击“主
+                                机“选项卡，可以到集群中所有可用的主机；
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                对所有的可用的主机，进行如下操作：
+                            </para>
+
+                            <orderedlist numeration="loweralpha">
+                                <listitem>
+                                    <para>
+                                        选中主机，在下方面板中选择”网络接口”选项
+                                        卡，点击“设立主机网络“按钮。
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        在”设立主机网络“对话框中，将右侧”未分配
+                                        的逻辑网络“中新建立的逻辑网络，拖动到左
+                                        侧和指定网卡对应的”未分配网络“之中。
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        在新建立的逻辑网络上，点击铅笔形状的编辑
+                                        按钮，开始设置网络参数。
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        网络参数设置完成之后，回到“设立主机网络
+                                        ”对话框，勾选“包括网络配置”选项，点击“确
+                                        定”按钮完成配置。
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        点击“确定”按钮，完成逻辑网络的添加。
+                                    </para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </itemizedlist>
+                    <figure id="eayunos-install-eayunos-manager-27"><title>&OVIRT;图27</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+            </simplesect>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_7">
                 <title>配置存储</title>
