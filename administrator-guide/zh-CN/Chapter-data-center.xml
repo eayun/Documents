@@ -105,9 +105,76 @@
     </para>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">
       <title>创建数据中心</title>
+      <formalpara><title>摘要</title>
       <para>
+        下面的步骤描述怎样在 &OVIRT; 环境中新建一个数据中心. 注意: 一个数据中心
+        至少需要一个集群, 一个主机, 一个存储域才能正常工作.
       </para>
+      </formalpara>
+
+      <note>
+        <para>
+          创建了数据中心之后, 在添加第一个存储域到数据中心之前, 可以在任何
+          时候编辑数据中心设置该数据中心的<keycap>存储类型</keycap>. 但是一旦
+          数据中心里面附加了存储, 那么该数据中心的<keycap>存储类型</keycap>就不
+          能修改了.
+        </para>
+      </note>
+
+      <procedure>
+        <title>创建一个新的数据中心</title>
+        <step>
+          <para>
+            在管理界面上选择 <keycap>数据中心</keycap>标签, 列出目前存在的所有
+            数据中心.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            点击<keycap>新建</keycap>按钮, 打开<keycap>新建数据中心</keycap>窗口
+          </para>
+        </step>
+
+        <step>
+          <para>
+            输入数据中心的<keycap>名称</keycap>和<keycap>描述</keycap>.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            从下拉菜单中选择适当的<keycap>类型</keycap>, <keycap>兼容模式</keycap>和
+            <keycap>配额模式</keycap>, 如果需要, 填写相关的<keycap>注释</keycap>.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            点击<keycap>确定</keycap>创建数据中心, 打开<keycap>创建数据中心-引导操作</keycap>
+            窗口.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            <keycap>引导操作</keycap>会引导用户创建和配置数据中心需要的资源,
+            比如集群, 主机等. 如果这些资源还没有准备好, 或者用户想以后再配置,
+            点击<keycap>以后再配置</keycap>按钮. 之后, 用户可以在任何时候再点击
+            <keycap>引导操作</keycap>按钮配置该数据中心剩余的配置.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        数据中心已经创建好了, 如果没有把存储, 主机, 集群配置好, 那么现在它处于
+        <keycap>Uninitialized</keycap> 状态. 需要用<keycap>引导操作</keycap>
+        来完成所有的配置.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-2">
       <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
       <para>
