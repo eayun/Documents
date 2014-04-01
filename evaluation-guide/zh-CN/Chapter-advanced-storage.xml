@@ -510,8 +510,123 @@
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_10">
     <title>给虚拟机直接分配 LUNs</title>
+    <formalpara><title>摘要</title>
     <para>
+      下面我们研究把一个 LUN 直接分配给虚拟机.
     </para>
+    </formalpara>
+
+    <procedure>
+	  <title>直接给虚拟机分配 LUN</title>
+	  <step>
+		<para>
+          在导航面板上点击<keycap>虚拟机</keycap>标签.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          从显示的虚拟机列表上选择需要分配 LUN 的虚拟机, 鼠标单击该虚拟机,
+          可以看到下方的详细面板上将会显示该虚拟机的所有信息.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          在详细信息面板上, 点击<keycap>磁盘</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          勾选<keycap>添加</keycap>, 弹出<keycap>添加虚拟磁盘</keycap>窗口.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          点击<keycap>外部</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          填写<keycap>描述</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          在下面的窗口上, 点击<keycap>发现目标</keycap>, 填写 iSCSI 服务器的地
+          址和端口, 如图:
+		</para>
+        <figure id="discover-target"><title>发现目标</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-discover-target.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+	  </step>
+
+	  <step>
+		<para>
+          点击<keycap>发现</keycap>.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          在发现的 iSCSI LUN 窗口, 选择要登陆的 target, 点击<keycap>登陆</keycap>,
+          如图:
+		</para>
+        <figure id="login-target"><title>发现目标</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-login-target.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+	  </step>
+
+	  <step>
+		<para>
+          点击目标旁的<keycap>+</keycap>按钮, 展开该 target 拥有的 LUNs.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          选中需要使用的 LUN.
+		</para>
+	  </step>
+
+	  <step>
+		<para>
+          点击<keycap>确定</keycap>, 完成 LUN 的分配:
+		</para>
+        <figure id="use-lun"><title>发现目标</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-use-lun.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+	  </step>
+
+	  <step>
+		<para>
+          一段时间之后, 就可以在磁盘列表上看到分配给该虚拟机的 LUN 了.
+		</para>
+        <figure id="attach-lun-done"><title>发现目标</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/advance-storage-attach-lun-done.png" format="PNG" scale="100"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
+	  </step>
+	</procedure>
   </section>
 
   <section id="sect-Documents-evaluation-guide-Chapter-advanced-storage_Section_11">
