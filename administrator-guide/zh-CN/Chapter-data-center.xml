@@ -415,7 +415,58 @@
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-5">
       <title>重新初始化数据中心</title>
       <para>
+        当数据中心的主数据域发生错误的时候, 该数据中心就不能使用了, 需要把该数据
+        中心的主数据域替换掉. 数据中心的初始化操作就是解决这种情况的. 该操作把
+        允许用户恢复数据中心中除了发生错误的主数据域的其他资源, 比如集群, 主机
+        等.
       </para>
+
+      <para>
+        当数据中心重新初始化完之后, 用户可以从导入域导入之前备份的虚拟机或者模板到主数据域.
+      </para>
+
+      <procedure>
+        <title>重新初始化数据中心</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择要重新初始化的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            确保附加到该数据中心的存储域处于维护模式.
+          </para>
+        </step>
+        <step>
+          <para>
+            右击该数据中心, 选择<keycap>重新初始化数据中心</keycap>, 打开
+            <keycap>数据中心重新初始化</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            <keycap>数据中心重新初始化</keycap>窗口会列出所有可用的存储域(维护模式),
+            选择你想要附加的存储域名.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<keycap>允许操作</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>重新初始化该数据中心.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>摘要</title>
+      <para>
+        数据中心重新初始化之后, 新的主存储域就被附加到该数据中心上了, 并且被
+        激活了, 用户可以从导出域把虚拟机和模板导入到该主存储域上.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-6">
       <title>删除数据中心</title>
