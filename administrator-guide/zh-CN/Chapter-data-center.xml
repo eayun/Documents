@@ -178,7 +178,142 @@
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-2">
       <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
       <para>
+        下表详细描述了在<keycap>新建数据中心</keycap>或者<keycap>编辑数据中心</keycap>
+        的时候需要选择的数据中心的属性.
       </para>
+      <table id="Data_Center_Properties">
+        <title>数据中心属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                名字
+              </entry>
+              <entry>
+                数据中心的名字, 必须限制在 40 个字符之类, 可以有数字, 字母,
+                连字符, 下划线组成.
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                数据中心的描述, 可以不填.
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                存储类型, 目前支持以下几种存储类型:
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      NFS
+	                </para>
+	              </listitem>
+                  <listitem>
+	                <para>
+                      iSCSI
+	                </para>
+	              </listitem>
+                  <listitem>
+	                <para>
+                      Fibre Channel
+	                </para>
+	              </listitem>
+                  <listitem>
+	                <para>
+                      Local on Host
+	                </para>
+	              </listitem>
+                  <listitem>
+	                <para>
+                      POSIX compliant FS
+	                </para>
+	              </listitem>
+                  <listitem>
+	                <para>
+                      GlusterFS
+	                </para>
+	              </listitem>
+                </itemizedlist>
+                存储类型决定了数据中心的类型, 每个数据中心有且仅有一种类型,
+                在数据中心创建之后存储类型不能被修改. 例如, iSCSI 的数据中心
+                只能添加 iSCSI 的存储.
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                兼容的版本
+              </entry>
+              <entry>
+                目前有以下兼容的版本
+                <itemizedlist>
+	              <listitem>
+	                <para>3.0</para>
+	              </listitem>
+                  <listitem>
+                    <para>3.1</para>
+	              </listitem>
+                  <listitem>
+                    <para>3.2</para>
+	              </listitem>
+                  <listitem>
+                    <para>3.3</para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                配额模式
+              </entry>
+              <entry>
+                配额是 &OVIRT; 管理系统提供的一种工具. 有以下的类型可以选择:
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      禁用的
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      审计
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      强制的
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+              </entry>
+              <entry>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-3">
       <title>编辑资源</title>
