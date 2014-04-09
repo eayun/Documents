@@ -317,8 +317,35 @@
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-3">
       <title>编辑资源</title>
+      <formalpara><title>摘要</title>
       <para>
+        编辑资源的属性
       </para>
+      </formalpara>
+
+      <procedure>
+		<title>编辑资源</title>
+		<step>
+		  <para>
+            使用资源标签, 搜索标签等找到想要的资源.
+		  </para>
+		</step>
+		<step>
+		  <para>
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+		  </para>
+		</step>
+		<step>
+		  <para>
+            改变资源的属性, 点击<keycap>确定</keycap>.
+		  </para>
+		</step>
+	  </procedure>
+      <formalpara><title>结果</title>
+      <para>
+        该资源属性的值将会被保存.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-4">
       <title>在数据中心或集群中建立逻辑网络</title>
