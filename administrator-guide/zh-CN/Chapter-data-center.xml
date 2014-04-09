@@ -562,13 +562,93 @@
     </para>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-1">
       <title>给数据中心附加一个已经存在的数据存储域</title>
+      <formalpara><title>摘要</title>
       <para>
+        还<keycap>没有附加</keycap>到任何数据中心的数据域可以附加到一个数据
+        中心. 前提是该数据域的<keycap>类型</keycap>要和数据中心的类型一致.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>附加存在的数据域到数据中心</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
+            该数据中心的所有存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加数据</keycap>, 打开<keycap>附加存储</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择要附加的存储域到该数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        该数据存储域将会被附加到数据中心, 并且数据存储域会被自动激活.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-2">
       <title>给数据中心附加一个已经存在的ISO存储域</title>
+      <formalpara><title>摘要</title>
       <para>
+        还<keycap>没有附加</keycap> ISO 存储域的数据中心的数据域可以附加到一个
+        ISO存储域. 注意一个数据中心只能附加一个 ISO 存储域.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>附加 ISO 粗处域到数据中心</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
+            该数据中心的所有存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加ISO</keycap>, 打开<keycap>附加存储</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择要附加的 ISO 存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>附加存储域.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        ISO 存储域将会被附加到该存储域, 并且会被自动激活.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-3">
       <title>给数据中心附加一个已经存在的导出存储域</title>
