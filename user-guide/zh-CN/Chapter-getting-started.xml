@@ -5,70 +5,331 @@
 ]>
 <chapter id="chap-Documents-user-guide-getting-started_Chapter">
 	<title>入门</title>
-	<para>
-		This is a test paragraph
-	</para>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_1">
 		<title>登录用户门户</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
+			直接通过您的浏览器登录EayunOS虚拟化用户门户。
+        </para>
+        <procedure><title>登录用户门户</title>
+            <step>
+                <para>
+                    在浏览器地址栏内输入User Portal URL。地址格式如：https://server.exam ple.com /UserPortal。显示登录页面。
+                </para>
+                <para>
+                    或者，在地址栏内输入server地址，访问欢迎页面。点击【用户门户】。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-0"><title>图1</title>
+                        <mediaobject>
+                                <imageobject>
+                                        <imagedata fileref="images/user-1.png" format="PNG" scale="100"/>
+                                </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+            </step>
+            <step>
+                <para>
+                   输入用户名和密码，在域下拉菜单内选择正确的域。如图： 
+               </para>
+               <para>
+                   <figure id="eayunos-user-1"><title>图2</title>
+                       <mediaobject>
+                           <imageobject>
+                               <imagedata fileref="images/user-2.png" format="PNG" scale="100"/>
+                           </imageobject>
+                       </mediaobject>
+                   </figure>
+               </para>
+               <para>
+                   <orderedlist>
+                       <listitem>
+                           <para>
+                               如果您只有一个正在运行使用的虚拟机，勾选中“自动地连接”，直接连接到您的虚拟机。
+                           </para>
+                       </listitem>
+                       <listitem>
+                           <para>
+                               如果您有多个运行使用的虚拟机或者不想自动连接到一个虚拟机，不勾选“自动地连接”。 
+                           </para>
+                       </listitem>
+                       <listitem>
+                           <para>
+                               在登录窗口的右下角下拉菜单内选择要使用的语言。
+                           </para>
+                       </listitem>
+                   </orderedlist>
+               </para>
+           </step>
+           <step>
+               <para>
+                   点击【登录】，显示分配给您的虚拟机列表页面。如图
+               </para>
+               <para>
+                   <figure id="eayunos-user-2"><title>图3</title>
+                       <mediaobject>
+                           <imageobject>
+                               <imagedata fileref="images/user-3.png" format="PNG" scale="100"/>
+                           </imageobject>
+                       </mediaobject>
+                   </figure>
+               </para>
+           </step>
+        </procedure>
+    </section>
 	
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_2">
-		<title>登出用户门户</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+        <title>登出用户门户</title>
+        <procedure><title>注销用户门户</title>
+            <step>
+                <para>
+                     在用户门户标题栏，点击【退出】，退出到用户门户登录页面。                        
+                 </para>
+            </step>
+        </procedure>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_3">
-		<title>第一次登录</title>
+		<title>首次登录</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			因为EayunOS虚拟化需要一个安全的连接来登录用户门户，首次登录时EayunOS虚拟化需要你信任的网站身份来登录。确认安全例外的网站或将网站添加到您的浏览器的信任站点列表内，Web浏览器显示登录页面。
+        </para>
+        <para>
+            如果您想使用SPICE连接虚拟机，需要为您的浏览器安装适当的插件，安装该插件只需要做一次。
+        </para>
+        <para>
+            在linux客户机使用Firefox浏览器，安装SPICE插件访问用户门户。
+        </para>
+        <para>
+            在Windows客户机使用IE浏览器，添加SPICE ActiveX组件到您的web浏览器。
+        </para>
+        <para>
+            在Windows系统的Firefox浏览器不支持SPICE，使用IE浏览器在Windows系统。
+        </para>
+        <note>
+            <para>
+                添加EayunOS虚拟化URL到网站信任列表内。
+                如果EayunOS虚拟化管理系统不在IE8或IE9信任网站列表内，SPICE客户端窗口变化从全屏模式到windows模式。如果EayunOS虚拟化管理系统在信任网站列表内，SPICE客户端是保持打开一个全屏模式。 
+            </para>
+        </note>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_4">
 		<title>在linux系统中使用firefox浏览器，安装SPICE插件</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			SPICE插件是需要运行remote-viewer打开一个连接虚拟机的图形控制界面。remote-viewer是一个virt-viewer包提供的SPICE客户端。
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        打开终端，root用户运行以下命令：
+                        <programlisting language="Bash">
+                            <![CDATA[#yum install spice-xpi]]>
+                        </programlisting>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        检查您的系统内是否安装virt-viewer包。
+                        <programlisting language="Bash">
+                            <![CDATA[#rpm -q virt-viewer
+                            virt-viewer-0.5.2-18.e16_4.2.x86_64
+                            ]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        如果您已经安装了，运行以下命令：
+                        <programlisting language="Bash">
+                            <![CDATA[#yum install virt-viewer]]>
+                        </programlisting>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        重启Mozilla Firefox浏览器。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        SPICE插件已经安装完成，现在您可以连接您的虚拟机。
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_5">
 		<title>在windows系统中使用Internet Explorer浏览器，安装SPICE控件</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			SPICE ActiveX组件是需要运行remote-viewer打开一个连接虚拟机的图形控制界面。remote-viewer是一个与SPICE ActiveX组件安装在一起的SPICE客户端，它们都是spice.cab文件提供的。
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        第一次您尝试连接虚拟机，浏览器提示您安装SPICE ActiveX组件。他将下载一个spice.cab文件，启动时，自动安装SPICE ActiveX组件和remote-viewer应用。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        接受安装SPICE ActiveX组件的提示，IE浏览器将发出一个安全警告，确认你是否要继续。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        重启IE浏览器，现在您能使用SPICE连接虚拟机。
+                    </para>
+                </listitem>
+            </orderedlist>
+            <important>
+                <para>
+                    如果您没有管理权限，安装SPICE ActiveX组件，您将收到一个说明没有安装usbclerk包的信息。这意思是您能够使用SPICE连接虚拟机，但您不能使用USB设备在您的虚拟机上。如果有需要请联系您的系统管理员安装usbclerk包。
+                </para>
+            </important>
+        </para>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_6">
 		<title>在windows系统中安装USB clerk</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			USB Clerk提供一个服务，能够在客户虚拟机上安装和卸载Windows USB驱动程序。
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        打开一个web浏览器，根据您的系统结构下载以下安装程序之一。
+                    </para>
+                        <programlisting language="Bash">
+                            <![CDATA[https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/usbcl erk-x64 -0.0.1.1.msi
+                            https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/usbcl erk-x86-0.0.1.1.msi]]>
+                        </programlisting>
+                </listitem>
+                <listitem>
+                    <para>
+                        打开保存文件的文件夹
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        双击该文件
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        点击Run如果有一个安全警告提示
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        点击Yes如有使用账户控制提示
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>
+            USB Clerk安装完成，当使用者连接或断开USB设备，SPICE客户端发送请求安装或卸载USB驱动程序。
+        </para>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_7">
 		<title>在windows系统中安装Remote viewer</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        打开一个web浏览器，根据您的系统结构下载以下安装程序之一。
+                        <programlisting language="Bash">
+                            <![CDATA[https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/vi rt-vi ewerx64-0.5.6.msi
+                            https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/vi rt-vi ewerx86-0.5.6.msi]]> 
+                        </programlisting>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        打开保存文件的文件夹
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        双击该文件
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        点击Run如果有一个安全警告提示
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        点击Yes如有使用账户控制提示
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>
+            Remote Viewer安装完成，您能够通过Remote Viewer访问在VirtViewer文件夹中的开始菜单内的所有程序。
+        </para>
 	</section>
 
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_8">
 		<title>安装CA证书</title>
 		<para>
-			This is a test paragraph in a section
+            <orderedlist>
+                <listitem>
+                    <para>
+                        导航到https://[your m anager's address]/ca.crt。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        显示窗口提示您下载安装Certificate Authority。显示三个检查框，是否是证书验证的网站、email地址、开发人员。选中三个检查框并下载证书。
+                    </para>
+                </listitem>
+            </orderedlist>
 		</para>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-getting-started_Section_9">
 		<title>用户门户界面</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+            在用户门户图形界面，您能够看到和使用所有属于您的虚拟机。该界面主要由三个区域组成：标题栏、虚拟机区域和一个详细的面板。一些您使用虚拟机用到的控制按钮。如图：
+        </para>
+        <para>
+            <figure id="eayunos-user-3"><title>图4</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/user-4.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>
+            标题栏（1），包含登录该系统的用户名和注销按钮。
+        </para>
+        <para>
+            在虚拟机区域，显示分配给您的虚拟机及虚拟机桌面池（2）。显示虚拟机的操作系统的logo（3）。当虚拟机开启时，您双击该虚拟机的logo可以连接虚拟机。
+        </para>
+        <para>
+            每个虚拟机开始、停止及暂停虚拟机的按钮的图标类似一个媒体播放按钮（4）
+            <orderedlist>
+                <listitem>
+                    <para>
+                        绿色播放按钮用于启动虚拟机：当虚拟机暂停、停止或关闭状态时显示绿色播放按钮。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        红色停止按钮用于停止虚拟机：当虚拟机正在运行时显示红色停止按钮。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        橙色暂停按钮用于暂时停止虚拟机：为了重新启动它，按绿色播放按钮。
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>
+            虚拟机的状态由虚拟机图标上的文本（虚拟机准备就绪活虚拟机关闭）表示。
+        </para>
+        <para>
+            点击一个虚拟机，在右侧显示选择的虚拟机的详细面板（5），包括操作系统、定义的内存、CPU核数和虚拟机磁盘大小。您也能配置连接协议（6）可以使用USB设备或是本地驱动等。
+        </para>
 	</section>
 </chapter>
