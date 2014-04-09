@@ -221,36 +221,36 @@
               <entry>
                 存储类型, 目前支持以下几种存储类型:
                 <itemizedlist>
-	              <listitem>
-	                <para>
+                  <listitem>
+                    <para>
                       NFS
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                   <listitem>
-	                <para>
+                    <para>
                       iSCSI
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                   <listitem>
-	                <para>
+                    <para>
                       Fibre Channel
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                   <listitem>
-	                <para>
+                    <para>
                       Local on Host
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                   <listitem>
-	                <para>
+                    <para>
                       POSIX compliant FS
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                   <listitem>
-	                <para>
+                    <para>
                       GlusterFS
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                 </itemizedlist>
                 存储类型决定了数据中心的类型, 每个数据中心有且仅有一种类型,
                 在数据中心创建之后存储类型不能被修改. 例如, iSCSI 的数据中心
@@ -265,18 +265,18 @@
               <entry>
                 目前有以下兼容的版本
                 <itemizedlist>
-	              <listitem>
-	                <para>3.0</para>
-	              </listitem>
+                  <listitem>
+                    <para>3.0</para>
+                  </listitem>
                   <listitem>
                     <para>3.1</para>
-	              </listitem>
+                  </listitem>
                   <listitem>
                     <para>3.2</para>
-	              </listitem>
+                  </listitem>
                   <listitem>
                     <para>3.3</para>
-	              </listitem>
+                  </listitem>
                 </itemizedlist>
               </entry>
             </row>
@@ -287,21 +287,21 @@
               <entry>
                 配额是 &OVIRT; 管理系统提供的一种工具. 有以下的类型可以选择:
                 <itemizedlist>
-	              <listitem>
-	                <para>
+                  <listitem>
+                    <para>
                       禁用的
-	                </para>
-	              </listitem>
-	              <listitem>
-	                <para>
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
                       审计
-	                </para>
-	              </listitem>
-	              <listitem>
-	                <para>
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
                       强制的
-	                </para>
-	              </listitem>
+                    </para>
+                  </listitem>
                 </itemizedlist>
               </entry>
             </row>
@@ -324,23 +324,23 @@
       </formalpara>
 
       <procedure>
-		<title>编辑资源</title>
-		<step>
-		  <para>
+        <title>编辑资源</title>
+        <step>
+          <para>
             使用资源标签, 搜索标签等找到想要的资源.
-		  </para>
-		</step>
-		<step>
-		  <para>
+          </para>
+        </step>
+        <step>
+          <para>
             点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
-		  </para>
-		</step>
-		<step>
-		  <para>
+          </para>
+        </step>
+        <step>
+          <para>
             改变资源的属性, 点击<keycap>确定</keycap>.
-		  </para>
-		</step>
-	  </procedure>
+          </para>
+        </step>
+      </procedure>
       <formalpara><title>结果</title>
       <para>
         该资源属性的值将会被保存.
@@ -355,27 +355,27 @@
       </para>
       </formalpara>
 
-	  <procedure>
-		<title>在集群中创建一个逻辑网络</title>
-		<step>
-		  <para>
+      <procedure>
+        <title>在集群中创建一个逻辑网络</title>
+        <step>
+          <para>
             点击<keycap>数据中心</keycap>或者<keycap>集群</keycap>标签, 选择
             要设置的数据中心或者集群.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             在数据中心或者集群的详细面板下点击<keycap>逻辑网络</keycap>标签
             列出所有的逻辑网络.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             点击<keycap>添加网络</keycap>, 打开<keycap>新建逻辑网络</keycap>窗口.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             <figure id="new-logical-network"><title>创建新逻辑网络</title>
             <mediaobject>
               <imageobject>
@@ -383,29 +383,29 @@
               </imageobject>
             </mediaobject>
             </figure>
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             输入<keycap>名称</keycap>, <keycap>描述</keycap>, <keycap>和注释</keycap>.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             选择适当的<keycap>网络参数</keycap>.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             选择你想要附加到的集群.
-		  </para>
-		</step>
+          </para>
+        </step>
         <step>
-		  <para>
+          <para>
             点击<keycap>确定</keycap>来创建逻辑网络.
-		  </para>
-		</step>
-	  </procedure>
+          </para>
+        </step>
+      </procedure>
       <formalpara><title>结果</title>
       <para>
         我们已经创建了一个新的逻辑网络, 现在可以把这个逻辑网络添加到主机中了.
@@ -470,12 +470,12 @@
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-6">
       <title>删除数据中心</title>
-	  <formalpara><title>摘要</title>
-	  <para>
-		删除数据中心时, 需要一个激活状态的主机. 注意, 删除数据中心并不会把关联
-		到该数据中心的资源删除.
-	  </para>
-	  </formalpara>
+      <formalpara><title>摘要</title>
+      <para>
+        删除数据中心时, 需要一个激活状态的主机. 注意, 删除数据中心并不会把关联
+        到该数据中心的资源删除.
+      </para>
+      </formalpara>
 
       <procedure>
         <title>删除数据中心</title>
@@ -486,7 +486,7 @@
         </step>
         <step>
           <para>
-			点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
+            点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
           </para>
         </step>
         <step>
@@ -496,40 +496,40 @@
         </step>
         <step>
           <para>
-			点击<keycap>确定</keycap>删除数据中心.
+            点击<keycap>确定</keycap>删除数据中心.
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-		数据中心将被删除.
+        数据中心将被删除.
       </para>
       </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-7">
       <title>强制删除数据中心</title>
       <formalpara><title>摘要</title>
-	  <para>
-        当主机变为<keycap>Non Responsive</keycap>, 或者附加在该数据中心上的存储
-		发生错误的时候, 数据中心的状态会变为<keycap>Non Responsive</keycap>.
-		这个时候, 按照正常的删除数据中心的操作是无法删除数据中心的.
-	  </para>
-	  </formalpara>
       <para>
-              <keycap>强制删除</keycap>不需要数据中心有活动的主机. 用该种方式删除存
+        当主机变为<keycap>Non Responsive</keycap>, 或者附加在该数据中心上的存储
+        发生错误的时候, 数据中心的状态会变为<keycap>Non Responsive</keycap>.
+        这个时候, 按照正常的删除数据中心的操作是无法删除数据中心的.
+      </para>
+      </formalpara>
+      <para>
+        <keycap>强制删除</keycap>不需要数据中心有活动的主机. 用该种方式删除存
         储后, 相关联的存储也会被永久删除.
-        </para>
+      </para>
 
-        <para>
+      <para>
         在强制删除数据中心的时候, 有的时候需要把出错的存储先删除.
-        </para>
+      </para>
 
       <procedure>
         <title>强制删除数据中心</title>
         <step>
           <para>
-			点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
+            点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
           </para>
         </step>
         <step>
@@ -539,12 +539,12 @@
         </step>
         <step>
           <para>
-			选择<keycap>批准操作</keycap>.
+            选择<keycap>批准操作</keycap>.
           </para>
         </step>
         <step>
           <para>
-			点击<keycap>确定</keycap>强制删除数据中心.
+            点击<keycap>确定</keycap>强制删除数据中心.
           </para>
         </step>
       </procedure>
@@ -553,8 +553,8 @@
       <para>
         数据中心和相关联的存储域将会永久的被删除.
       </para>
-	  </formalpara>
-	</section>
+      </formalpara>
+    </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6">
     <title>数据中心和存储域以及它们之间的关系</title>
