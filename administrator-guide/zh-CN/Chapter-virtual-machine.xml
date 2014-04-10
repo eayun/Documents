@@ -4,409 +4,409 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-virtual-machine">
-	<title>虚拟机</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_1">
-		<title>虚拟机介绍</title>
-		<para>
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_2">
-		<title>&OVIRT;支持的虚拟机操作系统</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>虚拟机</title>
+  <para>
+    This is a test paragraph
+  </para>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_1">
+    <title>虚拟机介绍</title>
+    <para>
+    </para>
+  </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_3">
-		<title>虚拟机性能参数</title>
-		<para>
-		</para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4">
-		<title>创建虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-1">
-		    <title>基于现成的模板创建虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-2">
-		    <title>使用空白模板创建虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3">
-		    <title>创建、编辑虚拟机窗口设置解释</title>
-		    <para>
-		    </para>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-1">
-		         <title>虚拟机常规设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-2">
-		         <title>虚拟机系统设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-3">
-		         <title>虚拟机初始化运行设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-4">
-		         <title>虚拟机终端设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-5">
-		         <title>虚拟机主机设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-6">
-		         <title>虚拟机高可用设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-7">
-		         <title>虚拟机资源分配设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-8">
-		         <title>虚拟机启动设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-9">
-		         <title>虚拟机自定义属性设置解释</title>
-		         <para>
-		         </para>
-	            </section>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-4">
-		    <title>通过现成的模板复制虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-5">
-		    <title>定义虚拟网卡及建立磁盘，完成虚拟机设置</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-6">
-		    <title>为虚拟机安装操作系统</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-7">
-		    <title>为分配了virtio硬件设备的虚拟机安装windows操作系统</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-8">
-		    <title>仅运行一次虚拟机的解释</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5">
-		<title>使用虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-1">
-		    <title>SPICE</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-2">
-		    <title>为虚拟机加电</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-3">
-		    <title>为windows/linux安装SPICE的浏览器插件</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-4">
-		    <title>登录到虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6">
-		<title>关闭或暂停虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-1">
-		    <title>关闭或暂停虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-2">
-		    <title>关闭虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-3">
-		    <title>暂停虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7">
-		<title>管理虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-1">
-		    <title>编辑资源</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-2">
-		    <title>删除虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-3">
-		    <title>添加、编辑虚拟磁盘</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-4">
-		    <title>添加、编辑虚拟网卡</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-5">
-		    <title>虚拟机网卡设置窗口配置解释</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-6">
-		    <title>热插拔虚拟磁盘</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-7">
-		    <title>热插拔虚拟网卡</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-8">
-		    <title>从虚拟机中删除磁盘或网卡</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8">
-		<title>虚拟机和权限</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-1">
-		    <title>虚拟机的系统管理权限</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-2">
-		    <title>虚拟机管理角色解释</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-3">
-		    <title>虚拟机用户角色解释</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-4">
-		    <title>为资源分配管理员和用户角色</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-5">
-		    <title>删除为资源分配的管理员或用户的角色</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9">
-		<title>使用快照来备份、恢复虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-1">
-		    <title>为虚拟机创建快照</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-2">
-		    <title>使用快照恢复虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-3">
-		    <title>从快照中创建虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-4">
-		    <title>删除快照</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10">
-		<title>导入/导出虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-1">
-		    <title>导出和导入虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-2">
-		    <title>导入/导出进程概览</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-3">
-		    <title>优化导入/导出资源</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-4">
-		    <title>导出虚拟机到导出存储域</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-5">
-		    <title>导入虚拟机到目标数据中心</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11">
-		<title>在主机之间迁移虚拟机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-1">
-		    <title>什么是在线迁移？</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-2">
-		    <title>在线迁移的需求</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-3">
-		    <title>自动迁移</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-4">
-		    <title>防止虚拟机自动迁移</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-5">
-		    <title>手动迁移虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-6">
-		    <title>设置迁移的优先级</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-7">
-		    <title>取消正在迁移的虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-8">
-		    <title>事件和日志通知</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12">
-		<title>利用虚拟机高可用的特性提高正常运行时间</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-1">
-		    <title>为什么使用高可用？</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-2">
-		    <title>什么是高可用？</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-3">
-		    <title>高可用的注意事项</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-4">
-		    <title>配置高可用虚拟机</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13">
-		<title>其它虚拟机任务</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-1">
-		    <title>在管理员门户中为虚拟机激活SAP监控</title>
-		    <para>
-		    </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2">
-		    <title>配置CentOS5.4或更高版本的客户机操作系统使用SPICE</title>
-		    <para>
-		    </para>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-1">
-		       <title>使用SPICE</title>
-		       <para>
-		       </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-2">
-		       <title>为虚拟机安装qxl驱动</title>
-		       <para>
-		       </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-3">
-		       <title>为虚拟机配置qxl驱动</title>
-		       <para>
-		       </para>
-	            </section>
-	            <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-4">
-		       <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
-		       <para>
-		       </para>
-	            </section>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-3">
-		    <title>KVM虚拟机的时间同步</title>
-		    <para>
-		    </para>
-	        </section>
-	</section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_2">
+    <title>&OVIRT;支持的虚拟机操作系统</title>
+    <para>
+      This is a test paragraph in Section 2
+      <orderedlist>
+        <listitem>
+          <para>
+            This is a test listitem.
+          </para>
+        </listitem>
+      </orderedlist>
+    </para>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_3">
+    <title>虚拟机性能参数</title>
+    <para>
+    </para>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4">
+    <title>创建虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-1">
+      <title>基于现成的模板创建虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-2">
+      <title>使用空白模板创建虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3">
+      <title>创建、编辑虚拟机窗口设置解释</title>
+      <para>
+      </para>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-1">
+        <title>虚拟机常规设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-2">
+        <title>虚拟机系统设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-3">
+        <title>虚拟机初始化运行设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-4">
+        <title>虚拟机终端设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-5">
+        <title>虚拟机主机设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-6">
+        <title>虚拟机高可用设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-7">
+        <title>虚拟机资源分配设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-8">
+        <title>虚拟机启动设置解释</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-9">
+        <title>虚拟机自定义属性设置解释</title>
+        <para>
+        </para>
+      </section>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-4">
+      <title>通过现成的模板复制虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-5">
+      <title>定义虚拟网卡及建立磁盘，完成虚拟机设置</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-6">
+      <title>为虚拟机安装操作系统</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-7">
+      <title>为分配了virtio硬件设备的虚拟机安装windows操作系统</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-8">
+      <title>仅运行一次虚拟机的解释</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5">
+    <title>使用虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-1">
+      <title>SPICE</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-2">
+      <title>为虚拟机加电</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-3">
+      <title>为windows/linux安装SPICE的浏览器插件</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-4">
+      <title>登录到虚拟机</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6">
+    <title>关闭或暂停虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-1">
+      <title>关闭或暂停虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-2">
+      <title>关闭虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-3">
+      <title>暂停虚拟机</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7">
+    <title>管理虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-1">
+      <title>编辑资源</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-2">
+      <title>删除虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-3">
+      <title>添加、编辑虚拟磁盘</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-4">
+      <title>添加、编辑虚拟网卡</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-5">
+      <title>虚拟机网卡设置窗口配置解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-6">
+      <title>热插拔虚拟磁盘</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-7">
+      <title>热插拔虚拟网卡</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-8">
+      <title>从虚拟机中删除磁盘或网卡</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8">
+    <title>虚拟机和权限</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-1">
+      <title>虚拟机的系统管理权限</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-2">
+      <title>虚拟机管理角色解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-3">
+      <title>虚拟机用户角色解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-4">
+      <title>为资源分配管理员和用户角色</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8-5">
+      <title>删除为资源分配的管理员或用户的角色</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9">
+    <title>使用快照来备份、恢复虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-1">
+      <title>为虚拟机创建快照</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-2">
+      <title>使用快照恢复虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-3">
+      <title>从快照中创建虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-4">
+      <title>删除快照</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10">
+    <title>导入/导出虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-1">
+      <title>导出和导入虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-2">
+      <title>导入/导出进程概览</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-3">
+      <title>优化导入/导出资源</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-4">
+      <title>导出虚拟机到导出存储域</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-5">
+      <title>导入虚拟机到目标数据中心</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11">
+    <title>在主机之间迁移虚拟机</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-1">
+      <title>什么是在线迁移？</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-2">
+      <title>在线迁移的需求</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-3">
+      <title>自动迁移</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-4">
+      <title>防止虚拟机自动迁移</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-5">
+      <title>手动迁移虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-6">
+      <title>设置迁移的优先级</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-7">
+      <title>取消正在迁移的虚拟机</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-8">
+      <title>事件和日志通知</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12">
+    <title>利用虚拟机高可用的特性提高正常运行时间</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-1">
+      <title>为什么使用高可用？</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-2">
+      <title>什么是高可用？</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-3">
+      <title>高可用的注意事项</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-4">
+      <title>配置高可用虚拟机</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13">
+    <title>其它虚拟机任务</title>
+    <para>
+    </para>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-1">
+      <title>在管理员门户中为虚拟机激活SAP监控</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2">
+      <title>配置CentOS5.4或更高版本的客户机操作系统使用SPICE</title>
+      <para>
+      </para>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-1">
+        <title>使用SPICE</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-2">
+        <title>为虚拟机安装qxl驱动</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-3">
+        <title>为虚拟机配置qxl驱动</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-4">
+        <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
+        <para>
+        </para>
+      </section>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-3">
+      <title>KVM虚拟机的时间同步</title>
+      <para>
+      </para>
+    </section>
+  </section>
 </chapter>
 
