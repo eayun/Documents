@@ -25,15 +25,228 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_2">
     <title>&OVIRT;支持的虚拟机操作系统</title>
     <para>
-      This is a test paragraph in Section 2
-      <orderedlist>
-        <listitem>
-          <para>
-            This is a test listitem.
-          </para>
-        </listitem>
-      </orderedlist>
+      目前 &OVIRT;支持以下虚拟机操作系统:
     </para>
+
+    <table id="Supported_Virtual_Machine_OS">
+      <title>支持的虚拟机操作系统</title>
+      <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              操作系统
+            </entry>
+            <entry>
+              架构
+            </entry>
+            <entry>
+              SPICE 支持
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              Red Hat Enterprise Linux 3(或CentOS 3)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Red Hat Enterprise Linux 4(或CentOS 4)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Red Hat Enterprise Linux 5(或CentOS 5)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Red Hat Enterprise Linux 6(或CentOS 6)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              SUSE Linux Enterprise Server 10
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              否
+            </entry>
+          </row>
+          <row>
+            <entry>
+              SUSE Linux Enterprise Server 11
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              否
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Ubuntu 12.04 (Precise Pangolin LTS)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Ubuntu 12.10 (Quantal Quetzal
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Ubuntu 13.04 (Raring Ringtail)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Ubuntu 13.10 (Saucy Salamander)
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows XP Service Pack 3 and newer
+            </entry>
+            <entry>
+              32-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows 7
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows 8
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              否
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows Server 2003 Service Pack 2 and newer
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows Server 2008
+            </entry>
+            <entry>
+              32-bit, 64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows Server 2008 R2
+            </entry>
+            <entry>
+              64-bit
+            </entry>
+            <entry>
+              是
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Windows Server 2012 R2
+            </entry>
+            <entry>
+              64-bit
+            </entry>
+            <entry>
+              否
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      对 Windows 8 和 Windows 2012 来讲, 默认使用 RDP(Remote Desktop Protocol)
+      作为访问协议, 因为微软增加了一些新的改变到显示的协议上, 这些改动导致 SPICE
+      暂时得不到最好的体验.
+    </para>
+    <note>
+      <para>
+        因为由于 Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4
+        是32位内核, 没有 ACPI 的支持, 所以用户在门户直接点击关闭的时候肯能会出现
+        问题, 这个时候需要用户右击<keycap>断电</keycap>来关机.
+      </para>
+    </note>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_3">
