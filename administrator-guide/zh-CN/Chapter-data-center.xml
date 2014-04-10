@@ -652,18 +652,136 @@
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-3">
       <title>给数据中心附加一个已经存在的导出存储域</title>
+      <formalpara><title>摘要</title>
       <para>
+        <keycap>没有附加</keycap> 到其他数据中心的导出域可以附加到一个数据中心,
+        一个数据中心只能附加一个导出域.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>给数据中心附加一个已经存在的导出存储域</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
+            该数据中心的所有存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加导出</keycap>, 打开<keycap>附加Export域</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择要附加的存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>附加导出域.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        导出存储域将会被附加到该数据中心, 并且会被自动激活.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-4">
-      <title>从数据中心卸载一个存储域</title>
+      <title>从数据中心分离一个存储域</title>
+      <formalpara><title>摘要</title>
       <para>
+        从数据中心分离一个存储域仅仅是把该存储域和数据中心的关联信息删除, 并
+        不会把该存储域从 &OVIRT; 管理系统中删除. 当一个存储域从一个数据中心
+        分离后, 它可以附加到另一个数据中心. 存储域里面的虚拟机镜像和模板等数据
+        也不会被删除.
       </para>
+      </formalpara>
+
+      <note>
+        <para>
+          如果主存储域是最后一个可用的存储域, 那么这个主存储域将不能被分离.
+        </para>
+      </note>
+
+      <procedure>
+        <title>从数据中心分离一个存储域</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
+            该数据中心的所有存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择需要分离的存储域. 如果该存储域处于<keycap>Active</keycap>状态,
+            则点击打开<keycap>维护</keycap>将存储域变为维护状态.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>分离</keycap>打开<keycap>分离存储</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>分离存储域.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        存储域将会从数据中心分离, 过几分钟后就不会在该数据中心的存储列表上显示.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_6-5">
       <title>从维护模式激活存储域</title>
+      <formalpara><title>摘要</title>
       <para>
+        为了使用处于维护模式中的存储域, 必须首先激活它.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>从维护模式激活存储域</title>
+        <step>
+          <para>
+            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+          </para>
+        </step>
+        <step>
+          <para>
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
+            该数据中心的所有存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择需要激活的存储域. 点击<keycap>激活</keycap>来激活存储域.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        存储域将会激活, 可以在数据中心中使用.
+      </para>
+      </formalpara>
     </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_7">
