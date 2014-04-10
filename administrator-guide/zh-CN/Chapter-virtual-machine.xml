@@ -252,8 +252,96 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_3">
     <title>虚拟机性能参数</title>
     <para>
+      目前 &OVIRT; 管理系统支持的虚拟机参数如下表:
     </para>
+    <table id="Supported_Virtual_Machine_Parameters">
+      <title>支持的虚拟机参数列表</title>
+      <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              参数
+            </entry>
+            <entry>
+              数量
+            </entry>
+            <entry>
+              注意
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              虚拟机 CPU
+            </entry>
+            <entry>
+              160
+            </entry>
+            <entry>
+              每个虚拟机
+            </entry>
+          </row>
+          <row>
+            <entry>
+              虚拟机内存
+            </entry>
+            <entry>
+              2TB
+            </entry>
+            <entry>
+              每个 64 位的虚拟机
+            </entry>
+          </row>
+          <row>
+            <entry>
+              虚拟机内存
+            </entry>
+            <entry>
+              4GB
+            </entry>
+            <entry>
+              每个 32 位的虚拟机(可能由于虚拟机操作系统的不同有所不同, 比如用了 PAE 技术)
+            </entry>
+          </row>
+          <row>
+            <entry>
+              虚拟磁盘
+            </entry>
+            <entry>
+              8
+            </entry>
+            <entry>
+              每个虚拟机
+            </entry>
+          </row>
+          <row>
+            <entry>
+              虚拟网卡
+            </entry>
+            <entry>
+              8
+            </entry>
+            <entry>
+              每个虚拟机
+            </entry>
+          </row>
+          <row>
+            <entry>
+              虚拟 PCI 设备
+            </entry>
+            <entry>
+              32
+            </entry>
+            <entry>
+              每个虚拟机
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4">
     <title>创建虚拟机</title>
     <para>
