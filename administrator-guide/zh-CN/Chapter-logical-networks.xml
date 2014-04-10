@@ -21,6 +21,7 @@
     <para>
       逻辑网络是数据中心层面上的资源；这意味着当您在数据中心中创建一个逻辑网络时，该逻辑网络将对该数据中心中的所有集群都可见。一个被选择为<emphasis>必需的</emphasis>逻辑网络必须在该集群中所有的主机上被配置好才能够正常进行工作。<emphasis>可选的网络</emphasis>能够被任何添加了该逻辑网络的主机使用。
     </para>
+    <!-- TODO: Figure 5.1. Data Center Objects -->
     <warning>
       <para>
         不要在有主机正常运行中的情况下修改一个数据中心或者集群中的网络配置。因为这存在造成主机不可达的风险。
@@ -544,6 +545,7 @@
           <para>
             如果是在<emphasis>数据中心</emphasis>的详情面板中，您需要点击<emphasis>新建</emphasis>按钮打开<emphasis>新建逻辑网络</emphasis>窗口。如果是在<emphasis>集群</emphasis>的详情面板中，则是点击<emphasis>添加网络</emphasis>按钮打开<emphasis>新建逻辑网络</emphasis>窗口。
           </para>
+          <!-- TODO: Figure 5.2. New Logical Network 3.3 文档中这张图和这部分内容都是不对的，需要参考 RHEV 3.4 Beta 的文档哦 -->
         </step>
         <step>
           <para>
@@ -742,6 +744,7 @@
           <para>
             点击<emphasis>管理网络</emphasis>按钮打开<emphasis>管理网络</emphasis>窗口。
           </para>
+          <!-- TODO: Figure 5.4.(应该是5.3，5.5.2 节的那幅图和 5.5.1 中的重复了，我取消掉它，为方便参考以英文文档中编号为准) Manage Networks -->
         </step>
         <step>
           <para>
@@ -858,6 +861,7 @@
           <para>
             点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>窗口。
           </para>
+          <!-- TODO: Figure 5.5. Setup Host Networks -->
         </step>
         <step>
           <para>
@@ -926,6 +930,7 @@
       <para>
         主面板中的<emphasis>网络</emphasis>标签为用户进行网络相关的操作和基于网络的属性或者网络与其它资源间的关联查找相应的逻辑网络提供了一个集中的操作界面。
       </para>
+      <!-- TODO: Figure 5.6. Networks Tab -->
       <para>
         在 &OVIRT; 环境中所有的逻辑网络都将在<emphasis>网络</emphasis>标签下列出。<emphasis>新建</emphasis>、<emphasis>编辑</emphasis>和<emphasis>删除</emphasis>按钮允许您创建、修改或者删除数据中心中的逻辑网络。
       </para>
