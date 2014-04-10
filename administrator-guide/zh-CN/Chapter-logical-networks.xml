@@ -103,6 +103,16 @@
         当一台虚拟机上有网络接口是在可选的虚拟机网络上时，该虚拟机将不会在没有该逻辑网络的主机上启动。
       </para>
     </note>
+    <para>
+      <emphasis>参见：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
+    </para>
   </section>
 
   <section id="sect-VNIC_Profiles_and_QoS">
@@ -589,6 +599,21 @@
           当要新建或者修改的逻辑网络是作为显示网络使用时，使用该逻辑网络的运行中的虚拟机必须重启，该逻辑网络才会变为可用状态，修改才能生效。
         </para>
       </note>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+            </simpara>
+          </listitem>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Explanation_of_Logical_Network_General_Settings_and_Controls">
       <title>新建逻辑网络和编辑逻辑网络窗口中常规标签下设置和控制项目的解释</title>
@@ -719,9 +744,29 @@
           您成功地更新了逻辑网络中的设置。
         </para>
       </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Designate_a_Specific_Traffic_Type_for_a_Logical_Network">
       <title>在管理网络窗口中为逻辑网络指定一个特定的类型</title>
+      <para>
+        <emphasis>前提：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
       <formalpara>
         <title>概述</title>
         <para>
@@ -768,6 +813,16 @@
           外部供应商提供的网络无法被用作显示网络。
         </para>
       </note>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Manage_Networks_Settings_Explanation"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Manage_Networks_Settings_Explanation">
       <title>管理网络窗口设置项目的解释</title>
@@ -834,6 +889,16 @@
     </section>
     <section id="sect-Adding_Multiple_VLANs_to_a_Single_Network_Interface_Using_Logical_Networks">
       <title>使用逻辑网络为单独一块物理网卡添加多个 VLAN</title>
+      <para>
+        <emphasis>前提：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
       <formalpara>
         <title>概述</title>
         <para>
@@ -961,6 +1026,14 @@
       </para>
       <para>
         以上的功能，也能够在主面板相应的资源标签中完成。关于如何在相应的资源中设置网络，请参见以下链接。
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
       </para>
       <section id="sect-Importing_Networks_from_External_Providers">
         <title>从外部供应商中导入网络</title>
@@ -1094,6 +1167,16 @@
       <para>
         系统将会自动为创建逻辑网络的用户分配对于该逻辑网络的 <emphasis>NetworkAdmin</emphasis> 权限。您可以删除逻辑网络当前的管理员并且添加一个新的管理员来改变该逻辑网络的管理员用户。
       </para>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Network_Administrator_and_User_Roles_Explained"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Network_Administrator_and_User_Roles_Explained">
       <title>逻辑网络管理员和用户角色的解释</title>
@@ -1145,6 +1228,16 @@
           </tbody>
         </tgroup>
       </table>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Managing_System_Permissions_for_a_Network"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Assigning_an_Administrator_or_User_Role_to_a_Resource">
       <title>为一个特定资源分配管理员或者用户角色</title>
@@ -1193,6 +1286,16 @@
           您成功地为一个用户分配了角色；该用户对于该资源及其下属的其它资源都具备该角色的权限。
         </para>
       </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Managing_System_Permissions_for_a_Network"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
     </section>
     <section id="sect-Removing_an_Administrator_or_User_Role_from_a_Resource">
       <title>为一个特定资源删除管理员或者用户角色</title>
