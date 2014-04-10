@@ -17,7 +17,7 @@
      </partintro>
 	<xi:include href="Chapter-data-center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-logical-network.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Chapter-logical-networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-storage-domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-virtual-machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
