@@ -955,8 +955,104 @@
         </itemizedlist>
       </para>
       <para>
-        以上的功能，也能够在主面板相应的资源标签中完成
+        以上的功能，也能够在主面板相应的资源标签中完成。关于如何在相应的资源中设置网络，请参见以下链接。
       </para>
+      <section id="sect-Importing_Networks_from_External_Providers">
+        <title>从外部供应商中导入网络</title>
+        <formalpara>
+          <title>概述</title>
+          <para>
+            如果提供网络服务的外部供应商已在&MANAGER;中注册，该供应商提供的网络能够被导入到&MANAGER;中从而被虚拟机使用。
+          </para>
+        </formalpara>
+        <procedure>
+          <title>导入逻辑网络</title>
+          <step>
+            <para>
+              在主面板中点击<emphasis>网络</emphasis>标签。
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<emphasis>导入</emphasis>按钮打开<emphasis>导入网络</emphasis>窗口。
+            </para>
+          </step>
+          <step>
+            <para>
+              从<emphasis>网络供应商</emphasis>下拉列表中选择一个供应商。该网络供应商所提供的逻辑网络将会自动被发现并显示在<emphasis>供应商网络</emphasis>列表中。
+            </para>
+          </step>
+          <step>
+            <para>
+              在<emphasis>供应商网络</emphasis>列表中选择需要导入的网络，然后点击向下的图标将网络移动至<emphasis>要导入的网络</emphasis>列表中。
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<emphasis>导入</emphasis>按钮。
+            </para>
+          </step>
+        </procedure>
+        <formalpara>
+          <title>结果</title>
+          <para>
+            所选择的网络成功的被导入到&MANAGER;中并且能够正常使用。
+          </para>
+        </formalpara>
+        <important>
+          <para>
+            外部供应商的发现及导入是一项技术预览特性。技术预览特性不被完全支持并且可能无法正常工作。但是，这类特性让用户能够提前接触到产品未来将要发生的技术变化，用户能够测试其功能并且在开发的过程中作出反馈。
+          </para>
+        </important>
+      </section>
+      <section id="sect-Limitations_to_Importing_Networks_from_External_Providers">
+        <title>从外部供应商导入网络的限制</title>
+        <para>
+          虽然外部供应商提供的逻辑网络能够被导入到&MANAGER;中，它们的使用仍然受到如下限制：
+          <itemizedlist>
+            <listitem>
+              <para>
+                外部供应商提供的逻辑网络只能被用作虚拟机网络。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                外部供应商提供的网络不能作为显示网络使用。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                同一逻辑网络能够被导入多次，但每次必须对应不同的数据中心。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                在&MANAGER;中无法编辑外部供应商提供的逻辑网络。这是由于该类网络的管理功能必须由外部的供应商完成。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                端口镜像不适用于连接到外部供应商提供的逻辑网络的虚拟网卡。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                如果有虚拟机使用着外部供应商所提供的网络，由于其所提供的网络正在被虚拟机使用，该供应商无法从&MANAGER;中删除。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                外部供应商提供的网络是不必需的。因此，导入了这类逻辑网络的集群的调度工作在选择虚拟机时将不会考虑这类网络的状态。另外，用户必须确保在导入了这类逻辑网络的集群中的主机上，该逻辑网络是可用的。
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <important>
+          <para>
+            外部供应商的发现及导入是一项技术预览特性。技术预览特性不被完全支持并且可能无法正常工作。但是，这类特性让用户能够提前接触到产品未来将要发生的技术变化，用户能够测试其功能并且在开发的过程中作出反馈。
+          </para>
+        </important>
+      </section>
     </section>
   </section>
 
