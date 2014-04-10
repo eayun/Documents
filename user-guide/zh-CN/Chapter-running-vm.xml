@@ -5,46 +5,207 @@
 ]>
 <chapter id="chap-Documents-user-guide-running-vm_Chapter">
 	<title>运行虚拟机</title>
-	<para>
-		This is a test paragraph
-	</para>
 	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_1">
 		<title>运行虚拟机-概览</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+            在用户门户，虚拟机是由代表类型和状态的图标所表现。这些图标表示虚拟机是一个桌面池的一部分还是一个独立的Windows虚拟机或是LInux虚拟机。他们也反映出虚拟机是运行还是停止。
+        </para>
+        <para>
+            用户门户显示分配给您的所有虚拟机的列表。您能打开一个或多个虚拟机，连接和登录虚拟机。您可以访问不同操作系统的虚拟机，您可以同时使用多个虚拟机。
+        </para>
+        <para>
+            相反，如果您只有一个正在运行的虚拟机并且已经启用自动连接，您可以绕开用户门户直接登录虚拟机，类似于您登录到一个物理机。
+        </para>
 	</section>
 	
 	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_2">
 		<title>启动虚拟机</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+            在用户门户使用一个虚拟机，您必须要启动它然后连接它。如果一个虚拟机是关闭的，显示灰色的并且显示“Machine is Down”。
+        </para>
+        <para>
+            可以分配给您一个独立的虚拟机或是虚拟机池里的虚拟机。在同一个池里的虚拟机有着相同的操作系统和安装的应用。
+        </para>
+        <procedure><title>启动一个虚拟机</title>
+			<step>
+				<para>
+					 如果您使用一个独立的虚拟机，选择这个虚拟机点击运行按钮去启动它。如图：
+                 </para>
+                 <para>
+                     <figure id="eayunos-user-run-vm-0"><title>图1</title>
+                         <mediaobject>
+                             <imageobject>
+                                 <imagedata fileref="images/user-run-vm-1.png" format="PNG" scale="100"/>
+                             </imageobject>
+                         </mediaobject>
+                     </figure>
+                 </para>
+            </step>
+            <step>
+                <para>
+                    使用一个池里的虚拟机，选择池的图标点击运行按钮。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-run-vm-1"><title>图2</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/user-run-vm-2.png" format="PNG" scale="100"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+                <para>
+                    虚拟机池分配一个接电（Power up）的虚拟机给您
+                </para>
+            </step>
+            <step>
+                <para>
+                    虚拟机加电（Power up）。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-run-vm-2"><title>图3</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/user-run-vm-3.png" format="PNG" scale="100"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+            </step>
+            <step>
+                <para>
+                    当虚拟机接电后，图标不再是灰色，文本显示“虚拟机准备就绪”，您现在可以连接虚拟机。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-run-vm-3"><title>图4</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/user-run-vm-4.png" format="PNG" scale="100"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+            </step>
+        </procedure>
+        <note>
+            <para>
+                您只能在虚拟机通电后连接虚拟机。
+            </para>
+        </note>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_3">
 		<title>访问启动的虚拟机</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			虚拟机启动后，您能连接登录该虚拟机，同时可以像使用物理机一样使用它。虚拟机通电后显示“虚拟机准备就绪”。
+        </para>
+        <procedure><title>连接一个通电的虚拟机</title>
+            <step>
+                <para>
+                    双击待连接的虚拟机。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-run-vm-4"><title>图5</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/user-run-vm-5.png" format="PNG" scale="100"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+            </step>
+            <step>
+                <para>
+                    显示虚拟机的控制台窗口。您现在像使用一个物理机一样使用该虚拟机。
+                </para>
+            </step>
+        </procedure>
+        <note>
+            <para>
+                如果是第一次使用SPICE连接虚拟机，将会提示您安装适当的SPICE组件或插件。如果是第一次连接一个Linux虚拟机，需要为Firefox浏览器安装SPICE插件。如果您连接一个Windows虚拟机则需要安装ActiveX插件。
+            </para>
+        </note>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_4">
 		<title>注销虚拟机</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+            为了最小化数据丢失的风险，建议您在关闭虚拟机之前先注销虚拟机。如果您要强制关闭虚拟机，虚拟机状态被强制为“断电”。为了优雅的关闭虚拟机，使用以下步骤：
+        </para>
+        <procedure><title>关闭一个虚拟机</title>
+            <step>
+                <para>
+                    一旦您使用完虚拟机，根据特定操作系统的指示退出虚拟机。
+                    <orderedlist>
+                        <listitem>
+                            <para>
+                                退出Windows系统的虚拟机，点击“Start”->“Log off”。
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                退出Linux系统的虚拟机，点击“System”->“Log out”。
+                            </para>
+                        </listitem>
+                    </orderedlist>
+                </para>
+            </step>
+            <step>
+                <para>
+                    如果您正在使用一个全屏模式的虚拟机，按“Shift+F11”退出全屏模式，然后关闭虚拟机的控制台窗口。您现在返回到用户门户。
+                </para>
+                <para>
+                    关闭虚拟机点击关闭按钮。虚拟机显示“断电”。如图：
+                </para>
+                <para>
+                    <figure id="eayunos-user-run-vm-5"><title>图6</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/user-run-vm-6.png" format="PNG" scale="100"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+                <para>
+                    虚拟机关闭后虚拟机呈现灰色并显示“虚拟机关闭”（“Machine is Down”）。
+                </para>
+            </step>
+            <step>
+                <para>
+                    当您使用完用户门户，您可以退出用户门户按照用户门户退出的说明。
+                </para>
+            </step>
+        </procedure>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-running-vm_Section_5">
-		<title>当设置了配额后有何表现</title>
+		<title>超过配额限制时如何解决</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			EayunOS虚拟化提供一个资源限制工具quota，该工具允许系统管理员去限制CPU数量和每个用户能消耗的存储空间。quota工具会在您使用虚拟机时消耗的虚拟资源量和系统管理员设定的存储量及运行时间限制之间进行比较。
+        </para>
+        <para>
+            当实际使用超过了您的之前设定的配额，会弹出窗口通知您已经超过配额，并且您将不能再获得虚拟机资源。例如这种情况会在您的环境下同时运行多个虚拟机时发生。如图:
+        </para>
+        <para>
+            <figure id="eayunos-user-run-vm-6"><title>图7</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/user-run-vm-7.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>
+            重新恢复您的虚拟机，请执行以下操作之一：
+            <orderedlist>
+                <listitem>
+                    <para>
+                        关闭你已不需要使用的虚拟机。这个将会降低您的资源消耗到不会超过配额限制的水平，现在您能够再次运行虚拟机。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        如果您不关闭一些正在运行的虚拟机，联系您的系统管理员去扩展您的配额限制或者删除一些没有用的虚拟机。
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
 	</section>
-
 </chapter>
