@@ -3,229 +3,1650 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-administrator-guide-Chapter-hosts">
-	<title>主机</title>
-	<para>
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_1">
-		<title>&OVIRT;主机介绍</title>
-		<para>
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_2">
-		<title>&OVIRT; hypervisor 主机</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_3">
-		<title>Foreman托管</title>
-		<para>
-		</para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_4">
-		<title>&OVIRT; all in one 主机</title>
-		<para>
-		</para>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5">
-		<title>主机的任务</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-1">
-		    <title>添加&OVIRT; all in one 主机</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-2">
-		    <title>添加Foreman主机</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-3">
-		    <title>批准&OVIRT; hypervisor</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4">
-		    <title>创建、编辑主机窗口的设置解释</title>
-		     <para>
-		     </para>
-	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-1">
-		        <title>主机常规设置解释</title>
-		         <para>
-		         </para>
-	             </section>
-	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-2">
-		        <title>主机电源管理解释</title>
-		         <para>
-		         </para>
-	             </section>
-	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-3">
-		        <title>SPM优先级解释</title>
-		         <para>
-		         </para>
-	             </section>
-	             <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-4-4">
-		        <title>主机访问终端解释</title>
-		         <para>
-		         </para>
-	             </section>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-5">
-		    <title>配置主机电源管理设置</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-6">
-		    <title>配置存储池管理者设置</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-7">
-		    <title>手动选择SPM</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-8">
-		    <title>编辑资源</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-9">
-		    <title>将主机切换到维护模式</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-10">
-		    <title>将主机从维护模式中激活</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-11">
-		    <title>删除主机</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_5-12">
-		    <title>使用tag定制主机</title>
-		     <para>
-		     </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6">
-		<title>主机和网络</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-1">
-		    <title>刷新新增物理网卡</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-2">
-		    <title>编辑主机网卡，给主机添加逻辑网络</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-3">
-		    <title>&OVIRT;的Bonding逻辑</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-4">
-		    <title>绑定的模式</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-5">
-		    <title>在管理员门户中建立bond设备</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-6">
-		    <title>一个定制bond选项的实例</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-7">
-		    <title>保存主机的网络设置</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_6-8">
-		    <title>多网关配置</title>
-		     <para>
-		     </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7">
-		<title>弹性的主机</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-1">
-		    <title>主机高可用</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-2">
-		    <title>使用电源管理代理</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-3">
-		    <title>在主机中设置Fencing参数</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-4">
-		    <title>Self-Fencing主机</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-5">
-		    <title>使用主机电源管理功能</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_7-6">
-		    <title>手动隔离没有响应的主机</title>
-		     <para>
-		     </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8">
-		<title>主机和权限</title>
-		<para>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-1">
-		    <title>管理主机的系统权限</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-2">
-		    <title>主机的管理员和角色解释</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-3">
-		    <title>为资源分配主机的管理员或用户权限</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-hosts_Section_8-4">
-		    <title>删除资源已经分配的管理员或用户权限</title>
-		     <para>
-		     </para>
-	        </section>
-	</section>
+<chapter id="chap-Hosts">
+  <title>主机</title>
+
+  <section id="sect-Introduction_to_EayunOS_Hosts">
+    <title>&OVIRT; 主机简介</title>
+    <para>
+      主机，也被称作宿主机，是供虚拟机在其之上运行的物理服务器。&OVIRT; 中的虚拟化是由 KVM(Kernel-based Virtual Machine) 这个可动态加载的 Linux 内核模块提供的。
+    </para>
+    <para>
+      KVM 能够同时支持多个虚拟机，虚拟机之上的系统可以是 Windows 或者 Linux。虚拟机在主机之中是以 Linux 进程和线程的存在形式运行着，并且由 &OVIRT; &MANAGER;远程地进行管理。&OVIRT; 环境中存在一个或者多个主机。
+    </para>
+    <para>
+      &OVIRT; 支持使用两种方式来安装主机。您可以使用 &OVIRT; 主机安装光盘，或者在一台标准的 RHEL/Centos 之上安装主机所需要的软件包，来完成主机的安装。
+    </para>
+    <para>
+      &OVIRT; 主机可以使用针对虚拟化环境提供优化策略的 <emphasis>tuned</emphasis> 来进行配置，从而提高主机性能。关于 <emphasis>tuned</emphasis> 的更多信息，请参考 RHEL 文档中的相关章节。
+    </para>
+    <para>
+      &OVIRT; 主机默认启用了安全相关的特性。SELinux(Security Enhanced Linux，安全强化 Linux) 和 iptables 防火墙默认都是启用的，并且您能够进行全方位的配置。&MANAGER; 能够在 &OVIRT; 主机添加到 &OVIRT; 环境时打开所需要的端口。关于端口的详细列表，请参见<!-- TODO: 连接至附录防火墙第二节，A.2. Virtualization Host Firewall Requirements -->。
+    </para>
+    <para>
+      主机是一台带有 Intel VT 或者 AMD-V CPU 扩展的 64 位服务器，在其之上运行着 RHEL/Centos 6.1 及之后的 64 位版本操作系统。
+    </para>
+    <para>
+      在 &OVIRT; 平台上的物理主机，具备如下特点：
+      <itemizedlist>
+        <listitem>
+          <para>
+            只能够属于系统中的一个集群。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            其 CPU 必须支持 AMD-V 或者 Intel VT 硬件虚拟化扩展。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            其 CPU 必须提供满足当创建集群时所选择的虚拟 CPU 类型所需要的功能/指令集。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            最少有 2 GB 内存。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            能够使用系统权限为其分配一个系统管理员。
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      <emphasis>参见：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 Chpater3, Data Centers -->
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 Chpater4, Clusters -->
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <xref linkend="chap-Logical_Networks"/>
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 Chpater8, Virtual Machines -->
+          </simpara>
+        </listitem>
+      </itemizedlist>
+    </para>
+  </section>
+
+  <section id="sect-EayuOS_Hosts">
+    <title>&OVIRT; 主机</title>
+    <para>
+      &OVIRT; 主机是一个定制过的 Linux 系统，其上面只有运行虚拟机所需要的相关软件包。主机是无状态的，并且除非被明确要求，否则它将不会往硬盘上写入其它内容。
+    </para>
+    <para>
+      &OVIRT; 主机能够从 &OVIRT; &MANAGER; 中直接添加并且进行配置。另外您也可以在主机上进行配置使其主动连接到 &OVIRT; &MANAGER;；在&MANAGER;上只需要批准该台主机加入环境中即可。
+    </para>
+    <para>
+      与普通的 RHEL/Centos 主机不同的是，&OVIRT; 主机无法作为一台存储节点被添加到启用了 Gluster 服务的集群中。
+    </para>
+    <important>
+      <para>
+        &OVIRT; 主机是一个封闭的系统。如果您需要安装其它 rpm 软件包，请使用普通的 RHEL/Centos 主机。
+      </para>
+    </important>
+  </section>
+
+  <section id="sect-Foreman_Host_Provider_Hosts">
+    <title>由 Foreman 提供的主机</title>
+    <para>
+      由 Foreman 提供的主机同样能够被 &OVIRT; &MANAGER;用作虚拟化主机。首先您需要将 Foreman 作为一个外部供应商添加到&MANAGER;中，然后您就可以像对待 &OVIRT; 主机或者 RHEL/Centos 主机一样添加并使用由 Foreman 提供的主机。
+    </para>
+    <important>
+      <para>
+        使用 Foreman 提供的主机是一项技术预览特性。技术预览特性不被完全支持并且可能无法正常工作。但是，这类特性让用户能够提前接触到产品未来将要发生的技术变化，用户能够测试其功能并且在开发的过程中作出反馈。
+      </para>
+    </important>
+  </section>
+
+  <section id="sect-RHEL_Hosts">
+    <title>RHEL/Centos 主机</title>
+    <para>
+      您可以将安装了标准的 RHEL6/Centos6 系统的服务器作为主机使用。&OVIRT; 支持使用安装了 AMD64/Intel64 版本的 RHEL6/Centos6 服务器作为主机。
+    </para>
+    <para>
+      在&MANAGER;中添加一台主机可能需要一些时间，因为虚拟化平台将会完成如下的步骤：虚拟化检测，安装所需要的软件包，创建所需要的网络桥接并重启主机。使用 &OVIRT; 管理员门户底部的信息栏查看管理系统与主机之间的连接情况和安装过程。
+    </para>
+  </section>
+
+  <section id="sect-Host_Tasks">
+    <title>主机任务</title>
+    <section id="sect-Adding_a_RHEL_Host">
+      <title>添加 RHEL/Centos 主机</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          RHEL/Centos 主机基于标准安装的 RHEL/Centos 系统。在将其添加到 &OVIRT; 环境之前，您必须先完成对该台物理主机的配置。
+        </para>
+      </formalpara>
+      <para>
+        &OVIRT; &MANAGER;将会登录该台主机，然后进行主机虚拟化特性的检测，安装所需要的软件包，创建网桥，然后重启主机。添加主机的过程可能需要大概 10 分钟。
+      </para>
+      <procedure>
+        <title>添加 RHEL/Centos 主机</title>
+        <step>
+          <para>
+            点击主面板中的<emphasis>主机</emphasis>标签，列出当前环境中的主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>新建</emphasis>按钮打开<emphasis>新建主机窗口</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用下拉菜单为该新主机选择<emphasis>数据中心</emphasis>和<emphasis>主机集群</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            输入该新主机的<emphasis>名称</emphasis>、<emphasis>地址</emphasis>和 <emphasis>SSH 端口</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            选择一种验证方法安装该台主机。
+            <itemizedlist>
+              <listitem>
+                <para>
+                  输入 root 用户的密码，使用密码验证。
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </step>
+        <step>
+          <para>
+            您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
+            <itemizedlist>
+              <listitem>
+                <para>
+                  可以选择禁用自动配置防火墙。
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </step>
+        <step>
+          <para>
+            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/Centos 主机时必须的步骤，在这里我们暂时不关注这些操作。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>开始添加主机并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新加入的主机将会在主机列表显示为 <emphasis>Installing</emphasis> 状态。安装完成之后，状态将会更新为 <emphasis>Reboot</emphasis>。该主机必须被激活，状态才会显示为 <emphasis>Up</emphasis>。
+        </para>
+      </formalpara>
+      <note>
+        <para>
+          您可以使用底部的信息栏查看安装的过程。
+        </para>
+      </note>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Adding_a_Foreman_Host_Provider_Host">
+      <title>添加 Foreman 提供的主机</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          添加 Foreman 提供的主机和添加 RHEL/Centos 主机的操作基本是一致的，区别仅在于&MANAGER;识别这两种类型主机的方式。以下过程概括了添加一台由 Foreman 提供的主机的步骤。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>添加 Foreman 提供的主机</title>
+        <step>
+          <para>
+            点击主面板中的<emphasis>主机</emphasis>标签，列出当前环境中的主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>新建</emphasis>按钮打开<emphasis>新建主机窗口</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用下拉菜单为该新主机选择<emphasis>数据中心</emphasis>和<emphasis>主机集群</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选<emphasis>使用外部提供商</emphasis>选择框显示用于添加 Foreman 提供的主机的选项，然后从中选择要从其中添加主机的外部供应商。
+          </para>
+        </step>
+        <step>
+          <para>
+            从<emphasis>外部主机</emphasis>下来列表中选择要添加的主机。能够从外部供应商中获取的主机信息将会被自动设置。
+          </para>
+        </step>
+        <step>
+          <para>
+            输入该新主机的<emphasis>名称</emphasis>、<emphasis>地址</emphasis>和 <emphasis>SSH 端口</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            选择一种验证方法安装该台主机。
+            <itemizedlist>
+              <listitem>
+                <para>
+                  输入 root 用户的密码，使用密码验证。
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </step>
+        <step>
+          <para>
+            您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
+            <itemizedlist>
+              <listitem>
+                <para>
+                  可以选择禁用自动配置防火墙。
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </step>
+        <step>
+          <para>
+            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/Centos 主机时必须的步骤，在这里我们暂时不关注这些操作。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>开始添加主机并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新加入的主机将会在主机列表显示为 <emphasis>Installing</emphasis> 状态。安装完成之后，状态将会更新为 <emphasis>Reboot</emphasis>。该主机必须被激活，状态才会显示为 <emphasis>Up</emphasis>。
+        </para>
+      </formalpara>
+      <note>
+        <para>
+          您可以使用底部的信息栏查看安装的过程。
+        </para>
+      </note>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Approving_a_Hypervisor">
+      <title>批准主机加入</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          在一台 &OVIRT; 主机加入虚拟化环境的操作没有在 &OVIRT; &MANAGER;中被批准之前，是无法在 &OVIRT; 主机上启动虚拟机的。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>批准主机加入</title>
+        <step>
+          <para>
+            登录 &OVIRT; &MANAGER;的管理员门户。
+          </para>
+        </step>
+        <step>
+          <para>
+            在<emphasis>主机</emphasis>标签中点击需要批准加入的 &OVIRT; 主机。该主机当前应该处于 <emphasis>Pending Approval</emphasis> 状态。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>批准</emphasis>按钮将弹出<emphasis>编辑和批准主机</emphasis>对话框。您可以使用该对话框设置主机的名称、在批准之前获取其 SSH 指印和在当该主机上有已被支持的电源管理卡时配置电源管理。关于电源管理配置的内容，请参见<xref linkend="sect-Host_Power_Management_Settings_Explained"/>。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>。如果您未配置该台主机的电源管理，系统将会弹出一个对话框通知您电源管理仍未配置，点击<emphasis>确定</emphasis>即可。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新加入的主机将会在主机列表显示为 <emphasis>Installing</emphasis> 状态，短暂之后，主机状态将会更改为 <emphasis>Up</emphasis>。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows">
+      <title>新建主机和编辑主机窗口中设置和控制项目的解释</title>
+      <section id="sect-Host_General_Settings_Explained">
+        <title>主机常规设置项的解释</title>
+        <para>
+          这些选项适用于修改主机的详细信息和添加 RHEL/Centos 主机和 Foreman 提供的主机。
+        </para>
+        <para>
+          下面的<emphasis>常规</emphasis>设置表中包含了<emphasis>新建主机</emphasis>或<emphasis>编辑主机</emphasis>时<emphasis>常规</emphasis>标签中所需要的信息。
+        </para>
+        <table>
+          <title>常规设置</title>
+          <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+              <row>
+                <entry>
+                  选项名称
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>数据中心</emphasis>
+                </entry>
+                <entry>
+                  主机所属的数据中心。&OVIRT; 虚拟化主机无法被添加到启用了 Gluster 服务的集群。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>主机集群</emphasis>
+                </entry>
+                <entry>
+                  主机所属的集群。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>使用外部供应商</emphasis>
+                </entry>
+                <entry>
+                  勾选或取消选择此选择框以查看或者隐藏添加外部供应商提供的主机的选项。当你选中此项时，将显示出一个包含已被添加到&MANAGER;中的外部供应商的下拉列表。以及以下内容：
+                  <itemizedlist>
+                    <listitem>
+                      <para>
+                        <emphasis>供应商搜索过滤器</emphasis> - 允许您在该文本框中输入内容并搜索相匹配的由选中的外部供应商所提供的主机。该选项可能根据供应商的不同而不同；请参见相关的外部供应商的文档了解如何构造一个搜索请求。保持此项为空以查看所有可用的主机。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>外部主机</emphasis> - 显示由外部供应商提供的主机名称的下拉列表。该列表中的内容已根据您输入到<emphasis>供应商搜索过滤器</emphasis>中的搜索请求进行了过滤。
+                      </para>
+                    </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>名称</emphasis>
+                </entry>
+                <entry>
+                  主机的名称。必须为一个唯一的名称并且不超过 40 个字符长度，接受大小写字母、数字、连字符以及下划线。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>注释</emphasis>
+                </entry>
+                <entry>
+                  供您输入一个关于该主机易于理解的纯文本注释。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>地址</emphasis>
+                </entry>
+                <entry>
+                  该主机的 IP 地址或者能够被正确解析的主机名。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>密码</emphasis>
+                </entry>
+                <entry>
+                  主机上 root 用户的密码。此选项只在添加主机时可用，之后不能再对其进行修改。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>SSH 公共密钥</emphasis>
+                </entry>
+                <entry>
+                  如果您想使用&MANAGER;的 SSH 密钥而不是使用密码进行登录到主机时的验证，请将该文本框中的内容复制到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>自动配置主机防火墙</emphasis>
+                </entry>
+                <entry>
+                  添加主机时，&MANAGER;将在主机的防火墙上自动打开所需要的端口。该选项是一个<emphasis>高级参数</emphasis>，默认启用。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>SSH 指印</emphasis>
+                </entry>
+                <entry>
+                  您可以<emphasis>获取</emphasis>主机的 SSH 指印，并与您期望主机返回的内容进行比较以确保它们是一致的。该选项是一个<emphasis>高级参数</emphasis>。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section id="sect-Host_Power_Management_Settings_Explained">
+        <title>主机电源管理设置项的解释</title>
+        <para>
+          下面的<emphasis>电源管理</emphasis>设置表中包含了<emphasis>新建主机</emphasis>或<emphasis>编辑主机</emphasis>时<emphasis>电源管理</emphasis>标签中所需要的信息。
+        </para>
+        <table>
+          <title>电源管理设置</title>
+          <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+              <row>
+                <entry>
+                  选项名称
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>主要的/次要的</emphasis>
+                </entry>
+                <entry>
+                  允许您定义两个电源管理的隔离代理。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>并行的</emphasis>
+                </entry>
+                <entry>
+                  当您定义了两个电源管理的隔离代理时该选项有效。例如当主机上的电源开关同时连接到两个电源管理代理时。
+                  <itemizedlist>
+                    <listitem>
+                      <para>
+                        如果该勾选该选项，当主机需要隔离时，两个隔离代理将会同时进行工作。这意味着两个代理必须都响应电源管理的停止指令主机才能正常关机；当有个代理响应了电源管理的启动指令时，主机将会启动。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        如果未勾选该选项，两个隔离代理将依次被使用。这意味着当需要停止或者启动主机时，主要的代理将会首先被使用，当其失败时，将使用次要的代理。
+                      </para>
+                    </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>地址</emphasis>
+                </entry>
+                <entry>
+                  主机的电源管理设备的地址。输入一个能被正确解析的主机名或者 IP 地址。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>用户名</emphasis>
+                </entry>
+                <entry>
+                  连接到主机电源管理设备时所使用的用户名。您可能需要在该设备上设置一个用户，或者使用该设备的默认用户。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>密码</emphasis>
+                </entry>
+                <entry>
+                  对应于连接到主机电源管理设备时所使用的用户名的密码。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>类型</emphasis>
+                </entry>
+                <entry>
+                  <para>
+                    您的主机上的电源管理设备的类型。
+                  </para>
+                  <para>
+                    从以下项目中选择：
+                  </para>
+                  <itemizedlist>
+                    <listitem>
+                      <para>
+                        <emphasis>apc</emphasis> - APC MasterSwitch 网络电源开关。不适用于 APC 5.x 电源开关设备。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>apc_snmp</emphasis> - 适用于 APC 5.x 设备。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>bladecenter</emphasis> - IBM Bladecentre 远程管理适配器
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>cisco_ucs</emphasis> - Cisco 统一计算系统
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>drac5</emphasis> - Dell 机器上的 Dell 远程接入控制器
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>eps</emphasis> - ePowerSwitch 8M+ 网络电源开关
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>ilo、ilo2、ilo3、ilo4</emphasis> - HP 的 iLO 远程管理接口
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>ipmilan</emphasis> - 智能平台管理接口和 Sun ILOM 设备.
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>rsa</emphasis> - IBM 的远程管理适配器
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>rsb</emphasis> - 富士通-西门子 RSB 管理接口
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        <emphasis>wti</emphasis> -WTI 网络电源开关
+                      </para>
+                    </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>SSH 端口</emphasis>
+                </entry>
+                <entry>
+                  电源管理设备用于与主机进行通信的端口。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>选项</emphasis>
+                </entry>
+                <entry>
+                  针对不同电源管理设备的独立选项。输入使用逗号隔开的 'key=value' 或者 'key'。请参考您主机的电源管理设备文档以了解可用的选项。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>安全性</emphasis>
+                </entry>
+                <entry>
+                  勾选此选项以使电源管理设备使用安全的连接连接到主机上。可以通过 ssh、ssl 或者其它验证协议，取决于电源管理代理的支持情况。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>源</emphasis>
+                </entry>
+                <entry>
+                  指定一台主机是从它所在的<emphasis>集群（cluster）</emphasis>还是<emphasis>数据中心（dc）</emphasis>中寻找隔离代理。使用右侧的<emphasis>上移</emphasis>和<emphasis>下移</emphasis>按钮来修改查找的顺序。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section id="sect-SPM_Priority_Settings_Explained">
+        <title>SPM 优先级设置的解释</title>
+        <para>
+          下面的<emphasis>SPM</emphasis>设置表中包含了<emphasis>新建主机</emphasis>或<emphasis>编辑主机</emphasis>时<emphasis>SPM</emphasis>标签中所需要的信息。
+        </para>
+        <table>
+          <title>SPM 设置</title>
+          <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+              <row>
+                <entry>
+                  选项名称
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>SPM 优先级</emphasis>
+                </entry>
+                <entry>
+                  用于定义该主机被使用为存储池管理者(SPM)的优先程度。可选择的项目包括低、正常和高优先级，低优先级意味着该主机被指派为 SPM 的可能性降低，高优先级则增加其成为 SPM 的可能性。默认的设置为正常。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section id="sect-Host_Console_Settings_Explained">
+        <title>主机控制台设置的解释</title>
+        <para>
+          下面的<emphasis>控制台</emphasis>设置表中包含了<emphasis>新建主机</emphasis>或<emphasis>编辑主机</emphasis>时<emphasis>控制台</emphasis>标签中所需要的信息。
+        </para>
+        <table>
+          <title>控制台设置</title>
+          <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+              <row>
+                <entry>
+                  选项名称
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>覆盖显示地址</emphasis>
+                </entry>
+                <entry>
+                  勾选此选项在该台主机上启用覆盖显示地址的功能。该功能在主机使用一个内部的 IP 地址并且在 NAT 防火墙之后时非常有用。当用户从内部网络以外的地方发起到虚拟机的连接时，&OVIRT; 将返回一个公共的 IP 或者 FQDN（在外部网络中能被正确解析为公网 IP），而不是返回该虚拟机所在的主机的内网 IP 地址。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>显示地址</emphasis>
+                </entry>
+                <entry>
+                  在这里指定的显示地址将会被所有运行在该主机之上的虚拟机所使用。该地址必须为一个 FQDN 或者 IP 地址。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </section>
+    <section id="sect-Configuring_Host_Power_Management_Settings">
+      <title>配置主机电源管理</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          通过配置主机上的电源管理设备，实现从管理员门户中进行主机生命周期管理（停止、启动、重启）。
+        </para>
+      </formalpara>
+      <para>
+        主机的高可用和虚拟机的高可用功能的正常工作都要求首先配置好主机的电源管理。
+      </para>
+      <important>
+        <para>
+          在配置主机的电源管理之前，请确认您的主机处于<emphasis>维护模式</emphasis>。否则，该主机上运行着的虚拟机在重启主机时都会被不正常关闭，这在生产环境中可能会引起损害。如果您并未将主机设置为<emphasis>维护模式</emphasis>，系统将弹出一个警告框。
+        </para>
+      </important>
+      <procedure>
+        <title>配置主机电源管理</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>编辑</emphasis>按钮打开<emphasis>编辑主机</emphasis>窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>电源管理</emphasis>标签显示电源管理设置的选项。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选<emphasis>启用电源管理</emphasis>来开启此项设置。
+          </para>
+        </step>
+        <step>
+          <para>
+            如果您是配置一个新的电源管理设备，<emphasis>主要的</emphasis>选项将会默认被选中。如果您需要添加一个新设备，请选择<emphasis>次要的</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选<emphasis>并行的</emphasis>选项以使多个隔离代理能够同时进行工作。
+          </para>
+        </step>
+        <step>
+          <para>
+            在对应的区域中输入电源管理设备的<emphasis>地址</emphasis>、<emphasis>用户名</emphasis>以及<emphasis>密码</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用下拉菜单选择电源管理设备的<emphasis>类型</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            输入用于电源管理设备与主机进行通信的<emphasis>端口</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            输入该电源管理设备的<emphasis>选项</emphasis>。使用由逗号分隔的 'key=value' 或者 'key' 列表。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选<emphasis>安全性</emphasis>选项以使电源管理设备通过安全连接与主机连接。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>测试</emphasis>按钮，确保您上面的设置是正确的。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>保存您的设置并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您成功地配置了主机的电源管理。管理员门户中的<emphasis>电源管理</emphasis>下拉菜单将会变为可用状态。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Host_Power_Management_Settings_Explained"/>
+            </simpara>
+          </listitem>
+          <listitem>
+            <simpara>
+              <!-- TODO: 连接到 6.7.3, "Setting Fencing Parameters on a Host" -->
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Configuring_Host_Storage_Pool_Manager_Settings">
+      <title>配置主机 SPM 设置</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          存储池管理者（SPM）是&MANAGER;给予数据中心中的一台主机以维护存储域的连接控制的管理角色。SPM 必须总是可用的，并且当 SPM 主机不可用时，SPM 角色将会被指派到另外的一台主机上。由于 SPM 所进行的操作将占用主机的一部分资源，将资源比较富足因而能够负担 SPM 所占用资源的主机设置为较高的优先级就显得非常重要。
+        </para>
+      </formalpara>
+      <para>
+        存储池管理者（SPM）优先级设置改变一台主机被指派为 SPM 角色的可能程度：一台具有高 SPM 优先级的主机将会先于一台具有低优先级的主机被指派为 SPM 角色。
+      </para>
+      <procedure>
+        <title>配置主机 SPM 设置</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>编辑</emphasis>按钮打开<emphasis>编辑主机</emphasis>窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>SPM</emphasis>标签显示<emphasis>SPM 优先级</emphasis>的设置选项。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用单选框选择适用于该主机的 SPM 优先级。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>保存您的设置并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您成功地配置了该主机的 SPM 优先级。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-SPM_Priority_Settings_Explained"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Manually_Selecting_the_SPM">
+      <title>手动选择 SPM</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          存储池管理者（SPM）角色可以被手动指派到一台主机上。该操作仅对可用的主机有效。当您选中一台主机作为 SPM 之后，该主机将会马上主张其具有 SPM 角色。
+        </para>
+      </formalpara>
+      <para>
+        手动指派 SPM 的操作结果并不是永久的。当该主机发生问题时，&OVIRT; &MANAGER;将根据可用主机的 SPM 优先级设置将 SPM 角色指派给另外一台主机。您选中的该台主机将不会具有它的 SPM 优先级设置中所设置的内容以外的优先程度。
+      </para>
+      <procedure>
+        <title>手动指派 SPM 角色到主机</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            右击该主机，如果<emphasis>选为 SPM</emphasis>选项可用的话，点击它。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          该主机马上会向其它主机声明其具有 SPM 角色。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Configuring_Host_Storage_Pool_Manager_Settings"/>
+            </simpara>
+          </listitem>
+          <listitem>
+            <simpara>
+              <!-- TODO: 连接到 3.2, "The Storage Pool Manager (SPM)" -->
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Editing_a_Resource">
+      <title>编辑主机资源</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          编辑主机的属性。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>编辑资源</title>
+        <step>
+          <para>
+            使用主面板中的标签、树形面板或者搜索功能来查找并在主面板中选择相应的资源。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑</emphasis>窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            更改相关的属性并点击<emphasis>确定</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          该资源的新属性将被保存。如果有属性内容填写错误，<emphasis>编辑</emphasis>窗口将不会关闭。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Moving_a_Host_to_Maintenance_Mode">
+      <title>将主机切换至维护模式</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          包括网络配置以及部署软件升级在内的许多的维护任务都要求主机处于维护模式。当一台主机切换至维护模式时，&OVIRT; &MANAGER;将尝试迁移其上面的虚拟机到另外的主机上。
+        </para>
+      </formalpara>
+      <para>
+        主机活迁移要求集群中必须至少存在一台其它可用的主机有能力运行将要迁移的机器。
+      </para>
+      <procedure>
+        <title>将主机切换至维护模式</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>维护</emphasis>打开<emphasis>维护主机</emphasis>确认窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>开始将主机切换至维护模式。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          所有在该主机上运行的虚拟机将被迁移到其它的主机上。主机的<emphasis>状态</emphasis>栏将首先切换为 <emphasis>Preparing for Maintenance</emphasis>，然后在操作完成之后切换为 <emphasis>Maintenance</emphasis>。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Activating_a_Host_from_Maintenance_Mode">
+      <title>从维护模式将主机激活</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          一台处于维护状态下或者刚添加进入环境中的主机，必须首先激活然后才能够使用。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>从维护模式将主机激活</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>维护</emphasis>打开<emphasis>维护主机</emphasis>确认窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>激活</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          主机的状态栏将首先切换为 <emphasis>Unassigned</emphasis>，在操作完成之后切换为 <emphasis>Up</emphasis>，然后您就可以在该台主机上运行虚拟机了。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Removing_a_Host">
+      <title>删除主机</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          将一台主机从您的虚拟化环境中删除。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>删除主机</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            将主机切换至维护模式。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>删除</emphasis>打开<emphasis>删除主机</emphasis>确认窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            如果主机处于无响应状态或者为 gluster 集群的一部分，请勾选上<emphasis>强制删除</emphasis>
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          主机被成功从虚拟化环境中删除，在<emphasis>主机</emphasis>标签下将不再列出该主机。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Customizing_Hosts_with_Tags">
+      <title>使用标签自定义主机</title>
+      <para>
+        <emphasis>前提：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <!-- TODO: 连接至 section F.3.2, "Creating a Tag" -->
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          您可以使用标签来存储主机相关的信息，然后根据标签来搜索主机。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>使用标签自定义主机</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>分配标签</emphasis>打开<emphasis>分配标签</emphasis>窗口。
+            <!-- TODO: Figure 6.1. Assign Tags Window -->
+          </para>
+        </step>
+        <step>
+          <para>
+            <emphasis>分配标签</emphasis>窗口列出了可用的标签。勾选上您所选择的那些。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>分配那些标签并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您成功地使用标签添加了额外的可供搜索使用的关于主机的信息。
+        </para>
+      </formalpara>
+    </section>
+  </section>
+
+  <section id="sect-Hosts_and_Networking">
+    <title>主机与网络</title>
+    <section id="sect-Refreshing_Host_Capabilities">
+      <title>刷新主机能力</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          当主机上添加了新网卡的时候，您必须刷新主机的能力以在&MANAGER;中显示该网卡。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>刷新主机能力</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>刷新能力</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          详情面板的<emphasis>网络接口</emphasis>子标签中关于该主机上网卡的列表被更新。新添加的网卡现在能够在&MANAGER;中被使用。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Editing_Host_Network_Interfaces_and_Adding_Logical_Networks_to_Hosts">
+      <title>编辑主机网卡和添加逻辑网络到主机</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          您可以修改主机上网卡的设置。修改主机的网络环境，通常是因为要将 &DEFAULT_LOGICAL_NETWORK; 管理逻辑网络在网卡之间移动，和添加新创建的逻辑网络到主机网卡上。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>编辑主机网卡和添加逻辑网络到主机</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击详情面板中的<emphasis>网络接口</emphasis>子标签以列出该主机上的网卡及它们的配置信息。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>窗口。
+          </para>
+          <!-- TODO: Figure 6.2. The Setup Host Networks window -->
+        </step>
+        <step>
+          <para>
+            通过选择并拖拽逻辑网络到网卡旁边的<emphasis>分配的逻辑网络</emphasis>区域，来将逻辑网络连接到网卡。
+          </para>
+          <para>
+            另外，还可以通过右键点击逻辑网络，并在下拉菜单中选择网卡。
+          </para>
+        </step>
+        <step>
+          <para>
+            将您的鼠标光标置于已分配的逻辑网络之上，点击铅笔小图标打开<emphasis>编辑网络</emphasis>窗口。
+          </para>
+          <para>
+            如果您的逻辑网络的配置与主机上的设置并未同步，请勾选<emphasis>同步网络</emphasis>选项。
+          </para>
+          <para>
+            从以下内容中选择<emphasis>引导协议</emphasis>：
+            <itemizedlist>
+              <listitem>
+                <para>
+                  <emphasis>None</emphasis>，
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  <emphasis>DHCP</emphasis>，或者
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  <emphasis>Static</emphasis>。
+                </para>
+                <para>
+                  如果您选择了 <emphasis>Static</emphasis>，请提供 <emphasis>IP</emphasis>、<emphasis>子网掩码</emphasis>和<emphasis>网关</emphasis>。
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+          <para>
+            点击<emphasis>确定</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选<emphasis>检查主机和&MANAGER;间的连接性</emphasis>来检查网络；该选项仅在主机处于维护模式时可用。
+          </para>
+        </step>
+        <step>
+          <para>
+            如果您希望所做的网络修改永久保存不受环境重启影响，请勾选<emphasis>保存网络连接</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>保存所做的修改并关闭该窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您成功的将逻辑网络分配到主机上的网卡并配置了主机的网络
+        </para>
+      </formalpara>
+      <note>
+        <para>
+          如果未正常显示所有在主机上的网卡，请点击<emphasis>刷新能力</emphasis>按钮以更新主机上可用的网卡列表。
+        </para>
+      </note>
+    </section>
+    <section id="sect-Bonding_Logic_in_EayunOS">
+      <title>&OVIRT; 中的网卡绑定逻辑</title>
+      <para>
+        &OVIRT; &MANAGER;管理员门户允许您使用图形界面创建网卡绑定设备。创建网卡绑定有逻辑各不相同的几种场景。
+      </para>
+      <para>
+        影响网卡绑定逻辑的两个要素是：
+        <itemizedlist>
+          <listitem>
+            <para>
+              所需要绑定的网卡是否已经分配了逻辑网络？
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              所需要绑定的网卡是否承载了兼容的逻辑网络？一块网卡设备不能够同时承载启用了 VLAN 标签和没有启用 VLAN 标签的逻辑网络。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <table>
+        <title>网卡绑定场景及其结果</title>
+        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                网卡绑定场景
+              </entry>
+              <entry>
+                结果
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                网卡 + 网卡
+              </entry>
+              <entry>
+                <para>
+                  <emphasis>创建新网卡绑定</emphasis>窗口将会显示，您可以配置一个新的网卡绑定设备。
+                </para>
+                <para>
+                  如果需要绑定的网卡设备承载了不兼容的逻辑网络，该操作将会失败，直到您从组成新的网卡绑定的设备上将不兼容的逻辑网络分离才能成功。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                网卡 + 网卡绑定设备
+              </entry>
+              <entry>
+                <para>
+                  该网卡会被添加到网卡绑定设备中。如果网卡承载的逻辑网络是兼容的，那么该逻辑网络也会被添加到最终形成的网卡绑定设备上。
+                </para>
+                <para>
+                  如果该网卡绑定设备承载了不兼容的逻辑网络，该操作将会失败，直到您从组成新的网卡绑定的设备上将不兼容的逻辑网络分离才能成功。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                网卡绑定设备 + 网卡绑定设备
+              </entry>
+              <entry>
+                <para>
+                  如果这两个网卡绑定设备都未添加到逻辑网络或者它们已经承载了兼容的逻辑网络，一个新的网卡绑定设备将会被创建。该新创建的设备将包含原来的所有网卡，并承载原来两个网卡绑定设备被添加到的逻辑网络。<emphasis>创建新网卡绑定</emphasis>的窗口将会显示以供您配置该设备。
+                </para>
+                <para>
+                  如果网卡绑定设备承载了不兼容的逻辑网络，该操作将会失败，直到您从组成新的网卡绑定的设备上将不兼容的逻辑网络分离才能成功。
+                </para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="sect-Bonding_Modes">
+      <title>网卡绑定模式</title>
+      <para>
+        &OVIRT; 支持以下几种常见的网卡绑定模式：
+        <itemizedlist>
+          <listitem>
+            <para>
+              模式 1（活动-备份策略）将其中一个网卡保持为活动状态，其它网卡设置为备份状态。当该活动的网卡出现问题时，其中一个备份的网卡将会替代该出问题的网卡成为绑定设备中唯一活动的网卡。网卡绑定设备的 MAC 地址只在其中一个端口（网卡设备）上可见，以防止上层的交换机出现混乱。模式 1 提供了容灾功能，并被 &OVIRT; 所支持。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              模式 2(异或策略)基于以网络包的源和目的 MAC 地址进行异或操作后对网卡数量求余的值来选择传输网络包的网卡。这样保证了相同目的 MAC 地址的网络包将会使用同一个网卡进行传输。模式 2 同时提供了容灾和负载均衡的功能，并被 &OVIRT; 所支持。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              模式 4(IEEE 802.3ad 策略)创建了一个聚合组，该组内的网卡共享相同的网卡速度和双工设置。遵循 IEEE 802.3ad 的标准，模式 4 使用了活动聚合组内的所有网卡，并被 &OVIRT; 所支持。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              模式 5(字适应传输负载均衡策略)保证了将根据当前每个网卡的负载来决定上行的数据传输的分配，并且使用其中一个网卡来接收所有的下行流量。如果负责接收的网卡出现问题，另一个网卡将会被指派取代其进行接收的角色。模式 5 被 &OVIRT; 所支持。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Creating_a_Bond_Device_Using_the_Administration_Portal">
+      <title>使用 &OVIRT; 管理员门户创建网卡绑定设备</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          您可以将相互兼容的网卡设备进行绑定。这样设置能够提高可用带宽和可靠性。您可以将多块网卡设备、已存在的多个网卡绑定设备，或者以上两者的组合进行绑定。
+        </para>
+      </formalpara>
+      <para>
+        一个网卡绑定设备不能够同时承载启用了 VLAN 标签和未启用 VLAN 标签的流量。
+      </para>
+      <procedure>
+        <title>使用 &OVIRT; 管理员门户创建网卡绑定设备</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击详情面板中的<emphasis>网络接口</emphasis>子标签以列出该主机上的网卡及它们的配置信息。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>窗口
+          </para>
+        </step>
+        <step>
+          <para>
+            选择并拖拽一个网卡设备到另一个网卡设备上方并释放，打开<emphasis>创建新网卡绑定</emphasis>窗口。另外您也可以通过右键点击该设备并从下拉菜单中选择另外一个设备来进行。
+          </para>
+          <para>
+            如果所选择的设备相互不兼容，例如其中一个启用了 VLAN 标签而另一个没有，该操作将失败，并提示您如何解决兼容性的问题。
+          </para>
+          <!-- TODO: Figure 6.3. Bond Devices Window -->
+        </step>
+        <step>
+          <para>
+            从下拉菜单中选择<emphasis>绑定名称</emphasis>和<emphasis>绑定模式</emphasis>。
+          </para>
+          <para>
+            绑定模式 1、2、4、5 能够从下拉菜单中直接选择。其它的模式能够使用<emphasis>自定义</emphasis>选项进行配置。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>按钮创建绑定设备并关闭<emphasis>创建新网卡绑定</emphasis>窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            分配一个逻辑网络到刚创建的网卡绑定设备。
+          </para>
+        </step>
+        <step>
+          <para>
+            根据需要勾选<emphasis>检验主机和&MANAGER;间的连接性</emphasis>和<emphasis>保存网络配置</emphasis>选项。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>接受所做的改变并关闭<emphasis>设立主机网络</emphasis>窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您的网卡设备被连接到一个网卡绑定设备中并能够作为一个单独的网络接口进行配置修改。网卡绑定设备将在所选择主机的详情面板中的<emphasis>网络接口</emphasis>子标签中被列出。
+        </para>
+      </formalpara>
+      <para>
+        您必须在交换机上与主机连接的端口同样启用网卡绑定功能。不同交换机上启用网卡绑定功能的操作过程可能会有所不同；请参考交换机厂商提供的手册获得关于如何启用网卡绑定功能的详细信息。
+      </para>
+      <para>
+        <emphasis>参见：</emphasis>
+        <itemizedlist>
+          <listitem>
+            <simpara>
+              <xref linkend="sect-Editing_Host_Network_Interfaces_and_Adding_Logical_Networks_to_Hosts"/>
+            </simpara>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section id="sect-Example_Uses_of_Custom_Bonding_Options_with_Host_Interfaces">
+      <title>对主机网卡使用自定义绑定选项的例子</title>
+      <para>
+        您可以在<emphasis>创建新网卡绑定</emphasis>窗口中的<emphasis>绑定模式</emphasis>一栏中选择<emphasis>自定义</emphasis>来自定义网卡绑定设备。下面给出的例子您需要根据具体需要作出调整。查看 <ulink url="https://www.kernel.org/doc/Documentation/networking/bonding.txt">Linux Ethernet Bonding Driver HOWTO</ulink> 获得详细的网卡绑定参数列表及它们的描述。
+      </para>
+      <example>
+        <title>发送的哈希策略</title>
+        <para>
+          此选项定义了绑定模式 2 和 4 使用的发送负载均衡策略。例如，如果您的大部分网络流量是往很多不同的 IP 地址传输的，您可能需要设置策略为根据 IP 地址进行均衡调整。您可以设置通过选择<emphasis>自定义</emphasis>绑定模式并输入以下内容到文本框中来设置这样的策略：
+        </para>
+        <screen>mode=4, xmit_hash_policy=layer2+3</screen>
+      </example>
+      <example>
+        <title>ARP 监控</title>
+        <para>
+          ARP 监控对于不能够通过 ethtool 报告链路状态的系统而言非常有用。选择<emphasis>自定义</emphasis>绑定模式并输入以下内容到文本框中来设置主机上网卡绑定设备的 <emphasis>arp_interval</emphasis> 选项：
+        </para>
+        <screen>mode=1, arp_interval=1, arp_ip_target=192.168.0.2</screen>
+        </example>
+        <example>
+        <title>主网卡的选择</title>
+        <para>
+          您可能希望选择吞吐量更大的网卡作为网卡绑定设备的主网卡。选择<emphasis>自定义</emphasis>绑定模式并输入以下内容到文本框中来指定绑定设备的主网卡：
+        </para>
+        <screen>mode=1, primary=eth0</screen>
+      </example>
+    </section>
+    <section id="sect-Saving_a_Host_Network_Configuration">
+      <title>保存主机网络配置</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          当您配置主机网络的时候，其中有一个选项时在您确认应用该配置之后保存该配置使其持久化。
+        </para>
+      </formalpara>
+      <para>
+        如果您没有在<emphasis>设立主机网络</emphasis>窗口中勾选<emphasis>保存网络配置</emphasis>，您对主机网络所做的修改将会是临时的。
+      </para>
+      <para>
+        请保存主机网络配置，使该配置持久化。
+      </para>
+      <procedure>
+        <title>保存主机网络配置</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击详情面板中的<emphasis>网络接口</emphasis>子标签以列出该主机上的网卡、网卡的地址信息及其它的参数。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>保存网络配置</emphasis>按钮。
+          </para>
+        </step>
+        <step>
+          <para>
+            该主机的网络配置将会被保存，任务栏中将提示如下信息：“Network Changes were saved on host <emphasis>[主机名]</emphasis>”
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          该主机的网络配置持久保存并在主机重启时保持不变。
+        </para>
+      </formalpara>
+      <note>
+        <para>
+          保存主机网络配置同样将更新在主机上可用网卡的列表。该行为与当您点击<emphasis>刷新能力</emphasis>按钮时的行为类似。
+        </para>
+      </note>
+    </section>
+    <section id="sect-Multiple_Gateways">
+      <title>多网关</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          用户可以为一个逻辑网络和定义 IP 地址和子网掩码一样定义其网关。这在当主机上存在多个逻辑网络，并且网络流量必须被路由至其所属的逻辑网络而非默认网关的场景下是必要的。
+        </para>
+      </formalpara>
+      <para>
+        如果主机上存在多个逻辑网络，并且逻辑网络的网关未被定义，从主机回传的流量将会被路由至通过有可能不能到达所期望的目的地址的默认网关。这可能将造成用户不能 ping 通主机。
+      </para>
+      <para>
+        &OVIRT; 能够当网卡设备启动或者停止工作时自动处理多网关。
+      </para>
+      <procedure>
+        <title>查看或编辑逻辑网络的网关</title>
+        <step>
+          <para>
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击详情面板中的<emphasis>网络接口</emphasis>子标签以列出该主机上的网卡及它们的配置。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            将鼠标光标置于分配的逻辑网络之上，点击铅笔小图标打开<emphasis>编辑网络</emphasis>窗口。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          <emphasis>编辑网络</emphasis>窗口显示逻辑网络名称、引导协议以及 IP 地址、子网掩码和网关地址。从引导协议中选择 <emphasis>Static</emphasis> 然后可以对地址信息进行编辑。
+        </para>
+      </formalpara>
+    </section>
+  </section>
+
+  <section id="sect-Host_Resilience">
+    <title>主机的弹性</title>
+    <section id="sect-Host_High_Availability">
+      <title>主机的高可用</title>
+      <para>
+        &OVIRT; &MANAGER;使用隔离机制来保持集群中的主机都处于响应&MANAGER;的状态。一台处于 <emphasis>Non Responsive</emphasis> 状态的主机与一台处于 <emphasis>Non Operational</emphasis> 状态的主机是不同的。处于 <emphasis>Non Operational</emphasis> 状态的主机是能够与&MANAGER;正常通信的，但其配置是不正确的，例如缺少了必需的逻辑网络。而处于 <emphasis>Non Responsive</emphasis> 状态的主机，&MANAGER;是无法与其成功通信的。
+      </para>
+      <para>
+        如果一台拥有电源管理设备的主机与&MANAGER;失去连接，该台主机能够从管理员门户被隔离（重启）。所有在该主机之上运行的虚拟机将会被停止，其中高可用的虚拟机将会在另外的主机上启动。
+      </para>
+      <para>
+        所有电源管理的操作并不是直接有 &OVIRT; &MANAGER;进行的，而是通过一台代理主机。因此，要完成电源管理操作，至少需要两台主机。
+      </para>
+      <para>
+        隔离机制允许集群对异常的主机失效采取行动，并保证了电源节省、负载均衡以及虚拟机高可用策略的正常工作。您自始至终都需要为您主机上的电源管理设备配置用于隔离的参数并测试其准确性。
+      </para>
+      <para>
+        主机能够通过使用电源管理参数被自动隔离，也可以通过右键点击一台主机并在菜单中选择相应的选项来手动隔离。在隔离操作中，无响应的主机将会被重启，而如果该主机在规定的时间内没有恢复至激活状态，它将保持无响应的状态，等待您进行手工干预并解决问题。
+      </para>
+      <para>
+        主机的电源管理必须首先被启用并正确配置，才可以在其之上运行高可用的虚拟机。
+      </para>
+    </section>
+    <section id="sect-Power_Management_by_Proxy_in_EayunOS">
+      <title>&OVIRT; 中通过代理进行的电源管理</title>
+      <para>
+        &OVIRT; &MANAGER;并不直接与电源管理设备进行通信。事实上，&MANAGER;使用一个代理向主机的电源管理设备发送电源管理命令。&MANAGER;使用 VDSM 执行电源管理设备东西，因此环境中的另外一台主机将被用作隔离代理。
+      </para>
+      <para>
+        您可以从以下两者中选择：
+        <itemizedlist>
+          <listitem>
+            <para>
+              需要隔离的主机所在集群的其它主机。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              需要隔离的主机所在数据中心的其他主机。
+            </para>
+          </listitem>
+        </itemizedlist>
+        只有状态处于 <emphasis>UP</emphasis> 或者 <emphasis>Maintenance</emphasis> 的主机才会被用作隔离的代理。
+      </para>
+    </section>
+  </section>
+
 </chapter>
-
