@@ -5,46 +5,625 @@
 ]>
 <chapter id="chap-Documents-user-guide-using-vm_Chapter">
 	<title>使用虚拟机：高级特性</title>
-	<para>
-		This is a test paragraph
-	</para>
 	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_1">
 		<title>桌面协议介绍</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			桌面协议方便虚拟机和EayunOS虚拟化架构之间信息的通信，桌面协议提供了一个接口可以快速简单的访问虚拟机。
+        </para>
+        <para>
+            在EayunOS企业虚拟化推荐使用SPICE协议。在客户机上安装和执行SPICE插件来连接虚拟机。该协议提供了一些特性包括USB重定向和多显示器的支持。
+        </para>
+        <para>
+            除了SPICE以外，EayunOS企业虚拟化管理也支持VNC和RDP协议。
+        </para>
+        <para>
+            RDP协议用于Windows虚拟机，但用户通过用户门户连接虚拟机之前，该虚拟机上远程共享必须是启用。SPICE目前不支持Windows8系统的虚拟机。如果是一个Windows8系统的虚拟机如果配置使用SPICE协议，连接该虚拟机时发现缺少SPICE驱动而会自动使用RDP连接虚拟机。
+        </para>
+        <para>
+            VNC协议可以用于Linux虚拟机。如果一个虚拟机配置使用VNC协议作为默认协议，您必须有一个VNC客户端去连接虚拟机。不能从用户门户使用VNC协议连接虚拟机。
+        </para>
 	</section>
 	
 	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_2">
-		<title>SPICE的属性配置</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+		<title>使用SPICE属性配置</title>
+        <para>
+            当Windows用户连接虚拟机时，Remote Viewer提供了大量的SPICE属性发送键盘输入指令和命令给虚拟机。如图：
+        </para>
+        <para>
+            <figure id="eayunos-user-usb-0"><title>图1</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/user-usb-1.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <table>
+            <title>SPICE控制台选项</title>
+            <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                <thead>
+                    <row>
+                        <entry>
+                            选项
+                        </entry>    
+                        <entry>
+                            快捷键
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <emphasis>File</emphasis>
+                        </entry>
+                        <entry>
+                            <itemizedlist><listitem><simpara>
+                                    Screenshot: 对活动窗口进行截图并保存到本地指定的位置。
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                USB device selection:若您的虚拟机已经启用USB重定向，插在您物理客户机上的USB可以在USB device selection菜单项内访问到。
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                Quit：关闭控制台可以使用快捷键Shift+Ctrl+Q。
+                            </simpara></listitem></itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <emphasis>View</emphasis>
+                        </entry>
+                        <entry>
+                            <itemizedlist><listitem><simpara>
+                                        Full screen: 切换全屏模式打开或关闭。当启用全屏模式，全屏模式扩展虚拟机窗口填充整个电脑屏幕。当禁用全屏模式，一个窗口显示虚拟机。启用或禁用全屏模式使用快捷键SHIFT +F11.
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Zoom : 放大或缩小控制台窗口。Ctrl++放大窗口, Ctrl+- 缩小窗口， Ctrl+0 还原窗口到原始大小。
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Autom atically resize: 勾选启用此选项，即可根据控制台窗口尺寸自动调整虚拟机大小 。
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Displays: 允许用户可以“启用”和“禁用”对虚拟机的显示。
+                            </simpara></listitem></itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <emphasis>Send key</emphasis>
+                        </entry>
+                        <entry>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+Del: 按Ctrl+Alt+Del键在Linux虚拟机重启虚拟机；在Windows虚拟机显示任务管理器或Windows安全对话框。
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+Backspace: 重启虚拟机控制台恢复对虚拟机的控制
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F1
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F2
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F3
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F4
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F5
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F6
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F7
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F8
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F9
+                            </simpara></listitem></itemizedlist>
+                            <itemizedlist><listitem><simpara>
+                                        Ctrl+Alt+F10
+                            </simpara></listitem></itemizedlist>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
 	</section>
 
 	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_3">
 		<title>SPICE快捷键</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+			当使用一个全屏模式或窗口模式的虚拟机时，您可以使用EayunOS企业虚拟化快捷键控制虚拟机窗口。如果使用窗口模式，您也可以通过点击虚拟机窗口标题栏来访问快捷键。
+        </para>
+        <para>
+            当鼠标定位在虚拟机内同时虚拟机不是全屏模式时，鼠标被锁定在虚拟机的窗口里不能用于其它地方。解锁按Shift+F12。
+        </para>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_4">
 		<title>多显示器支持</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
+        <procedure><title>EayunOS企业Linux虚拟机配置多个显示器</title>
+            <para>
+                一个单一的EayunOS企业Linux虚拟机最多能配置四个显示器。连接虚拟机时使用SPICE协议。
+            </para>
+            <step>
+                <para>
+                    开启一个SPICE会话与虚拟机
+                </para>
+            </step>
+            <step>
+                <para>
+                    在SPICE客户端窗口打开View下拉菜单
+                </para>
+            </step>
+            <step>
+                <para>
+                    打开Display菜单
+                </para>
+            </step>
+            <step>
+                <para>
+                    点击一个显示器的名称设置启用或禁用显示器
+                </para>
+            </step>
+        </procedure>
+        <note>
+            <para>
+                默认Display1是在开启与虚拟机SPICE会话时唯一启用的显示器。如果没有其他显示器启用，禁用这个显示器将关闭与虚拟机的会话。
+            </para>
+        </note>
+        <procedure><title>在EayunOS企业Linux虚拟机内改变显示器分辨率</title>
+            <step>
+                <para>
+                    在GNOME面板上打开System菜单
+                </para>
+            </step>
+            <step>
+                <para>
+                    打开Preferences会话
+                </para>
+            </step>
+            <step>
+                <para>
+                    点击Display打开Display Preferences窗口
+                </para>
+            </step>
+            <step>
+                <para>
+                    选择分辨率能被改变的显示器
+                </para>
+            </step>
+            <step>
+                <para>
+                    在分辨率下拉菜单内选择分辨率
+                </para>
+            </step>
+        </procedure>
+        <note>
+            <para>
+                对任意显示器能设置的最大分辨率2560*1600。对主显示器能设置的最小分辨率640*480；所有其他显示其能设置最小分辨率430*366。
+            </para>
+        </note>
+        <procedure><title> EayunOS企业Windows虚拟机配置多个显示器</title>
+            <para>
+                一个单一的EayunOS企业LWindows虚拟机最多能配置四个显示器。连接虚拟机时使用SPICE协议。
+            </para>
+            <step>
+                <para>
+                    使用虚拟机资源列表，树形模式，或通过查询功能在结果列表中选择一个虚拟机。
+                </para>
+            </step>
+            <step>
+                <para>
+                     选用关机状态的虚拟机，右键该虚拟机点击【编辑】，打开“编辑虚拟机”窗口。
+                </para>
+            </step>
+            <step>
+                <para>
+                    点击【控制台】
+                </para>
+            </step>
+            <step>
+                <para>
+                    从Monitors下拉列表选择显示器的数量。
+                <note>
+                    <para>
+                        设置虚拟机能启用的控件显示的最大数量。当虚拟机正在运行状态时，根据这个数量启用显示器。
+                    </para>
+                </note>
+                </para>
+            </step>
+            <step>
+                <para>
+                   点击【确定】 
+                </para>
+            </step>
+            <step>
+                <para>
+                   开启与虚拟机的SPICE会话。 
+                </para>
+            </step>
+            <step>
+                <para>
+                   打开在SPICE客户端窗口顶部的View下拉菜单。 
+                </para>
+            </step>
+            <step>
+                <para>
+                   打开Display菜单。 
+                </para>
+            </step>
+            <step>
+                <para>
+                   点击一个显示器的名称设置启用或禁用显示器 
+               </para>
+               <note>
+                   <para>
+                       默认Display1是在开启与虚拟机SPICE会话时唯一启用的显示器。如果没有其他显示器启用，禁用这个显示器将关闭与虚拟机的会话。
+                   </para>
+               </note>
+            </step>
+        </procedure>
+        <procedure><title>在EayunOS企业Windows虚拟机内改变显示器分辨率</title>
+            <step>
+                <para>
+                    右键桌面并且点击【屏幕分辨率】打开“屏幕分辨率”窗口。
+                </para>
+            </step>
+            <step>
+                <para>
+                    选择能改变分辨率的显示器
+                </para>
+            </step>
+            <step>
+                <para>
+                    在分辨率下拉列表下选择分辨率
+                    <note>
+                        <para>
+                            对任意显示器设置最大分辨率2560*1600。对主显示器设置的最小分辨率800*600；所有其他显示器能设置的最小分辨率640*480。
+                        </para>
+                    </note>
+                </para>
+            </step>
+        </procedure>
 	</section>
 	<section id="sect-Documents-user-guide-Chapter-using-vm_Section_5">
-		<title>使用USB重定向</title>
+		<title>在虚拟机内使用USB设备</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
+			使用SPICE协议连接的一个虚拟机能配置连接USB设备。这样做，USB设备插入您使用的用于访问一个虚拟机的物理客户机，USB设备重定向显示在您通过用户门户访问的虚拟桌面或是虚拟服务器。
+        </para>
+        <para>
+            USB重定向本地模式使EayunOS企业Linux和Windows虚拟机可以进行本地KVM/SPICE USB的重定向。虚对于本地USB，虚拟机不需要任何代理客户端或驱动。虚拟机的这个属性适用于EayunOS企业虚拟化3.1及以上版本。本地USB支持以下物理客户机（clients）和虚拟机（guests）：
+            <orderedlist>
+                <listitem>
+                    <para>
+                        物理客户机（Client）
+                        <itemizedlist>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 6.0 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 5.5 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows XP
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows 7
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows2008
+                                </simpara>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        虚拟机（Guest）
+                        <itemizedlist>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 6.0 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 5.5 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows XP
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows 7
+                                </simpara>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <procedure><title>在Windows 物理客户机（client）上使用USB设备</title>
+            <step>
+                <para> </para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <simpara>
+                                如果是有管理权限的用户安装SPICE ActiveX组件，那么usbclerk服务会自动安装。
+                            </simpara>
+                        </listitem>
+                        <listitem>
+                            <simpara>
+                                如果是没有管理权限的用户安装SPICE ActiveX组件，那么usbclerk服务必须由一个有管理权限的用户手动安装。usbclerk配置文件在virt-viewer的安装目录下， 如：C:\Users\username\AppData\Local\virt-viewer\bin\usbclerksetup.exe.
+                                双击usbclerk-setup.exe文件，根据提示安装usbclerk。
+                            </simpara>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </step>
+            <step>
+                <para>
+                    当usbclerk服务运行安装时，选择一个配置使用SPICE协议的虚拟机，启动它。
+                </para>
+            </step>
+            <step>
+                <para>
+                    在详细面板，点击【编辑】按钮，打开Console Option窗口，勾选中启用USB Auto-Share。
+                </para>
+            </step>
+            <step>
+                <para>
+                    双击运行的虚拟机连接该虚拟机。当您插入USB设备在您的物理客户机上时 ，USB设备将自动重定向显示在您的虚拟机内。
+                </para>
+            </step>
+        </procedure>
+        <procedure><title>在Linux 物理客户机（client）上使用USB设备</title>
+            <step>
+                <para>
+                    选择一个配置使用SPICE的虚拟机，启动它。
+                </para>
+            </step>
+            <step>
+                <para>
+                    在详细面板，点击【编辑】打开Console Option窗口，勾选中启用USB Auto-Share。
+                </para>
+            </step>
+            <step>
+                <para>
+                    双击运行的虚拟机连接该虚拟机。当您插入USB设备在您的物理客户机上时，USB设备将自动重定向显示在您的虚拟机内。
+                </para>
+            </step>
+        </procedure>
+    </section>
+    <section id="sect-Documents-user-guide-Chapter-using-vm_Section_6">
+        <title>虚拟机上使用USB设备-传统模式</title>
+        <para>
+            USB重定向的传统模式使SPICE USB重定向策略能够用于EayunOS 企业虚拟化3.0版本。这个属性将不能支持EayunOS企业虚拟化的将来版本。传统USB模式支持以下物理客户机（clients）和虚拟机（guests）：
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        物理客户机（Client）
+                        <itemizedlist>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 6.0 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Red Hat Enterprise Linux 5.5 及以上版本
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows XP
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows 7
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    Windows2008
+                                </simpara>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        虚拟机（Guest）
+                        <itemizedlist>
+                            <listitem>
+                                <simpara>
+                                    Windows XP
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                    <simpara>
+                                        Windows 7
+                                    </simpara>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>
+            如果您的虚拟机配置使用传统USB重定向，在您的虚拟机上使用USB之前，您必须手动安装几个包。
+        </para>
+    </section>
+    <section id="sect-Documents-user-guide-Chapter-using-vm_Section_7">
+        <title>Linux Client配置传统模式USB重定向</title>
+        <para>
+            如果您从一个EayunOS企业Linux物理客户机连接一个虚拟机，在物理客户机和虚拟机之间共享USB设备之前，您必须安装几个SPICE包。
+        </para>
+        <para>
+            在Linux物理客户机上使用USB设备
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        安装SPICE包在物理客户机
+                    </para>
+                    <para>
+                        在您的Linux物理客户机上安装以下包：
+                        <itemizedlist>
+                            <listitem>
+                                <simpara>
+                                    spice-usb-share
+                                </simpara>
+                            </listitem>
+                            <listitem>
+                                <simpara>
+                                    kmod-kspiceusb-rhel60 for Red Hat Enterprise Linux 6 or kmod-kspiceusb-rhel5u6 for Red Hat Enterprise Linux 5
+                                </simpara>
+                                <simpara>
+                                    这些安装包下载地址EayunOS，安装这些包运行以下命令：
+                                </simpara>
+                                    <screen># yum install spice-usb-share km od-kspiceusb
+                                    </screen>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        运行SPICE USB服务：
+                    </para>
+                    <para>
+                        开启spiceusbsrvd服务和下载kspiceusb，运行以下命令：
+                    </para>
+                    <screen># service spiceusbsrvd start
+                        # m odprobe kspiceusb
+                    </screen>
+                </listitem>
+                <listitem>
+                    <para>
+                        安装RHEV-Tools在虚拟机上
+                    </para>
+                    <para>
+                        定位CD驱动访问Guest Tools ISO组件，创建RHEV-ToolsSetup.exe。如果在你的CD驱动里没有获取到Guest Tools ISO，联系管理员。这些工具已经安装完成后，将提示您重启机器应用这些改变。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        打开防火墙端口
+                    </para>
+                    <para>
+                        在虚拟机和客户机之间连接通过TCP端口号32023。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        启用USB  Auto-Share
+                    </para>
+                    <para>
+                        在用户门户，选择您的虚拟机，确认您的虚拟机已经启用SPICE USB Auto-Share。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        连接USB设备
+                    </para>
+                    <para>
+                        连接您的虚拟机。把焦点放在您的虚拟机桌面的SPICE控制台窗口上，然后连接一个USB设备到客户机。USB设备显示在您的虚拟机桌面上。
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>
+            当您关闭SPICE会话窗口，USB设备将不再与虚拟机共享。
+        </para>
+    </section>
+    <section id="sect-Documents-user-guide-Chapter-using-vm_Section_8">
+        <title>Windows Client配置传统模式USB重定向</title>
+        <para>
+            若果您从一个Windows物理客户机连接虚拟机，并且想使用USB设备在您的虚拟机上，您必使SPICE USB重定向。
+        </para>
+        <note>
+            <para>
+                EayunOS Release Notes
+            </para>
+        </note>
+        <para>
+            Windows 启用USB重定向
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>
+                        安装USB重定向包在物理客户机
+                    </para>
+                    <para>
+                        在一个Windows物理客户机上安装RHEV-USB-Client.exe。下载地址：EayunOS
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        安装RHEV-Tools在虚拟机
+                    </para>
+                    <para>
+                        定位CD驱动访问Guest Tools ISO组件，创建RHEV-ToolsSetup.exe。如果在你的CD驱动里没有获取到Guest Tools ISO，联系管理员。这些工具已经安装完成后，将提示您重启机器应用这些改变。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        打开防火墙端口
+                    </para>
+                    <para>
+                        在虚拟机和客户机之间连接通过TCP端口号32023。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        启用USB共享
+                    </para>
+                    <para>
+                        在用户门户，选择虚拟机。确保您的虚拟机已经启用SPICE USB共享。
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        连接USB设备
+                    </para>
+                    <para>
+                        连接进入您的虚拟机，连接一个USB设备。如果要求USB设备不直接呈现在虚拟机桌面上，右键SPICE框选择USB设备，从这个列表下选择您的设备显示方式。如图：
+                    </para>
+                    <para>
+                        <figure id="eayunos-user-usb-2"><title>图2</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="images/user-usb-2.png" format="PNG" scale="100"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                    </para>
+                </listitem>
+            </orderedlist>
+        </para>
+    </section>
 </chapter>
