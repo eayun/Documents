@@ -28,7 +28,7 @@
       目前 &OVIRT;支持以下虚拟机操作系统:
     </para>
 
-    <table id="Supported_Virtual_Machine_OS">
+    <table id="VM_Supported_Virtual_Machine_OS">
       <title>支持的虚拟机操作系统</title>
       <tgroup cols='3' align='left' colsep='1' rowsep='1'>
         <thead>
@@ -254,7 +254,7 @@
     <para>
       目前 &OVIRT; 管理系统支持的虚拟机参数如下表:
     </para>
-    <table id="Supported_Virtual_Machine_Parameters">
+    <table id="VM_Supported_Virtual_Machine_Parameters">
       <title>支持的虚拟机参数列表</title>
       <tgroup cols='3' align='left' colsep='1' rowsep='1'>
         <thead>
@@ -344,18 +344,120 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4">
     <title>创建虚拟机</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-1">
       <title>基于现成的模板创建虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        一旦模板已经配置好磁盘, 网络等参数, 用户可以使用模板快速的创建虚拟机.
       </para>
+      </formalpara>
+
+      <para>
+        从模板创建出来的虚拟机取决于模板的配置. 如果在系统中仍然有基于某个
+        模板创建的虚拟机, 那么该模板是不能被删除的. 因为这些虚拟机和模板
+        有关联关系. 但是如果选择从模板克隆虚拟机, 那么虚拟机和模板之间的
+        就没有这些关联关系.
+      </para>
+
+      <procedure>
+        <title>基于现成的模板创建虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>新建虚拟机</keycap>按钮, 打开<keycap>新建虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<keycap>集群</keycap>, 在<keycap>基于模板</keycap>下拉菜单中
+            选择需要的模板.
+          </para>
+          <figure id="create-vm-from-temp"><title>从模板创建虚拟机</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-create-from-temp.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            输入<keycap>名称</keycap>, <keycap>描述</keycap>, 和<keycap>注释</keycap>.
+            其它保留默认(或者根据需要可以修改)
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>创建虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机已经创建好了, 在虚拟机列表下会显示出来, 用户可以开始使用这个虚拟机了.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-2">
       <title>使用空白模板创建虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户可以从空白模板创建虚拟机, 然后手动配置该虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>基于空白模板创建虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>新建虚拟机</keycap>按钮, 打开<keycap>新建虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            在<keycap>新建虚拟机</keycap>窗口, 只需要填写虚拟机<keycap>名字</keycap>
+            和选择<keycap>操作系统</keycap>, 其它部分保留模板.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果用户想更细粒度的配置虚拟机参数, 点击<keycap>显示高级选项</keycap>,
+            分别配置<keycap>初始运行</keycap>, <keycap>控制台</keycap>等参数.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            将会弹出<keycap>新建虚拟机 - 引导操作</keycap>窗口, 用户可以在在其
+            引导下配置虚拟磁盘, 虚拟网卡等参数, 或者点击<keycap>以后再配置</keycap>.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机已经创建好了, 在虚拟机列表下会显示出来, 但是状态是 <keycap>Down</keycap>,
+        用户在使用这台虚拟机之前, 最少要创建一个虚拟磁盘, 虚拟网卡, 然后需要
+        在上面安装操作系统.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3">
       <title>创建、编辑虚拟机窗口设置解释</title>
       <para>
@@ -363,47 +465,911 @@
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-1">
         <title>虚拟机常规设置解释</title>
         <para>
+          下面列出的设置适用于创建和编辑虚拟机.
+        </para>
+        <table id="VM_General_Setting">
+          <title>虚拟机的通用设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  集群
+                </entry>
+                <entry>
+                  虚拟机将会附加到的集群名字
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  基于模板
+                </entry>
+                <entry>
+                  模板是一个虚拟机的模型, 里面预定义了虚拟机的规则, 虚拟硬件等参数,
+                  安装了相应的操作系统和应用软件. 默认情况下创建虚拟机的时候是
+                  空模板.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  操作系统
+                </entry>
+                <entry>
+                  虚拟机内部将要运行的操作系统.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  优化
+                </entry>
+                <entry>
+                  虚拟机将会基于什么类型优化. 目前有两种类型可供用户选择:
+                  <variablelist>
+                    <varlistentry><term>服务器</term>
+                    <listitem>
+                      <para>
+                        默认的选项, 基于服务器优化的虚拟机没有声卡等相关设置.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>桌面</term>
+                    <listitem>
+                      <para>
+                        该优化选项创建的虚拟机有一个声卡, 镜像是精简置配的.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                  </variablelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  名称
+                </entry>
+                <entry>
+                  虚拟机的名字, 必须限制在 64 个字符之类, 不能包含空格, 至少
+                  包含 A-Z 或者 0-9 的一个字符.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  虚拟机的描述.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  注释
+                </entry>
+                <entry>
+                  对虚拟机的描述
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  Stateless
+                </entry>
+                <entry>
+                  如果想让虚拟机运行在 Stateless 模式, 请勾选这个单选框. Stateless
+                  主要是桌面虚拟机使用的选项. 它的工作原理是这样的, 运行 Stateless
+                  的虚拟机启动后, 将会创建一个 COW 的临时磁盘, 虚拟磁盘的所有改变
+                  都会写入这个磁盘, 原先的磁盘不会被改变. 这样, 该虚拟机关机之后,
+                  他的状态就会恢复到开机之前. 如果只是为了很短时间内运行虚拟机,
+                  或者只是想临时使用虚拟机, 那么这种模式很有用.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  以暂停模式启动
+                </entry>
+                <entry>
+                  选择此配置的话, 虚拟机总是在暂停模式下启动虚拟机. 对于需要
+                  准备很长时间才能建立 spice 连接的场景来说, 暂停模式很有用.
+                  例如, 如果 spice client 和虚拟机运行的网络很远, 网络
+                  很慢的时候.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  删除保护
+                </entry>
+                <entry>
+                  选择此项之后, 该虚拟机就不能删除了. 除非该选项被取消.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          在创建虚拟机或者编辑虚拟机窗口最下方是虚拟网卡的配置, 用<keycap>+</keycap>
+          或者<keycap>-</keycap>号来增加或者删除虚拟网卡.
         </para>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-2">
         <title>虚拟机系统设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            系统设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_System_Setting">
+          <title>虚拟机系统设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  内存大小
+                </entry>
+                <entry>
+                  分配给虚拟机的内存总是. 分配虚拟机内存的时候, 要考虑该虚拟机
+                  使用的场景. 另外, 虚拟机可用的内存也取决于虚拟机内部操作系统
+                  的限制, 比如 32 的操作系统最大只能用 4G 的内存大小.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  虚拟 CPU 的总数
+                </entry>
+                <entry>
+                  分配给虚拟机的虚拟 CPU 的数量. 分配的数量不要超过物理机的
+                  CPU 总数.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  每个虚拟 CPU 插槽的核数
+                </entry>
+                <entry>
+                  每个虚拟 CPU 插槽所拥有的 CPU 内核数目
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  虚拟插槽
+                </entry>
+                <entry>
+                  分配给虚拟机的虚拟 CPU 插槽数目. 分配的数量不要超过物理机的
+                  插槽数目.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-3">
         <title>虚拟机初始化运行设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            初始运行这只只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Initial_Setting">
+          <title>虚拟机系统设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  常规 - 时区
+                </entry>
+                <entry>
+                  指定虚拟机硬件的时区.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  Windows - 域
+                </entry>
+                <entry>
+                  虚拟机运行的域. 这个选项只有在操作系统那里设置 Windows 操作
+                  系统才有意义.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-4">
         <title>虚拟机终端设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
+        </para>
+        <note>
+          <para>
+            控制台设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Console_Setting">
+          <title>虚拟机控制台设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  协议
+                </entry>
+                <entry>
+                  除了 Windows 8 和 Windows Server 2012, 推荐是用 SPICE 作为
+                  Linux 和 Windows 虚拟机的访问协议, 并且它也是默认值. 另外用户
+                  还可以选择用 VNC 作为连接的协议.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  VNC 键盘格式
+                </entry>
+                <entry>
+                  设置 VNC 的键盘布局. 该选项只有选择 VNC 作为连接协议才会出现.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  USB 支持
+                </entry>
+                <entry>
+                  设置是否让虚拟机使用 USB 设备, 该选项只有设置 SPICE 为访问协议
+                  才有效. 有下列三种选项可以选择:
+                  <variablelist>
+                    <varlistentry><term>Disabled</term>
+                    <listitem>
+                      <para>
+                        禁止从 SPICE 客户端运行所在的机器到虚拟机的 USB 重定向.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>Legacy</term>
+                    <listitem>
+                      <para>
+                        该选项从 3.0 版本之后已经不被支持了.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>Native</term>
+                    <listitem>
+                      <para>
+                        启用从 SPICE 客户端运行所在的机器到虚拟机的 USB 重定向
+                        的支持. 该功能不需要在虚拟机内部安装任何额外的驱动或者
+                        代理程序.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                  </variablelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  监控器
+                </entry>
+                <entry>
+                  设置虚拟显示器的数量. 该选项只有设置 SPICE 为访问协议才有效.
+                  用户可以选择<keycap>1</keycap>, <keycap>2</keycap>,
+                  <keycap>4</keycap>个.由于 Windows 8 和 Windows Server 2012
+                  不支持 SPICE 协议, 所以如果虚拟机是这几类操作系统, 那么该选项无效.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  启用智能卡
+                </entry>
+                <entry>
+                  智能卡是在信用卡上安装一个拇指大小的微型电脑芯片, 这个芯片
+                  包含了持卡人的各种信息. 可以广泛用于身份识别和支付工具等.
+                  利用智能卡, 可以用来保护 &OVIRT; 系统中的虚拟机.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  禁用严格的用户检查
+                </entry>
+                <entry>
+                  点击<keycap>高级参数</keycap>就可以看到该选项, 如果设置了该
+                  选项, 那么在已经有一个用户连接了虚拟机的时候, 另一个用户想要
+                  连接的话, 不需要重启该虚拟机. 用户检查有在一种情况下例外, 在
+                  超级用户想要连接该虚拟机的时候, 其它用户就不能连接该虚拟机,
+                  如果其它用户想要连接, 只能等到虚拟机重启.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  启用声卡
+                </entry>
+                <entry>
+                  并不是所有的虚拟机都想要一个虚拟声卡设备, 比如你的虚拟机用来
+                  运行服务器应用, 那么虚拟声卡就不需要. 用户可以根据自己的需求
+                  来启用或者禁用声卡.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  VirtIO Console Device Enabled
+                </entry>
+                <entry>
+                  VirtIO Console 设备是一种用于主机的应用程序和虚拟机的应用
+                  程序之间通信的设备. 它是一个 QEMU 模拟的设备. 它有两端和这个
+                  设备连接, 主机端和虚拟机端, 主机端通常对应一个本地网络套接字等
+                  用户可以读写的设备, 虚拟机端对应一个字符设备, 有驱动用来
+                  给虚拟机的应用程序提供读写这个设备的接口. 这样, 数据流就
+                  在这两端建立了.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
         </para>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-5">
         <title>虚拟机主机设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            主机设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Host_Setting">
+          <title>虚拟机系统设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  开始运行在
+                </entry>
+                <entry>
+                  <para>
+                    设置虚拟机开始运行在哪台主机:
+                  </para>
+                  <variablelist>
+                    <varlistentry><term>群集里的任何主机</term>
+                    <listitem>
+                      <para>
+                        虚拟机开始可以运行在群集里的任何主机上.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>专有的</term>
+                    <listitem>
+                      <para>
+                        虚拟机开始运行在用户指定的集群里的某一台主机上. 但是
+                        在集群的迁移策略或者高可用生效的时候, 虚拟机有可能会被
+                        迁移到其它主机上运行.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                  </variablelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  移植选项
+                </entry>
+                <entry>
+                  <para>
+                    设置虚拟机的移植选项, 如果这里的选项没有被使用, 那么虚拟机的
+                    移植设置和群集的移植设置一致.
+                  </para>
+                  <variablelist>
+                    <varlistentry><term>允许手动和自动移植</term>
+                    <listitem>
+                      <para>
+                        虚拟机能根据群集状态自动的移植到另一台主机上, 也可由
+                        用户手动开始移植.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>只允许手动移植</term>
+                    <listitem>
+                      <para>
+                        虚拟机只能通过用户手动从移植到另一台主机上.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                    <varlistentry><term>不允许移植</term>
+                    <listitem>
+                      <para>
+                        虚拟机不能被移植, 不管是自动还是手动.
+                      </para>
+                    </listitem>
+                    </varlistentry>
+                  </variablelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  使用主机 CPU
+                </entry>
+                <entry>
+                  <para>
+                    该选项可以让虚拟机充分利用主机的 CPU 指令集. 该选项只有当
+                    用户选择了<keycap>只允许手动迁移</keycap>和<keycap>不允许迁移</keycap>
+                    时才能选择.
+                  </para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-6">
         <title>虚拟机高可用设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_High_Availability_Setting">
+          <title>虚拟机高可用设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  高度可用的
+                </entry>
+                <entry>
+                  <para>
+                    选择此项来设置虚拟机的高可用. 例如, 当主机转为维护模式或者
+                    主机异常时, 虚拟机将会被自动的迁移到其它主机或者在其它主机
+                    上重新运行. 但是如果主机被管理员手动关系, 那么虚拟机并
+                    不会被自动迁移到另一台主机
+                  </para>
+                  <para>
+                    注意如果虚拟机的迁移选项设置为<keycap>只允许手动移植</keycap>,
+                    或者<keycap>不允许移植</keycap>, 则该选项是无效的. 虚拟机要
+                    设置为高可用的, 那么它必须在需要的时候可以被迁移到其它主机.
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  运行/移植队列的优先级
+                </entry>
+                <entry>
+                  <para>
+                    设置该虚拟机被迁移到另一台主机或者在另一台主机上重新运行的
+                    优先级.
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  Watchdog
+                </entry>
+                <entry>
+                  <para>
+                    允许用户给虚拟机添加一个看门狗计时器. 看门狗计时器主要用来
+                    检测和恢复机器的硬件错误. 一旦设置了看门狗计时器, 当系统
+                    运行时, 计时器不断的自我减小, 如果系统运行正常时, 系统驱动
+                    不断重置计时器使得计时器不为0, 如果计时器变为0, 则说明系统
+                    除了问题. 相应的看门狗计时器就要采取相应的动作. 该功能常用于
+                    服务器的高可用.
+                  </para>
+                  <para>
+                    <keycap>Watchdog 模型</keycap>: 添加到虚拟机的看门口定时器的
+                    设备类型. 目前我们只支持<keycap>i6300esb</keycap>.
+                  </para>
+
+                  <para>
+                    <keycap>Watchdog 动作</keycap>:
+                  </para>
+                  <itemizedlist>
+	                <listitem>
+	                  <para>
+                        <keycap>无</keycap> - 不采取任何动作. 不过该事件仍会
+                        记录到审计日志里.
+	                  </para>
+	                </listitem>
+                    <listitem>
+	                  <para>
+                        <keycap>重置</keycap> - 虚拟机将会被重启, 管理端会得到
+                        该重置事件的通知.
+	                  </para>
+	                </listitem>
+                    <listitem>
+	                  <para>
+                        <keycap>断电</keycap> - 虚拟机马上被断电关闭.
+	                  </para>
+	                </listitem>
+                    <listitem>
+	                  <para>
+                        <keycap>转储</keycap> - 执行转储操作, 虚拟机马上被暂停.
+	                  </para>
+	                </listitem>
+                    <listitem>
+	                  <para>
+                        <keycap>暂停</keycap> - 虚拟机将被暂定, 随后可以被用户恢复.
+	                  </para>
+	                </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-7">
         <title>虚拟机资源分配设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Resource_Allocation_Setting">
+          <title>支持的虚拟机参数列表</title>
+          <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  参数
+                </entry>
+                <entry>
+                  子元素
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  CPU 分配
+                </entry>
+                <entry>
+                  CPU 共享
+                </entry>
+                <entry>
+                  允许用户设置相当于其他虚拟机, 这台虚拟机能使用的 CPU 资源.
+                  <itemizedlist>
+	                <listitem>
+	                  <para>
+                        <keycap>低</keycap> - 512
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        <keycap>中</keycap> - 1024
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        <keycap>高</keycap> - 2048
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        <keycap>自定义</keycap> - 由用户定义具体的数值
+	                  </para>
+	                </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                </entry>
+                <entry>
+                  CPU pinning 拓扑结构
+                </entry>
+                <entry>
+                  该选项能使得虚拟机运行在物理主机的物理 CPU 上. 使用方法为:
+                  <itemizedlist>
+	                <listitem>
+	                  <para>
+                        <keycap>0#0</keycap> - 绑定虚拟 CPU 0 和物理 CPU 0
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        <keycap>0#0_1#3</keycap> - 绑定虚拟 CPU 0 和物理 CPU 0,
+                        同事绑定虚拟 CPU 0 和物理 CPU 3
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        <keycap>1#1-4,^2</keycap> - 绑定虚拟 CPU 0 和物理 CPU
+                        1-4中的一个, 除了物理 CPU 2
+	                  </para>
+	                </listitem>
+                  </itemizedlist>
+                  为了能绑定虚拟 CPU 和物理 CPU, 迁移设置必须选择<keycap>不允许迁移</keycap>.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  内存分配
+                </entry>
+                <entry>
+                  保证的物理内存
+                </entry>
+                <entry>
+                  保证分给虚拟机的物理内存数量.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                </entry>
+                <entry>
+                  启用内存 Balloon 设备
+                </entry>
+                <entry>
+                  是否启用 Balloon 设备. Balloon 设备能提高主机利用内存的能力,
+                  能让同一台主机多运行虚拟机, 不过会使得虚拟机的性能有一点降低.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  存储分配
+                </entry>
+                <entry>
+                </entry>
+                <entry>
+                  只有从模板创建的虚拟机才能使用<keycap>模板 Provision</keycap> 选项.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                </entry>
+                <entry>
+                  Thin
+                </entry>
+                <entry>
+                  该类型只有需要时候才会发生存储的分配, 这种类型的分配是对空间
+                  的优化, 比 clone 的性能要差一点.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                </entry>
+                <entry>
+                  Clone
+                </entry>
+                <entry>
+                  在创建磁盘初始, 就完成了所有磁盘的分配, 比 Thin 的读写速度要高,
+                  不过空间占用比 Thin 的多.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                </entry>
+                <entry>
+                  VirtIO-SCSI Enabled
+                </entry>
+                <entry>
+                  是否启用 VirtIO-SCSI的控制器, 默认的 VirtIO 磁盘使用的是 IDE
+                  的控制器. 这里可以改变默认方式.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-8">
         <title>虚拟机启动设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            启动设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Boot_Setting">
+          <title>虚拟机启动设置</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  第一个设备
+                </entry>
+                <entry>
+                  有三种类型的设备可以作为引导的第一个设备:
+                  <itemizedlist>
+	                <listitem>
+	                  <para>
+                        硬盘
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        CD-ROM
+	                  </para>
+	                </listitem>
+	                <listitem>
+	                  <para>
+                        网络(PXE)
+	                  </para>
+	                </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  第二个设备
+                </entry>
+                <entry>
+                  如果第一个设备启动失败, 那么就会从这里选择的第二个设备启动,
+                  注意, 之前在第一个设备选择的设备在这里被隐藏了.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  附加 CD
+                </entry>
+                <entry>
+                  这里可以给虚拟机附加 CD, 这里的 CD ISO 映像只能从 ISO
+                  存储域里面选择.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-9">
         <title>虚拟机自定义属性设置解释</title>
         <para>
+          下面的设置项适用于新建或者编辑虚拟机的时候
         </para>
+        <note>
+          <para>
+            自定义属性设置只有点击<keycap>显示高级选项</keycap>才会显示.
+          </para>
+        </note>
+        <table id="VM_Custom_Properties_Setting">
+          <title>自定义属性设置</title>
+          <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  属性
+                </entry>
+                <entry>
+                  详细描述
+                </entry>
+                <entry>
+                  推荐值和限制
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  sap_agent
+                </entry>
+                <entry>
+                  给设置 SAP 监控.
+                </entry>
+                <entry>
+                  -
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  sndbuf
+                </entry>
+                <entry>
+                  设置虚拟机套接字的发送缓存大小, 默认值是 0.
+                </entry>
+                <entry>
+                  -
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  vhost
+                </entry>
+                <entry>
+                  可以将vhost-net 禁用掉, vhost-net 是在主机的 virtio 网络
+                  驱动, 可以提高虚拟机的网络性能.
+                </entry>
+                <entry>
+                  vhost-net 提供了比 virtio-net更高的网络性能, 禁用此项通常
+                  用来隔离某个虚拟机, 然后调试该虚拟机的网络.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  viodiskcache
+                </entry>
+                <entry>
+                  设置 virtio 磁盘的缓存模式. <keycap>writethrough</keycap>
+                  同时把数据写到缓存和磁盘中才返回, 性能较低. <keycap>writeback</keycap>
+                  将数据写入到缓存中就返回, 性能较高, 但是不能保证数据安全. <keycap>none</keycap>
+                  不使用缓存.
+                </entry>
+                <entry>
+                  默认值是 none, 如果设置了其它值, 虚拟机将不能迁移.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-4">
