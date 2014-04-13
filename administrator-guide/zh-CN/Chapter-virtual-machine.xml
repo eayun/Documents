@@ -1451,7 +1451,7 @@
         <para>
           克隆虚拟机会花很长时间, 因为它复制了整个模板的内容. 在此期间, 虚拟机
           处于镜像锁定状态.
-￼        </para>
+        ￼        </para>
       </note>
       <formalpara><title>结果</title>
       <para>
@@ -1546,8 +1546,73 @@
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-6">
       <title>为虚拟机安装操作系统</title>
+      <formalpara><title>摘要</title>
       <para>
+        从空白模板创建的虚拟机只有安装了操作系统才能正常使用, 可以给这种虚拟机
+        安装任何 &OVIRT; 系统支持的操作系统.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>为虚拟机安装操作系统</title>
+        <step>
+          <para>
+            选择刚创建的虚拟机. 它目前的状态应该是 <keycap>Down</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>只运行一次</keycap>, 打开<keycap>运行虚拟机窗口</keycap>.
+          </para>
+          <figure id="vm-run-once"><title>只运行一次</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-run-once.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            打开<keycap>引导选项</keycap>设置引导顺序, 并设置合适的引导盘(一般光盘引导).
+          </para>
+        </step>
+        <step>
+          <para>
+            如果有需要, 点击 <keycap>Linux 引导选项</keycap>, 设置额外的 Linux
+            虚拟机的启动选项.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果有需要, 点击<keycap>初始运行</keycap>, 设置 cloud-init 的参数.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果有需要, 点击<keycap>显示协议</keycap>, 选择需要的显示协议.
+            这里, SPICE 是默认的显示协议, 并且是推荐的协议.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果有需要, <keycap>点击自定义属性</keycap>, 给虚拟机设置需要的
+            其它属性.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>运行虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        已经为裸虚拟机安装了操作系统, 现在, 用户可以登录到该系统开始使用该
+        虚拟机了.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-7">
       <title>为分配了virtio硬件设备的虚拟机安装windows操作系统</title>
