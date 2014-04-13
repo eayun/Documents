@@ -1908,27 +1908,204 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5">
     <title>使用虚拟机</title>
-    <para>
-    </para>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-1">
       <title>SPICE</title>
       <para>
+        SPICE(Simple Protocol for Independent Computing Environments) 协议主要
+        是用来为用户提供一个图形化的访问虚拟机的方式, 它有以下特点:
       </para>
+
+      <itemizedlist>
+        <listitem>
+          <para>
+            支持超过 30FPS(Frames Per Second) 的视频播放
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            双向音频
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            双向视频
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            同一个虚拟机支持多个虚拟显示器连接
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            支持重定向客户端的 USB 端口到虚拟机里面
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            支持通过代理连接 SPICE 协议 <!--TODO-->
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-2">
-      <title>为虚拟机加电</title>
+      <title>启动虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        可以通过管理员门户启动一个虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>启动虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要开启
+            的虚拟机. 目前他的状态是 <keycap>Down</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击开机按钮.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的状态变为 <keycap>Up</keycap>. 虚拟机的显示协议会被显示
+        出来(VNC 或者 SPICE). 如果在虚拟机内部安装了 <keycap>ovirt-guest-agent</keycap>,
+        那么虚拟机的 IP 地址和安装的应用程序也会显示出来.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-3">
       <title>为windows/linux安装SPICE的浏览器插件</title>
       <para>
+        SPICE 协议默认的连接显示虚拟机的协议. 如果用户使用 Firefox 和 IE 浏览器
+        访问用户, 那么可以直接从门户通过浏览器的插件直接连接虚拟机.
       </para>
+      <formalpara><title>摘要</title>
+      <para>
+        以下步骤描述了在 Linux 客户端下为 Firefox 浏览器安装 SPICE 插件的过程.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>为 Firefox 浏览器安装 SPICE 插件</title>
+        <step>
+          <para>
+            打开终端, 以 root 用户运行
+          </para>
+          <programlisting language="Bash">
+# yum install nfs-utils
+          </programlisting>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        插件将会安装到合适的目录, 重启 Firefox, 就可以直接在门户通过
+        SPICE 连接虚拟机了.
+      </para>
+      </formalpara>
+
+      <formalpara><title>摘要</title>
+      <para>
+        以下步骤描述了在 Windows 客户端下为 IE 浏览器安装 SPICE 插件的过程.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>为 IE 浏览器安装 SPICE 插件</title>
+        <step>
+          <para>
+            用户第一次连接虚拟机的时候, 会有一个提示显示在浏览器上, 提示用户安装
+            SPICE ActiveX 插件. 当前用户必须有超级管理用户权限才能安装, 如果
+            没有, 请联系管理员帮忙安装
+          </para>
+        </step>
+        <step>
+          <para>
+            安装 SPICE ActiveX 插件的时候, IE 浏览器会弹出一个安全警告. 确定你要
+            安装之后, 该插件将会被安装.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        IE 浏览器的 SPICE ActiveX 插件将会被安装到该系统上.
+      </para>
+      </formalpara>
+      <important>
+        <para>
+          如果用户没有使用超级管理员权限安装 IE 的 SPICE 插件, 那么用户会得到
+          一个警告: usbclerk 将不会被安装. 如果没有安装 usbclerk, 那么用户
+          可以正常使用 SPICE 连接虚拟机, 除了用户不能在虚拟机里使用 USB 设备.
+          如果用户需要使用 USB 设备, 请联系系统管理员安装它.
+        </para>
+      </important>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-4">
       <title>登录到虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        默认的连接显示虚拟机的协议是 SPICE. 用户可以在管理门户通过 SPICE 协议
+        直接连接虚拟机. 如果虚拟机被设置为使用 VNC 协议, 那么用户需要一个 VNC
+        客户端来连接虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>登陆到虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>控制台</keycap>按钮, 或者右键点击虚拟机,
+            选择<keycap>控制台</keycap>.
+          </para>
+          <figure id="vm-console"><title>控制台</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-console.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>          
+        </step>
+        <step>
+          <para>
+            A. 如果虚拟机的显示协议是 SPICE, 那么将会打开一个 SPICE 的窗口,
+            用户可以用这个窗口访问虚拟机.
+          </para>
+          <para>
+            B. 如果虚拟机的显示协议是 VNC, 用户将会被提示下载一个名为 "vonsole.vv"
+            的文件. 这个文件包含了用户用 VNC 客户端登陆虚拟机的所有信息.
+            使用文本编辑器打开该文件, 然后使用 VNC 客户端加上文件里的信息访问
+            虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        用户可以通过控制台直接从浏览器访问虚拟机.
+      </para>
+      </formalpara>
     </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6">
