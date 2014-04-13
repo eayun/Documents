@@ -1614,17 +1614,298 @@
       </para>
       </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-7">
       <title>为分配了virtio硬件设备的虚拟机安装windows操作系统</title>
+      <formalpara><title>摘要</title>
       <para>
+        <keycap>virtio-win.vfd</keycap> 是一个软盘镜像, 包含了针对 Windows 的 virtio 磁盘和网络
+        设备驱动, 使用这些能获得比传统的模拟设备更高的性能.
       </para>
+      </formalpara>
+
+      <para>
+        用户可以使用 <keycap>engine-iso-uploader</keycap> 工具把该软盘镜像上传到
+        ISO 存储域上.
+      </para>
+
+      <para>
+        下面的步骤描述怎样在安装 Windows 的时候加载使用这些驱动, 前提是用户
+        在配置虚拟机的时候, 已经添加了一个 VirtIO 的磁盘和网卡.
+      </para>
+
+      <procedure>
+        <title>在安装 Windows 的时候, 加载 VirtIO 设备</title>
+        <step>
+          <para>
+            在<keycap>虚拟机</keycap>列表中选择待安装系统的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>只运行一次</keycap>, 打开<keycap>运行虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>引导选项</keycap>, 展开<keycap>引导选项</keycap>配置.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加软盘</keycap>, 从下拉菜单中选择<keycap>virtio-win.vfd</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加 CD</keycap>, 从下拉菜单中选择你想要安装的 Windows
+            ISO 镜像文件.
+          </para>
+        </step>
+        <step>
+          <para>
+            在<keycap>引导序列</keycap>中, 把 <keycap>CD-ROM</keycap>移到最上面.
+          </para>
+        </step>
+        <step>
+          <para>
+            配置其它想要配置的选项, 然后点击<keycap>确定</keycap>运行虚拟机,
+            点击<keycap>控制台</keycap>连接到虚拟机开始安装.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        Windows 安装过程前, 包含一个加载额外驱动的步骤, 在这里, 选择该软盘驱动
+        找到需要的驱动加载.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-8">
       <title>仅运行一次虚拟机的解释</title>
       <para>
+        <keycap>只运行一次</keycap>定义了一些仅仅在这次运行的配置. 对于永久性
+        的启动参数, 在<keycap>编辑虚拟机</keycap>的<keycap>引导选项</keycap>中
+        配置.
       </para>
+      <table id="VM_Run_Once_Setting">
+        <title></title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                引导选项
+              </entry>
+              <entry>
+                该选项可以让用户设置虚拟机的启动顺序, 启动参数, 安装操作系统
+                需要的镜像和额外的驱动等.
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>附加软盘</keycap> - 给虚拟机附加一个软盘镜像,
+                      一般在安装 Windows 系统的时候使用. 该软盘镜像必须在 ISO
+                      存储域里.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>附加 CD</keycap> - 给虚拟机附加一个 ISO 镜像,
+                      用来给虚拟机安装操作系统时候使用. 该 CD 镜像必须在 ISO 存储域里.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>引导序列</keycap> - 定义虚拟机从哪个设备找到启动镜像.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>以 Stateless 状态运行</keycap> - 虚拟机关闭之后,
+                      对磁盘做的任何修改将会被还原.
+	                </para>
+	              </listitem>
+                  <listitem>
+                    <para>
+                      <keycap>以暂停模式启动</keycap> - 虚拟机最开始处于暂停状态.
+                      对于需要准备很长时间才能建立 spice 连接的场景来说, 暂停模式很有用.
+                      例如, 如果 spice client 和虚拟机运行的网络很远, 网络很慢的时候.
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                Linux 引导选项
+              </entry>
+              <entry>
+                设置了下列参数之后, 虚拟机直接启动一个 Linux 内核, 而不是从 BIOS
+                加载启动镜像.
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>内核路径</keycap> - 合法的内核镜像的路径. 内核镜像
+                      必须存储在 ISO 域里(使用 iso://path-to-image 的格式), 或者
+                      存储在主机的存储域里(使用/data/images)
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>initrd 路径</keycap> - 合法的 ramdisk 镜像的路径.
+                      内核镜像必须存储在 ISO 域里(使用 iso://path-to-image 的格式),
+                      或者存储在主机的存储域里(使用/data/images)
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>内核参数</keycap> - 内核启动时的参数
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                初始运行
+              </entry>
+              <entry>
+                允许用户使用 cloud-init, 并且定义这个虚拟机将使用到的一些设置.
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>主机名</keycap> - 允许用户指定主机名.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>网络</keycap> - 允许用户配置网络, 包括网络接口
+                      设置和 DNS 设置. 多个网络接口可以通过<keycap>新增</keycap>或者
+                      <keycap>删除所选</keycap>来设置.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>SSH 授权密钥</keycap> - 允许用户指定添加到虚拟机的 SSH 密钥.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>重新生成 SSH 授权密钥</keycap> - 允许用户重新生成 SSH 密钥.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>时区</keycap> - 允许用户指定虚拟机运行的时区.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>根密码</keycap> - 允许用户设置虚拟机系统的 root 用户的密码.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>文件附件</keycap> - 允许用户注入普通文本或者 Base64
+                      内容的文件到虚拟机内部. 文件的路径可以由用户指定. 多个文件可以通过
+                      <keycap>新增</keycap>或者<keycap>删除所选</keycap>来设置.
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                主机
+              </entry>
+              <entry>
+                指定虚拟机运行的主机:
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>群集里的任何主机</keycap> - 虚拟机可以运行在群集的任何主机上.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>专有的</keycap> - 用户指定一个主机来运行该虚拟机.
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                显示协议
+              </entry>
+              <entry>
+                设置连接虚拟机的显示协议:
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>VNC</keycap> - 需要一个 VNC 客户端来连接.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>SPICE</keycap> - &OVIRT; 管理系统推荐使用的显示协议, 注意:
+                      Windows 8 and Server 2012 不能使用此协议.
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                自定义属性
+              </entry>
+              <entry>
+                可以传递给 VDSM 的额外属性.
+                <itemizedlist>
+	              <listitem>
+	                <para>
+                      <keycap>sap_agent</keycap> - 设置 SAP 监控.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>sndbuf</keycap> - 设置虚拟机套接字的发送缓存大小, 默认值是 0.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>vhost</keycap> - 可以将vhost-net 禁用掉, vhost-net
+                      是在主机的 virtio 网络驱动, 可以提高虚拟机的网络性能.
+	                </para>
+	              </listitem>
+	              <listitem>
+	                <para>
+                      <keycap>viodiskcache</keycap> - 设置 virtio 磁盘的缓存模式.
+                      <keycap>writethrough</keycap> 同时把数据写到缓存和磁盘中才返回, 性能较低.
+                      <keycap>writeback</keycap> 将数据写入到缓存中就返回, 性能较高,
+                      但是不能保证数据安全. <keycap>none</keycap>不使用缓存.
+	                </para>
+	              </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5">
     <title>使用虚拟机</title>
     <para>
