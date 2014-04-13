@@ -11,7 +11,7 @@
 		<title>&OVIRT;集群介绍</title>
 		<para>
                  集群是一组主机的集合，在同一集群下主机可共享相同的存储域，且CPU的
-                 型号须同质（无论是Intel还是AMD）。如果主机之间有不同代的CPU，那么
+                 型号须同质（Intel或AMD）。如果主机之间有不同代的CPU，那么
                  只能体现最古老的那一代。
 		</para>
                 <para>
@@ -70,16 +70,347 @@
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-1">
 		    <title>创建集群</title>
 		    <para>
+                      <emphasis>前提条件</emphasis>
+                      <itemizedlist>
+                         <listitem>
+                           <para>
+                            <link linkend="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">第三章第五节第一小节：创建新的数据中心</link>
+                           </para>
+                         </listitem>
+                      </itemizedlist>
 		    </para>
+                    <formalpara><title>摘要</title>
+                     <para>
+                      一个数据中心可包含多个集群，一个集群可包含多个主机，同一集群下
+                      的主机的CPU类型必须是一致的（intel或者是AMD），这里提醒的是尽
+                      量在建立集群和主机之前确定CPU的属性，尽管&OVIRT;提供了<emphasis>
+                      向导</emphasis>机制。
+                     </para>
+                    </formalpara>
+                    <procedure><title>新建集群</title>
+                      <step>
+                       <para>
+                        选择<emphasis>集群</emphasis>资源列表。  
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        点击<emphasis>新建</emphasis>按钮，会弹出<emphasis>新建集群
+                        </emphasis>窗口。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        在<emphasis>数据中心</emphasis> 项后的下来列表中选择集群的归属。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        填写集群的<emphasis>名称</emphasis>和<emphasis>描述</emphasis>
+                        以及<emphasis>注释</emphasis>。 
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                         在下拉列表框中选择<emphasis>CPU类型</emphasis>和<emphasis>兼容
+                         版本</emphasis>。如果集群中有不同代的CPU,请选择那个最低代的，否
+                         则最低代的那台主机在加入后无法响应。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        在<emphasis>启用Virt服务</emphasis>和<emphasis>启用gluster服务
+                        </emphasis>之间，选择一个，点击单选框即可。这取决于将&OVIRT;用
+                        于虚拟机管理还是用于&OVIRT_STORAGE;管理，这里提醒的一点是，&OVIRT;
+                        Hypervisor Node 无法用于Gluster的集群节点。 
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        选择<emphasis>优化</emphasis>选项，可配置内存优化、是否激活CPU
+                        线程以及是否启用内存ballooning。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        选择<emphasis>Resilience策略</emphasis>选项，选择虚拟机的迁移策略。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                        选择<emphasis>集群策略</emphasis>选项，以配置负载均衡策略，选择
+                        调度优化的方式，以及是否激活信任主机服务。 
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                         点击<emphasis>确定</emphasis>按钮完成建立集群，&OVIRT;这时会弹出
+                         <emphasis>新建集群-向导</emphasis>。
+                       </para>
+                      </step>
+                      <step>
+                       <para>
+                         <emphasis>新建集群-向导</emphasis>会列出所有配置集群应该配置的项，
+                         可以选择具体的项进行配置，也可以选择<emphasis>以后再配置</emphasis>
+                         关闭窗口，以后如果再需要向导的时候，点击集群资源列表中的<emphasis>
+                         引导操作</emphasis>即可。
+                       </para>
+                      </step>
+                    </procedure>
+ 
+                    <formalpara><title>结果</title>
+                      <para>
+                       新的集群在&OVIRT;虚拟化环境中。
+                      </para>
+                    </formalpara>
+                    
+                    <para>
+                      <emphasis>请参考：</emphasis>
+                      <itemizedlist>
+                        <listitem>
+                           <para>
+                           <link linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2">下节内容：解释下新建/编辑集群弹出窗口的各项设置</link>
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                           <link linkend="sect-Documents-administrator-guide-Chapter-basic_Section_2-4">第二章第四节：使用向导</link>
+                           </para>
+                        </listitem>
+                      </itemizedlist>
+                    </para>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2">
 		    <title>解释下新建/编辑集群弹出窗口的各项设置</title>
 		    <para>
 		    </para>
 	             <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2-1">
-		        <title>集群常规的解释</title>
+		        <title>集群常规配置的解释</title>
+                          <figure id="eayunos-Documents-administrator-guide-new-cluster-window">
+                             <title>新建集群窗口</title>
+		             <mediaobject>
+			         <imageobject>
+				    <imagedata fileref="images/EayunOS_New_Cluster_Window.png" format="PNG" scale="80"/>
+			         </imageobject>
+		             </mediaobject>
+                          </figure>
 		        <para>
+                         当输入非正确的字段，会在用户点击<emphasis>确定</emphasis>按钮时出错
+                         的部分会显示菊黄色的，且无法进行下一步的操作，通常情况下会提示预期
+                         值或值范围不对。
 		        </para>
+                        <para>
+                          下面的表格是在<emphasis>新建集群</emphasis>或<emphasis>编辑集群
+                          </emphasis>窗口中<emphasis>通用</emphasis>tab下设置详细描述：
+                        </para>
+                        <table id="new_cluster_window_general_setting_table">
+                            <title>集群通用设置</title>
+                            <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                              <thead>
+                                   <row>
+                                         <entry>
+                                           填充项 
+                                         </entry> 
+                                         <entry>
+                                            描述/操作
+                                         </entry> 
+                                   </row>
+                              </thead>
+                              <tbody>
+                                   <row>
+                                         <entry>
+                                           数据中心
+                                         </entry> 
+                                         <entry>
+                                           集群将加入的数据中心。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           名称
+                                         </entry> 
+                                         <entry>
+                                            集群的名称，可包含40个字符，尽量保证是独一无
+                                            二的，可以是任意的大、小写字母，数字，短横线，
+                                            下划线。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           描述
+                                         </entry> 
+                                         <entry>
+                                           集群的详细描述，&OVIRT;建议填写但不是强制性的。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           CPU名称
+                                         </entry> 
+                                         <entry>
+                                            集群的CPU类型，可从下列中选出：
+                                            <itemizedlist>
+                                                <listitem>
+                                                   <para>
+                                                    Intel Conroe Family 
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   Intel Penryn Family
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   Intel Nehalem Family
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   Intel Westmere Family
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   Intel SandyBridge Family
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   Intel Haswell
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   AMD Opteron G1
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   AMD Opteron G2
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   AMD Opteron G3
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   AMD Opteron G4
+                                                   </para>
+                                                </listitem>
+                                                <listitem>
+                                                   <para>
+                                                   AMD Opteron G5
+                                                   </para>
+                                                </listitem>
+                                            </itemizedlist>
+                                            <para>
+                                             集群内所有主机必须运行在同一型号的CPU（Intel或AMD）。
+                                             且一旦集群建立后变动会非常的繁琐。CPU的类型选择尽可
+                                             能的选择低代的，比如，一个拥有<emphasis>Intel Haswell
+                                             </emphasis>的主机是可以加入到类型为<emphasis>Intel 
+                                             Westmere Family</emphasis>的集群中的，相反，<emphasis>
+                                             Intel Nehalem Family</emphasis>就不可以，且只能发挥低代
+                                             的CPU的特性。
+                                            </para>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          兼容版本 
+                                         </entry> 
+                                         <entry>
+                                           &OVIRT;的版本号，你可以从以下选择：
+                                           <itemizedlist>
+                                                 <listitem>
+                                                    <para>
+                                                     3.0
+                                                    </para>
+                                                 </listitem>
+                                                 <listitem>
+                                                    <para>
+                                                    3.1
+                                                    </para>
+                                                 </listitem>
+                                                 <listitem>
+                                                    <para>
+                                                    3.2
+                                                    </para>
+                                                 </listitem>
+                                                 <listitem>
+                                                    <para>
+                                                    3.3
+                                                    </para>
+                                                 </listitem>
+                                           </itemizedlist>
+                                           <para>
+                                            用户不可以将集群的版本设置低于所在数据中心的版本。 
+                                           </para>
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                          启用Virt服务 
+                                         </entry> 
+                                         <entry>
+                                          如果这个单选框选中，运行在此集群下的主机被用于运行
+                                          虚拟机。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           启用Gluster服务
+                                         </entry> 
+                                         <entry>
+                                           如果选中此单选框，运行在此集群下的主机将用户&OVIRT_STORAGE;
+                                           的节点，不是运行虚拟机。且用户不能将&OVIRT; Hypervisor
+                                           Node加入到此集群中。
+                                         </entry> 
+                                   </row>
+                                   <row>
+                                         <entry>
+                                           导入现有的gluster集群配置
+                                         </entry> 
+                                         <entry>
+                                            <para>
+                                            此可选项仅用于当<emphasis>启用Gluster服务</emphasis>
+                                            被选中时，此属性可以让用户导入一个已有的gluster集群，
+                                            且其所包含的所有主机。
+                                            </para>
+                                            <para>
+                                            下列属性是要导入的主机时填写的内容：
+                                            </para>
+                                            <itemizedlist>
+                                               <listitem>
+                                                 <para>
+                                                 <emphasis>地址</emphasis>:输入Gluster主机的IP
+                                                 地址或FQDN的名称。
+                                                 </para>
+                                               </listitem>
+                                               <listitem>
+                                                 <para>
+                                                 <emphasis>SSH指印</emphasis>:&OVIRT;会尝试取得主机的
+                                                 指印，以确保用户连接的是真需要连接的主机
+                                                 </para>
+                                               </listitem>
+                                               <listitem>
+                                                 <para>
+                                                 <emphasis>密码</emphasis>:输入主机的root用户密码。
+                                                 </para>
+                                               </listitem>
+                                            </itemizedlist>
+                                         </entry> 
+                                   </row>
+                              </tbody>
+                            </tgroup>
+                        </table> 
+                        <formalpara><title>请参考</title>
+                           <para>
+                             <link linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-5">章节4.2.5：添加主机窗口的设置解释</link>  
+                           </para>
+                        </formalpara>    
 	             </section>
 	             <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2-2">
 		        <title>优化选项解释</title>
