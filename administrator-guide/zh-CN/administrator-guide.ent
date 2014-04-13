@@ -3,5 +3,6 @@
 <!ENTITY YEAR "2014">
 <!ENTITY HOLDER "| 易云捷讯技术有限公司 |">
 <!ENTITY OVIRT " EayunOS ">
+<!ENTITY OVIRT_STORAGE " Eayun Storage ">
 <!ENTITY MANAGER "虚拟化管理中心">
 <!ENTITY DEFAULT_LOGICAL_NETWORK "ovirtmgmt">

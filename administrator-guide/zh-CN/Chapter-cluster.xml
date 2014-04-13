@@ -10,20 +10,62 @@
 	<section id="sect-Documents-administrator-guide-Chapter-cluster_Section_1">
 		<title>&OVIRT;集群介绍</title>
 		<para>
+                 集群是一组主机的集合，在同一集群下主机可共享相同的存储域，且CPU的
+                 型号须同质（无论是Intel还是AMD）。如果主机之间有不同代的CPU，那么
+                 只能体现最古老的那一代。
 		</para>
+                <para>
+                 每个集群必然属于一个数据中心，每个主机也必然有一个集群，虚拟机会
+                 动态的被分配到集群内的主机中，且可以在主机直接作迁移，关于迁移依
+                 据的是集群所定义的一些规则（可在<emphasis>集群</emphasis>面板中配
+                 置,集群是定义负载均衡和省电模式规则的最好级别）。
+                </para>
+                <para>
+                 &OVIRT;集群分为两种，一种是运行虚拟机的，另外一种是&OVIRT_STORAGE;
+                 在执行engine-setup的时候，可以选择，当然也可混在一起管理和使用。
+                </para>
+                <para>
+                 &OVIRT;默认安装，会自动配置一个默认的数据中心，此数据中心下有一个
+                 默认的集群。
+                </para>
+                <figure id="eayunos-Documents-administrator-guide-cluster-images">
+                      <title>集群图示</title>
+		   <mediaobject>
+			<imageobject>
+				<imagedata fileref="images/EayunOS_Cluster.png" format="PNG" scale="60"/>
+			</imageobject>
+		   </mediaobject>
+                </figure>
+                <para>
+                 <emphasis>请参考:</emphasis>
+                 <itemizedlist>
+                   <listitem>
+                     <para>
+                      <link linkend="chap-Documents-administrator-guide-Chapter-data-center">第三章：数据中心</link>
+                     </para>
+                   </listitem>
+                   <listitem>
+                     <para>
+                      <link linkend="chap-Logical_Networks">第五章：逻辑网络</link>
+                     </para>
+                   </listitem>
+                   <listitem>
+                     <para>
+                      <link linkend="chap-Documents-administrator-guide-Chapter-hosts">第六章：主机</link>
+                     </para>
+                   </listitem>
+                   <listitem>
+                     <para>
+                     <link linkend="chap-Documents-administrator-guide-Chapter-storage-domain">第七章:存储域</link>
+                     </para>
+                   </listitem>
+                 </itemizedlist>
+                </para>
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2">
 		<title>集群的任务</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
 		</para>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-1">
 		    <title>创建集群</title>
