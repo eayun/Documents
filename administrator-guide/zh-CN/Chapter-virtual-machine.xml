@@ -2110,24 +2110,113 @@
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6">
     <title>关闭或暂停虚拟机</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-1">
       <title>关闭或暂停虚拟机</title>
       <para>
+        用户在登陆进虚拟机之后, 能从虚拟机里面关机. 但是有时候也需要从管理门户
+        关闭该虚拟机.
+      </para>
+
+      <para>
+        &OVIRT; 管理系统提供了很优雅的关闭虚拟机的方式, 如果虚拟机安装了
+        guest tools, 那么这种方式就可以用来从管理门户关闭虚拟机. 从门户端
+        关闭虚拟机应该是要有计划的, 至少应该保证在不能影响用户使用的情况下关闭.
+      </para>
+
+      <para>
+        在关闭 Windows 虚拟机的时候, 所有的用户都必须登出该虚拟机. 如果有用户
+        还在登陆中, 那么该虚拟机在界面中将会显示 <keycap>Powering Off</keycap>
+        状态. 此时如果需要关闭虚拟机, 那么用户必须手动连接进虚拟机, 因为 Windows
+        一直提示以下信息:
+      </para>
+      <para>
+        Other people are logged on to this computer. Shutting down Windows might
+        cause them to lose data. Do you want to continue shutting down?
+      </para>
+
+      <para>
+        如果管理员不能优雅的关闭虚拟机, 比如虚拟机失去响应. 这个时候管理员还可以
+        强制关闭该虚拟机, 点击界面上的<keycap>断电</keycap>按钮来强制结束.
+      </para>
+
+      <warning>
+        <para>
+          把虚拟机断电的时候要小心, 因为这样会丢失虚拟机内部的数据.
+        </para>
+      </warning>
+
+      <para>
+        暂停一个虚拟机会使得该虚拟机进入冬眠模式, 该模式下虚拟机的状态将被保存.
+        运行中的应用程序数据会写入到硬盘中保存, 此时 CPU 使用率将为 0.
       </para>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-2">
       <title>关闭虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>, 或者配置了高级电源
+        管理, 那么用户可以从管理员门户优雅的关闭该虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>关闭虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            右击该虚拟机, 点击<keycap>关闭</keycap>来关闭该虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的<keycap>状态</keycap>变为<keycap>Down</keycap>.
+      </para>
+      </formalpara>            
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-3">
       <title>暂停虚拟机</title>
       <para>
       </para>
+      <formalpara><title>摘要</title>
+      <para>
+        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>, 或者配置了高级电源
+        管理, 那么用户可以从管理员门户暂停该虚拟机. 该虚拟机将会进入休眠模式.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>暂停虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            右击该虚拟机, 点击<keycap>挂起</keycap>来暂停该虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的<keycap>状态</keycap>变为<keycap>Suspended</keycap>.
+      </para>
+      </formalpara>      
+      <para>
+      </para>
     </section>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7">
     <title>管理虚拟机</title>
     <para>
