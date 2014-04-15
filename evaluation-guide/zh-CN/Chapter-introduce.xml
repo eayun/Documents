@@ -5,31 +5,98 @@
 ]>
 <preface id="chap-Documents-evaluation-guide-Chapter-introduce">
 	<title>介绍</title>
-	<para>
-	</para>
 	<section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_1">
 		<title>&OVIRT;场景测试手册</title>
-		<para>
-		</para>
+        <para>
+            本指南让您开始使用您现有的资源部署一个完整的EayunOS企业虚拟化系统。安装一个EayunOS hypervisor、配置共享存储及运行一个功能齐全的虚拟机，看看如何在自己的组织中实现虚拟化。本指南体现传统的部署从一个有几个主机的小的办公环境，到有多个数据中心的大型企业，甚至测试家用的单一主机。在该指南里，路线和指南是通过颜色编码提供清晰的路径的。
+        </para>
+        <para>
+            一旦您已经完成了本指南内的实验，为进一步评估和测试，安排自己的路线。
+            这路线仅是个例子，使用它们去了解如何部署EayunOS虚拟化，然后与我们EayunOS企业虚拟化解决方案架构师来构建您独特的环境。
+        </para>
 	</section>
 	
 	<section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_2">
 		<title>场景路线介绍</title>
 		<para>
-
+            根据您自己的需要，使用以下路线方案之一去为您的组织机构评估EayunOS企业虚拟化：
+            <itemizedlist>
+                <listitem>
+                    <simpara>
+                        如果您有共享存储和两个用于安装Hosts的物理服务器，可以使用路线方案A：标准配置安装。
+                    </simpara>
+                </listitem>
+                <listitem>
+                    <simpara>
+                        如果您只有一个安装Host的物理服务器，使用路线方案B：最小配置安装。
+                    </simpara>
+                </listitem>
+            </itemizedlist>
 		</para>
 	</section>
 
 	<section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_3">
 		<title>路线A</title>
-		<para>
-
-		</para>
 	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_3-1">
-		   <title>标准步骤</title>
+		   <title>标准配置安装</title>
 		    <para>
-
-		    </para>
+                路线方案A描述安装和配置一个基础的EayunOS虚拟化环境。方案A需要您多个host（至少两个）和共享存储。
+            </para>
+            <para>
+                路线A：
+                <itemizedlist>
+                    <listitem>
+                        <simpara>
+                            四个基础实验
+                        </simpara>
+                    </listitem>
+                    <listitem>
+                        <simpara>
+                            四个高级实验
+                        </simpara>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                基础实验描述如何创建虚拟机及将他们分配给用户。
+            </para>
+            <para>
+                高级实验描述如何将EayunOS企业虚拟化应用到显示生活的企业中。包括：
+                <itemizedlist>
+                    <listitem>
+                        <simpara>
+                            防止硬件故障使用高可用特性。
+                        </simpara>
+                    </listitem>
+                    <listitem>
+                        <simpara>
+                            为虚拟机、存储和您组织机构的服务器分配不同级别的用户权限。
+                        </simpara>
+                    </listitem>
+                    <listitem>
+                        <simpara>
+                            重新配置EayunOS企业Linux服务器作为虚拟机主机。
+                        </simpara>
+                    </listitem>
+                    <listitem>
+                        <simpara>
+                            为用户提供虚拟桌面。
+                        </simpara>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                如果您有三个到四个物理服务器和一个共享存储，可以配置一个EayunOS企业虚拟化环境，根据下面实验（方案A标准配置安装）。本实验颜色编码是红色，因此为了确定实验是方案A的一部分，在每个实验的开始在图中查找一个红色的长方形。
+            </para>
+            <para>
+                <figure id="eayunos-introduction-0"><title>&OVIRT;图1</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/introduction-1.png" format="PNG" scale="60"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
 	        </section>
 	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_3-2">
 		   <title>前提需求</title>
@@ -50,7 +117,7 @@
 		    </para>
 	        </section>
 	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_4-2">
-		   <title>前提去求</title>
+		   <title>前提需求</title>
 		    <para>
 
 		    </para>
