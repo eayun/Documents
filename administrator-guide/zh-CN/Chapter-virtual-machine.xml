@@ -2219,22 +2219,146 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7">
     <title>管理虚拟机</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-1">
       <title>编辑资源</title>
+      <formalpara><title>摘要</title>
       <para>
+        编辑资源的属性.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>编辑资源</title>
+        <step>
+          <para>
+            使用资源标签, 搜索标签等找到想要的资源.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            改变资源的属性, 点击<keycap>确定</keycap>.
+          </para>
+        </step>
+      </procedure>
+      <formalpara><title>结果</title>
+      <para>
+        该资源属性的值将会被保存.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-2">
       <title>删除虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户不再需要该虚拟机的时候, 可以把它从数据中心删除掉. 删除虚拟机的时候
+        必须先把该虚拟机暂停.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>删除虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+           <keycap>删除</keycap>按钮只在虚拟机处于<keycap>Down</keycap>状态
+           才会可用.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>删除</keycap>, 在<keycap>删除虚拟机窗口</keycap>, 如果
+            想要把虚拟机使用的磁盘也一并删除, 那么勾选<keycap>删除磁盘</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>删除该虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机将会被删除, 将会从虚拟机列表里消失.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-3">
       <title>添加、编辑虚拟磁盘</title>
+      <formalpara><title>摘要</title>
       <para>
+        &OVIRT; 管理系统允许用户给虚拟机添加新的磁盘. 用户可以给虚拟机添加新的
+        磁盘, 或者把之前创建的浮动磁盘分配给虚拟机. 用户也可以创建虚拟机之间可以
+        共享的磁盘. 或者编辑磁盘的属性.
+
+        默认情况下, 创建的磁盘类型是内部磁盘. 用户也可以直接增加外部的磁盘.
+        内部磁盘被 &OVIRT; 管理系统管理. 用户要使用外部磁盘, 必须先把该磁盘(LUN)
+        的 target 增加到系统里. 创建的磁盘可以是共享的, 或者是浮动的.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>给虚拟机添加磁盘</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+      <step>
+        <para>
+          在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
+          上的所有磁盘.
+        </para>
+      </step>
+        <step>
+          <para>
+            点击<keycap>添加</keycap>, 打开<keycap>添加磁盘</keycap>窗口.
+          </para>
+          <figure id="vm-add-disk"><title>给虚拟机添加磁盘</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-add-disk.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            在<keycap>内部的</keycap>和<keycap>外部(直接 LUN)</keycap>之间来
+            选择要添加的磁盘类型.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>附加磁盘</keycap>, 选择要添加的磁盘. 或者直接创建
+            一个新的磁盘附加给虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        我们已经给虚拟机分配给了新的磁盘, 在虚拟机的磁盘列表上会被列出来.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-4">
       <title>添加、编辑虚拟网卡</title>
