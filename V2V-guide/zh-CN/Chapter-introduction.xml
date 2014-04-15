@@ -3,45 +3,125 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-V2V-guide-V2V-guide-introduction_Chapter">
-	<title>V2V介绍</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-V2V-guide-V2V-guide-introduction_Section_1">
-		<title>virt-v2v项目介绍</title>
-		<para>
-		</para>
-	</section>
-	
-	<section id="sect-V2V-guide-V2V-guide-introduction_Section_2">
-		<title>关于本手册</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	        <section id="sect-V2V-guide-V2V-guide-introduction_Section_2-1">
-		      <title>简要说明</title>
-		        <para>
-		        </para>
-	        </section>
-	        <section id="sect-V2V-guide-V2V-guide-introduction_Section_2-2">
-		      <title>&OVIRT;虚拟化</title>
-		        <para>
-		        </para>
-	        </section>
-	</section>
+<chapter id="chap-Introducing_V2V">
+  <title>V2V 简介</title>
+  <para>
+    V2V 是 virtual to virtual 的缩写，意思是从一个虚拟化平台导入虚拟机到另一个虚拟化平台。&OVIRT; 能够使用 <emphasis>virt-v2v</emphasis> 命令进行 V2V 的操作。
+  </para>
 
-	<section id="sect-V2V-guide-V2V-guide-introduction_Section_3">
-		<title>衍生阅读</title>
-		<para>
-		</para>
-	</section>
+  <section id="sect-Introducing_V2V-What_is_virt_v2v">
+    <title>什么是 virt-v2v？</title>
+    <para>
+      <emphasis>virt-v2v</emphasis> 命令从外部的宿主机上转化一台虚拟机到由 &OVIRT; 或者 libvirt 管理的 KVM 之上。<emphasis>virt-v2v</emphasis> 目前能够转化运行在 Xen、KVM 和 VMWare ESX/ESX(i) 宿主机上的 RHEL 兼容 Linux 和 Windows。如果可能的话，<emphasis>virt-v2v</emphasis> 会在转化后的虚拟机启用半虚拟化（virtio）驱动。
+    </para>
+    <para>
+      <emphasis>virt-v2v</emphasis> 支持下列虚拟机操作系统：
+    </para>
+    <para>
+      <emphasis>支持的虚拟机操作系统：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Red Hat Enterprise Linux 3.9
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Red Hat Enterprise Linux 4
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Red Hat Enterprise Linux 5
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Red Hat Enterprise Linux 6
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Windows XP
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Windows Vista
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Windows 7
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Windows Server 2003
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Windows Server 2008
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      所有上述操作系统版本的次级版本也被 <emphasis>virt-v2v</emphasis> 所支持。
+    </para>
+    <para>
+      <emphasis>virt-v2v</emphasis> 支持下列来源宿主机：
+    </para>
+    <para>
+      <emphasis>支持的来源宿主机：</emphasis>
+    </para>
+    <para>
+      除非特别有说明，否则下列来源宿主机所列出版本的次级版本也被 <emphasis>virt-v2v</emphasis> 所支持：
+      <itemizedlist>
+        <listitem>
+          <para>
+            Xen - 所有 Red Hat 发布的版本
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            KVM - 所有 Red Hat 发布的版本
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            VMWare ESX/ESX(i) - 版本 3.5、4.0、4.1、5.0、5.1
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+  </section>
+
+  <section id="sect-Introducing_V2V-About_This_Guide">
+    <title>关于本手册</title>
+    <para>
+      本手册描述了如何从外部的宿主机中导入虚拟机到 &OVIRT; 或者由 libvirt 管理的 KVM 中。
+    </para>
+    <section id="sect-Introducing_V2V-Audience">
+      <title>目标读者</title>
+      <para>
+        本手册适合管理 &OVIRT; 虚拟化环境的系统管理员阅读。我们假设阅读本手册的人已经拥有较高水平的系统管理能力，最好还包括对虚拟机数据中心的操作一定的熟悉程度。本文档并不适合初学者阅读。
+      </para>
+    </section>
+    <section id="sect-Introducing_V2V-EayunOS">
+      <title>&OVIRT;</title>
+      <para>
+        &OVIRT; 平台是一套提供完全集成的对虚拟机进行管理工作的功能丰富的虚拟化管理解决方案。它基于优秀的开源虚拟化平台，提供了非常优秀的技术性能。此平台提供了在管理大数量的虚拟机情景下的可伸缩性。
+      </para>
+    </section>
+  </section>
+
+  <section id="sect-Introducing_V2V-Further_Reading">
+    <title>衍生阅读</title>
+    <para>
+      <!-- TODO: 太长了，都是复制粘贴且依赖其它文档，最后再补充完整 -->
+    </para>
+  </section>
 </chapter>
 
