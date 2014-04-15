@@ -185,5 +185,29 @@
     <answer>
       <para>重启所有的host即可</para>
     </answer>
-  </qandaentry>
+</qandaentry>
+<qandaentry>
+    <question>
+        <para>
+            创建Win8（Win8 64）类型的虚拟机，设置Console为SPICE，完成创建后通过Console连接虚拟机时会失败，这是什么原因？
+        </para>
+    </question>
+    <answer>
+        <para>
+            SPICE目前不支持Windows8系统的虚拟机，如果创建Windows8系统的虚拟机配置使用SPICE协议，连接虚拟机时会自动使用RDP连接虚拟机。
+        </para>
+    </answer>
+</qandaentry>
+<qandaentry>
+    <question>
+        <para>
+            虚拟机导入导出时，如果同时导入导出多个虚拟机，只能成功一个。
+        </para>
+    </question>
+    <answer>
+        <para>
+            目前该功能建议不要使用批量的导入导出。
+        </para>
+    </answer>
+</qandaentry>
 </qandaset>
