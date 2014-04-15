@@ -210,4 +210,37 @@
         </para>
     </answer>
 </qandaentry>
+  <qandaentry>
+    <question>
+      <para>
+       更改所有的主机IP地址，需要做那些事情，可以正确恢复？（以NFS数据存储域为例）
+      </para>
+    </question>
+    <answer>
+      <para>
+       <orderedlist>
+          <listitem>
+            <para>
+             更改管理网络的IP地址。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+             更改DNS服务或者/etc/hosts，确认生效。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+             在管理门户中修改管理网络。
+            </para>
+          </listitem>
+       </orderedlist>
+     </para>
+     <important>
+        <para>
+         在添加NFS存储域的时候一定要使用FQDN！
+        </para>
+     </important>
+    </answer>
+  </qandaentry>
 </qandaset>
