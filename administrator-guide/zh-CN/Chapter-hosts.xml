@@ -1710,7 +1710,7 @@
         </step>
         <step>
           <para>
-            点击<emphasis>测试</emphasis>按钮测试该电源管理设备。如果测试成功，将会显示<!-- TODO: 测试成功时的中文显示 -->。
+            点击<emphasis>测试</emphasis>按钮测试该电源管理设备。如果测试成功，将会显示“Test Succeeded, on”。
           </para>
           <warning>
             <para>
