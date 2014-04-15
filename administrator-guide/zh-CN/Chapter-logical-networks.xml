@@ -7,7 +7,7 @@
 <chapter id="chap-Logical_Networks">
   <title>逻辑网络</title>
 
-  <section id="sect-Introduction_to_Logical_Networks">
+  <section id="sect-Logical_Networks-Introduction_to_Logical_Networks">
     <title>逻辑网络简介</title>
     <para>
       逻辑网络是您的数据中心中一系列全局网络连接属性的命名集合。在将一个逻辑网络添加到一台主机中后，该逻辑网络可以使用主机特定的网络参数进行配置。通过将网络流量以使用量、类型以及需求进行分类，逻辑网络能够有效地优化网络使用。
@@ -54,7 +54,7 @@
     </important>
   </section>
 
-  <section id="sect-Port_Mirroring">
+  <section id="sect-Logical_Networks-Port_Mirroring">
     <title>端口镜像</title>
     <para>
       端口镜像功能是指将一台主机上属于某个指定逻辑网络的三层网络流量复制到一台虚拟机的虚拟网络接口中。该虚拟机可以用于网络调试和优化、入侵检测以及监控同一主机上属于同一逻辑网络的其他虚拟机的网络行为。
@@ -75,7 +75,7 @@
     </important>
   </section>
 
-  <section id="sect-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks">
+  <section id="sect-Logical_Networks-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks">
     <title>必需网络、可选网络以及虚拟机网络</title>
     <para>
       &OVIRT; 4.0 将逻辑网络分类为必需的逻辑网络和可选的逻辑网络。
@@ -108,16 +108,16 @@
       <itemizedlist>
         <listitem>
           <simpara>
-            <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+            <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
           </simpara>
         </listitem>
       </itemizedlist>
     </para>
   </section>
 
-  <section id="sect-VNIC_Profiles_and_QoS">
+  <section id="sect-Logical_Networks-VNIC_Profiles_and_QoS">
     <title>虚拟网卡配置集和 QoS</title>
-    <section id="sect-VNIC_Profile_Overview">
+    <section id="sect-Logical_Networks-VNIC_Profile_Overview">
       <title>虚拟网卡配置集概览</title>
       <para>
         一个虚拟网卡配置集是一系列能够应用到单独的虚拟网卡上的设置的集合。虚拟网卡配置集允许您将 QoS 配置集应用到虚拟网卡之上，启用或者禁用端口镜像，以及添加或者删除自定义的设置项。
@@ -131,7 +131,7 @@
         </para>
       </note>
     </section>
-    <section id="sect-Creating_a_VNIC_Profile">
+    <section id="sect-Logical_Networks-Creating_a_VNIC_Profile">
       <title>创建一个虚拟网卡配置集</title>
       <formalpara>
         <title>概述</title>
@@ -189,7 +189,7 @@
         </para>
       </formalpara>
     </section>
-    <section id="sect-Explanation_of_Settings_in_the_VM_Interface_Profile_Window">
+    <section id="sect-Logical_Networks-Explanation_of_Settings_in_the_VM_Interface_Profile_Window">
       <title>虚拟网卡配置集窗口中选项的解释</title>
       <table>
         <title>虚拟网卡配置集选项</title>
@@ -265,7 +265,7 @@
         </tgroup>
       </table>
     </section>
-    <section id="sect-Removing_a_VNIC_Profile">
+    <section id="sect-Logical_Networks-Removing_a_VNIC_Profile">
       <title>删除虚拟网卡配置集</title>
       <formalpara>
         <title>概述</title>
@@ -303,7 +303,7 @@
         </para>
       </formalpara>
     </section>
-    <section id="sect-User_Permissions_for_VNIC_Profiles">
+    <section id="sect-Logical_Networks-User_Permissions_for_VNIC_Profiles">
       <title>虚拟网卡配置集的用户权限</title>
       <formalpara>
         <title>概述</title>
@@ -341,7 +341,7 @@
         </para>
       </formalpara>
     </section>
-    <section id="sect-QoS_Overview">
+    <section id="sect-Logical_Networks-QoS_Overview">
       <title>QoS 概览</title>
       <para>
         网络 QoS 是一项允许您创建用于限制单块虚拟网卡的入口和出口流量的配置集的功能。使用该功能，您可以分层限制网络带宽，以控制网络资源的使用情况。
@@ -352,7 +352,7 @@
         </para>
       </important>
     </section>
-    <section id="sect-Adding_QoS">
+    <section id="sect-Logical_Networks-Adding_QoS">
       <title>添加 QoS</title>
       <formalpara>
         <title>概述</title>
@@ -400,7 +400,7 @@
         </para>
       </formalpara>
     </section>
-    <section id="sect-Network_QoS_Settings_Explained">
+    <section id="sect-Logical_Networks-Network_QoS_Settings_Explained">
       <title>在新建和编辑网络 QoS 中设置项目的解释</title>
       <para>
         网络 QoS 的设置允许您在三个不同的层面上限制上行和下行的网络流量带宽。
@@ -489,7 +489,7 @@
         </tgroup>
       </table>
     </section>
-    <section id="sect-Removing_QoS">
+    <section id="sect-Logical_Networks-Removing_QoS">
       <title>删除 QoS</title>
       <formalpara>
         <title>概述</title>
@@ -529,9 +529,9 @@
     </section>
   </section>
 
-  <section id="sect-Logical_Network_Tasks">
+  <section id="sect-Logical_Networks-Logical_Network_Tasks">
     <title>逻辑网络任务</title>
-    <section id="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster">
+    <section id="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster">
       <title>在数据中心或者集群中创建逻辑网络</title>
       <formalpara>
         <title>概述</title>
@@ -604,18 +604,18 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+              <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
             </simpara>
           </listitem>
           <listitem>
             <simpara>
-              <xref linkend="sect-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks"/>
+              <xref linkend="sect-Logical_Networks-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Explanation_of_Logical_Network_General_Settings_and_Controls">
+    <section id="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls">
       <title>新建逻辑网络和编辑逻辑网络窗口中常规标签下设置和控制项目的解释</title>
       <para>
         以下的表格描述了在<emphasis>新建逻辑网络</emphasis>和<emphasis>编辑逻辑网络</emphasis>窗口中<emphasis>常规</emphasis>标签下的设置项目。
@@ -702,7 +702,7 @@
         </tgroup>
       </table>
     </section>
-    <section id="sect-Editing_a_Logical_Network">
+    <section id="sect-Logical_Networks-Editing_a_Logical_Network">
       <title>编辑逻辑网络</title>
       <formalpara>
         <title>概述</title>
@@ -749,20 +749,20 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+              <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Designate_a_Specific_Traffic_Type_for_a_Logical_Network">
+    <section id="sect-Logical_Networks-Designate_a_Specific_Traffic_Type_for_a_Logical_Network">
       <title>在管理网络窗口中为逻辑网络指定一个特定的类型</title>
       <para>
         <emphasis>前提：</emphasis>
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
             </simpara>
           </listitem>
         </itemizedlist>
@@ -818,13 +818,13 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Manage_Networks_Settings_Explanation"/>
+              <xref linkend="sect-Logical_Networks-Manage_Networks_Settings_Explanation"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Manage_Networks_Settings_Explanation">
+    <section id="sect-Logical_Networks-Manage_Networks_Settings_Explanation">
       <title>管理网络窗口设置项目的解释</title>
       <para>
         以下的表格解释了在<emphasis>管理网络</emphasis>窗口中各项设置的意义。
@@ -887,14 +887,14 @@
         </tgroup>
       </table>
     </section>
-    <section id="sect-Adding_Multiple_VLANs_to_a_Single_Network_Interface_Using_Logical_Networks">
+    <section id="sect-Logical_Networks-Adding_Multiple_VLANs_to_a_Single_Network_Interface_Using_Logical_Networks">
       <title>使用逻辑网络为单独一块物理网卡添加多个 VLAN</title>
       <para>
         <emphasis>前提：</emphasis>
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
             </simpara>
           </listitem>
         </itemizedlist>
@@ -990,7 +990,7 @@
         </para>
       </formalpara>
     </section>
-    <section id="sect-Using_the_Networks_Tab">
+    <section id="sect-Logical_Networks-Using_the_Networks_Tab">
       <title>使用网络标签</title>
       <para>
         主面板中的<emphasis>网络</emphasis>标签为用户进行网络相关的操作和基于网络的属性或者网络与其它资源间的关联查找相应的逻辑网络提供了一个集中的操作界面。
@@ -1030,12 +1030,12 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
-      <section id="sect-Importing_Networks_from_External_Providers">
+      <section id="sect-Logical_Networks-Importing_Networks_from_External_Providers">
         <title>从外部供应商中导入网络</title>
         <formalpara>
           <title>概述</title>
@@ -1083,7 +1083,7 @@
           </para>
         </important>
       </section>
-      <section id="sect-Limitations_to_Importing_Networks_from_External_Providers">
+      <section id="sect-Logical_Networks-Limitations_to_Importing_Networks_from_External_Providers">
         <title>从外部供应商导入网络的限制</title>
         <para>
           虽然外部供应商提供的逻辑网络能够被导入到&MANAGER;中，它们的使用仍然受到如下限制：
@@ -1134,9 +1134,9 @@
     </section>
   </section>
 
-  <section id="sect-Logical_Networks_and_Permissions">
+  <section id="sect-Logical_Networks-Logical_Networks_and_Permissions">
     <title>逻辑网络和权限</title>
-    <section id="sect-Managing_System_Permissions_for_a_Network">
+    <section id="sect-Logical_Networks-Managing_System_Permissions_for_a_Network">
       <title>管理系统中逻辑网络的权限</title>
       <para>
         系统管理员，在 &OVIRT; &MANAGER; 中称作 <emphasis>SuperUser</emphasis>，能够对管理员门户中的所有模块进行管理。更为精细的管理员角色可以分配给其它用户。这些只能进行部分管理功能的角色，能够分配给一个用户使得该用户拥有对于特定资源的管理权限：例如 <emphasis>DataCenterAdmin</emphasis> 角色对于分配的数据中心具有管理员权限，<emphasis>HostAdmin</emphasis> 角色对于分配的主机具有管理员权限，以此类推。
@@ -1172,13 +1172,13 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Network_Administrator_and_User_Roles_Explained"/>
+              <xref linkend="sect-Logical_Networks-Network_Administrator_and_User_Roles_Explained"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Network_Administrator_and_User_Roles_Explained">
+    <section id="sect-Logical_Networks-Network_Administrator_and_User_Roles_Explained">
       <title>逻辑网络管理员和用户角色的解释</title>
       <formalpara>
         <title>逻辑网络权限角色</title>
@@ -1233,13 +1233,13 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Managing_System_Permissions_for_a_Network"/>
+              <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Assigning_an_Administrator_or_User_Role_to_a_Resource">
+    <section id="sect-Logical_Networks-Assigning_an_Administrator_or_User_Role_to_a_Resource">
       <title>为一个特定资源分配管理员或者用户角色</title>
       <formalpara>
         <title>概述</title>
@@ -1291,13 +1291,13 @@
         <itemizedlist>
           <listitem>
             <simpara>
-              <xref linkend="sect-Managing_System_Permissions_for_a_Network"/>
+              <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
             </simpara>
           </listitem>
         </itemizedlist>
       </para>
     </section>
-    <section id="sect-Removing_an_Administrator_or_User_Role_from_a_Resource">
+    <section id="sect-Logical_Networks-Removing_an_Administrator_or_User_Role_from_a_Resource">
       <title>为一个特定资源删除管理员或者用户角色</title>
       <formalpara>
         <title>概述</title>
