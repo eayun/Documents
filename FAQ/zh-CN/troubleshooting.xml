@@ -243,4 +243,32 @@
      </important>
     </answer>
   </qandaentry>
+  <qandaentry>
+    <question>
+      <para>
+        我在节点上往管理端进行注册，但在管理端却没有看到等待批准主机加入的信息，为什么？
+      </para>
+    </question>
+    <answer>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              首先，请确认节点与管理端之间是否能够正常连通。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              其次，节点上访问管理端所用的网络设备是否是一个网卡绑定设备。目前并不支持通过网卡绑定设备向管理端进行注册，请先将节点上的网卡绑定移除后再进行向管理端的注册操作。如果您确实需要进行网卡绑定，请在注册完成，节点加入到管理端之后再从管理员门户进行网卡绑定的操作。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+     <note>
+        <para>
+          我们推荐您使用管理员门户中主机标签下的<emphasis>新建</emphasis>按钮进行主机的添加，这种方式不仅支持普通的 EayunOS 节点，也支持安装了相关软件包的 Fedora/Centos 等系统，另外，这种方式还能够添加已经进行过网卡绑定操作的主机以解决您上面遇到的问题。我们并不推荐您使用节点上的向管理端注册的功能，该功能的存在更多的只是由于需要与以前的版本兼容之类的历史原因，我们并不保证该方式在以后的版本中仍然能够被支持。
+        </para>
+     </note>
+    </answer>
+  </qandaentry>
 </qandaset>
