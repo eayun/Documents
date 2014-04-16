@@ -2585,20 +2585,137 @@
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-6">
       <title>热插拔虚拟磁盘</title>
+      <formalpara><title>摘要</title>
       <para>
+        &OVIRT; 系统允许用户热插拔磁盘. 热插拔允许在虚拟机运行的时候动态的添加
+        或者删除磁盘.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>热插拔磁盘</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            从显示的虚拟机详细面板中选择<keycap>磁盘</keycap>标签.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择想要热插拔的磁盘.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>激活</keycap>或者<keycap>取消激活</keycap>按钮.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        磁盘的会从虚拟机动态添加或者删除.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-7">
       <title>热插拔虚拟网卡</title>
+      <formalpara><title>摘要</title>
       <para>
+        &OVIRT; 系统允许用户热插拔虚拟网卡. 热插拔允许在虚拟机运行的时候动态的添加
+        或者删除虚拟网卡.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>热插拔网卡</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            从显示的虚拟机详细面板中选择<keycap>网络接口</keycap>标签.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择想要热插拔的磁盘, 点击<keycap>编辑</keycap>按钮, 打开
+            <keycap>网络接口</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果想要热添加网卡, 选中<keycap>已插入</keycap>, 如果想要热删除
+            网卡, 选择<keycap>已拔出</keycap>.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟网卡的会从虚拟机动态添加或者删除.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-8">
       <title>从虚拟机中删除磁盘或网卡</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户可以将虚拟机里的虚拟磁盘和网卡删除. 如果选择删除磁盘, 那么磁盘的
+        数据将会被删除.
       </para>
+      </formalpara>
+
+      <para>
+        这和热删除磁盘和网卡不同, 只有处于<keycap>非激活</keycap>状态的磁盘和网卡才能被删除.
+      </para>
+
+      <procedure>
+        <title>从虚拟机中删除磁盘或网卡</title>
+        <step>
+          <para>
+            选择你要操作的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择相关的资源, 比如<keycap>磁盘或者</keycap>或者是
+            <keycap>网络接口</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择需要删除的资源. 首先该资源必须处于<keycap>非激活</keycap>状态.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>删除</keycap>按钮. 在弹出的确认窗口中选择
+            <keycap>确定</keycap>. 如果删除的资源是磁盘, 选择
+            <keycap>永久的删除</keycap>单选框彻底删除磁盘, 如果只是想从该虚拟机
+            删除该磁盘, 想要保留磁盘, 比如如果该磁盘是共享, 那么不要选择该选项.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟磁盘或者网卡会从虚拟机里删除.
+      </para>
+      </formalpara>
     </section>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_8">
     <title>虚拟机和权限</title>
     <para>
