@@ -673,7 +673,7 @@
           </para>
         </note>
         <table id="VM_Initial_Setting">
-          <title>虚拟机系统设置</title>
+          <title>虚拟机初始设置</title>
           <tgroup cols='2' align='left' colsep='1' rowsep='1'>
             <thead>
               <row>
@@ -858,7 +858,7 @@
           </para>
         </note>
         <table id="VM_Host_Setting">
-          <title>虚拟机系统设置</title>
+          <title>虚拟机主机设置</title>
           <tgroup cols='2' align='left' colsep='1' rowsep='1'>
             <thead>
               <row>
@@ -1691,7 +1691,7 @@
         配置.
       </para>
       <table id="VM_Run_Once_Setting">
-        <title></title>
+        <title>只运行一次设置</title>
         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
           <thead>
             <row>
@@ -2362,13 +2362,226 @@
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-4">
       <title>添加、编辑虚拟网卡</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户可以给虚拟机添加网络接口使得虚拟机有多块网卡. 用户也编辑已经添加
+        的网卡, 更新网卡的某些属性. 下面描述的步骤可以在虚拟机运行的时候执行,
+        但是某些操作必须要虚拟机关机才能执行.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>给虚拟机添加网络接口</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            在下面的虚拟机详细信息面板上选择<keycap>网络接口</keycap>列出目前
+            附加到该虚拟机下的网络接口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>新建</keycap>, 打开<keycap>新建网络接口</keycap>窗口.
+          </para>
+          <figure id="vm-new-network-interface2"><title>添加虚拟网络</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-new-network-interface.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            输入网卡的<keycap>名称</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<keycap>配置</keycap>和<keycap>类型</keycap>, 设置网络接口的
+            详细参数. 默认状态下<keycap>链路状态</keycap>是<keycap>Up</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            如果想要设置 MAC 地址的话, 在<keycap>自定义的 MAC 地址</keycap>
+            处设置给虚拟机的 MAC 地址.
+          </para>
+        </step>
+        <step>
+          <para>
+            该窗口还允许设置设置<keycap>卡的状态</keycap>: <keycap>已插入</keycap>
+            还是<keycap>已拔出</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>创建网路接口.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        我们已经给虚拟机添加了新的网络接口, 在虚拟机的<keycap>网络接口</keycap>
+        列表上会被列出来.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-5">
       <title>虚拟机网卡设置窗口配置解释</title>
       <para>
+        下表详细解释了在新建或者编辑虚拟网络接口的时候使用到的属性. 用户可以给
+        一个虚拟机添加多个网卡, 这样虚拟机就处于多网卡模式了.
       </para>
+      <table id="VM_Network_Setting">
+        <title>网络接口的属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <keycap>名称</keycap>
+              </entry>
+              <entry>
+                网络接口的名称, 必须限制在 21 个字符之类, 可以由大小写字母, 数字,
+                下划线和连字符组成.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>配置</keycap>
+              </entry>
+              <entry>
+                虚拟网络所处的的主机的逻辑网络名字. 模型情况下, 所有虚拟机网络
+                接口都放在 ovirtmgmt 下.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>链路状态</keycap>
+              </entry>
+              <entry>
+                是否该网络接口连接到了逻辑网络上.
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      Up:
+                    </para>
+                    <itemizedlist>
+                      <listitem>
+                        <para>
+                          当网卡的状态是已插入时, 意味着网络接口已经连接到逻辑
+                          网络上了, 处于激活状态.
+                        </para>
+                      </listitem>
+                    </itemizedlist>
+                    <itemizedlist>
+                      <listitem>
+                        <para>
+                          当网卡的状态是已拔出时, 意味着网卡变为已插入时,
+                          网络接口将会自动连接和激活
+                        </para>
+                      </listitem>
+                    </itemizedlist>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Down: 网口接口没有连接到任何网络. 这种状态下虚拟机将不能使用该网络接口.
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>类型</keycap>
+              </entry>
+              <entry>
+                虚拟网卡的类型. 有三种类型, VirtIO. rtl8139 和 e1000. VirtIO
+                是最快的虚拟网卡类型, 但是使用该网卡需要额外的 VirtIO 驱动.
+                大部分 Linux 操作系统都自带 VirtIO 的驱动. Windows 没有包含
+                VirtIO 驱动, 但是用户可以通过 guest tools ISO
+                或者虚拟软盘来安装. 另外两种类型的网卡已经包含在大部分操作系统里了.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>自定义的 MAC 地址</keycap>
+              </entry>
+              <entry>
+                用户可以在这里设置网络接口的 MAC 地址. 如果用户没有选择的话,
+                &OVIRT; 管理系统会为该网卡自动选择一个独立的 MAC 地址. 请注意
+                如果两个虚拟网卡有相同的 MAC 地址, 那么使用这两个网卡的时候会
+                发生网络异常.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>卡的状态</keycap>
+              </entry>
+              <entry>
+                是否把网络接口插入该虚拟机.
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      <keycap>已插入</keycap>: 该网络接口已经插入该虚拟机
+                    </para>
+                    <itemizedlist>
+                      <listitem>
+                        <para>
+                          如果 <keycap>链路状态</keycap> 是 <keycap>Up</keycap>,
+                          那么此网卡已经正确连接到逻辑网络了, 并且已激活可用
+                        </para>
+                      </listitem>
+                      <listitem>
+                        <para>
+                          如果 <keycap>链路状态</keycap> 是 <keycap>Down</keycap>,
+                          那么此网卡没有连接到逻辑网络.
+                        </para>
+                      </listitem>
+                    </itemizedlist>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      <keycap>已拔出</keycap>: 该网络接口只在 &OVIRT; 中定义,
+                      没有插入该虚拟机
+                    </para>
+                    <itemizedlist>
+                      <listitem>
+                        <para>
+                          如果 <keycap>链路状态</keycap> 是 <keycap>Up</keycap>,
+                          当网卡被插入时, 该网络接口将自动连接到逻辑网络
+                        </para>
+                      </listitem>
+                      <listitem>
+                        <para>
+                          如果 <keycap>链路状态</keycap> 是 <keycap>Down</keycap>,
+                          该网络接口没有连接到逻辑网络, 知道网卡插入时
+                        </para>
+                      </listitem>
+                    </itemizedlist>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-6">
       <title>热插拔虚拟磁盘</title>
