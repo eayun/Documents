@@ -905,8 +905,46 @@
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-8">
 		    <title>删除集群</title>
-		    <para>
-		    </para>
+                    <formalpara><title>摘要</title>
+		     <para>
+                       在删除集群之前，要将它下的所有主机都移走。
+		     </para>
+                    </formalpara>
+                    <note>
+		     <para>
+                       用户是不可以将<emphasis>Default</emphasis>集群删除的，因为在它下有<emphasis>
+                       Blank</emphasis>模板。但是用户可以为<emphasis>Default</emphasis>集群重命名，
+                       以及添加到其它的数据中心。
+		     </para>
+                    </note>
+                    <procedure>
+                       <step>
+		         <para>
+                          使用资源列表或树形结构或搜索功能，找到集群项，选择任意集群。
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          确认集群中没有主机。
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          点击<emphasis>删除</emphasis>，&OVIRT;会打开<emphasis>删除集群</emphasis>
+                          确认窗口。
+		         </para>
+                       </step>
+                       <step>
+		         <para>
+                          点击<emphasis>确定</emphasis>。
+		         </para>
+                       </step>
+                    </procedure>
+                    <formalpara><title>结果</title>
+		     <para>
+                        集群被成功删除。
+		     </para>
+                    </formalpara>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-9">
 		    <title>使用管理网络窗口为网络指定合适的类型</title>
