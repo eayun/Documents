@@ -6,16 +6,16 @@
 <chapter id="chap-Introducing_V2V">
   <title>V2V 简介</title>
   <para>
-    V2V 是 virtual to virtual 的缩写，意思是从一个虚拟化平台导入虚拟机到另一个虚拟化平台。&OVIRT; 能够使用 <emphasis>virt-v2v</emphasis> 命令进行 V2V 的操作。
+    V2V 是 virtual to virtual 的缩写，意思是从一个虚拟化平台导入虚拟机到另一个虚拟化平台。&OVIRT; 能够使用 <command>virt-v2v</command> 命令进行 V2V 的操作。
   </para>
 
   <section id="sect-Introducing_V2V-What_is_virt_v2v">
     <title>什么是 virt-v2v？</title>
     <para>
-      <emphasis>virt-v2v</emphasis> 命令从外部的宿主机上转化一台虚拟机到由 &OVIRT; 或者 libvirt 管理的 KVM 之上。<emphasis>virt-v2v</emphasis> 目前能够转化运行在 Xen、KVM 和 VMWare ESX/ESX(i) 宿主机上的 RHEL 兼容 Linux 和 Windows。如果可能的话，<emphasis>virt-v2v</emphasis> 会在转化后的虚拟机启用半虚拟化（virtio）驱动。
+      <command>virt-v2v</command> 命令从外部的宿主机上转化一台虚拟机到由 &OVIRT; 或者 libvirt 管理的 KVM 之上。<command>virt-v2v</command> 目前能够转化运行在 Xen、KVM 和 VMWare ESX/ESX(i) 宿主机上的 RHEL 兼容 Linux 和 Windows。如果可能的话，<command>virt-v2v</command> 会在转化后的虚拟机启用半虚拟化（virtio）驱动。
     </para>
     <para>
-      <emphasis>virt-v2v</emphasis> 支持下列虚拟机操作系统：
+      <command>virt-v2v</command> 支持下列虚拟机操作系统：
     </para>
     <para>
       <emphasis>支持的虚拟机操作系统：</emphasis>
@@ -68,16 +68,16 @@
       </itemizedlist>
     </para>
     <para>
-      所有上述操作系统版本的次级版本也被 <emphasis>virt-v2v</emphasis> 所支持。
+      所有上述操作系统版本的次级版本也被 <command>virt-v2v</command> 所支持。
     </para>
     <para>
-      <emphasis>virt-v2v</emphasis> 支持下列来源宿主机：
+      <command>virt-v2v</command> 支持下列来源宿主机：
     </para>
     <para>
       <emphasis>支持的来源宿主机：</emphasis>
     </para>
     <para>
-      除非特别有说明，否则下列来源宿主机所列出版本的次级版本也被 <emphasis>virt-v2v</emphasis> 所支持：
+      除非特别有说明，否则下列来源宿主机所列出版本的次级版本也被 <command>virt-v2v</command> 所支持：
       <itemizedlist>
         <listitem>
           <para>

@@ -8,8 +8,7 @@
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-installing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-        <!-- <xi:include href="Chapter-convert-from-kvm.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> -->
-	<!--<xi:include href="Chapter-convert-from-rhev.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />-->
+        <xi:include href="Chapter-convert-to-libvirt.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-convert-to-EayunOS.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-convert-physical.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-debug-troubleshoot.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
