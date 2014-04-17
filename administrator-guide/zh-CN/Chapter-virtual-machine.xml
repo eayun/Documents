@@ -2749,27 +2749,196 @@
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9">
     <title>使用快照来备份、恢复虚拟机</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-1">
       <title>为虚拟机创建快照</title>
+      <formalpara><title>摘要</title>
       <para>
+        快照, 指的是在某个时间点将虚拟机的所有数据都保存. 包括操作系统, 应用程序
+        以及数据. 便于日后可以恢复到这个时间的这个状态. 快照本身会将虚拟镜像保存
+        为一个 COW 的文件或卷, 当然并不是复制镜像, 而是基于原来的加上一个新的
+        COW层. 所有变化的数据是存放在新的COW层里的. 用户可以使用快照将虚拟机
+        恢复到原先的状态.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>为虚拟机创建快照</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>创建</keycap>, 打开<keycap>创建快照</keycap>窗口
+          </para>
+        </step>
+        <step>
+          <para>
+            输入快照的<keycap>描述</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>创建快照.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        快照开始创建的时候, 它的状态是<keycap>Locked</keycap>, 当快照创建完成
+        之后, 它的状态变为<keycap>Ok</keycap>. 用户点击某一个快照时, 该快照里面
+        包含的常规信息, 磁盘信息, 网络接口信息, 已安装的应用程序信息都会显示出来.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-2">
       <title>使用快照恢复虚拟机</title>
       <para>
+        快照可以用来恢复虚拟机到之前的状态.
       </para>
+      <procedure>
+        <title>使用快照恢复虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机, 确保虚拟机处于<keycap>关机</keycap>状态.
+          </para>
+        </step>
+        <step>
+          <para>
+            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
+            的所有快照.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择要恢复的快照.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>预览</keycap>进入预览模式.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>提交</keycap>把快照提交到虚拟机.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机将会被恢复到创建快照时的时间点.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-3">
       <title>从快照中创建虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户可以使用之前创建的快照克隆一个虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>从快照创建虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
+            的所有快照.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            鼠标单击需要的快照, 然后点击<keycap>克隆</keycap>,
+            打开<keycap>从快照克隆虚拟机</keycap>窗口, 如图:
+          </para>
+        </step>
+
+        <step>
+          <para>
+            输入需要的<keycap>名称</keycap>, <keycap>描述(可选)</keycap>,
+            <keycap>注释(可选)</keycap>
+          </para>
+          <figure id="vm-clone-from-snapshot"><title>从克隆快照窗口</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-clone-from-snapshot.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            点击窗口又下角的<keycap>确定</keycap>克隆虚拟机.
+          </para>
+        </step>
+      </procedure>
+
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-4">
       <title>删除快照</title>
+      <formalpara><title>摘要</title>
       <para>
+        永久删除一个快照.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>删除快照</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
+            的所有快照.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择要删除的<keycap>快照</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            关闭关联词快照的所有运行着的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>删除</keycap>, 打开<keycap>删除快照</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>删除快照.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的该快照将会被删除. 删除快照并不会影响该虚拟机的使用.
+      </para>
+      </formalpara>
     </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10">
