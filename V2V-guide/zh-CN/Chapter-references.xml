@@ -3,39 +3,509 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-V2V-guide-V2V-guide-references_Chapter">
-	<title>参考</title>
-	<para>
-	</para>
-	<section id="sect-V2V-guide-V2V-guide-references_Section_1">
-		<title>virt-v2v 参数参考</title>
-		<para>
-		</para>
-	</section>
-	
-	<section id="sect-V2V-guide-V2V-guide-references_Section_2">
-		<title>配置</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	        <section id="sect-V2V-guide-V2V-guide-references_Section_2-1">
-		    <title>配置linux虚拟机</title>
-		     <para>
-		     </para>
-	        </section>
-	        <section id="sect-V2V-guide-V2V-guide-references_Section_2-2">
-		    <title>配置windows虚拟机</title>
-		     <para>
-		     </para>
-	        </section>
-	</section>
+<chapter id="chap-References">
+  <title>参考资料</title>
+  <para>
+    本章包含了一些关于 <command>virt-v2v</command> 的参考资料。
+  </para>
 
+  <section id="sect-References-virt_v2v_Parameters">
+    <title>virt-v2v 参数介绍</title>
+    <para>
+      以下的参数能够与 <command>virt-v2v</command> 一同被使用：
+    </para>
+    <table>
+      <title>virt-v2v 参数</title>
+      <tgroup cols="2" align="left" colsep="0" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              参数
+            </entry>
+            <entry>
+              说明
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>-i <replaceable>input</replaceable></emphasis>
+            </entry>
+            <entry>
+              指定获取需要转换的虚拟机的输入方法。默认值为 libvirt。支持的选项如下：
+              <itemizedlist>
+                <listitem>
+                  <formalpara>
+                    <title>libvirt</title>
+                    <para>
+                      虚拟机参数是一个 libvirt domain 的名称。
+                    </para>
+                  </formalpara>
+                </listitem>
+                <listitem>
+                  <formalpara>
+                    <title>libvirtxml</title>
+                    <para>
+                      虚拟机参数是一个包含 libvirt domain 描述信息的 XML 文件的路径。
+                    </para>
+                  </formalpara>
+                </listitem>
+                <listitem>
+                  <formalpara>
+                    <title>ova</title>
+                    <para>
+                      虚拟机参数是一个 VMware 导出的 OVA 文件的路径。
+                    </para>
+                  </formalpara>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-ic <replaceable>URI</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                指定与 libvirt 输入方式一起使用的所要连接的 URI。如果省略此选项，将会使用默认值<emphasis>qemu:///system</emphasis>。请注意这个选项仅在 <command>virt-v2v</command> 使用 root 权限运行时才能够生效。
+              </para>
+              <para>
+                <command>virt-v2v</command> 目前能够自动从本地的 libvirt 连接、ESX/ESX(i) 连接以及通过 SSH 的远程连接中获取虚拟机存储的信息。其它类型的连接不被支持。
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-o <replaceable>method</replaceable></emphasis>
+            </entry>
+            <entry>
+              指定输出方法。如果没有指定一个输出方法，将会使用默认值 libvirt。支持的输出方法如下：
+              <itemizedlist>
+                <listitem>
+                  <formalpara>
+                    <title>libvirt</title>
+                    <para>
+                      创建一个 libvirt 虚拟机。参见 <emphasis>-oc</emphasis> 及 <emphasis>-os</emphasis> 选项。使用 libvirt 输出方法必须同时指定 <emphasis>-os</emphasis> 选项。
+                    </para>
+                  </formalpara>
+                </listitem>
+                <listitem>
+                  <formalpara>
+                    <title>rhev</title>
+                    <para>
+                      创建一个在 &OVIRT; 导出存储域中的虚拟机，该虚拟机将能够使用 &OVIRT; 管理端被导入到 &OVIRT; 环境中。使用 <emphasis>rhev</emphasis> 输出方法必须同时使用 <emphasis>-os</emphasis> 选项指定导出存储域路径。
+                    </para>
+                  </formalpara>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-oc <replaceable>URI</replaceable></emphasis>
+            </entry>
+            <entry>
+              指定用以创建转换后的虚拟机的 libvirt 连接。如果省略此选项，如果 <command>virt-v2v</command> 使用 root 权限运行，则会使用默认值 <emphasis>qemu:///system</emphasis>。注意 <command>virt-v2v</command> 必须能够直接写入到由该 libvirt 连接指定的存储中。这造成写入到一个远程的连接在目前看来不切实际。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-os <replaceable>storage</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                指定为转换后的虚拟机创建新存储镜像的位置。该参数的内容依使用 <emphasis>-o</emphasis> 参数指定的输出方法而不同。
+              </para>
+              <para>
+                对于 <emphasis>libvirt</emphasis> 输出方法，该参数必须为 libvirt 存储域的名称。而对于 <emphasis>rhev</emphasis> 输出方法，该参数必须为 &OVIRT; 导出存储域的 NFS 路径。请注意该存储域必须首先使用 &OVIRT; 管理端进行初始化。该导出存储域的路径必须为 <emphasis><replaceable>&lt;host&gt;:&lt;path&gt;</replaceable></emphasis> 这样的格式，比如，<emphasis>EayunOS-storage.example.com:/EayunOS/export</emphasis>。
+              </para>
+              <para>
+                该 NFS 导出路径必须能够被运行 <command>virt-v2v</command> 的主机所挂载并可写。
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-op <replaceable>pool</replaceable></emphasis> （已弃用的选项）
+            </entry>
+            <entry>
+              该选项虽然仍然被支持，但已经被 <emphasis><replaceable>-os</replaceable></emphasis> 选项所取代
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-osd <replaceable>domain</replaceable></emphasis> （已弃用的选项）
+            </entry>
+            <entry>
+              该选项虽然仍然被支持，但已经被 <emphasis><replaceable>-os</replaceable></emphasis> 选项所取代
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-of <replaceable>format</replaceable></emphasis>
+            </entry>
+            <entry>
+              指定转换后的虚拟机使用的磁盘镜像格式。目前支持的选项为 <emphasis>raw</emphasis> 和 <emphasis>qcow2</emphasis>。输出的格式并不需要与源虚拟机使用的格式一致——<command>virt-v2v</command> 能够在两者之间进行格式转换。如果省略此选项，转换后的虚拟机将使用与源虚拟机一样的磁盘镜像格式。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-oa <replaceable>allocation</replaceable></emphasis>
+            </entry>
+            <entry>
+              指定转换后的虚拟机使用 <emphasis>sparce</emphasis>（稀疏分配）还是 <emphasis>preallocated</emphasis>（预分配）的存储。输出的分配策略并不需要和源虚拟机使用的策略一致——<command>virt-v2v</command> 能够在两者之间进行转换。如果省略此选项，转换后的虚拟机将采用与源虚拟机一样的磁盘分配策略。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-on <replaceable>outputname</replaceable></emphasis>
+            </entry>
+            <entry>
+              重命名虚拟机。如果省略此选项，输出的虚拟机将和原来的虚拟机名称一样。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-f <replaceable>file</replaceable> | --config <replaceable>file</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                从文件中读取 <command>virt-v2v</command> 的配置。多个配置文件能够同时被指定；它们将按指定的顺序被进行搜索。如果没有指定配置文件，默认将依次使用 <filename>/etc/virt-v2v.conf</filename> 和 <filename>/var/lib/virt-v2v/virt-v2v.db</filename>。
+              </para>
+              <important>
+                <para>
+                  当重载默认的配置选项时，我们建议您仍然指定 <filename>/var/lib/virt-v2v/virt-v2v.db</filename> 文件，因为其中包含有进行虚拟机转换所需要的默认配置。
+                </para>
+              </important>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-n <replaceable>network</replaceable> | --network <replaceable>network</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                将所有在配置文件中没有指定映射的虚拟机桥接或者网络都映射到该指定的网络。
+              </para>
+              <para>
+                该选项与 <emphasis><replaceable>--bridge</replaceable></emphasis> 选项不能够同时使用。
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-b <replaceable>bridge</replaceable> | --bridge <replaceable>bridge</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                将所有在配置文件中没有指定映射的虚拟机桥接或者网络都映射到该指定的桥接设备。
+              </para>
+              <para>
+                该选项与 <emphasis><replaceable>--network</replaceable></emphasis> 选项不能够同时使用。
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>-p <replaceable>profile</replaceable> | --profile <replaceable>profilee</replaceable></emphasis>
+            </entry>
+            <entry>
+              使用配置文件中定义的 <emphasis><replaceable>profile</replaceable></emphasis> 配置集中的输出方法、输出存储路径以及网络映射的默认值。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>--root=<replaceable>filesystem</replaceable></emphasis>
+            </entry>
+            <entry>
+              <para>
+                在多启动的虚拟机中，选择需要转换的根文件系统。该选项的默认值为 <emphasis>--root=ask</emphasis>。当选择此选项时，<command>virt-v2v</command> 将会列出可以选择的根文件系统并且询问用户哪个文件系统需要被使用。
+              </para>
+              <para>
+                其它可选的参数包括：
+                <itemizedlist>
+                  <listitem>
+                    <formalpara>
+                      <title>first</title>
+                      <para>
+                        如果检测到多个启动设备，第一个磁盘将会被使用。由于该选项将会由程序进行决定，所以其选择可能不是总是正确的。
+                      </para>
+                    </formalpara>
+                  </listitem>
+                  <listitem>
+                    <formalpara>
+                      <title>single</title>
+                      <para>
+                        指定只有一个根设备可用。如果检测到多于一个启动设备，<command>virt-v2v</command> 将会失败。
+                      </para>
+                    </formalpara>
+                  </listitem>
+                  <listitem>
+                    <formalpara>
+                      <title>&lt;path&gt;</title>
+                      <para>
+                        指定要使用的根设备，例如 <emphasis>--root=/dev/sda2</emphasis> 将会指定使用第一个硬盘的第二个分区。如果指定的设备不存在或者无法检测到，<command>virt-v2v</command> 将会失败。
+                      </para>
+                    </formalpara>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>--list-profiles</emphasis>
+            </entry>
+            <entry>
+              显示配置文件中目标配置集名称的列表。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>--help</emphasis>
+            </entry>
+            <entry>
+              显示简单的帮助信息。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>--version</emphasis>
+            </entry>
+            <entry>
+              显示版本号并退出。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-References-Configuration_Changes">
+    <title>配置的更改</title>
+    <para>
+      <command>virt-v2v</command> 除了对 libvirt 进行适当的配置以外，还会对虚拟机进行一些修改以使得其能够在 KVM 宿主机上运行，使用或者不使用 VirtIO 半虚拟化驱动。这些修改会因虚拟机操作系统的不同而不同。这里列出的详细信息适用于 RHEL/Centos 和 Windows。
+    </para>
+    <section id="sect-References-Configuration_Changes_for_Linux_Virtual_Machines">
+      <title>对 Linux 虚拟机所做的修改</title>
+      <table>
+        <title>virt-v2v 对 Linux 虚拟机所做的修改</title>
+        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                修改项目
+              </entry>
+              <entry>
+                说明
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                内核
+              </entry>
+              <entry>
+                无法启动的内核（例如 Xen 半虚拟化内核）将会被卸载。如果剩下的内核中有能够支持 VirtIO 的内核则新内核不会被安装。如果剩下的内核中没有能够支持 VirtIO 的内核或者配置文件中指定了一个新内核，则新内核会被安装并被配置成为默认内核。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                X 重新配置
+              </entry>
+              <entry>
+                如果虚拟机已经配置了 X，则其显示的驱动会被更新。参见<xref linkend="table-References-Configured_Drivers_in_a_Linux_Guest"/>以查看哪个驱动将会被使用。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                重命名块设备
+              </entry>
+              <entry>
+                如果重新配置导致了块设备重命名，那么这些改变将会在 <filename>/etc/fstab</filename> 得到体现。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                配置设备驱动
+              </entry>
+              <entry>
+                当配置了 VirtIO 或者非 VirtIO 的驱动，<command>virt-v2v</command> 会确保在 modprobe 配置中指定正确的网络和块设备驱动。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                initrd
+              </entry>
+              <entry>
+                <command>virt-v2v</command> 将会确保默认内核的 initrd 能够启动根设备，无论该内核是否使用了 VirtIO。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                SELinux
+              </entry>
+              <entry>
+                <command>virt-v2v</command> 将会在虚拟机下次启动时开始一次重新进行标签的过程。这将确保其所做的更改符合虚拟机的本地安全策略。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        <command>virt-v2v</command> 将会在 Linux 虚拟机中配置如下的驱动：
+      </para>
+      <table id="table-References-Configured_Drivers_in_a_Linux_Guest">
+        <title>在 Linux 虚拟机中配置的驱动</title>
+        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                半虚拟化驱动类型
+              </entry>
+              <entry>
+                驱动模块
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                显示
+              </entry>
+              <entry>
+                cirrus
+              </entry>
+            </row>
+            <row>
+              <entry>
+                存储
+              </entry>
+              <entry>
+                virtio_blk
+              </entry>
+            </row>
+            <row>
+              <entry>
+                网络
+              </entry>
+              <entry>
+                virtio_net
+              </entry>
+            </row>
+            <row>
+              <entry>
+                另外，initrd 将会加载 virtio_pci 驱动模块
+              </entry>
+              <entry>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                其它驱动
+              </entry>
+              <entry>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                显示
+              </entry>
+              <entry>
+                cirrus
+              </entry>
+            </row>
+            <row>
+              <entry>
+                存储
+              </entry>
+              <entry>
+                虚拟 IDE 设备
+              </entry>
+            </row>
+            <row>
+              <entry>
+                网络
+              </entry>
+              <entry>
+                虚拟的 e1000 网卡设备
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="sect-References-Configuration_Changes_for_Windows_Virtual_Machines">
+      <title>对 Windows 虚拟机所做的修改</title>
+      <warning>
+        <para>
+          转换 Windows 虚拟机前，请确保您在运行 <command>virt-v2v</command> 的主机上安装了 <replaceable>libguestfs-winsupport</replaceable> 和 <replaceable>virtio-win</replaceable> 软件包。这些软件包提供了对 NTFS 以及 Windows 半虚拟化块设备及网络设备驱动的支持。如果您尝试在未安装 <replaceable>libguestfs-winsupport</replaceable> 软件包的情况下转换一台使用了 NTFS 的虚拟机，转换将会失败。如果您尝试在未安装 <replaceable>virtio-win</replaceable> 软件包的情况下转换一台 Windows 虚拟机，转换也将会失败并给出一个关于缺少文件的错误信息。更多信息请参考<xref linkend="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine_Runing_Windows"/>。
+        </para>
+      </warning>
+      <para>
+        <command>virt-v2v</command> 能够转换运行 Windows XP、Windows Vista、Windows 7、Windows Server 2003 以及 Windows Server 2008 的虚拟机。Windows 虚拟机的转换过程与 Linux 虚拟机的转换过程稍有不同。Windows 虚拟机镜像依以下的步骤转换：
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            <command>virt-v2v</command> 安装 VirtIO 块设备驱动。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>virt-v2v</command> 安装 CDUpgrader 工具。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>virt-v2v</command> 将 VirtIO 块设备和网络设备驱动复制到 <filename>%SystemRoot%\Drivers\VirtIO</filename> 目录下。<replaceable>virtio-win</replaceable> 软件包并不包含适用于 Windows 7 及 Windows XP 的网络设备驱动。对于这些操作系统，rtl8139 网络设备驱动将会被使用。rtl8139 网卡的支持应该已经在虚拟机操作系统里被支持。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>virt-v2v</command> 添加 <filename>%SystemRoot%\Drivers\VirtIO</filename> 至 <filename>DevicePath</filename>，意味着在系统检测到新设备的时候的时候该目录将会被自动搜索驱动。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>virt-v2v</command> 修改注册表以将 VirtIO 块设备驱动包含在注册表中的 <emphasis>CriticalDeviceDatabase</emphasis> 项目中，并且确保 CDUpgrader 服务会在虚拟机下次启动的时候自动运行。
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        到目前为止，<command>virt-v2v</command> 完成了转换过程。转换后的虚拟机已经完全能够正常工作，并且对于转换到由 libvirt 管理的 KVM 来说整个转换过程已经完成。而对于转换到 &OVIRT; 环境中的虚拟机来说，&OVIRT; 管理端还需要进行如下额外的步骤来完成整个转换过程：
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            在 &OVIRT; 管理端导入并运行该虚拟机。更多信息请参考《&OVIRT; 系统管理员手册》。
+          </para>
+          <important>
+            <para>
+              首次启动可能需要几分钟，并且不能被中断。虚拟机将自动运行而不需要管理员进行除了启动虚拟机之外的其它人工干预。要确保该启动过程不被中断，直到系统完全启动之前，用户都不能登录到虚拟机中。您可以在 &OVIRT; 管理端查看相关情况。
+            </para>
+          </important>
+        </listitem>
+        <listitem>
+          <para>
+            如<xref linkend="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine_Runing_Windows"/>中所述，如果虚拟机工具 ISO 被上传到 &OVIRT; 管理端中，请在 &OVIRT; 管理端中将该 ISO 附加到虚拟机上。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            CDUpgrader 服务检测到虚拟机工具 ISO 并从其中安装所有的 VirtIO 驱动，包括不被包含在 <replaceable>virtio-win</replaceable> 软件包中的工具。如果在虚拟机工具 ISO 中的 VirtIO 驱动比原来从 <replaceable>virtio-win</replaceable> 软件包中安装的驱动要新的话，VirtIO 驱动将会被重新安装。这确保了相关的工具能够保持最新。
+          </para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
 </chapter>
 
