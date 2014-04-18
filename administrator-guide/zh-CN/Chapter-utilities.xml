@@ -4,15 +4,104 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-utilites">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>实用工具</title>
 	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
+		<title>&OVIRT;&MANAGER;重命名工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_1_1">
+            <title>关于&OVIRT;&MANAGER;重命名工具</title>
+            <para>在初始环境下运行engine-setup命令，会根据安装过程中提供的fqdn域
+                名生成一系列证书和密钥。如果后期需要修改&MANAGER;的fqdn域名（例
+                如，将&MANAGER;迁移到另一个网络环境），需要使用
+                ovirt-engine-rename命令完成所有相关的调整。
+            </para>
+        </section>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_1_2">
+            <title>使用&OVIRT;&MANAGER;重命名工具</title>
+            <simplesect>
+                <title>说明：</title>
+                <para>使用ovirt-engine-rename命令更新&MANAGER;的fqdn域名记录。
+                </para>
+                <procedure>
+                    <title>&OVIRT;&MANAGER;重命名</title>
+                    <step>
+                        <para>在DNS系统中准备好&MANAGER;新的fqdn域名记录以及其他
+                            相关记录。
+                        </para>
+                    </step>
+                    <step>
+                        <para>如果使用DHCP，修改DHCP配置。
+                        </para>
+                    </step>
+                    <step>
+                        <para>修改&MANAGER;服务器的主机名。
+                        </para>
+                    </step>
+                    <step>
+                        <para>执行下面的命令：
+<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+</screen>
+                        </para>
+                    </step>
+                    <step>
+                        <para>出现下面的提示时，按下回车键，关闭&MANAGER;：
+<screen>During execution engine service will be stopped (OK, Cancel) [OK]:
+</screen>
+                        </para>
+                    </step>
+                    <step>
+                        <para>出现下面的提示时，输入新的fqdn域名：
+<screen>New fully qualified server name:[new name]
+</screen>
+                        </para>
+                    </step>
+                </procedure>
+                <note>
+                    <para>ovirt-engine-rename支持--name参数，参数后面直接指定
+                        &MANAGER;新的fqdn域名，可以省去后面提示输入域名的步骤，
+                        如：
+<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename \
+--name=[new name]
+</screen>
+                    </para>
+                </note>
+            </simplesect>
+            <simplesect>
+                <title>预期结果：</title>
+                <para>ovirt-engine-rename会修改以下文件关联的&MANAGER;域名：
+                    <itemizedlist>
+                        <listitem><simpara>
+                                /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/ovirt-engine/imageuploader.conf.d/10-engine-setup.conf
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/ovirt-engine/isouploader.conf.d/10-engine-setup.conf
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/ovirt-engine/logcollector.conf.d/10-engine-setup.conf
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/pki/ovirt-engine/cert.conf
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/pki/ovirt-engine/cert.template
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/pki/ovirt-engine/certs/apache.cer
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/pki/ovirt-engine/keys/apache.key.nopass
+                        </simpara></listitem>
+                        <listitem><simpara>
+                                /etc/pki/ovirt-engine/keys/apache.p12
+                        </simpara></listitem>
+                    </itemizedlist>
+                </para>
+            </simplesect>
+        </section>
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2">
