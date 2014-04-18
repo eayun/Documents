@@ -3,34 +3,79 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-V2V-guide-V2V-guide-debug-troubleshoot_Chapter">
-	<title>调试和故障排查</title>
-	<para>
-	</para>
-	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_1">
-		<title>Debug v2v</title>
-		<para>
-		</para>
-	</section>
-	
-	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_2">
-		<title>Debug P2V</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
-	<section id="sect-V2V-guide-V2V-guide-debug-troubleshoot_Section_3">
-		<title>在iscsi/scsi/mpath下已知的问题</title>
-		<para>
-		</para>
-	</section>
 
+<chapter id="chap-Debugging_and_Troubleshooting">
+  <title>调试和故障排查</title>
+
+  <section id="sect-Debugging_and_Troubleshooting-Debugging_V2V_Conversions">
+    <title>调试 V2V 转换过程</title>
+    <para>
+      如果在 V2V 运行的过程中启用了调试信息，那么尝试 V2V 转换过程中遇到的问题就能够更轻松地向工程师或者技术支持服务人员进行解释。
+    </para>
+    <para>
+      输出调试信息提高了 V2V 过程输出信息的详细程度，将会使得 <command>virt-v2v</command> 在运行过程中不断输出调试信息。这些调试信息将会在运行 <command>virt-v2v</command> 的终端上显示出来。
+    </para>
+    <para>
+      您可以使用简单的重定向来将 <command>virt-v2v</command> 的调试信息打印到文件。通常情况下，转换的命令如下：
+    </para>
+    <screen>
+virt-v2v -i libvirtxml -os pool --bridge <emphasis><replaceable>bridge_name</replaceable></emphasis> <emphasis><replaceable>guest_name.xml</replaceable></emphasis>
+    </screen>
+    <para>
+      您可以通过修改上面命令来输出调试信息到 <filename>virt-v2v.log</filename> 文件中。首先，在命令之前加上环境变量参数 <emphasis>LIBGUESTFS_TRACE=1 LIBGUESTFS_DEBUG=1</emphasis>，然后，通过在命令后面加上 <emphasis>... 2&gt;&amp;1 | tee virt-v2v.log</emphasis> 来重定向输出信息到 <filename>virt-v2v.log</filename> 文件。
+    </para>
+    <screen>
+LIBGUESTFS_TRACE=1 LIBGUESTFS_DEBUG=1 virt-v2v -i libvirtxml -os pool --bridge <emphasis><replaceable>bridge_name</replaceable></emphasis> <emphasis><replaceable>guest_name.xml</replaceable></emphasis> ... 2&gt;&amp;1 | tee virt-v2v.log
+    </screen>
+  </section>
+
+  <section id="sect-Debugging_and_Troubleshooting-Debugging_P2V_Conversions">
+    <title>调试 P2V 转换过程</title>
+    <para>
+      如果在 P2V 运行的过程中启用了调试信息，那么尝试 P2V 转换过程中遇到的问题就能够更轻松地向工程师或者技术支持服务人员进行解释。
+    </para>
+    <para>
+      输出调试信息提高了 P2V 过程输出信息的详细程度，将会使得 <command>virt-p2v</command> 在运行过程中不断输出调试信息。这些调试信息将会在运行 <command>virt-p2v</command> 的终端上显示出来。
+    </para>
+    <para>
+      您可以使用简单的重定向来将 <command>virt-p2v</command> 的调试信息打印到文件。
+    </para>
+    <para>
+      要启用 P2V 调试，请在 <command>virt-p2v</command> 客户端的转换界面上勾选 <emphasis>Enable server-side debugging</emphasis> 选项，然后再点击 <command>Convert</command> 按钮。
+    </para>
+    <para>
+      这将使得转换服务器在转换过程中输出 <emphasis>LIBGUESTFS_TRACE</emphasis> 和 <emphasis>LIBGUESTFS_DEBUG</emphasis> 相关的信息。
+    </para>
+    <para>
+      参考<xref linkend="chap-Converting_Physical_Machines_to_Virtual_Machines"/>获得使用 <command>virt-p2v</command> 的指南。
+    </para>
+  </section>
+
+  <section id="sect-Debugging_and_Troubleshooting-Known_Issue_with_iscsi_mpath_scsi_Storage_Volumes">
+    <title>在 iscsi/mpath/scsi 存储卷下的已知问题</title>
+    <para>
+      目前 <command>virt-v2v</command> 无法转换使用以下类型存储池中的卷作为磁盘的客户机：
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          iscsi
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          mpath
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          scsi
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      转换这样一台虚拟机的尝试将会失败。针对这个问题，目前仍然没有解决方案。
+    </para>
+  </section>
 </chapter>
 
