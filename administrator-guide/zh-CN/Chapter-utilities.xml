@@ -384,5 +384,146 @@ Domain: eayunos.eayun.com
         </section>
     </section>
 
+    <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_3">
+        <title>&OVIRT;配置管理工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_3_1">
+            <title>关于&OVIRT;配置管理工具</title>
+            <para>安装&OVIRT;&MANAGER;时自动对其中一些默认配置进行修改，调整
+                &MANAGER;的配置项有专门的配置管理工具：engine-config。
+            </para>
+            <para>&OVIRT;配置管理工具并不依赖于&MANAGER;是否已经启动，配置项是保
+                存在数据库的，因此只需要确保使用配置管理工具时数据库在正常运行。
+                修改过的配置项在&MANAGER;重启之后生效。
+            </para>
+            <para>&OVIRT;&MANAGER;的配置项是一系列的key-value对。配置管理工具可
+                以进行以下操作：
+                <itemizedlist>
+                    <listitem><simpara>
+                        列出所有的配置项（key），
+                    </simpara></listitem>
+                    <listitem><simpara>
+                        列出所有的配置项的值（value），
+                    </simpara></listitem>
+                    <listitem><simpara>
+                        获取指定配置项的值，
+                    </simpara></listitem>
+                    <listitem><simpara>
+                        修改指定配置项的值。
+                    </simpara></listitem>
+                </itemizedlist>
+            </para>
+            <para>&OVIRT;配置管理工具可以同时多份&MANAGER;的配置。指定配置的版本
+                时，执行命令需要加上--cver参数，默认的配置的版本是general。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_3_2">
+            <title>&OVIRT;配置管理工具的命令行说明</title>
+            <para>&OVIRT;&MANAGER;服务器上安装了配置管理工具，关于命令的详细说明
+                可以执行下面的命令获取：
+                <screen># engine-config --help
+                </screen>
+            </para>
+            <simplesect>
+                <title>常规操作</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>列出所有的配置项</term>
+                        <listitem><para>使用--list选项可以列出所有的配置项
+                                <screen># engine-config --list
+                                </screen>
+                                所有的配置项及其描述都会打印出来。
+                        </para></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>列出所有配置项的值</term>
+                        <listitem><para>使用--all选项可以列出所有配置项的值
+                                <screen># engine-config --all
+                                </screen>
+                                所有的配置项、配置项当前值以及配置版本都会打印出
+                                来。
+                        </para></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>获取指定配置项的值</term>
+                        <listitem><para>使用--get可以获取指定配置项的值
+                                <screen># engine-config --get KEY_NAME
+                                </screen>
+                                将KEY_NAME替换为要查询的配置项。命令会打印出该配
+                                置项，配置项当前值以及配置版本。要或者指定配置版
+                                本中配置项的值，需要加上--cver选项。
+                        </para></listitem>
+                    </varlistentry>                    <varlistentry>
+                        <term>设置指定配置项的值</term>
+                        <listitem><para>使用--set可以设置指定配置项的值，要设置
+                                指定配置版本中配置项的值，需要加上--cver选项。
+<screen># engine-config --set KEY_NAME=KEY_VALUE --cver=VERSION
+</screen>
+                                将KEY_NAME替换为要设置的配置项，KEY_VALUE替换为
+                                配置项的值，设置其他版本配置中的配置项时将
+                                VERSION替换为配置的版本。
+                        </para></listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_3_3">
+            <title>admin@internal用户</title>
+            <para>安装&OVIRT;&MANAGER;时会自动创建admin@internal用户，用户信息保
+                存在&MANAGER;自身的数据库中，其他用户则需要从目录服务中添加。和
+                外部目录服务的用户域不同，internal域无法增加、删除用户。
+                admin@internal用户在&OVIRT;&MANAGER;中拥有SuperUser角色，具有管
+                理权限。
+            </para>
+            <para>admin@internal用户的密码在安装&MANAGER;的过程中设置，修改密码
+                需要使用engine-config命令。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_3_4">
+            <title>修改admin@internal用户的密码</title>
+            <procedure>
+                <step>
+                    <para>使用root用户登录到&OVIRT;&MANAGER;服务器。
+                    </para>
+                </step>
+                <step>
+                    <para>使用engine-config命令为admin@internal设置新的密码：
+                        <screen># engine-config -s AdminPassword=interactive
+                        </screen>
+                        如果密码中有特殊字符，注意使用转义。
+                    </para>
+                </step>
+                <step>
+                    <para>重启&MANAGER;使新的密码生效：
+                        <screen># service ovirt-engine restart
+                        </screen>
+                    </para>
+                </step>
+            </procedure>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_3_5">
+            <title>配置管理工具使用示例</title>
+            <example>
+                <title>获取配置项的值</title>
+<screen># engine-config --get=SearchResultsLimit --cver=general
+100
+</screen>
+            </example>
+            <example>
+                <title>设置配置项的值</title>
+<screen># engine-config --set SearchResultsLimit=50 --cver=general
+</screen>
+            </example>
+        </section>
+    </section>
+
 </chapter>
 
