@@ -7,10 +7,10 @@
 <chapter id="chap-Convert_to_EayunOS">
   <title>将虚拟机转化到 &OVIRT; 中运行</title>
   <para>
-    <command>virt-v2v</command> 能够将虚拟机从 Xen、KVM 以及 VMWare ESX/ESX(i) 环境中转化到 &OVIRT; 中运行。在转化之前，您必须附加一个导出存储域到您所用的 &OVIRT; 数据中心中。<xref linkend="sect-Attaching_an_Export_Storage_Domain"/>详细介绍了附加导出存储域的过程。更多关于导出存储域的信息，请参考《&OVIRT; 系统管理员手册》。
+    <command>virt-v2v</command> 能够将虚拟机从 Xen、KVM 以及 VMWare ESX/ESX(i) 环境中转化到 &OVIRT; 中运行。在转化之前，您必须附加一个导出存储域到您所用的 &OVIRT; 数据中心中。<xref linkend="sect-Convert_to_EayunOS-Attaching_an_Export_Storage_Domain"/>详细介绍了附加导出存储域的过程。更多关于导出存储域的信息，请参考《&OVIRT; 系统管理员手册》。
   </para>
 
-  <section id="sect-Acceptable_Converted_Storage_Output_Formats">
+  <section id="sect-Convert_to_EayunOS-Acceptable_Converted_Storage_Output_Formats">
     <title>可接受的转化后存储输出格式</title>
     <para>
       当转化一个虚拟机到 &OVIRT; 中运行时，您必须了解的有一点很重要的是，并非所有存储格式及分配策略的组合都能够被支持。支持的组合因所要导入虚拟机到的 &OVIRT; 数据中心的数据存储域使用块设备（FC 或者 iSCSI）存储或者文件（NFS）存储而不同。另外，您还需要注意到 <command>virt-v2v</command> 写入到一个必须为 NFS 的<emphasis>导出</emphasis>存储域。
@@ -146,7 +146,7 @@
     </important>
   </section>
 
-  <section id="sect-Attaching_an_Export_Storage_Domain">
+  <section id="sect-Convert_to_EayunOS-Attaching_an_Export_Storage_Domain">
     <title>附加导出存储域</title>
     <para>
       导入虚拟机到 &OVIRT; 之前，您首先必须附加一个导出存储域到所使用的 &OVIRT; 数据中心中。
@@ -200,17 +200,17 @@
     </procedure>
   </section>
 
-  <section id="sect-Converting_a_Virtual_Machine">
+  <section id="sect-Convert_to_EayunOS-Converting_a_Virtual_Machine">
     <title>转换虚拟机到 &OVIRT;</title>
     <para>
-      <command>virt-v2v</command> 将一个外部宿主机中的虚拟机转换到 &OVIRT; 环境中。它会自动将虚拟机的镜像及元数据进行打包并上传至 &OVIRT; 环境中的导出存储域中。关于导出存储域的更多信息，请参考<xref linkend="sect-Attaching_an_Export_Storage_Domain"/>。<command>virt-v2v</command> 在转换之前总会先对存储镜像进行一次复制。
+      <command>virt-v2v</command> 将一个外部宿主机中的虚拟机转换到 &OVIRT; 环境中。它会自动将虚拟机的镜像及元数据进行打包并上传至 &OVIRT; 环境中的导出存储域中。关于导出存储域的更多信息，请参考<xref linkend="sect-Convert_to_EayunOS-Attaching_an_Export_Storage_Domain"/>。<command>virt-v2v</command> 在转换之前总会先对存储镜像进行一次复制。
     </para>
     <!-- TODO: Figure 4.2. Converting a virtual machine -->
     <para>
       使用 &OVIRT; 管理员门户，您可以将虚拟机镜像从导出存储域中导入到 &OVIRT; 中。
     </para>
     <!-- TODO: Figure 4.3. Importing a virtual machine -->
-    <section id="sect-Preparing_to_Convert_a_Virtual_Machine">
+    <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine">
       <title>转换虚拟机前的准备工作</title>
       <para>
         转换虚拟机之前，请确保您完成了如下步骤：
@@ -244,14 +244,14 @@
           </para>
         </step>
       </procedure>
-      <section id="sect-Preparing_to_Convert_a_Virtual_Machine_Running_Linux">
+      <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine_Running_Linux">
         <title>转换运行 Linux 的虚拟机前的准备工作</title>
         <para>
           无论您是从什么宿主机上将虚拟机转换到 &OVIRT; 上，以下步骤都是必须完成的。
         </para>
         <!-- TODO: 又涉及很多的 RHN -->
       </section>
-      <section id="sect-Preparing_to_Convert_a_Virtual_Machine_Runing_Windows">
+      <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine_Runing_Windows">
         <title>转换运行 Windows 的虚拟机前的准备工作</title>
         <important>
           <para>
@@ -271,7 +271,7 @@
         </para>
         <!-- TODO: RHN -->
       </section>
-      <section id="sect-Preparing_to_Convert_a_Local_Xen_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Local_Xen_Virtual_Machine">
         <title>转换一个本地 Xen 虚拟机前的准备工作</title>
         <para>
           以下步骤在您要将一个原本基于 Xen 的虚拟机转换到基于 KVM 上运行时是必须的。但在转换一个直接从 libvirt/Xen 实例中导入的 Xen 虚拟机时是不需要的。
@@ -292,7 +292,7 @@
         </procedure>
       </section>
     </section>
-    <section id="sect-Converting_a_Virtual_Machine_A">
+    <section id="sect-Convert_to_EayunOS-Converting_a_Virtual_Machine_A">
       <title>转换虚拟机</title>
       <para>
         在您完成转换虚拟机的准备工作之后，就可以使用 <command>virt-v2v</command> 来执行具体的转换过程了。本节将介绍转换虚拟机的步骤，以及 <command>virt-v2v</command> 的命令语法。
@@ -310,7 +310,7 @@ virt-v2v: win2k3r2-pv-32 configured with virtio drivers.
       <para>
         确定转换时间的主要因素是要复制的磁盘大小。对于平均水平硬件上具有单个 20GB 大小以下磁盘的虚拟机，转换过程所需要的时间应该在 10 分钟以内。
       </para>
-      <section id="sect-virt_v2v">
+      <section id="sect-Convert_to_EayunOS-virt_v2v">
         <title>virt-v2v</title>
         <para>
           <command>virt-v2v</command> 将一个外部宿主机上运行的虚拟机转换到 &OVIRT; 之中。将虚拟机转换到 &OVIRT; 中一般用到的命令语法如下：
@@ -329,7 +329,7 @@ virt-v2v -ic esx://esx.example.com/?no_verify=1 -o rhev -os storage.example.com:
           </para>
         </important>
       </section>
-      <section id="sect-Converting_a_Local_Xen_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_Local_Xen_Virtual_Machine">
         <title>转换本地运行的 Xen 虚拟机</title>
         <para>
           确保虚拟机的 XML 文件在本地可用，在该 XML 文件中指向的存储路径也在本地可用并且路径相同。
@@ -362,7 +362,7 @@ virt-v2v -ic xen:/// -o rhev -os storage.example.com:/exportdomain --network ovi
           如果您的虚拟机使用了 Xen 半虚拟化内核（内核名称通常为 kernel-xen 或者 kernel-xenU），<command>virt-v2v</command> 会在转换过程中尝试安装新的内核。您可以在转换之前安装另外的不在其名称中表现出其所在宿主机的普通内核来避免此过程。但是您不能将该另外安装的内核作为默认内核，因为 Xen 将无法启动它。<command>virt-v2v</command> 在转换过程中将会自动将其设置为默认内核。
         </para>
       </section>
-      <section id="sect-Converting_a_Remote_Xen_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_Remote_Xen_Virtual_Machine">
         <title>转换远程的 Xen 虚拟机</title>
         <para>
           Xen 虚拟机能够通过 SSH 被远程进行转换。确保运行虚拟机的主机能够通过 SSH 访问。另外，在转换具有多个磁盘的虚拟机时，每个磁盘的转换都需要一个独立的 SSH 会话来进行。
@@ -388,7 +388,7 @@ virt-v2v -ic xen+ssh://root@vmhost.example.com -o rhev -os storage.example.com:/
           如果您的虚拟机使用了 Xen 半虚拟化内核（内核名称通常为 kernel-xen 或者 kernel-xenU），<command>virt-v2v</command> 会在转换过程中尝试安装新的内核。您可以在转换之前安装另外的不在其名称中表现出其所在宿主机的普通内核来避免此过程。但是您不能将该另外安装的内核作为默认内核，因为 Xen 将无法启动它。<command>virt-v2v</command> 在转换过程中将会自动将其设置为默认内核。
         </para>
       </section>
-      <section id="sect-Converting_a_Local_KVM_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_Local_KVM_Virtual_Machine">
         <title>转换一个本地的 KVM 虚拟机</title>
         <para>
           使用下列步骤转换一个本地的 KVM 虚拟机:
@@ -430,7 +430,7 @@ virt-v2v -o rhev -ic qemu:///system -os storage.example.com:/exportdomain --netw
           </step>
         </procedure>
       </section>
-      <section id="sect-Converting_a_Remote_KVM_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_Remote_KVM_Virtual_Machine">
         <title>转换远程的 KVM 虚拟机</title>
         <para>
           KVM 虚拟机能够通过 SSH 被远程进行转换。确保运行虚拟机的主机能够通过 SSH 访问。另外，在转换具有多个磁盘的虚拟机时，每个磁盘的转换都需要一个独立的 SSH 会话来进行。
@@ -453,7 +453,7 @@ virt-v2v -ic qemu+ssh://root@kvmhost.example.com/system -o rhev -os storage.exam
           在您的虚拟机只有一个网络接口的情况下，您还可以使用 <command><replaceable>--bridge</replaceable></command> 参数来连接到本地管理的网络。假如您的虚拟机有多个网络接口，请编辑 <filename>/etc/virt-v2v.conf</filename> 指定所有接口的网络映射。
         </para>
       </section>
-      <section id="sect-Converting_a_VMware_ESX_ESXi_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_VMware_ESX_ESXi_Virtual_Machine">
         <title>转换 VMware ESX/ESX(i) 的虚拟机</title>
         <important>
           <para>
@@ -499,7 +499,7 @@ machine esx.example.com login root password P@ssw0rd
 ... -ic esx://esx.example.com/?no_verify=1 ...
         </screen>
       </section>
-      <section id="sect-Converting_a_VMware_VMDK_Virtual_Machine">
+      <section id="sect-Convert_to_EayunOS-Converting_a_VMware_VMDK_Virtual_Machine">
         <title>从 VMware 的 VMDK 中转换虚拟机</title>
         <important>
           <para>
@@ -520,7 +520,7 @@ machine esx.example.com login root password P@ssw0rd
         </para>
       </section>
     </section>
-    <section id="sect-Importing_and_Running_the_Converted_Virtual_Machine">
+    <section id="sect-Convert_to_EayunOS-Importing_and_Running_the_Converted_Virtual_Machine">
       <title>导入并运行转换后的虚拟机</title>
       <para>
         <command>virt-v2v</command> 在成功完成之后会将转换后的虚拟机上传至指定的导出域中。执行以下步骤导入并运行该转换后的虚拟机。
@@ -563,7 +563,7 @@ machine esx.example.com login root password P@ssw0rd
         </para>
       </formalpara>
     </section>
-    <section id="sect-Scripting_the_v2v_Process">
+    <section id="sect-Convert_to_EayunOS-Scripting_the_v2v_Process">
       <title>为 v2v 过程编写脚本</title>
       <para>
         整个 v2v 的过程可以编写脚本来完成，从而实现大批量虚拟机的自动转换。该过程分为步，必须在不同的机器上运行。
@@ -572,7 +572,7 @@ machine esx.example.com login root password P@ssw0rd
         <title>为 v2v 过程编写脚本</title>
         <step>
           <para>
-            使用 <command>virt-v2v</command> 转换虚拟机并将它们复制到导出存储域中。这一步骤必须在 Linux 机器上完成。该过程在<xref linkend="sect-Converting_a_Virtual_Machine_A"/>中已进行了详细介绍。
+            使用 <command>virt-v2v</command> 转换虚拟机并将它们复制到导出存储域中。这一步骤必须在 Linux 机器上完成。该过程在<xref linkend="sect-Convert_to_EayunOS-Converting_a_Virtual_Machine_A"/>中已进行了详细介绍。
           </para>
         </step>
         <step>
@@ -635,7 +635,7 @@ action vm "vm-to-import" import_vm --storagedomain-identifier "from-sd-id" --clu
         </step>
       </procedure>
     </section>
-    <section id="sect-Scripted_Bulk_v2v_Process">
+    <section id="sect-Convert_to_EayunOS-Scripted_Bulk_v2v_Process">
       <title>脚本化的批量 v2v 过程</title>
       <para>
         对于批量导入的场景来说，能够在单台机器上执行脚本化的 v2v 过程就显得非常有好处。您可以使用 REST API 向 &OVIRT; 管理端发起远程过程调用。这使得在单台 Linux 主机上完成 v2v 过程的两个步骤变得可能。<!-- TODO: <xref linkend="Figure-Scriptd_Bulk_v2v_Process"/> -->展现了脚本执行的过程。
