@@ -104,8 +104,8 @@
         </section>
 	</section>
 	
-	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2">
-		<title>&OVIRT;域管理工具</title>
+    <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2">
+        <title>&OVIRT;域管理工具</title>
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_1">
             <title>关于&OVIRT;域管理工具</title>
@@ -265,7 +265,124 @@
                 </screen>
             </para>
         </section>
-	</section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_3">
+            <title>使用&OVIRT;域管理工具</title>
+            <para>后面几小节通过实际的例子对于&OVIRT;域管理工具的使用方法进行了
+                说明。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_4">
+            <title>添加目录服务</title>
+            <para>本例中，engine-manage-domains将IdM域demo.eayunos.eayun.com添加
+                到&OVIRT;&MANAGER;中。使用的用户是eayunos，密码是手动提供的。
+                <example>
+                    <title>engine-manage-domains的add操作</title>
+<screen>
+# engine-manage-domains -action=add -domain=demo.eayunos.eayun.com \
+-provider=IPA -user=eayunos -interactive
+loaded template kr5.conf file
+setting default_tkt_enctypes
+setting realms
+setting domain realm
+success
+User guid is: 6d580ef5-130a-4931-bcd0-23bd23028ece
+Successfully added domain demo.eayunos.eayun.com. oVirt Engine restart is
+required in order for the changes to take place (service ovirt-engine restart).
+</screen>
+                </example>
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_5">
+            <title>修改目录服务</title>
+            <para>本例中，engine-manage-domains对IdM域demo.eayunos.eayun.com的配
+                置进行了更改。更改完成之后，&OVIRT;&MANAGER;查询目录服务时使用新
+                的用户eayunos。命令执行时密码手动提供。
+                <example>
+                    <title>engine-manage-domains的edit操作</title>
+<screen>
+# engine-manage-domains -action=edit -domain=demo.eayunos.eayun.com \
+-provider=IPA -user=eayunos -interactive
+loaded template kr5.conf file
+setting default_tkt_enctypes
+setting realms
+setting domain realm
+success
+User guid is: 6d580ef5-130a-4931-bcd0-23bd23028ece
+Successfully added domain demo.eayunos.eayun.com. oVirt Engine restart is
+required in order for the changes to take place (service ovirt-engine restart).
+</screen>
+                </example>
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_6">
+            <title>删除目录服务</title>
+            <para>本例中，engine-manage-domains从&OVIRT;&MANAGER;中删除IdM域
+                demo.eayunos.eayun.com的配置。更改完成之后，&OVIRT;&MANAGER;中属
+                于demo.eayunos.eayun.com的用户将无法登录，但是依然会保留在用户列
+                表中，除非手动清理用户列表。
+            </para>
+            <para>本例中要删除的目录服务是&OVIRT;&MANAGER;中最后一个，所以命令执
+                行过程中会给出一个警告，提醒用户最后一个目录服务删除之后，只有
+                admin@internal用户可以登录到&MANAGER;，新的用户只能在添加新的目
+                录服务之后手动添加。
+                <example>
+                    <title>engine-manage-domains的delete操作</title>
+<screen>
+# engine-manage-domains -action=delete -domain=demo.eayunos.eayun.com
+WARNING: Domain directory.demo.redhat.com is the last domain in the
+configuration. After deleting it you will have to either add another domain, or
+to use the internal admin user in order to login.
+Successfully deleted domain demo.eayunos.eayun.com. Please remove all users
+and groups of this domain using the Administration portal or the API.
+</screen>
+                </example>
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_7">
+            <title>验证目录服务</title>
+            <para>本例中，engine-manage-domains对&OVIRT;&MANAGER;中的目录服务进
+                行验证。验证方法是根据配置文件中每一个目录服务的验证信息进行登录
+                尝试，如果成功登录则说明目录服务可用。
+                <example>
+                    <title>engine-manage-domains的validate操作</title>
+<screen>
+# engine-manage-domains -action=validate
+Domain eayunos.eayun.com is valid.
+The configured user for domain eayunos.eayun.com is eayunos@EAYUNOS.EAYUN.COM
+Manage Domains completed successfully
+</screen>
+                </example>
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_8">
+            <title>列出所有目录服务</title>
+            <para>本例中，engine-manage-domains会列出&OVIRT;&MANAGER;中所有目录
+                服务。命令结果会列出域名称，域用户（UPN，User Principal Name格
+                式）。
+                <example>
+                    <title>engine-manage-domains的list操作</title>
+<screen>
+# engine-manage-domains -action=list
+Domain: eayunos.eayun.com
+    User name: eayunos@EAYUNOS.EAYUN.COM
+    Manage Domains completed successfully
+</screen>
+                </example>
+            </para>
+        </section>
+    </section>
 
 </chapter>
 
