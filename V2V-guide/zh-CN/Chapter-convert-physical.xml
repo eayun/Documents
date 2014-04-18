@@ -277,7 +277,7 @@ nano /etc/virt-v2v.conf
         </para>
       </formalpara>
       <para>
-        更多关于制作可启动介质的信息，请参考<!-- TODO: 链接到 Appendix A, Additional procedures -->。
+        更多关于制作可启动介质的信息，请参考<xref linkend="appe-Additional_Procedures"/>
       </para>
       <para>
         您已经完成了所有的准备工作，现在可以开始转换一台物理机到虚拟机了。

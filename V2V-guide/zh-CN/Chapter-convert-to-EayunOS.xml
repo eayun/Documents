@@ -267,7 +267,7 @@
           </para>
         </important>
         <para>
-          无论您是从什么宿主机上将虚拟机转换到 &OVIRT; 上，以下步骤都是必须完成的。转换过程的还需要在 &OVIRT; 管理端中进行其它操作才能完成。参考<!-- TODO: 链接到 7.2.2, "Configuration changes for Windows virtual machines" -->以了解操作的详情。
+          无论您是从什么宿主机上将虚拟机转换到 &OVIRT; 上，以下步骤都是必须完成的。转换过程的还需要在 &OVIRT; 管理端中进行其它操作才能完成。参考<xref linkend="sect-References-Configuration_Changes_for_Windows_Virtual_Machines"/>以了解操作的详情。
         </para>
         <!-- TODO: RHN -->
       </section>
