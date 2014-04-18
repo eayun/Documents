@@ -105,17 +105,166 @@
 	</section>
 	
 	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+		<title>&OVIRT;域管理工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_1">
+            <title>关于&OVIRT;域管理工具</title>
+            <para>&OVIRT;虚拟化环境使用目录服务对于用户进行管理和验证。要在
+                &OVIRT;虚拟化环境中添加用户，首先通过admin@internal用户为
+                &MANAGER;配置目录服务。添加、删除目录服务时使用
+                engine-manage-domains命令。
+            </para>
+            <para>只有&OVIRT;&MANAGER;服务器上安装了engine-manage-domains命令，
+                该命令必须由root用户执行。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_2_2">
+            <title>&OVIRT;域管理工具的命令行说明</title>
+            <para>命令的使用方法如下：
+                <synopsis>
+                    engine-manage-domains -action=ACTION [options]
+                </synopsis>
+                可用的操作（ACTION）有：
+                <variablelist>
+                    <varlistentry>
+                        <term>add</term>
+                        <listitem>
+                            <para>为&OVIRT;&MANAGER;添加目录服务。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>edit</term>
+                        <listitem>
+                            <para>编辑&OVIRT;&MANAGER;中的目录服务。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>delete</term>
+                        <listitem>
+                            <para>为&OVIRT;&MANAGER;删除目录服务。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>validate</term>
+                        <listitem>
+                            <para>验证&OVIRT;&MANAGER;中的目录服务。该操作会使用
+                                之前配置的用户和密码对所有目录服务进行验证尝试。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>list</term>
+                        <listitem>
+                            <para>列出&OVIRT;&MANAGER;中的目录服务。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+                其他的命令行选项要配合操作一同使用：
+                <variablelist>
+                    <varlistentry>
+                        <term>-domain=DOMAIN</term>
+                        <listitem>
+                            <para>制定要进行操作的域。对于add、edit和delete操作
+                                -domain是必须指定的。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-provider=PROVIDER</term>
+                        <listitem>
+                            <para>指定目录服务的类型，支持的目录服务有：
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>ActiveDirectory - Active Directory
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>IPA - Identity Management（IdM）
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>RHDS - Red Hat Directory Service。
+                                            RHDS不使用Kerberos，而&OVIRT;虚拟化
+                                            环境要求使用Kerberos，因此使用RHDS时
+                                            需要配置Kerberos域中的一个目录服务。
+                                            <note>
+                                                <para>使用RHDS时必须安装memberof
+                                                    插件，使用memeberof插件要求
+                                                    用户都是inetuser用户。
+                                                </para>
+                                            </note>
+                                        </para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-user=USER</term>
+                        <listitem>
+                            <para>指定目录服务的用户。在add操作中-user选项是必需
+                                的，edit操作则可以不会指定。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-passwordFile=FILE</term>
+                        <listitem>
+                            <para>指定密码文件，目录服务用户的密码在该文件的第一
+                                行。执行add操作时，-passwordFile或者-interactive
+                                选项必须使用其中一个。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-addPermissions</term>
+                        <listitem>
+                            <para>为指定的域用户赋予在&OVIRT;&MANAGER;中的
+                                SuperUser角色。默认的情况下，没有启用这一选项，
+                                指定的域用户不会获得SuperUser的角色。在add和edit
+                                操作中可以选择使用-addPermissions选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-interactive</term>
+                        <listitem>
+                            <para>指定域用户的密码是否手动（交互式）地提供。在
+                                add操作中，该选项和-passwordFile必须选择其中一个
+                                使用。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-configFile=FILE</term>
+                        <listitem>
+                            <para>指定命令配置文件的路径。不使用默认配置文件时，
+                                使用该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-report</term>
+                        <listitem>
+                            <para>该选项和validate操作一起使用时，会生成在验证过
+                                程发生的所有错误信息的报告。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <para>engine-manage-domains使用方法的完整说明也可以通过下面的命令获
+                取：
+                <screen># engine-manage-domains --help
+                </screen>
+            </para>
+        </section>
 	</section>
 
 </chapter>
