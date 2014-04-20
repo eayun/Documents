@@ -3232,49 +3232,343 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11">
     <title>在主机之间迁移虚拟机</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-1">
       <title>什么是在线迁移？</title>
       <para>
+        在线迁移将运行中的虚拟机的运行环境从一台主机转移到另一台主机, 这个过程
+        不会中断虚拟机的运行.
+      </para>
+      <para>
+        此外, 这个过程对使用该虚拟机的中断用户是透明的: 在迁移过程中, 虚拟机不会
+        断电或者暂停, 应用程序不会发生任何的中断.
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-2">
       <title>在线迁移的需求</title>
       <para>
+        在线迁移是指允许用户无缝的在主机之间移动虚拟机, 这使得 &OVIRT; 管理系统
+        可以支持很多维护业务. 在使用在线迁移功能之前, 请确保 &OVIRT; 系统配置
+        正确.
+      </para>
+      <para>
+        要支持在线迁移, 目前需要满足以下条件:
+        <itemizedlist>
+          <listitem>
+            <para>
+              源主机和目的主机必须处于同一个集群中, 两个主机的 CPU 必选兼容.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              源主机和目的主机必须同事处于 <keycap>Up</keycap> 状态.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              源主机和目的主机必须对同样的虚拟网络和 VLANs 具有同样的访问权限.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              源主机和目的主机必须对虚拟机所在的存储域具有访问权限.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              目的主机必须具有足够的 CPU 兼容性来运行虚拟机.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              目的主机必须具有足够的空闲内存来运行虚拟机.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              在虚拟机的自定义属性中, 待迁移的虚拟机的 cache 设置不能为除
+              <keycap>none</keycap> 之外的其他值.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        此外, 为了达到很好的性能, 在设置网络的时候, 存储和管理的网络必须分开,
+        这样可以避免存储的网络流量和管理的网络都在一个网卡, 减轻网络负担. 在迁移
+        的时候会在主机之间传送大量的数据.
+      </para>
+      <para>
+        在线迁移的数据是在管理网络上流通的. 每一个迁移都限制了能使用的最大
+        带宽(大约是 30MBPS), 能同时并发的迁移数也是有限制的. 如果没有这些
+        限制的话, 一旦并发数很多, 可能会造成网络拥塞. 因此我们推荐在设置主机的
+        网络的时候, 最好把用于存储, 显示, 虚拟机数据等的网络互相隔离开, 使得
+        网络的利用率最大.
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-3">
       <title>自动迁移</title>
       <para>
+        当主机处于维护模式的时候, &OVIRT; 系统会自动迁移该主机上运行的虚拟机
+        到其他主机上. &OVIRT; 会根据主机的负载选择目的主机.
+      </para>
+      <para>
+        在集群的策略起作用时, 比如负载均衡的条件被触发, 管理端会自动地根据策略
+        开始虚拟机的迁移. 我们推荐用户根据自己的环境选择适合的集群策略, 用户
+        也可以选择设置某个虚拟机不允许迁移.
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-4">
       <title>防止虚拟机自动迁移</title>
+      <formalpara><title>摘要</title>
       <para>
+        &OVIRT; 系统允许用户禁止虚拟机的自动迁移. 甚至用户可以指定虚拟机不能手动
+        迁移, 即虚拟机只能运行在特定的虚拟机上.
       </para>
+      </formalpara>
+      <para>
+        在虚拟机的高可用场景里, 有时需要虚拟机只能运行在一台虚拟机里, 不能被各种
+        集群的策略迁移到其他主机.
+      </para>
+
+      <procedure>
+        <title>防止虚拟机自动迁移</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要的
+            虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>打开<keycap>编辑虚拟机</keycap>窗口.
+          </para>
+          <!-- TODO: picture -->
+        </step>
+        <step>
+          <para>
+            点击<keycap>主机</keycap>标签.
+          </para>
+        </step>
+        <step>
+          <para>在<keycap>开始运行在</keycap>设置中, 选择运行在
+          <keycap>集群里的任何主机</keycap>或者<keycap>专有的主机</keycap>.
+          </para>
+          <warning>
+            <para>
+              目前, 在 &OVIRT; 中, 指定虚拟机运行在特定主机或者指定虚拟机不允
+              许迁移和虚拟机高可用是冲突的, 在这种情况下, 要使用虚拟机高可用, 用户
+              可以通过第三方插件实现.
+            </para>
+          </warning>
+        </step>
+        <step>
+          <para>
+            在<keycap>迁移选项</keycap>中, 选择<keycap>不允许移植</keycap>,
+            此时可以勾选<keycap>使用主机 CPU</keycap>来得到最佳的 CPU 性能.
+          </para>
+        </step>
+        <step>
+          <para>
+            这个时候, 可以在<keycap>资源分配</keycap>上设置
+            <keycap>CPU Pinning 拓扑结构</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>完成设置.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的迁移设置将会被改变.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-5">
       <title>手动迁移虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        用户可以手动迁移运行中的虚拟机到集群中的另一台主机上. 在主机的负载很高
+        的时候这是很有用的. 当主机出现问题或者主机被置为维护模式的时候, 系统会
+        自动迁移虚拟机到其它主机上, 这时候用户不需要手动迁移. 无论怎样, 在线
+        迁移虚拟机并不会中断虚拟机中运行的业务.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>手动迁移虚拟机</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的运行中的虚拟机.
+          </para>
+          <para>
+            点击<keycap>移植</keycap>, 打开<keycap>移植虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<keycap>自动选择主机</keycap>或者<keycap>选择目的地主机</keycap>,
+            并在下拉菜单中选择要迁移到的主机.
+          </para>
+          <note>
+            <para>
+              虚拟机迁移的目的主机和源主机都是在一个集群中. 如果选择了
+              <keycap>自动选择主机</keycap>, 系统会根据集群中的负载均衡和电源管理设置为虚拟机
+              选择目的主机.
+            </para>
+          </note>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>来开始迁移.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机开始迁移, 一旦虚拟机成功完成迁移, 虚拟机列表中的该虚拟机的
+        <keycap>主机</keycap>会更新为目的主机.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-6">
       <title>设置迁移的优先级</title>
+      <formalpara><title>摘要</title>
       <para>
+        &OVIRT; 管理系统一般会把虚拟机的迁移请求保存在一个队列里, 然后根据
+        负载均衡和迁移策略的设置来决定何时发起迁移操作. 如果一个主机已经在某个
+        迁移请求里, 那么下次在调度迁移策略的时候该主机不会被考虑在内, 知道该主机
+        完成了他所在的迁移请求. 如果在迁移队里, 相应的主机能满足迁移的请求. 那么
+        结合集群的迁移策略, 该迁移就能被发起.
       </para>
+      </formalpara>
+
+      <para>
+        &OVIRT; 管理系统允许给迁移队列里的迁移请求设置优先级. 这样, 虚拟机
+        的迁移请求就会根据优先级排序, 优先级高的请求会被先执行.
+      </para>
+
+      <note>
+        <para>
+          只能给虚拟服务器设置迁移优先级, 不能给虚拟桌面设置迁移优先级.
+        </para>
+      </note>
+
+      <procedure>
+        <title>设置迁移的优先级</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>, 打开 <keycap>编辑虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>高可用性</keycap>标签.
+          </para>
+        </step>
+        <step>
+          <para>
+            根据需要在<keycap>运行/移植队列的优先级</keycap>里设置<keycap>低</keycap>,
+            <keycap>中</keycap>或者<keycap>高</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>保存设置.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的迁移优先级改变了.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-7">
-      <title>取消正在迁移的虚拟机</title>
+      <title>取消虚拟机的在线迁移</title>
+      <formalpara><title>摘要</title>
       <para>
+        根据虚拟机的大小和硬件环境, 虚拟机的在线迁移可能花很多时间. &OVIRT;
+        管理系统允许用户取消迁移.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>取消虚拟机的在线迁移</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的虚拟机, 这时虚拟机的状态为 <keycap>Migrating from</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>取消移植</keycap>, 或者右键点击该虚拟机,
+            选择<keycap>取消移植</keycap>.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机的状态从 <keycap>Migrating from</keycap> 变为 <keycap>Up</keycap>.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-8">
-      <title>事件和日志通知</title>
+      <title>高可用中自动迁移的事件和日志通知</title>
       <para>
+        当高可用的策略生效时, 虚拟服务器会被自动迁移到其它主机. 该迁移的详细
+        信息会在 <keycap>时间标签</keycap>上显示, 在 enging 的日志上也会有一条记录:
       </para>
+      <example>
+        <title>
+          Example 8.1. Notification in the Events Tab of the Web Admin Portal
+        </title>
+        <para>
+          Highly Available <keycap>Virtual_Machine_Name</keycap> failed.
+          It will be restarted automatically.
+        </para>
+        <para>
+          <keycap>Virtual_Machine_Name</keycap> was restarted on Host
+          <keycap>Host_Name</keycap>
+        </para>
+      </example>
+
+      <example>
+        <title>
+          Example 8.2. Notification in the Manager engine.log
+        </title>
+        <para>
+          This log can be found on the Red Hat Enterprise Virtualization
+          Manager at <keycap>/var/log/ovirt- engine/engine.log</keycap>:
+        </para>
+        <para>
+          Failed to start Highly Available VM. Attempting to restart.
+          VM Name: <keycap>Virtual_Machine_Name</keycap>,
+          VM Id:<keycap>Virtual_Machine_ID_Number</keycap>
+        </para>
+      </example>
     </section>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12">
     <title>利用虚拟机高可用的特性提高正常运行时间</title>
     <para>
