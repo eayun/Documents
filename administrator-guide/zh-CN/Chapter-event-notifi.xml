@@ -3,31 +3,262 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-administrator-guide-Chapter-event-notifi">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-event-notifi_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-event-notifi_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+<chapter id="chap-Event_Notifications">
+  <title>事件通知</title>
 
+  <section id="sect-Configuring_Event_Notifications">
+    <title>配置事件通知</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        您希望 &OVIRT; 环境中的某个事件发生的时候能够收到一封通知邮件。您需要配置邮件转发代理以发送信息。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>配置事件通知</title>
+      <step>
+        <para>
+          确保您使用正确的参数配置了邮件转发代理。
+        </para>
+      </step>
+      <step>
+        <para>
+          使用<emphasis>用户</emphasis>资源标签、树形面板或者搜索功能以查找并选择用户。
+        </para>
+      </step>
+      <step>
+        <para>
+          在详情面板中点击<emphasis>事件通知器</emphasis>以列出用户将被通知的事件。在用户未进行事件通知配置的时候，该列表将会为空。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>管理事件</emphasis>按钮打开<emphasis>添加事件通知</emphasis>窗口。
+        </para>
+        <!-- TODO: Figure 16.1. The Add Events Notification Window -->
+      </step>
+      <step>
+        <para>
+          使用<emphasis>展开所有</emphasis>按钮，或者每个分类的展开按钮，来查看可供选择的事件。
+        </para>
+      </step>
+      <step>
+        <para>
+          勾选合适的选择框。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>邮件接收者</emphasis>一栏输入电子邮箱地址。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>确定</emphasis>保存更改并关闭该窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          在 &OVIRT; &MANAGER;所在的服务器上添加并启动 <emphasis>engine-notifierd</emphasis> 服务。这将激活您刚才所做的更改。
+        </para>
+        <screen>
+# chkconfig --add engine-notifierd
+# chkconfig engine-notifierd on
+# service engine-notifierd restart
+        </screen>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您现在将收到关于您的 &OVIRT; 环境中发生的事件的邮件通知。选择的事件将会在用户的 <emphasis>事件通知器</emphasis>子标签下显示。
+      </para>
+    </formalpara>
+  </section>
+
+  <section id="sect-Parameters_for_Event_Notifications_in_Notifier_conf">
+    <title>ovirt-engine-notifier.conf 文件中关于事件通知的参数</title>
+    <para>
+      事件通知器的配置文件在 <filename>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</filename>。
+    </para>
+    <table>
+      <title>ovirt-engine-notifier.conf 文件中的变量</title>
+      <tgroup cols="3" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              变量名
+            </entry>
+            <entry>
+              默认值
+            </entry>
+            <entry>
+              备注
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              INTERVAL_IN_SECONDS
+            </entry>
+            <entry>
+              120
+            </entry>
+            <entry>
+              向订阅了事件通知的用户发送通知的以秒为单位的时间间隔。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_SERVER
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              SMTP 邮件服务器地址。必须填写此变量事件通知器才能够正常工作。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_PORT
+            </entry>
+            <entry>
+              25
+            </entry>
+            <entry>
+              使用不安全连接的 SMTP 服务器的默认端口是 25。使用安全连接（启用了 SSL）的 SMTP 服务器的默认端口是 465。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_USER
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              如果 SMTP 服务器启用了 SSL 来验证用户，则此变量必须被设置。在 MAIL_FROM 变量未被设置的情况下，此变量还将会被用以指定发送邮件的用户地址。有些邮件服务器可能不支持此功能。此变量所填的地址必须为 RFC822 格式。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_PASSWORD
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              此变量在邮件服务器要求用户验证或者启用了 SSL 的情况下必须被设置。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_ENABLE_SSL
+            </entry>
+            <entry>
+              false
+            </entry>
+            <entry>
+              此变量表示与邮件服务器的通信是否使用 SSL。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              HTML_MESSAGE_FORMAT
+            </entry>
+            <entry>
+              false
+            </entry>
+            <entry>
+              如果此变量被设置为“true”，则邮件服务器将以 HTML 格式发送事件通知信息。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_FROM
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              如果邮件服务器支持，则此变量将指定符合 RFC822 格式的“from”地址。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              MAIL_REPLY_TO
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              如果邮件服务器支持，则此变量将指定符合 RFC822 格式的“reply-to”地址。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              DAYS_TO_KEEP_HISTORY
+            </entry>
+            <entry>
+              无
+            </entry>
+            <entry>
+              此变量将设置发送通知的事件将在历史记录里面保留的天数。如果此变量未被设置，则该事件将在历史记录里永久保存。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-Canceling_Event_Nofifications">
+    <title>取消事件通知</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        用户配置了一些不需要的事件通知，因此希望取消它们。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>取消事件通知</title>
+      <step>
+        <para>
+          在<emphasis>用户</emphasis>标签下，选择用户或者用户组。
+        </para>
+      </step>
+      <step>
+        <para>
+          在详情面板中选择<emphasis>事件通知器</emphasis>子标签列出该用户接收通知的事件。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>管理事件</emphasis>按钮打开<emphasis>添加事件通知</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          使用<emphasis>展开所有</emphasis>按钮，或者每个分类的展开按钮，来查看可供选择的事件。
+        </para>
+      </step>
+      <step>
+        <para>
+          清除合适的选择框以取消关于该事件的通知。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>确定</emphasis>保存更改并关闭该窗口。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功地为该用户取消了不需要的事件通知。
+      </para>
+    </formalpara>
+  </section>
 </chapter>
-
