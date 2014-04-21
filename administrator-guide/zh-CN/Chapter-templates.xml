@@ -4,30 +4,130 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-templates">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-templates_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-templates_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>模板</title>
+  <section id="sect-Documents-administrator-guide-Chapter-templates_Section_1">
+    <title>模板介绍</title>
+    <para>
+    </para>
+  </section>
 
+  <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2">
+    <title>模板任务</title>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-1">
+      <title>基于存在的虚拟机创建模板</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-2">
+      <title>模板创建窗口中的设置解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-3">
+      <title>编辑资源</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-4">
+      <title>模板编辑窗口中的设置解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-5">
+      <title>删除模板</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6">
+      <title>导出模板</title>
+      <para>
+      </para>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6-1">
+        <title>把模板迁移到导出域中</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6-2">
+        <title>复制模板的虚拟磁盘</title>
+        <para>
+        </para>
+      </section>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7">
+      <title>导入模板</title>
+      <para>
+      </para>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7-1">
+        <title>导入一个模板到数据中心中</title>
+        <para>
+        </para>
+      </section>
+    </section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3">
+    <title>封装模板准备部署</title>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-1">
+      <title>手动封装 Linux 虚拟机部署为一个模板</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-2">
+      <title>使用 sys-unconfig 封装 Linux 虚拟机部署为一个模板</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3">
+      <title>封装 Windows 模板</title>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-1">
+        <title>使用 sysprep 封装 Windows 模板需要注意的事项</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-2">
+        <title>封装 Windows XP 模板</title>
+        <para>
+        </para>
+      </section>
+      <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-3">
+        <title>封装 Windows 7 或 Windows 2008 模板</title>
+        <para>
+        </para>
+      </section>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-4">
+      <title>使用 Cloud-init 自动化虚拟机的配置</title>
+      <para>
+      </para>
+    </section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4">
+    <title>模板和权限</title>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-1">
+      <title>管理模板的系统权限</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-2">
+      <title>模板的管理角色解释</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-3">
+      <title>模板的用户角色结束</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-4">
+      <title>给资源指定管理或者用户角色</title>
+      <para>
+      </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-5">
+      <title>把资源的管理或者用户角色删除</title>
+      <para>
+      </para>
+    </section>
+  </section>
 </chapter>
-
