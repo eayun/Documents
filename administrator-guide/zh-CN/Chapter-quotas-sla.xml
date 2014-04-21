@@ -3,31 +3,717 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-administrator-guide-Chapter-quotas-sla">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-quotas-sla_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-quotas-sla_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+<chapter id="chap-Quotas_and_Service_Level_Agreement_Policy">
+  <title>配额和服务级别协议</title>
 
+  <section id="sect-Introduction_to_Quota">
+    <title>配额简介</title>
+    <para>
+      配额是与 &OVIRT; 一同提供的资源限制工具。配额可以被认为是基于用户权限限制层之上的限制层次。
+    </para>
+    <para>
+      配额是数据中心之下的对象。
+    </para>
+    <para>
+      配额为 &OVIRT; 环境的管理员限制用户获得内存、CPU 及存储提供了可能。配额定义了管理员能够指派给用户的内存资源和存储资源。因此用户只能利用分配给它们的资源。当配额资源用尽时，&OVIRT; 将不允许用户进一步的操作。
+    </para>
+    <para>
+      配额分为以下两种类型：
+    </para>
+    <table>
+      <title>配额的两种类型</title>
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              配额类型
+            </entry>
+            <entry>
+              定义
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              运行时配额
+            </entry>
+            <entry>
+              限制对运行时资源（例如 CPU 和内存）使用的配额。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              存储配额
+            </entry>
+            <entry>
+              这类型的配额限制可用的存储空间。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      配额，与 SELinux 类似，有三种模式：
+    </para>
+    <table>
+      <title>配额模式</title>
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              配额模式
+            </entry>
+            <entry>
+              功能
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              强制的
+            </entry>
+            <entry>
+              此模式具体实施您在审计模式设置的配额，限制受配额影响的用户或者用户组所使用的资源。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              审计
+            </entry>
+            <entry>
+              此模式允许您更改配额设置。选择此模式来增加或者减少受配额影响的用户可用的运行时配额和存储配额的大小。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              禁用的。
+            </entry>
+            <entry>
+              此模式取消配额定义的运行时和存储资源限制。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      当用户尝试运行虚拟机时，该虚拟机的规格将会与所应用的配额中的存储限额和运行时资源限额进行比较。
+    </para>
+    <para>
+      如果启动虚拟机将会使得受一个配额限制的所有运行中虚拟机所用资源的总量超过配额中所定义的限额，&MANAGER; 将拒绝运行该虚拟机。
+    </para>
+    <para>
+      当用户创建一个新磁盘时，请求的磁盘大小将会加入到其它受同样一个配额限制的磁盘的磁盘使用总量中。如果该新建的磁盘使得磁盘使用的总量超过配额中允许的限额，磁盘的创建将会失败。
+    </para>
+    <para>
+      配额为在同一硬件上的资源共享提供了可能。配额同时支持硬阈值和软阈值。管理员能够使用配额来为资源设置阈值。这些阈值在用户看起来是全部的可用资源。为了避免用户意外超过阈值时的操作失败，&OVIRT; 还允许使用超过阈值一定的“额外”大小。当用户使用资源超过阈值时，系统将会给用户发送一条警告信息。
+    </para>
+    <important>
+      <para>
+        配额强制限制运行中的虚拟机所使用的资源。忽略这些限制将有可能导致出现您使用不了虚拟机或者虚拟磁盘的情况。
+      </para>
+      <para>
+        当配额运行在强制模式下时，未分配有配额的虚拟机和虚拟磁盘将不能够被使用。
+      </para>
+      <para>
+        必须为虚拟机分配一个限额才能够启动该虚拟机。
+      </para>
+      <para>
+        必须为虚拟机拥有的磁盘分配限额，才能为虚拟机创建快照。
+      </para>
+      <para>
+        当从虚拟机创建模板时，您将会被提示选择该模板使用哪个配额。这将允许您设置该模板（以及之后基于该模板创建的虚拟机）与用以生成模板的虚拟机及磁盘使用不同的配额。
+      </para>
+    </important>
+  </section>
+
+  <section id="sect-Shared_Quota_and_Individually_defined_Quota">
+    <title>共享的配额与单独定义的配额</title>
+    <para>
+      具有 SuperUser 权限的用户能够为单独的用户创建配额，也能够为用户组创建配额。
+    </para>
+    <para>
+      组配额（共享的配额）对活动目录用户进行设置。如果有一个十个用户的用户组被分配 1TB 的存储，而其中有一个用户将这整个 1TB 占用了的话，则整个组的资源使用将会超过配额限制，从而组内没有其他任何一个用户能够使用分配给他们这个组的存储。
+    </para>
+    <para>
+      单独的配额则只对单独的用户进行设置。当该用户使用了所有分配给他的存储或者运行时配额时，该用户的资源使用将会超过配额限制，从而该用户不能够再使用其它的资源。
+    </para>
+  </section>
+
+  <section id="sect-Quota_Accounting">
+    <title>配额审计</title>
+    <para>
+      当配额分配给一个用户或者一个资源时，该用户的，或者对该资源的每个涉及存储、虚拟 CPU 或者内存的操作都将引起配额消耗或者配额释放的结果。
+    </para>
+    <para>
+      由于配额是作为用户对资源使用的上限限制存在的，配额的计算可能与该用户当前实际的使用情况有所不同。配额是对最大可能的增长而不是当前使用进行计算的。
+    </para>
+    <example>
+      <title>配额审计举例</title>
+      <para>
+        一个用户运行一个具有一个虚拟 CPU 以及 1024MB 内存的虚拟机。这个操作将从分配给该用户的配额消耗 1 个虚拟 CPU 以及 1024MB 内存。当该虚拟机关闭时，1 个虚拟 CPU 以及 1024MB 内存将被释放回分配给该用户的配额中。运行时配额的审计只在该用户实际运行虚拟机时进行。
+      </para>
+      <para>
+        一个用户创建一个精简置备的 10GB 大小的虚拟磁盘。该磁盘的实际使用可能显示该磁盘只实际使用了 3GB 存储大小。但是，配额的消耗，将是该磁盘最大可能的增长，10GB。
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center">
+    <title>在数据中心中启用和更改配额模式</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程在数据中心中启用或者更改配额模式。您必须选择一个配额模式之后才可以进行配额的定义。您必须登录到 &OVIRT; &MANAGER; 管理员门户执行此过程的步骤。
+      </para>
+    </formalpara>
+    <para>
+      使用<emphasis>审计</emphasis>模式来测试您的配额设置以确保它如你所希望般正常工作。但是创建或者更改配额并不要求配额处于<emphasis>审计</emphasis>模式。
+    </para>
+    <procedure>
+      <title>在数据中心启用和更改配额</title>
+      <step>
+        <para>
+          在主面板中选择<emphasis>数据中心</emphasis>标签。
+        </para>
+      </step>
+      <step>
+        <para>
+          从主面板中显示的数据中心列表，选择您想要修改配额策略的数据中心。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击位于主面板的左上方的<emphasis>编辑</emphasis>按钮。
+        </para>
+      </step>
+      <step>
+        <para>
+          <emphasis>编辑数据中心</emphasis>窗口将打开。在<emphasis>配额模式</emphasis>下拉菜单中，选择配额模式为<emphasis>强制的</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>确定</emphasis>按钮。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您现在在数据中心层面上启用了配额模式。如果在您测试配额设置的过程中将模式设置为<emphasis>审计</emphasis>，您必须重复此过程将配额模式更改为<emphasis>强制的</emphasis>以保证您的配额设置起作用。
+      </para>
+    </formalpara>
+  </section>
+
+  <section id="sect-Creating_a_New_Quota_Policy">
+    <title>创建新配额策略</title>
+    <para>
+      <emphasis>前提需求：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        您已经启用了审计或者强制的配额模式。您希望定义一个配额策略来管理您数据中心中的资源使用。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>创建新配额策略</title>
+      <step>
+        <para>
+          在树形面板中选择数据中心。<emphasis>配额</emphasis>标签将出现在主面板中。
+        </para>
+      </step>
+      <step>
+        <para>
+          在主面板中点击<emphasis>配额</emphasis>标签。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>添加</emphasis>按钮打开<emphasis>新建配额</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>名称</emphasis>一栏中填入配额的名称。
+        </para>
+        <para>
+          在<emphasis>描述</emphasis>一栏中填入配额的描述信息。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 项目下，使用绿色滑动块设置<emphasis>集群极限</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 项目下，使用蓝色滑动块设置<emphasis>集群 Grace</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>内存和 CPU</emphasis>项目下右下角的<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>内存</emphasis>项目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制内存资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置由此配额设定的内存大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>MB</emphasis> 文本框中输入以 MB 为单位的内存配额。
+        </para>
+      </step>
+      <step>
+        <para>
+          在 <emphasis>CPU</emphasis> 项目下，选择<emphasis>无限</emphasis>单选框或者<emphasis>限制在</emphasis>单选框并设置由此配额设定的虚拟 CPU 数。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>vCPUs</emphasis> 文本框中输入虚拟 CPU 的数量。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>编辑配额</emphasis>窗口中点击<emphasis>确定</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>项目下，使用绿色滑动块设置<emphasis>存储极限</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>项目下，使用蓝色滑动块设置<emphasis>存储 Grace</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>存储</emphasis>项目下点击<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>存储配额</emphasis>项目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制存储资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置该配额将限制用户使用的存储大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>GB</emphasis> 文本框各种输入以 GB 为单位的存储配额大小。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>编辑配额</emphasis>窗口中点击<emphasis>确定</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>新建配额</emphasis>窗口中点击<emphasis>确定</emphasis>。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功创建了一个新的配额策略。
+      </para>
+    </formalpara>
+    <para>
+      <emphasis>参见：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Explanation_of_Quota_Threshold_Settings"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Assigning_a_Quota_to_an_Object"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+  </section>
+
+  <section id="sect-Explanation_of_Quota_Threshold_Settings">
+    <title>配额阈值设置的解释</title>
+    <table>
+      <title>配额极限和配额 Grace</title>
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              设置项目
+            </entry>
+            <entry>
+              定义
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              集群极限
+            </entry>
+            <entry>
+              在数据中心中可用的集群资源的大小。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              集群 Grace
+            </entry>
+            <entry>
+              超过数据中心下的集群资源极限时，仍能够继续使用的集群资源的大小。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              存储极限
+            </entry>
+            <entry>
+              在数据中心中可用的存储资源的大小。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              存储 Grace
+            </entry>
+            <entry>
+              超过数据中心下的存储资源极限时，仍能够继续使用的存储资源的大小。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      如果一个配额设置为 100GB 并且允许 20% 的超出，那么用户将会在其使用完 120GB 存储资源之后才不能够再继续使用其它存储资源。如果相同的配额设置了一个 70% 的极限，那么用户将在其使用超过了 70GB 存储资源之后收到警告信息（但是他们仍然能够继续使用存储资源直到使用量达到 120GB 为止）。“极限”和“Grace”都以配额的相对百分比来进行设置。“极限”可以被认为是“软限制”，超过它时将产生一个警告。“Grace”可以被认为是“硬限制”，超过它时将导致用户不能够再使用任何更多的存储资源。
+    </para>
+  </section>
+
+  <section id="sect-Assigning_a_Quota_to_an_Object">
+    <title>分配配额至一个对象</title>
+    <para>
+      <emphasis>前提需求：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Creating_a_New_Quota_Policy"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何将配额与虚拟机联系起来，即分配该配额至虚拟机对象。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>分配配额至虚拟机</title>
+      <step>
+        <para>
+          在主面板中选择您计划分配配额到其之上的虚拟机。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>编辑</emphasis>打开<emphasis>编辑虚拟机</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          使用<emphasis>配额</emphasis>下拉菜单选择您希望该虚拟机消耗的配额。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>确定</emphasis>。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功的将配额分配到您所选择的虚拟机上。
+      </para>
+    </formalpara>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何分配配额至虚拟机磁盘。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>分配配额至虚拟磁盘</title>
+      <step>
+        <para>
+          在主面板中选择您计划分配配额到其磁盘之上的虚拟机。
+        </para>
+      </step>
+      <step>
+        <para>
+          在详情面板中选择您计划分配配额到其之上的磁盘。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>编辑</emphasis>打开<emphasis>编辑虚拟磁盘</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          使用<emphasis>配额</emphasis>下拉菜单选择您希望该虚拟磁盘消耗的配额。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>确定</emphasis>。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功的将配额分配到您所选择的虚拟磁盘上。
+      </para>
+    </formalpara>
+    <important>
+      <para>
+        必须为一个虚拟机所联系的所有对象都选择配额，该虚拟机才能够工作。如果您为虚拟机所联系的一个对象选择配额失败，该虚拟机将不能够正常工作。这种情况下在 &MANAGER; 中抛出的错误将会是很一般的错误，造成很难知道该错误是由于您未为虚拟机所联系的所有对象都选择配额产生的。在虚拟机没有指定的配额时是无法对虚拟机进行快照的。同样的，在虚拟机的虚拟磁盘没有指定的配额时，是无法从该虚拟机创建模板的。
+      </para>
+    </important>
+  </section>
+
+  <section id="sect-Using_Quota_to_Limit_Resources_by_User">
+    <title>使用配额限制用户使用的资源</title>
+    <para>
+      <emphasis>前提需求：</emphasis>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Creating_a_New_Quota_Policy"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何使用配额来限制用户能够使用的资源。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>分配用户至配额</title>
+      <step>
+        <para>
+          在树形面板中，选择您想要分配用户至其之上的配额所在的数据中心。
+        </para>
+        <!-- TODO: Figure 15.1. Selecting the Data Center -->
+      </step>
+      <step>
+        <para>
+          在主面板中点击<emphasis>配额</emphasis>标签。
+        </para>
+        <!-- TODO: Figure 15.2. Selecting the Quota Tab -->
+      </step>
+      <step>
+        <para>
+          在主面板的列表中选择目标配额。
+        </para>
+        <!-- TODO: Figure 15.3. Selecting the Target Quota -->
+      </step>
+      <step>
+        <para>
+          在详情面板中点击<emphasis>消费者</emphasis>子标签。
+        </para>
+        <!-- TODO: Figure 15.4. Selectig the Consumers Tab -->
+      </step>
+      <step>
+        <para>
+          点击位于详情面板中上方的<emphasis>添加</emphasis>按钮。
+        </para>
+        <!-- TODO: Figure 15.5. Clicking the Add Button -->
+      </step>
+      <step>
+        <para>
+          在弹出的<emphasis>分配用户和组给配额</emphasis>窗口中的<emphasis>搜索</emphasis>框中，输入您希望分配给该配额的用户名。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击<emphasis>执行</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          在结果列表中包含目标用户名的一行，勾选左边的选择框。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>分配用户和组给配额</emphasis>窗口中点击<emphasis>确定</emphasis>按钮。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        短暂之后，该用户将会出现在详情面板中的<emphasis>消费者</emphasis>标签下。
+      </para>
+    </formalpara>
+  </section>
+
+  <section id="sect-Editing_Quotas">
+    <title>编辑配额</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何更改已存在的配额。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>编辑配额</title>
+      <step>
+        <para>
+          在树形面板中选择您想要编辑配额的数据中心。
+        </para>
+        <!-- TODO: Figure 15.6. Selecting a Data Center to Edit Its Quota -->
+      </step>
+      <step>
+        <para>
+          在主面板中选择<emphasis>配额</emphasis>标签。
+        </para>
+        <!-- TODO: Figure 15.7. Selecting the Quota Tab in the Navigation Pane -->
+      </step>
+      <step>
+        <para>
+          点击您想要编辑的配额的名称。
+        </para>
+        <!-- TODO: Figure 15.8. Selecting a Quota to Edit -->
+      </step>
+      <step>
+        <para>
+          点击<emphasis>编辑</emphasis>按钮。
+        </para>
+      </step>
+      <step>
+        <para>
+          <emphasis>编辑配额</emphasis>窗口将打开。如果有需要，请在一栏填入配额的名称。
+        </para>
+      </step>
+      <step>
+        <para>
+          如果有需要，请在<emphasis>描述</emphasis>一栏中填入关于配额的描述信息。
+        </para>
+      </step>
+      <step>
+        <para>
+          选择<emphasis>所有集群</emphasis>或者<emphasis>特定的集群</emphasis>单选框。在<emphasis>内存和 CPU</emphasis> 滑动条上移动<emphasis>集群极限</emphasis>和<emphasis>集群 Grace</emphasis> 滑动块到期望的位置。
+        </para>
+      </step>
+      <step>
+        <para>
+          选择<emphasis>所有存储域</emphasis>或者<emphasis>特定的存储域</emphasis>单选框。在<emphasis>存储</emphasis>滑动条上移动<emphasis>存储极限</emphasis>和<emphasis>存储 Grace</emphasis> 滑动块到期望的位置。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>编辑配额</emphasis>窗口中点击<emphasis>确定</emphasis>按钮确认新的配额设置。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功地更新了已存在的配额。
+      </para>
+    </formalpara>
+  </section>
+
+  <section id="sect-Removing_Quotas">
+    <title>删除配额</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何删除配额。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>删除配额</title>
+      <step>
+        <para>
+          在树形面板中选择您想要编辑的配额所在的数据中心。
+        </para>
+      </step>
+      <step>
+        <para>
+          在主面板中点击<emphasis>配额</emphasis>标签。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击您想要删除的配额的名称。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击位于主面板上方的的<emphasis>删除</emphasis>按钮。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>删除配额</emphasis>窗口中点击<emphasis>确定</emphasis>以确认删除该配额。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您成功地删除了配额。
+      </para>
+    </formalpara>
+  </section>
+
+  <section id="sect-Service_level_Agreement_Policy_Enforcement">
+    <title>服务等级协议策略的实现</title>
+    <para>
+      &OVIRT; 支持服务等级协议 CPU 特性。这些特性能够通过管理员门户进行使用。
+    </para>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        此过程展现了如何设置服务等级协议 CPU 特性。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>设置服务等级协议 CPU 特性</title>
+      <step>
+        <para>
+          在主面板中选择<emphasis>新建虚拟机</emphasis>打开<emphasis>新建虚拟机</emphasis>窗口。
+        </para>
+      </step>
+      <step>
+        <para>
+          点击位于<emphasis>新建虚拟机</emphasis>窗口左下角的<emphasis>显示高级选项</emphasis>按钮。
+        </para>
+      </step>
+      <step>
+        <para>
+          选择<emphasis>资源分配</emphasis>标签。
+        </para>
+      </step>
+      <step>
+        <para>
+          在<emphasis>CPU 共享</emphasis>下拉框中选择对应的选项。可用的选项包括<emphasis>低</emphasis>、<emphasis>中</emphasis>、<emphasis>高</emphasis>、<emphasis>自定义</emphasis>以及<emphasis>禁用的</emphasis>。这里设置为<emphasis>高</emphasis>的虚拟机将分配到两倍于设置为<emphasis>中</emphasis>的虚拟机的 CPU 资源份额，设置为<emphasis>中</emphasis>的虚拟机也将分配到两倍于设置为<emphasis>低</emphasis>的虚拟机的 CPU 资源份额。选择<emphasis>禁用的</emphasis>将使得 VDSM 使用旧的算法确定共享资源份额的分配；通常在此条件下分配到的份额数是 1020。
+        </para>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您设置了服务等级协议 CPU 策略。用户的 CPU 使用现在由您所设置的策略所控制。
+      </para>
+    </formalpara>
+    <!-- TODO: Figure 15.9. Service-level Agreement Policy Enforcement - CPU Allocation Menu -->
+  </section>
 </chapter>
-
