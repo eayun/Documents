@@ -321,7 +321,7 @@ virt-v2v -o rhev -os storage.example.com:/exportdomain --network ovirtmgmt <file
 virt-v2v -ic esx://esx.example.com/?no_verify=1 -o rhev -os storage.example.com:/exportdomain --network ovirtmgmt <filename><replaceable>guest_name</replaceable></filename>
         </screen>
         <para>
-          详细的 <command>virt-v2v</command> 可用参数的指南在<!-- TODO: 链接到 7.1, "virt-v2v Parameters" -->。
+          详细的 <command>virt-v2v</command> 可用参数的指南在<xref linkend="sect-References-virt_v2v_Parameters"/>。
         </para>
         <important>
           <para>

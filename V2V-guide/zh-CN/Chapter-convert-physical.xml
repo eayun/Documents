@@ -366,7 +366,9 @@ nano /etc/virt-v2v.conf
     <para>
       关于如何使用 virt-manager 运行转换后的机器的信息，请参考：
     </para>
-    <!-- TODO: 链接到 Section 3.4, "Running converted virtual machines" -->
+    <para>
+      <xref linkend="sect-Convert_to_libvirt-Running_Converted_Virtual_Machines"/>
+    </para>
     <para>
       关于如何使用 &OVIRT; 管理端在 &OVIRT; 环境之上运行转换后的机器的信息，请参考：
     </para>
