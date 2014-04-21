@@ -3571,29 +3571,169 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12">
     <title>利用虚拟机高可用的特性提高正常运行时间</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-1">
       <title>为什么使用高可用？</title>
       <para>
+        当虚拟机需要运行重要的业务的时候, 用户可以设置虚拟机高可用, 让虚拟机
+        的业务在主机出问题的时候不受到干扰.
+      </para>
+      <para>
+        虚拟机高可用保证在以下情况下会重启虚拟机:
+        <itemizedlist>
+	      <listitem>
+	        <para>
+              由于硬件故障导致主机不可操作.
+	        </para>
+	      </listitem>
+	      <listitem>
+	        <para>
+              用户把主机置为维护模式.
+	        </para>
+	      </listitem>
+	      <listitem>
+	        <para>
+              由于主机与存储资源失去连接, 变为不可用.
+	        </para>
+	      </listitem>
+        </itemizedlist>
+        设置了高可用的虚拟机在发生上述情况下会自动重启, 重新在原理的主机或者
+        新的主机上运行.
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-2">
       <title>什么是高可用？</title>
       <para>
+        高可用就是虚拟机的相关资源等发生了问题, 使得虚拟机不能正常运行, 系统会
+        重启该虚拟机使得它变为正常.
+      </para>
+
+      <para>
+        虚拟机不能正常运行指的是, 虚拟机异常终止了, 而不是被用户在虚拟机内部关闭,
+        或者被管理员在门户上关闭. 设置了高可用的虚拟机在发生上述情况下会自动重启,
+        重新在原理的主机或者新的主机上运行.
+      </para>
+
+      <para>
+        &OVIRT; 管理系统会一直监控主机和存储还有其它硬件是否发生故障. 如果相关
+        资源发生了故障, 设置了高可用的虚拟机在发生上述情况下会自动重启,
+        重新在原理的主机或者新的主机上运行.
+      </para>
+
+      <para>
+        如果设置了高可用, 服务终端造成的影响就减为最小了, 因为虚拟机会在数十秒
+        之内重启, 这个过程不需要用户的干涉. 通过在资源利用率低的主机上重启虚拟机,
+        高可用同时会保证整个集群资源的均衡, 这样也保证了集群中一直有足够的资源来
+        使得虚拟机处于运行状态.
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-3">
       <title>高可用的注意事项</title>
       <para>
+        配置高可用的时候, 主机配置好电源管理. 当虚拟机配置和高可用的时候,
+        当运行在其上的主机处于不可操作状态时, 该虚拟机将会在集群中另外一台
+        主机上运行. 高可用需要满足以下条件:
+        <itemizedlist>
+	      <listitem>
+	        <para>
+              必须在运行虚拟机的主机上配置电源管理.
+	        </para>
+	      </listitem>
+	      <listitem>
+	        <para>
+              运行虚拟机的主机所在的集群必须有的其它可用主机.
+	        </para>
+	      </listitem>
+	      <listitem>
+	        <para>
+              目的主机必须处于运行状态.
+	        </para>
+	      </listitem>
+	      <listitem>
+	        <para>
+              源主机和目的主机必须具有对虚拟机磁盘所处的存储的相同的访问权限.
+	        </para>
+	      </listitem>
+          <listitem>
+            <para>
+              目的主机必须具有足够的 CPU 兼容性来运行虚拟机.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              目的主机必须具有足够的空闲内存来运行虚拟机.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              在虚拟机的自定义属性中, 待迁移的虚拟机的 cache 设置不能为除
+              <keycap>none</keycap> 之外的其他值.
+            </para>
+          </listitem>
+        </itemizedlist>
       </para>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-4">
       <title>配置高可用虚拟机</title>
+      <formalpara><title>摘要</title>
       <para>
+        在 &OVIRT; 管理系统中, 虚拟机的高可用必须针对每一个虚拟服务器设置.
+      <note>
+        <para>
+          只能给虚拟服务器设置迁移优先级, 不能给虚拟桌面设置迁移优先级.
+        </para>
+      </note>
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>设置迁移的优先级</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>, 打开 <keycap>编辑虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>高可用性</keycap>标签.
+            <!-- TODO: picture -->
+          </para>
+        </step>
+        <step>
+          <para>
+            选择==高可用/==, 设置启用虚拟服务器的高可用.
+          </para>
+        </step>
+        <step>
+          <para>
+            根据需要在<keycap>运行/移植队列的优先级</keycap>里设置<keycap>低</keycap>,
+            <keycap>中</keycap>或者<keycap>高</keycap>. 迁移开始时, 一个迁移
+            的请求会被加入到迁移队列中, 具有高优先级的请求会先被处理.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>保存设置.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        已经给虚拟机配置好了高可用设置. 在常规显示上可以看到设置的结果.
+      </para>
+      </formalpara>
     </section>
   </section>
+
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13">
     <title>其它虚拟机任务</title>
     <para>
