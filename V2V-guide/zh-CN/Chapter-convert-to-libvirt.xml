@@ -127,8 +127,7 @@
       参考 <command>virt-v2v</command> man 手册查看关于上述特性及其他特性更详细的信息。
     </para>
     <para>
-      安装 <command>virt-v2v</command>，<!-- TODO: RHN 相关 -->请运行：
-      <screen>#yum install virt-v2v</screen>
+      关于如何安装 <command>virt-v2v</command>，请参考<xref linkend="chap-Installing_virt_v2v"/>。
     </para>
   </section>
 

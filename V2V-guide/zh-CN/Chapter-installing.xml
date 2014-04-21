@@ -3,17 +3,57 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "V2V-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-V2V-guide-V2V-guide-installing_Chapter">
-	<title>安装virt-v2v</title>
-	<para>
-	</para>
-	<section id="sect-V2V-guide-V2V-guide-installing_Section_1">
-		<title>安装virt-v2v</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-
+<chapter id="chap-Installing_virt_v2v">
+  <title>安装virt-v2v</title>
+  <para>
+    <command>virt-v2v</command> 在 CentOS 机器上运行。因此它必须先被安装到 CentOS 主机上。
+  </para>
+  <procedure>
+    <title>安装 virt-v2v</title>
+    <step>
+      <para>
+        从 &OVIRT; 官方网站上下载或者联系 &OVIRT; 的技术支持人员获得 <command>virt-v2v</command> 的 rpm 包。将其下载到该 CentOS 主机中。
+      </para>
+    </step>
+    <step>
+      <para>
+        根据需要安装前提依赖的软件包。
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              如果您需要转换 Windows 虚拟机，您必须安装 <emphasis>libguestfs-winsupport</emphasis> 和 <emphasis>virtio-win</emphasis> 软件包。这些软件包提供了 NTFS 及 Windows 半虚拟化块设备及网络设备驱动的支持。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              未安装 libguestfs-winsupport 软件包的情况下尝试转换使用 NTFS 文件系统的虚拟机将会失败。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              未安装 virtio-win 软件包的情况下尝试转换 Windows 虚拟机并使用半虚拟化设备将会失败并给出一个关于缺少文件的错误。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </step>
+    <step>
+      <para>
+        安装 virt-v2v 软件包
+      </para>
+      <para>
+        在该 CentOS 主机上运行
+        <screen>
+yum localinstall <replaceable>PATH/TO/virt-v2v.rpm</replaceable>
+        </screen>
+      </para>
+    </step>
+    <step>
+      <para>
+        在 Shell 中使用 root 用户运行 <command>virt-v2v</command>。
+      </para>
+    </step>
+  </procedure>
 </chapter>
-

@@ -126,7 +126,7 @@
     <section id="sect-Converting_Physical_Machines_to_Virtual_Machines-Install_virt_v2v_on_a_Conversion_Server">
       <title>在用于进行转换的服务器上安装 virt-v2v</title>
       <para>
-        用于进行转换的虚拟机是一台装有 <command>virt-v2v</command> 软件包的 Centos 6 或以上版本的服务器。关于如何安装 <command>virt-v2v</command> 请参考<!-- TODO: Chapter 2, Installing virt-v2v -->。<command>virt-v2v</command> 版本必须至少为 0.8.7-6。
+        用于进行转换的虚拟机是一台装有 <command>virt-v2v</command> 软件包的 Centos 6 或以上版本的服务器。关于如何安装 <command>virt-v2v</command> 请参考<xref linkend="chap-Installing_virt_v2v"/>。<command>virt-v2v</command> 版本必须至少为 0.8.7-6。
       </para>
     </section>
     <section id="sect-Converting_Physical_Machines_to_Virtual_Machines-Enable_Root_Login_Over_SSH">
