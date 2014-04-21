@@ -298,9 +298,9 @@
         在您完成转换虚拟机的准备工作之后，就可以使用 <command>virt-v2v</command> 来执行具体的转换过程了。本节将介绍转换虚拟机的步骤，以及 <command>virt-v2v</command> 的命令语法。
       </para>
       <para>
-        您必须注意虚拟机的转换过程是一个资源密集型的过程，过程中需要将虚拟机的整个磁盘镜像进行复制。在典型的环境中，复制单台虚拟机所需要的时间大概在 5-10 分钟。<xref linkend="example-Typical_virt_v2v_Conversion_Time"/>展示了一个在 3 年旧的消费级硬件上通过千兆网络上的 SSH 复制一个 8GB 大的磁盘镜像时所花的时间：
+        您必须注意虚拟机的转换过程是一个资源密集型的过程，过程中需要将虚拟机的整个磁盘镜像进行复制。在典型的环境中，复制单台虚拟机所需要的时间大概在 5-10 分钟。<xref linkend="example-Convert_to_EayunOS-Typical_virt_v2v_Conversion_Time"/>展示了一个在 3 年旧的消费级硬件上通过千兆网络上的 SSH 复制一个 8GB 大的磁盘镜像时所花的时间：
       </para>
-      <example id="example-Typical_virt_v2v_Conversion_Time">
+      <example id="example-Convert_to_EayunOS-Typical_virt_v2v_Conversion_Time">
         <title>典型的 virt-v2v 转换时间</title>
         <screen>
 win2k3r2-pv-32.img: 100% [===========================================]D 0h02m57s
