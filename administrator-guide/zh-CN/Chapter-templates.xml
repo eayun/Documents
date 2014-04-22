@@ -8,36 +8,334 @@
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_1">
     <title>模板介绍</title>
     <para>
+      模板是里面包含了预先配置了硬件和应用软件的虚拟机的模型. 模板一半用来批量创建
+      相似的虚拟机. 从模板创建出来的虚拟机都有相同的硬件规格和相同的软件及软件设置.
     </para>
+
+    <para>
+      当用户基于某个虚拟机创建模板的时候, 首先生成一个该虚拟机磁盘的只读拷贝. 该
+      拷贝将会变为所有基于此模板创建的虚拟机的基础镜像. 因此, 除非将所有基于
+      模板的虚拟机删除, 该模板不能被删除.
+    </para>
+
+    <para>
+      注意如果虚拟机是从某个模板创建的, 为了防止 MAC 地址冲突, 系统会为该虚拟机
+      的网卡重新生成新的独一无二的 MAC 地址.
+    </para>
+
+    <note>
+      <para>
+        如果要基于一个虚拟机要制作模板, 该虚拟机必须先封装.
+      </para>
+    </note>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2">
     <title>模板任务</title>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-1">
       <title>基于存在的虚拟机创建模板</title>
+      <formalpara><title>摘要</title>
       <para>
+        基于存在的虚拟机创建模板, 后续用该模板创建虚拟机.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>基于存在的虚拟机创建模板</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的虚拟机.
+          </para>
+        </step>
+        <step>
+          <para>
+            确保该虚拟机的状态是 <keycap>Down</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>创建模板</keycap>, 打开<keycap>创建模板窗口</keycap>.
+          </para>
+          <!-- TODO: picture -->
+        </step>
+        <step>
+          <para>
+            输入模板的<keycap>名称</keycap>和<keycap>描述</keycap>等.
+          </para>
+        </step>
+        <step>
+          <para>
+            在下拉菜单中选择<keycap>群集</keycap>和存储<keycap>目标</keycap>, 这两个设置的默认值与源虚拟机
+            一样.
+          </para>
+        </step>
+        <step>
+          <para>
+            默认情况下, <keycap>允许所有的用户来访问这个模板</keycap>是被勾选的, 该选项使得
+            模板成为公共的.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>OK</keycap>创建模板. 将开始模板的创建. 虚拟机的状态将变为 <keycap>Image Locked</keycap>.
+            这个操作将持续一段时间, 具体的时间取决于你的虚拟机磁盘大小和硬件环境.
+          </para>
+        </step>
+        <step>
+          <para>
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        模板将被创建, 在模板标签上会被显示出来. 接下来用户可以基于这个模板
+        创建虚拟机.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-2">
       <title>模板创建窗口中的设置解释</title>
       <para>
+        下表详细解释了<keycap>新建模板</keycap>窗口出现的属性信息.
       </para>
+      <table id="temp-new-template">
+        <title>新建模板窗口中的属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <keycap>名字</keycap>
+              </entry>
+              <entry>
+                模板的名称, 必须限制在 40 个字符之类, 可以由大小写字母, 数字,
+                下划线和连字符组成.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>描述</keycap>
+              </entry>
+              <entry>
+                模板的描述, 该字段不是必须的.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>群集</keycap>
+              </entry>
+              <entry>
+                模板将会附加到的集群. 默认和源虚拟机的集群一致, 用户可以选择
+                源虚拟机所在数据中心的任何集群.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>目标</keycap>
+              </entry>
+              <entry>
+                模板将会存储于哪个存储域. 默认和源虚拟机的存储域一致, 用户可以选择源
+                虚拟机所在数据中心的任何存储域.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>允许所有的用户来访问这个模板</keycap>
+              </entry>
+              <entry>
+                公共的模板可以被所有用户访问, 私有的模板只能被 <keycap>TemplateAdmin</keycap>
+                和 <keycap>SuperUser</keycap>. 访问.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-3">
       <title>编辑资源</title>
+      <formalpara><title>摘要</title>
       <para>
+        编辑资源的属性.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>编辑资源</title>
+        <step>
+          <para>
+            使用资源标签, 搜索标签等找到想要的资源.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            改变资源的属性, 点击<keycap>确定</keycap>.
+          </para>
+        </step>
+      </procedure>
+      <formalpara><title>结果</title>
+      <para>
+        该资源属性的值将会被保存.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-4">
       <title>模板编辑窗口中的设置解释</title>
       <para>
+        下表详细解释了<keycap>编辑模板</keycap>窗口出现的属性信息.
       </para>
+      <table id="temp-edit-template">
+        <title>编辑模板窗口中的属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <keycap>名字</keycap>
+              </entry>
+              <entry>
+                模板的名称, 必须限制在 40 个字符之类, 可以由大小写字母, 数字,
+                下划线和连字符组成.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>描述</keycap>
+              </entry>
+              <entry>
+                模板的描述, 该字段不是必须的.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>群集</keycap>
+              </entry>
+              <entry>
+                模板将会附加到的集群. 默认和源虚拟机的集群一致, 用户可以选择
+                源虚拟机所在数据中心的任何集群.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>内存大小</keycap>
+              </entry>
+              <entry>
+                分配给虚拟机的内存总是. 分配虚拟机内存的时候, 要考虑该虚拟机
+                使用的场景. 另外, 虚拟机可用的内存也取决于虚拟机内部操作系统
+                的限制, 比如 32 的操作系统最大只能用 4G 的内存大小.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>虚拟 CPU 的总数</keycap>
+              </entry>
+              <entry>
+                分配给虚拟机的虚拟 CPU 的数量. 分配的数量不要超过物理机的
+                CPU 总数.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                每个虚拟 CPU 插槽的核数
+              </entry>
+              <entry>
+                每个虚拟 CPU 插槽所拥有的 CPU 内核数目
+              </entry>
+            </row>
+            <row>
+              <entry>
+                虚拟插槽
+              </entry>
+              <entry>
+                分配给虚拟机的虚拟 CPU 插槽数目. 分配的数量不要超过物理机的
+                插槽数目.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                Stateless
+              </entry>
+              <entry>
+                如果想让虚拟机运行在 Stateless 模式, 请勾选这个单选框. Stateless
+                主要是桌面虚拟机使用的选项. 它的工作原理是这样的, 运行 Stateless
+                的虚拟机启动后, 将会创建一个 COW 的临时磁盘, 虚拟磁盘的所有改变
+                都会写入这个磁盘, 原先的磁盘不会被改变. 这样, 该虚拟机关机之后,
+                他的状态就会恢复到开机之前. 如果只是为了很短时间内运行虚拟机,
+                或者只是想临时使用虚拟机, 那么这种模式很有用.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-5">
       <title>删除模板</title>
+      <formalpara><title>摘要</title>
       <para>
+        从 &OVIRT; 管理系统中删除一个模板.
       </para>
+      </formalpara>
+
+      <warning>
+        <para>
+          如果还存在基于该模板创建的虚拟机, 请确保先删除这些虚拟机.
+        </para>
+      </warning>
+
+      <procedure>
+        <title>删除模板</title>
+        <step>
+          <para>
+            点击<keycap>模板</keycap>标签列出系统中的所有模板, 找到需要
+            的模板.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>删除</keycap>, 弹出<keycap>删除模板</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>删除模板.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        模板已经被删除.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6">
       <title>导出模板</title>
       <para>
