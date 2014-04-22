@@ -271,4 +271,25 @@
      </note>
     </answer>
   </qandaentry>
+
+  <qandaentry>
+      <question>
+          <para>
+              使用All in One光盘安装时如何配置网络？
+          </para>
+      </question>
+      <answer>
+          <para>
+              使用All in One光盘3种自动安装时，不会提示进行网络配置，安装完成之
+              后，手动进行配置网络。
+          </para>
+          <para>
+              如果希望在安装过程中配置网络，可以在安装菜单选中其中一个自动安装选
+              项之后，按<keysym>Tab</keysym>键对引导参数进行编辑，在最后加上空格
+              以及“asknetwork”。安装开始之前会提示进行网络配置（字符模式的TUI配
+              置界面）。
+          </para>
+      </answer>
+  </qandaentry>
+
 </qandaset>
