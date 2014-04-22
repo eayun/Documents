@@ -5,4 +5,5 @@
 <!ENTITY OVIRT " EayunOS ">
 <!ENTITY OVIRT_STORAGE " Eayun Storage ">
 <!ENTITY MANAGER "虚拟化管理中心">
+<!ENTITY NODE "虚拟化宿主机">
 <!ENTITY DEFAULT_LOGICAL_NETWORK "ovirtmgmt">
