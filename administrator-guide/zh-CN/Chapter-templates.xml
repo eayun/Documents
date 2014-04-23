@@ -342,22 +342,150 @@
       </para>
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6-1">
         <title>把模板迁移到导出域中</title>
+        <formalpara><title>摘要</title>
         <para>
+          将模板导出到存储域里, 之后就可以导入模板到另一个数据中心了.
         </para>
+        </formalpara>
+
+        <procedure>
+          <title>导出模板</title>
+          <step>
+            <para>
+              点击<keycap>模板</keycap>标签列出系统中的所有模板, 找到需要
+              的模板.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>导出</keycap>, 弹出<keycap>导出模板</keycap>窗口.
+            </para>
+            <note>
+              <para>
+                选择<keycap>强制覆盖</keycap>覆盖在该导出域中存在的相同名字的模板.
+              </para>
+            </note>
+          </step>
+          <step>
+            <para>
+              点击<keycap>确定</keycap>开始导出, 这个操作将持续一段时间,
+              具体的时间取决于你的虚拟机磁盘大小和硬件环境.
+            </para>
+          </step>
+          <step>
+            <para>
+              重复以上步骤, 直到所有想导出的模板都开始导出为止. 在存储标签找到
+              搞导出域, 点击<keycap>模板导入</keycap>查看已经导出的模板.
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          模板已经被导出到导出域里了.
+        </para>
+        </formalpara>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6-2">
         <title>复制模板的虚拟磁盘</title>
+        <formalpara><title>摘要</title>
         <para>
+          如果虚拟机是基于模板创建并且选择的存储方式是 thin, 那么用户必须要将模板
+          的磁盘复制到存储到存储域中.
         </para>
+        </formalpara>
+
+        <procedure>
+          <title>复制模板的虚拟磁盘</title>
+          <step>
+            <para>
+              选择<keycap>磁盘</keycap>标签
+            </para>
+          </step>
+          <step>
+            <para>
+              选择想要复制的磁盘.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>复制</keycap>打开<keycap>复制磁盘</keycap>窗口.
+            </para>
+          </step>
+          <step>
+            <para>
+              在下拉列表中选择<keycap>目标</keycap>存储域.
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          模板里包含的虚拟磁盘已经创建了. 现在用户可以将该磁盘移到其他存储域了.
+        </para>
+        </formalpara>
       </section>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7">
       <title>导入模板</title>
       <para>
       </para>
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7-1">
         <title>导入一个模板到数据中心中</title>
+        <formalpara><title>摘要</title>
         <para>
+          从导出域导入模板到数据中心.
+        </para>
+        </formalpara>
+
+        <procedure>
+          <title>导入一个模板到数据中心中</title>
+          <step>
+            <para>
+              点击<keycap>存储</keycap>标签列出系统中的所有存储, 找到需要
+              的模板.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>模板导入</keycap>查看可以导入的模板.
+            </para>
+          </step>
+          <step>
+            <para>
+              选择要导入的模板, 点击<keycap>导入</keycap>打开<keycap>导入模板</keycap>窗口.
+              <!-- TODO: picture -->
+            </para>
+          </step>
+          <step>
+            <para>
+              选择要导入的模板.
+            </para>
+          </step>
+          <step>
+            <para>
+              在下拉的菜单中选择适当的<keycap>默认的存储域</keycap>和<keycap>群集</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>确定</keycap>开始导入模板.
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          模板导入了另外的数据中心. 这个操作将持续一段时间, 具体的时间取决于你的
+          虚拟机磁盘大小和硬件环境. 用户可以通过<keycap>事件</keycap>标签来
+          查看进度.
+        </para>
+        </formalpara>
+        <para>
+          一旦模板导入完成, 该模板在相关数据中心的资源标签里就会显示. 用户可以用
+          该模板创建新的虚拟机.
         </para>
       </section>
     </section>
@@ -367,26 +495,137 @@
     <title>封装模板准备部署</title>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-1">
       <title>手动封装 Linux 虚拟机部署为一个模板</title>
+      <formalpara><title>摘要</title>
       <para>
+        在基于一个虚拟机制作模板的时候, 需要对该虚拟机进行封装. 这样可以避免多个
+        基于该模板的虚拟机造成的冲突, MAC 地址等等.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>手动封装 Linux 虚拟机部署为一个模板</title>
+        <step>
+          <para>
+            用 ssh 或者 console 登陆虚拟机, 创建标记文件:
+          </para>
+          <programlisting language="Bash">
+# touch /.unconfigured
+          </programlisting>
+        </step>
+        <step>
+          <para>
+            删除 ssh host keys:
+          </para>
+          <programlisting language="Bash">
+# rm -rf /etc/ssh/ssh_host_*
+          </programlisting>
+        </step>
+        <step>
+          <para>
+            在文件 <keycap>/etc/sysconfig/network</keycap> 中设置
+            <keycap>HOSTNAME=localhost.localdomain in </keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            删除 MAC 地址配置文件 /etc/udev/rules.d/70-*.
+          </para>
+          <programlisting language="Bash">
+# rm -rf /etc/udev/rules.d/70-*
+          </programlisting>
+        </step>
+        <step>
+          <para>
+            在文件 <keycap>/etc/sysconfig/network-scripts/ifcfg-eth*</keycap> 中,
+            删除 <keycap>HWADDR=</keycap>的行.
+          </para>
+        </step>
+        <step>
+          <para>
+            关闭虚拟机:
+          <programlisting language="Bash">
+# poweroff
+          </programlisting>
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机已经封装好了, 可以基于此虚拟机制作模板了. 用户可以基于创建的模板
+        制作虚拟机而不用担心配置文件冲突的问题.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-2">
       <title>使用 sys-unconfig 封装 Linux 虚拟机部署为一个模板</title>
+      <formalpara><title>摘要</title>
       <para>
+        使用 sys-unconfig, 该虚拟机进行封装. 这样可以避免多个
+        基于该模板的虚拟机造成的冲突, MAC 地址等等.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>使用 sys-unconfig 封装 Linux 虚拟机部署为一个模板</title>
+        <step>
+          <para>
+            用 ssh 或者 console 登陆虚拟机, 创建标记文件:
+          </para>
+        </step>
+        <step>
+          <para>
+            删除 ssh host keys:
+          </para>
+          <programlisting language="Bash">
+# rm -rf /etc/ssh/ssh_host_*
+          </programlisting>
+        </step>
+        <step>
+          <para>
+            在文件 <keycap>/etc/sysconfig/network</keycap> 中设置
+            <keycap>HOSTNAME=localhost.localdomain in </keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            删除 MAC 地址配置文件 /etc/udev/rules.d/70-*.
+          </para>
+        </step>
+        <step>
+          <para>
+            运行以下命令:
+            <programlisting language="Bash">
+# sys-unconfig
+          </programlisting>
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟机将会关闭, 虚拟机已经封装好了, 可以基于此虚拟机制作模板了. 用户可以
+        基于创建的模板制作虚拟机而不用担心配置文件冲突的问题.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3">
+      <!-- TODO: yanying, please help me -->
       <title>封装 Windows 模板</title>
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-1">
         <title>使用 sysprep 封装 Windows 模板需要注意的事项</title>
         <para>
         </para>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-2">
         <title>封装 Windows XP 模板</title>
         <para>
         </para>
       </section>
+
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-3-3">
         <title>封装 Windows 7 或 Windows 2008 模板</title>
         <para>
@@ -401,6 +640,7 @@
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4">
+    <!-- TODO: huntxu, please help me -->
     <title>模板和权限</title>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-1">
       <title>管理模板的系统权限</title>
