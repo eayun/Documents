@@ -1110,7 +1110,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>ProductKey2003x64</entry>
+                            <entry>ProductKey2003x&#x200B;64</entry>
                             <entry>产品序列号（Windows 2003 x64）</entry>
                             <entry>字符串</entry>
                             <entry>-</entry>
@@ -1130,7 +1130,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>ProductKey2008R2</entry>
+                            <entry>ProductKey2008&#x200B;R2</entry>
                             <entry>产品序列号（Windows 2008 R2）</entry>
                             <entry>字符串</entry>
                             <entry>-</entry>
@@ -1140,7 +1140,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>ProductKey2008x64</entry>
+                            <entry>ProductKey2008&#x200B;x64</entry>
                             <entry>产品序列号（Windows 2008 x64）</entry>
                             <entry>字符串</entry>
                             <entry>-</entry>
@@ -1186,6 +1186,324 @@ Domain: eayunos.eayun.com
                             <entry>自动从软件包中获取</entry>
                             <entry>
                                 当前使用的&OVIRT;&MANAGER;软件包版本。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SANWipeAfterDel&#x200B;ete</entry>
+                            <entry>
+                                创建虚拟磁盘时重新初始化更安全，但是IO所花费的
+                                时间较长（根据磁盘大小情况而定）。
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>false</entry>
+                            <entry>
+                                该配置项会影响新建虚拟磁盘时是否选中“删除后清
+                                理”（新建虚拟磁盘在SAN类型的存储域中时）。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SASL_QOP</entry>
+                            <entry>用户认证或者LDAP查询时SASL的QoP级别</entry>
+                            <entry>字符串</entry>
+                            <entry>auth-conf</entry>
+                            <entry>
+                                可选择的QoP等级有：auth，auth-int，auth-conf。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SearchResultsLimi&#x200B;t</entry>
+                            <entry>搜索结果条目数量的上限</entry>
+                            <entry>整数</entry>
+                            <entry>100</entry>
+                            <entry>
+                                使用web管理门户或者REST api执行查询（没有特殊参
+                                数）时，搜索结果条目数量的上限。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                SecureConnection&#x200B;WithOATServers
+                            </entry>
+                            <entry>
+                                访问attestation服务器时是否使用安全连接
+                            </entry>
+                            <entry>布尔值</entry>
+                            <entry>true</entry>
+                            <entry></entry>
+                        </row>
+                        <row>
+                            <entry>ServerRebootTim&#x200B;eout</entry>
+                            <entry>主机重启的超时时间限制（以秒为单位）</entry>
+                            <entry>整数</entry>
+                            <entry>300</entry>
+                            <entry>
+                                当主机重启或者被fence时，如果主机在配置项指定的
+                                时间限制之前没有相应，则主机被认为是“Non
+                                Responsive”状态。如果主机重启时间较长，可以适量
+                                调整该配置。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpiceProxyDefault</entry>
+                            <entry>SPICE代理服务器的地址</entry>
+                            <entry>字符串</entry>
+                            <entry>无</entry>
+                            <entry>
+                                该配置项配置之后，SPICE代理会自动开启。没有设
+                                置，则不会使用SPICE代理。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpiceSecureChan&#x200B;nels</entry>
+                            <entry>SPICE安全通道</entry>
+                            <entry>字符串</entry>
+                            <entry>
+                                smain,sinputs,&#x200B;scursor,splayback,&#x200B;
+                                srecord,sdisplay,&#x200B;susbredir,ssmartcard 
+                            </entry>
+                            <entry>
+                                配置项中列出的SPICE通道会使用SSL安全连接。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpiceReleaseCur&#x200B;sorKeys</entry>
+                            <entry>从SPICE客户端中释放鼠标的按键组合</entry>
+                            <entry>字符串</entry>
+                            <entry>
+                                <keycombo>
+                                    <keycap>Shift</keycap>
+                                    <keycap>F12</keycap>
+                                </keycombo>
+                            </entry>
+                            <entry>-</entry>
+                        </row>
+                        <row>
+                            <entry>SpiceUsbAutoSha&#x200B;re</entry>
+                            <entry>默认开启SPICE连接的USB设备共享</entry>
+                            <entry>字符串</entry>
+                            <entry>true</entry>
+                            <entry>
+                                用户门户中SPICE客户端选项中的“启动USB自动共享”是
+                                否默认选中。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpmCommandFail&#x200B;OverRetries</entry>
+                            <entry>SPM切换失败的重试次数</entry>
+                            <entry>整数</entry>
+                            <entry>3</entry>
+                            <entry>
+                                SPM切换失败的重试次数。如果SPM指令失败，后台会开
+                                始尝试切换SPM，失败的指令会在新的SPM上重新执行。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpmFailOverAttem&#x200B;pts</entry>
+                            <entry>SPM切换前重新尝试连接的次数</entry>
+                            <entry>整数</entry>
+                            <entry>3</entry>
+                            <entry>
+                                监控存储域时，如果当前的SPM失效，不会立即进行切
+                                换。首先尝试重新连接当前的SPM，如果重试超过该配
+                                置指定的数值，则认为SPM已经停止运行，必须进行失
+                                效切换。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SpmVCpuConsum&#x200B;ption</entry>
+                            <entry>作为SPM的主机额外使用的虚拟CPU的数目</entry>
+                            <entry>整数</entry>
+                            <entry>1</entry>
+                            <entry>
+                                作为SPM的主机，可以使用该配置项指定数值的额外虚
+                                拟CPU，以满足SPM操作产生的开销。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                SSHInactivityHard&#x200B;TimeoutSeconds
+                            </entry>
+                            <entry>
+                                SSH连接无活动的超时时间（以秒为单位），最大限制
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>1800</entry>
+                            <entry>-</entry>
+                        </row>
+                        <row>
+                            <entry>
+                                SSHInactivityTime&#x200B;outSeconds
+                            </entry>
+                            <entry>SSH连接无活动的超时时间（以秒为单位）</entry>
+                            <entry>整数</entry>
+                            <entry>600</entry>
+                            <entry>
+                                SSH连接没有活动的时间超过配置项指定的数值时，会
+                                话会被终止。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>NumberOfUSBSlots</entry>
+                            <entry>
+                                虚拟机使用native的USB支持模式时，USB接口的数目
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>4</entry>
+                            <entry>-</entry>
+                        </row>
+                        <row>
+                            <entry>SSLEnabled</entry>
+                            <entry>SPICE使用是否SSL安全连接</entry>
+                            <entry>字符串</entry>
+                            <entry>true</entry>
+                            <entry>
+                                SPICE安全通道是否使用SSL安全连接。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                            StorageDomainFai&#x200B;lureTimeoutInMinu&#x200B;tes
+                            </entry>
+                            <entry>存储域失效的超时时间</entry>
+                            <entry>整数</entry>
+                            <entry>5</entry>
+                            <entry>
+                                VDSM首次发现存储域故障之后，经过配置项指定的时间
+                                （以分钟为单位）之后仍然没有恢复，则认为存储域不
+                                可用。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                StoragePoolRefre&#x200B;shTimeInSeconds
+                            </entry>
+                            <entry>检测存储域状态的间隔时间，以秒为单位</entry>
+                            <entry>整数</entry>
+                            <entry>10</entry>
+                            <entry>
+                                检测存储域状态的频率。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrep2K3Path</entry>
+                            <entry>
+                                Windows 2003虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.2k3
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrep2K8Path</entry>
+                            <entry>
+                                Windows 2008虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.2k8x86
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrep2K8R2Pat&#x200B;h</entry>
+                            <entry>
+                                Windows 2008 R2虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.2k8
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrep2K8x64P&#x200B;ath</entry>
+                            <entry>Windows 2008虚拟机对应的sysrep文件路径</entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.2k8
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepWindows&#x200B;7Path</entry>
+                            <entry>Windows 7虚拟机对应的sysrep文件路径</entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.w7
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepWindows&#x200B;7x64Path</entry>
+                            <entry>
+                                Windows 7 x64虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.w7x64
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepWindows&#x200B;8Path</entry>
+                            <entry>Windows 8虚拟机对应的sysrep文件路径</entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.w8
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepWindows&#x200B;8x64Path</entry>
+                            <entry>
+                                Windows 8 x64 虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.w8x64
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepWindows&#x200B;2012x64Path</entry>
+                            <entry>
+                                Windows 2012 x64虚拟机对应的sysrep文件路径
+                            </entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.2k12x64
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>SysPrepXPPath</entry>
+                            <entry>Windows XP虚拟机对应的sysrep文件路径</entry>
+                            <entry>字符串</entry>
+                            <entry>
+/etc/ovirt&#x200B;-engine/gsysprep/sys&#x200B;prep.xp
+                            </entry>
+                            <entry>
+                                特定操作系统对应的sysprep文件模板的路径。
                             </entry>
                         </row>
                     </tbody>
