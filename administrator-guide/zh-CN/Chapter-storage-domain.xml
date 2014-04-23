@@ -177,7 +177,7 @@
         <figure id="add-nfs"><title>添加 NFS 存储</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/storage-add-nfs.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/storage-add-nfs.png" format="PNG" width="100%" scalefit="1"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -208,10 +208,10 @@
       </para>
       <procedure><title>准备本地存储</title>
       <step>
-        <para>在主机上, 创建本地存储域需要的目录, 注意目录名称必须是 /data/images
+        <para>在主机上, 创建本地存储域需要的目录, 注意目录名称必须是 /data/images/rhev
         </para>
         <programlisting language="Bash">
-# mkdir -p /data/images
+# mkdir -p /data/images/rhev
         </programlisting>
       </step>
 
@@ -219,8 +219,8 @@
         <para>修改主机域的目录权限
         </para>
         <programlisting language="Bash">
-# chown 36:36 /data /data/images
-# chmod 0755 /data /data/images
+          # chown 36:36 /data /data/images /data/images/rhev
+          # chmod 0755 /data /data/images /data/images/rhev
         </programlisting>
       </step>
       </procedure>
@@ -303,7 +303,7 @@
         <figure id="add-posix"><title>添加 NFS 存储</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/storage-add-posix.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/storage-add-posix.png" format="PNG" width="100%" scalefit="1"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -400,7 +400,7 @@
         <figure id="add-pnfs"><title>添加 pNFS 存储</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/storage-add-pnfs.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/storage-add-pnfs.png" format="PNG" width="100%" scalefit="1"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -539,7 +539,7 @@
         <figure id="add-iscsi"><title>添加 iSCSI 存储</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/storage-add-iscsi.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/storage-add-iscsi.png" format="PNG" width="100%" scalefit="1"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -631,7 +631,7 @@
       <figure id="add-iscsi-done"><title>完成 iSCSI 存储域的搭建</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/storage-add-iscsi-done.png" format="PNG" scale="100"/>
+          <imagedata fileref="images/storage-add-iscsi-done.png" format="PNG" width="100%" scalefit="1"/>
         </imageobject>
       </mediaobject>
       </figure>
@@ -673,7 +673,7 @@
         <figure id="import-domain"><title>导入存储域</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/storage-import-domain.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/storage-import-domain.png" format="PNG" width="100%" scalefit="1"/>
           </imageobject>
         </mediaobject>
         </figure>
