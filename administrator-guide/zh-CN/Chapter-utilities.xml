@@ -723,8 +723,8 @@ Domain: eayunos.eayun.com
                             <entry>animation</entry>
                             <entry>
                                 使用SPICE连接虚拟机时要关闭哪些特效。目前支持的
-                                值有：animation、&#x200B;wallpaper、font-smooth
-                                和all。
+                                值有：animation、&#x200B;wallpaper、&#x200B;
+                                font-smooth和all。
                             </entry>
                         </row>
                         <row>
@@ -969,7 +969,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>MaxScheduler&#200B;Weight</entry>
+                            <entry>MaxScheduler&#x200B;Weight</entry>
                             <entry>单一调度模块权值的上限</entry>
                             <entry>整数</entry>
                             <entry>1000</entry>
@@ -987,6 +987,205 @@ Domain: eayunos.eayun.com
                             <entry>
                                 将确认存储域状态异常之前等待检测结果返回的最大延
                                 时时间。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>MaxStorageVdsTi&#x200B;meoutCheckSec</entry>
+                            <entry>存储最后一次状态检测超时时间的上限</entry>
+                            <entry>整数</entry>
+                            <entry>30</entry>
+                            <entry>
+                                检测存储域状态时，vdsmd会为每一个存储域设置一个
+                                “lastCheck”值。如果lastCheck对应的时间距离当前时
+                                间超过了配置项指定的数值，则存储域被认为是异常状
+                                态。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>MaxVDSMeMOver&#x200B;Commit</entry>
+                            <entry>
+                                主机运行虚拟桌面时内存overcommit比例的上限
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>200</entry>
+                            <entry>
+                                主机运行虚拟桌面时，内存overcommit比例的上限。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>MaxVdsMemOver&#x200B;CommitForServers</entry>
+                            <entry>
+                                主机运行虚拟服务器时内存overcommit比例的上限
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>150</entry>
+                            <entry>
+                                主机运行虚拟服务器时，内存overcommit比例的上限。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>MaxVdsNameLen&#x200B;gth</entry>
+                            <entry>主机名称的最大长度</entry>
+                            <entry>整数</entry>
+                            <entry>255</entry>
+                            <entry>主机名称的最大长度</entry>
+                        </row>
+                        <row>
+                            <entry>MaxVmNameLengt&#x200B;hNonWindows</entry>
+                            <entry>非Windows平台虚拟机的名称的最大长度</entry>
+                            <entry>整数</entry>
+                            <entry>64</entry>
+                            <entry>非Windows平台虚拟机的名称的最大长度</entry>
+                        </row>
+                        <row>
+                            <entry>MaxVmNameLengt&#x200B;hWindos</entry>
+                            <entry>Windows平台虚拟机的名称的最大长度</entry>
+                            <entry>整数</entry>
+                            <entry>15</entry>
+                            <entry>Windows平台虚拟机的名称的最大长度</entry>
+                        </row>
+                        <row>
+                            <entry>MaxVmsInPool</entry>
+                            <entry>数据中心虚拟机数量的上限</entry>
+                            <entry>整数</entry>
+                            <entry>1000</entry>
+                            <entry>单一数据中心中虚拟机数量的上限。</entry>
+                        </row>
+                        <row>
+                            <entry>VmPoolMaxSubse&#x200B;quentFailures</entry>
+                            <entry>
+                                使用虚拟机池时虚拟机创建失败次数的上限
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>3</entry>
+                            <entry>
+                                使用虚拟机池时新建虚拟机失败次数的上限。虚拟机失
+                                败次数超过限制，操作会被终止。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>NumberOfVmsFor&#x200B;TopSizeVms</entry>
+                            <entry>
+                                存储域的虚拟机列表中显示的虚拟机数量（按虚拟机磁
+                                盘大小排序）
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>10</entry>
+                            <entry>
+                                存储域的虚拟机标签中，按照使用磁盘空间大小排序对
+                                虚拟机进行列表。列表中最多显示配置项指定数目的虚
+                                拟机。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>NumberVmRefre&#x200B;hesBeforeSave</entry>
+                            <entry>
+                                在虚拟机数据写入到数据库之前允许的刷新次数
+                            </entry>
+                            <entry>整数</entry>
+                            <entry>5</entry>
+                            <entry>
+                                2次从VDSM重新载入虚拟机信息之间主机监控操作的次
+                                数。每次主机监控操作都是根据该配置项指定的数值确
+                                定是否需要重新加载虚拟机信息。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>oVirtISOsReposito&#x200B;ryPath</entry>
+                            <entry>&OVIRT;&NODE;安装文件的路径</entry>
+                            <entry>字符串</entry>
+                            <entry>/usr/share/ovirt&#x200B;-node-iso</entry>
+                            <entry>
+                                升级&OVIRT;&NODE;时使用的ISO镜像文件的路径。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey2003</entry>
+                            <entry>产品序列号（Windows 2003）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey2003x64</entry>
+                            <entry>产品序列号（Windows 2003 x64）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey2008</entry>
+                            <entry>产品序列号（Windows 2008）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey2008R2</entry>
+                            <entry>产品序列号（Windows 2008 R2）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey2008x64</entry>
+                            <entry>产品序列号（Windows 2008 x64）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKey</entry>
+                            <entry>产品序列号（Windows XP）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKeyWindo&#x200B;w7</entry>
+                            <entry>产品序列号（Windows 7）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductKeyWindo&#x200B;w7x64</entry>
+                            <entry>产品序列号（Windows 7 x64）</entry>
+                            <entry>字符串</entry>
+                            <entry>-</entry>
+                            <entry>
+                                使用sysprep创建Windows虚拟机模板使用的产品序列
+                                号。
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>ProductRPMVersi&#x200B;on</entry>
+                            <entry>&OVIRT;&MANAGER;软件包版本</entry>
+                            <entry>字符串</entry>
+                            <entry>自动从软件包中获取</entry>
+                            <entry>
+                                当前使用的&OVIRT;&MANAGER;软件包版本。
                             </entry>
                         </row>
                     </tbody>
