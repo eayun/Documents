@@ -679,7 +679,7 @@ Domain: eayunos.eayun.com
                             <entry>证书文件的名称</entry>
                             <entry>字符串</entry>
                             <entry>
-                            /etc/pki/ovirt-&#200B;engine/certs/engin&#200B;e.cer
+                            /etc/pki/ovirt-engine/certs/engine.cer
                             </entry>
                             <entry>
                                 &OVIRT;&MANAGER;进行SSL/TSL通信时使用的证书文
