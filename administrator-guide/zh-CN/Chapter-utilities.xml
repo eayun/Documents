@@ -540,7 +540,7 @@ Domain: eayunos.eayun.com
                     <tbody>
                         <row>
                             <entry>
-                                AsyncTaskPollingRate
+                                AsyncTaskPolling&#x200B;Rate
                             </entry>
                             <entry>异步事务轮询频率</entry>
                             <entry>整数</entry>
@@ -550,7 +550,7 @@ Domain: eayunos.eayun.com
                         </row>
                         <row>
                             <entry>
-                                AsyncTaskZombieTaskLifeInMinutes
+                                AsyncTaskZombie&#x200B;TaskLifeInMinutes
                             </entry>
                             <entry>僵尸事务的生命周期（分钟）</entry>
                             <entry>整数</entry>
@@ -581,7 +581,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>AttestationTruststore</entry>
+                            <entry>AttestationTrustst&#x200B;ore</entry>
                             <entry>
                                 和attestation服务器进行加密通信时使用的
                                 truststore文件。
@@ -596,14 +596,14 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>AttestationTruststorePass</entry>
+                            <entry>AttestationTrustst&#x200B;orePass</entry>
                             <entry>访问truststore的密码</entry>
                             <entry>字符串</entry>
                             <entry>password</entry>
                             <entry>默认的密码是password。</entry>
                         </row>
                         <row>
-                            <entry>AttestationFirstStageSize</entry>
+                            <entry>AttestationFirstSta&#x200B;geSize</entry>
                             <entry>第一阶段attestation的容量</entry>
                             <entry>整数</entry>
                             <entry>10</entry>
@@ -613,7 +613,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>AuditLogAgingThreshold</entry>
+                            <entry>AuditLogAgingThr&#x200B;eshold</entry>
                             <entry>审计日志保存时限（以天为单位）</entry>
                             <entry>整数</entry>
                             <entry>30</entry>
@@ -622,7 +622,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>AuditLogCleanupTime</entry>
+                            <entry>AuditLogCleanupT&#x200B;ime</entry>
                             <entry>检查审计是否需要清理的时间</entry>
                             <entry>时间</entry>
                             <entry>03:35:35</entry>
@@ -631,7 +631,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>AuthenticationMethod</entry>
+                            <entry>AuthenticationMet&#x200B;hod</entry>
                             <entry>&OVIRT;&MANAGER;中用户的验证方式</entry>
                             <entry>字符串</entry>
                             <entry>LDAP</entry>
@@ -641,7 +641,7 @@ Domain: eayunos.eayun.com
                         </row>
                         <row>
                             <entry>
-                            BlockMigrationOnSwapUsagePercentage
+                            BlockMigrationOn&#x200B;SwapUsagePerce&#x200B;ntage
                             </entry>
                             <entry>
                                 &NODE;服务器swap使用率的限制（作为调度的依据）
@@ -655,7 +655,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>BootstrapMinimalVdsmVersion</entry>
+                            <entry>BootstrapMinimalV&#x200B;dsmVersion</entry>
                             <entry>支持的VDSM最低版本</entry>
                             <entry>字符串</entry>
                             <entry>4.9</entry>
@@ -669,17 +669,17 @@ Domain: eayunos.eayun.com
                             <entry>CABaseDirectory</entry>
                             <entry>CA证书的目录</entry>
                             <entry>字符串</entry>
-                            <entry>/etc/pki/ovirt-engine</entry>
+                            <entry>/etc/pki/ovirt-&#x200B;engine</entry>
                             <entry>
                                 &OVIRT;&MANAGER;服务器上CA证书所在的目录。
                             </entry>
                         </row>
                         <row>
-                            <entry>CertificateFileName</entry>
+                            <entry>CertificateFileNam&#x200B;e</entry>
                             <entry>证书文件的名称</entry>
                             <entry>字符串</entry>
                             <entry>
-                            /etc/pki/ovirt-engine/certs/engine.cer
+/etc/pki/ovirt-&#x200B;engine/certs/engin&#x200B;e.cer
                             </entry>
                             <entry>
                                 &OVIRT;&MANAGER;进行SSL/TSL通信时使用的证书文
@@ -687,7 +687,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>CpuOverCommitDurationMinutes</entry>
+                            <entry>CpuOverCommitD&#x200B;urationMinutes</entry>
                             <entry>
                                 CPU使用率超过集群调度策略的上限时，等待多长时间
                                 才开始进行实际的调度操作（时间以分钟为单位）。
@@ -701,7 +701,7 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>DisableFenceAtStartupInSec</entry>
+                            <entry>DisableFenceAtSt&#x200B;artupInSec</entry>
                             <entry>
                                 在&OVIRT;&MANAGER;启动时禁用fence操作一段时间（
                                 以秒为单位）
@@ -717,13 +717,14 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>WANDisableEffects</entry>
+                            <entry>WANDisableEffect&#x200B;s</entry>
                             <entry>使用SPICE连接虚拟机时关闭WAN特效</entry>
                             <entry>多个字符串</entry>
                             <entry>animation</entry>
                             <entry>
                                 使用SPICE连接虚拟机时要关闭哪些特效。目前支持的
-                                值有：animation、wallpaper、font-smooth和all。
+                                值有：animation、&#x200B;wallpaper、font-smooth
+                                和all。
                             </entry>
                         </row>
                         <row>
@@ -738,7 +739,7 @@ Domain: eayunos.eayun.com
                         </row>
                         <row>
                             <entry>
-                            EnableSpiceRootCertificateValidation
+                            EnableSpiceRoot&#x200B;CertificateValidatio&#x200B;n
                             </entry>
                             <entry>是否启动SPICE客户端的根证书验证</entry>
                             <entry>字符串</entry>
@@ -751,14 +752,14 @@ Domain: eayunos.eayun.com
                             </entry>
                         </row>
                         <row>
-                            <entry>EnableUSBAsDefault</entry>
+                            <entry>EnableUSBAsDef&#x200B;ault</entry>
                             <entry>是否自动将USB设备附加到虚拟机</entry>
                             <entry>字符串</entry>
                             <entry>true</entry>
                             <entry>-</entry>
                         </row>
                         <row>
-                            <entry>EnableVdsLoadBalancing</entry>
+                            <entry>EnableVdsLoadBa&#x200B;lancing</entry>
                             <entry>是否启用&NODE;负载均衡</entry>
                             <entry>字符串</entry>
                             <entry>true</entry>
