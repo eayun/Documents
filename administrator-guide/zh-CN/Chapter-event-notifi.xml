@@ -59,12 +59,12 @@
       </step>
       <step>
         <para>
-          在 &OVIRT; &MANAGER;所在的服务器上添加并启动 <emphasis>engine-notifierd</emphasis> 服务。这将激活您刚才所做的更改。
+          在 &OVIRT; &MANAGER;所在的服务器上添加并启动 <emphasis>ovirt-engine-notifier</emphasis> 服务。这将激活您刚才所做的更改。
         </para>
         <screen>
-# chkconfig --add engine-notifierd
-# chkconfig engine-notifierd on
-# service engine-notifierd restart
+# chkconfig --add ovirt-engine-notifier
+# chkconfig ovirt-engine-notifier on
+# service ovirt-engine-notifier restart
         </screen>
       </step>
     </procedure>
