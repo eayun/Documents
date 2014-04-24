@@ -105,11 +105,11 @@
                         <para>图中，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
                         <para>
                                 <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
-                                        <mediaobject>
-                                                <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="100"/>
-                                                </imageobject>
-                                        </mediaobject>
+                                    <mediaobject>
+                                        <imageobject>
+                                            <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="100"/>
+                                        </imageobject>
+                                    </mediaobject>
                                 </figure>
                         </para>
                 </step>
@@ -133,48 +133,119 @@
                                 </listitem>
                                 <listitem>
                                         <para>
-                                                运行命令 engine-setup
+                                                运行命令 engine-setup，整个安装过程中经过几个阶段，每个阶段会提示用户输入对应的选项，其中方括号中提示的选项为默认输入值。按Enter，进入下一阶段。
                                         </para>
-                                        <para>图中，提示是否在本机配置VDSM，此项设为Yes</para>
-                                        <para>
-                                                <figure id="eayunos-install-eayunos-manager-7"><title>图8</title>
-                                                        <mediaobject>
-                                                                <imageobject>
-                                                                        <imagedata fileref="images/eayunos-manager-8.png" format="PNG" scale="100"/>
-                                                                </imageobject>
-                                                        </mediaobject>
-                                                </figure>
-                                        </para>
-                                        <para>按如图所示配置其它项</para>
-                                        <para>
-                                                <figure id="eayunos-install-eayunos-manager-8"><title>图9</title>
-                                                        <mediaobject>
-                                                                <imageobject>
-                                                                        <imagedata fileref="images/eayunos-manager-9.png" format="PNG" scale="100"/>
-                                                                </imageobject>
-                                                        </mediaobject>
-                                                </figure>
-                                        </para>
-                                        <para>配置完成后，显示所有之前配置项，确认配置</para>
-                                        <para>
-                                                <figure id="eayunos-install-eayunos-manager-9"><title>图10</title>
-                                                        <mediaobject>
-                                                                <imageobject>
-                                                                        <imagedata fileref="images/eayunos-manager-10.png" format="PNG" scale="100"/>
-                                                                </imageobject>
-                                                        </mediaobject>
-                                                </figure>
-                                        </para>
-                                        <para>显示配置成功完成</para>
-                                        <para>
-                                                <figure id="eayunos-install-eayunos-manager-10"><title>图11</title>
-                                                        <mediaobject>
-                                                                <imageobject>
-                                                                        <imagedata fileref="images/eayunos-manager-11.png" format="PNG" scale="100"/>
-                                                                </imageobject>
-                                                        </mediaobject>
-                                                </figure>
-                                        </para>
+                                        <procedure>
+                                            <step>
+                                                <para>包检查</para>
+                                                <para>
+                                                    engine-setup脚本判断此次是一个安装还是升级，同时看看&MANAGER;有没有可以升级的包。这一阶段不需要输入。
+                                                </para>
+                                                <programlisting language="Bash">
+                                                <![CDATA[
+                                                [ INFO] Checking for product updates...
+                                                [ INFO] No product updates found
+                                                ]]>
+                                                </programlisting>
+                                            </step>
+                                            <step>
+                                                <para>网络配置</para>
+                                            <para>
+                                                系统会自动检测你的主机名并进行反向查找。如果检测出的主机名错误或者使用一台虚拟机，可以手动纠正主机名。你的完整域名必须在DNS里同时由正向和反向查找记录，尤其在它还安装了报告服务器的情况下。
+                                            </para>
+                                            <programlisting language="Bash">
+                                            <![CDATA[
+                                                Host fully qualified DNS name of this server [autodetected host name]:
+                                                ]]>
+                                            </programlisting>
+                                            <para>
+                                                engine-setup将会检查你的防火墙配置，帮你打开&MANAGER;通信所需要的端口。如果不允许engine-setup修改iptables的配置，那就必须手动打开&OVIRT; &MANAGER;需要的这些端口。
+                                            </para>
+                                            <programlisting language="Bash">
+                                            <![CDATA[
+                                            iptables was detected on your computer. Do you wish Setup to configure it?
+                                            (yes, no) [yes]:
+                                            ]]>
+                                            </programlisting>
+                                        </step>
+                                        <step>
+                                            <para>数据库配置</para>
+                                            <para>可以使用本地或者远程的Postgres数据库。engine-setup脚本可以完全自动配置数据库，包括添加用户和数据库，或者使用你设置的值。</para>
+                                            <programlisting language="Bash">
+                                            <![CDATA[
+                                             Where is the database located? (Local, Remote) [Local]:
+                                             Setup can configure the local postgresql server automatically for the engine
+                                             to run. This may conflict with existing applications.
+                                             Would you like Setup to automatically configure postgresql, or prefer to
+                                             perform that manually? (Automatic, Manual) [Automatic]:
+                                             ]]>
+                                            </programlisting>
+                                        </step>
+                                        <step>
+                                            <para>engine配置</para>
+                                            <para>为自动创建的&OVIRT; &MANAGER;管理员账户admin@internal设置密码。</para>
+                                            <programlisting language="Bash">
+                                            <![CDATA[
+                                            Engine admin password:
+                                            Confirm engine admin password:
+                                            ]]>
+                                        </programlisting>
+                                        <para>选择Gluster，Virtualization或者Both。Both具有最大的适应性</para>
+                                        <programlisting language="Bash">
+                                            <![CDATA[
+                                            Data center (Both, Virt, Gluster) [Both]:
+                                            ]]>
+                                        </programlisting>
+                                        <para>选择初始化数据中心的类型。环境中可以由很多数据中心，数据中心用不同的存储方式。这里选择的是第一个数据中心的类型。</para>
+                                        <programlisting language="Bash">
+                                            <![CDATA[
+                                            Default storage type: (NFS, FC, ISCSI, POSIXFS) [NFS]:
+                                            ]]>
+                                        </programlisting>
+                                        </step>
+                                        <step>
+                                            <para>PKI配置</para>
+                                            <para>&MANAGER;使用认证来和它的主机交流。需要为认证提供组织名。这个认证也可以用来增强&MANAGER;的https的通信安全。</para>
+                                            <programlisting language="Bash">
+                                                <![CDATA[
+                                                Organization name for certificate [autodetected domain-based name]:
+                                                ]]>
+                                            </programlisting>
+                                        </step>
+                                        <step>
+                                            <para>Apache配置</para>
+                                            <para>&OVIRT; &MANAGER; 使用Apache服务器来为用户提供一个登录页面。engine-setup脚本可以把&MANAGER;的登录页面变成Apache的默认页面。</para>
+                                            <programlisting language="Bash">
+                                                <![CDATA[
+                                                Setup can configure the default page of the web server to present the
+                                                application home page. This may conflict with existing applications.
+                                                Do you wish to set the application as the default web page of the server?
+                                                (Yes, No) [Yes]:
+                                                ]]>
+                                            </programlisting>
+                                            <para>主机和&MANAGER;的ssl（https）通信使用PKI配置阶段生成的自签名。其他的https连接选择另一个证书，不影响&MANAGER;和主机之间的通信。</para>
+                                            <programlisting language="Bash">
+                                                <![CDATA[
+                                                Setup can configure apache to use SSL using a certificate issued from the
+                                                internal CA
+                                                Do you wish Setup to configure that, or prefer to perform that manually?
+                                                (Automatic, Manual) [Automatic]:
+                                                ]]>
+                                            </programlisting>
+                                        </step>
+                                        <step>
+                                            <para>系统配置</para>
+                                            <para>engine-setup可以在&MANAGER;上创建一个NFS服务，利用该服务使用ISO domain。在&MANAGER;本地保存ISO domain可以简化更新环境中的元素。</para>
+                                            <programlisting language="Bash">
+                                                <![CDATA[
+                                                Configure an NFS share on this server to be used as an ISO Domain? (Yes, No)
+                                                [Yes]:
+                                                Local ISO domain path [/var/lib/exports/iso]:
+                                                Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
+                                                ]]>
+                                            </programlisting>
+                                        </step>
+                                        </procedure>
                                 </listitem>
                         </orderedlist>
                 </step>
