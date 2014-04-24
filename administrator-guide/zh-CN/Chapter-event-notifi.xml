@@ -6,7 +6,7 @@
 <chapter id="chap-Event_Notifications">
   <title>事件通知</title>
 
-  <section id="sect-Configuring_Event_Notifications">
+  <section id="sect-Event_Notifications-Configuring_Event_Notifications">
     <title>配置事件通知</title>
     <formalpara>
       <title>概述</title>
@@ -76,7 +76,7 @@
     </formalpara>
   </section>
 
-  <section id="sect-Parameters_for_Event_Notifications_in_Notifier_conf">
+  <section id="sect-Event_Notifications-Parameters_for_Event_Notifications_in_Notifier_conf">
     <title>ovirt-engine-notifier.conf 文件中关于事件通知的参数</title>
     <para>
       事件通知器的配置文件在 <filename>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</filename>。
@@ -213,7 +213,7 @@
     </table>
   </section>
 
-  <section id="sect-Canceling_Event_Nofifications">
+  <section id="sect-Event_Notifications-Canceling_Event_Nofifications">
     <title>取消事件通知</title>
     <formalpara>
       <title>概述</title>

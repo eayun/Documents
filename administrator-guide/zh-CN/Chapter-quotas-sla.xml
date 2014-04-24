@@ -6,7 +6,7 @@
 <chapter id="chap-Quotas_and_Service_Level_Agreement_Policy">
   <title>配额和服务级别协议</title>
 
-  <section id="sect-Introduction_to_Quota">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Introduction_to_Quota">
     <title>配额简介</title>
     <para>
       配额是与 &OVIRT; 一同提供的资源限制工具。配额可以被认为是基于用户权限限制层之上的限制层次。
@@ -128,7 +128,7 @@
     </important>
   </section>
 
-  <section id="sect-Shared_Quota_and_Individually_defined_Quota">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Shared_Quota_and_Individually_defined_Quota">
     <title>共享的配额与单独定义的配额</title>
     <para>
       具有 SuperUser 权限的用户能够为单独的用户创建配额，也能够为用户组创建配额。
@@ -141,7 +141,7 @@
     </para>
   </section>
 
-  <section id="sect-Quota_Accounting">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Quota_Accounting">
     <title>配额审计</title>
     <para>
       当配额分配给一个用户或者一个资源时，该用户的，或者对该资源的每个涉及存储、虚拟 CPU 或者内存的操作都将引起配额消耗或者配额释放的结果。
@@ -160,7 +160,7 @@
     </example>
   </section>
 
-  <section id="sect-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center">
     <title>在数据中心中启用和更改配额模式</title>
     <formalpara>
       <title>概述</title>
@@ -207,14 +207,14 @@
     </formalpara>
   </section>
 
-  <section id="sect-Creating_a_New_Quota_Policy">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy">
     <title>创建新配额策略</title>
     <para>
       <emphasis>前提需求：</emphasis>
       <itemizedlist>
         <listitem>
           <para>
-            <xref linkend="sect-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center"/>
+            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center"/>
           </para>
         </listitem>
       </itemizedlist>
@@ -322,19 +322,19 @@
       <itemizedlist>
         <listitem>
           <para>
-            <xref linkend="sect-Explanation_of_Quota_Threshold_Settings"/>
+            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Explanation_of_Quota_Threshold_Settings"/>
           </para>
         </listitem>
         <listitem>
           <para>
-            <xref linkend="sect-Assigning_a_Quota_to_an_Object"/>
+            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Assigning_a_Quota_to_an_Object"/>
           </para>
         </listitem>
       </itemizedlist>
     </para>
   </section>
 
-  <section id="sect-Explanation_of_Quota_Threshold_Settings">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Explanation_of_Quota_Threshold_Settings">
     <title>配额阈值设置的解释</title>
     <table>
       <title>配额极限和配额 Grace</title>
@@ -390,14 +390,14 @@
     </para>
   </section>
 
-  <section id="sect-Assigning_a_Quota_to_an_Object">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Assigning_a_Quota_to_an_Object">
     <title>分配配额至一个对象</title>
     <para>
       <emphasis>前提需求：</emphasis>
       <itemizedlist>
         <listitem>
           <para>
-            <xref linkend="sect-Creating_a_New_Quota_Policy"/>
+            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
           </para>
         </listitem>
       </itemizedlist>
@@ -484,14 +484,14 @@
     </important>
   </section>
 
-  <section id="sect-Using_Quota_to_Limit_Resources_by_User">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Using_Quota_to_Limit_Resources_by_User">
     <title>使用配额限制用户使用的资源</title>
     <para>
       <emphasis>前提需求：</emphasis>
       <itemizedlist>
         <listitem>
           <para>
-            <xref linkend="sect-Creating_a_New_Quota_Policy"/>
+            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
           </para>
         </listitem>
       </itemizedlist>
@@ -563,7 +563,7 @@
     </formalpara>
   </section>
 
-  <section id="sect-Editing_Quotas">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Editing_Quotas">
     <title>编辑配额</title>
     <formalpara>
       <title>概述</title>
@@ -630,7 +630,7 @@
     </formalpara>
   </section>
 
-  <section id="sect-Removing_Quotas">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Removing_Quotas">
     <title>删除配额</title>
     <formalpara>
       <title>概述</title>
@@ -674,7 +674,7 @@
     </formalpara>
   </section>
 
-  <section id="sect-Service_level_Agreement_Policy_Enforcement">
+  <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Service_level_Agreement_Policy_Enforcement">
     <title>服务等级协议策略的实现</title>
     <para>
       &OVIRT; 支持服务等级协议 CPU 特性。这些特性能够通过管理员门户进行使用。
