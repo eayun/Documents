@@ -97,7 +97,7 @@
                        <para>
                         网卡Bond有几种模式，每种模式使用了不同的算法实现。
                        </para>
-                       <formalpara><title>Bond的7中模式</title>
+                       <formalpara><title>Bond的7种模式</title>
                          <para>
                           &OVIRT;默认使用模式4.
                          <itemizedlist>

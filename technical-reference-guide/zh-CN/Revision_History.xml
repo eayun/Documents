@@ -21,6 +21,20 @@
 					</simplelist>
 				</revdescription>
 			</revision>
+			<revision>
+				<revnumber>0.0-1</revnumber>
+				<date>Thu Apr 24 2014</date>
+				<author>
+					<firstname>李</firstname>
+					<surname>建盛</surname>
+					<email>jiansheng.li@eayun.net</email>
+				</author>
+				<revdescription>
+					<simplelist>
+						<member>修改4.2.4的一个错别字.</member>
+					</simplelist>
+				</revdescription>
+			</revision>
 		</revhistory>
 	</simpara>
 </appendix>
