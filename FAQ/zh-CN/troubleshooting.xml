@@ -292,4 +292,79 @@
       </answer>
   </qandaentry>
 
+  <qandaentry>
+      <question>
+          <para>
+              All in One光盘安装完成之后，要既作为管理中心使用，也可以充当宿主
+              机，防火墙配置如何配置？
+          </para>
+      </question>
+      <answer>
+          <para>
+              All in One光盘安装完成之后，如果需要配置为宿主机，在管理门户手动添
+              加主机时，不要选中“自动配置主机防火墙”。添加成功之后，可以按照
+              <emphasis>《EayunOS安装手册》</emphasis>中
+              <emphasis>“防火墙配置”</emphasis>章节的说明修改防火墙配置。
+          </para>
+          <para>
+              防火墙配置规则示例（针对既作为管理中心和虚拟机宿主机的服务器，一般
+              最少应该满足示例中的配置，其他规则根据实际情况添加）：
+              <screen>
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p icmp -m icmp --icmp-type any -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp --dport 54321 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 5432 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 6100 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 111 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 111 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 662 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 662 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 875 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 875 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 892 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 892 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 2049 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 32769 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 32803 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+# vdsm
+-A INPUT -p tcp --dport 54321 -j ACCEPT
+# libvirt tls
+-A INPUT -p tcp --dport 16514 -j ACCEPT
+# guest consoles
+-A INPUT -p tcp -m multiport --dports 5634:6166 -j ACCEPT
+# migration
+-A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT
+# snmp
+-A INPUT -p udp --dport 161 -j ACCEPT
+# Reject any other input traffic
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited
+#drop all rule
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+              </screen>
+              <important>
+                  <para>
+                      上述防火墙配置中关于端口的部分，都只针对使用默认参数安装的
+                      情况，如果安装过程中或者手动调整了某些服务的端口配置，则需
+                      要根据实际情况调整。
+                  </para>
+              </important>
+              <important>
+                  <para>
+                      请参考《EayunOS安装手册》中“防火墙配置”章节。
+                  </para>
+              </important>
+          </para>
+      </answer>
+  </qandaentry>
+
 </qandaset>
