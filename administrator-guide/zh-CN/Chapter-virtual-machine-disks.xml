@@ -4,30 +4,54 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-Documents-administrator-guide-Chapter-virtual-machine-disks">
-	<title>Test Chapter</title>
+  <title>虚拟机的磁盘</title>
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_1">
+	<title>理解虚拟机的存储</title>
 	<para>
-		This is a test paragraph
 	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  </section>
 
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_2">
+	<title>理解虚拟磁盘</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_3">
+	<title>共享磁盘</title>
+	<para>
+	</para>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4">
+	<title>虚拟磁盘任务</title>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-1">
+	  <title>创建与其它虚拟机不相关的虚拟机磁盘</title>
+	  <para>
+	  </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-2">
+	  <title>新建虚拟磁盘和编辑虚拟磁盘窗口中的参数解释</title>
+	  <para>
+	  </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-3">
+	  <title>在数据域中移动虚拟机磁盘</title>
+	  <para>
+	  </para>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-4">
+	  <title>导出虚拟机磁盘</title>
+	  <para>
+	  </para>
+    </section>
+  </section>
+
+  <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_5">
+    <!-- TODO: huntxu, please help me -->
+	<title>虚拟机磁盘和权限</title>
+	<para>
+	</para>
+  </section>
 </chapter>
 
