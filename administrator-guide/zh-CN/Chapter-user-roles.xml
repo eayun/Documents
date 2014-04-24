@@ -3,146 +3,951 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-Documents-administrator-guide-Chapter-user-roles">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_2-1">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	</section>
+<chapter id="chap-Users_and_Roles">
+  <title>用户和角色</title>
 
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_3">
-		<title></title>
-		<para>
-		
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_3-1">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_3-2">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_3-3">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	</section>
+  <section id="sect-Users_and_Roles-Introduction_to_Users">
+    <title>用户简介</title>
+    <para>
+      &OVIRT; 使用外部的目录服务来进行用户认证。所有的用户账户都必须在外部的目录服务器上创建。这类用户被称作<firstterm>目录用户</firstterm>。唯一的例外是 <emphasis>internal</emphasis> 域中的 <emphasis>admin</emphasis> 用户是在安装过程中创建的。
+    </para>
+    <para>
+      在目录服务器连接到 &OVIRT; &MANAGER;之后，在该目录服务器中的用户可以被添加至管理员门户，使他们成为<firstterm>&OVIRT; &MANAGER;用户</firstterm>。&OVIRT; &MANAGER;用户能够根据他们所需要进行的任务被分配不同的角色和权限。
+    </para>
+    <para>
+      &OVIRT; &MANAGER;中的用户分为两种类型，包括在用户门户中使用及管理虚拟资源的终端用户，和使用管理员门户进行系统基础架构维护的管理员。<emphasis>用户</emphasis>角色及<emphasis>管理员</emphasis>角色能够分配给 &OVIRT; &MANAGER;用户，使他们能够使用独立的资源如虚拟机和主机，或者整个体系的对象如集群和数据中心。
+    </para>
+  </section>
 
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_4">
-		<title></title>
-		<para>
-		
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_4-1">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_4-2">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_4-3">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_4-4">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5">
-		<title></title>
-		<para>
-		
-		</para>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-1">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-2">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-3">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-4">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-5">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-6">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	        <section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_5-7">
-		       <title></title>
-		   <para>
-		    
-		   </para>
-	        </section>
-	</section>
-	<section id="sect-Documents-administrator-guide-Chapter-user-roles_Section_6">
-		<title></title>
-		<para>
-		
-		</para>
-	</section>
+  <section id="sect-Users_and_Roles-Directory_Users">
+    <title>目录用户</title>
+    <section id="sect-Users_and_Roles-Directory_Services_Support_in_EayunOS">
+      <title>&OVIRT; 中对目录服务的支持情况</title>
+      <para>
+        在安装过程中，&OVIRT; &MANAGER;创建其自己内部的管理员用户 <emphasis>admin</emphasis>。这个账户是为了初始化配置环境以及排解疑难问题而设计的。要添加用户到 &OVIRT; 环境中，您需要使用 &OVIRT; 的域管理工具 <emphasis>engine-manage-domains</emphasis> 来连接一个目录服务器到&MANAGER;
+      </para>
+      <para>
+        一旦至少一个目录服务器连接至&MANAGER;，您就可以使用管理员门户来添加该目录服务器中已存在的用户并为他们指派角色。用户以格式为 <emphasis>user@domain</emphasis> 的用户主体名称（User Principal Name，UPN）来区分。连接多个目录服务器到&MANAGER;同样被支持。
+      </para>
+      <para>
+        &OVIRT; 支持如下的目录服务器：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Active Directory
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Identity Management(IdM)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Red Hat Directory Server 9 (RHDS 9)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            OpenLDAP
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        您还必须确保您的目录服务器有正确的 DNS 记录，尤其是必须确保有以下几条关于您的目录服务器的 DNS 记录：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            一个有效的目录服务器的反向地址查找指标记录（PTR）。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            一个有效的在 TCP 389 端口上的 LDAP 服务定位器（SRV）。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            一个有效的在 TCP 88 端口上的 Kerberos 服务定位器（SRV）。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            一个有效的在 UDP 88 端口上的 Kerberos 服务定位器（SRV）。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        如果以上记录在 DNS 中不存在，您将不能够使用 <emphasis>engine-manage-domains</emphasis> 来添加域至 &OVIRT; &MANAGER;中。
+      </para>
+      <para>
+        关于安装和配置支持的目录服务器的更多详细信息，请参考各厂商的文档：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Active Directory - <ulink url="http://technet.microsoft.com/en-us/windowsserver/dd448614"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Identity Management (IdM) - <ulink url="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Identity_Management_Guide/index.html"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Red Hat Directory Server (RHDS) - <ulink url="http://docs.redhat.com/docs/en-US/Red_Hat_Directory_Server/index.html"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            OpenLDAP - <ulink url="http://www.openldap.org/doc/"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+      <important>
+        <para>
+          您必须明确地在目录服务器中创建一个新用户作为 &OVIRT; 虚拟化环境的管理用户。<emphasis>不要</emphasis>使用目录服务器的管理用户作为 &OVIRT; 虚拟化环境的管理用户。
+        </para>
+      </important>
+      <important>
+        <para>
+          同一台机器上无法同时安装 &OVIRT; &MANAGER;和 IdM(ipa-server)。IdM 与 mod_ssl 包不兼容，但 mod_ssl 包被 &OVIRT; &MANAGER;所依赖。
+        </para>
+      </important>
+      <important>
+        <para>
+          如果您使用 Active Directory 作为目录服务器，并且您希望在创建模板和虚拟机的过程中使用 <emphasis>sysprep</emphasis>，在 &OVIRT; 管理员用户必须被授权对域进行操作包括：
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              将一台计算机加入域
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              修改域中组的成员
+            </para>
+          </listitem>
+        </itemizedlist>
+        <para>
+          关于在 Active Directory 中创建用户账户的信息，请参考<ulink url="http://technet.microsoft.com/en-us/library/cc732336.aspx"/>。
+        </para>
+        <para>
+          关于在 Active Directory 中进行操作授权，请参考<ulink url="http://technet.microsoft.com/en-us/library/cc732524.aspx"/>。
+        </para>
+      </important>
+      <note>
+        <para>
+          &OVIRT; &MANAGER; 使用 Kerberos 来与目录服务器进行认证。RHDS 并不提供原生的 Kerberos 支持。如果您使用 RHDS 作为目录服务器则您必须确保该目录服务器是作为一个有效的 Kerberos 域中的服务存在。要实现这个目标，您必须在参考相关的目录服务器文档的同时进行如下操作：
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              为 RHDS 配置 <emphasis>memberOf</emphasis> 插件以允许组成员。尤其是要注意确保 <emphasis>memberOf</emphasis> 插件中的 <emphasis>memberofgroupattr</emphasis> 属性的值应该设置为 <emphasis>uniqueMember</emphasis>。在 <emphasis>OpenLDAP</emphasis> 中，<emphasis>memberOf</emphasis> 功能不被称作“插件”，而被称作“overlay”，并且不要求安装后进行任何配置。
+            </para>
+            <para>
+              参考 RHDS 9.0 插件指南获得关于更多配置 <emphasis>memberOf</emphasis> 插件的信息。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              在 Kerberos 域中将目录服务器以格式 <emphasis>ldap/<replaceable>hostname</replaceable>@<replaceable>REALMNAME</replaceable></emphasis> 定义为服务。将 <emphasis><replaceable>hostname</replaceable></emphasis> 替换为目录服务器的完全合格域名，将 <emphasis><replaceable>REALMNAME</replaceable></emphasis> 替换为 Kerberos realm 的完全合格域名。Kerberos 的 realm 名称必须全部大写。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              在 Kerberos 域中为目录服务器生成一个 <filename>keytab</filename> 文件。该 <filename>keytab</filename> 文件包含 Kerberos 的 principal 与其对应的加密的 key 对。这些 key 将允许目录服务向 Kerberos 域认证其本身，
+            </para>
+            <para>
+              参考您的 Kerberos 的文档获得更多关于如何生成 <filename>keytab</filename> 文件的信息。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              将 <filename>keytab</filename> 文件安装到目录服务器。然后配置 RHDS 使其识别该 <filename>keytab</filename> 文件并接受使用 GSSAPI 的 Kerberos 认证。
+            </para>
+            <para>
+              参考 RHDS 9.0 系统管理员手册获得更多关于配置 RHDS 使用外部的 <filename>keytab</filename> 文件的信息。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              通过在目录服务器上使用 <command>kinit</command> 命令认证一个在 Kerberos 域中定义的用户来对配置进行测试。一旦认证成功，则对目录服务器执行 <command>ldapsearch</command> 命令。使用 <emphasis>-Y GSSAPI</emphasis> 确保使用 Kerberos 进行认证。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </note>
+    </section>
+  </section>
+
+  <section id="sect-Users_and_Roles-User_Authorization">
+    <title>用户授权</title>
+    <section id="sect-Users_and_Roles-User_Authorization_Model">
+      <title>用户授权模型</title>
+      <para>
+        &OVIRT; 虚拟化环境基于以下三部分的组合来进行授权控制：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            执行操作的用户
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            所执行操作的类型
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            被执行操作的对象
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="sect-Users_and_Roles-User_Actions">
+      <title>用户操作</title>
+      <para>
+        要成功执行一个操作，<emphasis>用户</emphasis>必须拥有对被执行操作的<emphasis>对象</emphasis>的相应的<emphasis>权限</emphasis>。每类操作都对应一个<emphasis>权限</emphasis>。系统中存在很多不同的权限，所以下图为了简洁起见：
+      </para>
+      <!-- TODO: Figure 14.1. Actions -->
+      <important>
+        <para>
+          有些操作是对多个对象执行的。例如，复制模板至另外一个存储域中将同时影响到该模板及目标存储域。执行某操作的用户必须对于被执行操作的所有对象都拥有相应的权限。
+        </para>
+      </important>
+    </section>
+    <section id="sect-Users_and_Roles-User_Permissions">
+      <title>用户权限</title>
+      <para>
+        权限允许用户对对象执行操作，对象可以是单独的对象，也可以是容器对象（如数据中心、集群等）。
+      </para>
+      <!-- TODO: Figure 14.2. Permissions & Roles -->
+      <para>
+        应用于容器对象的权限同样会应用于该容器的所有成员。下面的图表描述了系统中对象的架构。
+      </para>
+      <!-- TODO: Figure 14.3. EayunOS Object Hierarchy -->
+    </section>
+  </section>
+
+  <section id="sect-Users_and_Roles-EayunOS_Manager_User_Properties_and_Roles">
+    <title>&OVIRT; &MANAGER;中用户的属性和角色</title>
+    <section id="sect-Users_and_Roles-User_Properties">
+      <title>用户属性</title>
+      <para>
+        角色和权限是用户的属性。角色是一系列预定义的能够在不同级别之上使用物理和虚拟资源的权限集合。多层管理为权限提供了细粒度的组织架构。例如，一个数据中心管理员具有管理该数据中心中所有对象的权限，而一个主机管理员则具有对单独一个物理主机的系统管理员权限。一个用户可以拥有使用单独一台虚拟机但不能对该虚拟机的配置做任何修改的权限，另一个用户则可以被分配对一台虚拟机的系统权限。
+      </para>
+    </section>
+    <section id="sect-Users_and_Roles-User_and_Administrator_Roles">
+      <title>用户和管理员角色</title>
+      <para>
+        &OVIRT; 提供了一系列预配置好的角色，从具备整个系统权限的管理员角色到只能够使用单独一台虚拟机的终端用户角色。虽然您不能够修改或者删除默认存在的角色，您可以复制并进行自定义角色，或者根据您的需求创建新的角色。角色有如下两种类型：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            管理员角色：允许使用管理员门户对物理和虚拟资源进行管理。一个管理员角色在用户门户不具备任何权限。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            用户角色：允许使用用户门户来对虚拟机和模板进行管理和使用。一个用户角色在管理员门户不具备任何权限。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        举例说明，如果您拥有对于一个集群的<emphasis>管理员</emphasis>角色，您可以使用管理员门户对该集群中的所有虚拟机进行管理。但是，您不能够在用户门户使用这些虚拟机，这需要<emphasis>用户</emphasis>角色。
+      </para>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-User_Role_and_Authorization_Examples"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-User_Roles_Explained"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-Administrator_Roles_Explained"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="sect-Users_and_Roles-User_Roles_Explained">
+      <title>用户角色说明</title>
+      <para>
+        下面的表格介绍了在用户门户具有使用和配置虚拟机权限的基本用户角色。
+      </para>
+      <table>
+        <title>&OVIRT; 用户角色 - 基础部分</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                备注
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                UserRole
+              </entry>
+              <entry>
+                能够使用虚拟机和虚拟机池。
+              </entry>
+              <entry>
+                能够登录用户门户，使用已分配的虚拟机和池，查看虚拟机状态和详细信息。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                PowerUserRole
+              </entry>
+              <entry>
+                能够创建和管理虚拟机及模板。
+              </entry>
+              <entry>
+                <para>
+                  在<emphasis>配置</emphasis>窗口对于整个环境应用此角色到某用户上，或者对于特定的数据中心或集群应用此角色到某用户上。
+                </para>
+                <para>
+                  例如，如果 PowerUserRole 在数据中心的层面上应用到某用户，该 PowerUser 将能够在该数据中心内创建虚拟机和模板。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                UserVmManager
+              </entry>
+              <entry>
+                一台虚拟机的系统管理员。
+              </entry>
+              <entry>
+                能够管理虚拟机，创建及使用快照，以及迁移虚拟机。在用户门户创建虚拟机的用户将会被自动分配到对于该虚拟机的 UserVmManager 角色。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        下面的表格介绍了在用户门户允许您对资源的权限进行更多调整的高级用户角色。
+      </para>
+      <table>
+        <title>&OVIRT; 用户角色 - 高级部分</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                备注
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                UserTemplateBasedVm
+              </entry>
+              <entry>
+                只能够使用模板的权限。
+              </entry>
+              <entry>
+                能够使用模板创建虚拟机。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                DiskOperator
+              </entry>
+              <entry>
+                虚拟磁盘用户
+              </entry>
+              <entry>
+                能够使用、查看以及修改虚拟磁盘。将被磁盘所在的虚拟机的继承该使用权限。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                VmCreator
+              </entry>
+              <entry>
+                能够在用户门户创建虚拟机。
+              </entry>
+              <entry>
+                <para>
+                  这个角色并不对单独特定的一台虚拟机应用。您应该在<emphasis>配置</emphasis>窗口中为整个系统将这个角色应用到某用户上。
+                </para>
+                <para>
+                  另外，您还可以为特定的数据中心或者集群应用这个角色。当将这个角色应用到集群时，您还必须将 DiskCreator 角色应用到集群所在的整个数据中心，或者特定的存储域上。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                TemplateCreator
+              </entry>
+              <entry>
+                在分配的资源内，能够创建、修改、管理和删除虚拟机模板。
+              </entry>
+              <entry>
+                <para>
+                  这个角色并不对单独特定的一台模板应用。您应该在<emphasis>配置</emphasis>窗口中为整个系统将这个角色应用到某用户上。
+                </para>
+                <para>
+                  另外，您还可以为特定的数据中心或者存储域应用此角色。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                DiskCreator
+              </entry>
+              <entry>
+                在指定的集群或者数据中心内，，能够创建、修改、、管理和删除虚拟机磁盘。
+              </entry>
+              <entry>
+                <para>
+                  这个角色并不对单独特定的一台虚拟磁盘应用。您应该在<emphasis>配置</emphasis>窗口中为整个系统将这个角色应用到某用户上。
+                </para>
+                <para>
+                  另外，您还可以为特定的数据中心或者存储域应用此角色。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                TemplateOwner
+              </entry>
+              <entry>
+                能够修改和删除模板，并为该模板分配或者管理用户权限。
+              </entry>
+              <entry>
+                这个角色将会被自动分配到创建模板的用户之上。其它对一个模板不具有 <emphasis>TemplateOwner</emphasis> 角色权限的用户将不能够查看或者使用该模板。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                NetworkUser
+              </entry>
+              <entry>
+                虚拟机和模板的逻辑网络和虚拟网络接口的用户。
+              </entry>
+              <entry>
+                能够将虚拟网卡从逻辑网络中连接或者分离。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="sect-Users_and_Roles-Administrator_Roles_Explained">
+      <title>管理员角色说明</title>
+      <para>
+        下面的表格介绍了在管理员门户具有使用和配置各种资源权限的基本管理员角色。
+      </para>
+      <table>
+        <title>&OVIRT; 系统管理员角色 - 基础部分</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                备注
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                SuperUser
+              </entry>
+              <entry>
+                &OVIRT; 虚拟化环境系统管理员。
+              </entry>
+              <entry>
+                对所有层次的所有对象具有完全的权限，能够管理所有数据中心中的所有对象。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                ClusterAdmin
+              </entry>
+              <entry>
+                集群管理员。
+              </entry>
+              <entry>
+                <para>
+                  能够使用、创建、删除以及管理一个集群中的所有资源、包括主机、模板以及虚拟机。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                DataCenterAdmin
+              </entry>
+              <entry>
+                数据中心管理员
+              </entry>
+              <entry>
+                能够使用、创建、删除以及管理一个数据中心中的所有资源，包括集群、主机、模板以及虚拟机。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <important>
+        <para>
+          不要使用目录服务器中的管理用户作为 &OVIRT; 虚拟化环境中的管理用户。请在目录服务器中单独创建一个用户作为 &OVIRT; 虚拟化环境中的管理用户。
+        </para>
+      </important>
+      <para>
+        下面的表格介绍了在管理员门户允许您对资源的权限进行更多调整的高级管理员角色。
+      </para>
+      <table>
+        <title>&OVIRT; 系统管理员角色 - 高级部分</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                备注
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                TemplateAdmin
+              </entry>
+              <entry>
+                虚拟机模板的管理员。
+              </entry>
+              <entry>
+                能够创建、删除或者配置模板的存储域和网络信息，以及在存储域之间移动模板。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                StorageAdmin
+              </entry>
+              <entry>
+                存储管理员。
+              </entry>
+              <entry>
+                能够创建、删除、配置以及管理分配的存储域。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                HostAdmin
+              </entry>
+              <entry>
+                主机管理员。
+              </entry>
+              <entry>
+                能够连接、删除、配置以及管理单独一台主机。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                NetworkAdmin
+              </entry>
+              <entry>
+                网络管理员。
+              </entry>
+              <entry>
+                能够在一个特定的数据中心或者集群内配置和管理网络。数据中心或者集群的网络管理员将被集群中的虚拟机池继承网络权限。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                VmPoolAdmin
+              </entry>
+              <entry>
+                虚拟机池的系统管理员。
+              </entry>
+              <entry>
+                能够创建、删除和配置虚拟机池，分配或者删除虚拟机池用户，并对该池中的虚拟机进行基本的操作。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                GlusterAdmin
+              </entry>
+              <entry>
+                Gluster 存储管理员
+              </entry>
+              <entry>
+                能够创建、删除、配置以及管理 Gluster 存储卷。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section id="sect-Users_and_Roles-EayunOS_Manager_User_Tasks">
+    <title>&OVIRT; &MANAGER;用户任务</title>
+    <section id="sect-Users_and_Roles-Adding_Users">
+      <title>添加用户</title>
+      <para>
+        <emphasis>前提需求：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-Directory_Services_Support_in_EayunOS"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          &OVIRT; 中的用户必须先从外部的目录服务中被添加进来才能够对其分配角色和权限。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>添加用户至 &OVIRT;</title>
+        <step>
+          <para>
+            点击<emphasis>用户</emphasis>标签显示已被授权的用户。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>添加</emphasis>按钮打开<emphasis>添加用户和组</emphasis>窗口。
+          </para>
+          <!-- TODO: Figure 14.4. Add User and Groups Window -->
+        </step>
+        <step>
+          <para>
+            在<emphasis>搜索</emphasis>下拉菜单中选择相应的域。在搜索文本框内输入用户名称或者用户名称的一部分，点击<emphasis>执行</emphasis>。另外，您可以直接点击<emphasis>执行</emphasis>查看所有用户及组的列表。
+          </para>
+        </step>
+        <step>
+          <para>
+            勾选相应的用户或组之前的选择框。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新添加的用户显示在<emphasis>用户</emphasis>标签下。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Users_and_Roles-Viewing_User_Information">
+      <title>查看用户信息</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          您可以在<emphasis>用户</emphasis>标签下查看每个用户的详细信息。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>查看用户信息</title>
+        <step>
+          <para>
+            点击<emphasis>用户</emphasis>标签列出已被授权的用户。
+          </para>
+        </step>
+        <step>
+          <para>
+            选择用户，或者如果不能在结果列表中看到用户，进行一次搜索。
+          </para>
+        </step>
+        <step>
+          <para>
+            选中用户的详情面板中，通常在<emphasis>常规</emphasis>子标签下，将显示出用户的常规信息，例如域名，电子邮件以及用户状态。
+          </para>
+        </step>
+        <step>
+          <para>
+            详情面板中的其它子标签允许您查看用户的组、权限、配额以及事件通知等信息。
+          </para>
+          <para>
+            举例说明，如果您想要查看用户属于哪个用户组，请点击<emphasis>目录组</emphasis>子标签。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您查看了用户的域、权限、配额、组以及事件通知信息。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Users_and_Roles-Viewing_User_Permissions_on_Resources">
+      <title>查看资源上的用户权限</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          用户能够被分配到在特定资源上的或者资源容器架构上的权限。您可以在不同的资源上查看分配的用户及他们的权限。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>查看资源上的用户权限</title>
+        <step>
+          <para>
+            使用资源标签、树形视图或者搜索功能来查看并选择主面板中的资源。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击详情面板中的<emphasis>权限</emphasis>子标签，列出在所选资源上已分配的用户、用户的角色以及继承而来的权限信息。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您查看了所选资源已分配的用户和他们的权限。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Users_and_Roles-Removing_Users">
+      <title>删除用户</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          当一个用户账户不再被需要时，从 &OVIRT; 中将其删除。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>删除用户</title>
+        <step>
+          <para>
+            点击<emphasis>用户</emphasis>标签列出已被授权的用户。
+          </para>
+          <!-- TODO: Figure 14.5. Users Tab -->
+        </step>
+        <step>
+          <para>
+            选择将被删除的用户。确保该用户没有运行任何虚拟机。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>删除</emphasis>按钮。将会弹出确认对话框要求您确认删除。点击<emphasis>确定</emphasis>。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          该用户从 &OVIRT; 中删除，但未从外部的目录服务中删除。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Users_and_Roles-Configuring_Roles">
+      <title>配置角色</title>
+      <para>
+        角色是在 &OVIRT; &MANAGER;中可进行配置的预定义的权限集合。角色提供在数据中心中的资源以及对不同的物理和虚拟资源上不同级别的使用和管理权限控制。
+      </para>
+      <para>
+        使用多层次管理，被应用到一个容器对象的角色将同样被应用到该容器对象包含的所有单独对象中。举例说明，当主机管理员角色在特定的主机上被分配给一个用户时，该用户将具有能够执行所有可用的主机操作的权限，但只对于该分配的主机。但是，当主机管理员角色是在数据中心上被分配给用户时，该用户将具有对于该数据中心的集群中的所有主机能够执行主机操作的权限。
+      </para>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-User_Authorization_Model"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="sect-Users_and_Roles-Creating_a_New_Role">
+      <title>创建新角色</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          如果您需要的角色不在 &OVIRT; 的默认角色列表中，您可以创建一个新角色并且以您的需求定制它。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>创建新角色</title>
+        <step>
+          <para>
+            点击位于窗口右上方的<emphasis>配置</emphasis>按钮打开<emphasis>配置</emphasis>窗口。该窗口将显示默认的用户和管理员角色以及其它自定义角色的列表。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>新建</emphasis>打开<emphasis>新建角色</emphasis>对话框。
+          </para>
+          <!-- TODO: Figure 14.6. The New Role Dialog -->
+        </step>
+        <step>
+          <para>
+            输入新角色的<emphasis>名称</emphasis>和<emphasis>描述</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<emphasis>帐号类型</emphasis>为<emphasis>管理员</emphasis>或者<emphasis>用户</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用<emphasis>展开所有</emphasis>和<emphasis>隐藏所有</emphasis>按钮在<emphasis>选择复选框以允许动作</emphasis>列表中查看关于列出的对象的详细的或者简洁的权限。您还可以对特定的对象展开或者隐藏选项。
+          </para>
+        </step>
+        <step>
+          <para>
+            在列出的对象中，为您正在设置的角色勾选复选框以允许，取消复选框以禁止该角色进行相应的操作。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>应用您所做的修改。该新建的角色将会出现在角色列表中。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您成功创建了具有对于特定资源的权限的新角色。您可以将该新角色分配给用户。
+        </para>
+      </formalpara>
+    </section>
+    <section id="sect-Users_and_Roles-Editing_or_Copying_a_Role">
+      <title>编辑或复制角色</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          您可以修改您创建的角色的设置，但您不能够修改默认的角色。要修改默认的角色，请复制该角色并根据您的需求对其进行修改。
+        </para>
+      </formalpara>
+      <procedure>
+        <title>编辑或复制角色</title>
+        <step>
+          <para>
+            点击位于窗口右上方的<emphasis>配置</emphasis>按钮打开<emphasis>配置</emphasis>窗口。该窗口将显示默认的用户和管理员角色以及其它自定义角色的列表。
+          </para>
+        </step>
+        <step>
+          <para>
+            选择您想要修改的角色。点击<emphasis>编辑</emphasis>打开<emphasis>编辑角色</emphasis>窗口或者点击<emphasis>复制</emphasis>打开<emphasis>复制角色</emphasis>窗口。
+          </para>
+        </step>
+        <step>
+          <para>
+            按需编辑角色的<emphasis>名称</emphasis>以及<emphasis>描述</emphasis>。
+          </para>
+        </step>
+        <step>
+          <para>
+            使用<emphasis>展开所有</emphasis>和<emphasis>隐藏所有</emphasis>按钮查看关于列出的对象的详细的或者简洁的权限。您还可以对特定的对象展开或者隐藏选项。
+          </para>
+        </step>
+        <step>
+          <para>
+            在列出的对象中，为您正在编辑的角色勾选复选框以允许，取消复选框以禁止该角色进行相应的操作。
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<emphasis>确定</emphasis>应用您所做的修改。
+          </para>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您编辑了一个角色的属性，或者复制了一个角色。
+        </para>
+      </formalpara>
+    </section>
+  </section>
+
+  <section id="sect-Users_and_Roles-User_Role_and_Authorization_Examples">
+    <title>用户角色及授权的例子</title>
+    <para>
+      以下例子说明了在不同的场景下，如何使用本章中描述的授权系统的不同特性进行授权控制。
+    </para>
+    <example>
+      <title>集群权限</title>
+      <para>
+        张三是公司财务部门的系统管理员。所有他们部门的虚拟资源都在 &OVIRT; 中一个叫做<emphasis>财务部</emphasis>的<emphasis>集群</emphasis>之下。在该集群上他被分配了 <emphasis>ClusterAdmin</emphasis> 角色。这将允许他管理集群中的所有虚拟机，因为虚拟机是集群容器中的子对象。管理虚拟机包括编辑、添加以及删除虚拟资源包括虚拟磁盘以及进行快照。但他将不能管理在这个集群意外的其它任何资源。由于 <emphasis>ClusterAdmin</emphasis> 是一个管理员角色，他能够使用管理员门户对这些资源进行管理，但他却不能够使用用户门户。
+      </para>
+    </example>
+    <example>
+      <title>虚拟机 PowerUser 权限</title>
+      <para>
+        李四是财务部门的软件开发人员。他使用虚拟机来编译并测试他的程序。张三为他创建了一个名为<emphasis>李四的桌面</emphasis>的虚拟桌面。李四在<emphasis>李四的桌面</emphasis>这台虚拟机上被分配了 <emphasis>UserVmManager</emphasis> 权限。这将允许李四通过用户门户使用这台虚拟机。由于李四对这台虚拟机具有 <emphasis>UserVmManager</emphasis> 权限，他可以对这台虚拟机进行修改并且为其添加新资源，例如添加一个新虚拟磁盘。由于 <emphasis>UserVmManager</emphasis> 是一个用户角色，李四将不能够使用管理员门户。
+      </para>
+    </example>
+    <example>
+      <title>数据中心 PowerUserRole 权限</title>
+      <para>
+        王五是办公室经历。在他日常的职责范围之外，他还偶尔帮助人力资源经理进行一些招聘工作，例如安排面试及跟进推荐核对。根据公司政策，他需要使用特定的程序进行招聘相关的工作。
+      </para>
+      <para>
+        王五日常使用他的虚拟机进行他的日常工作，他还希望创建例外一台虚拟机来运行招聘工作相关的程序。他在他将新建的虚拟机所在的数据中心上被分配了 <emphasis>PowerUserRole</emphasis> 权限。这是由于要创建一台新虚拟机，他将会对数据中心中的几个部分都进行修改，包括在存储域中创建新的虚拟机磁盘镜像。
+      </para>
+      <para>
+        需要注意的是，这和分配给王五 <emphasis>DataCenterAdmin</emphasis> 权限是不一样的。作为数据中心的 <emphasis>PowerUser</emphasis>，王五能够登录用户门户并对该数据中心中的虚拟机进行虚拟机相关的操作。他不能够进行数据中心层面上的操作，例如添加主机或者存储到数据中心等操作。
+      </para>
+    </example>
+    <example>
+      <title>网络管理员权限</title>
+      <para>
+        克里斯是 IT 部门的网络管理员。他日常的工作职责包括了创建、管理以及删除该部门的 &OVIRT; 环境中的网络。在他的岗位上要求具备对资源及资源上的网络的管理权限。例如，如果他在 IT 部门的数据中心中拥有 <emphasis>NetworkAdmin</emphasis> 权限，他能够在该数据中心中新建和删除网络，以及进行对该数据中心中的所有虚拟机分配及分离网络的操作。
+      </para>
+      <para>
+        在管理公司的虚拟化基础架构的网络之外，他还有一个初级的网络管理员下属叫做阿明。阿明对公司的内部培训部门的更小规模的虚拟化环境进行管理。克里斯分配给阿明对于内部培训部门使用的所有虚拟机的 <emphasis>NetworkUser</emphasis> 和 <emphasis>UserVmManager</emphasis> 权限。拥有这些权限之后，阿明可以在用户门户执行简单的管理任务，例如添加网络接口到虚拟机等。但是阿明没有权限修改虚拟机所在的主机或者数据中心的网络。
+      </para>
+    </example>
+    <example>
+      <title>自定义角色权限</title>
+      <para>
+        罗斯在 IT 部门工作，他的工作职责是管理 &OVIRT; 中的用户账户。他需要添加用户账户以及分配给用户相应的角色和权限的权限。他自己本身不使用任何虚拟机，也不应该具有对主机、虚拟机、集群以及数据中心进行管理的权限。&OVIRT; 中没有默认存在的角色提供给他这样一个特定的权限组合，因此必须创建一个新的自定义角色来定义相应于他的工作职位的权限集合。
+      </para>
+      <!-- TODO: Figure 14.7 UserManager Custom Role -->
+      <para>
+        上面所示的 <emphasis>USerManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<!-- TODO: xref Figure 14.3 EayunOS Object Hierarchy -->中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
+      </para>
+    </example>
+  </section>
 </chapter>
-

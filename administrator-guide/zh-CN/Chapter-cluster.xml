@@ -1193,7 +1193,7 @@
                        </table>
                        <formalpara><title>请参考：</title>
                         <para>
-                          <xref linkend="sect-Documents-administrator-guide-Chapter-user-roles_Section_4-2" />
+                          <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
                         </para>
                       </formalpara>
 	        </section>
