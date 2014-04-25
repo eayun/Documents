@@ -555,7 +555,14 @@
           <para>
             如果是在<emphasis>数据中心</emphasis>的详情面板中，您需要点击<emphasis>新建</emphasis>按钮打开<emphasis>新建逻辑网络</emphasis>窗口。如果是在<emphasis>集群</emphasis>的详情面板中，则是点击<emphasis>添加网络</emphasis>按钮打开<emphasis>新建逻辑网络</emphasis>窗口。
           </para>
-          <!-- TODO: Figure 5.2. New Logical Network 3.3 文档中这张图和这部分内容都是不对的，需要参考 RHEV 3.4 Beta 的文档哦 -->
+          <figure id="figure-Logical_Networks-New_Logical_Network_Window">
+            <title>新建逻辑网络窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Logical_Networks-New_Logical_Network_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -789,7 +796,14 @@
           <para>
             点击<emphasis>管理网络</emphasis>按钮打开<emphasis>管理网络</emphasis>窗口。
           </para>
-          <!-- TODO: Figure 5.4.(应该是5.3，5.5.2 节的那幅图和 5.5.1 中的重复了，我取消掉它，为方便参考以英文文档中编号为准) Manage Networks -->
+          <figure id="figure-Logical_Networks-Manage_Networks_Window">
+            <title>管理网络窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Logical_Networks-Manage_Networks_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -926,7 +940,14 @@
           <para>
             点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>窗口。
           </para>
-          <!-- TODO: Figure 5.5. Setup Host Networks -->
+          <figure id="figure-Logical_Networks-Setup_Host_Networks_Window">
+            <title>设立主机网络窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Logical_Networks-Setup_Host_Networks_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -995,7 +1016,14 @@
       <para>
         主面板中的<emphasis>网络</emphasis>标签为用户进行网络相关的操作和基于网络的属性或者网络与其它资源间的关联查找相应的逻辑网络提供了一个集中的操作界面。
       </para>
-      <!-- TODO: Figure 5.6. Networks Tab -->
+      <figure id="figure-Logical_Networks-Networks_Tab">
+        <title>网络标签</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Logical_Networks-Networks_Tab.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
       <para>
         在 &OVIRT; 环境中所有的逻辑网络都将在<emphasis>网络</emphasis>标签下列出。<emphasis>新建</emphasis>、<emphasis>编辑</emphasis>和<emphasis>删除</emphasis>按钮允许您创建、修改或者删除数据中心中的逻辑网络。
       </para>
