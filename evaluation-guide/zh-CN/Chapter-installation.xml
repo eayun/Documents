@@ -408,7 +408,7 @@
 					  <figure id="eayunos-install-eayunos-manager-24"><title>&OVIRT;图25</title>
 						<mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/web-0.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/web-0.png" format="PNG" scale="100"/>
                                                         </imageobject>
                                                 </mediaobject>
                                           </figure>
@@ -432,7 +432,7 @@
                                           <figure id="eayunos-install-eayunos-manager-25"><title>&OVIRT;图26</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/approve-1.png" format="PNG" scale="100"/>
                                                         </imageobject>
                                                 </mediaobject>
                                           </figure>
@@ -468,13 +468,6 @@
                             </para>
                         </listitem>
                     </itemizedlist>
-                    <figure id="eayunos-install-eayunos-manager-26"><title>&OVIRT;图27</title>
-                        <mediaobject>
-                            <imageobject>
-                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
-                            </imageobject>
-                        </mediaobject>
-                    </figure>
                 </para>
             </simplesect>
 
@@ -532,7 +525,7 @@
                     <figure id="eayunos-install-eayunos-manager-27"><title>&OVIRT;图27</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/web-1.png" format="PNG" scale="60"/>
+                                <imagedata fileref="images/network-1.png" format="PNG" scale="60"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -554,7 +547,7 @@
 								<figure id="eayunos-install-eayunos-manager-28"><title>&OVIRT;图28</title>
 									<mediaobject>
 										<imageobject>
-											<imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+											<imagedata fileref="images/nfs-1.png" format="PNG" scale="60"/>
 										</imageobject>
 									</mediaobject>
 								</figure>
@@ -597,7 +590,7 @@
                                                                 <figure id="eayunos-install-eayunos-manager-29"><title>&OVIRT;图29</title>
                                                                         <mediaobject>
                                                                                 <imageobject>
-                                                                                        <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+                                                                                        <imagedata fileref="images/iscsi-1.png" format="PNG" scale="60"/>
                                                                                 </imageobject>
                                                                         </mediaobject>
                                                                 </figure>
@@ -620,7 +613,7 @@
 			                                                                <figure id="eayunos-install-eayunos-manager-30"><title>&OVIRT;图30</title>
 			                                                                        <mediaobject>
 			                                                                                <imageobject>
-			                                                                                        <imagedata fileref="images/web-3.png" format="PNG" scale="60"/>
+			                                                                                        <imagedata fileref="images/iscsi-2.png" format="PNG" scale="60"/>
 			                                                                                </imageobject>
 			                                                                        </mediaobject>
 			                                                                </figure>
