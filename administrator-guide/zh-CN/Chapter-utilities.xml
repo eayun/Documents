@@ -2343,10 +2343,10 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                如果SchedulerAllowOverBooking配置为“true”，而且
-                                集群允许overbooking，当出现大于配置项指定数值
-                                的调度情况没有处理时，则直接跳过调度资源同步的过
-                                程。
+                                如果SchedulerAllo&#x200B;wOverBooking配置为
+                                “true”，而且集群允许overbooking，当出现大于配置
+                                项指定数值的调度情况没有处理时，则直接跳过调度资
+                                源同步的过程。
                             </entry>
                         </row>
                         <row>
