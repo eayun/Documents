@@ -650,7 +650,14 @@
           <para>
             点击<emphasis>添加</emphasis>按钮打开<emphasis>添加用户和组</emphasis>窗口。
           </para>
-          <!-- TODO: Figure 14.4. Add User and Groups Window -->
+          <figure id="figure-Users_and_Roles-Add_Users_and_Groups_Window">
+            <title>添加用户和组窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Users_and_Roles-Add_Users_and_Groups_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -758,7 +765,14 @@
           <para>
             点击<emphasis>用户</emphasis>标签列出已被授权的用户。
           </para>
-          <!-- TODO: Figure 14.5. Users Tab -->
+          <figure id="figure-Users_and_Roles-Users_Tab">
+            <title>用户标签</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Users_and_Roles-Users_Tab.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -816,7 +830,14 @@
           <para>
             点击<emphasis>新建</emphasis>打开<emphasis>新建角色</emphasis>对话框。
           </para>
-          <!-- TODO: Figure 14.6. The New Role Dialog -->
+          <figure id="figure-Users_and_Roles-New_Role_Dialog">
+            <title>新建角色对话框</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Users_and_Roles-New_Role_Dialog.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -943,8 +964,15 @@
       <title>自定义角色权限</title>
       <para>
         罗斯在 IT 部门工作，他的工作职责是管理 &OVIRT; 中的用户账户。他需要添加用户账户以及分配给用户相应的角色和权限的权限。他自己本身不使用任何虚拟机，也不应该具有对主机、虚拟机、集群以及数据中心进行管理的权限。&OVIRT; 中没有默认存在的角色提供给他这样一个特定的权限组合，因此必须创建一个新的自定义角色来定义相应于他的工作职位的权限集合。
+        <figure id="figure-Users_and_Roles-UserManager_Custom_Role">
+          <title>UserManager 自定义角色</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Users_and_Roles-UserManager_Custom_Role.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </para>
-      <!-- TODO: Figure 14.7 UserManager Custom Role -->
       <para>
         上面所示的 <emphasis>USerManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<!-- TODO: xref Figure 14.3 EayunOS Object Hierarchy -->中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
       </para>
