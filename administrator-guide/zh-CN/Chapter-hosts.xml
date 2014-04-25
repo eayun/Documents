@@ -1140,7 +1140,14 @@
         <step>
           <para>
             点击<emphasis>分配标签</emphasis>打开<emphasis>分配标签</emphasis>窗口。
-            <!-- TODO: Figure 6.1. Assign Tags Window -->
+            <figure id="figure-Hosts-Assign_Tags_Window">
+              <title>分配标签窗口</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/Hosts-Assign_Tags_Window.png" format="PNG" width="100%" scalefit="1"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
           </para>
         </step>
         <step>
@@ -1217,7 +1224,14 @@
           <para>
             点击<emphasis>设立主机网络</emphasis>按钮打开<emphasis>设立主机网络</emphasis>窗口。
           </para>
-          <!-- TODO: Figure 6.2. The Setup Host Networks window -->
+          <figure id="figure-Hosts-Setup_Host_Networks_Window">
+            <title>设立主机网络窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Hosts-Setup_Host_Networks_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -1429,7 +1443,14 @@
           <para>
             如果所选择的设备相互不兼容，例如其中一个启用了 VLAN 标签而另一个没有，该操作将失败，并提示您如何解决兼容性的问题。
           </para>
-          <!-- TODO: Figure 6.3. Bond Devices Window -->
+          <figure id="figure-Hosts-Bond_Devices_Window">
+            <title>创建新网卡绑定窗口</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Hosts-Bond_Devices_Window.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -1678,7 +1699,14 @@
           <para>
             勾选<emphasis>启用电源管理</emphasis>激活窗口中的选项。
           </para>
-          <!-- TODO: Figure 6.4. Power Management Settings -->
+          <figure id="figure-Hosts-Power_Management_Settings">
+            <title>电源管理设置</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Hosts-Power_Management_Settings.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -1789,7 +1817,14 @@
           <para>
             点击<emphasis>电源管理</emphasis>下拉菜单。
           </para>
-          <!-- TODO: Figure 6.5. Restart -->
+          <figure id="figure-Hosts-Power_Management_Functions">
+            <title>电源管理功能</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Hosts-Power_Management_Functions.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
@@ -1860,7 +1895,14 @@
           <para>
             在管理员门户中，右键点击该主机并选择<emphasis>确认主机已经重启</emphasis>按钮。
           </para>
-          <!-- TODO: Figure 6.6. The Host Right-click menu -->
+          <figure id="figure-Hosts-Host_Right_Click_Menu">
+            <title>主机右键菜单</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Hosts-Host_Right_Click_Menu.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </step>
         <step>
           <para>
