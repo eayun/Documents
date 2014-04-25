@@ -11,7 +11,7 @@
             本指南让您开始使用您现有的资源部署一个完整的EayunOS企业虚拟化系统。安装一个EayunOS hypervisor、配置共享存储及运行一个功能齐全的虚拟机，看看如何在自己的组织中实现虚拟化。本指南体现传统的部署从一个有几个主机的小的办公环境，到有多个数据中心的大型企业，甚至测试家用的单一主机。在该指南里，路线和指南是通过颜色编码提供清晰的路径的。
         </para>
         <para>
-            一旦您已经完成了本指南内的实验，为进一步评估和测试，安排自己的路线。
+            一旦您已经完成了本指南内的场景，为进一步评估和测试，安排自己的场景路线。
             这路线仅是个例子，使用它们去了解如何部署EayunOS虚拟化，然后与我们EayunOS企业虚拟化解决方案架构师来构建您独特的环境。
         </para>
 	</section>
@@ -47,12 +47,12 @@
                 <itemizedlist>
                     <listitem>
                         <simpara>
-                            四个基础实验
+                            四个基础场景
                         </simpara>
                     </listitem>
                     <listitem>
                         <simpara>
-                            四个高级实验
+                            四个高级场景
                         </simpara>
                     </listitem>
                 </itemizedlist>
@@ -61,16 +61,16 @@
                 基础实验描述如何创建虚拟机及将他们分配给用户。
             </para>
             <para>
-                高级实验描述如何将EayunOS企业虚拟化应用到显示生活的企业中。包括：
+                高级实验描述如何将EayunOS企业虚拟化应用于现实的企业中。包括：
                 <itemizedlist>
                     <listitem>
                         <simpara>
-                            防止硬件故障使用高可用特性。
+                            使用高可用防御硬件故障。
                         </simpara>
                     </listitem>
                     <listitem>
                         <simpara>
-                            为虚拟机、存储和您组织机构的服务器分配不同级别的用户权限。
+                            为虚拟机、存储和服务器分配不同级别的用户权限，来反映组织需求。
                         </simpara>
                     </listitem>
                     <listitem>
@@ -86,7 +86,7 @@
                 </itemizedlist>
             </para>
             <para>
-                如果您有三个到四个物理服务器和一个共享存储，可以配置一个EayunOS企业虚拟化环境，根据下面实验（方案A标准配置安装）。本实验颜色编码是红色，因此为了确定实验是方案A的一部分，在每个实验的开始在图中查找一个红色的长方形。
+                如果您有三个到四个物理服务器和一个共享存储，那么配置安装一个EayunOS企业虚拟化环境，可以按照路线A中的场景——标准安装。下文中方案A中的场景会被标红，来标识场景是否属于方案A的一部分，所以您可以在每个场景的开头寻找红色方框。
             </para>
             <para>
                 <figure id="eayunos-introduction-0"><title>&OVIRT;图1</title>
@@ -97,31 +97,577 @@
                     </mediaobject>
                 </figure>
             </para>
+            <para>
+                完成路线A之后，您就拥有了这样的环境：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            两个虚拟机主机
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            共享存储
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            网络
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            两个门户（用户门户和Web管理员门户）
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            用户客户端
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            一台运行EayunOS企业虚拟化管理端的主机
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <figure id="eayunos-introduction-1"><title>&OVIRT;图2</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/introduction-1.png" format="PNG" scale="60"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>
+                路线A - 标准安装场景
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            安装和配置基础系统：安装EayunOS企业虚拟化管理端和EayunOS企业虚拟化主机，配置存储和定义网络；
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            创建虚拟机：从管理员门户创建虚拟机和模板；
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            动态迁移场景：在硬件故障期间（约10分钟）配置自动虚拟机动态迁移。
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            超级用户门户：从超级用户门户创建和管理虚拟机。
+                        </para>
+                    </listitem>
+                </itemizedlist> 
+            </para>
+            <para>
+                基础场景可以让您评估EayunOS企业虚拟化管理系统 怎样在您的环境中展开。
+            </para>
+            <para>
+                高级场景展示怎样优化EayunOS企业虚拟化 的安装。高级场景有额外的硬件环境需求，这些需求将会
+
+                在每个场景的开头列出。
+            </para>
+            <para>
+                路线A - 高级场景
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            管理多级用户：对组成EayunOS企业虚拟化的每一个组件的管理员进行管理
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            高可用场景：配置电源管理和高可用
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            添加额外数据中心：创建带有EayunOS企业 Linux主机的的数据中心。
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            虚拟机桌面：使用SPICE协议连接工具访问虚拟机桌面池。
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
 	        </section>
 	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_3-2">
-		   <title>前提需求</title>
+		   <title>路线A的需求</title>
 		    <para>
+                要想路线A中的场景工作，需要：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            一个评估权限
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            一个有效的Eayun网络
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>在开始路线A之前，确保你已经满足一下条件。
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            EayunOS企业虚拟化管理端需求
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        最小——至少需要4GB RAM，24G硬盘空闲，和1Gbps网络带宽的Dual核心的服务器；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        推荐——带有16GB RAM，50G硬盘空闲，和1Gbps网络带宽的Dual Sockets/Quad核心的服务器；
+                                    </para>
+                                    <para>故障服务器的需求
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    EayunOS企业 Linux 6操作系统：1G RAM和5G硬盘
+                                                </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>
+                                                    管理器：3G RAM，3G硬盘和1G网络带宽的网卡
+                                                </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>
+                                                    本地ISO域：15G硬盘
+                                                </para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        连接到EayunOS企业虚拟化管理端的客户端;
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    一台安装了Firefox 17（或更高版本）Linux的机器；
+                                                </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>
+                                                    安装了IE 9（或更高版本）Windows的机器；
+                                                </para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            EayunOS企业虚拟化主机需求
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        最小——2GB RAM，10G硬盘空闲，和1Gbps网络带宽的Dual核心的服务器；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        推荐——带有16GB RAM，50G硬盘空闲，和1Gbps网络带宽的Dual Sockets核心的服务器；
+                                    </para>
+                                    <para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    每一台主机：AMD-V 或 Intel VT 激活, AMD64 或 Intel 64 扩展, 最小 1 GB RAM, 3GB 空闲存储和 1 Gbps 网
 
-		    </para>
+                                                    络带宽；
+                                                </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>
+                                                    运行在每台主机上的虚拟机：8G RAM                
+                                                </para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            存储和网络需求
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        至少支持一种存储类型（NFS，iSCSI 或 FCP）
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        至少三个静态ip地址：一个供EayunOS企业虚拟化管理服务器端使用，其余供运行在管理服务器上的EayunOS企业主机；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        能够解析所有ip地址的DNS服务器
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        一台可以供虚拟机存取所有网络地址的DHCP服务器；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        显示子网，用来在缺省的管理网络上创建一个额外的显示子网。
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            虚拟机需求
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        为虚拟机安装镜像。这些镜像将会安装在你创建的虚拟机上：
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    Linux 3, 4, 5 或6
+                                                </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>
+                                                    Microsoft Windows XP, 7, 8, 2003 或 2008
+                                                </para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        每种操作系统的许可证或订阅授权；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        在任意支持的目录服务器(IdM, AD, RHDS, 或OpenLDAP)上至少一个可用的帐户
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
 	        </section>
 	</section>
 	<section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_4">
 		<title>路线B</title>
-		<para>
-
-		</para>
-	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_4-1">
-		   <title>精简步骤</title>
+        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_4-1">
+		   <title>最小安装配置</title>
 		    <para>
-
-		    </para>
+                路线方案B描述安装和配置一个最小的EayunOS虚拟化环境在单独的一个主机上，使用本地存储。
+            </para>
+            <para>
+                路线B
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            三个基础场景
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            两个高级场景
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>基础场景描述怎样创建虚拟机及为虚拟机分配用户</para>
+            <para>
+                高级场景包括：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            使用多级管理系统为用户分配不同级别的权限
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            我用户提供虚拟机桌面
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                如果您有两台物理服务器，没有共享存储，按照路线方案B安装一个EayunOS企业虚拟化环境——最小设置。下文中方案B中的场景会被标蓝，来标识场景是否属于方案B的一部分，所以您可以在每个场景的开头寻找蓝色方框
+            </para>
+            <para>
+                <figure id="eayunos-introduction-2"><title>&OVIRT;图3</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/introduction-3.png" format="PNG" scale="60"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>
+                完成路线A之后，您就拥有了这样的环境：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            一个虚拟机主机
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            本地存储
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            一个网络
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            两个门户
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            用户客户端
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            运行在EayunOS企业虚拟化管理端的主机
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <figure id="eayunos-introduction-3"><title>&OVIRT;图4</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/introduction-4.png" format="PNG" scale="60"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>
+                路线B——最小安装场景
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            安装和配置最小系统：使用最小硬件安装EayunOS企业虚拟化管理端和EayunOS企业虚拟化主机
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            创建虚拟机：从管理员门户创建虚拟机和模板
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            超级用户门户：从超级用户门户创建和管理虚拟机
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                高级场景
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            管理多级用户：对组成EayunOS企业虚拟化的每一个组件的管理员进行管理
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            虚拟机桌面：使用SPICE连接协议工具访问虚拟机池
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
 	        </section>
 	        <section id="sect-Documents-evaluation-guide-Chapter-introduce_Section_4-2">
-		   <title>前提需求</title>
+		    <title>路线B的需求</title>
 		    <para>
-
-		    </para>
-	        </section>
-	</section>
+                要安装路线B的场景运行，您必须拥有：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            一个评估权限
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            一个有效的Eayun网络
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                在开始路线B之前，确保你已经满足一下条件。
+                <itemizedlist>
+                    <listitem>        
+                        <para>
+                            EayunOS企业虚拟化管理端需求
+                        <itemizedlist>
+                            <listitem>
+                            <para>
+                                最小——至少需要4GB RAM，24G硬盘空闲，和1Gbps网络带宽的Dual核心的服务器；          
+                            </para>
+                            </listitem>
+                            <listitem>
+                            <para>
+                                推荐——带有16GB RAM，50G硬盘空闲，和1Gbps网络带宽的Dual Sockets/Quad核心的服务器；
+                            </para>
+                            <para>故障服务器的需求
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        管理器：3G RAM，3G硬盘和1G网络带宽的网卡
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        Linux 6操作系统：1G RAM和5G硬盘                                        
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        本地ISO域：15G硬盘
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                            </para>
+                            </listitem>
+                            <listitem>
+                            <para>
+                                连接到EayunOS企业虚拟化管理端的客户端：
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>
+                                            一台安装了Firefox 17（或更高版本）Linux的机器；
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            安装了IE 9（或更高版本）Windows的机器；
+                                        </para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                EayunOS企业虚拟化主机需求
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            最小——2GB RAM，10G硬盘空闲，和1Gbps网络带宽的Dual核心的服务器；
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            推荐——带有16GB RAM，50G硬盘空闲，和1Gbps网络带宽的Dual Sockets核心的服务器；
+                        </para>
+                        <para>故障服务器需求：
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        每一台主机：AMD-V 或 Intel VT 激活, AMD64 或 Intel 64 扩展, 最小 1 GB RAM, 3GB 空闲存储和 1 Gbps 网络带宽；
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        运行在每台主机上的虚拟机：8G RAM
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                存储和网络需求：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            一个虚拟机的DHCP服务器
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            两个静态ip地址：一个供EayunOS企业虚拟化管理服务器端使用，另一个供运行在管理服务器上的EayunOS企业主机
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                           一个可以解析所有ip地址的DNS服务器 
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                虚拟机需求：
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            为虚拟机安装镜像。这些镜像将会安装在你创建的虚拟机上：
+                            <itemizedlist>
+                                <listitem>
+                                    <para>
+                                        Linux 3, 4, 5 或6
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        Microsoft Windows XP, 7, 8, 2003 或 2008
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            每种操作系统的许可证或订阅授权；
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            在任意支持的目录服务器(IdM, AD, RHDS, 或OpenLDAP)上至少一个可用的帐户
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+    </itemizedlist>
+</para>
+    </section>
+</section>
 </preface>
 
