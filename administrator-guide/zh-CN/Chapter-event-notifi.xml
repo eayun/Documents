@@ -35,7 +35,14 @@
         <para>
           点击<emphasis>管理事件</emphasis>按钮打开<emphasis>添加事件通知</emphasis>窗口。
         </para>
-        <!-- TODO: Figure 16.1. The Add Events Notification Window -->
+        <figure id="figure-Event_Notifications-Add_Events_Notification_Window">
+          <title>添加事件通知窗口</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Event_Notifications-Add_Events_Notification_Window.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
