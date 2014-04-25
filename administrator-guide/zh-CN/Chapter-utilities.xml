@@ -2367,5 +2367,194 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
             </table>
         </section>
     </section>
+
+    <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_4">
+        <title>&OVIRT;虚拟机镜像上传工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_4_1">
+            <title>关于&OVIRT;虚拟机镜像上传工具</title>
+            <para>使用engine-image-uploader工具可以查看export存储域的列表，上传
+                OVF格式的虚拟机镜像文件到指定export存储域。&OVIRT;&MANAGER;能够
+                识别和使用上传的虚拟机镜像。engine-image-uploader目前只支持在
+                &OVIRT;&MANAGER;中导出的经过gzip压缩的虚拟机镜像。
+            </para>
+            <para>使用虚拟机镜像上传工具极大地简化了分发虚拟机镜像的工作。
+            </para>
+            <para>虚拟机镜像的格式包含以下内容：
+                <screen>|-- images
+|   |-- [Image Group UUID]
+|        |--- [Image UUID (this is the disk image)]
+|        |--- [Image UUID (this is the disk image)].meta
+|-- master
+|   |---vms
+|       |--- [UUID]
+|             |--- [UUID].ovf
+                </screen>
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_4_2">
+            <title>&OVIRT;虚拟机镜像上传工具的命令行说明</title>
+            <para>engine-image-uploader的基本使用方法如下：
+                <screen>engine-image-uploader [options] list
+engine-image-uploader [options] upload [file].[file]...[file]
+                </screen>
+            </para>
+            <para>2种操作模式：list和upload。
+                <itemizedlist>
+                    <listitem>
+                        <para>list操作会列出所有可以上传镜像的export存储域。
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>upload操作将指定的镜像文件上传到指定的存储域。
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>使用engine-image-uploader时必须指定list或者upload其中一种操
+                作。进行upload操作时最少提供一个镜像文件名已进行上传。
+            </para>
+            <para>其他的命令行参数可以对engine-image-uploader命令进行更精细的控
+                制，也可以将一些默认的配置参数写入到配置文件：
+                /etc/ovirt-engine/im ageuploader.conf。
+            </para>
+
+            <simplesect>
+                <title>通用命令行参数</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>-h，--help</term>
+                        <listitem>
+                            <para>显示命令的帮助信息。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--config-file=配置文件路径</term>
+                        <listitem>
+                            <para>指定配置文件。默认的配置文件是
+                                /etc/ovirt-engine/imageuploader.conf。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--log-file=日志文件路径</term>
+                        <listitem>
+                            <para>指定命令执行过程中输出内容写入的日志文件。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--quiet</term>
+                        <listitem>
+                            <para>设置命令执行过程产生最少的输出内容。默认不开启
+                                该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--verbose</term>
+                        <listitem>
+                            <para>设置命令执行过程产生尽可能多的输出内容。默认不
+                                开启该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-f，--force</term>
+                        <listitem>
+                            <para>当目标存储域中已经存在一个和将要上传的文件名字
+                                相同，则必须使用强制模式。默认开启该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>&OVIRT;&MANAGER;相关选项</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>-u 用户名，--user=用户名</term>
+                        <listitem>
+                            <para>上传镜像文件时使用的用户。用户名的格式为：
+                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
+                                经存在。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-r FQDN</term>
+                        <listitem>
+                            <para>指定镜像文件上传的目标&OVIRT;&MANAGER;服务器的
+                                FQDN域名。默认是localhost:443，即运行该命令的服
+                                务器和&OVIRT;&MANAGER;是同一台服务器。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>Export数据域相关选项</title>
+                <para>下面的选项指定镜像文件上传的目标Export存储域，这些选项是互
+                    斥的，不能同时使用。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>-e，--export-domain=Export存储域名称</term>
+                        <listitem>
+                            <para>指定镜像文件上传的目标Export存储域。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-n，-nfs-server=NFS共享目录地址</term>
+                        <listitem>
+                            <para>指定镜像文件上传的目标NFS共享目录地址。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-i，--ovf-id</term>
+                        <listitem>
+                            <para>开启该选项之后，镜像文件的UUID不会被修改。默认
+                                的情况下，镜像文件上传之后会自动获取一个新的
+                                UUID，不会和其他的UUID冲突。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-d，--disk-instance-id</term>
+                        <listitem>
+                            <para>开启该选项之后，镜像文件中所有磁盘的实例ID不会
+                                被修改。默认的情况下，镜像文件上传之后磁盘都会自
+                                动获取一个新的UUID防止出现冲突。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-m，--mac-address</term>
+                        <listitem>
+                            <para>开启该选项之后，镜像文件中的网络组件不会被删
+                                除。默认情况下镜像文件上传时其中的网络组件会被删
+                                除以防止和其他的网络设备发生冲突。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-N 新镜像文件名，--name=新镜像文件名</term>
+                        <listitem>
+                            <para>开启该选项之后，镜像文件上传之后会使用新的文件
+                                名。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+        </section>
+    </section>
 </chapter>
 
