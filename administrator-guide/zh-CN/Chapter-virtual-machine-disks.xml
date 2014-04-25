@@ -599,10 +599,112 @@
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_5">
-    <!-- TODO: huntxu, please help me -->
-	<title>虚拟机磁盘和权限</title>
-	<para>
-	</para>
+    <title>虚拟机磁盘和权限</title>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_5-1">
+      <title>为虚拟磁盘管理系统权限</title>
+      <para>
+        系统管理员，在系统中称作 <emphasis>SuperUser</emphasis>，能够对管理员门户的所有模块进行管理。更为精细的管理员角色可以分配给其他用户。这些只能进行部分系统管理功能的角色能够分配给一个用户使得该用户对于特定的资源具有一定的管理权限：例如 <emphasis>DataCenterAdmin</emphasis> 对于分配的数据中心具有管理员权限，<emphasis>ClusterAdmin</emphasis> 对于分配的集群具有管理员权限，<emphasis>StorageAdmin</emphasis> 对于分配的存储域具有管理员权限，以此类推。
+      </para>
+      <para>
+        &OVIRT; &MANAGER; 提供了两个默认的虚拟磁盘用户角色，但没有默认的虚拟磁盘管理员角色。用户角色中的一个 <emphasis>DiskCreator</emphasis> 角色允许在用户门户对虚拟磁盘进行管理。该角色可以被应用到特定的虚拟机、数据中心、存储域、或者整个虚拟化环境之中。这使得不同的用户能够管理不同层次的虚拟资源。
+      </para>
+      <para>
+        虚拟磁盘创建者角色能够进行以下操作：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            在指定的虚拟机或者其它资源范围内创建、编辑和删除磁盘；以及
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            为虚拟磁盘修改用户权限。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para>
+          您只能够分配角色和权限到已存在的用户。
+        </para>
+      </note>
+      <para>
+        您可以通过删除当前的并添加新的系统管理员来更改数据中心的系统管理员。
+      </para>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_5-2"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_5-2">
+      <title>虚拟磁盘用户角色解释</title>
+      <formalpara>
+        <title>虚拟磁盘用户权限角色</title>
+        <para>
+          以下表格描述了用户门户中能够对虚拟磁盘使用及管理的用户角色及其相应的权限。
+        </para>
+      </formalpara>
+      <table>
+        <title>&OVIRT; 系统管理员角色</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                备注
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                DiskOperator
+              </entry>
+              <entry>
+                虚拟磁盘用户。
+              </entry>
+              <entry>
+                能够使用、查看或者修改虚拟磁盘。在虚拟磁盘所在的虚拟机上将被继承使用权限。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                DiskCreator
+              </entry>
+              <entry>
+                在分配的集群或者数据中心中能够创建、编辑、管理以及删除虚拟机磁盘。
+              </entry>
+              <entry>
+                该角色并不应用于单独的虚拟磁盘；您应该在<emphasis>配置</emphasis>为整个环境将其应用于一个用户之上。另外，您还可以为特定的数据中心、集群或者存储域应用该角色。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <xi:include href="sect-Assigning_an_Administrator_or_User_Role_to_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="sect-Removing_an_Administrator_or_User_Role_from_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>
 
