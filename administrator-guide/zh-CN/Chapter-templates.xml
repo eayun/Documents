@@ -640,32 +640,191 @@
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4">
-    <!-- TODO: huntxu, please help me -->
     <title>模板和权限</title>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-1">
       <title>管理模板的系统权限</title>
       <para>
+        系统管理员，在 &OVIRT; &MANAGER;中称作 <emphasis>SuperUser</emphasis>，能够对管理员门户中的所有模块进行管理。更为精细的管理员角色可以分配给其他用户。这些只能进行部分系统管理功能的角色，能够分配给一个用户使得该用户拥有对于特定资源一定的管理权限：例如 <emphasis>DataCenterAdmin</emphasis> 角色对于分配的数据中心具有管理员权限，<emphasis>StorageAdmin</emphasis> 角色对于分配的存储域具有管理员权限，以此类推。
       </para>
+      <para>
+        模板管理员是数据中心中模板的系统管理员角色。该角色可以被应用到虚拟机、数据中心或者整个环境中；这使得不同的用户能够管理不同级别的虚拟资源。
+      </para>
+      <para>
+        模板管理员角色能够进行以下操作：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            创建、编辑、导出以及删除相应的模板；还有
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            导入和导出模板。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para>
+          您只可以分配角色和权限到已存在的用户上。
+        </para>
+      </note>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-templates_Section_4-2"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-2">
-      <title>模板的管理角色解释</title>
+      <title>模板的管理员角色解释</title>
+      <formalpara>
+        <title>模板管理员权限角色</title>
+        <para>
+          以下表格描述了模板管理中的管理员角色和其相应的权限。
+        </para>
+      </formalpara>
+      <table>
+        <title>&OVIRT; 系统管理员角色</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                说明
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                TemplateAdmin
+              </entry>
+              <entry>
+                能够对模板进行所有操作。
+              </entry>
+              <entry>
+                拥有创建、删除、配置模板的存储域和网络信息，以及在存储域间移动模板的权限。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                NetworkAdmin
+              </entry>
+              <entry>
+                网络管理员
+              </entry>
+              <entry>
+                能够配置和管理连接到模板上的网络。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
       <para>
+        <emphasis>参见：</emphasis>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-3">
-      <title>模板的用户角色结束</title>
+      <title>模板的用户角色解释</title>
+      <formalpara>
+        <title>模板用户权限角色</title>
+        <para>
+          以下表格描述了在用户门户中对模板进行管理的用户角色和其相应的权限。
+        </para>
+      </formalpara>
+      <table>
+        <title>&OVIRT; 模板用户角色</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                说明
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                TemplateCreator
+              </entry>
+              <entry>
+                能够在指定的资源内创建、编辑、管理和删除虚拟机模板。
+              </entry>
+              <entry>
+                <emphasis>TemplateCreator</emphasis> 并不是应用于单独一个虚拟机模板之上的；您应该使用<emphasis>配置</emphasis>窗口在整个系统之上将其应用于一个用户。另外您还可以为特定的数据中心、集群或者存储域应用此角色。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                TemplateOwner
+              </entry>
+              <entry>
+                能够编辑和删除模板，为模板指定和修改用户权限。
+              </entry>
+              <entry>
+                <emphasis>TemplateOwner</emphasis> 将自动被分配到创建模板的用户上。其它不具有 <emphasis>TemplateOwner</emphasis> 权限的用户将无法查看或者使用该模板。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                UserTemplateBasedVm
+              </entry>
+              <entry>
+                能够使用模板创建虚拟机。
+              </entry>
+              <entry>
+                无法修改模板的属性。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                NetworkUser
+              </entry>
+              <entry>
+                模板的逻辑网络和网络接口的用户。
+              </entry>
+              <entry>
+                如果在逻辑网络创建时勾选了<emphasis>允许所有用户使用此网络</emphasis>，在该逻辑网络上的 <emphasis>NetworkUser</emphasis> 将会被分配到所有的用户上。之后用户能够在该逻辑网络上连接或者分离模板的网络接口。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
       <para>
+        <emphasis>参见：</emphasis>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
-    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-4">
-      <title>给资源指定管理或者用户角色</title>
-      <para>
-      </para>
-    </section>
-    <section id="sect-Documents-administrator-guide-Chapter-templates_Section_4-5">
-      <title>把资源的管理或者用户角色删除</title>
-      <para>
-      </para>
-    </section>
+    <xi:include href="sect-Assigning_an_Administrator_or_User_Role_to_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="sect-Removing_an_Administrator_or_User_Role_from_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>
