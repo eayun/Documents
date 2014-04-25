@@ -63,12 +63,12 @@
     <itemizedlist>
       <listitem>
         <simpara>
-          <!-- TODO: 连接至 Chpater3, Data Centers -->
+          <xref linkend="chap-Documents-administrator-guide-Chapter-data-center"/>
         </simpara>
       </listitem>
       <listitem>
         <simpara>
-          <!-- TODO: 连接至 Chpater4, Clusters -->
+          <xref linkend="chap-Documents-administrator-guide-Chapter-cluster"/>
         </simpara>
       </listitem>
       <listitem>
@@ -78,7 +78,7 @@
       </listitem>
       <listitem>
         <simpara>
-          <!-- TODO: 连接至 Chpater8, Virtual Machines -->
+          <xref linkend="chap-Documents-administrator-guide-Chapter-virtual-machine"/>
         </simpara>
       </listitem>
     </itemizedlist>
@@ -952,7 +952,7 @@
         </listitem>
         <listitem>
           <simpara>
-            <!-- TODO: 连接到 3.2, "The Storage Pool Manager (SPM)" -->
+            <xref linkend="sect-Documents-administrator-guide-Chapter-data-center_Section_2"/>
           </simpara>
         </listitem>
       </itemizedlist>
@@ -2008,7 +2008,7 @@
       <itemizedlist>
         <listitem>
           <simpara>
-            <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
           </simpara>
         </listitem>
       </itemizedlist>
@@ -2066,7 +2066,7 @@
       <itemizedlist>
         <listitem>
           <simpara>
-            <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
           </simpara>
         </listitem>
       </itemizedlist>
