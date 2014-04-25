@@ -508,31 +508,66 @@
         <para>
           在树形面板中，选择您想要分配用户至其之上的配额所在的数据中心。
         </para>
-        <!-- TODO: Figure 15.1. Selecting the Data Center -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Data_Center">
+          <title>选择数据中心</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Data_Center.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           在主面板中点击<emphasis>配额</emphasis>标签。
         </para>
-        <!-- TODO: Figure 15.2. Selecting the Quota Tab -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Quota_Tab">
+          <title>选择配额标签</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Quota_Tab.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           在主面板的列表中选择目标配额。
         </para>
-        <!-- TODO: Figure 15.3. Selecting the Target Quota -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Target_Quota">
+          <title>选择目标配额</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Target_Quota.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           在详情面板中点击<emphasis>消费者</emphasis>子标签。
         </para>
-        <!-- TODO: Figure 15.4. Selectig the Consumers Tab -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Consumers_Tab">
+          <title>选择消费者子标签</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Consumers_Tab.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           点击位于详情面板中上方的<emphasis>添加</emphasis>按钮。
         </para>
-        <!-- TODO: Figure 15.5. Clicking the Add Button -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Clicking_the_Add_Button">
+          <title>点击添加按钮</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Clicking_the_Add_Button.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
@@ -577,19 +612,40 @@
         <para>
           在树形面板中选择您想要编辑配额的数据中心。
         </para>
-        <!-- TODO: Figure 15.6. Selecting a Data Center to Edit Its Quota -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_a_Data_Center_to_Edit_Its_Quota">
+          <title>选择一个数据中心以编辑其配额</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_a_Data_Center_to_Edit_Its_Quota.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           在主面板中选择<emphasis>配额</emphasis>标签。
         </para>
-        <!-- TODO: Figure 15.7. Selecting the Quota Tab in the Navigation Pane -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Seleting_the_Quota_Tab_in_the_Navigation_Pane">
+          <title>在主面板中选择配额标签</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_the_Quota_Tab_in_the_Navigation_Pane.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           点击您想要编辑的配额的名称。
         </para>
-        <!-- TODO: Figure 15.8. Selecting a Quota to Edit -->
+        <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-Selecting_a_Quota_to_Edit">
+          <title>选择要编辑的配额</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-Selecting_a_Quota_to_Edit.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
@@ -714,6 +770,13 @@
         您设置了服务等级协议 CPU 策略。用户的 CPU 使用现在由您所设置的策略所控制。
       </para>
     </formalpara>
-    <!-- TODO: Figure 15.9. Service-level Agreement Policy Enforcement - CPU Allocation Menu -->
+    <figure id="figure-Quotas_and_Service_Level_Agreement_Policy-CPU_Allocation_Menu">
+      <title>服务等级协议策略的实现 -- CPU 分配菜单</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Quotas_and_Service_Level_Agreement_Policy-CPU_Allocation_Menu.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
   </section>
 </chapter>
