@@ -45,9 +45,108 @@
     </section>
   </section>
   <section id="sect-Documents-administrator-guide-Chapter-pools_Section_3">
-	<title>池和权限</title>
-	<para>
-	</para>
+    <title>池和权限</title>
+    <section id="sect-Documents-administrator-guide-Chapter-pools_Section_3-1">
+      <title>为虚拟机池管理系统权限</title>
+      <para>
+        系统管理员，在 &OVIRT; &MANAGER;中称作 <emphasis>SuperUser</emphasis>，能够对管理员门户中的所有模块进行管理。更为精细的管理员角色可以分配给其他用户。这些只能进行部分系统管理功能的角色，能够分配给一个用户使得该用户拥有对于特定资源一定的管理权限：例如 <emphasis>DataCenterAdmin</emphasis> 角色对于分配的数据中心具有管理员权限，<emphasis>StorageAdmin</emphasis> 角色对于分配的存储域具有管理员权限，以此类推。
+      </para>
+      <para>
+        虚拟机池管理员是数据中心中的虚拟机池的系统管理员角色。此角色可以被应用到特定的虚拟机池、数据中心或者整个虚拟化系统。这使得不同的用户能够在不同的级别上管理虚拟机池的资源。
+      </para>
+      <para>
+        虚拟机池管理员角色能够进行以下操作：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            创建、编辑和删除池；还有
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            在池中添加和分离虚拟机。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para>
+          您只可以分配角色和权限到已存在的用户上。
+        </para>
+      </note>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-pools_Section_3-2"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="sect-Documents-administrator-guide-Chapter-pools_Section_3-2">
+      <title>虚拟机池管理员角色说明</title>
+      <formalpara>
+        <title>池权限角色</title>
+        <para>
+          以下表格描述了虚拟机池管理过程中的管理员角色和其相应的权限。
+        </para>
+      </formalpara>
+      <table>
+        <title>&OVIRT; 系统管理员角色</title>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <thead>
+            <row>
+              <entry>
+                角色
+              </entry>
+              <entry>
+                权限
+              </entry>
+              <entry>
+                说明
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                VmPoolAdmin
+              </entry>
+              <entry>
+                虚拟机池的系统管理员角色
+              </entry>
+              <entry>
+                能够创建、删除和配置虚拟机池，分配和和删除池用户，对池中的虚拟机进行基本的操作。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                ClusterAdmin
+              </entry>
+              <entry>
+                集群管理员
+              </entry>
+              <entry>
+                能够使用、创建、删除和管理指定的集群内所有的虚拟机池。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Users_and_Roles-User_and_Administrator_Roles"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <xi:include href="sect-Assigning_an_Administrator_or_User_Role_to_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="sect-Removing_an_Administrator_or_User_Role_from_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>
-
