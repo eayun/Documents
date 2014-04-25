@@ -211,14 +211,14 @@
     <title>创建新配额策略</title>
     <para>
       <emphasis>前提需求：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <para>
-            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center"/>
-          </para>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Enabling_and_Changing_a_Quota_Mode_in_a_Data_Center"/>
+        </para>
+      </listitem>
+    </itemizedlist>
     <formalpara>
       <title>概述</title>
       <para>
@@ -319,19 +319,19 @@
     </formalpara>
     <para>
       <emphasis>参见：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <para>
-            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Explanation_of_Quota_Threshold_Settings"/>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Assigning_a_Quota_to_an_Object"/>
-          </para>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Explanation_of_Quota_Threshold_Settings"/>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Assigning_a_Quota_to_an_Object"/>
+        </para>
+      </listitem>
+    </itemizedlist>
   </section>
 
   <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Explanation_of_Quota_Threshold_Settings">
@@ -394,14 +394,14 @@
     <title>分配配额至一个对象</title>
     <para>
       <emphasis>前提需求：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <para>
-            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
-          </para>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
+        </para>
+      </listitem>
+    </itemizedlist>
     <formalpara>
       <title>概述</title>
       <para>
@@ -488,14 +488,14 @@
     <title>使用配额限制用户使用的资源</title>
     <para>
       <emphasis>前提需求：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <para>
-            <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
-          </para>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <xref linkend="sect-Quotas_and_Service_Level_Agreement_Policy-Creating_a_New_Quota_Policy"/>
+        </para>
+      </listitem>
+    </itemizedlist>
     <formalpara>
       <title>概述</title>
       <para>

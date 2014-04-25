@@ -29,59 +29,59 @@
     </para>
     <para>
       在 &OVIRT; 平台上的物理主机，具备如下特点：
-      <itemizedlist>
-        <listitem>
-          <para>
-            只能够属于系统中的一个集群。
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            其 CPU 必须支持 AMD-V 或者 Intel VT 硬件虚拟化扩展。
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            其 CPU 必须提供满足当创建集群时所选择的虚拟 CPU 类型所需要的功能/指令集。
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            最少有 2 GB 内存。
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            能够使用系统权限为其分配一个系统管理员。
-          </para>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          只能够属于系统中的一个集群。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          其 CPU 必须支持 AMD-V 或者 Intel VT 硬件虚拟化扩展。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          其 CPU 必须提供满足当创建集群时所选择的虚拟 CPU 类型所需要的功能/指令集。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          最少有 2 GB 内存。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          能够使用系统权限为其分配一个系统管理员。
+        </para>
+      </listitem>
+    </itemizedlist>
     <para>
       <emphasis>参见：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <simpara>
-            <!-- TODO: 连接至 Chpater3, Data Centers -->
-          </simpara>
-        </listitem>
-        <listitem>
-          <simpara>
-            <!-- TODO: 连接至 Chpater4, Clusters -->
-          </simpara>
-        </listitem>
-        <listitem>
-          <simpara>
-            <xref linkend="chap-Logical_Networks"/>
-          </simpara>
-        </listitem>
-        <listitem>
-          <simpara>
-            <!-- TODO: 连接至 Chpater8, Virtual Machines -->
-          </simpara>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <simpara>
+          <!-- TODO: 连接至 Chpater3, Data Centers -->
+        </simpara>
+      </listitem>
+      <listitem>
+        <simpara>
+          <!-- TODO: 连接至 Chpater4, Clusters -->
+        </simpara>
+      </listitem>
+      <listitem>
+        <simpara>
+          <xref linkend="chap-Logical_Networks"/>
+        </simpara>
+      </listitem>
+      <listitem>
+        <simpara>
+          <!-- TODO: 连接至 Chpater8, Virtual Machines -->
+        </simpara>
+      </listitem>
+    </itemizedlist>
   </section>
 
   <section id="sect-Hosts-EayuOS_Hosts">
@@ -162,36 +162,36 @@
         <step>
           <para>
             选择一种验证方法安装该台主机。
-            <itemizedlist>
-              <listitem>
-                <para>
-                  输入 root 用户的密码，使用密码验证。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                输入 root 用户的密码，使用密码验证。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
+              </para>
+            </listitem>
+          </itemizedlist>
         </step>
         <step>
           <para>
             您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
-            <itemizedlist>
-              <listitem>
-                <para>
-                  可以选择禁用自动配置防火墙。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                可以选择禁用自动配置防火墙。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
+              </para>
+            </listitem>
+          </itemizedlist>
         </step>
         <step>
           <para>
@@ -217,14 +217,14 @@
       </note>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Adding_a_Foreman_Host_Provider_Host">
       <title>添加 Foreman 提供的主机</title>
@@ -269,36 +269,36 @@
         <step>
           <para>
             选择一种验证方法安装该台主机。
-            <itemizedlist>
-              <listitem>
-                <para>
-                  输入 root 用户的密码，使用密码验证。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                输入 root 用户的密码，使用密码验证。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                复制在 <emphasis>SSH 公共密钥</emphasis>文本框中显示的公钥到主机上的 <filename>/root/.ssh/authorized_keys</filename> 文件中使用密钥验证。
+              </para>
+            </listitem>
+          </itemizedlist>
         </step>
         <step>
           <para>
             您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
-            <itemizedlist>
-              <listitem>
-                <para>
-                  可以选择禁用自动配置防火墙。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                可以选择禁用自动配置防火墙。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                可以添加主机的 SSH 指印来提高安全性。您可以手动输入也可以自动从主机上获取。
+              </para>
+            </listitem>
+          </itemizedlist>
         </step>
         <step>
           <para>
@@ -324,14 +324,14 @@
       </note>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Approving_a_Hypervisor">
       <title>批准主机加入</title>
@@ -372,14 +372,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows">
       <title>新建主机和编辑主机窗口中设置和控制项目的解释</title>
@@ -841,19 +841,19 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Host_Power_Management_Settings_Explained"/>
-            </simpara>
-          </listitem>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Setting_Fencing_Parameters_on_a_Host"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Host_Power_Management_Settings_Explained"/>
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Setting_Fencing_Parameters_on_a_Host"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Configuring_Host_Storage_Pool_Manager_Settings">
       <title>配置主机 SPM 设置</title>
@@ -902,14 +902,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-SPM_Priority_Settings_Explained"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-SPM_Priority_Settings_Explained"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Manually_Selecting_the_SPM">
       <title>手动选择 SPM</title>
@@ -943,19 +943,19 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Configuring_Host_Storage_Pool_Manager_Settings"/>
-            </simpara>
-          </listitem>
-          <listitem>
-            <simpara>
-              <!-- TODO: 连接到 3.2, "The Storage Pool Manager (SPM)" -->
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Configuring_Host_Storage_Pool_Manager_Settings"/>
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接到 3.2, "The Storage Pool Manager (SPM)" -->
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Editing_a_Resource">
       <title>编辑主机资源</title>
@@ -991,14 +991,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Moving_a_Host_to_Maintenance_Mode">
       <title>将主机切换至维护模式</title>
@@ -1116,14 +1116,14 @@
       <title>使用标签自定义主机</title>
       <para>
         <emphasis>前提：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <!-- TODO: 连接至 section F.3.2, "Creating a Tag" -->
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 section F.3.2, "Creating a Tag" -->
+          </simpara>
+        </listitem>
+      </itemizedlist>
       <formalpara>
         <title>概述</title>
         <para>
@@ -1236,27 +1236,27 @@
           </para>
           <para>
             从以下内容中选择<emphasis>引导协议</emphasis>：
-            <itemizedlist>
-              <listitem>
-                <para>
-                  <emphasis>None</emphasis>，
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>DHCP</emphasis>，或者
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>Static</emphasis>。
-                </para>
-                <para>
-                  如果您选择了 <emphasis>Static</emphasis>，请提供 <emphasis>IP</emphasis>、<emphasis>子网掩码</emphasis>和<emphasis>网关</emphasis>。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <emphasis>None</emphasis>，
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>DHCP</emphasis>，或者
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>Static</emphasis>。
+              </para>
+              <para>
+                如果您选择了 <emphasis>Static</emphasis>，请提供 <emphasis>IP</emphasis>、<emphasis>子网掩码</emphasis>和<emphasis>网关</emphasis>。
+              </para>
+            </listitem>
+          </itemizedlist>
           <para>
             点击<emphasis>确定</emphasis>。
           </para>
@@ -1296,19 +1296,19 @@
       </para>
       <para>
         影响网卡绑定逻辑的两个要素是：
-        <itemizedlist>
-          <listitem>
-            <para>
-              所需要绑定的网卡是否已经分配了逻辑网络？
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              所需要绑定的网卡是否承载了兼容的逻辑网络？一块网卡设备不能够同时承载启用了 VLAN 标签和没有启用 VLAN 标签的逻辑网络。
-            </para>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            所需要绑定的网卡是否已经分配了逻辑网络？
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            所需要绑定的网卡是否承载了兼容的逻辑网络？一块网卡设备不能够同时承载启用了 VLAN 标签和没有启用 VLAN 标签的逻辑网络。
+          </para>
+        </listitem>
+      </itemizedlist>
       <table>
         <title>网卡绑定场景及其结果</title>
         <tgroup cols="2" align="left" colsep="1" rowsep="1">
@@ -1370,29 +1370,29 @@
       <title>网卡绑定模式</title>
       <para>
         &OVIRT; 支持以下几种常见的网卡绑定模式：
-        <itemizedlist>
-          <listitem>
-            <para>
-              模式 1（活动-备份策略）将其中一个网卡保持为活动状态，其它网卡设置为备份状态。当该活动的网卡出现问题时，其中一个备份的网卡将会替代该出问题的网卡成为绑定设备中唯一活动的网卡。网卡绑定设备的 MAC 地址只在其中一个端口（网卡设备）上可见，以防止上层的交换机出现混乱。模式 1 提供了容灾功能，并被 &OVIRT; 所支持。
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              模式 2(异或策略)基于以网络包的源和目的 MAC 地址进行异或操作后对网卡数量求余的值来选择传输网络包的网卡。这样保证了相同目的 MAC 地址的网络包将会使用同一个网卡进行传输。模式 2 同时提供了容灾和负载均衡的功能，并被 &OVIRT; 所支持。
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              模式 4(IEEE 802.3ad 策略)创建了一个聚合组，该组内的网卡共享相同的网卡速度和双工设置。遵循 IEEE 802.3ad 的标准，模式 4 使用了活动聚合组内的所有网卡，并被 &OVIRT; 所支持。
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              模式 5(字适应传输负载均衡策略)保证了将根据当前每个网卡的负载来决定上行的数据传输的分配，并且使用其中一个网卡来接收所有的下行流量。如果负责接收的网卡出现问题，另一个网卡将会被指派取代其进行接收的角色。模式 5 被 &OVIRT; 所支持。
-            </para>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            模式 1（活动-备份策略）将其中一个网卡保持为活动状态，其它网卡设置为备份状态。当该活动的网卡出现问题时，其中一个备份的网卡将会替代该出问题的网卡成为绑定设备中唯一活动的网卡。网卡绑定设备的 MAC 地址只在其中一个端口（网卡设备）上可见，以防止上层的交换机出现混乱。模式 1 提供了容灾功能，并被 &OVIRT; 所支持。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            模式 2(异或策略)基于以网络包的源和目的 MAC 地址进行异或操作后对网卡数量求余的值来选择传输网络包的网卡。这样保证了相同目的 MAC 地址的网络包将会使用同一个网卡进行传输。模式 2 同时提供了容灾和负载均衡的功能，并被 &OVIRT; 所支持。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            模式 4(IEEE 802.3ad 策略)创建了一个聚合组，该组内的网卡共享相同的网卡速度和双工设置。遵循 IEEE 802.3ad 的标准，模式 4 使用了活动聚合组内的所有网卡，并被 &OVIRT; 所支持。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            模式 5(字适应传输负载均衡策略)保证了将根据当前每个网卡的负载来决定上行的数据传输的分配，并且使用其中一个网卡来接收所有的下行流量。如果负责接收的网卡出现问题，另一个网卡将会被指派取代其进行接收的角色。模式 5 被 &OVIRT; 所支持。
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Creating_a_Bond_Device_Using_the_Administration_Portal">
       <title>使用 &OVIRT; 管理员门户创建网卡绑定设备</title>
@@ -1471,14 +1471,14 @@
       </para>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Editing_Host_Network_Interfaces_and_Adding_Logical_Networks_to_Hosts"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Editing_Host_Network_Interfaces_and_Adding_Logical_Networks_to_Hosts"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Example_Uses_of_Custom_Bonding_Options_with_Host_Interfaces">
       <title>对主机网卡使用自定义绑定选项的例子</title>
@@ -1632,18 +1632,20 @@
       </para>
       <para>
         您可以从以下两者中选择：
-        <itemizedlist>
-          <listitem>
-            <para>
-              需要隔离的主机所在集群的其它主机。
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              需要隔离的主机所在数据中心的其他主机。
-            </para>
-          </listitem>
-        </itemizedlist>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            需要隔离的主机所在集群的其它主机。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            需要隔离的主机所在数据中心的其他主机。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
         只有状态处于 <emphasis>UP</emphasis> 或者 <emphasis>Maintenance</emphasis> 的主机才会被用作隔离的代理。
       </para>
     </section>
@@ -1732,14 +1734,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Host_Power_Management_Settings_Explained"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Host_Power_Management_Settings_Explained"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Soft_Fencing_Hosts">
       <title>软隔离主机</title>
@@ -1762,14 +1764,14 @@
       <title>使用主机电源管理功能</title>
       <para>
         <emphasis>前提</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Setting_Fencing_Parameters_on_a_Host"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Setting_Fencing_Parameters_on_a_Host"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
       <formalpara>
         <title>概述</title>
         <para>
@@ -1792,29 +1794,29 @@
         <step>
           <para>
             从以下几个选项中选择：
-            <itemizedlist>
-              <listitem>
-                <para>
-                  <emphasis>重启</emphasis>：该选项将关闭主机并等待主机的状态切换为 <emphasis>Down</emphasis>。当代理确认主机已关闭时，高可用的虚拟机将会在集群中的另一台主机上重启。然后代理将重新启动该台主机。当主机的状态为 <emphasis>Up</emphasis> 时意味着它能够被正常使用。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>启动</emphasis>：该选项启动一台主机并让其加入一个集群。当它能够被正常使用时状态将显示为 <emphasis>Up</emphasis>。
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>停止</emphasis>：该选项将关闭主机。使用这个选项之前，请确认在这台主机上运行的虚拟机已被迁移至集群中的其它虚拟机。否则虚拟机将会异常中止，并且只有高可用的虚拟机会在另外一台主机上重启。当主机被关闭时，它的状态将会是 <emphasis>Non-Operational</emphasis>。
-                </para>
-                <important>
-                  <para>
-                    当主机上设置了两个隔离代理时，它们能够被并行使用或者依次使用。如果是并行的，两个代理都必须响应停止命令主机才能够被关闭；但主机启动只需要其中一个代理响应启动命令即可。如果是依次使用的代理，启动或者停止主机时，主要的代理将会被首先使用，当其失败时，才会使用次要的代理。
-                  </para>
-                </important>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <emphasis>重启</emphasis>：该选项将关闭主机并等待主机的状态切换为 <emphasis>Down</emphasis>。当代理确认主机已关闭时，高可用的虚拟机将会在集群中的另一台主机上重启。然后代理将重新启动该台主机。当主机的状态为 <emphasis>Up</emphasis> 时意味着它能够被正常使用。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>启动</emphasis>：该选项启动一台主机并让其加入一个集群。当它能够被正常使用时状态将显示为 <emphasis>Up</emphasis>。
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>停止</emphasis>：该选项将关闭主机。使用这个选项之前，请确认在这台主机上运行的虚拟机已被迁移至集群中的其它虚拟机。否则虚拟机将会异常中止，并且只有高可用的虚拟机会在另外一台主机上重启。当主机被关闭时，它的状态将会是 <emphasis>Non-Operational</emphasis>。
+              </para>
+              <important>
+                <para>
+                  当主机上设置了两个隔离代理时，它们能够被并行使用或者依次使用。如果是并行的，两个代理都必须响应停止命令主机才能够被关闭；但主机启动只需要其中一个代理响应启动命令即可。如果是依次使用的代理，启动或者停止主机时，主要的代理将会被首先使用，当其失败时，才会使用次要的代理。
+                </para>
+              </important>
+            </listitem>
+          </itemizedlist>
         </step>
         <step>
           <para>
@@ -1887,37 +1889,37 @@
       </para>
       <para>
         主机管理员能够进行以下操作：
-        <itemizedlist>
-          <listitem>
-            <para>
-              编辑主机的配置；
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              设置主机的逻辑网络；还有
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              删除一台主机。
-            </para>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            编辑主机的配置；
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            设置主机的逻辑网络；还有
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            删除一台主机。
+          </para>
+        </listitem>
+      </itemizedlist>
       <para>
         您可以删除当前的并添加新的系统管理员来更改一台主机的系统管理员。
       </para>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Hosts-Host_Administrator_Roles_Explained"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Hosts-Host_Administrator_Roles_Explained"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Host_Administrator_Roles_Explained">
       <title>主机管理员角色的解释</title>
@@ -1960,14 +1962,14 @@
       </table>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Assigning_an_Administrator_or_User_Role_to_a_Resource">
       <title>为一个特定资源分配管理员或者用户角色</title>
@@ -2018,14 +2020,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <!-- TODO: 连接至 14.4.2, "User and Administrator Roles" -->
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Hosts-Removing_an_Administrator_or_User_Role_from_a_Resource">
       <title>为一个特定资源删除管理员或者用户角色</title>

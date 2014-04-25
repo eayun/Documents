@@ -105,14 +105,14 @@
     </note>
     <para>
       <emphasis>参见：</emphasis>
-      <itemizedlist>
-        <listitem>
-          <simpara>
-            <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
-          </simpara>
-        </listitem>
-      </itemizedlist>
     </para>
+    <itemizedlist>
+      <listitem>
+        <simpara>
+          <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+        </simpara>
+      </listitem>
+    </itemizedlist>
   </section>
 
   <section id="sect-Logical_Networks-VNIC_Profiles_and_QoS">
@@ -601,19 +601,19 @@
       </note>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
-            </simpara>
-          </listitem>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+          </simpara>
+        </listitem>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Required_Networks_Optional_Networks_and_Virtual_Machine_Networks"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls">
       <title>新建逻辑网络和编辑逻辑网络窗口中常规标签下设置和控制项目的解释</title>
@@ -746,27 +746,27 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Explanation_of_Logical_Network_General_Settings_and_Controls"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Designate_a_Specific_Traffic_Type_for_a_Logical_Network">
       <title>在管理网络窗口中为逻辑网络指定一个特定的类型</title>
       <para>
         <emphasis>前提：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
       <formalpara>
         <title>概述</title>
         <para>
@@ -815,14 +815,14 @@
       </note>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Manage_Networks_Settings_Explanation"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Manage_Networks_Settings_Explanation"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Manage_Networks_Settings_Explanation">
       <title>管理网络窗口设置项目的解释</title>
@@ -891,14 +891,14 @@
       <title>使用逻辑网络为单独一块物理网卡添加多个 VLAN</title>
       <para>
         <emphasis>前提：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
       <formalpara>
         <title>概述</title>
         <para>
@@ -942,24 +942,24 @@
           </para>
           <para>
             从以下内容中选择<emphasis>引导协议</emphasis>：
-            <itemizedlist>
-              <listitem>
-                <para>
-                  <emphasis>None</emphasis>，
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>DHCP</emphasis>，或者
-                </para>
-              </listitem>
-              <listitem>
-                <para>
-                  <emphasis>Static</emphasis>，并提供 <emphasis>IP</emphasis> 和<emphasis>子网掩码</emphasis>。
-                </para>
-              </listitem>
-            </itemizedlist>
           </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <emphasis>None</emphasis>，
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>DHCP</emphasis>，或者
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                <emphasis>Static</emphasis>，并提供 <emphasis>IP</emphasis> 和<emphasis>子网掩码</emphasis>。
+              </para>
+            </listitem>
+          </itemizedlist>
           <para>
             点击<emphasis>确定</emphasis>按钮。
           </para>
@@ -1001,40 +1001,40 @@
       </para>
       <para>
         点击主面板中逻辑网络的名称，然后使用详情面板中的<emphasis>集群</emphasis>、<emphasis>主机</emphasis>、<emphasis>虚拟机</emphasis>、<emphasis>模板</emphasis>以及<emphasis>权限</emphasis>子标签能够完成如下功能：
-        <itemizedlist>
-          <listitem>
-            <para>
-              将逻辑网络分配到集群或者主机中
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              从集群或者主机中分离逻辑网络
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              删除虚拟机和模板中的虚拟网卡
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              为用户增加或者删除权限，使得用户可以接入逻辑网络或者对逻辑网络进行管理
-            </para>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            将逻辑网络分配到集群或者主机中
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            从集群或者主机中分离逻辑网络
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            删除虚拟机和模板中的虚拟网卡
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            为用户增加或者删除权限，使得用户可以接入逻辑网络或者对逻辑网络进行管理
+          </para>
+        </listitem>
+      </itemizedlist>
       <para>
         以上的功能，也能够在主面板相应的资源标签中完成。关于如何在相应的资源中设置网络，请参见以下链接。
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Creating_a_New_Logical_Network_in_a_Data_Center_or_Cluster"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
       <section id="sect-Logical_Networks-Importing_Networks_from_External_Providers">
         <title>从外部供应商中导入网络</title>
         <formalpara>
@@ -1087,44 +1087,44 @@
         <title>从外部供应商导入网络的限制</title>
         <para>
           虽然外部供应商提供的逻辑网络能够被导入到&MANAGER;中，它们的使用仍然受到如下限制：
-          <itemizedlist>
-            <listitem>
-              <para>
-                外部供应商提供的逻辑网络只能被用作虚拟机网络。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                外部供应商提供的网络不能作为显示网络使用。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                同一逻辑网络能够被导入多次，但每次必须对应不同的数据中心。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                在&MANAGER;中无法编辑外部供应商提供的逻辑网络。这是由于该类网络的管理功能必须由外部的供应商完成。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                端口镜像不适用于连接到外部供应商提供的逻辑网络的虚拟网卡。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                如果有虚拟机使用着外部供应商所提供的网络，由于其所提供的网络正在被虚拟机使用，该供应商无法从&MANAGER;中删除。
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                外部供应商提供的网络是不必需的。因此，导入了这类逻辑网络的集群的调度工作在选择虚拟机时将不会考虑这类网络的状态。另外，用户必须确保在导入了这类逻辑网络的集群中的主机上，该逻辑网络是可用的。
-              </para>
-            </listitem>
-          </itemizedlist>
         </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              外部供应商提供的逻辑网络只能被用作虚拟机网络。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              外部供应商提供的网络不能作为显示网络使用。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              同一逻辑网络能够被导入多次，但每次必须对应不同的数据中心。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              在&MANAGER;中无法编辑外部供应商提供的逻辑网络。这是由于该类网络的管理功能必须由外部的供应商完成。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              端口镜像不适用于连接到外部供应商提供的逻辑网络的虚拟网卡。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              如果有虚拟机使用着外部供应商所提供的网络，由于其所提供的网络正在被虚拟机使用，该供应商无法从&MANAGER;中删除。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              外部供应商提供的网络是不必需的。因此，导入了这类逻辑网络的集群的调度工作在选择虚拟机时将不会考虑这类网络的状态。另外，用户必须确保在导入了这类逻辑网络的集群中的主机上，该逻辑网络是可用的。
+            </para>
+          </listitem>
+        </itemizedlist>
         <important>
           <para>
             外部供应商的发现及导入是一项技术预览特性。技术预览特性不被完全支持并且可能无法正常工作。但是，这类特性让用户能够提前接触到产品未来将要发生的技术变化，用户能够测试其功能并且在开发的过程中作出反馈。
@@ -1146,37 +1146,37 @@
       </para>
       <para>
         网络管理员能够进行如下操作：
-        <itemizedlist>
-          <listitem>
-            <para>
-              创建、编辑和删除逻辑网络；
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              编辑逻辑网络的配置，包括配置端口镜像功能；
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              为包括集群和虚拟机在内的资源分配或者分离逻辑网络。
-            </para>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            创建、编辑和删除逻辑网络；
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            编辑逻辑网络的配置，包括配置端口镜像功能；
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            为包括集群和虚拟机在内的资源分配或者分离逻辑网络。
+          </para>
+        </listitem>
+      </itemizedlist>
       <para>
         系统将会自动为创建逻辑网络的用户分配对于该逻辑网络的 <emphasis>NetworkAdmin</emphasis> 权限。您可以删除逻辑网络当前的管理员并且添加一个新的管理员来改变该逻辑网络的管理员用户。
       </para>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Network_Administrator_and_User_Roles_Explained"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Network_Administrator_and_User_Roles_Explained"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Network_Administrator_and_User_Roles_Explained">
       <title>逻辑网络管理员和用户角色的解释</title>
@@ -1230,14 +1230,14 @@
       </table>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Assigning_an_Administrator_or_User_Role_to_a_Resource">
       <title>为一个特定资源分配管理员或者用户角色</title>
@@ -1288,14 +1288,14 @@
       </formalpara>
       <para>
         <emphasis>参见：</emphasis>
-        <itemizedlist>
-          <listitem>
-            <simpara>
-              <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
-            </simpara>
-          </listitem>
-        </itemizedlist>
       </para>
+      <itemizedlist>
+        <listitem>
+          <simpara>
+            <xref linkend="sect-Logical_Networks-Managing_System_Permissions_for_a_Network"/>
+          </simpara>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Logical_Networks-Removing_an_Administrator_or_User_Role_from_a_Resource">
       <title>为一个特定资源删除管理员或者用户角色</title>
