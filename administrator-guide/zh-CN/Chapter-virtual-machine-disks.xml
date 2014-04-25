@@ -8,13 +8,211 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_1">
 	<title>理解虚拟机的存储</title>
 	<para>
+      &OVIRT; 管理系统主要支持三种类型的存储: NFS, ISCSI, 和 FCP.
 	</para>
+
+    <para>
+      在每种存储类型中, 都有一个被分配了 SPM 权限的主机管理主机和存储的访问.
+      只有 SPM 主机拥有对存储池的完全访问权限, 比如修改存储域和存储池的元数据.
+      其它所有非 SPM 主机只有访问虚拟机磁盘数据的权限.
+    </para>
+
+    <para>
+      在 NFS, local, 和 POSIX 兼容的文件系统中, SPM 默认使用精简支配的磁盘格式
+      创建虚拟磁盘, 这些磁盘以文件系统中的一个文件而存在.
+    </para>
+
+    <para>
+      在 iSCSI 和其基于快设备的数据中心中, SPM 把所有 LUNs 组合成一个 LVM
+      的卷组, 然后在该卷组里创建逻辑卷作为虚拟机磁盘. 默认情况下基于块设备存储的
+      虚拟磁盘是预分配模式的.
+    </para>
+
+    <para>
+      如果虚拟机磁盘是预分配的, 指定大小的逻辑卷将被创建作为该虚拟机磁盘.
+      如果一旦虚拟机有什么问题, 用户可以使用 <keycap>kpartx</keycap>,
+      <keycap>vgscan</keycap>, <keycap>vgchange</keycap> 和
+      <keycap>mount</keycap> 等工具来研究调试.
+    </para>
+
+    <para>
+      如果虚拟机磁盘是精简支配格式, 那么开始创建的时候, 系统只会创建 1 GB 大小
+      的逻辑卷. 之后虚拟机运行的主机会不断监视该逻辑卷的变化, 一旦该逻辑卷的使用
+      达到一个阀值, SPM 就会扩展该逻辑卷, 使其大小增加 1 GB. 然后该主机会对该
+      扩展时间做出一些回复. 如果虚拟机在此过程中变为暂停状态, 说明 SPM 此时不能
+      扩展该磁盘. 有可能是因为 SPM 现在正忙, 或者没有足够的存储来扩展.
+    </para>
+
+    <para>
+      预分配(RAW)格式的虚拟机磁盘的写入速度会比精简支配(Qcow2)的快, 但是创建
+      虚拟机的速度比 Qcow2 的格式慢. Qcow2 格式的磁盘通常使用于非 IO 密集的
+      虚拟机中.
+    </para>
+
+    <para>
+      此外, &OVIRT; 管理系统支持虚拟磁盘在线扩容.
+    </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_2">
 	<title>理解虚拟磁盘</title>
 	<para>
+      虚拟磁盘有两种类型: <keycap>精简支配</keycap>和<keycap>预分配</keycap>.
+      预分配的磁盘是 RAW 格式的. 精简支配的磁盘是 Qcow2 格式的.
 	</para>
+    <variablelist>
+      <varlistentry><term>预分配</term>
+      <listitem>
+        <para>
+          预分配的虚拟磁盘在创建的时候系统就分配了虚拟磁盘大小的空间. 后端存储
+          设备(基于文件/块设备)为虚拟机保留它所需要的所有存储空间. 这样, 该类型
+          的磁盘就具有很好的性能.
+        </para>
+        <para>
+          上述操作在 SAN(iSCSI, FCP)中直接通过创建一个虚拟磁盘大小的块设备
+          完成. 在 NFS 等系统中, 通过在后端文件中填充足够大小的 0 来完成. 系统
+          假设在 NFS 存储中后端文件格式不是 Qcow2, 并且填充的 0 不会被进行重复项
+          消除(如果这个假设有误, 在 NFS 虚拟磁盘的选择中, 不要选择预分配).
+        </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry><term>精简置配</term>
+      <listitem>
+        <para>
+          对于稀疏虚拟磁盘, 后端存储不用在创建时就分配所有的空间, 可以在运行时
+          按需分配. 这样存储能得到更高效的利用. 但是该机制需要后端存储系统不断
+          监控虚拟磁盘的写操作, 这样会造成一定的性能问题. 对于 NFS 后端存储,
+          虚拟磁盘就是一个文件. 对于 SAN 来说, 虚拟磁盘开始创建得比世界用户
+          需求的要小, 系统不断监控该磁盘的写操作, 然后按需分配存储.
+        </para>
+      </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>
+      下表描述了所有可能的存储类型和磁盘格式间的组合:
+    </para>
+    <table id="vm-disk-storage-combination">
+      <title>存储类型和磁盘的组合</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              后端存储
+            </entry>
+            <entry>
+              磁盘格式
+            </entry>
+            <entry>
+              磁盘类型
+            </entry>
+            <entry>
+              注意
+            </entry>
+          </row>
+          <row>
+            <entry>
+              NFS 或 iSCSI/FCP
+            </entry>
+            <entry>
+              RAW 或 Qcow2
+            </entry>
+            <entry>
+              稀疏文件或者预分配
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              NFS
+            </entry>
+            <entry>
+              RAW
+            </entry>
+            <entry>
+              预分配
+            </entry>
+            <entry>
+              一个初始大小和虚拟磁盘定义大小一样的文件, 没有格式.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              NFS
+            </entry>
+            <entry>
+              RAW
+            </entry>
+            <entry>
+              稀疏
+            </entry>
+            <entry>
+              一个初始大小和0差不多的文件, 没有格式.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              NFS
+            </entry>
+            <entry>
+              Qcow2
+            </entry>
+            <entry>
+              稀疏
+            </entry>
+            <entry>
+              一个初始大小和0差不多的文件, Qcow2 格式.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              SAN
+            </entry>
+            <entry>
+              RAW
+            </entry>
+            <entry>
+              预分配
+            </entry>
+            <entry>
+              一个初始大小和虚拟磁盘定义大小一样的块设备, 没有格式.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              SAN
+            </entry>
+            <entry>
+              Qcow2
+            </entry>
+            <entry>
+              预分配
+            </entry>
+            <entry>
+              一个初始大小和虚拟磁盘定义大小一样的块设备, Qcow2 格式.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              SAN
+            </entry>
+            <entry>
+              Qcow2
+            </entry>
+            <entry>
+              稀疏
+            </entry>
+            <entry>
+              一个初始大小(1GB)小于虚拟磁盘定义大小的块设备, Qcow2 格式,
+              额外的存储空间按需分配(每次分配 1GB)
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_3">
