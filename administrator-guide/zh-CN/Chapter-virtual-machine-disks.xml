@@ -218,6 +218,18 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_3">
 	<title>共享磁盘</title>
 	<para>
+      有些应用程序要求在服务器之间共享存储资源. &OVIRT; 管理系统有一个选项可以
+      把虚拟机磁盘标记为 <keycap>可共享的</keycap>. 这样, 一个虚拟磁盘就可以同时被多个虚拟机
+      访问和共享了.
+	</para>
+
+	<para>
+      共享磁盘并不总所有情况都有用的. 例如把共享磁盘用于存在数据库或者其他高可用
+      业务, 会发生同时读写这些数据造成的数据不一致.
+	</para>
+
+	<para>
+      另外, 用户不能对共享磁盘做快照. 有快照的虚拟磁盘也不能标记为可共享的.
 	</para>
   </section>
 
@@ -225,23 +237,364 @@
 	<title>虚拟磁盘任务</title>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-1">
 	  <title>创建与其它虚拟机不相关的虚拟机磁盘</title>
-	  <para>
-	  </para>
+      <formalpara><title>摘要</title>
+      <para>
+        用户可以创建一个独立于所有虚拟机的虚拟磁盘. 然后将此磁盘附加给一个或
+        多个虚拟机.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>创建与其它虚拟机不相关的虚拟机磁盘</title>
+        <step>
+          <para>
+            在导航面板上点击<keycap>磁盘</keycap>标签
+          </para>
+        </step>
+
+        <step>
+          <para>
+            点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
+            窗口将会打开.
+            <!-- TODO: picture -->
+          </para>
+        </step>
+
+        <step>
+          <para>
+            选择<keycap>内部</keycap>或者 <keycap>外部(主机 Lun)</keycap>.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            输入<keycap>大小</keycap>, <keycap>别名</keycap> 和 <keycap>描述</keycap>.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            在下拉菜单中选择<keycap>接口</keycap>, <keycap>格式</keycap>, <keycap>数据中心</keycap> 和<keycap>存储域</keycap>.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            根据需要选择删除后清理, 是可启动的, 或者是可共享的选项.
+          </para>
+        </step>
+
+        <step>
+          <para>
+            点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        一个名为 <keycap>Disk1</keycap> 的虚拟磁盘已经创建好了, 该磁盘可在
+        不同的虚拟机之间共享.
+      </para>
+      </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-2">
 	  <title>新建虚拟磁盘和编辑虚拟磁盘窗口中的参数解释</title>
-	  <para>
-	  </para>
+      <table id="vm-disk-settings-internal">
+        <title>数据中心属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <keycap>大小</keycap>
+              </entry>
+              <entry>
+                虚拟磁盘的大小, 以 GB 为单位.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>别名</keycap>
+              </entry>
+              <entry>
+                虚拟磁盘的别名, 有 40 个字符的限制.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>描述</keycap>
+              </entry>
+              <entry>
+                该虚拟磁盘的描述, 可选.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>接口</keycap>
+              </entry>
+              <entry>
+                虚拟机磁盘的接口. VirtIO 是最快的虚拟磁盘接口, 但是使用该接口需
+                要额外的 VirtIO 驱动. 大部分 Linux 操作系统都自带 VirtIO 的驱动.
+                Windows 没有包含 VirtIO 驱动, 但是用户可以通过 guest tools ISO
+                或者虚拟软盘来安装. IDE 接口不需要额外的驱动, 但是速度较慢.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>分配策略</keycap>
+              </entry>
+              <entry>
+                创建虚拟磁盘时的分配策略. 预分配的磁盘在创建时候就分配了所有需
+                要的存储空间. 精简支配的磁盘在开始时只分配 1 GB的空间. 预分配
+                的磁盘需要比精简支配更多的创建时间, 但是有更好地读写性能. 在使用
+                虚拟服务器的时候, 推荐使用预分配的格式. 在使用虚拟桌面的时候,
+                推荐使用精简支配的格式.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>数据中心</keycap>
+              </entry>
+              <entry>
+                虚拟机磁盘所在的数据中心.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>存储域</keycap>
+              </entry>
+              <entry>
+                虚拟机磁盘所在的数据域.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>删除后清理</keycap>
+              </entry>
+              <entry>
+                该磁盘被删除后时候清理该磁盘所在的存储空间.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>是可启动的</keycap>
+              </entry>
+              <entry>
+                给磁盘设置启动标志.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>是可共享的</keycap>
+              </entry>
+              <entry>
+                该磁盘可同时被多个虚拟机共享使用.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        外部磁盘包括所有内部磁盘的设置出了大小之外, 另外它还有一些自己的属性.
+      </para>
+      <table id="vm-disk-settings-external">
+        <title>外部磁盘属性</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                属性
+              </entry>
+              <entry>
+                详细描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <keycap>使用主机</keycap>
+              </entry>
+              <entry>
+                用来 挂载 LUN 的主机.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>存储类型</keycap>
+              </entry>
+              <entry>
+                外部存储的类型, iSCSI 或者 FC.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>发现目标</keycap>
+              </entry>
+              <entry>
+                展开设置目标主机名等.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>地址</keycap>
+              </entry>
+              <entry>
+                目标服务器的主机名或 IP 地址.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>端口</keycap>
+              </entry>
+              <entry>
+                目标服务器的端口, 默认值是 3260.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>用户验证</keycap>
+              </entry>
+              <entry>
+                iSCSI 服务器需要用户验证.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <keycap>CHAP 用户和密码</keycap>
+              </entry>
+              <entry>
+                验证的用户名和密码.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        填写好上表中的属性, 点击确定之后, 虚拟磁盘就会在磁盘列表中显示了.
+      </para>
+
+      <para>
+        直接使用 LUNs 作为虚拟机磁盘把主机和存储域之间的中间层消除了.
+      </para>
+
+      <para>
+        在使用 LUN 作为虚拟机磁盘的时候需要注意:
+        <itemizedlist>
+          <listitem>
+            <para>
+              如果直接使用 LUN 作为虚拟机磁盘, 在线存储迁移是不支持的.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              直接 LUN 磁盘不包含在导出域里.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              直接 LUN 磁盘不包含在虚拟机快照里.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-3">
 	  <title>在数据域中移动虚拟机磁盘</title>
-	  <para>
-	  </para>
+      <formalpara><title>摘要</title>
+      <para>
+        用户可能想要把虚拟磁盘从一个存储域移到另一个存储域. 另外如果虚拟机是基
+        于模板创建并且选择的存储方式是 thin, 那么用户必须要将模板的磁盘复制到
+        存储到存储域中.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>在数据域中移动虚拟机磁盘</title>
+        <step>
+          <para>
+            选择<keycap>磁盘</keycap>标签
+          </para>
+        </step>
+        <step>
+          <para>
+            选择想要移动的磁盘.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>移动</keycap>打开<keycap>移动磁盘</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            在下拉列表中选择<keycap>目标</keycap>存储域.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>移动磁盘.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟磁盘已经从一个存储域移动到另一个存储域了.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-4">
 	  <title>导出虚拟机磁盘</title>
-	  <para>
-	  </para>
+      <formalpara><title>摘要</title>
+      <para>
+        导出虚拟机磁盘.
+      </para>
+      </formalpara>
+
+      <procedure>
+        <title>导出虚拟机磁盘.</title>
+        <step>
+          <para>
+            选择<keycap>磁盘</keycap>标签
+          </para>
+        </step>
+        <step>
+          <para>
+            选择想要导出的磁盘.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>导出</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            输入导出的信息, 然后<keycap>确定</keycap>移动磁盘.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        虚拟磁盘已经导出到存储域了.
+      </para>
+      </formalpara>
     </section>
   </section>
 
