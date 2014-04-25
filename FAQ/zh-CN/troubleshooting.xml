@@ -366,5 +366,16 @@ COMMIT
           </para>
       </answer>
   </qandaentry>
-
+  <qandaentry>
+      <question>
+          <para>
+              Windows操作系统的机器上安装SPICE插件后，登录到EayunOS虚拟机化管理系统，连接系统内的虚拟机时，会失败，提示“Unable to connect to libvirt with URI 【none】”，该怎么办？
+          </para>
+      </question>
+      <answer>
+          <para>
+              这种情况是因为打开方式选用的是“virt-viewer”，应该采用“Remote-Viewer”方式打开就不会存在这个问题了。
+          </para>
+      </answer>
+  </qandaentry>
 </qandaset>
