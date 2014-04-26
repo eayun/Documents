@@ -6,7 +6,7 @@
 <chapter id="chap-Documents-quick-start-guide-Chapter_introduction">
 	<title>快速入门概览</title>
 	<para>
-             此文档是为系统管理员们提供最快捷、直接的方式搭建eayunOS的虚拟化管理平台，目的是能够减少对复杂系统的恐惧，轻松入门。
+             此文档是为系统管理员们提供最快捷、直接的方式搭建&OVIRT;的虚拟化管理平台，目的是能够减少对复杂系统的恐惧，轻松入门。
 	</para>
 	<section id="sect-Documents-quick-start-guide-Chapter_introduction-Section_1">
 		<title>三步让你部署平台</title>
@@ -15,7 +15,7 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-                                       安装eayunOS 管理平台和Hypervisor  
+                                       安装&OVIRT; 管理平台和Hypervisor  
 					</para>
 				</listitem>
 				<listitem>
@@ -35,10 +35,10 @@
 				<imagedata fileref="images/eayun_workflow_setup.svg" format="SVG" />
 			</imageobject>
                         <textobject>
-                               <phrase>eayunOS 安装配置工作流示意图</phrase>
+                               <phrase>&OVIRT; 安装配置工作流示意图</phrase>
                         </textobject>
                         <caption>
-                        <para>eayunOS 安装配置工作流示意图
+                        <para>&OVIRT; 安装配置工作流示意图
                         </para>
                         </caption>
 		 </mediaobject>

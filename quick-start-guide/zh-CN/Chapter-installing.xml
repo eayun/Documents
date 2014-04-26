@@ -246,7 +246,7 @@ setup-20131219122349.log
 		   </mediaobject>
                 </figure>
 		       <para>
-                         &OVIRT;hypervisor主机是用来运行虚拟机的，管理程序安装完成后，就可以开始安装，当然，是没有严格的规定顺序的，只是这样更容易理解一些。在&OVIRT;虚拟化解决方案中，hypervisor主机可以由两种形势：&OVIRT;all-in-one，及&OVIRT; hypervisor node。
+                         &OVIRT;hypervisor主机是用来运行虚拟机的，管理程序安装完成后，就可以开始安装，当然，是没有严格的规定顺序的，只是这样更容易理解一些。在&OVIRT;虚拟化解决方案中，hypervisor主机可以由两种形式：&OVIRT;all-in-one，及&OVIRT; hypervisor node。
 		      </para>
                       <para>
                          在本文档中，仅提供使用CD的安装方式来安装&OVIRT; hypervisor,&OVIRT;同样提供PXE或USB方式来安装，更多详情请参阅&OVIRT;安装手册。
@@ -484,11 +484,11 @@ setup-20131219122349.log
                  <figure id="eayunos-quick-start-eayunos-manager"><title>&OVIRT;管理门户</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_manager_gui_feature.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_manager_gui_feature.png" format="PNG" scalefit="1" width="100%" />
 			</imageobject>
 		   </mediaobject>
                  </figure>
-                 <procedure><title></title>
+                 <procedure><title>管理门户界面介绍</title>
                    <step>
                       <para>
                            页面顶部：包含已经登录的用户信息，注销的功能按钮，以及配置用户角色的功能按钮。

@@ -34,7 +34,7 @@
                 <figure id="eayunos-quick-start-configure-datacenter-tab"><title>数据中心概览</title>
 		  <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_datacenter_tab.png" format="PNG" scale="30"/>
+				<imagedata fileref="images/eayun_configure_datacenter_tab.png" format="PNG" scalefit="1" width="100" />
 			</imageobject>
 		  </mediaobject>
                 </figure>
