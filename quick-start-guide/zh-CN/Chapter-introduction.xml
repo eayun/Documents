@@ -32,7 +32,7 @@
 		</para>
 		 <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_workflow_setup.svg" format="SVG" />
+				<imagedata fileref="images/eayun_workflow_setup.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
                         <textobject>
                                <phrase>&OVIRT; 安装配置工作流示意图</phrase>

@@ -21,7 +21,7 @@
                 <figure id="eayunos-quick-start-configure-datacenter"><title>配置数据中心</title>
 		  <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_datacenter.svg" format="SVG" />
+				<imagedata fileref="images/eayun_configure_datacenter.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
 		  </mediaobject>
                 </figure>
@@ -49,7 +49,7 @@
                 <figure id="eayunos-quick-start-configure-cluster"><title>配置集群</title>
 		  <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_cluster.svg" format="SVG" />
+				<imagedata fileref="images/eayun_configure_cluster.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
 		  </mediaobject>
                 </figure>
@@ -75,7 +75,7 @@
                 <figure id="eayunos-quick-start-configure-network"><title>配置网络</title>
 		  <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_network.svg" format="SVG" />
+				<imagedata fileref="images/eayun_configure_network.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
 		  </mediaobject>
                 </figure>
@@ -105,7 +105,7 @@
                 <figure id="eayunos-quick-start-configure-host"><title>配置主机</title>
 		  <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_host.svg" format="SVG" />
+				<imagedata fileref="images/eayun_configure_host.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
 		  </mediaobject>
                 </figure>
@@ -365,7 +365,7 @@
                     <figure id="eayunos-quick-start-configure-storage"><title>配置存储</title>
 		      <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_configure_storage.svg" format="SVG" />
+				<imagedata fileref="images/eayun_configure_storage.svg" format="SVG" scalefit="1" width="100%" />
 			</imageobject>
 		      </mediaobject>
                     </figure>
