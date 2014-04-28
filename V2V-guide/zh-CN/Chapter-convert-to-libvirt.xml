@@ -89,7 +89,6 @@
     <para>
       <command>virt-v2v</command> 将在可能的时候在转化后的系统启用半虚拟化（virtio）驱动。
     </para>
-    <!-- TODO: RHN 相关 -->
     <para>
       运行 <command>virt-v2v</command> 工具需要系统的 root 权限。
     </para>
@@ -194,20 +193,14 @@
         <title>转换运行 Linux 的虚拟机前的准备工作</title>
         <step>
           <para>
-            获得软件。
+            在虚拟机中安装支持 virtio 设备驱动的内核。
           </para>
-          <para>
-            作为转换过程的一部分，<command>virt-v2v</command> 将会在虚拟机中安装新内核和驱动。如果需要转换的虚拟机已被注册到 Red Hat Network（RHN）的话，所需要的软件包将会被自动下载。而在 RHN 不可用的环境中，<filename>virt-v2v.conf</filename> 文件中可以指定一个 RPM 包的列表。与虚拟机相关的 RPM 包必须手动从 RHN 下载并放到由 <filename><replaceable>path-root</replaceable></filename> 配置选项所指定的目录下，默认的目录为 <filename>/var/lib/virt-v2v/software/</filename>。如果某次转换所依赖的软件不能获得，<command>virt-v2v</command> 将会显示一条类似<xref linkend="example-Convert_to_libvirt-Missing_Package_Error"/>那样的错误信息。
-          </para>
-          <example id="example-Convert_to_libvirt-Missing_Package_Error">
-            <title>缺少软件包错误</title>
-            <screen>virt-v2v: Installation failed because the following files referenced in the configuration file are reqiured, but missing:
-rhel/6/kernel-2.6.32-128.el6.x86_64.rpm
-rhel/6/ecryptfs-utils-82-6.el6.x86_64.rpm
-rhel/6/ecryptfs-utils-82-6.el6.i686.rpm</screen>
-          </example>
         </step>
-        <!-- TODO: 教你使用 RHN -->
+        <step>
+          <para>
+            如果您的虚拟机启用了加密文件系统，还必须安装 ecryptfs-utils 软件包。
+          </para>
+        </step>
       </procedure>
     </section>
     <section id="sect-Convert_to_libvirt-Preparing_to_Convert_a_Local_Xen_Virtual_Machine">
@@ -243,7 +236,39 @@ rhel/6/ecryptfs-utils-82-6.el6.i686.rpm</screen>
       <para>
         在您转换一台运行 Windows 的虚拟机之前，请确保完成以下步骤。
       </para>
-      <!-- TODO: RHN -->
+      <procedure>
+        <title>转换 Windows 虚拟机前的准备工作</title>
+        <step>
+          <para>
+            安装 libguestfs-winsupport 软件包。运行
+            <screen>
+yum install libguestfs-winsupport
+            </screen>
+          </para>
+          <para>
+            如果您尝试在没有安装 libguestfs-winsupport 软件包情况下转换一台使用 NTFS 文件系统的虚拟机，转换将会失败。类似如下的错误信息将会被给出:
+            <screen>
+No operating system could be detected inside this disk image.
+This may be because the file is not a disk image, or is not a virtual machine image, or because the OS type is not understood by virt-inspector.
+If you feel this is an error, please file a bug report including as much information about the disk image as possible.
+            </screen>
+          </para>
+        </step>
+        <step>
+          <para>
+            安装 virtio-win 软件包。联系 &OVIRT; 技术支持人员获取该软件包并将其复制到运行 <command>virt-v2v</command> 的主机之上。运行
+            <screen>
+yum localinstall <replaceable>PATH/TO/virtio-win.rpm</replaceable>
+            </screen>
+          </para>
+          <para>
+            如果您尝试在没有安装 virtio-win 软件包的情况下转换 Windows 虚拟机并开启半虚拟化设备支持，转换将会失败。类似如下的错误信息将会被给出:
+          </para>
+          <screen>
+virt-v2v: Installation failed because the following files referenced in the configuration file are required, but missing: /usr/share/virtio-win/drivers/i386/Win2008
+          </screen>
+        </step>
+      </procedure>
       <note>
         <para>
           当运行 Windows 的虚拟机要转换并输出到 &OVIRT; 环境中时，安装最新的驱动等虚拟机镜像的余下操作还会由 &OVIRT; 管理端来完成。关于该操作的详情请参考<xref linkend="sect-References-Configuration_Changes_for_Windows_Virtual_Machines"/>。该步骤在将虚拟机转换到 libvirt 中时将被省略。

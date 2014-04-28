@@ -270,7 +270,19 @@
         <para>
           无论您是从什么宿主机上将虚拟机转换到 &OVIRT; 上，以下步骤都是必须完成的。
         </para>
-        <!-- TODO: 又涉及很多的 RHN -->
+        <procedure>
+          <title>转换运行 Linux 的虚拟机前的准备工作</title>
+          <step>
+            <para>
+              在虚拟机中安装支持 virtio 设备驱动的内核。
+            </para>
+          </step>
+          <step>
+            <para>
+              如果您的虚拟机启用了加密文件系统，还必须安装 ecryptfs-utils 软件包。
+            </para>
+          </step>
+        </procedure>
       </section>
       <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine_Runing_Windows">
         <title>转换运行 Windows 的虚拟机前的准备工作</title>
@@ -290,7 +302,50 @@
         <para>
           无论您是从什么宿主机上将虚拟机转换到 &OVIRT; 上，以下步骤都是必须完成的。转换过程的还需要在 &OVIRT; 管理端中进行其它操作才能完成。参考<xref linkend="sect-References-Configuration_Changes_for_Windows_Virtual_Machines"/>以了解操作的详情。
         </para>
-        <!-- TODO: RHN -->
+        <procedure>
+          <title>转换 Windows 虚拟机前的准备工作</title>
+          <step>
+            <para>
+              安装 libguestfs-winsupport 软件包。运行
+              <screen>
+yum install libguestfs-winsupport
+              </screen>
+            </para>
+            <para>
+              如果您尝试在没有安装 libguestfs-winsupport 软件包情况下转换一台使用 NTFS 文件系统的虚拟机，转换将会失败。类似如下的错误信息将会被给出:
+              <screen>
+No operating system could be detected inside this disk image.
+This may be because the file is not a disk image, or is not a virtual machine image, or because the OS type is not understood by virt-inspector.
+If you feel this is an error, please file a bug report including as much information about the disk image as possible.
+              </screen>
+            </para>
+          </step>
+          <step>
+            <para>
+              安装 virtio-win 软件包。联系 &OVIRT; 技术支持人员获取该软件包并将其复制到运行 <command>virt-v2v</command> 的主机之上。运行
+              <screen>
+yum localinstall <replaceable>PATH/TO/virtio-win.rpm</replaceable>
+              </screen>
+            </para>
+            <para>
+              如果您尝试在没有安装 virtio-win 软件包的情况下转换 Windows 虚拟机并开启半虚拟化设备支持，转换将会失败。类似如下的错误信息将会被给出:
+            </para>
+            <screen>
+virt-v2v: Installation failed because the following files referenced in the configuration file are required, but missing: /usr/share/virtio-win/drivers/i386/Win2008
+            </screen>
+          </step>
+          <step>
+            <para>
+              将虚拟机工具 ISO 上传至 &OVIRT; 环境的 ISO 存储域。
+            </para>
+            <para>
+              此一步骤不是必须的。但我们推荐所有运行在 &OVIRT; 环境中的虚拟机都安装虚拟机工具 ISO 中所包含的相关驱动。更多的信息请参考<xref linkend="sect-References-Configuration_Changes_for_Windows_Virtual_Machines"/>。
+            </para>
+            <para>
+              联系 &OVIRT; 技术支持人员获得虚拟机工具 ISO 镜像。并使用 <command>engine-iso-uploader</command> 工具将该 ISO 镜像上传至 &OVIRT; 环境中的 ISO 存储域。更多关于如何上传 ISO 镜像以及为虚拟机安装驱动等内容的信息，请参考《&OVIRT; 系统管理员手册》。
+            </para>
+          </step>
+        </procedure>
       </section>
       <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Local_Xen_Virtual_Machine">
         <title>转换一个本地 Xen 虚拟机前的准备工作</title>
