@@ -72,16 +72,62 @@
     </para>
     <itemizedlist>
       <listitem>
-        <para>V1: TODO
+        <para>
+          V1:
+        </para>
+        <para>
+          每个存储域包含描述自身结构的元数据和所有用于保存虚拟机镜像的
+          物理卷的名字.
+        </para>
+        <para>
+          此外, 主存储域还包含所有其他存储域的元数据和池中所有物理卷的名字.
+          元数据的大小被限制在 2kb, 这个大小是为了限制一个池中存储域的数量.
+        </para>
+        <para>
+          模板和虚拟机的基本镜像是只读的.
+        </para>
+        <para>
+          V1 版本的元数据适用于 NFS, iSCSI 和
+          FC 存储域.
         </para>
       </listitem>
       <listitem>
-        <para>V2: TODO
+        <para>
+          V2:
+        </para>
+        <para>
+          所有的存储域和池的元数据是作为逻辑卷的标签存储的, 而不是直接写到
+          逻辑卷中. 虚拟机卷的元数据仍让是存储在域的逻辑卷中.
+        </para>
+        <para>
+          物理卷的名字不在包含在元数据中.
+        </para>
+        <para>
+          模板和虚拟机的基本镜像是只读的.
+        </para>
+        <para>
+          V2 版本的元数据适用于 iSCSI 和 FC 存储域.
         </para>
       </listitem>
       <listitem>
-        <para>V3: TODO
+        <para>
+          V3:
         </para>
+        <para>
+          所有的存储域和池的元数据是作为逻辑卷的标签存储的, 而不是直接写到
+          逻辑卷中. 虚拟机卷的元数据仍让是存储在域的逻辑卷中.
+        </para>
+        <para>
+          在 V3 中基本的虚拟机磁盘和模板不再是只读的. 这个改变带来一下功能:
+          使得在线快照, 在线存储迁移和从快照克隆虚拟机.
+        </para>
+        <para>
+          这个版本还支持 unicode 编码, 允许非英文的卷名.
+        </para>
+        <para>
+          V3 版本的元数据适用于 NFS, GlusterFS, POSIX, iSCSI, and FC 存储.
+        </para>
+        <!--  FIXME: 升级说明暂时不写了, 因为我们就一个版本 :) -->
       </listitem>
     </itemizedlist>
   </section>
@@ -248,7 +294,13 @@
         <para>
           点击配置本地存储, 打开配置本地存储窗口.
         </para>
-        <!-- TODO: picture -->
+        <figure id="add-local-fs"><title>添加本地存储</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/storage-add-local-fs.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
       </step>
 
       <step>
@@ -275,7 +327,7 @@
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_4">
     <title>添加 Glusterfs 的存储域</title>
     <para>
-      TODO
+      <!-- TODO: 暂不支持 -->
     </para>
   </section>
 
@@ -796,9 +848,35 @@
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-4">
       <title>编辑资源</title>
+      <formalpara><title>摘要</title>
       <para>
-        <!-- TODO -->
+        编辑资源的属性.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>编辑资源</title>
+        <step>
+          <para>
+            使用资源标签, 搜索标签等找到想要的资源.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            改变资源的属性, 点击<keycap>确定</keycap>.
+          </para>
+        </step>
+      </procedure>
+      <formalpara><title>结果</title>
+      <para>
+        该资源属性的值将会被保存.
+      </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-5">
