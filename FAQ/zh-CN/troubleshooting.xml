@@ -378,4 +378,16 @@ COMMIT
           </para>
       </answer>
   </qandaentry>
+  <qandaentry>
+      <question>
+          <para>
+              安装EayunOS管理端时，engine-setup时设置的默认ISO存储域，在系统中不能附加到除本地数据中心以外的其它数据中心下？
+          </para>
+      </question>
+      <answer>
+          <para>
+              engine-setup时配置的默认ISO存储域的输出地址是域名的形式，如果其它数据中心中的主机不能解析这个域名的话就无法附加，解决办法是配置DNS服务或手动设置/etc/hosts文件。
+          </para>
+      </answer>
+  </qandaentry>
 </qandaset>
