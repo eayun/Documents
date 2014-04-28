@@ -214,7 +214,14 @@
       <para>
         要成功执行一个操作，<emphasis>用户</emphasis>必须拥有对被执行操作的<emphasis>对象</emphasis>的相应的<emphasis>权限</emphasis>。每类操作都对应一个<emphasis>权限</emphasis>。系统中存在很多不同的权限，所以下图为了简洁起见：
       </para>
-      <!-- TODO: Figure 14.1. Actions -->
+      <figure id="figure-Users_and_Roles-Actions">
+        <title>用户操作</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Users_and_Roles-Actions.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
       <important>
         <para>
           有些操作是对多个对象执行的。例如，复制模板至另外一个存储域中将同时影响到该模板及目标存储域。执行某操作的用户必须对于被执行操作的所有对象都拥有相应的权限。
@@ -226,11 +233,25 @@
       <para>
         权限允许用户对对象执行操作，对象可以是单独的对象，也可以是容器对象（如数据中心、集群等）。
       </para>
-      <!-- TODO: Figure 14.2. Permissions & Roles -->
+      <figure id="figure-Users_and_Roles-Permissions_and_Roles">
+        <title>权限和角色</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Users_and_Roles-Permissions_and_Roles.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
       <para>
         应用于容器对象的权限同样会应用于该容器的所有成员。下面的图表描述了系统中对象的架构。
       </para>
-      <!-- TODO: Figure 14.3. EayunOS Object Hierarchy -->
+      <figure id="figure-Users_and_Roles-EayunOS_Object_Hierarchy">
+        <title>&OVIRT; 对象组织架构</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Users_and_Roles-EayunOS_Object_Hierarchy.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
     </section>
   </section>
 
@@ -974,7 +995,7 @@
         </figure>
       </para>
       <para>
-        上面所示的 <emphasis>USerManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<!-- TODO: xref Figure 14.3 EayunOS Object Hierarchy -->中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
+        上面所示的 <emphasis>USerManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<xref linkend="figure-Users_and_Roles-EayunOS_Object_Hierarchy"/>中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
       </para>
     </example>
   </section>
