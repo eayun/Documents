@@ -301,7 +301,14 @@ nano /etc/virt-v2v.conf
         <para>
           配置网络。一般来说 P2V 客户端将会使用 DHCP 自动配置网络。如果它无法自动配置网络，您将需要手动进行配置。<emphasis>IP Address</emphasis>、<emphasis>Gateway</emphasis> 和 <emphasis>Prefix</emphasis> 是必须填写的项目。输入适合您网络环境的值，然后点击 <emphasis>Use these network settings</emphasis> 按钮。
         </para>
-        <!-- TODO: Figure 5.1. Network confguration on the P2V client -->
+        <figure id="figure-Converting_Physical-Network_Configuration_on_the_P2V_Client">
+          <title>P2V 客户端上的网络设置</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Converting_Physical-Network_Configuration_on_the_P2V_Client.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
         <important>
           <para>
             如果由于某些原因您更希望使用手动配置，请在启动之前将该物理机断网。然后您就可以直接输入网络配置将物理机重新连接到网络上了。
@@ -312,13 +319,27 @@ nano /etc/virt-v2v.conf
         <para>
           当网络配置完成之后，您将会被提示输入连接到转换服务器的信息。这些信息包括 <emphasis>Hostname</emphasis>（主机名或者 IP 地址）、<emphasis>Username</emphasis>（必须为 root）以及 <emphasis>Password</emphasis>。输入相应内容然后点击 <emphasis>Connect</emphasis> 按钮。
         </para>
-        <!-- TODO: Figure 5.2. Connecting to the conversion server -->
+        <figure id="figure-Converting_Physical-Connecting_to_the_Conversion_Server">
+          <title>连接至转换服务器</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Converting_Physical-Connecting_to_the_Conversion_Server.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           连接到您的转换服务器之后，您需要配置连接到物理机转换后的虚拟机的虚拟硬件，并且选择哪些硬件设备必须被转换。最少需要转换一个安装有操作系统的固定存储设备。
         </para>
-        <!-- TODO: Figure 5.3. Configuring the virtual machine -->
+        <figure id="figure-Converting_Physical-Configuring_the_Virtual_Machine">
+          <title>配置虚拟机</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Converting_Physical-Configuring_the_Virtual_Machine.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
@@ -344,13 +365,27 @@ nano /etc/virt-v2v.conf
         <para>
           当 <emphasis>Target Properties</emphasis>、<emphasis>Fixed Storage</emphasis>、<emphasis>Removable Media</emphasis> 和 <emphasis>Network Interfaces</emphasis> 都被按所需进行了配置后，点击 <emphasis>Convert</emphasis> 按钮。
         </para>
-        <!-- TODO: Figure 5.4. Conversion in process -->
+        <figure id="figure-Converting_Physical-Conversion_in_Process">
+          <title>转换进行中</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Converting_Physical-Conversion_in_Process.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
       <step>
         <para>
           转换完成后，将会显示一条成功信息。您可以关闭该物理机。
         </para>
-        <!-- TODO: Figure 5.5. Conversion successfully completed -->
+        <figure id="figure-Converting_Physical-Conversion_Successfully_Completed">
+          <title>转换成功完成</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Converting_Physical-Conversion_Successfully_Completed.png" format="PNG" width="100%" scalefit="1"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
       </step>
     </procedure>
     <para>

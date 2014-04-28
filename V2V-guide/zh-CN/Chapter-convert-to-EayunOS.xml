@@ -174,7 +174,14 @@
       <step>
         <para>
           点击<emphasis>附加导出</emphasis>按钮添加镜像存放的存储位置。
-          <!-- TODO: Figure 4.1. Attaching an Export Domain -->
+          <figure id="figure-Convert_to_EayunOS-Attaching_an_Export_Domain">
+            <title>附加导出域</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Convert_to_EayunOS-Attaching_an_Export_Domain.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
         </para>
       </step>
       <step>
@@ -582,7 +589,14 @@ machine esx.example.com login root password P@ssw0rd
           <para>
             关于使用 &OVIRT; 管理员门户导入虚拟机的更多信息，请参考《&OVIRT; 系统管理员手册》。
           </para>
-          <!-- TODO: Figure 4.4. Importing a virtual machine with the EayunOS Administration Portal -->
+          <figure id="figure-Convert_to_EayunOS-Importing_VM">
+            <title>使用 &OVIRT; 管理员门户导入虚拟机</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/Convert_to_EayunOS-Importing_VM.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
           <para>
             您还可以使用 Python SDK 或者命令行来从导出存储域中导入虚拟机。
           </para>
