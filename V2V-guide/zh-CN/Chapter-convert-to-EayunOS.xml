@@ -212,11 +212,25 @@
     <para>
       <command>virt-v2v</command> 将一个外部宿主机中的虚拟机转换到 &OVIRT; 环境中。它会自动将虚拟机的镜像及元数据进行打包并上传至 &OVIRT; 环境中的导出存储域中。关于导出存储域的更多信息，请参考<xref linkend="sect-Convert_to_EayunOS-Attaching_an_Export_Storage_Domain"/>。<command>virt-v2v</command> 在转换之前总会先对存储镜像进行一次复制。
     </para>
-    <!-- TODO: Figure 4.2. Converting a virtual machine -->
+    <figure id="figure-Convert_to_EayunOS-Converting_a_Virtual_Machine">
+      <title>转换虚拟机到 &OVIRT;</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Convert_to_EayunOS-Converting_a_Virtual_Machine.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
     <para>
       使用 &OVIRT; 管理员门户，您可以将虚拟机镜像从导出存储域中导入到 &OVIRT; 中。
     </para>
-    <!-- TODO: Figure 4.3. Importing a virtual machine -->
+    <figure id="figure-Convert_to_EayunOS-Importing_a_Virtual_Machine">
+      <title>导入虚拟机到 &OVIRT;</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Convert_to_EayunOS-Importing_a_Virtual_Machine.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
     <section id="sect-Convert_to_EayunOS-Preparing_to_Convert_a_Virtual_Machine">
       <title>转换虚拟机前的准备工作</title>
       <para>
@@ -652,11 +666,18 @@ action vm "vm-to-import" import_vm --storagedomain-identifier "from-sd-id" --clu
     <section id="sect-Convert_to_EayunOS-Scripted_Bulk_v2v_Process">
       <title>脚本化的批量 v2v 过程</title>
       <para>
-        对于批量导入的场景来说，能够在单台机器上执行脚本化的 v2v 过程就显得非常有好处。您可以使用 REST API 向 &OVIRT; 管理端发起远程过程调用。这使得在单台 Linux 主机上完成 v2v 过程的两个步骤变得可能。<!-- TODO: <xref linkend="Figure-Scriptd_Bulk_v2v_Process"/> -->展现了脚本执行的过程。
+        对于批量导入的场景来说，能够在单台机器上执行脚本化的 v2v 过程就显得非常有好处。您可以使用 REST API 向 &OVIRT; 管理端发起远程过程调用。这使得在单台 Linux 主机上完成 v2v 过程的两个步骤变得可能。<xref linkend="figure-Convert_to_EayunOS-Script_Bulk_v2v_Process"/>展现了脚本执行的过程。
       </para>
-      <!-- TODO: Figure 4.5. Script bulk v2v process -->
+      <figure id="figure-Convert_to_EayunOS-Script_Bulk_v2v_Process">
+        <title>脚本化的批量 v2v 过程</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Convert_to_EayunOS-Script_Bulk_v2v_Process.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
       <para>
-        脚本化的批量 v2v 过程包括以下几个步骤，如<!-- TODO: <xref linkend="Figure-Scriptd_Bulk_v2v_Process"/> -->中所示：
+        脚本化的批量 v2v 过程包括以下几个步骤，如<xref linkend="figure-Convert_to_EayunOS-Script_Bulk_v2v_Process"/>中所示：
       </para>
       <orderedlist>
         <listitem>

@@ -137,7 +137,14 @@
     <para>
       <command>virt-v2v</command> 将运行在外部宿主机上的虚拟机转化到由 libvirt 管理的 KVM 之上。它将为转化后的虚拟机自动创建一个 libvirt 的 domain。
     </para>
-    <!-- TODO: Figure 3.1. Converting a virtual machine -->
+    <figure id="figure-Convert_to_libvirt-Converting_a_Virtual_Machine">
+      <title>转换虚拟机</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Convert_to_libvirt-Converting_a_Virtual_Machine.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
     <para>
       在转化虚拟机之前，请确保您完成了以下步骤。
     </para>
