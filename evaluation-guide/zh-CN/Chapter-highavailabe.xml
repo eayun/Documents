@@ -10,7 +10,7 @@
 		<para>
 			本实验任务是配置和测试EayunOS虚拟化环境的可靠性。
 		</para>
-		<para>实验要求：
+        <para>实验要求：
 		</para>
 		<para>在开始实验之前，确保已经有一个正在使用的EayunOS虚拟化环境，同时为了成功的完成本实验，必须达到以下要求：
 			<orderedlist>
@@ -22,7 +22,17 @@
                                 </listitem>
 			</orderedlist>
 		</para>
-		<para>实验场景：
+        <para>实验场景：</para>
+        <para>
+            <figure id="eayunos-highavailabe-0"><title>图1</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/highavailabe-lab.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>
                         <orderedlist>
                                 <listitem>
                                         <para>主机重启。</para>
@@ -49,7 +59,7 @@
                         <step>
                                 <para>在左侧列表点击【集群策略】，如图：</para>
 				<para>
-					<figure id="eayunos-highavailabe-0"><title>图1</title>
+					<figure id="eayunos-highavailabe-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
 								<imagedata fileref="images/highavailabe-1.png" format="PNG" scale="100"/>
@@ -72,7 +82,7 @@
                         <step>
                                 <para>选择“电源管理”列表，如图：</para>
 				<para>
-                                        <figure id="eayunos-highavailabe-1"><title>图2</title>
+                                        <figure id="eayunos-highavailabe-2"><title>图3</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-2.png" format="PNG" scale="100"/>
@@ -96,7 +106,7 @@
                         <step>
                                 <para>在显示的“编辑虚拟机”对话框，选择“高可用性”，勾选中“高度可用的”，设置“运行/移植队列的优先级”为“高”，其它项保留默认设置。如图：</para>
 				<para>
-                                        <figure id="eayunos-highavailabe-2"><title>图3</title>
+                                        <figure id="eayunos-highavailabe-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-3.png" format="PNG" scale="100"/>
@@ -116,7 +126,7 @@
                         <step>
                                 <para>可EayunOS虚拟化平台树形面板，选择【虚拟机】，在虚拟机列表下显示之前设置的那些高可用的虚拟机，如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-3"><title>图4</title>
+                                        <figure id="eayunos-highavailabe-4"><title>图5</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-4.png" format="PNG" scale="100"/>
@@ -129,7 +139,7 @@
                         <step>
                                 <para>在树形面板，选择【主机】，在主机列表下显示可用的主机，选择虚拟机所在的主机（ovirthost1-pj.eayun），点击【电源管理】菜单下的【重启】如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-4"><title>图5</title>
+                                        <figure id="eayunos-highavailabe-5"><title>图6</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-5.png" format="PNG" scale="100"/>
@@ -141,7 +151,7 @@
                         <step>
                                 <para>显示“重启主机”对话框。点击【确定】，该主机状态由“Reboot->Non-Responsive”如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-5"><title>图6</title>
+                                        <figure id="eayunos-highavailabe-6"><title>图7</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-6.png" format="PNG" scale="100"/>
@@ -153,7 +163,7 @@
                         <step>
                                 <para>主机正在重启中，在树形面板，点击【虚拟机】，虚拟机列表下显示高可用的虚拟机在另一台主机上开始运行。如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-6"><title>图7</title>
+                                        <figure id="eayunos-highavailabe-7"><title>图8</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-7.png" format="PNG" scale="100"/>
@@ -175,7 +185,7 @@
 				<para>[root@ovirthost1-pj ~]# vdsClient -s 0 list table</para>
 				<para>该命令列出运行在该主机上的虚拟机的进程号、名称及状态如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-7"><title>图8</title>
+                                        <figure id="eayunos-highavailabe-8"><title>图9</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-8.png" format="PNG" scale="100"/>
@@ -193,7 +203,7 @@
                         <step>
                                 <para>在EayunOS虚拟化平台，虚拟机列表下看到这两个高可用的虚拟机自动重启，如图：</para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-8"><title>图9</title>
+                                        <figure id="eayunos-highavailabe-9"><title>图10</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-9.png" format="PNG" scale="100"/>
@@ -202,7 +212,7 @@
                                         </figure>
                                 </para>
                                 <para>
-                                        <figure id="eayunos-highavailabe-9"><title>图10</title>
+                                        <figure id="eayunos-highavailabe-10"><title>图11</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/highavailabe-10.png" format="PNG" scale="100"/>
@@ -231,7 +241,7 @@
 						<listitem>
 							<para>在EayunOS虚拟化管理系统树形面板，点击【虚拟机】，在虚拟机列表下高可用虚拟机在另一台主机（本实验ovirthost1-pj.eayun）上重新启动起来，如图：</para>
 							<para>
-								<figure id="eayunos-highavailabe-10"><title>图11</title>
+								<figure id="eayunos-highavailabe-11"><title>图12</title>
 									<mediaobject>
 										<imageobject>
 											<imagedata fileref="images/highavailabe-11.png" format="PNG" scale="100"/>

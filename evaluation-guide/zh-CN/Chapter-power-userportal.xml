@@ -32,7 +32,7 @@
                                         <para>
                                                 运行以下命令和提供域管理员密码，本实验：
                                         </para>
-					<para>#engine-manage-domains  -action=add  -domain=eayunos.com  -user=admin  interactive</para>
+					<para>#engine-manage-domains  -action=add  -domain=eayunos.com  -user=admin -provider=ActiveDirectory  interactive</para>
                                 </listitem>
                                 <listitem>
                                         <para>

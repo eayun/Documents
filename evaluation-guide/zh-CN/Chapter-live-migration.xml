@@ -5,7 +5,15 @@
 ]>
 <chapter id="chap-Documents-evaluation-guide-Chapter-live-migration">
 	<title>实验三、虚拟机动态迁移</title>
-	<para></para>
+    <para>
+        <figure id="eayunos-live-migration-0"><title>图1</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/live-migration-lab.png" format="PNG" scale="100"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </para>
 	<section id="sect-Documents-evaluation-guide-Chapter-live-migration_Section_1">
 		<title>实验目标</title>
 		<para>实验内容：</para>
@@ -43,7 +51,7 @@
                                         <para>
                                                 选择一个或多个虚拟机，点击【迁移】，显示迁移虚拟机对话框如图:
 					</para>
-					<figure id="eayunos-live-migration-0"><title>图1</title>
+					<figure id="eayunos-live-migration-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
 								<imagedata fileref="images/live-migration-virtual-machine-1.png" format="PNG" scale="100"/>
@@ -75,7 +83,7 @@
                                         <para>
                                                 选择主机，点击【维护】，显示维护主机对话框如图:
                                         </para>
-                                        <figure id="eayunos-live-migration-1"><title>图2</title>
+                                        <figure id="eayunos-live-migration-2"><title>图3</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/live-migration-virtual-machine-2.png" format="PNG" scale="100"/>
@@ -109,7 +117,7 @@
                                         <para>
                                                 在“集群策略”->“选择策略”下拉框内选择策略（例如：选择“Power_Saving”，设置属性“CpuOverCommitDurationMinutes”、“HighUtilization”、“LowUtilization”；选择“Evently_Distributed”，设置属性“CpuOverCommitDurationMinutes”、“HighUtilization”；），选择“调度优化”（“Optimize for Utilization”，“Optimize for Speed”），“其他属性”（“启用信用的服务”）如图：
                                         </para>
-                                        <figure id="eayunos-live-migration-2"><title>图3</title>
+                                        <figure id="eayunos-live-migration-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/live-migration-virtual-machine-3.png" format="PNG" scale="100"/>

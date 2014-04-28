@@ -27,7 +27,16 @@
                         <listitem>
                                 <para>创建ISO存储域</para>
                         </listitem>
-		</itemizedlist>
+        </itemizedlist>
+        <para>
+            <figure id="eayunos-add-datacenter-0"><title>图1</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/add-datacenter-lab.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
 	</section>	
 	<section id="sect-Documents-evaluation-guide-Chapter-add-datacenter_Section_2">
 		<title>创建一个新的数据中心</title>
@@ -38,7 +47,7 @@
                         <step>
                                 <para>点击【新建】，显示新建数据中心对话框如图：</para>
 				<para>
-					<figure id="eayunos-add-datacenter-0"><title>图1</title>
+                    <figure id="eayunos-add-datacenter-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
 								<imagedata fileref="images/add-datacenter-1.png" format="PNG" scale="100"/>
@@ -50,7 +59,7 @@
                         </step>
                         <step>
                                 <para>点击【确定】，显示“创建数据中心-引导操作”对话框，提供参考没有配置的组件，可以直接配置也可以选择稍后配置。如图:
-                                	<figure id="eayunos-add-datacenter-1"><title>图2</title>
+                                	<figure id="eayunos-add-datacenter-2"><title>图3</title>
                                         	<mediaobject>
                                                 	<imageobject>
                                                         	<imagedata fileref="images/add-datacenter-2.png" format="PNG" scale="100"/>
@@ -70,7 +79,7 @@
                         <step>
                                 <para>在显示的“新建集群”对话框可以看到左侧的树形列表，对该列表内的每一项进行设置。如图：</para>
 				<para>
-                                        <figure id="eayunos-add-datacenter-2"><title>图3</title>
+                                        <figure id="eayunos-add-datacenter-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-3.png" format="PNG" scale="100"/>
@@ -109,7 +118,7 @@
                         <step>
                                 <para>在显示的“新建主机”对话框可以看到左侧的树形列表，对该列表内的每一项进行设置。如图：</para>
                                 <para>
-                                        <figure id="eayunos-add-datacenter-3"><title>图4</title>
+                                        <figure id="eayunos-add-datacenter-4"><title>图5</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-4.png" format="PNG" scale="100"/>
@@ -175,7 +184,7 @@
                                                 <listitem>
                                                         <para>选择接口配置存储网络，点击【设置主机网络】，显示“设置主机网络”窗口，如图：</para>
 			                                <para>
-                        			                <figure id="eayunos-add-datacenter-4"><title>图5</title>
+                        			                <figure id="eayunos-add-datacenter-5"><title>图6</title>
                                                 			<mediaobject>
                                                       			  	<imageobject>
                                                                 			<imagedata fileref="images/add-datacenter-5.png" format="PNG" scale="100"/>
@@ -207,7 +216,7 @@
                         <step>
                                 <para>显示“新建域”窗口如图：</para>
 				<para>
-					<figure id="eayunos-add-datacenter-5"><title>图6</title>
+					<figure id="eayunos-add-datacenter-6"><title>图7</title>
 						<mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-6.png" format="PNG" scale="100"/>
@@ -228,7 +237,7 @@
                         <step>
                                 <para>显示“新建域”窗口如图：</para>
                                 <para>
-                                        <figure id="eayunos-add-datacenter-6"><title>图7</title>
+                                        <figure id="eayunos-add-datacenter-7"><title>图8</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-7.png" format="PNG" scale="100"/>
@@ -239,7 +248,7 @@
                                 <para>输入“名称”、“描述”、“注释”；选择“存储类型”为Data/iSCSI、选择“使用的主机”；“发现目标”下输入“地址”及“端口”，其它项保留默认设置。点击【发现】。</para>
 				<para>选中待挂载的磁盘，如图：</para>
                                 <para>
-                                        <figure id="eayunos-add-datacenter-7"><title>图8</title>
+                                        <figure id="eayunos-add-datacenter-8"><title>图9</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-8.png" format="PNG" scale="100"/>
@@ -262,7 +271,7 @@
                         <step>
                                 <para>显示“新建域”窗口如图：</para>
                                 <para>
-                                        <figure id="eayunos-add-datacenter-8"><title>图9</title>
+                                        <figure id="eayunos-add-datacenter-9"><title>图10</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-9.png" format="PNG" scale="100"/>
@@ -283,7 +292,7 @@
                         <step>
                                 <para>在详细面板下，点击【存储】，点击【附加ISO】，在“附加ISO库”下选择本地域，点击【确定】如图：</para>
                                 <para>
-                                        <figure id="eayunos-add-datacenter-9"><title>图10</title>
+                                        <figure id="eayunos-add-datacenter-10"><title>图11</title>
                                                 <mediaobject>
                                                         <imageobject>
                                                                 <imagedata fileref="images/add-datacenter-10.png" format="PNG" scale="100"/>

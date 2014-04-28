@@ -6,6 +6,13 @@
 <chapter id="chap-Documents-evaluation-guide-Chapter_installation">
         <title>实验一、安装与配置基础系统&OVIRT;</title>
         <para>
+            <figure id="eayunos-install-eayunos-manager-0"><title>图1</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/eayunos-installation-lab.png" format="PNG" scale="100"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
         </para>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_1">
                 <title>实验目标</title>
@@ -44,7 +51,7 @@
                         <para>安装EayunOS管理节点操作系统，流程如下：</para>
                         <para>图中，选中【install or upgrade an existing system】，按Enter</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-0"><title>图1</title>
+                                <figure id="eayunos-install-eayunos-manager-1"><title>图2</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-1.png" format="PNG" scale="100"/>
@@ -54,7 +61,7 @@
                         </para>
                         <para>准备开始安装，等待</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-1"><title>图2</title>
+                                <figure id="eayunos-install-eayunos-manager-2"><title>图3</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scale="100"/>
@@ -64,7 +71,7 @@
                         </para>
                         <para>图中，输入密码及确认密码</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-2"><title>图3</title>
+                                <figure id="eayunos-install-eayunos-manager-3"><title>图4</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scale="100"/>
@@ -74,7 +81,7 @@
                         </para>
                         <para>图中，选中【Use All Space】，按“下一步”</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-3"><title>图4</title>
+                                <figure id="eayunos-install-eayunos-manager-4"><title>图5</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scale="100"/>
@@ -84,7 +91,7 @@
                         </para>
                         <para>图中，系统进入格式化中，等待</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-4"><title>图5</title>
+                                <figure id="eayunos-install-eayunos-manager-5"><title>图6</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scale="100"/>
@@ -94,7 +101,7 @@
                         </para>
                         <para>开始安装操作系统</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-5"><title>图6</title>
+                                <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scale="100"/>
@@ -104,7 +111,7 @@
                         </para>
                         <para>图中，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
+                                <figure id="eayunos-install-eayunos-manager-7"><title>图8</title>
                                     <mediaobject>
                                         <imageobject>
                                             <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="100"/>

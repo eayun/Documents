@@ -35,13 +35,22 @@
 		</para>
 	</section>	
 	<section id="sect-Documents-evaluation-guide-Chapter-mini-setup_Section_2">
-		<title>安装EayunOS虚拟化管理平台</title>
+        <title>安装EayunOS虚拟化管理平台</title>
+        <para>
+            <figure id="eayunos-mini-setup-0"><title>图1</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/mini-setup-lab.png" format="PNG" scale="60"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
 		<procedure>
 		<step>
 			<para>安装EayunOS管理节点操作系统，流程如下：</para>
 			<para>图中，选中【install or upgrade an existing system】，按Enter</para>
 			<para>
-				<figure id="eayunos-mini-setup-0"><title>图1</title>
+				<figure id="eayunos-mini-setup-1"><title>图2</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-1.png" format="PNG" scale="60"/>
@@ -51,7 +60,7 @@
 			</para>
                         <para>准备开始安装，等待</para>
                         <para>
-                                <figure id="eayunos-mini-setup-1"><title>图2</title>
+                                <figure id="eayunos-mini-setup-2"><title>图3</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-2.png" format="PNG" scale="60"/>
@@ -61,7 +70,7 @@
                         </para>
                         <para>图中，输入密码及确认密码</para>
                         <para>
-                                <figure id="eayunos-mini-setup-2"><title>图3</title>
+                                <figure id="eayunos-mini-setup-3"><title>图4</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-3.png" format="PNG" scale="60"/>
@@ -71,7 +80,7 @@
                         </para>
                         <para>图中，选中【Use All Space】，按“下一步”</para>
                         <para>
-                                <figure id="eayunos-mini-setup-3"><title>图4</title>
+                                <figure id="eayunos-mini-setup-4"><title>图5</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-4.png" format="PNG" scale="60"/>
@@ -81,7 +90,7 @@
                         </para>
                         <para>图中，系统进入格式化中，等待</para>
                         <para>
-                                <figure id="eayunos-mini-setup-4"><title>图5</title>
+                                <figure id="eayunos-mini-setup-5"><title>图6</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-5.png" format="PNG" scale="60"/>
@@ -91,7 +100,7 @@
                         </para>
                         <para>开始安装操作系统</para>
                         <para>
-                                <figure id="eayunos-mini-setup-5"><title>图6</title>
+                                <figure id="eayunos-mini-setup-6"><title>图7</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-6.png" format="PNG" scale="60"/>
@@ -101,7 +110,7 @@
                         </para>
                         <para>图中，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
                         <para>
-                                <figure id="eayunos-mini-setup-6"><title>图7</title>
+                                <figure id="eayunos-mini-setup-7"><title>图8</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-7.png" format="PNG" scale="60"/>
@@ -134,7 +143,7 @@
                                         </para>
 					<para>图中，提示是否在本机配置VDSM，此项设为Yes</para>
 					<para>
-						<figure id="eayunos-mini-setup-7"><title>图8</title>
+						<figure id="eayunos-mini-setup-8"><title>图9</title>
 							<mediaobject>
 								<imageobject>
 									<imagedata fileref="images/mini-setup-8.png" format="PNG" scale="60"/>
@@ -144,7 +153,7 @@
 					</para>
                                         <para>按如图所示配置其它项</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-8"><title>图9</title>
+                                                <figure id="eayunos-mini-setup-9"><title>图10</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-9.png" format="PNG" scale="60"/>
@@ -154,7 +163,7 @@
                                         </para>
                                         <para>配置完成后，显示所有之前配置项，确认配置</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-9"><title>图10</title>
+                                                <figure id="eayunos-mini-setup-10"><title>图11</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-10.png" format="PNG" scale="60"/>
@@ -164,7 +173,7 @@
                                         </para>
                                         <para>显示配置成功完成</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-10"><title>图11</title>
+                                                <figure id="eayunos-mini-setup-11"><title>图12</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-11.png" format="PNG" scale="60"/>
@@ -183,7 +192,7 @@
                 <step>
                          <para>安装界面中选择“Install or Upgrade” 按“Enter”键，如图：</para>
                          <para>
-                                <figure id="eayunos-mini-setup-11"><title>&OVIRT;图12</title>
+                                <figure id="eayunos-mini-setup-12"><title>&OVIRT;图13</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-12.png" format="PNG" scale="60"/>
@@ -195,7 +204,7 @@
                 <step>
                          <para>选择“Install Hypervisor 版本号 ” 按“Enter”键，如图：</para>
                          <para>
-                                <figure id="eayunos-mini-setup-12"><title>&OVIRT;图13</title>
+                                <figure id="eayunos-mini-setup-13"><title>&OVIRT;图14</title>
                                         <mediaobject>
                                                 <imageobject>
                                                         <imagedata fileref="images/mini-setup-13.png" format="PNG" scale="60"/>
@@ -207,7 +216,7 @@
                 <step>
                          <para>选择“U.S.English”  按“Enter”键，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-13"><title>&OVIRT;图14</title>
+                                 <figure id="eayunos-mini-setup-14"><title>&OVIRT;图15</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-14.png" format="PNG" scale="60"/>
@@ -219,7 +228,7 @@
                 <step>
                          <para>选择“Location Device Name  Size” 按“Continue”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-14"><title>&OVIRT;图15</title>
+                                 <figure id="eayunos-mini-setup-15"><title>&OVIRT;图16</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-15.png" format="PNG" scale="60"/>
@@ -231,7 +240,7 @@
                 <step>
                          <para>在Storage Volumes 按“Continue”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-15"><title>&OVIRT;图16</title>
+                                 <figure id="eayunos-mini-setup-16"><title>&OVIRT;图17</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-16.png" format="PNG" scale="60"/>
@@ -243,7 +252,7 @@
                 <step>
                          <para>输入Password及Confirm Password 按“Install”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-16"><title>&OVIRT;图17</title>
+                                 <figure id="eayunos-mini-setup-17"><title>&OVIRT;图18</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-17.png" format="PNG" scale="60"/>
@@ -255,7 +264,7 @@
                 <step>
                          <para>等待安装，安装完成，按“Reboot”重启，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-17"><title>&OVIRT;图18</title>
+                                 <figure id="eayunos-mini-setup-18"><title>&OVIRT;图19</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-18.png" format="PNG" scale="60"/>
@@ -267,7 +276,7 @@
                 <step>
                          <para>重启后进入Console界面，在Console界面下配置Network项，设置Hostname(本实验ovirt-host183.eayun.com)设置DNS Server 1(8.8.8.8)，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-18"><title>&OVIRT;图19</title>
+                                 <figure id="eayunos-mini-setup-19"><title>&OVIRT;图20</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-19.png" format="PNG" scale="60"/>
@@ -279,7 +288,7 @@
                 <step>
                          <para>在Console界面下配置Security，选中“Enable SSH Password”设置admin用户的密码及确认密码，按“Save”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-19"><title>&OVIRT;图20</title>
+                                 <figure id="eayunos-mini-setup-20"><title>&OVIRT;图21</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-20.png" format="PNG" scale="60"/>
@@ -291,7 +300,7 @@
                 <step>
                          <para>配置网卡IPv4 选择Static 、IP Address、Netmask、Gateway（本实验eth0网卡，192.168.3.183、255.255.252.0、192.168.0.1）按“save”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-20"><title>&OVIRT;图21</title>
+                                 <figure id="eayunos-mini-setup-21"><title>&OVIRT;图22</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-21.png" format="PNG" scale="60"/>
@@ -303,7 +312,7 @@
                 <step>
                          <para>在Console界面下配置oVirt Engine项，设置Management Server (192.168.3.123)，Management Server Port（这里设置80），设置通过界面添加Host的ssh密码及确认密码，按“Save Register”，如图：</para>
                          <para>
-                                 <figure id="eayunos-mini-setup-21"><title>&OVIRT;图22</title>
+                                 <figure id="eayunos-mini-setup-22"><title>&OVIRT;图23</title>
                                          <mediaobject>
                                                  <imageobject>
                                                          <imagedata fileref="images/mini-setup-22.png" format="PNG" scale="60"/>
@@ -331,7 +340,7 @@
                                         <para>显示门户登录界面，输入用户名（admin）、密码（123456）及域（internal），点击【登录】，你已经成功登录了EayunOS管理系统。</para>
                                         <para>管理员门户图形界面如图所示：</para>
 					<para>
-						<figure id="eayunos-mini-setup-22"><title>&OVIRT;图23</title>
+						<figure id="eayunos-mini-setup-23"><title>&OVIRT;图24</title>
 							<mediaobject>
 								<imageobject>
 									<imagedata fileref="images/mini-setup-23.png" format="PNG" scale="60"/>
@@ -357,7 +366,7 @@
                                         <para>提示配置电源管理，点击【继续】。</para>
                                         <para>完成后主机状态从Non Operational->Up。</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-23"><title>&OVIRT;图24</title>
+                                                <figure id="eayunos-mini-setup-24"><title>&OVIRT;图25</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-24.png" format="PNG" scale="60"/>
@@ -366,7 +375,7 @@
                                                 </figure>
                                         </para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-24"><title>&OVIRT;图25</title>
+                                                <figure id="eayunos-mini-setup-25"><title>&OVIRT;图26</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-25.png" format="PNG" scale="60"/>
@@ -394,7 +403,7 @@
 				<listitem>
                                         <para>	本地存储域被创建，并且自动创建了本地数据中心和本地集群，如图：（Local_Host_Local）</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-25"><title>&OVIRT;图26</title>
+                                                <figure id="eayunos-mini-setup-26"><title>&OVIRT;图27</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-26.png" format="PNG" scale="60"/>
@@ -419,7 +428,7 @@
                                 <listitem>
                                         <para>在“附加ISO库”对话框 显示可用的ISO域，选择本地ISO域，点击【确定】。如图：</para>
                                         <para>
-                                                <figure id="eayunos-mini-setup-26"><title>&OVIRT;图27</title>
+                                                <figure id="eayunos-mini-setup-27"><title>&OVIRT;图28</title>
                                                         <mediaobject>
                                                                 <imageobject>
                                                                         <imagedata fileref="images/mini-setup-27.png" format="PNG" scale="60"/>
