@@ -21,7 +21,14 @@
     <para>
       逻辑网络是数据中心层面上的资源；这意味着当您在数据中心中创建一个逻辑网络时，该逻辑网络将对该数据中心中的所有集群都可见。一个被选择为<emphasis>必需的</emphasis>逻辑网络必须在该集群中所有的主机上被配置好才能够正常进行工作。<emphasis>可选的网络</emphasis>能够被任何添加了该逻辑网络的主机使用。
     </para>
-    <!-- TODO: Figure 5.1. Data Center Objects -->
+    <figure id="figure-Logical_Networks-Data_Center_Objects">
+      <title>数据中心对象</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Logical_Networks-Data_Center_Objects.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
     <warning>
       <para>
         不要在有主机正常运行中的情况下修改一个数据中心或者集群中的网络配置。因为这存在造成主机不可达的风险。
