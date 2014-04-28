@@ -12,6 +12,17 @@
 			<orgdiv>虚拟化文档组</orgdiv>
 		</affiliation>
 		<email>jiansheng.li@eayun.com</email>
-	</author>
+    </author>
+    <author>
+        <firstname>闫</firstname>
+        <surname>颖</surname>
+        <affiliation>
+            <orgname>
+                易云捷讯
+            </orgname>
+            <orgdiv>虚拟化文档组</orgdiv>
+        </affiliation>
+        <email>ying.yan@eayun.com</email>
+    </author>
 </authorgroup>
 
