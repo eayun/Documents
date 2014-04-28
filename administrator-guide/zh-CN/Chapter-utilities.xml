@@ -2555,6 +2555,73 @@ engine-image-uploader [options] upload [file].[file]...[file]
                 </variablelist>
             </simplesect>
         </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_4_3">
+            <title>创建与镜像上传工具兼容的OVF文件</title>
+            <simplesect>
+                <title>说明：</title>
+                <para>创建可以使用engine-image-uploader上传的OVF文件。
+                </para>
+                <procedure>
+                    <title>创建与镜像上传工具兼容的OVF文件</title>
+                    <step>
+                        <para>在&MANAGER;中创建一个空Export存储域。
+                        </para>
+                    </step>
+                    <step>
+                        <para>将虚拟机导出到新创建的Export存储域。
+                        </para>
+                    </step>
+                    <step>
+                        <para>登录到Export存储域所在的实际服务器，找到Export存储
+                            域对应的NFS共享目录，该目录下应该有2个目录：images和
+                            master。
+                        </para>
+                    </step>
+                    <step>
+                        <para>执行以下命令：
+                            <screen># tar -zcvf my.ovf images/ master/
+                            </screen>
+                        </para>
+                    </step>
+                    <step>
+                        <para>使用生成的ovf文件即可在&OVIRT;&MANAGER;中恢复虚拟
+                            机。
+                        </para>
+                    </step>
+                </procedure>
+            </simplesect>
+            <simplesect>
+                <title>预期结果：</title>
+                <para>创建的ovf文件，可以通过engine-image-uploader命令上传到
+                    &OVIRT;&MANAGER;进行虚拟机导入。
+                </para>
+            </simplesect>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_4_4">
+            <title>engine-image-uploader使用示例</title>
+            <para>下面的示例使用engine-image-uploader列出存储域上传OVF文件：
+            </para>
+            <example>
+                <title>使用engine-image-uploader上传文件</title>
+                <screen># engine-image-uplaoder list
+Please provide the REST API username for the admin@local oVirt Engine user:
+**********
+Export Storage Domain Name | Datacenter | Export Domain Status
+myexportdom                | Myowndc    | active
+                </screen>
+                <para>上传镜像文件时，需要指定NFS共享目录（-n选项）或者Export存
+                    储域（-e选项），以及需要上传的文件名：
+                </para>
+                <screen>engine-image-uploader -e myexportdom upload my.ovf
+Please provide the REST API username for the admin@local oVirt Engine user:
+**********
+                </screen>
+            </example>
+        </section>
     </section>
 </chapter>
 
