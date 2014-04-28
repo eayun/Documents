@@ -119,9 +119,47 @@
 
   <section id="sect-Introducing_V2V-Further_Reading">
     <title>衍生阅读</title>
+    <!-- RHEL 的文档跳过 -->
     <para>
-      <!-- TODO: 太长了，都是复制粘贴且依赖其它文档，最后再补充完整 -->
+      &OVIRT; 系列文档提供关于如何安装、配置及使用 &OVIRT; 的信息。
     </para>
+    <!-- 跳过好多我们没有的文档 -->
+    <itemizedlist>
+      <listitem>
+        <para>
+          《&OVIRT; 系统管理员手册》介绍了如何安装、配置以及管理 &OVIRT;。它的前提是您已经成功安装了 &OVIRT; 的管理端和节点。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          《&OVIRT; 场景实验手册》为目标用户在具体需求下进行 &OVIRT; 功能的评估提供了帮助。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          《&OVIRT; 安装手册》介绍了安装 &OVIRT; 的前提需求和过程。如果您需要安装 &OVIRT;,请阅读该文档。该文档中包含了如何安装 &OVIRT; 主机、管理端以及存储。您还需要参考《&OVIRT; 系统管理员手册》对 &OVIRT; 进行配置才能够使用该平台。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          《&OVIRT; 快速入门手册》为新用户提供了关于如何安装一个最基本的 &OVIRT; 虚拟化环境的快速且简易的介绍。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          《&OVIRT; 技术参考手册》介绍了 &OVIRT; 的技术架构及其与现有的基础设施之间的关系。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          《&OVIRT; 用户使用手册》介绍了 &OVIRT; 的用户如何使用用户门户使用虚拟机。
+        </para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>
+        以上文档都可在 &OVIRT; 文档网站上获得：<ulink url="http://docs.eayun.com"/>
+      </para>
+    </note>
   </section>
 </chapter>
-
