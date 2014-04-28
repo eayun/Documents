@@ -50,11 +50,6 @@
         </listitem>
         <listitem>
           <para>
-            <keycap>外部目录服务器</keycap> 用来提供用户权限管理
-          </para>
-        </listitem>
-        <listitem>
-          <para>
             <keycap>网络管理</keycap> 管理整个环境的网络, 包括物理网卡的管理, 和逻辑网络的管理
           </para>
         </listitem>
