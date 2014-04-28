@@ -144,8 +144,14 @@
       </formalpara>
       <para>
         现在用户可以在<keycap>虚拟机</keycap>标签或者在<keycap>池</keycap>的虚拟机列表上看到这些虚拟机.
+        <figure id="pool-display-vm"><title>显示池中的虚拟机</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/pool-display-vm.png" format="PNG" width="100%" scalefit="1"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
       </para>
-      <!-- TODO: picture -->
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-pools_Section_2-2">
 	  <title>编辑虚拟机池</title>
@@ -306,7 +312,13 @@
         <step>
           <para>
             点击<keycap>确定</keycap>从池中分离虚拟机.
-            <!-- TODO: picture -->
+            <figure id="pool-detach-vm"><title>从池中分离虚拟机</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/pool-display-vm.png" format="PNG" width="100%" scalefit="1"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
           <note>
             <para>
