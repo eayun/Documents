@@ -3902,7 +3902,7 @@
         </step>
         <step>
           <para>
-            选择==高可用/==, 设置启用虚拟服务器的高可用.
+            选择<keycap>高可用</keycap>, 设置启用虚拟服务器的高可用.
           </para>
         </step>
         <step>
@@ -3929,40 +3929,246 @@
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13">
     <title>其它虚拟机任务</title>
-    <para>
-    </para>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-1">
       <title>在管理员门户中为虚拟机激活SAP监控</title>
+      <formalpara><title>摘要</title>
       <para>
+        在虚拟机中启用 SAP 监控.
       </para>
+      </formalpara>
+
+      <procedure>
+        <title>在管理员门户中为虚拟机激活SAP监控</title>
+        <step>
+          <para>
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
+            的虚拟机, 确保虚拟机处于关机状态.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>编辑</keycap>, 打开<keycap>编辑虚拟机</keycap>窗口.
+          </para>
+        </step>
+        <step>
+          <para>
+            选择<keycap>自定义属性</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            在下拉框里选择<keycap>sap_agent</keycap>. 确保值是 <keycap>true</keycap>.
+          </para>
+        </step>
+        <step>
+          <para>
+            点击<keycap>确定</keycap>保存.
+          </para>
+        </step>
+      </procedure>
+
+      <formalpara><title>结果</title>
+      <para>
+        成功为虚拟机设置了 SAP.
+      </para>
+      </formalpara>
     </section>
+
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2">
       <title>配置CentOS5.4或更高版本的客户机操作系统使用SPICE</title>
-      <para>
-      </para>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-1">
         <title>使用SPICE</title>
         <para>
+          SPICE 是一个专注于虚拟化的远程显示协议, 用户可以用它来查看虚拟桌面和
+          虚拟服务器. SPICE 能给用户提供高质量的用户体验, 很低的 CPU 占用率,
+          还支持高质量视频.
+        </para>
+        <para>
+          在 Linux 虚拟机中使用 SPICE 显著的改善鼠标的滑动体验. 为了使用 SPICE,
+          虚拟机里面的 X-Windows 需要二外的 qxl 驱动. 在 Centos 5.4 及其以上
+          版本, qxl 驱动是默认提供的. 旧的 centos 版本没有提供这个驱动. 在虚拟机
+          上安装 SPICE 能显示改善用户的图形体验.
         </para>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-2">
         <title>为虚拟机安装qxl驱动</title>
+        <formalpara><title>摘要</title>
         <para>
+          下列步骤描述了在 Centos 5.4 以及以上版本中安装 qxl 驱动的方法.
         </para>
+        </formalpara>
+
+        <procedure>
+          <title>为虚拟机安装qxl驱动</title>
+          <step>
+            <para>
+              登陆到 Centos 虚拟机中.
+            </para>
+          </step>
+          <step>
+            <para>
+              打开终端
+            </para>
+          </step>
+          <step>
+            <para>
+              用 root 用户使用以下命令安装
+              <programlisting language="Bash">
+# yum install xorg-x11-drv-qxl
+              </programlisting>
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          qxl 驱动已经安装好了, 现在可以配置了.
+        </para>
+        </formalpara>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-3">
         <title>为虚拟机配置qxl驱动</title>
+        <formalpara><title>摘要</title>
         <para>
+          用户可以使用下面的任何一种步骤来配置 qxl 驱动
         </para>
+        </formalpara>
+
+        <procedure>
+          <title>使用gnome为虚拟机配置qxl驱动</title>
+          <step>
+            <para>
+              点击<keycap>系统</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>点击管理</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>显示</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>硬件</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              点击<keycap>视频卡配置</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              选择 <keycap>qxl</keycap>, 点击 <keycap>确定</keycap>.
+            </para>
+          </step>
+          <step>
+            <para>
+              重新登陆 X-Windows.
+            </para>
+          </step>
+        </procedure>
+
+        <procedure>
+          <title>使用命令行为虚拟机配置qxl驱动</title>
+          <step>
+            <para>
+              备份 <keycap>/etc/X11/xorg.conf</keycap>:
+              <programlisting language="Bash">
+# cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
+              </programlisting>
+            </para>
+          </step>
+          <step>
+            <para>
+              改变<keycap>/etc/X11/xorg.conf</keycap>相关内容为以下:
+              <programlisting language="Bash">
+Section "Device"
+Identifier "Videocard0"
+Driver "qxl" Endsection
+              </programlisting>
+            </para>
+          </step>
+          <step>
+            <para>
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          qxl 驱动已经配置好, 现在可以使用了.
+        </para>
+        </formalpara>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-4">
         <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
+        <formalpara><title>摘要</title>
         <para>
+          编辑 <keycap>/etc/X11/xorg.conf</keycap>, 来启动 spice 的 tablet 设备.
         </para>
+        </formalpara>
+
+        <procedure>
+          <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
+          <step>
+            <para>
+              确保 tablet 设备在系统中被识别出来.
+              <programlisting language="Bash">
+# /sbin/lsusb -v | grep 'QEMU USB Tablet'
+              </programlisting>
+              如果没有任何输出的话, 没必要配置 tablet 设备了.
+            </para>
+          </step>
+          <step>
+            <para>
+              备份 <keycap>/etc/X11/xorg.conf</keycap>:
+              <programlisting language="Bash">
+# cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
+              </programlisting>
+            </para>
+          </step>
+          <step>
+            <para>
+              修改 /etc/X11/xorg.conf 的相关内容为:.
+              <screen>
+Section "ServerLayout"
+Identifier Screen InputDevice InputDevice InputDevice EndSection
+"single head configuration" 0 "Screen0" 0 0
+"Keyboard0" "CoreKeyboard" "Tablet" "SendCoreEvents" "Mouse" "CorePointer"
+Section "InputDevice" Identifier "Mouse"
+Driver #Option #Option EndSection
+"void"
+"Device" "/dev/input/mice" "Emulate3Buttons" "yes"
+Section "InputDevice"
+Identifier "Tablet"
+Driver "evdev"
+Option "Device" "/dev/input/event2" Option "CorePointer" "true"
+EndSection
+              </screen>
+            </para>
+          </step>
+          <step>
+            <para>
+              重新登陆 X-Windows.
+            </para>
+          </step>
+        </procedure>
+
+        <formalpara><title>结果</title>
+        <para>
+          已经在虚拟机中启用了 tablet 设备了.
+        </para>
+        </formalpara>
       </section>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-3">
       <title>KVM虚拟机的时间同步</title>
+      <!-- TODO: -->
       <para>
       </para>
     </section>
