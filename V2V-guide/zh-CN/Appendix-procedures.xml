@@ -27,7 +27,7 @@
         </listitem>
         <listitem>
           <para>
-            打开<menuchoice><guimenu>应用程序</guimenu></menuchoice>菜单，选择<menuchoice><guisubmenu>音频和视频</guisubmenu></menuchoice>子菜单，点击<menuchoice><guimenuitem>Brasero 光盘刻录软件</guimenuitem></menuchoice>。
+            打开<menuchoice><guimenu>应用程序</guimenu></menuchoice>菜单，选择<menuchoice><guisubmenu>音频和视频</guisubmenu></menuchoice>子菜单，点击 <menuchoice><guimenuitem>Brasero 光盘刻录软件</guimenuitem></menuchoice>。
           </para>
         </listitem>
         <listitem>
@@ -103,7 +103,7 @@ mount -o loop &P2VISO; /mnt/p2vmount
             使用 root 账户权限在命令行运行 <command>livecd-iso-to-pxeboot</command> 脚本：
           </para>
           <screen>
-bash /mnt/p2vmount/LiveOS/livecd-iso-to-disk /PATH/TO/&P2VISO; /dev/YOURUSBDEVICE
+bash /mnt/p2vmount/LiveOS/livecd-iso-to-pxeboot /PATH/TO/&P2VISO;
           </screen>
           <para>
             命令成功完成后，在运行命令的目录下将会出现一个名为 <filename>tftpboot</filename> 的目录。
