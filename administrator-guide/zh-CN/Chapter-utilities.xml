@@ -2616,11 +2616,377 @@ myexportdom                | Myowndc    | active
                 <para>上传镜像文件时，需要指定NFS共享目录（-n选项）或者Export存
                     储域（-e选项），以及需要上传的文件名：
                 </para>
-                <screen>engine-image-uploader -e myexportdom upload my.ovf
+                <screen># engine-image-uploader -e myexportdom upload my.ovf
 Please provide the REST API username for the admin@local oVirt Engine user:
 **********
                 </screen>
             </example>
+        </section>
+    </section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_5">
+        <title>&OVIRT;日志收集工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_5_1">
+            <title>关于日志收集工具</title>
+            <para>&OVIRT;&MANAGER;提供了日志收集工具，在寻求技术支持时使用该工具
+                可以更加快捷地收集相关的信息和日志。
+            </para>
+            <para>日志收集工具的命令是engine-log-collector，使用时需要使用root用
+                户登录到&OVIRT;&MANAGER;服务器，并获得&MANAGER;的管理员访问权
+                限。执行engine-log-collector -h可以查看命令的帮助说明。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_5_2">
+            <title>engine-log-collector命令行参数说明</title>
+            <para>engine-log-collector的基本使用方法如下：
+<screen>engine-log-collector [options] list [all, clusters, datacenters]
+engine-image-uploader [options] collect
+                </screen>
+            </para>
+            <para>2种操作模式：list和collect。
+                <itemizedlist>
+                    <listitem>
+                        <para>list操作会列出&OVIRT;&MANAGER;中的数据中心、集群或
+                            者主机。
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>collect操作会从&OVIRT;&MANAGER;抓取相关的日志和信
+                            息，并打包放置在/tmp/logcollector目录下。
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                如果没有指定其他参数，默认的操作是自动收集当前&MANAGER;中所有数
+                据中心、集群和主机相关的信息和日志，并打包。
+            </para>
+            <para>engine-log-collector提供了一些参数对命令的行为进行控制。
+            </para>
+
+            <simplesect>
+                <title>通用命令行参数</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>--version</term>
+                        <listitem>
+                            <para>显示命令版本信息。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-h，--help</term>
+                        <listitem>
+                            <para>显示命令帮助信息。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--conf-file=配置文件路径</term>
+                        <listitem>
+                            <para>指定配置文件。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--local-tmp=收集日志文件的存放路径</term>
+                        <listitem>
+                            <para>指定收集到的日志文件的存放路径。默认的路径是：
+                                /tmp/logcollector。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--ticket-number=TICKET</term>
+                        <listitem>
+                            <para>指定ticket序号，主要用于区分生成的日志文件的名
+                                称。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--upload=FTP服务器</term>
+                        <listitem>
+                            <para>日志收集完成之后上传到指定的FTP服务器。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--log-file=日志文件路径</term>
+                        <listitem>
+                            <para>指定记录命令输出的日志文件。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--quiet</term>
+                        <listitem>
+                            <para>启用该选项之后，将命令的输出减少到最少。该选项
+                                默认是启用的。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-v，--verbose</term>
+                        <listitem>
+                            <para>启用该选项之后，命令将输出尽可能详细的信息。该
+                                选项默认是不启用的。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>&OVIRT;&MANAGER;相关选项</title>
+                <para>下面这些选项可能指定访问&OVIRT;&MANAGER;时验证登录的方式、
+                    选择需要收集的日志或者信息的类型、来源等。
+                </para>
+                <para>这些选项可以配合使用，如：engine-log-collector --user=
+                    admin@local --cluster ClusterA,ClusterB --hosts
+                    "SalesHost"*，将使用admin@local登录&MANAGER;，并收集
+                    ClusterA和ClusterB这2个集群中所有SaleHost主机的日志和信息。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>--no-hypervisors</term>
+                        <listitem>
+                            <para>不收机主机相关的日志和信息。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-u 用户，--user=用户</term>
+                        <listitem>
+                            <para>登录&MANAGER;时使用的用户。用户名的格式为：
+                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
+                                经存在。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-r FQDN</term>
+                        <listitem>
+                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认
+                                是localhost，即运行该命令的服务器和
+                                &OVIRT;&MANAGER;是同一台服务器。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-c 集群，--cluster=集群</term>
+                        <listitem>
+                            <para>收集指定集群（可以是多个）相关的日志和信息。如
+                                果指定多个集群，集群名之间使用“,”分隔。支持使用
+                                通配符。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-d 数据中心，--datacenter=数据中心</term>
+                        <listitem>
+                            <para>收集指定数据中心（可以是多个）相关的日志和信
+                                息。如果指定多个数据中心，数据中心名之间使用“,“
+                                分隔。支持使用通配符。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-H 主机列表，--hosts=主机列表</term>
+                        <listitem>
+                            <para>收集指定主机（或者多个主机）相关的日志和信息。
+                                多个主机使用“,”分割，可以使用主机名、ip地址，
+                                fqdn域名，也支持使用通配符。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>SOS报表相关选项</title>
+                <para>日志收集工具使用了JBoss SOS插件。使用下面的选项可以从JMX终
+                    端收集信息。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>--jboss-home=JBOSS_HOME</term>
+                        <listitem>
+                            <para>JBoss的安装目录，默认是/var/lib/jbossas。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--java-home=JAVA_HOME</term>
+                        <listitem>
+                            <para>Java的安装目录，默认是/usr/share/jvm/java。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-profile=JBOSS_PROFILE</term>
+                        <listitem>
+                            <para>指定日志收集使用的Jboss Profile配置。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--enable-jmx</term>
+                        <listitem>
+                            <para>从&OVIRT;&MANAGER;的JMX接口获取日志和信息。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-user=JBOSS_USER</term>
+                        <listitem>
+                            <para>调用JBoss JMX接口的用户，默认是admin。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-logsize=LOG_SIZE</term>
+                        <listitem>
+                            <para>最终生成的日志文件的最大体积（单位为MB）。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-stdjar=STATE</term>
+                        <listitem>
+                            <para>是否收集JBoss标准JAR状态信息。STATE可选的值为
+                                on或者off，默认为on。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-servjar=STATE</term>
+                        <listitem>
+                            <para>是否收集所有服务配置目录下的JAR状态信息。STATE
+                                可选的值为on或者off，默认为on。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-twiddle=STATE</term>
+                        <listitem>
+                            <para>是否收集twiddle数据。STATE可选的值为on或者
+                                off，默认是on。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--jboss-appxml=XML_LIST</term>
+                        <listitem>
+                            <para>指定需要收集的应用的XML描述。默认为all。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>SSH相关选项</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>--ssh-port=端口</term>
+                        <listitem>
+                            <para>连接虚拟机时SSH服务的端口。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-k 公钥文件，--key-file=公钥文件</term>
+                        <listitem>
+                            <para>指定通过SSH连接虚拟机时使用的公钥文件。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--max-connections=最大连接数</term>
+                        <listitem>
+                            <para>设置与虚拟机之间的SSH连接的MAX_CONNECTIONS参
+                                数，默认为10。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>PostgreSQL数据库相关选项</title>
+                <para>如果更改了&OVIRT;&MANAGER;数据库名和数据库用户，则需要在执
+                    行命令时通过参数指定数据库名和数据库用户。
+                </para>
+                <para>如果数据库不再本地，则需要通过pg-hostdb指定数据库所在的服
+                    务器。要收集远程数据库服务器的日志，数据库需要安装SOS插件。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>--no-postgresql</term>
+                        <listitem>
+                            <para>不收集数据库相关日志和信息。默认该选项没有开
+                                启。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--pg-user=数据库用户</term>
+                        <listitem>
+                            <para>指定连接数据库使用的用户。默认为postgres。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--pg-dbname=数据库名</term>
+                        <listitem>
+                            <para>指定连接到数据库服务器要访问的数据库，默认为
+                                engine。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--pg-dbhost=数据库服务器</term>
+                        <listitem>
+                            <para>指定数据库服务器。默认为localhost。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--pg-host-key=公钥文件</term>
+                        <listitem>
+                            <para>指定访问数据库时使用的公钥。当数据库服务器不在
+                                本地时，需要使用该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_5_3">
+            <title>日志收集工具的使用示例</title>
+            <para>不加任何参数执行engine-log-collector时会自动收集&OVIRT;
+                &MANAGER;所有相关的日志和信息。数据库日志也默认收集，除非加上
+                --no-postgresql选项。下面使用日志收集工具的示例：
+                <screen># engine-log-collector
+INFO: Gathering oVirt Engine information...
+INFO: Gathering PostgreSQL the oVirt Engine database and log files from
+localhost...
+Please provide REST API password for the admin@internal oVirt Engine user
+(CTRL+D to abort):
+About to collect information from 3 hypervisors. Continue? (Y/n):
+INFO: Gathering information from selected hypervisors...
+INFO: collecting information from 192.168.122.250
+INFO: collecting information from 192.168.122.251
+INFO: collecting information from 192.168.122.252
+INFO: finished collecting information from 192.168.122.250
+INFO: finished collecting information from 192.168.122.251
+INFO: finished collecting information from 192.168.122.252
+Creating compressed archive...
+INFO Log files have been collected and placed in /tmp/sosreport-LogCollector-20140428171306.tar.xz.
+The MD5 for this file is be89822f20719d1094a39bc9ced3df49 and its size is 38.2M
+                </screen>
+            </para>
         </section>
     </section>
 </chapter>
