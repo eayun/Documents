@@ -44,6 +44,7 @@
 	<xi:include href="Chapter-backup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
     </part>
 	<xi:include href="Appendix-firewalls.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Appendix-vdsm-and-hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<index />
 </book>
