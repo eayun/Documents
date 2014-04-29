@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Firewalls">
+  <title>防火墙</title>
+
+  <section id="sect-Firewalls-EayunOS_Manager_Firewall_Requirements">
+    <title>&OVIRT; &MANAGER;防火墙要求</title>
+    <para>
+      &OVIRT; &MANAGER; 要求系统防火墙开放一系列的端口以允许网络流量通过。<command>engine-setup</command> 脚本能够自动配置防火墙，但将会覆盖现有的防火墙配置。
+    </para>
+    <para>
+      当系统上已经有一些防火墙的配置时，为了避免这些配置被覆盖并失效，&MANAGER;所需要的防火墙规则必须被手动添加。<command>engine-setup</command> 命令在 <filename>/usr/share/ovirt-engine/conf/iptables.default.in</filename> 文件中保存了所需要的 <emphasis>iptables</emphasis> 规则列表。
+    </para>
+    <para>
+      文档中所示的防火墙配置以常见的默认端口配置为基础。如果安装过程中选择了非默认的 HTTP 和 HTTPS 端口，则您需要调整文档中所示的防火墙规则以允许网络流量通过您所选择的端口，而不是这里所列出的默认端口（<emphasis>80</emphasis> 和 <emphasis>443</emphasis>）。
+    </para>
+    <table>
+      <title>&OVIRT; &MANAGER;防火墙要求</title>
+      <tgroup cols="5" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              端口
+            </entry>
+            <entry>
+              协议
+            </entry>
+            <entry>
+              源机器
+            </entry>
+            <entry>
+              目标机器
+            </entry>
+            <entry>
+              目的
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              -
+            </entry>
+            <entry>
+              ICMP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              当注册到 &OVIRT; &MANAGER;时，&OVIRT; &NODE;发送一个 ICMP ping 请求至&MANAGER;以确认其在线。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              22
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    用以维护&MANAGER;的系统，包括后台维护、配置和软件升级
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              SSH（可选）
+            </entry>
+          </row>
+          <row>
+            <entry>
+              80、443
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    管理员门户客户端
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    用户门户客户端
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    REST API 客户端
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              提供到 &MANAGER; 的 HTTP 和 HTTPS 连接。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <important>
+      <para>
+        在 &OVIRT; &MANAGER;所在的机器需要导出 NFS 存储，例如 ISO 存储域的环境中，额外的端口必须被添加以允许 NFS 相关的网络流量通过防火墙。根据 NFS 版本的不同，需要在防火墙上打开如下端口：
+      </para>
+      <para>
+        <emphasis>NFSv4</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            TCP 端口 <emphasis>2049</emphasis>（NFS）
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        <emphasis>NFSv3</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            TCP 和 UDP 端口 <emphasis>2049</emphasis>（NFS）
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            TCP 和 UDP 端口 <emphasis>111</emphasis>（<emphasis>rpcbind</emphasis>/<emphasis>sunrpc</emphasis>）
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            使用 <emphasis>MOUNTD_PORT="<replaceable>port</replaceable>"</emphasis> 指定的 TCP 和 UDP 端口
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            使用 <emphasis>STATD_PORT="<replaceable>port</replaceable>"</emphasis> 指定的 TCP 和 UDP 端口
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            使用 <emphasis>LOCKD_TCPPORT="<replaceable>port</replaceable>"</emphasis> 指定的 TCP 端口
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            使用 <emphasis>LOCKD_UDPPORT="<replaceable>port</replaceable>"</emphasis> 指定的 UDP 端口
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        <emphasis>MOUNTD_PORT</emphasis>、<emphasis>STATD_PORT</emphasis>、<emphasis>LOCKD_TCPPORT</emphasis>、<emphasis>LOCKD_UDPPORT</emphasis> 等端口的配置在 <filename>/etc/sysconfig/nfs</filename> 文件中。
+      </para>
+    </important>
+  </section>
+
+  <section id="sect-Firewalls-Virtualization_Host_Firewall_Requirements">
+    <title>虚拟化主机防火墙要求</title>
+    <para>
+      &OVIRT; &NODE;和 CentOS 6 主机都要求系统防火墙开放一系列的端口以允许网络流量通过。使用 &OVIRT; &NODE;的情况下防火墙规则将会自动被配置。对于使用 CentOS 6 主机的情况，则需要手动对防火墙进行配置。
+    </para>
+    <table>
+      <title>虚拟化主机防火墙要求</title>
+      <tgroup cols="5" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              端口
+            </entry>
+            <entry>
+              协议
+            </entry>
+            <entry>
+              源机器
+            </entry>
+            <entry>
+              目标机器
+            </entry>
+            <entry>
+              目的
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              22
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              SSH 连接
+            </entry>
+          </row>
+          <row>
+            <entry>
+              5900 - 6411
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    管理员门户客户端
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    用户门户客户端
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              通过 VNC 和 spice 的远程客户控制台访问。这些端口必须打开，客户端才能够连接至虚拟机。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              5989
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    通用信息模型对象管理器（CIMOM）
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              被通用信息模型对象管理器（CIMOM）使用以监控运行在该虚拟化主机上的虚拟机的状态。如果您希望在您的虚拟化环境中使用 CIMOM 来监控虚拟机状态，必须确保打开此端口。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              16514
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              使用 <emphasis>libvirt</emphasis> 进行的虚拟机迁移。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              49152 - 49216
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              使用 VDSM 进行的虚拟机迁移和隔离。这些端口必须被打开，才能够进行自动以及手动开始的虚拟机迁移。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              54321
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &NODE;
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    其他虚拟化主机
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              与&MANAGER;和其它虚拟化主机之间的进行的 VDSM 通信。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <example>
+      <title>虚拟化主机防火墙要求的 iptables 配置</title>
+      <para>
+        推荐的（默认）值：由 vdsm 初始化脚本自动生成
+      </para>
+      <screen>
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+# vdsm
+-A INPUT -p tcp --dport 54321 -j ACCEPT
+# libvirt tls
+-A INPUT -p tcp --dport 16514 -j ACCEPT
+# SSH
+-A INPUT -p tcp --dport 22 -j ACCEPT
+# guest consoles
+-A INPUT -p tcp -m multiport --dports 5634:6166 -j ACCEPT
+# migration
+-A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT
+# snmp
+-A INPUT -p udp --dport 161 -j ACCEPT
+# Reject any other input traffic
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-Firewalls-Directory_Server_Firewall_Requirements">
+    <title>目录服务器防火墙要求</title>
+    <para>
+      &OVIRT; &MANAGER; 需要目录服务器以进行用户验证。在该目录服务器所在的系统中防火墙必须开放一系列的端口以允许 &OVIRT; &MANAGER;使用 GSS-API 进行验证。
+    </para>
+    <table>
+      <title>&OVIRT; &MANAGER;防火墙要求</title>
+      <tgroup cols="5" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              端口
+            </entry>
+            <entry>
+              协议
+            </entry>
+            <entry>
+              源机器
+            </entry>
+            <entry>
+              目标机器
+            </entry>
+            <entry>
+              目的
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              88、464
+            </entry>
+            <entry>
+              TCP、UDP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    目录服务器
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              Kerberos 验证
+            </entry>
+          </row>
+          <row>
+            <entry>
+              389、636
+            </entry>
+            <entry>
+              TCP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    目录服务器
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              轻量级目录访问协议（LDAP）和基于 SSL 的 LDAP
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-Firewalls-Database_Server_Firewall_Requirements">
+    <title>数据库服务器防火墙要求</title>
+    <para>
+      &OVIRT; &MANAGER; 支持使用远程的数据库服务器。如果您在 &OVIRT; 中使用远程的数据库，则必须确保远程的数据库服务器允许来自 &OVIRT; &MANAGER;的连接。
+    </para>
+    <table>
+      <title>&OVIRT; &MANAGER;防火墙要求</title>
+      <tgroup cols="5" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              端口
+            </entry>
+            <entry>
+              协议
+            </entry>
+            <entry>
+              源机器
+            </entry>
+            <entry>
+              目标机器
+            </entry>
+            <entry>
+              目的
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              5432
+            </entry>
+            <entry>
+              TCP、UDP
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    &OVIRT; &MANAGER;
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    PostgreSQL 数据库服务器
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+            <entry>
+              PostgreSQL 数据库的默认连接端口
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      如果您计划使用安装过程中提供的默认选项，即使用位于&MANAGER;所在机器上的本地数据库服务，则不需要添加额外的防火墙规则。
+    </para>
+  </section>
+</appendix>

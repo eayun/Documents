@@ -22,7 +22,7 @@
       &OVIRT; 主机可以使用针对虚拟化环境提供优化策略的 <emphasis>tuned</emphasis> 来进行配置，从而提高主机性能。关于 <emphasis>tuned</emphasis> 的更多信息，请参考 RHEL 文档中的相关章节。
     </para>
     <para>
-      &OVIRT; 主机默认启用了安全相关的特性。SELinux(Security Enhanced Linux，安全强化 Linux) 和 iptables 防火墙默认都是启用的，并且您能够进行全方位的配置。&MANAGER; 能够在 &OVIRT; 主机添加到 &OVIRT; 环境时打开所需要的端口。关于端口的详细列表，请参见<!-- TODO: 连接至附录防火墙第二节，A.2. Virtualization Host Firewall Requirements -->。
+      &OVIRT; 主机默认启用了安全相关的特性。SELinux(Security Enhanced Linux，安全强化 Linux) 和 iptables 防火墙默认都是启用的，并且您能够进行全方位的配置。&MANAGER; 能够在 &OVIRT; 主机添加到 &OVIRT; 环境时打开所需要的端口。关于端口的详细列表，请参见<xref linkend="sect-Firewalls-Virtualization_Host_Firewall_Requirements"/>。
     </para>
     <para>
       主机是一台带有 Intel VT 或者 AMD-V CPU 扩展的 64 位服务器，在其之上运行着 RHEL/Centos 6.1 及之后的 64 位版本操作系统。
