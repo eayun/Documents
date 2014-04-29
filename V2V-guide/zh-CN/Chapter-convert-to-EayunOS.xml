@@ -675,7 +675,7 @@ machine esx.example.com login root password P@ssw0rd
           <example>
             <title>使用 SDK 从导出存储域中导入虚拟机</title>
             <para>
-              <screen>
+              <programlisting language="Python">
 api = API(url="http(s)://...:.../api",
           username="...",
           password="...",
@@ -691,7 +691,7 @@ import_candidate.import_vm(
         storage_domain=api.storagedomains.get(id="to-sd-id")
     )
 )
-              </screen>
+              </programlisting>
             </para>
           </example>
           <note>
@@ -772,7 +772,7 @@ action vm "vm-to-import" import_vm --storagedomain-identifier "from-sd-id" --clu
           </para>
           <example>
             <title>单台主机上运行的 v2v 脚本</title>
-            <screen>
+            <programlisting language="Bash">
 <![CDATA[
 #!/bin/sh
 
@@ -825,7 +825,7 @@ do
 curl -v -u "${HTTP_USER}:${HTTP_PASSWORD}" -H "Content-type:application/xml" -d '<action><cluster><name>cluster_name</name></cluster><storage_domain><name>data_domain</name></storage_domain><overwrite>true</overwrite><discard_snapshots>true</discard_snapshots></action>' --cacert eayunos.cer ${BASE_URL}$vms
 done
 ]]>
-            </screen>
+            </programlisting>
           </example>
           <note>
             <para>
