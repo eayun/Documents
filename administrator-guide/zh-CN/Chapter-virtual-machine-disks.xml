@@ -256,7 +256,13 @@
           <para>
             点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
             窗口将会打开.
-            <!-- TODO: picture -->
+            <figure id="disk-new"><title>创建虚拟磁盘</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/disk-new.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
         </step>
 
