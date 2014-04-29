@@ -32,7 +32,7 @@
             <figure id="eayunos-add-datacenter-0"><title>图1</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/add-datacenter-lab.png" format="PNG" scale="100"/>
+                        <imagedata fileref="images/add-datacenter-lab.png" format="PNG" scalefit="1" width="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -50,7 +50,7 @@
                     <figure id="eayunos-add-datacenter-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="images/add-datacenter-1.png" format="PNG" scale="100"/>
+								<imagedata fileref="images/add-datacenter-1.png" format="PNG" scalefit="1" width="100%"/>
 							</imageobject>
 						</mediaobject>
 					</figure>
@@ -62,7 +62,7 @@
                                 	<figure id="eayunos-add-datacenter-2"><title>图3</title>
                                         	<mediaobject>
                                                 	<imageobject>
-                                                        	<imagedata fileref="images/add-datacenter-2.png" format="PNG" scale="100"/>
+                                                        	<imagedata fileref="images/add-datacenter-2.png" format="PNG" scalefit="1" width="100%"/>
                                                 	</imageobject>
                                         	</mediaobject>
                                 	</figure>
@@ -82,7 +82,7 @@
                                         <figure id="eayunos-add-datacenter-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-3.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-3.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -121,7 +121,7 @@
                                         <figure id="eayunos-add-datacenter-4"><title>图5</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-4.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-4.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -187,7 +187,7 @@
                         			                <figure id="eayunos-add-datacenter-5"><title>图6</title>
                                                 			<mediaobject>
                                                       			  	<imageobject>
-                                                                			<imagedata fileref="images/add-datacenter-5.png" format="PNG" scale="100"/>
+                                                                			<imagedata fileref="images/add-datacenter-5.png" format="PNG" scalefit="1" width="100%"/>
                                                         			</imageobject>
                                                 			</mediaobject>
                                         			</figure>
@@ -219,7 +219,7 @@
 					<figure id="eayunos-add-datacenter-6"><title>图7</title>
 						<mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-6.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-6.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -240,7 +240,7 @@
                                         <figure id="eayunos-add-datacenter-7"><title>图8</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-7.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-7.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -251,7 +251,7 @@
                                         <figure id="eayunos-add-datacenter-8"><title>图9</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-8.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-8.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -274,7 +274,7 @@
                                         <figure id="eayunos-add-datacenter-9"><title>图10</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-9.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-9.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -295,7 +295,7 @@
                                         <figure id="eayunos-add-datacenter-10"><title>图11</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/add-datacenter-10.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/add-datacenter-10.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>

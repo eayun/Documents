@@ -27,7 +27,7 @@
             <figure id="eayunos-highavailabe-0"><title>图1</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/highavailabe-lab.png" format="PNG" scale="100"/>
+                        <imagedata fileref="images/highavailabe-lab-0.png" format="PNG" scalefit="1" width="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -62,7 +62,7 @@
 					<figure id="eayunos-highavailabe-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="images/highavailabe-1.png" format="PNG" scale="100"/>
+								<imagedata fileref="images/highavailabe-1.png" format="PNG" scalefit="1" width="100%"/>
 							</imageobject>
 						</mediaobject>
 					</figure>
@@ -85,7 +85,7 @@
                                         <figure id="eayunos-highavailabe-2"><title>图3</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-2.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-2.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>					
@@ -109,7 +109,7 @@
                                         <figure id="eayunos-highavailabe-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-3.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-3.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>			
@@ -129,7 +129,7 @@
                                         <figure id="eayunos-highavailabe-4"><title>图5</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-4.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-4.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -142,7 +142,7 @@
                                         <figure id="eayunos-highavailabe-5"><title>图6</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-5.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-5.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -154,7 +154,7 @@
                                         <figure id="eayunos-highavailabe-6"><title>图7</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-6.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-6.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -166,7 +166,7 @@
                                         <figure id="eayunos-highavailabe-7"><title>图8</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-7.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-7.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -188,7 +188,7 @@
                                         <figure id="eayunos-highavailabe-8"><title>图9</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-8.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-8.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -206,7 +206,7 @@
                                         <figure id="eayunos-highavailabe-9"><title>图10</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-9.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-9.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -215,7 +215,7 @@
                                         <figure id="eayunos-highavailabe-10"><title>图11</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/highavailabe-10.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/highavailabe-10.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -244,7 +244,7 @@
 								<figure id="eayunos-highavailabe-11"><title>图12</title>
 									<mediaobject>
 										<imageobject>
-											<imagedata fileref="images/highavailabe-11.png" format="PNG" scale="100"/>
+											<imagedata fileref="images/highavailabe-11.png" format="PNG" scalefit="1" width="100%"/>
 										</imageobject>
 									</mediaobject>
 								</figure>
@@ -262,6 +262,15 @@
                 <title>本章小结</title>
                 <para>
                         你已经完成了高可用实验。在这个实验里，你成功的为主机配置电源管理及为虚拟机配置高可用。同时测试了在几种场景下虚拟机的高可用功能。
+                </para>
+                <para>
+                    <figure id="eayunos-highavailabe-12"><title>图13</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/highavailabe-lab-1.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
 	</section>
 </chapter>

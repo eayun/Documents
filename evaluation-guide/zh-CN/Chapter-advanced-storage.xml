@@ -201,7 +201,7 @@
         <figure id="attach-float-disk"><title>给虚拟机分配浮动磁盘</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-attach-float-disk.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-attach-float-disk.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -222,7 +222,7 @@
     <figure id="float-disk-done"><title>给虚拟机分配浮动磁盘</title>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/advance-storage-float-disk-done.png" format="PNG" scale="100"/>
+        <imagedata fileref="images/advance-storage-float-disk-done.png" format="PNG" scalefit="1" width="100%"/>
       </imageobject>
     </mediaobject>
     </figure>
@@ -278,7 +278,7 @@
         <figure id="mark-disk-shareable"><title>创建共享磁盘</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-mark-disk-shareable.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-mark-disk-shareable.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -342,7 +342,7 @@
         <figure id="attach-shareable-disk"><title>给虚拟机附加共享磁盘</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-attach-shareable-disk.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-attach-shareable-disk.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -363,7 +363,7 @@
     <figure id="attach-shareable-disk-done"><title>虚拟机附加共享磁盘成功</title>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/advance-storage-attach-shareable-disk-done.png" format="PNG" scale="100"/>
+        <imagedata fileref="images/advance-storage-attach-shareable-disk-done.png" format="PNG" scalefit="1" width="100%"/>
       </imageobject>
     </mediaobject>
     </figure>
@@ -400,7 +400,7 @@
         <figure id="run-vm"><title>运行虚拟机</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-run-vm.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-run-vm.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -421,7 +421,7 @@
         <figure id="create-snapshot"><title>创建快照窗口</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-create-snapshot.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-create-snapshot.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -435,7 +435,7 @@
         <figure id="create-snapshot-done"><title>完成快照创建</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-create-snapshot-done.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-create-snapshot-done.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -488,7 +488,7 @@
         <figure id="clone-from-snapshot"><title>从克隆快照窗口</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-clone-from-snapshot.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-clone-from-snapshot.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -563,7 +563,7 @@
         <figure id="discover-target"><title>发现目标</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-discover-target.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-discover-target.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -583,7 +583,7 @@
         <figure id="login-target"><title>发现目标</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-login-target.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-login-target.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -608,7 +608,7 @@
         <figure id="use-lun"><title>发现目标</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-use-lun.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-use-lun.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -621,7 +621,7 @@
         <figure id="attach-lun-done"><title>发现目标</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/advance-storage-attach-lun-done.png" format="PNG" scale="100"/>
+            <imagedata fileref="images/advance-storage-attach-lun-done.png" format="PNG" scalefit="1" width="100%"/>
           </imageobject>
         </mediaobject>
         </figure>
@@ -641,6 +641,15 @@
     <title>总结</title>
     <para>
       到此为止, 所有存储的高级功能已经完成了.
+    </para>
+    <para>
+        <figure id="lab"><title>发现目标</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/advance-storage-lab.png" format="PNG" scalefit="1" width="100%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
     </para>
   </section>
 

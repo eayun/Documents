@@ -38,7 +38,7 @@
 								<figure id="eayunos-createvm-0"><title>图1</title>
 									<mediaobject>
 										<imageobject>
-											<imagedata fileref="images/creating-virtual-machine-1.png" format="PNG" scale="100"/>
+											<imagedata fileref="images/creating-virtual-machine-1.png" format="PNG" scalefit="1" width="100%"/>
 										</imageobject>
 									</mediaobject>
 								</figure>
@@ -51,7 +51,7 @@
                                                                 <figure id="eayunos-createvm-1"><title>图2</title>
 									<mediaobject>
                                                                         	<imageobject>
-                                                                                	<imagedata fileref="images/creating-virtual-machine-2.png" format="PNG" scale="100"/>
+                                                                                	<imagedata fileref="images/creating-virtual-machine-2.png" format="PNG" scalefit="1" width="100%"/>
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
@@ -68,7 +68,7 @@
                                                                 <figure id="eayunos-createvm-2"><title>图3</title>
 									<mediaobject>
                                                                         	<imageobject>
-                                                                                	<imagedata fileref="images/creating-virtual-machine-3.png" format="PNG" scale="100"/>
+                                                                                	<imagedata fileref="images/creating-virtual-machine-3.png" format="PNG" scalefit="1" width="100%"/>
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
@@ -88,7 +88,7 @@
                                                                 <figure id="eayunos-createvm-3"><title>图4</title>
 									<mediaobject>
                                                                         	<imageobject>
-                                                                                	<imagedata fileref="images/creating-virtual-machine-4.png" format="PNG" scale="100"/>
+                                                                                	<imagedata fileref="images/creating-virtual-machine-4.png" format="PNG" scalefit="1" width="100%"/>
                                                                         	</imageobject>
 									</mediaobject>
                                                                 </figure>
@@ -112,7 +112,7 @@
 					  <figure id="eayunos-createvm-4"><title>图5</title>
 						  <mediaobject>
 				                  	  <imageobject>
-                                                          	  <imagedata fileref="images/creating-virtual-machine-5.png" format="PNG" scale="100"/>
+                                                          	  <imagedata fileref="images/creating-virtual-machine-5.png" format="PNG" scalefit="1" width="100%"/>
                                                   	  </imageobject>
 						  </mediaobject>
                                           </figure>
@@ -172,7 +172,7 @@
                                           <figure id="eayunos-createvm-5"><title>图6</title>
 						  <mediaobject>
                                                   	  <imageobject>
-                                                          	  <imagedata fileref="images/creating-virtual-machine-6.png" format="PNG" scale="100"/>
+                                                          	  <imagedata fileref="images/creating-virtual-machine-6.png" format="PNG" scalefit="1" width="100%"/>
                                                   	  </imageobject>
 						  </mediaobject>
                                           </figure>
@@ -186,6 +186,15 @@
         <section id="sect-Documents-evaluation-guide-Chapter-createvm-Section_6">
                 <title>本章小结</title>
                 <para>本实验你已经成功创建了Linux虚拟机，为该虚拟机安装了操作系统，分配存储和网络，同时使用该虚拟机成功创建了Linux模板，又使用该模板复制了一个虚拟机。
+                </para>
+                <para>
+                    <figure id="eayunos-createvm-6"><title>图7</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/creating-virtual-machine-lab-0.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
         </section>
 
