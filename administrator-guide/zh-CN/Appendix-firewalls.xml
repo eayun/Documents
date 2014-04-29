@@ -9,7 +9,7 @@
   <section id="sect-Firewalls-EayunOS_Manager_Firewall_Requirements">
     <title>&OVIRT; &MANAGER;防火墙要求</title>
     <para>
-      &OVIRT; &MANAGER; 要求系统防火墙开放一系列的端口以允许网络流量通过。<command>engine-setup</command> 脚本能够自动配置防火墙，但将会覆盖现有的防火墙配置。
+      &OVIRT; &MANAGER;要求系统防火墙开放一系列的端口以允许网络流量通过。<command>engine-setup</command> 脚本能够自动配置防火墙，但将会覆盖现有的防火墙配置。
     </para>
     <para>
       当系统上已经有一些防火墙的配置时，为了避免这些配置被覆盖并失效，&MANAGER;所需要的防火墙规则必须被手动添加。<command>engine-setup</command> 命令在 <filename>/usr/share/ovirt-engine/conf/iptables.default.in</filename> 文件中保存了所需要的 <emphasis>iptables</emphasis> 规则列表。
@@ -139,7 +139,7 @@
               </itemizedlist>
             </entry>
             <entry>
-              提供到 &MANAGER; 的 HTTP 和 HTTPS 连接。
+              提供到 &MANAGER;的 HTTP 和 HTTPS 连接。
             </entry>
           </row>
         </tbody>
@@ -496,7 +496,7 @@ COMMIT
   <section id="sect-Firewalls-Directory_Server_Firewall_Requirements">
     <title>目录服务器防火墙要求</title>
     <para>
-      &OVIRT; &MANAGER; 需要目录服务器以进行用户验证。在该目录服务器所在的系统中防火墙必须开放一系列的端口以允许 &OVIRT; &MANAGER;使用 GSS-API 进行验证。
+      &OVIRT; &MANAGER;需要目录服务器以进行用户验证。在该目录服务器所在的系统中防火墙必须开放一系列的端口以允许 &OVIRT; &MANAGER;使用 GSS-API 进行验证。
     </para>
     <table>
       <title>&OVIRT; &MANAGER;防火墙要求</title>
@@ -587,7 +587,7 @@ COMMIT
   <section id="sect-Firewalls-Database_Server_Firewall_Requirements">
     <title>数据库服务器防火墙要求</title>
     <para>
-      &OVIRT; &MANAGER; 支持使用远程的数据库服务器。如果您在 &OVIRT; 中使用远程的数据库，则必须确保远程的数据库服务器允许来自 &OVIRT; &MANAGER;的连接。
+      &OVIRT; &MANAGER;支持使用远程的数据库服务器。如果您在 &OVIRT; 中使用远程的数据库，则必须确保远程的数据库服务器允许来自 &OVIRT; &MANAGER;的连接。
     </para>
     <table>
       <title>&OVIRT; &MANAGER;防火墙要求</title>
