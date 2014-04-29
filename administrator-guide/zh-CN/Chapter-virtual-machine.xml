@@ -3258,26 +3258,44 @@
         <step>
           <para>
             把导出域附加到源数据中心.
-          </para>
           <!-- TODO: picture -->
+          </para>
         </step>
         <step>
           <para>
             把虚拟资源导出到导出域.
+          <figure id="create-vm-export-vm"><title>导出虚拟机</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/vm-create-export-vm.png" format="PNG" scale="100"/>
+            </imageobject>
+          </mediaobject>
+          </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
             从源数据中心分离导出域.
+            <figure id="create-vm-detach-vm"><title>附加存储域</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/vm-create-detach-vm.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
             附加导出域到目的数据中心.
+            <figure id="create-vm-attach-vm"><title>附加存储域</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/vm-create-attach-vm.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
@@ -3368,7 +3386,13 @@
           <para>
             选择一个或者多个要导入的虚拟机, 点击<keycap>导入</keycap>, 打开
             <keycap>导入虚拟机</keycap>窗口.
-            <!-- TODO: picture -->
+            <figure id="create-vm-import-vm"><title>导入虚拟机</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/vm-create-vm-import.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
         </step>
         <step>
@@ -3387,8 +3411,14 @@
           <para>
             点击<keycap>确定</keycap>导入虚拟机. 如果有重名的虚拟机, 一个窗口
             会打开提示用户怎么解决冲突, 如图:
+            <figure id="create-vm-vm-conflict"><title>附加存储域</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/create-vm-vm-conflict.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
@@ -3536,8 +3566,14 @@
         <step>
           <para>
             点击<keycap>编辑</keycap>打开<keycap>编辑虚拟机</keycap>窗口.
+            <figure id="create-vm-edit-vm"><title>编辑虚拟机</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/create-vm-edit-vm.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
@@ -3897,7 +3933,13 @@
         <step>
           <para>
             点击<keycap>高可用性</keycap>标签.
-            <!-- TODO: picture -->
+            <figure id="create-vm-high-ava"><title>设置虚拟机高可用</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/create-vm-high-ava.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
         </step>
         <step>
