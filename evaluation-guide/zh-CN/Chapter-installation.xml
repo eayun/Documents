@@ -567,122 +567,119 @@
             </simplesect>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_8">
-                <title>配置存储</title>
-                <para>
+            <title>配置存储</title>
+            <simplesect>
+                <title>创建NFS数据域</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>在EayunOS虚拟化管理平台树形面板点击【展开所有】（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
+                    </listitem>
+                    <listitem>
+                        <para>显示新建域对话框，如图：</para>
+                        <figure id="eayunos-install-eayunos-manager-28"><title>&OVIRT;图28</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="images/nfs-1.png" format="PNG" scalefit="1" width="100%"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                        <para>配置以下选项：
+                            <itemizedlist>
+                                <listitem>
+                                    <para>名称：Storage-NFS</para>
+                                </listitem>
+                                <listitem>
+                                    <para>数据中心：默认的数据中心</para>
+                                </listitem>
+                                <listitem>
+                                    <para>存储类型：Data/NFS</para>
+                                </listitem>
+                                <listitem>
+                                    <para>使用的主机：</para>
+                                </listitem>
+                                <listitem>
+                                    <para>输出路径：192.168.176.157:/home/export</para>
+                                </listitem>
+
+                            </itemizedlist>
+                        </para>
+
+                    </listitem>
+                    <listitem>
+                        <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active </para>
+                    </listitem>
+                </itemizedlist>
+            </simplesect>
+
+            <simplesect>
+                <title>创建ISCSI数据域</title>
+                <para>因为在安装管理节点时你已经设定默认存储类型为ISCSI，所以现在创建一个ISCSI存储域。EayunOS虚拟化管理平台支持ISCSI存储域</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>在EayunOS管理平台树形面板点击展开所有（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
+                    </listitem>
+                    <listitem>
+                        <para>显示新建域对话框 如图：</para>
+                        <figure id="eayunos-install-eayunos-manager-29"><title>&OVIRT;图29</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="images/iscsi-1.png" format="PNG" scalefit="1" width="100%"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                        <para>配置以下选项:</para>
                         <itemizedlist>
-                                          <listitem>
-                                          <para>创建NFS数据域</para>
-						<itemizedlist>
-								<listitem>
-								<para>在EayunOS虚拟化管理平台树形面板点击【展开所有】（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
-								</listitem>
-                                                                <listitem>
-                                                                <para>显示新建域对话框，如图： </para>
-								<figure id="eayunos-install-eayunos-manager-28"><title>&OVIRT;图28</title>
-									<mediaobject>
-										<imageobject>
-											<imagedata fileref="images/nfs-1.png" format="PNG" scalefit="1" width="100%"/>
-										</imageobject>
-									</mediaobject>
-								</figure>
-								<para>配置以下选项：
-									<itemizedlist>
-											<listitem>
-											<para>名称：Storage-NFS</para>
-											</listitem>
-                                                                                        <listitem>
-                                                                                        <para>数据中心：默认的数据中心</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>存储类型：Data/NFS</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>使用的主机：</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>输出路径：192.168.176.157:/home/export</para>
-                                                                                        </listitem>
-
-									</itemizedlist>
-								</para>
-								
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active </para>
-                                                                </listitem>
-						</itemizedlist>
-                                          </listitem>
-                                          <listitem>
-                                          <para>创建ISCSI数据域</para>
-					  <para>因为在安装管理节点时你已经设定默认存储类型为ISCSI，所以现在创建一个ISCSI存储域。EayunOS虚拟化管理平台支持ISCSI存储域</para>
-						<itemizedlist>
-								<listitem>
-								<para>在EayunOS管理平台树形面板点击展开所有（Expand All）按键，在默认的数据中心下点击【存储】，可用的存储域显示在列表下，点击【新建域】（New Domain）</para>
-								</listitem>
-                                                                <listitem>
-                                                                <para>显示新建域对话框 如图：</para>
-                                                                <figure id="eayunos-install-eayunos-manager-29"><title>&OVIRT;图29</title>
-                                                                        <mediaobject>
-                                                                                <imageobject>
-                                                                                        <imagedata fileref="images/iscsi-1.png" format="PNG" scalefit="1" width="100%"/>
-                                                                                </imageobject>
-                                                                        </mediaobject>
-                                                                </figure>
-								<para>配置以下选项:</para>
-                                                                        <itemizedlist>
-                                                                                        <listitem>
-                                                                                        <para>名称：Storage-ISCSI</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>数据中心：默认的数据中心</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>存储类型：Data/iSCSI</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>使用的主机：</para>
-                                                                                        </listitem>
-                                                                                        <listitem>
-                                                                                        <para>连接目标iSCSI存储，输入地址、端口号、用户认证，点击发现（Discover），iSCSI存储显示在列表里，选择存储后点击进入（Login）如图:</para>
-			                                                                <figure id="eayunos-install-eayunos-manager-30"><title>&OVIRT;图30</title>
-			                                                                        <mediaobject>
-			                                                                                <imageobject>
-			                                                                                        <imagedata fileref="images/iscsi-2.png" format="PNG" scalefit="1" width="100%"/>
-			                                                                                </imageobject>
-			                                                                        </mediaobject>
-			                                                                </figure>
-                                                                                        </listitem>
-                                                                        </itemizedlist>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active</para>
-                                                                </listitem>
-						</itemizedlist>
-                                          </listitem>
-                                          <listitem>
-                                          <para>创建ISO域</para>
-						<itemizedlist>
-								<listitem>
-								<para>在EayunOS管理平台树形面板先点击【展开所有】（Expand All）按键，点击本地存储数据中心，显示数据中心列表，选择数据中心</para>
-								</listitem>
-                                                                <listitem>
-                                                                <para>在该数据中心详细面板下，选择存储列表，点击【新建ISO】（Attach ISO）按键</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>在Attach ISO Library对话框下选择本地ISO域，点击OK</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>ISO域显示在存储列表内，同时状态为活跃（Active）</para>
-                                                                </listitem>
-                                                                <listitem>
-                                                                <para>上传ISO镜像</para>
-								<para>使用engine-iso-loader工具上传ISO（engine-iso-loader --iso-domain=ISO_DOMAIN upload /tmp/CentOS-6.5-x86_64-LiveDVD.iso）</para>
-                                                                </listitem>
-						</itemizedlist>
-                                          </listitem>
-
+                            <listitem>
+                                <para>名称：Storage-ISCSI</para>
+                            </listitem>
+                            <listitem>
+                                <para>数据中心：默认的数据中心</para>
+                            </listitem>
+                            <listitem>
+                                <para>存储类型：Data/iSCSI</para>
+                            </listitem>
+                            <listitem>
+                                <para>使用的主机：</para>
+                            </listitem>
+                            <listitem>
+                                <para>连接目标iSCSI存储，输入地址、端口号、用户认证，点击发现（Discover），iSCSI存储显示在列表里，选择存储后点击进入（Login）如图:</para>
+                                <figure id="eayunos-install-eayunos-manager-30"><title>&OVIRT;图30</title>
+                                    <mediaobject>
+                                        <imageobject>
+                                            <imagedata fileref="images/iscsi-2.png" format="PNG" scalefit="1" width="100%"/>
+                                        </imageobject>
+                                    </mediaobject>
+                                </figure>
+                            </listitem>
                         </itemizedlist>
-                </para>
+                    </listitem>
+                    <listitem>
+                        <para>点击【确定】（OK），新建的存储域显示在存储列表内，状态由Locked->Active</para>
+                    </listitem>
+                </itemizedlist>
+            </simplesect>
+
+            <simplesect>
+                <title>创建ISO域</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>在EayunOS管理平台树形面板先点击【展开所有】（Expand All）按键，点击本地存储数据中心，显示数据中心列表，选择数据中心</para>
+                    </listitem>
+                    <listitem>
+                        <para>在该数据中心详细面板下，选择存储列表，点击【新建ISO】（Attach ISO）按键</para>
+                    </listitem>
+                    <listitem>
+                        <para>在Attach ISO Library对话框下选择本地ISO域，点击OK</para>
+                    </listitem>
+                    <listitem>
+                        <para>ISO域显示在存储列表内，同时状态为活跃（Active）</para>
+                    </listitem>
+                    <listitem>
+                        <para>上传ISO镜像</para>
+                        <para>使用engine-iso-loader工具上传ISO（engine-iso-loader --iso-domain=ISO_DOMAIN upload /tmp/CentOS-6.5-x86_64-LiveDVD.iso）</para>
+                    </listitem>
+                </itemizedlist>
+            </simplesect>
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_9">
                 <title>本章小结</title>
