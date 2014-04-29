@@ -6,7 +6,7 @@
 <appendix id="appe-Additional_Procedures">
   <title>额外的过程</title>
 
-  <section id="sect-Additional_Procedures">
+  <section id="sect-Additional_Procedures-Creating_Bootable_Media">
     <title>制作可启动介质</title>
     <para>
       P2V 客户端能够从 PXE 启动镜像、可启动的 USB 设备以及光学介质上启动。用于准备各个启动选项的脚本被包含在 &P2VISO; 镜像的 LiveOS 目录中。
