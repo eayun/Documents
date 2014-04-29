@@ -41,22 +41,22 @@
                  <itemizedlist>
                    <listitem>
                      <para>
-                      <link linkend="chap-Documents-administrator-guide-Chapter-data-center">第三章：数据中心</link>
+                      <xref linkend="chap-Documents-administrator-guide-Chapter-data-center"/>
                      </para>
                    </listitem>
                    <listitem>
                      <para>
-                      <link linkend="chap-Logical_Networks">第五章：逻辑网络</link>
+                      <xref linkend="chap-Logical_Networks"/>
                      </para>
                    </listitem>
                    <listitem>
                      <para>
-                      <link linkend="chap-Hosts">第六章：主机</link>
+                      <xref linkend="chap-Hosts"/>
                      </para>
                    </listitem>
                    <listitem>
                      <para>
-                     <link linkend="chap-Documents-administrator-guide-Chapter-storage-domain">第七章:存储域</link>
+                     <xref linkend="chap-Documents-administrator-guide-Chapter-storage-domain"/>
                      </para>
                    </listitem>
                  </itemizedlist>
@@ -74,7 +74,7 @@
                       <itemizedlist>
                          <listitem>
                            <para>
-                            <link linkend="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1">第三章第五节第一小节：创建新的数据中心</link>
+                            <xref linkend="sect-Documents-administrator-guide-Chapter-data-center_Section_5-1"/>
                            </para>
                          </listitem>
                       </itemizedlist>
@@ -169,12 +169,12 @@
                       <itemizedlist>
                         <listitem>
                            <para>
-                           <link linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2">下节内容：解释下新建/编辑集群弹出窗口的各项设置</link>
+                           <xref linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-2"/>
                            </para>
                         </listitem>
                         <listitem>
                            <para>
-                           <link linkend="sect-Documents-administrator-guide-Chapter-basic_Section_2-4">第二章第四节：使用向导</link>
+                           <xref linkend="sect-Documents-administrator-guide-Chapter-basic_Section_2-4"/>
                            </para>
                         </listitem>
                       </itemizedlist>
@@ -408,7 +408,7 @@
                         </table> 
                         <formalpara><title>请参考</title>
                            <para>
-                             <link linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-5">章节4.2.5：添加主机窗口的设置解释</link>  
+                             <xref linkend="sect-Documents-administrator-guide-Chapter-cluster_Section_2-5"/>
                            </para>
                         </formalpara>    
 	             </section>
