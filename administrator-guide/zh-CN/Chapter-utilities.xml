@@ -2720,7 +2720,7 @@ engine-image-uploader [options] collect
                         <term>--quiet</term>
                         <listitem>
                             <para>启用该选项之后，将命令的输出减少到最少。该选项
-                                默认是启用的。
+                                默认是不启用的。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2989,5 +2989,228 @@ The MD5 for this file is be89822f20719d1094a39bc9ced3df49 and its size is 38.2M
             </para>
         </section>
     </section>
+
+	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_6">
+        <title>&OVIRT;ISO镜像上传工具</title>
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_6_1">
+            <title>关于ISO镜像上传工具</title>
+            <para>&OVIRT;&MANAGER;中包含了ISO镜像上传工具，使用该工具上传ISO镜
+                像。
+            </para>
+            <para>ISO上传工具的命令是engine-iso-uploader，必须在&OVIRT;&MANAGER;
+                服务器上以root身份执行该命令。执行engine-iso-uploader -h可以查看
+                命令的帮助信息。
+            </para>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_6_2">
+            <title>engine-iso-uploader命令行参数说明</title>
+            <para>engine-iso-uploader的基本使用方法如下：
+<screen>engine-iso-uploader [options] list
+engine-image-uploader [options] upload [file].[file]...[file]
+                </screen>
+            </para>
+            <para>2种操作模式：list和upload。
+                <itemizedlist>
+                    <listitem>
+                        <para>list操作会列出&OVIRT;&MANAGER;中可用的ISO存储域。
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>upload操作会上传ISO镜像文件（可以是多个，多个ISO镜
+                            像文件之间使用空格分隔）到指定的ISO存储域。默认通过
+                            NFS共享目录上传，也支持使用SSH上传。
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                ISO镜像上传工具必须指定list或者upload其中一项操作，使用upload操
+                作时，最少需要提供一个待上传镜像文件的路径。
+            </para>
+            <para>engine-iso-uploader提供了一些参数对命令的行为进行控制。
+            </para>
+
+            <simplesect>
+                <title>通用命令行参数</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>--version</term>
+                        <listitem>
+                            <para>显示命令版本信息。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-h，--help</term>
+                        <listitem>
+                            <para>显示命令帮助信息。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--conf-file=配置文件路径</term>
+                        <listitem>
+                            <para>指定配置文件。</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--quiet</term>
+                        <listitem>
+                            <para>启用该选项之后,将命令的输出减少到最少。该选项
+                                默认是不启用的。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-v，--verbose</term>
+                        <listitem>
+                            <para>启用该选项之后,命令将输出尽可能详细的信息。该
+                                选项默认是不启用的。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-f，--force</term>
+                        <listitem>
+                            <para>当目标存储域中已经存在一个和将要上传的文件名字
+                                相同，则必须使用强制模式。默认开启该选项。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>&OVIRT;&MANAGER;相关选项</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>-u 用户名，--user=用户名</term>
+                        <listitem>
+                            <para>指定上传文件时使用的用户名。用户名的格式为：
+                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
+                                经存在。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-r FQDN</term>
+                        <listitem>
+                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认
+                                是localhost，即运行该命令的服务器和
+                                &OVIRT;&MANAGER;是同一台服务器。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>ISO存储域相关选项</title>
+                <para>指定ISO镜像文件上传的目标ISO存储域，下面的2个选项互斥，不
+                    能同时使用。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>-i，--iso-domain=ISO存储域</term>
+                        <listitem>
+                            <para>指定ISO镜像文件上传的目标ISO存储域。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-n，--nfs-server=NFS共享目录</term>
+                        <listitem>
+                            <para>指定ISO镜像文件上传的目标NFS共享目录。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+
+            <simplesect>
+                <title>连接相关选项</title>
+                <para>ISO镜像上传工具默认使用NFS共享上传文件，使用下面的选项可以
+                    切换为使用SSH连接上传。
+                </para>
+                <variablelist>
+                    <varlistentry>
+                        <term>--ssh-user=用户名</term>
+                        <listitem>
+                            <para>指定上传使用的SSH用户。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>--ssh-port=SSH服务端口</term>
+                        <listitem>
+                            <para>指定远端服务器的SSH监听端口。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>-k 公钥文件，--key-file=公钥文件</term>
+                        <listitem>
+                            <para>指定SSH连接的公钥文件。不使用公钥验证时，会提
+                                示输入指定SSH用户的密码。
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </simplesect>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_6_3">
+            <title>指定NFS共享目录上传ISO镜像文件示例</title>
+            <example>
+                <title>将ISO镜像文件上传到指定的NFS共享目录</title>
+<screen># engine-iso-uploader --nfs-server=storage.demo.eayunos.com:/iso/path \
+upload CentOS-6.5-x86_64.iso
+                </screen>
+            </example>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_6_4">
+            <title>ISO镜像上传工具基本使用示例</title>
+            <para>下面是ISO镜像上传工具的基本使用方法的示例。第一条命令列出了
+                &OVIRT;&MANAGER;中可用的ISO存储域，使用的用户是admin@local。第二
+                条命令通过NFS共享将ISO镜像文件上传到了指定的ISO存储域。
+            </para>
+            <example>
+                <title>列出ISO存储域以及上传ISO镜像</title>
+                <screen># engine-iso-uploader list
+Please provide the REST API password for the admin@internal oVirt Engine user
+(CTRL+D to abort): 
+ISO Storage Domain Name   | Datacenter                | ISO Domain Status
+ISO-DOMAIN                | Default                   | active
+ISO_DOMAIN                | iscsi                     | active
+ISO_DOMAIN                | local_datacenter          | active
+                </screen>
+                <screen># engine-iso-uploader --iso-domain=[ISODomain] upload \
+[CentOS-6.5-x86_64.iso]
+Please provide the REST API password for the admin@internal oVirt Engine user
+(CTRL+D to abort):
+                </screen>
+            </example>
+        </section>
+
+        <section id=
+            "sect-Documents-administrator-guide-Chapter-utilites_Section_6_5">
+            <title>使用ISO镜像上传工具上传VirtIO</title>
+            <para>下面的示例将virtio-win.iso、virtio-win.vfs上传ISODomain。
+            </para>
+            <screen># engine-iso-uploader --iso-domain=[ISODomain] upload \
+/usr/share/virtio-win/virtio-win-0.1-74.iso \
+/usr/share/virtio-win/virtio-win-drivers-20120712-1.vfd
+            </screen>
+        </section>
+    </section>
+
+    <!-- TODO: Guest Drivers and Agents -->
+    <!--
+	<section id="sect-Documents-administrator-guide-Chapter-utilites_Section_7">
+        <title>虚拟机驱动和代理程序</title>
+    </section>
+    -->
 </chapter>
 
