@@ -56,8 +56,14 @@
         <step>
           <para>
             点击<keycap>创建模板</keycap>, 打开<keycap>创建模板窗口</keycap>.
+            <figure id="temp-create-temp"><title>创建模板</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/temp-create-temp.png" format="PNG" scale="100"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
-          <!-- TODO: picture -->
         </step>
         <step>
           <para>
@@ -456,7 +462,13 @@
           <step>
             <para>
               选择要导入的模板, 点击<keycap>导入</keycap>打开<keycap>导入模板</keycap>窗口.
-              <!-- TODO: picture -->
+              <figure id="temp-import-temp"><title>导出模板</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/temp-import-temp.png" format="PNG" scale="100"/>
+                </imageobject>
+              </mediaobject>
+              </figure>
             </para>
           </step>
           <step>
