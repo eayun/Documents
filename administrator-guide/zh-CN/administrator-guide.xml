@@ -4,48 +4,60 @@
 %BOOK_ENTITIES;
 ]>
 <book>
-	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-using-guide.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-basic.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <part id="part-resource-manger">
-        <title>资源管理</title>
-      <partintro>
-       <para>
-        此部分主要是讲解&OVIRT;管理端能够管理什么。
-       </para>
-     </partintro>
-	<xi:include href="Chapter-data-center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-logical-networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-storage-domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-virtual-machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-templates.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-virtual-machine-disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-third-party.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-   </part>
-    <part label="II">
-         <title>资源管理</title>
-      <partintro>
-        <para>
-        此部分主要是讲解&OVIRT;管理端能够管理什么。
-        </para>
-      </partintro>
-	<xi:include href="Chapter-user-roles.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-quotas-sla.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-event-notifi.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-utilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter-log-files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <!--
-	<xi:include href="Chapter-update.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Chapter-using-guide.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Chapter-basic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <part>
+    <title>管理资源</title>
+    <partintro>
+      <para>
+        此部分主要是讲解如何在 &OVIRT; &MANAGER; 中对资源进行管理。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-data-center.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-logical-networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-storage-domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-virtual-machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-templates.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-virtual-machine-disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <!-- TODO: 第三方的资源提供商，包括 Foreman 和 Openstack Neutron 之类的
+    <xi:include href="Chapter-third-party.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     -->
-	<xi:include href="Chapter-backup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </part>
-	<xi:include href="Appendix-firewalls.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Appendix-vdsm-and-hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<index />
+  </part>
+  <part>
+    <title>管理虚拟化环境</title>
+    <partintro>
+      <para>
+        此部分主要是讲解如何对 &OVIRT; 虚拟化环境本身进行管理。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-user-roles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-quotas-sla.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-event-notifi.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-utilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-log-files.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <!-- TODO: 关于管理端的升级
+    <xi:include href="Chapter-update.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    -->
+    <xi:include href="Chapter-backup.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  <!-- TODO: Reports 相关的部分
+  <part>
+    <title>收集虚拟化环境信息</title>
+    <partintro>
+      <para>
+        此部分主要是讲解如何收集 &OVIRT; 虚拟化环境的运行信息。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-gathering-information.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  -->
+  <xi:include href="Appendix-firewalls.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-vdsm-and-hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <index/>
 </book>
-
