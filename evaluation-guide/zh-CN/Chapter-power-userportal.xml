@@ -53,7 +53,7 @@
 				<figure id="eayunos-power-userportal-0"><title>图1</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="images/power-userportal-1.png" format="PNG" scale="60"/>
+							<imagedata fileref="images/power-userportal-1.png" format="PNG" scalefit="1" width="100%"/>
 						</imageobject>
 					</mediaobject>
 				</figure>
@@ -63,7 +63,7 @@
                                 <figure id="eayunos-power-userportal-1"><title>图2</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-2.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-2.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -75,7 +75,7 @@
                                 <figure id="eayunos-power-userportal-2"><title>图3</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-3.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-3.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -88,7 +88,7 @@
                                 <figure id="eayunos-power-userportal-3"><title>图4</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-4.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-4.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -98,7 +98,7 @@
                                 <figure id="eayunos-power-userportal-4"><title>图5</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-5.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-5.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -108,7 +108,7 @@
                                 <figure id="eayunos-power-userportal-5"><title>图6</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-6.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-6.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -118,7 +118,7 @@
                                 <figure id="eayunos-power-userportal-6"><title>图7</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-7.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-7.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -128,7 +128,7 @@
                                 <figure id="eayunos-power-userportal-7"><title>图8</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/power-userportal-8.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/power-userportal-8.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -165,7 +165,7 @@
 			<figure id="eayunos-power-userportal-8"><title>图9</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-9.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-9.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -182,7 +182,7 @@
                         <figure id="eayunos-power-userportal-9"><title>图10</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-10.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-10.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -197,7 +197,7 @@
                         <figure id="eayunos-power-userportal-10"><title>图11</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-11.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-11.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -209,7 +209,7 @@
                         <figure id="eayunos-power-userportal-11"><title>图12</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-12.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-12.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -247,7 +247,7 @@
                         <figure id="eayunos-power-userportal-12"><title>图13</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-13.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-13.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -265,7 +265,7 @@
                         <figure id="eayunos-power-userportal-13"><title>图14</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-14.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-14.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -274,7 +274,7 @@
                         <figure id="eayunos-power-userportal-14"><title>图15</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-15.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-15.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -298,7 +298,7 @@
                         <figure id="eayunos-power-userportal-15"><title>图16</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-16.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-16.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -321,7 +321,7 @@
                         <figure id="eayunos-power-userportal-16"><title>图17</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-17.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-17.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -333,7 +333,7 @@
                         <figure id="eayunos-power-userportal-17"><title>图18</title>
                                 <mediaobject>
                                         <imageobject>
-                                                <imagedata fileref="images/power-userportal-18.png" format="PNG" scale="60"/>
+                                                <imagedata fileref="images/power-userportal-18.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                 </mediaobject>
                         </figure>
@@ -380,7 +380,16 @@
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter-power-userportal_Section_11">
 		<title>本章小结</title>
-		<para>你已经完成了用户门户实验，你成功的创建虚拟机在超级用户门户下并分配给用户访问虚拟机和模板的权限。</para>
+        <para>你已经完成了用户门户实验，你成功的创建虚拟机在超级用户门户下并分配给用户访问虚拟机和模板的权限。</para>
+        <para>
+            <figure id="eayunos-power-userportal-18"><title>图19</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/power-userportal-lab-0.png" format="PNG" scalefit="1" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
 	</section>
 </chapter>
 

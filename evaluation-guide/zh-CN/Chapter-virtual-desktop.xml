@@ -43,7 +43,7 @@
 					<figure id="eayunos-virtual-desktop-0"><title>图1</title>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="images/virtual-desktop-1.png" format="PNG" scale="60"/>
+								<imagedata fileref="images/virtual-desktop-1.png" format="PNG" scalefit="1" width="100%"/>
 							</imageobject>
 						</mediaobject>
 					</figure>
@@ -56,7 +56,7 @@
                                         <figure id="eayunos-virtual-desktop-1"><title>图2</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-2.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-2.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -74,7 +74,7 @@
                                         <figure id="eayunos-virtual-desktop-2"><title>图3</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-3.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-3.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -91,7 +91,7 @@
                                         <figure id="eayunos-virtual-desktop-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-4.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-4.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -101,7 +101,7 @@
                                         <figure id="eayunos-virtual-desktop-4"><title>图5</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-5.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-5.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -111,7 +111,7 @@
                                         <figure id="eayunos-virtual-desktop-5"><title>图6</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-6.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-6.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -121,7 +121,7 @@
                                         <figure id="eayunos-virtual-desktop-6"><title>图7</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-7.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-7.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -131,7 +131,7 @@
                                         <figure id="eayunos-virtual-desktop-7"><title>图8</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-8.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-8.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -141,7 +141,7 @@
                                         <figure id="eayunos-virtual-desktop-8"><title>图9</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-9.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-9.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -150,7 +150,7 @@
                                         <figure id="eayunos-virtual-desktop-9"><title>图10</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-10.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-10.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -160,7 +160,7 @@
                                         <figure id="eayunos-virtual-desktop-10"><title>图11</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-11.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-11.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -170,7 +170,7 @@
                                         <figure id="eayunos-virtual-desktop-11"><title>图12</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-12.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-12.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -200,7 +200,7 @@
                                         <figure id="eayunos-virtual-desktop-12"><title>图13</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-13.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-13.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -213,7 +213,7 @@
                                         <figure id="eayunos-virtual-desktop-13"><title>图14</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-14.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-14.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -223,7 +223,7 @@
                                         <figure id="eayunos-virtual-desktop-14"><title>图15</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-15.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-15.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -235,7 +235,7 @@
                                         <figure id="eayunos-virtual-desktop-15"><title>图16</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-16.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-16.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -263,7 +263,7 @@
                                         <figure id="eayunos-virtual-desktop-16"><title>图17</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-17.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-17.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -296,7 +296,7 @@
                                         <figure id="eayunos-virtual-desktop-17"><title>图18</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-18.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-18.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -345,7 +345,7 @@
                                         <figure id="eayunos-virtual-desktop-18"><title>图19</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-19.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-19.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -371,7 +371,7 @@
                                         <figure id="eayunos-virtual-desktop-19"><title>图20</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-20.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-20.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -405,7 +405,7 @@
                                         <figure id="eayunos-virtual-desktop-20"><title>图21</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-21.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-21.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -417,7 +417,7 @@
                                         <figure id="eayunos-virtual-desktop-21"><title>图22</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-22.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-22.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -429,7 +429,7 @@
                                         <figure id="eayunos-virtual-desktop-22"><title>图23</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/virtual-desktop-23.png" format="PNG" scale="60"/>
+                                                                <imagedata fileref="images/virtual-desktop-23.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -454,7 +454,16 @@
         </section>
         <section id="sect-Documents-evaluation-guide-Chapter-virtual-desktop_Section_8">
                 <title>本章小结</title>
-		<para>在这个实验，你已经成功创建和使用了Windows虚拟机和虚拟机。</para>
+                <para>在这个实验，你已经成功创建和使用了Windows虚拟机和虚拟机。</para>
+                <para>
+                    <figure id="eayunos-virtual-desktop-23"><title>图24</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/virtual-desktop-lab.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
 	</section>	
 </chapter>
 

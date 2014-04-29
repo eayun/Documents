@@ -40,7 +40,7 @@
             <figure id="eayunos-mini-setup-0"><title>图1</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/mini-setup-lab.png" format="PNG" scale="60"/>
+                        <imagedata fileref="images/eayunos-installation-lab-2.svg" format="SVG"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -53,7 +53,7 @@
 				<figure id="eayunos-mini-setup-1"><title>图2</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-1.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-1.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
 				</figure>
@@ -63,7 +63,7 @@
                                 <figure id="eayunos-mini-setup-2"><title>图3</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-2.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-2.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -73,7 +73,7 @@
                                 <figure id="eayunos-mini-setup-3"><title>图4</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-3.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-3.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -83,7 +83,7 @@
                                 <figure id="eayunos-mini-setup-4"><title>图5</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-4.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-4.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -93,7 +93,7 @@
                                 <figure id="eayunos-mini-setup-5"><title>图6</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-5.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-5.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -103,7 +103,7 @@
                                 <figure id="eayunos-mini-setup-6"><title>图7</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-6.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-6.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -113,7 +113,7 @@
                                 <figure id="eayunos-mini-setup-7"><title>图8</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-7.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-7.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -146,7 +146,7 @@
 						<figure id="eayunos-mini-setup-8"><title>图9</title>
 							<mediaobject>
 								<imageobject>
-									<imagedata fileref="images/mini-setup-8.png" format="PNG" scale="60"/>
+									<imagedata fileref="images/mini-setup-8.png" format="PNG" scalefit="1" width="100%"/>
 								</imageobject>
 							</mediaobject>
 						</figure>
@@ -156,7 +156,7 @@
                                                 <figure id="eayunos-mini-setup-9"><title>图10</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-9.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-9.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -166,7 +166,7 @@
                                                 <figure id="eayunos-mini-setup-10"><title>图11</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-10.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-10.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -176,7 +176,7 @@
                                                 <figure id="eayunos-mini-setup-11"><title>图12</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-11.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-11.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -195,7 +195,7 @@
                                 <figure id="eayunos-mini-setup-12"><title>&OVIRT;图13</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-12.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-12.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -207,7 +207,7 @@
                                 <figure id="eayunos-mini-setup-13"><title>&OVIRT;图14</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/mini-setup-13.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/mini-setup-13.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -219,7 +219,7 @@
                                  <figure id="eayunos-mini-setup-14"><title>&OVIRT;图15</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-14.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-14.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -231,7 +231,7 @@
                                  <figure id="eayunos-mini-setup-15"><title>&OVIRT;图16</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-15.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-15.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -243,7 +243,7 @@
                                  <figure id="eayunos-mini-setup-16"><title>&OVIRT;图17</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-16.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-16.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -255,7 +255,7 @@
                                  <figure id="eayunos-mini-setup-17"><title>&OVIRT;图18</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-17.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-17.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -267,7 +267,7 @@
                                  <figure id="eayunos-mini-setup-18"><title>&OVIRT;图19</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-18.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-18.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -279,7 +279,7 @@
                                  <figure id="eayunos-mini-setup-19"><title>&OVIRT;图20</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-19.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-19.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -291,7 +291,7 @@
                                  <figure id="eayunos-mini-setup-20"><title>&OVIRT;图21</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-20.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-20.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -303,7 +303,7 @@
                                  <figure id="eayunos-mini-setup-21"><title>&OVIRT;图22</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-21.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-21.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -315,7 +315,7 @@
                                  <figure id="eayunos-mini-setup-22"><title>&OVIRT;图23</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/mini-setup-22.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/mini-setup-22.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -343,7 +343,7 @@
 						<figure id="eayunos-mini-setup-23"><title>&OVIRT;图24</title>
 							<mediaobject>
 								<imageobject>
-									<imagedata fileref="images/mini-setup-23.png" format="PNG" scale="60"/>
+									<imagedata fileref="images/mini-setup-23.png" format="PNG" scalefit="1" width="100%"/>
 								</imageobject>
 							</mediaobject>
 						</figure>
@@ -369,7 +369,7 @@
                                                 <figure id="eayunos-mini-setup-24"><title>&OVIRT;图25</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-24.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-24.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -378,7 +378,7 @@
                                                 <figure id="eayunos-mini-setup-25"><title>&OVIRT;图26</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-25.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-25.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -406,7 +406,7 @@
                                                 <figure id="eayunos-mini-setup-26"><title>&OVIRT;图27</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-26.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-26.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -431,7 +431,7 @@
                                                 <figure id="eayunos-mini-setup-27"><title>&OVIRT;图28</title>
                                                         <mediaobject>
                                                                 <imageobject>
-                                                                        <imagedata fileref="images/mini-setup-27.png" format="PNG" scale="60"/>
+                                                                        <imagedata fileref="images/mini-setup-27.png" format="PNG" scalefit="1" width="100%"/>
                                                                 </imageobject>
                                                         </mediaobject>
                                                 </figure>
@@ -450,6 +450,15 @@
         <section id="sect-Documents-evaluation-guide-Chapter-mini-setup_Section_8">
                 <title>本章小结</title>
                 <para>你已经成功的安装EayunOS虚拟化管理节点及EayunOS Hypervisor，创建了本地存储域及本地数据中心和集群，准备了ISO镜像。</para>
+                <para>
+                    <figure id="eayunos-mini-setup-28"><title>&OVIRT;图29</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/mini-setup-lab-1.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
 	</section>
 </chapter>
 

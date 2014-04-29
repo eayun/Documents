@@ -92,7 +92,7 @@
                 <figure id="eayunos-introduction-0"><title>&OVIRT;图1</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/introduction-1.png" format="PNG" scale="60"/>
+                            <imagedata fileref="images/introduction-1.png" format="PNG" scalefit="1" width="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -136,7 +136,7 @@
                 <figure id="eayunos-introduction-1"><title>&OVIRT;图2</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/introduction-1.png" format="PNG" scale="60"/>
+                            <imagedata fileref="images/introduction-2.png" format="PNG" scalefit="1" width="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -420,7 +420,7 @@
                 <figure id="eayunos-introduction-2"><title>&OVIRT;图3</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/introduction-3.png" format="PNG" scale="60"/>
+                            <imagedata fileref="images/introduction-3.png" format="PNG" scalefit="1" width="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -464,7 +464,7 @@
                 <figure id="eayunos-introduction-3"><title>&OVIRT;图4</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/introduction-4.png" format="PNG" scale="60"/>
+                            <imagedata fileref="images/introduction-4.png" format="PNG" scalefit="1" width="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>

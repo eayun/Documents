@@ -9,7 +9,7 @@
             <figure id="eayunos-install-eayunos-manager-0"><title>图1</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/eayunos-installation-lab.png" format="PNG" scale="100"/>
+                        <imagedata fileref="images/eayunos-installation-lab-0.png" format="PNG" scalefit="1" width="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -43,78 +43,105 @@
 
              		</itemizedlist>
 		</para>
-	</section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_2">
+    </section>
+    <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_2">
+        <title>配置结构</title>
+        <para>
+            下图显示本实验使用的环境变量及对象名称
+        </para>
+        <para>
+            <figure id="eayunos-install-eayunos-manager-1"><title>图2</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/eayunos-installation-lab-1.png" format="PNG" scalefit="1" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>
+            <figure id="eayunos-install-eayunos-manager-2"><title>图3</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/eayunos-installation-lab-2.svg" format="SVG"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>
+            EayunOS虚拟化管理端控制整个EayunOS企业虚拟化环境，允许您定义主机配置数据中心及存储、定义网络、创建虚拟机、管理用户权限、使用模板。
+        </para>
+    </section>
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_3">
                 <title>安装EayunOS虚拟化管理平台</title>
                 <procedure>
                 <step>
                         <para>安装EayunOS管理节点操作系统，流程如下：</para>
                         <para>图中，选中【install or upgrade an existing system】，按Enter</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-1"><title>图2</title>
+                                <figure id="eayunos-install-eayunos-manager-3"><title>图4</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-1.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-1.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>准备开始安装，等待</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-2"><title>图3</title>
+                                <figure id="eayunos-install-eayunos-manager-4"><title>图5</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-2.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>图中，输入密码及确认密码</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-3"><title>图4</title>
+                                <figure id="eayunos-install-eayunos-manager-5"><title>图6</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-3.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>图中，选中【Use All Space】，按“下一步”</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-4"><title>图5</title>
+                                <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-4.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>图中，系统进入格式化中，等待</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-5"><title>图6</title>
+                                <figure id="eayunos-install-eayunos-manager-7"><title>图8</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-5.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>开始安装操作系统</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-6"><title>图7</title>
+                                <figure id="eayunos-install-eayunos-manager-8"><title>图9</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scale="100"/>
+                                                        <imagedata fileref="images/eayunos-manager-6.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
                         </para>
                         <para>图中，操作系统安装完成，系统自动重启，输入用户名和密码进入系统</para>
                         <para>
-                                <figure id="eayunos-install-eayunos-manager-7"><title>图8</title>
+                                <figure id="eayunos-install-eayunos-manager-9"><title>图10</title>
                                     <mediaobject>
                                         <imageobject>
-                                            <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scale="100"/>
+                                            <imagedata fileref="images/eayunos-manager-7.png" format="PNG" scalefit="1" width="100%"/>
                                         </imageobject>
                                     </mediaobject>
                                 </figure>
@@ -258,7 +285,7 @@
                 </step>
                 </procedure>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_3">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_4">
                 <title>安装EayunOS Hypervisor</title>
 		<procedure>
 		<step>
@@ -267,7 +294,7 @@
 				<figure id="eayunos-install-eayunos-manager-11"><title>&OVIRT;图12</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="images/eayunos-manager-12.png" format="PNG" scale="60"/>
+							<imagedata fileref="images/eayunos-manager-12.png" format="PNG" scalefit="1" width="100%"/>
 						</imageobject>
 					</mediaobject>
 				</figure>
@@ -279,7 +306,7 @@
                                 <figure id="eayunos-install-eayunos-manager-12"><title>&OVIRT;图13</title>
                                         <mediaobject>
                                                 <imageobject>
-                                                        <imagedata fileref="images/eayunos-manager-13.png" format="PNG" scale="60"/>
+                                                        <imagedata fileref="images/eayunos-manager-13.png" format="PNG" scalefit="1" width="100%"/>
                                                 </imageobject>
                                         </mediaobject>
                                 </figure>
@@ -291,7 +318,7 @@
                                  <figure id="eayunos-install-eayunos-manager-13"><title>&OVIRT;图14</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-14.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-14.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -303,7 +330,7 @@
                                  <figure id="eayunos-install-eayunos-manager-14"><title>&OVIRT;图15</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-15.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-15.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -315,7 +342,7 @@
                                  <figure id="eayunos-install-eayunos-manager-15"><title>&OVIRT;图16</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-16.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-16.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -327,7 +354,7 @@
                                  <figure id="eayunos-install-eayunos-manager-16"><title>&OVIRT;图17</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-17.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-17.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -339,7 +366,7 @@
                                  <figure id="eayunos-install-eayunos-manager-17"><title>&OVIRT;图18</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-18.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-18.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -351,7 +378,7 @@
                                  <figure id="eayunos-install-eayunos-manager-18"><title>&OVIRT;图19</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-19.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-19.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -363,7 +390,7 @@
                                  <figure id="eayunos-install-eayunos-manager-19"><title>&OVIRT;图20</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-20.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-20.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -375,7 +402,7 @@
                                  <figure id="eayunos-install-eayunos-manager-20"><title>&OVIRT;图21</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-21.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-21.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -387,7 +414,7 @@
                                  <figure id="eayunos-install-eayunos-manager-21"><title>&OVIRT;图22</title>
                                          <mediaobject>
                                                  <imageobject>
-                                                         <imagedata fileref="images/eayunos-manager-22.png" format="PNG" scale="60"/>
+                                                         <imagedata fileref="images/eayunos-manager-22.png" format="PNG" scalefit="1" width="100%"/>
                                                  </imageobject>
                                          </mediaobject>
                                  </figure>
@@ -395,7 +422,7 @@
 		</step>  
                 </procedure>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_4">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_5">
                 <title>连接到EayunOS虚拟化管理平台</title>
                 <para>
                         <itemizedlist>
@@ -415,7 +442,7 @@
 					  <figure id="eayunos-install-eayunos-manager-24"><title>&OVIRT;图25</title>
 						<mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/web-0.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/web-0.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                           </figure>
@@ -424,7 +451,7 @@
                         </itemizedlist>
                 </para>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_5">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_6">
                 <title>批准EayunOS Hypervisor</title>
                 <para>
                         <itemizedlist>
@@ -439,7 +466,7 @@
                                           <figure id="eayunos-install-eayunos-manager-25"><title>&OVIRT;图26</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/approve-1.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/approve-1.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                           </figure>
@@ -448,7 +475,7 @@
                         </itemizedlist>
                 </para>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_6">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_7">
             <title>配置逻辑网络</title>
 
             <simplesect>
@@ -532,14 +559,14 @@
                     <figure id="eayunos-install-eayunos-manager-27"><title>&OVIRT;图27</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/network-1.png" format="PNG" scale="60"/>
+                                <imagedata fileref="images/network-1.png" format="PNG" scalefit="1" width="100%"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
                 </para>
             </simplesect>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_7">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_8">
                 <title>配置存储</title>
                 <para>
                         <itemizedlist>
@@ -554,7 +581,7 @@
 								<figure id="eayunos-install-eayunos-manager-28"><title>&OVIRT;图28</title>
 									<mediaobject>
 										<imageobject>
-											<imagedata fileref="images/nfs-1.png" format="PNG" scale="60"/>
+											<imagedata fileref="images/nfs-1.png" format="PNG" scalefit="1" width="100%"/>
 										</imageobject>
 									</mediaobject>
 								</figure>
@@ -597,7 +624,7 @@
                                                                 <figure id="eayunos-install-eayunos-manager-29"><title>&OVIRT;图29</title>
                                                                         <mediaobject>
                                                                                 <imageobject>
-                                                                                        <imagedata fileref="images/iscsi-1.png" format="PNG" scale="60"/>
+                                                                                        <imagedata fileref="images/iscsi-1.png" format="PNG" scalefit="1" width="100%"/>
                                                                                 </imageobject>
                                                                         </mediaobject>
                                                                 </figure>
@@ -620,7 +647,7 @@
 			                                                                <figure id="eayunos-install-eayunos-manager-30"><title>&OVIRT;图30</title>
 			                                                                        <mediaobject>
 			                                                                                <imageobject>
-			                                                                                        <imagedata fileref="images/iscsi-2.png" format="PNG" scale="60"/>
+			                                                                                        <imagedata fileref="images/iscsi-2.png" format="PNG" scalefit="1" width="100%"/>
 			                                                                                </imageobject>
 			                                                                        </mediaobject>
 			                                                                </figure>
@@ -657,8 +684,17 @@
                         </itemizedlist>
                 </para>
         </section>
-        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_8">
+        <section id="sect-Documents-evaluation-guide-Chapter_installation-Section_9">
                 <title>本章小结</title>
                 <para>你已经成功安装了EayunOS虚拟化基础系统，可以在这个系统进行创建虚拟机等操作</para>
+                <para>
+                    <figure id="eayunos-install-eayunos-manager-31"><title>&OVIRT;图31</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/installation-lab-31.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
         </section>
 </chapter>

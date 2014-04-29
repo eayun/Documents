@@ -9,7 +9,7 @@
         <figure id="eayunos-live-migration-0"><title>图1</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/live-migration-lab.png" format="PNG" scale="100"/>
+                    <imagedata fileref="images/live-migration-lab-0.png" format="PNG" scalefit="1" width="100%"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -54,7 +54,7 @@
 					<figure id="eayunos-live-migration-1"><title>图2</title>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="images/live-migration-virtual-machine-1.png" format="PNG" scale="100"/>
+								<imagedata fileref="images/live-migration-virtual-machine-1.png" format="PNG" scalefit="1" width="100%"/>
 							</imageobject>
 						</mediaobject>
 					</figure>
@@ -86,7 +86,7 @@
                                         <figure id="eayunos-live-migration-2"><title>图3</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/live-migration-virtual-machine-2.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/live-migration-virtual-machine-2.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -120,7 +120,7 @@
                                         <figure id="eayunos-live-migration-3"><title>图4</title>
                                                 <mediaobject>
                                                         <imageobject>
-                                                                <imagedata fileref="images/live-migration-virtual-machine-3.png" format="PNG" scale="100"/>
+                                                                <imagedata fileref="images/live-migration-virtual-machine-3.png" format="PNG" scalefit="1" width="100%"/>
                                                         </imageobject>
                                                 </mediaobject>
                                         </figure>
@@ -137,6 +137,15 @@
                 <title>本章小结</title>
                 <para>
                         本章完成了为虚拟机动态迁移配置集群策略的目标。在这个实验，动态迁移虚拟机在主机状态移入维护状态的情况和配置集群策略去激活虚拟机动态迁移在主机负载超过自身的临界值的情况。
+                </para>
+                <para>
+                    <figure id="eayunos-live-migration-4"><title>图5</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/live-migration-lab-1.png" format="PNG" scalefit="1" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
         </section>
 </chapter>
