@@ -25,15 +25,27 @@
     <para>
       在 &OVIRT; 管理系统中, 所有数据中心都是在管理门户管理的, 系统的超级管理
       员通过登录管理门户管理所有创建的数据中心.
+    <figure id="data-center"><title>数据中心</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/data-center.png" format="PNG" scale="100"/>
+      </imageobject>
+    </mediaobject>
+    </figure>
     </para>
-    <!-- TODO: picture(Data Centers) -->
 
     <para>
       在安装 &OVIRT; 系统的时候, 会自动创建一个默认的数据中心. 再使用 &OVIRT;
       系统的时候, 即使用不到这个默认的数据中心, 建议不要删除它, 需要的时候重新
       创建.
+    <figure id="data-center-object"><title>数据中心对象</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/data-center-object.png" format="PNG" scale="100"/>
+      </imageobject>
+    </mediaobject>
+    </figure>
     </para>
-    <!-- TODO: picture(Data Center Object) -->
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
