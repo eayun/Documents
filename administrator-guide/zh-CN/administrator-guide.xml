@@ -38,7 +38,9 @@
 	<xi:include href="Chapter-event-notifi.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-utilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Chapter-log-files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <!--
 	<xi:include href="Chapter-update.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    -->
 	<xi:include href="Chapter-backup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
     </part>
 	<xi:include href="Appendix-firewalls.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
