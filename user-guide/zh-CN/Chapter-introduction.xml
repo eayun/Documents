@@ -38,7 +38,7 @@
             <figure id="eayunos-user-perface-0"><title>图1</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/user-perface-1.png" format="PNG" scale="100"/>
+                        <imagedata fileref="images/user-perface-1.png" format="PNG" scalefit="1" width="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
