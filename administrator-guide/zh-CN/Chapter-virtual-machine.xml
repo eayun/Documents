@@ -3258,7 +3258,13 @@
         <step>
           <para>
             把导出域附加到源数据中心.
-          <!-- TODO: picture -->
+            <figure id="vm-attach-export-domain"><title>附加导出域</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/vm-attach-export-domain.png" format="PNG" scale="100"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
           </para>
         </step>
         <step>
