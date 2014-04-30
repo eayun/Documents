@@ -3297,7 +3297,7 @@
             <figure id="create-vm-attach-vm"><title>附加存储域</title>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/vm-create-attach-vm.png" format="PNG" scale="100"/>
+                <imagedata fileref="images/vm-create-attach-export-domain-dest.png" format="PNG" scalefit="1" width="100%"/>
               </imageobject>
             </mediaobject>
             </figure>
@@ -3306,6 +3306,13 @@
         <step>
           <para>
             导入虚拟资源到目的数据中心
+            <figure id="vm-import-exported-vm"><title>导入虚拟机</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/vm-import-exported-vm.png" format="PNG" scalefit="1" width="100%"/>
+              </imageobject>
+            </mediaobject>
+            </figure>
           </para>
         </step>
       </procedure>
