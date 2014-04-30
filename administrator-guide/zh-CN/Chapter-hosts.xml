@@ -1120,7 +1120,7 @@
       <itemizedlist>
         <listitem>
           <simpara>
-            <!-- TODO: 连接至 section F.3.2, "Creating a Tag" -->
+            <xref linkend="sect-Using_Search_Bookmarks_and_Tags-Creating_a_Tag"/>
           </simpara>
         </listitem>
       </itemizedlist>
