@@ -178,7 +178,7 @@
                          <figure id="eayunos-technical-reference-spm-metadata"><title>SPM写入结构化元数据示意图</title>
 		           <mediaobject>
 			     <imageobject>
-				<imagedata fileref="images/eayun_storage_spm_metadata.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_storage_spm_metadata.png" format="PNG" scalefit="1" width="100%"/>
 			     </imageobject>
 		           </mediaobject>
                          </figure>

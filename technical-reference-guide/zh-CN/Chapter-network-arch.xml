@@ -262,7 +262,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                 <figure id="eayunos-technical-reference-networking-with-cluster"><title>集群网络典型示意图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_networking_with_cluster.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_networking_with_cluster.png" format="PNG" scalefit="1" width="100%"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
@@ -312,7 +312,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                 <figure id="eayunos-technical-reference-ovirtmgmt-logical-network"><title>ovirtmgmt逻辑网络示意图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_ovirtmgmt_logical_network.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_ovirtmgmt_logical_network.png" format="PNG" scalefit="1" width="100%"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
@@ -411,7 +411,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <figure id="eayunos-technical-reference-bridge-configuration"><title>网桥、网卡的配置</title>
 		         <mediaobject>
 		 	    <imageobject>
-				<imagedata fileref="images/eayun_bridge_and_nic_configuration.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_bridge_and_nic_configuration.png" format="PNG" scalefit="1" width="100%"/>
 		       	    </imageobject>
 		         </mediaobject>
                        </figure>
@@ -427,7 +427,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <figure id="eayunos-technical-reference-bridge-vlan-configuration"><title>网桥、VLAN、网卡的配置</title>
 		         <mediaobject>
 		 	    <imageobject>
-				<imagedata fileref="images/eayun_bridge_vlan_and_nic_configuration.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_bridge_vlan_and_nic_configuration.png" format="PNG" scalefit="1" width="100%"/>
 		       	    </imageobject>
 		         </mediaobject>
                        </figure>
@@ -443,7 +443,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <figure id="eayunos-technical-reference-bridge-bond-configuration"><title>网桥、Bond、网卡的配置</title>
 		         <mediaobject>
 		 	    <imageobject>
-				<imagedata fileref="images/eayun_bridge_bond_nic_configuration.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_bridge_bond_nic_configuration.png" format="PNG" scalefit="1" width="100%"/>
 		       	    </imageobject>
 		         </mediaobject>
                        </figure>
@@ -459,7 +459,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <figure id="eayunos-technical-reference-mbridge-mvlan-configuration"><title>多网桥、多VLAN、网卡的配置</title>
 		         <mediaobject>
 		 	    <imageobject>
-				<imagedata fileref="images/eayun_mbridge_mvlan_and_nic_configuration.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_mbridge_mvlan_and_nic_configuration.png" format="PNG" scalefit="1" width="100%"/>
 		       	    </imageobject>
 		         </mediaobject>
                        </figure>
@@ -472,7 +472,7 @@ ovirtmgmt		8000.002590c3b324	no		eth0
                        <figure id="eayunos-technical-reference-mbridge-mvlan-mnic-bond-configuration"><title>多网桥、多VLAN、多网卡、Bond的配置</title>
 		         <mediaobject>
 		 	    <imageobject>
-				<imagedata fileref="images/eayun_mbridge_mvlan_mnic_bond_configuration.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_mbridge_mvlan_mnic_bond_configuration.png" format="PNG" scalefit="1" width="100%"/>
 		       	    </imageobject>
 		         </mediaobject>
                        </figure>

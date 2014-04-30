@@ -56,7 +56,7 @@
                 <figure id="eayunos-technical-reference-eayun_gssapi_authentication"><title>GSSAPI认证示意图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_gssapi_authentication.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_gssapi_authentication.png" format="PNG" scalefit="1" width="100%"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>

@@ -17,7 +17,7 @@
                 <figure id="eayunos-manager-architecture"><title>eayunOS管理平台架构图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_arch_manager.png" format="PNG" scalefit="1" width="100%"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
@@ -37,7 +37,7 @@
                 <figure id="eayunos-host-architecture"><title>eayunOS主机架构组件图</title>
 		   <mediaobject>
 			<imageobject>
-				<imagedata fileref="images/eayun_host_architecture.png" format="PNG" scale="60"/>
+				<imagedata fileref="images/eayun_host_architecture.png" format="PNG" scalefit="1" width="100%"/>
 			</imageobject>
 		   </mediaobject>
                 </figure>
