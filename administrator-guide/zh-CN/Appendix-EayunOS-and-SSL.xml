@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-EayunOS_and_SSL">
+  <title>&OVIRT; 和 SSL</title>
+  <section id="sect-EayunOS_and_SSL-Replacing_the_EayunOS_Manager_SSL_Certificate">
+    <title>替换 &OVIRT; &MANAGER;的 SSL 证书</title>
+    <formalpara>
+      <title>概述</title>
+      <para>
+        您希望使用您所在组织的经过商业签名的证书来向使用 https 进行连接的用户认证您的 &OVIRT; &MANAGER;。
+      </para>
+    </formalpara>
+    <note>
+      <para>
+        为 https 连接使用商业分发的证书并不会影响用以进行&MANAGER;和主机之间进行验证的证书，它们之间将会继续使用&MANAGER;生成的自签名证书。
+      </para>
+    </note>
+    <formalpara>
+      <title>前提需求</title>
+      <para>
+        此过程要求从您的商业证书分发机构处获得一个 <replaceable>PEM</replaceable> 格式化的证书、一个 <replaceable>.nokey</replaceable> 文件和一个 <replaceable>.cer</replaceable> 文件。<replaceable>.nokey</replaceable> 和 <replaceable>.cer</replaceable> 文件有时候使用 <replaceable>P12</replaceable> 格式作为一个证书密钥包进行分发。
+      </para>
+    </formalpara>
+    <para>
+      此过程假设您有一个使用 <replaceable>P12</replaceable> 格式的证书密钥包。
+    </para>
+    <procedure>
+      <title>替换 &OVIRT; &MANAGER; Apache SSL 证书</title>
+      <step>
+        <para>
+          &MANAGER; 被配置为使用 <filename>/etc/pki/ovirt-engine/apache-ca.pem</filename>，其是一个指向 <filename>/etc/pki/ovirt-engine/ca.pem</filename> 的软链接。删除该软链接。
+        </para>
+        <screen>
+# rm /etc/pki/ovirt-engine/apache-ca.pem
+        </screen>
+      </step>
+      <step>
+        <para>
+          将您的商业分发的证书保存为 <filename>/etc/pki/ovirt-engine/apache-ca.pem</filename>。
+        </para>
+        <screen>
+# mv <emphasis><replaceable>YOUR-3RD-PARTY-CERT.pem</replaceable></emphasis> /etc/pki/ovirt-engine/apache.pem
+        </screen>
+      </step>
+      <step>
+        <para>
+          将您的 <replaceable>P12</replaceable> 包复制至 <filename>/etc/pki/ovirt-engine/keys/apache.p12</filename>。
+        </para>
+      </step>
+      <step>
+        <para>
+          从该包中提取出密钥。
+        </para>
+        <screen>
+# openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes > /etc/pki/ovirt-engine/keys/apache.key.nopass
+        </screen>
+      </step>
+      <step>
+        <para>
+          从该包中提取出证书。
+        </para>
+        <screen>
+# openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys > /etc/pki/ovirt-engine/certs/apache.cer
+        </screen>
+      </step>
+      <step>
+        <para>
+          重启 Apache 服务器。
+        </para>
+        <screen>
+# service httpd restart
+        </screen>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        您现在连接到门户的时候，不会再被警告注意用以加密 https 连接的证书的真实性了。
+      </para>
+    </formalpara>
+  </section>
+</appendix>
