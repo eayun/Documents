@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-EayunOS_Manager_UI_Plugin-User_Interface_Plugin">
+  <title>&OVIRT; &MANAGER;用户界面插件</title>
+
+  <section id="sect-EayunOS_Manager_UI_Plugin-User_Interface_Plugin">
+    <title>&OVIRT; &MANAGER;用户界面插件</title>
+    <para>
+      &OVIRT; &MANAGER;支持插件来展现非标准的功能。这让&OVIRT; &MANAGER;与其他系统进行整合的时候变得非常容易。每一个插件接口代表了一套用户界面的扩展，并且能被打包和发布来为&OVIRT; &MANAGER;所使用。
+    </para>
+    <para>
+      &OVIRT; &MANAGER;的用户界面插件在客户端（浏览器）使用 JavaScript 来直接与管理门户进行集成。插件被管理门户所在的浏览器所运行的 JavaScript 脚本调用。用户界面插件能够使用 JavaScript 语言和它的库。
+    </para>
+    <para>
+      在运行时如果有对应的事件被触发，管理门户通过事件处理函数来调用对应的插件，这样即可呈现管理门户与插件之间的通信。尽管管理门户支持多重事件处理函数，一个插件也应该只声明为本插件所使用的回调函数。每一个插件在被管理门户所使用前，必须通过插件的启动顺序中的一个环节来注册与该插件相关的回调函数。
+    </para>
+    <para>
+      管理门户与插件之间的通信驱动着插件的用户界面显示，为了促进它的使用，管理门户对外暴露了插件 API，并且将它作为一个全局的 插件API（pluginApi）JavaScript 对象来为每一个单独的插件所使用。每一个插件都获得了一个单独的 插件API（pluginApi）实例，从而让管理门户能够控制对每一个插件的 API函数 的调用，从而实现了对插件的生命周期管理。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS_Manager_UI_Plugin-Life_Cycle">
+    <title>&OVIRT; &MANAGER;用户界面插件的生命周期</title>
+    <section id="sect-EayunOS_Manager_UI_Plugin-Life_Cycle_sub">
+      <title>&OVIRT; &MANAGER;用户界面插件的生命周期</title>
+      <procedure>
+        <para>
+          用户界面插件的生命周期可以分为三个阶段：
+        </para>
+        <step>
+          <para>
+            发现插件
+          </para>
+        </step>
+
+        <step>
+          <para>
+            载入插件
+          </para>
+        </step>
+
+        <step>
+          <para>
+            引导插件
+          </para>
+        </step>
+      </procedure>
+    </section>
+
+    <section id="sect-EayunOS_Manager_UI_Plugin-Discovery">
+      <title>&OVIRT; &MANAGER;用户界面插件的检测</title>
+      <para>
+        创建插件描述文件是插件检测过程中的第一步。插件描述文件包含了重要的插件元数据，和默认的与具体插件有关的配置（可选）。
+      </para>
+      <para>
+        作为处理管理门户 HTML 页面请求（HTTP GET）的一部分，用户界面插件框架会尝试从您的文件系统中发现并载入插件描述文件。对于每一个具体的插件描述文件，框架也会尝试载入对应于具体插件的用户配置文件，并且会覆盖默认的具体插件配置（如果存在的话）并且调整插件的运行时表现。插件的用户描述文件是可选的。在载入了插件描述文件和对应的用户描述文件之后，&OVIRT;将会聚集用户插件的数据并将之整合进管理门户的 HTML 页面用来进行评估。
+      </para>
+      <para>
+        默认情况下，插件描述文件在 $ENGINE_USR/ui-plugins 下，&OVIRT;本地配置文件中的默认配置有：ENGINE_USR=/usr/share/ovirt-engine。插件描述文件应遵从 JSON 规范。但是允许 Java/C++ 风格的注释（/* 和 //）。
+      </para>
+      <para>
+        默认情况下，插件的用户配置文件在 $ENGINE_ETC/ui-plugins 下，&OVIRT;本地配置文件中的默认配置有：ENGINE_ETC=/usr/share/ovirt-engine。用户描述文件的规则和插件描述文件一样。
+      </para>
+      <note>
+        <para>
+          插件的用户描述文件一般遵循 &lt;descriptorFileName&gt;-config.json 命名规则。
+        </para>
+      </note>
+    </section>
+
+    <section id="sect-EayunOS_Manager_UI_Plugin-Loading">
+      <title>&OVIRT; &MANAGER;用户界面插件的载入</title>
+      <para>
+        当插件被监测到并且插件数据嵌入到管理门户的 HTML 页面中后，管理门户尝试将载入插件作为管理端应用程式启动的一部分（除非你设置为不自动启动）。
+      </para>
+      <para>
+        对于所发现的每一个插件，管理门户会创建一个 HTML 的 iframe 元素用来载入插件的主页面。插件的主页面有必要开始插件的引导过程，引导过程用来评估插件代码在 iframe 元素上下文中的运行。用户界面插件框架支持提供本地文件系统中的资源文件（比如插件的主页面）。这样，插件主页面被载入到对应的 iframe 元素中，插件的代码得到计算评估。当插件代码评估完成，插件将通过插件 API 来与管理门户进行通信。
+      </para>
+    </section>
+
+    <section id="sect-EayunOS_Manager_UI_Plugin-Bootstrapping">
+      <title>&OVIRT; &MANAGER;用户界面插件的引导</title>
+      <para>
+        一个典型的插件引导程式包括如下步骤：
+      </para>
+      <procedure>
+        <title>插件引导过程</title>
+        <step>
+          <para>
+            获得插件的 pluginApi 实例
+          </para>
+        </step>
+
+        <step>
+          <para>
+            获得运行时插件配置对象
+          </para>
+        </step>
+
+        <step>
+          <para>
+            注册有关的事件处理函数
+          </para>
+        </step>
+
+        <step>
+          <para>
+            通知用户界面插件框架继续对插件进行初始化过程
+          </para>
+        </step>
+      </procedure>
+      <para>
+        下面的代码片段展示了实际运行过程中上面的步骤的实现：
+      </para>
+      <para>
+        <programlisting language="JavaScript">
+<![CDATA[
+// Access plugin API using 'parent' due to this code being evaluated within the context of an iframe element.
+// As 'parent.pluginApi' is subject to Same-Origin Policy, this will only work when WebAdmin HTML page and plugin
+// host page are served from same origin. WebAdmin HTML page and plugin host page will always be on same origin
+// when using UI plugin infrastructure support to serve plugin resource files.
+var api = parent.pluginApi('MyPlugin');
+// Runtime configuration object associated with the plugin (or an empty object).
+var config = api.configObject();
+// Register event handler function(s) for later invocation by UI plugin infrastructure.
+api.register({
+    // UiInit event handler function.
+    UiInit: function() {
+    // Handle UiInit event.
+        window.alert('Favorite music band is ' + config.band);
+    }
+});
+// Notify UI plugin infrastructure to proceed with plugin initialization.
+api.ready();
+]]>
+        </programlisting>
+      </para>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS_Manager_UI_Plugin-Related_Files_And_Their_Locations">
+    <title>用户界面插件相关的文件以及它们的位置</title>
+    <table>
+      <title>与用户界面插件相关的文件以及它们的位置</title>
+      <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              文件
+            </entry>
+            <entry>
+              位置
+            </entry>
+            <entry>
+              备注
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              插件描述文件（元数据）
+            </entry>
+            <entry>
+              /usr/share/ovirt-engine/ui-plugins/my-plugin.json
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              插件的用户配置文件
+            </entry>
+            <entry>
+              /etc/ovirt-engine/ui-plugins/my-plugin-config.json
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              插件的资源文件
+            </entry>
+            <entry>
+              /usr/share/ovirt-engine/ui-plugins/&lt;resourcePath&gt;/PluginHostPage.html
+            </entry>
+            <entry>
+              &lt;resourcePath&gt;是被对应的插件描述文件所定义的。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-EayunOS_Manager_UI_Plugin-Example_UI_Plugin_Deployment">
+    <title>示例部署用户界面插件</title>
+    <para>
+      按照以下的示例可以在你登陆&OVIRT; &MANAGER;管理门户时运行一个 Hello World！ 的用户界面插件程序。
+    </para>
+    <procedure>
+      <title>部署一个 Hello World！ 插件</title>
+      <step>
+        <para>
+          在管理端上创建一个插件描述文件： <emphasis>/usr/share/ovirt-engine/ui-plugins/helloWorld.json</emphasis> 内容如下：
+        </para>
+<screen>{
+    "name": "HelloWorld",
+    "url": "/webadmin/webadmin/plugin/HelloWorld/start.html",
+    "resourcePath": "hello-files"
+}
+</screen>
+      </step>
+      <step>
+        <para>
+          通过在管理端上创建如下文件 <emphasis>/usr/share/ovirt-engine/ui-plugins/hello-files/start.html</emphasis> 来创建插件主页：
+        </para>
+<screen>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+&lt;script&gt;
+    var api = parent.pluginApi('HelloWorld');
+    api.register({
+    UiInit: function() { window.alert('Hello world'); }
+    });
+    api.ready();
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;
+</screen>
+      </step>
+    </procedure>
+    <para>
+      如果你成功地实现了 Hello World！ 插件，那么你在登陆管理门户时你将看到如下的界面：
+    </para>
+    <figure id="figure-EayunOS_Manager_UI_Plugin-A_Successful_Implementation_Of_Hello_World_Plugin">
+      <title>一个成功的 Hello World！ 插件的实现</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/EayunOS_Manager_UI_Plugin-A_Successful_Implementation_Of_Hello_World_Plugin.png" format="PNG" width="100%" scalefit="1"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+</appendix>
