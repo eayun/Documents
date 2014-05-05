@@ -12,7 +12,7 @@
       &OVIRT; 使用外部的目录服务来进行用户认证。所有的用户账户都必须在外部的目录服务器上创建。这类用户被称作<firstterm>目录用户</firstterm>。唯一的例外是 <emphasis>internal</emphasis> 域中的 <emphasis>admin</emphasis> 用户是在安装过程中创建的。
     </para>
     <para>
-      在目录服务器连接到 &OVIRT; &MANAGER;之后，在该目录服务器中的用户可以被添加至管理员门户，使他们成为<firstterm>&OVIRT; &MANAGER;用户</firstterm>。&OVIRT; &MANAGER;用户能够根据他们所需要进行的任务被分配不同的角色和权限。
+      在目录服务器连接到 &OVIRT; &MANAGER;之后，在该目录服务器中的用户可以被添加至管理员门户，使他们成为<firstterm>&OVIRT; &MANAGER;用户</firstterm>。&OVIRT; &MANAGER;的用户能够根据他们所需要进行的任务被分配不同的角色和权限。
     </para>
     <para>
       &OVIRT; &MANAGER;中的用户分为两种类型，包括在用户门户中使用及管理虚拟资源的终端用户，和使用管理员门户进行系统基础架构维护的管理员。<emphasis>用户</emphasis>角色及<emphasis>管理员</emphasis>角色能够分配给 &OVIRT; &MANAGER;用户，使他们能够使用独立的资源如虚拟机和主机，或者整个体系的对象如集群和数据中心。
@@ -114,12 +114,11 @@
       </important>
       <important>
         <para>
-          同一台机器上无法同时安装 &OVIRT; &MANAGER;和 IdM(ipa-server)。IdM 与 mod_ssl 包不兼容，但 mod_ssl 包被 &OVIRT; &MANAGER;所依赖。
-        </para>
+          同一台机器上无法同时安装 &OVIRT; &MANAGER;和 IdM(ipa-server)。IdM 与 &OVIRT; &MANAGER;所依赖的 mod_ssl 包不兼容。 </para>
       </important>
       <important>
         <para>
-          如果您使用 Active Directory 作为目录服务器，并且您希望在创建模板和虚拟机的过程中使用 <emphasis>sysprep</emphasis>，在 &OVIRT; 管理员用户必须被授权对域进行操作包括：
+          如果您使用 Active Directory 作为目录服务器，并且您希望在创建模板和虚拟机的过程中使用 <emphasis>sysprep</emphasis>，&OVIRT; 管理员用户必须被授权对域进行的操作包括：
         </para>
         <itemizedlist>
           <listitem>
@@ -212,7 +211,7 @@
     <section id="sect-Users_and_Roles-User_Actions">
       <title>用户操作</title>
       <para>
-        要成功执行一个操作，<emphasis>用户</emphasis>必须拥有对被执行操作的<emphasis>对象</emphasis>的相应的<emphasis>权限</emphasis>。每类操作都对应一个<emphasis>权限</emphasis>。系统中存在很多不同的权限，所以下图为了简洁起见：
+        要成功执行一个操作，<emphasis>用户</emphasis>必须拥有对被执行操作<emphasis>对象</emphasis>的相应<emphasis>权限</emphasis>。每类操作都对应一个<emphasis>权限</emphasis>。系统中存在很多不同的权限，参见下图：
       </para>
       <figure id="figure-Users_and_Roles-Actions">
         <title>用户操作</title>
@@ -260,13 +259,13 @@
     <section id="sect-Users_and_Roles-User_Properties">
       <title>用户属性</title>
       <para>
-        角色和权限是用户的属性。角色是一系列预定义的能够在不同级别之上使用物理和虚拟资源的权限集合。多层管理为权限提供了细粒度的组织架构。例如，一个数据中心管理员具有管理该数据中心中所有对象的权限，而一个主机管理员则具有对单独一个物理主机的系统管理员权限。一个用户可以拥有使用单独一台虚拟机但不能对该虚拟机的配置做任何修改的权限，另一个用户则可以被分配对一台虚拟机的系统权限。
+        角色和权限是用户的属性。角色是一系列预定义的能够在不同级别之上使用的物理和虚拟资源的权限集合。多层管理为权限提供了细粒度的组织架构。例如，一个数据中心管理员具有管理该数据中心中所有对象的权限，而一个主机管理员则具有对单独一个物理主机的系统管理员权限。一个用户可以拥有使用单独一台虚拟机但不能对该虚拟机的配置做任何修改的权限，另一个用户则可以被分配对一台虚拟机的系统权限。
       </para>
     </section>
     <section id="sect-Users_and_Roles-User_and_Administrator_Roles">
       <title>用户和管理员角色</title>
       <para>
-        &OVIRT; 提供了一系列预配置好的角色，从具备整个系统权限的管理员角色到只能够使用单独一台虚拟机的终端用户角色。虽然您不能够修改或者删除默认存在的角色，您可以复制并进行自定义角色，或者根据您的需求创建新的角色。角色有如下两种类型：
+        &OVIRT; 提供了一系列预配置好的角色，从具备整个系统权限的管理员角色到只能够使用单独一台虚拟机的终端用户角色。虽然您不能够修改或者删除默认存在的角色，但是您可以复制并进行自定义角色，或者根据您的需求创建新的角色。角色有如下两种类型：
       </para>
       <itemizedlist>
         <listitem>
@@ -749,7 +748,7 @@
       <formalpara>
         <title>概述</title>
         <para>
-          用户能够被分配到在特定资源上的或者资源容器架构上的权限。您可以在不同的资源上查看分配的用户及他们的权限。
+          用户能够被分配到在特定资源或者资源容器架构上的权限。您可以在不同的资源上查看分配的用户及他们的权限。
         </para>
       </formalpara>
       <procedure>
@@ -963,7 +962,7 @@
     <example>
       <title>数据中心 PowerUserRole 权限</title>
       <para>
-        王五是办公室经历。在他日常的职责范围之外，他还偶尔帮助人力资源经理进行一些招聘工作，例如安排面试及跟进推荐核对。根据公司政策，他需要使用特定的程序进行招聘相关的工作。
+        王五是办公室经理。在他日常的职责范围之外，他还偶尔帮助人力资源经理进行一些招聘工作，例如安排面试及跟进推荐核对。根据公司政策，他需要使用特定的程序进行招聘相关的工作。
       </para>
       <para>
         王五日常使用他的虚拟机进行他的日常工作，他还希望创建例外一台虚拟机来运行招聘工作相关的程序。他在他将新建的虚拟机所在的数据中心上被分配了 <emphasis>PowerUserRole</emphasis> 权限。这是由于要创建一台新虚拟机，他将会对数据中心中的几个部分都进行修改，包括在存储域中创建新的虚拟机磁盘镜像。
