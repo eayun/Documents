@@ -10,23 +10,23 @@
 	<section id="sect-Documents-administrator-guide-Chapter-cluster_Section_1">
 		<title>&OVIRT;集群介绍</title>
 		<para>
-                 集群是一组主机的集合，在同一集群下主机可共享相同的存储域，且CPU的
+                 集群是一组主机的集合，在同一集群下的主机可共享相同的存储域，且CPU的
                  型号须同质（Intel或AMD）。如果主机之间有不同代的CPU，那么
-                 只能体现最古老的那一代。
+                 只能使用所有主机共有的 CPU 指令集。
 		</para>
                 <para>
-                 每个集群必然属于一个数据中心，每个主机也必然有一个集群，虚拟机会
-                 动态的被分配到集群内的主机中，且可以在主机直接作迁移，关于迁移依
-                 据的是集群所定义的一些规则（可在<emphasis>集群</emphasis>面板中配
-                 置,集群是定义负载均衡和省电模式规则的最好级别）。
+                 每个集群必然属于一个数据中心，每个主机也必然属于一个集群，虚拟机会
+                 动态的被分配到集群内的主机中，且可以在主机间动态迁移，是否迁移虚拟机依
+                 据集群所定义的一些规则（可在<emphasis>集群</emphasis>面板中配
+                 置,集群是定义负载均衡和省电模式规则的最高级别）。
                 </para>
                 <para>
-                 &OVIRT;集群分为两种，一种是运行虚拟机的，另外一种是&OVIRT_STORAGE;
-                 在执行engine-setup的时候，可以选择，当然也可混在一起管理和使用。
+                  <!-- jiansheng: Please FIXME if i was wrong -->
+                 &OVIRT;集群分为两种，一种是运行虚拟机的，另外一种是运行&OVIRT_STORAGE;
+                 服务的, 一个集群不能同时运行虚拟机服务, 又运行 &OVIRT_STORAGE; 服务.
                 </para>
                 <para>
-                 &OVIRT;默认安装，会自动配置一个默认的数据中心，此数据中心下有一个
-                 默认的集群。
+                 &OVIRT;默认安装的时候会自动配置一个默认的数据中心和默认的集群。
                 </para>
                 <figure id="eayunos-Documents-administrator-guide-cluster-images">
                       <title>集群图示</title>
@@ -82,9 +82,9 @@
                     <formalpara><title>摘要</title>
                      <para>
                       一个数据中心可包含多个集群，一个集群可包含多个主机，同一集群下
-                      的主机的CPU类型必须是一致的（intel或者是AMD），这里提醒的是尽
-                      量在建立集群和主机之前确定CPU的属性，尽管&OVIRT;提供了<emphasis>
-                      向导</emphasis>机制。
+                      的主机的CPU类型必须是一致的（intel或者是AMD），建议尽
+                      量在建立主机之前先建立集群, 这样可以确保CPU得到最好的优化.
+                      尽管&OVIRT;提供了<emphasis>向导</emphasis>机制。
                      </para>
                     </formalpara>
                     <procedure><title>新建集群</title>
@@ -101,7 +101,7 @@
                       </step>
                       <step>
                        <para>
-                        在<emphasis>数据中心</emphasis> 项后的下来列表中选择集群的归属。
+                        在<emphasis>数据中心</emphasis> 项的下拉列表中选择集群的归属。
                        </para>
                       </step>
                       <step>
@@ -122,29 +122,29 @@
                         在<emphasis>启用Virt服务</emphasis>和<emphasis>启用gluster服务
                         </emphasis>之间，选择一个，点击单选框即可。这取决于将&OVIRT;用
                         于虚拟机管理还是用于&OVIRT_STORAGE;管理，这里提醒的一点是，&OVIRT;
-                        Hypervisor Node 无法用于Gluster的集群节点。 
+                        Hypervisor Node 无法作为Gluster的集群节点。
                        </para>
                       </step>
                       <step>
                        <para>
-                        选择<emphasis>优化</emphasis>选项，可配置内存优化、是否激活CPU
+                        点击<emphasis>优化</emphasis>选项，可配置内存优化、是否激活CPU
                         线程以及是否启用内存ballooning。
                        </para>
                       </step>
                       <step>
                        <para>
-                        选择<emphasis>Resilience策略</emphasis>选项，选择虚拟机的迁移策略。
+                        点击<emphasis>Resilience策略</emphasis>选项，选择虚拟机的迁移策略。
                        </para>
                       </step>
                       <step>
                        <para>
-                        选择<emphasis>集群策略</emphasis>选项，以配置负载均衡策略，选择
-                        调度优化的方式，以及是否激活信任主机服务。 
+                        点击<emphasis>集群策略</emphasis>选项，配置负载均衡策略，调度优化的方式，
+                        以及是否激活信任主机服务。
                        </para>
                       </step>
                       <step>
                        <para>
-                         点击<emphasis>确定</emphasis>按钮完成建立集群，&OVIRT;这时会弹出
+                         点击<emphasis>确定</emphasis>按钮完成建立集群，这时会弹出
                          <emphasis>新建集群-向导</emphasis>。
                        </para>
                       </step>
@@ -195,8 +195,8 @@
 		             </mediaobject>
                           </figure>
 		        <para>
-                         当输入非正确的字段，会在用户点击<emphasis>确定</emphasis>按钮时出错
-                         的部分会显示菊黄色的，且无法进行下一步的操作，通常情况下会提示预期
+                         当输入非正确的字段，会在用户点击<emphasis>确定</emphasis>按钮时出错, 出错
+                         的部分会显示为菊黄色的，且无法进行下一步的操作，通常情况下会提示预期
                          值或值范围不对。
 		        </para>
                         <para>
@@ -308,7 +308,7 @@
                                             </itemizedlist>
                                             <para>
                                              集群内所有主机必须运行在同一型号的CPU（Intel或AMD）。
-                                             且一旦集群建立后变动会非常的繁琐。CPU的类型选择尽可
+                                             且一旦集群建立后不允许变动。CPU的类型选择尽可
                                              能的选择低代的，比如，一个拥有<emphasis>Intel Haswell
                                              </emphasis>的主机是可以加入到类型为<emphasis>Intel 
                                              Westmere Family</emphasis>的集群中的，相反，<emphasis>
@@ -364,8 +364,8 @@
                                            启用Gluster服务
                                          </entry> 
                                          <entry>
-                                           如果选中此单选框，运行在此集群下的主机将用户&OVIRT_STORAGE;
-                                           的节点，不是运行虚拟机。且用户不能将&OVIRT; Hypervisor
+                                           如果选中此单选框，运行在此集群下的主机将用于&OVIRT_STORAGE;
+                                           的节点，而不是运行虚拟机。且用户不能将&OVIRT; Hypervisor
                                            Node加入到此集群中。
                                          </entry> 
                                    </row>
@@ -380,7 +380,7 @@
                                             且其所包含的所有主机。
                                             </para>
                                             <para>
-                                            下列属性是要导入的主机时填写的内容：
+                                            下列属性是要导入主机时填写的内容：
                                             </para>
                                             <itemizedlist>
                                                <listitem>
@@ -532,13 +532,13 @@
 		        <title>弹性策略的解释</title>
 		        <para>
                          弹性策略是根据主机宕机事件来设置虚拟机迁移的规则的意思。在同一集群的
-                         前提下，运行在突然宕机或者处于维护模式的主机上的虚拟机，是要迁移到其
-                         它主机中的；还有具体迁移还依赖于集群的策略。 
+                         前提下，运行在突然宕机或者处于维护模式的主机上的虚拟机，会迁移到其
+                         它主机中, 具体迁移还依赖于集群的策略。
 		        </para>
                         <note>
                           <para>
-                             虚拟机迁移是严重依赖网络的。例如，一次的将运行10多台虚拟机迁移到
-                             另外的主机，这将不仅会迁移很长的时间，还会影响到其他的性能，所以
+                             虚拟机迁移是严重依赖网络的。例如，一次将10多台虚拟机迁移到
+                             另外的主机，不仅会迁移很长的时间，还会影响到其他的性能，所以
                              选择一个合适的策略。保守的做法就是不做任何的迁移，当然，如果用户
                              拥有很多虚拟机，而有一些主机确实是负载非常的高（或重要），那么选
                              择仅迁移配置了高可用属性的虚拟机也是个不错的选择。
@@ -583,8 +583,7 @@
                                             不迁移虚拟机
                                          </entry> 
                                          <entry>
-                                            防止迁移过的虚拟机再迁移
-                                            <!--此话有点别扭 -->
+                                            防止虚拟机被迁移
                                          </entry> 
                                    </row>
                               </tbody>
@@ -637,7 +636,7 @@
                                             平均分发
                                          </entry> 
                                          <entry>
-                                           在同一集群中按照CPU的负载平均分配所有主机。当主机的
+                                           把CPU的负载平均分配到集群上的所有主机中。当主机的
                                            负载达到预先定义的上限值时，就无法在此主机启动虚拟机。
                                          </entry> 
                                    </row>
@@ -709,19 +708,19 @@
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-3">
 		    <title>编辑资源</title>
 		    <para>
-                       属于&OVIRT_STORAGE;内容，&OVIRT;在稍后的版本中会增加此节的内容。
+                       属于&OVIRT_STORAGE;内容，稍后的版本中会增加此节的内容。
 		    </para>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-4">
 		    <title>导入已经存在的&OVIRT;集群</title>
 		    <para>
-                       属于&OVIRT_STORAGE;内容，&OVIRT;在稍后的版本中会增加此节的内容。
+                       属于&OVIRT_STORAGE;内容，稍后的版本中会增加此节的内容。
 		    </para>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-5">
 		    <title>添加主机窗口的设置解释</title>
 		    <para>
-                       属于&OVIRT_STORAGE;内容，&OVIRT;在稍后的版本中会增加此节的内容。
+                       属于&OVIRT_STORAGE;内容，稍后的版本中会增加此节的内容。
 		    </para>
 	        </section>
 	        <section id="sect-Documents-administrator-guide-Chapter-cluster_Section_2-6">
@@ -1125,7 +1124,7 @@
                     </note>
                     <para>
                      当然&OVIRT;也支持重新定义系统默认的角色权限，可通过删除系统自带的管理员，然后在重新
-                     添加的途径来改变。 
+                     添加的方式来改变。
                     </para>
                     <formalpara><title>请参考：</title>
                      <para>
@@ -1201,7 +1200,7 @@
 		    <title>为资源分配管理员或用户角色</title>
                     <formalpara><title>摘要</title>
 		      <para>
-                       为资源分配管理员或用户角色，以达到容许用户访问或管理这些资源。
+                       为资源分配管理员或用户角色，容许用户访问或管理这些资源。
 		      </para>
                     </formalpara>
                     <procedure><title>为资源分配角色</title>
