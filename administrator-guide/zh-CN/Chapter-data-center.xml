@@ -34,7 +34,6 @@
       </imageobject>
     </mediaobject>
     </figure>
-    </para>
 
     <para>
       在安装 &OVIRT; 系统的时候，会自动创建一个默认的数据中心。再使用 &OVIRT;
@@ -49,7 +48,6 @@
       </imageobject>
     </mediaobject>
     </figure>
-    </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
