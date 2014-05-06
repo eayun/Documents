@@ -10,22 +10,24 @@
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_1">
     <title>什么是数据中心</title>
     <para>
-      数据中心在 &OVIRT; 管理系统中是很重要的一个概念, 它是一个逻辑上的的概念.
-      定义了一组在系统中的资源集合. 可以把数据中心理解为各种资源的容器: 由集群和
-      主机组成的<keycap>计算资源</keycap>容器, 由逻辑网络和物理网卡组成的
-      <keycap>网络资源</keycap>容器, 由存储域组成的<keycap>存储资源</keycap>容器.
+      数据中心在 &OVIRT; 管理系统中是很重要的一个概念，它是一个逻辑上的的概念。
+      定义了一组在系统中的资源集合。可以把数据中心理解为各种资源的容器: 由集群和
+      主机组成的<keycap>计算资源</keycap>容器，由逻辑网络和物理网卡组成的
+      <keycap>网络资源</keycap>容器，由存储域组成的<keycap>存储资源</keycap>容器。
     </para>
 
     <para>
-      一个数据中可以包含多个集群, 每个集群同事可以包含多个主机. 在每个数据中心
-      中, 可以附加多个存储域. 在集群中的每个主机可以运行多个虚拟机. 在 &OVIRT;
-      管理系统中, 可以同时建立和管理多个数据中心, 每个数据中心是独立的.
+      一个数据中可以包含多个集群，每个集群同事可以包含多个主机。在每个数据中心
+      中，可以附加多个存储域。在集群中的每个主机可以运行多个虚拟机。在 &OVIRT;
+      管理系统中，可以同时建立和管理多个数据中心，每个数据中心是独立的。
     </para>
 
     <para>
-      在 &OVIRT; 管理系统中, 所有数据中心都是在管理门户管理的, 系统的超级管理
-      员通过登录管理门户管理所有创建的数据中心.
-    <figure id="data-center"><title>数据中心</title>
+      在 &OVIRT; 管理系统中，所有数据中心都是在管理门户管理的，系统的超级管理
+      员通过登录管理门户管理所有创建的数据中心。
+    </para>
+
+    <figure id="data-center-architecture"><title>数据中心架构</title>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/data-center.png" format="PNG" scale="100"/>
@@ -35,9 +37,11 @@
     </para>
 
     <para>
-      在安装 &OVIRT; 系统的时候, 会自动创建一个默认的数据中心. 再使用 &OVIRT;
-      系统的时候, 即使用不到这个默认的数据中心, 建议不要删除它, 需要的时候重新
-      创建.
+      在安装 &OVIRT; 系统的时候，会自动创建一个默认的数据中心。再使用 &OVIRT;
+      系统的时候，即使用不到这个默认的数据中心，建议不要删除它，需要的时候重新
+      创建。
+    </para>
+
     <figure id="data-center-object"><title>数据中心对象</title>
     <mediaobject>
       <imageobject>
@@ -51,55 +55,55 @@
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_2">
     <title>存储池管理者（SPM）</title>
     <para>
-      在 &OVIRT; 管理系统中, The Storage Pool Manager(SPM) 指的是一种能管理
-      数据中心存储资源的权利, 管理员可以把这种权利赋给数据中心中的任何一台主机,
-      并且只能同时赋予一台. 具有 SPM 权限的主机和一般的主机没有什么不同.
+      在 &OVIRT; 管理系统中，The Storage Pool Manager(SPM) 指的是一种能管理
+      数据中心存储资源的权利，管理员可以把这种权利赋给数据中心中的任何一台主机,
+      并且只能同时赋予一台。具有 SPM 权限的主机和一般的主机没有什么不同。
     </para>
 
     <para>
-      SPM 是通过协调存储域上的元数据来控制存储的访问的, 比如创建/删除虚拟机镜像,
-      对虚拟机镜像做快照, 模板的创建, 等等. 为了保持元数据的一致性, 在一个数据
-      中心内同一时间只能有一个主机作为 SPM.
+      SPM 是通过协调存储域上的元数据来控制存储的访问的，比如创建/删除虚拟机镜像,
+      对虚拟机镜像做快照，模板的创建，等等。为了保持元数据的一致性，在一个数据
+      中心内同一时间只能有一个主机作为 SPM。
     </para>
 
     <para>
-      为了能使用数据中心, &OVIRT; 系统要求在数据中心中至少要有一个 SPM 主机.
-      如果当前的 SPM 主机出了问题导致不能访问存储, 那么系统会重新选择数据中心
-      的一台主机重新作为 SPM.
+      为了能使用数据中心，&OVIRT; 系统要求在数据中心中至少要有一个 SPM 主机。
+      如果当前的 SPM 主机出了问题导致不能访问存储，那么系统会重新选择数据中心
+      的一台主机重新作为 SPM。
     </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_3">
     <title>SPM优先级</title>
     <para>
-      SPM 优先级一个主机的属性, 前面说过, 数据中心的任何主机都可以成为 SPM,
-      一个主机的 SPM 的优先级越大, 系统在为数据中心选择新的 SPM 的时候,
-      该主机就越有机会成为新的 SPM 主机.
+      SPM 优先级一个主机的属性，前面说过，数据中心的任何主机都可以成为 SPM,
+      一个主机的 SPM 的优先级越大，系统在为数据中心选择新的 SPM 的时候,
+      该主机就越有机会成为新的 SPM 主机。
     </para>
 
     <para>
-      主机被赋予 SPM 权限之后, 在执行相应的 SPM 的任务的时候, 会消耗一些主机的
-      资源. 所以 SPM 优先级较低的主机有更多的资源来运行虚拟机.
+      主机被赋予 SPM 权限之后，在执行相应的 SPM 的任务的时候，会消耗一些主机的
+      资源。所以 SPM 优先级较低的主机有更多的资源来运行虚拟机。
     </para>
 
     <para>
-      可以通过编辑主机来修改主机的 SPM 优先级.
+      可以通过编辑主机来修改主机的 SPM 优先级。
     </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_4">
     <title>通过查看事件来定位问题</title>
     <para>
-      事件标签会显示一个数据中心的所有资源的相关事件信息. 事件包括
-      审计, 警告和错误. 显示在事件列表上的信息可以帮助管理员定位到发生问题的
-      地方.
+      事件标签会显示一个数据中心的所有资源的相关事件信息。事件包括
+      审计，警告和错误。显示在事件列表上的信息可以帮助管理员定位到发生问题的
+      地方。
     </para>
 
     <para>
-      事件标签有两种显示的视图: 基本视图和高级视图. 基本视图有
-      一个图标(通常是钩或者叉), 事件发生的时间, 和简短的时间描述. 高级视图除了
-      显示基本视图显示的信息之外, 还包含: 事件 ID, 相关用户, 主机, 虚拟机, 模板
-      等信息, 如图:
+      事件标签有两种显示的视图: 基本视图和高级视图。基本视图有
+      一个图标(通常是钩或者叉)，事件发生的时间，和简短的时间描述。高级视图除了
+      显示基本视图显示的信息之外，还包含: 事件 ID，相关用户，主机，虚拟机，模板
+      等信息，如图:
     </para>
 
     <figure id="event-view"><title>事件视图</title>
@@ -119,17 +123,17 @@
       <title>创建数据中心</title>
       <formalpara><title>摘要</title>
       <para>
-        下面的步骤描述怎样在 &OVIRT; 环境中新建一个数据中心. 注意: 一个数据中心
-        至少需要一个集群, 一个主机, 一个存储域才能正常工作.
+        下面的步骤描述怎样在 &OVIRT; 环境中新建一个数据中心。注意: 一个数据中心
+        至少需要一个集群，一个主机，一个存储域才能正常工作。
       </para>
       </formalpara>
 
       <note>
         <para>
-          创建了数据中心之后, 在添加第一个存储域到数据中心之前, 可以在任何
-          时候编辑数据中心设置该数据中心的<keycap>存储类型</keycap>. 但是一旦
-          数据中心里面附加了存储, 那么该数据中心的<keycap>存储类型</keycap>就不
-          能修改了.
+          创建了数据中心之后，在添加第一个存储域到数据中心之前，可以在任何
+          时候编辑数据中心设置该数据中心的<keycap>存储类型</keycap>。但是一旦
+          数据中心里面附加了存储，那么该数据中心的<keycap>存储类型</keycap>就不
+          能修改了。
         </para>
       </note>
 
@@ -137,52 +141,52 @@
         <title>创建一个新的数据中心</title>
         <step>
           <para>
-            在管理界面上选择 <keycap>数据中心</keycap>标签, 列出目前存在的所有
-            数据中心.
+            在管理界面上选择 <keycap>数据中心</keycap>标签，列出目前存在的所有
+            数据中心。
           </para>
         </step>
 
         <step>
           <para>
-            点击<keycap>新建</keycap>按钮, 打开<keycap>新建数据中心</keycap>窗口
+            点击<keycap>新建</keycap>按钮，打开<keycap>新建数据中心</keycap>窗口
           </para>
         </step>
 
         <step>
           <para>
-            输入数据中心的<keycap>名称</keycap>和<keycap>描述</keycap>.
+            输入数据中心的<keycap>名称</keycap>和<keycap>描述</keycap>。
           </para>
         </step>
 
         <step>
           <para>
-            从下拉菜单中选择适当的<keycap>类型</keycap>, <keycap>兼容模式</keycap>和
-            <keycap>配额模式</keycap>, 如果需要, 填写相关的<keycap>注释</keycap>.
+            从下拉菜单中选择适当的<keycap>类型</keycap>，<keycap>兼容模式</keycap>和
+            <keycap>配额模式</keycap>，如果需要，填写相关的<keycap>注释</keycap>。
           </para>
         </step>
 
         <step>
           <para>
-            点击<keycap>确定</keycap>创建数据中心, 打开<keycap>创建数据中心-引导操作</keycap>
-            窗口.
+            点击<keycap>确定</keycap>创建数据中心，打开<keycap>创建数据中心-引导操作</keycap>
+            窗口。
           </para>
         </step>
 
         <step>
           <para>
             <keycap>引导操作</keycap>会引导用户创建和配置数据中心需要的资源,
-            比如集群, 主机等. 如果这些资源还没有准备好, 或者用户想以后再配置,
-            点击<keycap>以后再配置</keycap>按钮. 之后, 用户可以在任何时候再点击
-            <keycap>引导操作</keycap>按钮配置该数据中心剩余的配置.
+            比如集群，主机等。如果这些资源还没有准备好，或者用户想以后再配置,
+            点击<keycap>以后再配置</keycap>按钮。之后，用户可以在任何时候再点击
+            <keycap>引导操作</keycap>按钮配置该数据中心剩余的配置。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        数据中心已经创建好了, 如果没有把存储, 主机, 集群配置好, 那么现在它处于
-        <keycap>Uninitialized</keycap> 状态. 需要用<keycap>引导操作</keycap>
-        来完成所有的配置.
+        数据中心已经创建好了，如果没有把存储，主机，集群配置好，那么现在它处于
+        <keycap>Uninitialized</keycap> 状态。需要用<keycap>引导操作</keycap>
+        来完成所有的配置。
       </para>
       </formalpara>
     </section>
@@ -191,7 +195,7 @@
       <title>关于新建、编辑数据中心窗口设置的进一步解释</title>
       <para>
         下表详细描述了在<keycap>新建数据中心</keycap>或者<keycap>编辑数据中心</keycap>
-        的时候需要选择的数据中心的属性.
+        的时候需要选择的数据中心的属性。
       </para>
       <table id="Data_Center_Properties">
         <title>数据中心属性</title>
@@ -212,8 +216,8 @@
                 名字
               </entry>
               <entry>
-                数据中心的名字, 必须限制在 40 个字符之类, 可以有数字, 字母,
-                连字符, 下划线组成.
+                数据中心的名字，必须限制在 40 个字符之类，可以有数字，字母,
+                连字符，下划线组成。
               </entry>
             </row>
 
@@ -222,7 +226,7 @@
                 描述
               </entry>
               <entry>
-                数据中心的描述, 可以不填.
+                数据中心的描述，可以不填。
               </entry>
             </row>
 
@@ -231,7 +235,7 @@
                 类型
               </entry>
               <entry>
-                存储类型, 目前支持以下几种存储类型:
+                存储类型，目前支持以下几种存储类型:
                 <itemizedlist>
                   <listitem>
                     <para>
@@ -264,9 +268,9 @@
                     </para>
                   </listitem>
                 </itemizedlist>
-                存储类型决定了数据中心的类型, 每个数据中心有且仅有一种类型,
-                在数据中心创建之后存储类型不能被修改. 例如, iSCSI 的数据中心
-                只能添加 iSCSI 的存储.
+                存储类型决定了数据中心的类型，每个数据中心有且仅有一种类型,
+                在数据中心创建之后存储类型不能被修改。例如，iSCSI 的数据中心
+                只能添加 iSCSI 的存储。
               </entry>
             </row>
 
@@ -297,7 +301,7 @@
                 配额模式
               </entry>
               <entry>
-                配额是 &OVIRT; 管理系统提供的一种工具. 有以下的类型可以选择:
+                配额是 &OVIRT; 管理系统提供的一种工具。有以下的类型可以选择:
                 <itemizedlist>
                   <listitem>
                     <para>
@@ -339,23 +343,23 @@
         <title>编辑资源</title>
         <step>
           <para>
-            使用资源标签, 搜索标签等找到想要的资源.
+            使用资源标签，搜索标签等找到想要的资源。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>。
           </para>
         </step>
         <step>
           <para>
-            改变资源的属性, 点击<keycap>确定</keycap>.
+            改变资源的属性，点击<keycap>确定</keycap>。
           </para>
         </step>
       </procedure>
       <formalpara><title>结果</title>
       <para>
-        该资源属性的值将会被保存.
+        该资源属性的值将会被保存。
       </para>
       </formalpara>
     </section>
@@ -363,7 +367,7 @@
       <title>在数据中心或集群中建立逻辑网络</title>
       <formalpara><title>结果</title>
       <para>
-        在数据中心或者集群中创建逻辑网络.
+        在数据中心或者集群中创建逻辑网络。
       </para>
       </formalpara>
 
@@ -371,19 +375,19 @@
         <title>在集群中创建一个逻辑网络</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>或者<keycap>集群</keycap>标签, 选择
-            要设置的数据中心或者集群.
+            点击<keycap>数据中心</keycap>或者<keycap>集群</keycap>标签，选择
+            要设置的数据中心或者集群。
           </para>
         </step>
         <step>
           <para>
             在数据中心或者集群的详细面板下点击<keycap>逻辑网络</keycap>标签
-            列出所有的逻辑网络.
+            列出所有的逻辑网络。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>添加网络</keycap>, 打开<keycap>新建逻辑网络</keycap>窗口.
+            点击<keycap>添加网络</keycap>，打开<keycap>新建逻辑网络</keycap>窗口。
           </para>
         </step>
         <step>
@@ -399,84 +403,84 @@
         </step>
         <step>
           <para>
-            输入<keycap>名称</keycap>, <keycap>描述</keycap>, <keycap>和注释</keycap>.
+            输入<keycap>名称</keycap>，<keycap>描述</keycap>，<keycap>和注释</keycap>。
           </para>
         </step>
         <step>
           <para>
-            选择适当的<keycap>网络参数</keycap>.
+            选择适当的<keycap>网络参数</keycap>。
           </para>
         </step>
         <step>
           <para>
-            选择你想要附加到的集群.
+            选择你想要附加到的集群。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>来创建逻辑网络.
+            点击<keycap>确定</keycap>来创建逻辑网络。
           </para>
         </step>
       </procedure>
       <formalpara><title>结果</title>
       <para>
-        我们已经创建了一个新的逻辑网络, 现在可以把这个逻辑网络添加到主机中了.
+        我们已经创建了一个新的逻辑网络，现在可以把这个逻辑网络添加到主机中了。
       </para>
       </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-data-center_Section_5-5">
       <title>重新初始化数据中心</title>
       <para>
-        当数据中心的主数据域发生错误的时候, 该数据中心就不能使用了, 需要把该数据
-        中心的主数据域替换掉. 数据中心的初始化操作就是解决这种情况的. 该操作把
-        允许用户恢复数据中心中除了发生错误的主数据域的其他资源, 比如集群, 主机
-        等.
+        当数据中心的主数据域发生错误的时候，该数据中心就不能使用了，需要把该数据
+        中心的主数据域替换掉。数据中心的初始化操作就是解决这种情况的。该操作把
+        允许用户恢复数据中心中除了发生错误的主数据域的其他资源，比如集群，主机
+        等。
       </para>
 
       <para>
-        当数据中心重新初始化完之后, 用户可以从导入域导入之前备份的虚拟机或者模板到主数据域.
+        当数据中心重新初始化完之后，用户可以从导入域导入之前备份的虚拟机或者模板到主数据域。
       </para>
 
       <procedure>
         <title>重新初始化数据中心</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择要重新初始化的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择要重新初始化的数据中心。
           </para>
         </step>
         <step>
           <para>
-            确保附加到该数据中心的存储域处于维护模式.
+            确保附加到该数据中心的存储域处于维护模式。
           </para>
         </step>
         <step>
           <para>
-            右击该数据中心, 选择<keycap>重新初始化数据中心</keycap>, 打开
-            <keycap>数据中心重新初始化</keycap>窗口.
+            右击该数据中心，选择<keycap>重新初始化数据中心</keycap>，打开
+            <keycap>数据中心重新初始化</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
             <keycap>数据中心重新初始化</keycap>窗口会列出所有可用的存储域(维护模式),
-            选择你想要附加的存储域名.
+            选择你想要附加的存储域名。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>批准操作</keycap>.
+            选择<keycap>批准操作</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>重新初始化该数据中心.
+            点击<keycap>确定</keycap>重新初始化该数据中心。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        数据中心重新初始化之后, 新的主存储域就被附加到该数据中心上了, 并且被
-        激活了, 用户可以从导出域把虚拟机和模板导入到该主存储域上.
+        数据中心重新初始化之后，新的主存储域就被附加到该数据中心上了，并且被
+        激活了，用户可以从导出域把虚拟机和模板导入到该主存储域上。
       </para>
       </formalpara>
     </section>
@@ -484,8 +488,8 @@
       <title>删除数据中心</title>
       <formalpara><title>摘要</title>
       <para>
-        删除数据中心时, 需要一个激活状态的主机. 注意, 删除数据中心并不会把关联
-        到该数据中心的资源删除.
+        删除数据中心时，需要一个激活状态的主机。注意，删除数据中心并不会把关联
+        到该数据中心的资源删除。
       </para>
       </formalpara>
 
@@ -493,29 +497,29 @@
         <title>删除数据中心</title>
         <step>
           <para>
-            确保附加到该数据中心的所有存储域都处于维护模式.
+            确保附加到该数据中心的所有存储域都处于维护模式。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要删除的数据中心。
           </para>
         </step>
         <step>
           <para>
-            右击该数据中心, 打开<keycap>删除数据中心</keycap>窗口.
+            右击该数据中心，打开<keycap>删除数据中心</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>删除数据中心.
+            点击<keycap>确定</keycap>删除数据中心。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        数据中心将被删除.
+        数据中心将被删除。
       </para>
       </formalpara>
     </section>
@@ -523,47 +527,47 @@
       <title>强制删除数据中心</title>
       <formalpara><title>摘要</title>
       <para>
-        当主机变为<keycap>Non Responsive</keycap>, 或者附加在该数据中心上的存储
-        发生错误的时候, 数据中心的状态会变为<keycap>Non Responsive</keycap>.
-        这个时候, 按照正常的删除数据中心的操作是无法删除数据中心的.
+        当主机变为<keycap>Non Responsive</keycap>，或者附加在该数据中心上的存储
+        发生错误的时候，数据中心的状态会变为<keycap>Non Responsive</keycap>。
+        这个时候，按照正常的删除数据中心的操作是无法删除数据中心的。
       </para>
       </formalpara>
       <para>
-        <keycap>强制删除</keycap>不需要数据中心有活动的主机. 用该种方式删除存
-        储后, 相关联的存储也会被永久删除.
+        <keycap>强制删除</keycap>不需要数据中心有活动的主机。用该种方式删除存
+        储后，相关联的存储也会被永久删除。
       </para>
 
       <para>
-        在强制删除数据中心的时候, 有的时候需要把出错的存储先删除.
+        在强制删除数据中心的时候，有的时候需要把出错的存储先删除。
       </para>
 
       <procedure>
         <title>强制删除数据中心</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要删除的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要删除的数据中心。
           </para>
         </step>
         <step>
           <para>
-            右击该数据中心, 打开<keycap>强制删除数据中心</keycap>窗口.
+            右击该数据中心，打开<keycap>强制删除数据中心</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>批准操作</keycap>.
+            选择<keycap>批准操作</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>强制删除数据中心.
+            点击<keycap>确定</keycap>强制删除数据中心。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        数据中心和相关联的存储域将会永久的被删除.
+        数据中心和相关联的存储域将会永久的被删除。
       </para>
       </formalpara>
     </section>
@@ -577,7 +581,7 @@
       <formalpara><title>摘要</title>
       <para>
         还<keycap>没有附加</keycap>到任何数据中心的数据域可以附加到一个数据
-        中心. 前提是该数据域的<keycap>类型</keycap>要和数据中心的类型一致.
+        中心。前提是该数据域的<keycap>类型</keycap>要和数据中心的类型一致。
       </para>
       </formalpara>
 
@@ -585,35 +589,35 @@
         <title>附加存在的数据域到数据中心</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要附加的数据中心。
           </para>
         </step>
         <step>
           <para>
-            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
-            该数据中心的所有存储域.
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>，列出已经附加到
+            该数据中心的所有存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加数据</keycap>, 打开<keycap>附加存储</keycap>窗口.
+            点击<keycap>附加数据</keycap>，打开<keycap>附加存储</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择要附加的存储域到该数据中心.
+            选择要附加的存储域到该数据中心。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>.
+            点击<keycap>确定</keycap>。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        该数据存储域将会被附加到数据中心, 并且数据存储域会被自动激活.
+        该数据存储域将会被附加到数据中心，并且数据存储域会被自动激活。
       </para>
       </formalpara>
     </section>
@@ -622,7 +626,7 @@
       <formalpara><title>摘要</title>
       <para>
         还<keycap>没有附加</keycap> ISO 存储域的数据中心的数据域可以附加到一个
-        ISO存储域. 注意一个数据中心只能附加一个 ISO 存储域.
+        ISO存储域。注意一个数据中心只能附加一个 ISO 存储域。
       </para>
       </formalpara>
 
@@ -630,35 +634,35 @@
         <title>附加 ISO 粗处域到数据中心</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要附加的数据中心。
           </para>
         </step>
         <step>
           <para>
-            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
-            该数据中心的所有存储域.
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>，列出已经附加到
+            该数据中心的所有存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加ISO</keycap>, 打开<keycap>附加存储</keycap>窗口.
+            点击<keycap>附加ISO</keycap>，打开<keycap>附加存储</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择要附加的 ISO 存储域.
+            选择要附加的 ISO 存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>附加存储域.
+            点击<keycap>确定</keycap>附加存储域。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        ISO 存储域将会被附加到该存储域, 并且会被自动激活.
+        ISO 存储域将会被附加到该存储域，并且会被自动激活。
       </para>
       </formalpara>
     </section>
@@ -667,7 +671,7 @@
       <formalpara><title>摘要</title>
       <para>
         <keycap>没有附加</keycap> 到其他数据中心的导出域可以附加到一个数据中心,
-        一个数据中心只能附加一个导出域.
+        一个数据中心只能附加一个导出域。
       </para>
       </formalpara>
 
@@ -675,35 +679,35 @@
         <title>给数据中心附加一个已经存在的导出存储域</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要附加的数据中心。
           </para>
         </step>
         <step>
           <para>
-            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
-            该数据中心的所有存储域.
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>，列出已经附加到
+            该数据中心的所有存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加导出</keycap>, 打开<keycap>附加Export域</keycap>窗口.
+            点击<keycap>附加导出</keycap>，打开<keycap>附加Export域</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择要附加的存储域.
+            选择要附加的存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>附加导出域.
+            点击<keycap>确定</keycap>附加导出域。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        导出存储域将会被附加到该数据中心, 并且会被自动激活.
+        导出存储域将会被附加到该数据中心，并且会被自动激活。
       </para>
       </formalpara>
     </section>
@@ -711,16 +715,16 @@
       <title>从数据中心分离一个存储域</title>
       <formalpara><title>摘要</title>
       <para>
-        从数据中心分离一个存储域仅仅是把该存储域和数据中心的关联信息删除, 并
-        不会把该存储域从 &OVIRT; 管理系统中删除. 当一个存储域从一个数据中心
-        分离后, 它可以附加到另一个数据中心. 存储域里面的虚拟机镜像和模板等数据
-        也不会被删除.
+        从数据中心分离一个存储域仅仅是把该存储域和数据中心的关联信息删除，并
+        不会把该存储域从 &OVIRT; 管理系统中删除。当一个存储域从一个数据中心
+        分离后，它可以附加到另一个数据中心。存储域里面的虚拟机镜像和模板等数据
+        也不会被删除。
       </para>
       </formalpara>
 
       <note>
         <para>
-          如果主存储域是最后一个可用的存储域, 那么这个主存储域将不能被分离.
+          如果主存储域是最后一个可用的存储域，那么这个主存储域将不能被分离。
         </para>
       </note>
 
@@ -728,36 +732,36 @@
         <title>从数据中心分离一个存储域</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要附加的数据中心。
           </para>
         </step>
         <step>
           <para>
-            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
-            该数据中心的所有存储域.
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>，列出已经附加到
+            该数据中心的所有存储域。
           </para>
         </step>
         <step>
           <para>
-            选择需要分离的存储域. 如果该存储域处于<keycap>Active</keycap>状态,
-            则点击打开<keycap>维护</keycap>将存储域变为维护状态.
+            选择需要分离的存储域。如果该存储域处于<keycap>Active</keycap>状态,
+            则点击打开<keycap>维护</keycap>将存储域变为维护状态。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>分离</keycap>打开<keycap>分离存储</keycap>窗口.
+            点击<keycap>分离</keycap>打开<keycap>分离存储</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>分离存储域.
+            点击<keycap>确定</keycap>分离存储域。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        存储域将会从数据中心分离, 过几分钟后就不会在该数据中心的存储列表上显示.
+        存储域将会从数据中心分离，过几分钟后就不会在该数据中心的存储列表上显示。
       </para>
       </formalpara>
     </section>
@@ -765,7 +769,7 @@
       <title>从维护模式激活存储域</title>
       <formalpara><title>摘要</title>
       <para>
-        为了使用处于维护模式中的存储域, 必须首先激活它.
+        为了使用处于维护模式中的存储域，必须首先激活它。
       </para>
       </formalpara>
 
@@ -773,25 +777,25 @@
         <title>从维护模式激活存储域</title>
         <step>
           <para>
-            点击<keycap>数据中心</keycap>标签, 选择需要附加的数据中心.
+            点击<keycap>数据中心</keycap>标签，选择需要附加的数据中心。
           </para>
         </step>
         <step>
           <para>
-            在该数据中心的详细信息面板中选择<keycap>存储</keycap>, 列出已经附加到
-            该数据中心的所有存储域.
+            在该数据中心的详细信息面板中选择<keycap>存储</keycap>，列出已经附加到
+            该数据中心的所有存储域。
           </para>
         </step>
         <step>
           <para>
-            选择需要激活的存储域. 点击<keycap>激活</keycap>来激活存储域.
+            选择需要激活的存储域。点击<keycap>激活</keycap>来激活存储域。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        存储域将会激活, 可以在数据中心中使用.
+        存储域将会激活，可以在数据中心中使用。
       </para>
       </formalpara>
     </section>

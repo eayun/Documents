@@ -11,14 +11,14 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_1">
     <title>虚拟机介绍</title>
     <para>
-      虚拟机指通过软件模拟的具有完整硬件系统功能的计算机系统. 目前 &OVIRT; 管理
-      系统允许用户创建两种形式的虚拟机, 虚拟桌面和虚拟服务器.
+      虚拟机指通过软件模拟的具有完整硬件系统功能的计算机系统。目前 &OVIRT; 管理
+      系统允许用户创建两种形式的虚拟机，虚拟桌面和虚拟服务器。
     </para>
 
     <para>
-      虚拟机使得管理和利用计算机更加简单快捷. 传统的计算环境要求每一个计算任务在
-      独立的硬件资源下运行, 通过使用虚拟机, 可以更有效地利用硬件资源, 并且, 管理
-      上也更便捷.
+      虚拟机使得管理和利用计算机更加简单快捷。传统的计算环境要求每一个计算任务在
+      独立的硬件资源下运行，通过使用虚拟机，可以更有效地利用硬件资源，并且，管理
+      上也更便捷。
     </para>
   </section>
 
@@ -50,7 +50,7 @@
               Red Hat Enterprise Linux 3(或CentOS 3)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -61,7 +61,7 @@
               Red Hat Enterprise Linux 4(或CentOS 4)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -72,7 +72,7 @@
               Red Hat Enterprise Linux 5(或CentOS 5)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -83,7 +83,7 @@
               Red Hat Enterprise Linux 6(或CentOS 6)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -94,7 +94,7 @@
               SUSE Linux Enterprise Server 10
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               否
@@ -105,7 +105,7 @@
               SUSE Linux Enterprise Server 11
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               否
@@ -116,7 +116,7 @@
               Ubuntu 12.04 (Precise Pangolin LTS)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -127,7 +127,7 @@
               Ubuntu 12.10 (Quantal Quetzal
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -138,7 +138,7 @@
               Ubuntu 13.04 (Raring Ringtail)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -149,7 +149,7 @@
               Ubuntu 13.10 (Saucy Salamander)
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -171,7 +171,7 @@
               Windows 7
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -182,7 +182,7 @@
               Windows 8
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               否
@@ -193,7 +193,7 @@
               Windows Server 2003 Service Pack 2 and newer
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -204,7 +204,7 @@
               Windows Server 2008
             </entry>
             <entry>
-              32-bit, 64-bit
+              32-bit，64-bit
             </entry>
             <entry>
               是
@@ -236,15 +236,15 @@
       </tgroup>
     </table>
     <para>
-      对 Windows 8 和 Windows 2012 来讲, 默认使用 RDP(Remote Desktop Protocol)
-      作为访问协议, 因为微软增加了一些新的改变到显示的协议上, 这些改动导致 SPICE
-      暂时得不到最好的体验.
+      对 Windows 8 和 Windows 2012 来讲，默认使用 RDP(Remote Desktop Protocol)
+      作为访问协议，因为微软增加了一些新的改变到显示的协议上，这些改动导致 SPICE
+      暂时得不到最好的体验。
     </para>
     <note>
       <para>
         因为由于 Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4
-        是32位内核, 没有 ACPI 的支持, 所以用户在门户直接点击关闭的时候肯能会出现
-        问题, 这个时候需要用户右击<keycap>断电</keycap>来关机.
+        是32位内核，没有 ACPI 的支持，所以用户在门户直接点击关闭的时候肯能会出现
+        问题，这个时候需要用户右击<keycap>断电</keycap>来关机。
       </para>
     </note>
   </section>
@@ -301,7 +301,7 @@
               4GB
             </entry>
             <entry>
-              每个 32 位的虚拟机(可能由于虚拟机操作系统的不同有所不同, 比如用了 PAE 技术)
+              每个 32 位的虚拟机(可能由于虚拟机操作系统的不同有所不同，比如用了 PAE 技术)
             </entry>
           </row>
           <row>
@@ -348,33 +348,33 @@
       <title>基于现成的模板创建虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        一旦模板已经配置好磁盘, 网络等参数, 用户可以使用模板快速的创建虚拟机.
+        一旦模板已经配置好磁盘，网络等参数，用户可以使用模板快速的创建虚拟机。
       </para>
       </formalpara>
 
       <para>
-        从模板创建出来的虚拟机取决于模板的配置. 如果在系统中仍然有基于某个
-        模板创建的虚拟机, 那么该模板是不能被删除的. 因为这些虚拟机和模板
-        有关联关系. 但是如果选择从模板克隆虚拟机, 那么虚拟机和模板之间的
-        就没有这些关联关系.
+        从模板创建出来的虚拟机取决于模板的配置。如果在系统中仍然有基于某个
+        模板创建的虚拟机，那么该模板是不能被删除的。因为这些虚拟机和模板
+        有关联关系。但是如果选择从模板克隆虚拟机，那么虚拟机和模板之间的
+        就没有这些关联关系。
       </para>
 
       <procedure>
         <title>基于现成的模板创建虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>新建虚拟机</keycap>按钮, 打开<keycap>新建虚拟机</keycap>窗口.
+            点击<keycap>新建虚拟机</keycap>按钮，打开<keycap>新建虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>集群</keycap>, 在<keycap>基于模板</keycap>下拉菜单中
-            选择需要的模板.
+            选择<keycap>集群</keycap>，在<keycap>基于模板</keycap>下拉菜单中
+            选择需要的模板。
           </para>
           <figure id="create-vm-from-temp"><title>从模板创建虚拟机</title>
           <mediaobject>
@@ -386,20 +386,20 @@
         </step>
         <step>
           <para>
-            输入<keycap>名称</keycap>, <keycap>描述</keycap>, 和<keycap>注释</keycap>.
+            输入<keycap>名称</keycap>，<keycap>描述</keycap>，和<keycap>注释</keycap>。
             其它保留默认(或者根据需要可以修改)
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建虚拟机.
+            点击<keycap>确定</keycap>创建虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机已经创建好了, 在虚拟机列表下会显示出来, 用户可以开始使用这个虚拟机了.
+        虚拟机已经创建好了，在虚拟机列表下会显示出来，用户可以开始使用这个虚拟机了。
       </para>
       </formalpara>
     </section>
@@ -408,7 +408,7 @@
       <title>使用空白模板创建虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以从空白模板创建虚拟机, 然后手动配置该虚拟机.
+        用户可以从空白模板创建虚拟机，然后手动配置该虚拟机。
       </para>
       </formalpara>
 
@@ -416,44 +416,44 @@
         <title>基于空白模板创建虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>新建虚拟机</keycap>按钮, 打开<keycap>新建虚拟机</keycap>窗口.
+            点击<keycap>新建虚拟机</keycap>按钮，打开<keycap>新建虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            在<keycap>新建虚拟机</keycap>窗口, 只需要填写虚拟机<keycap>名字</keycap>
-            和选择<keycap>操作系统</keycap>, 其它部分保留模板.
+            在<keycap>新建虚拟机</keycap>窗口，只需要填写虚拟机<keycap>名字</keycap>
+            和选择<keycap>操作系统</keycap>，其它部分保留模板。
           </para>
         </step>
         <step>
           <para>
-            如果用户想更细粒度的配置虚拟机参数, 点击<keycap>显示高级选项</keycap>,
-            分别配置<keycap>初始运行</keycap>, <keycap>控制台</keycap>等参数.
+            如果用户想更细粒度的配置虚拟机参数，点击<keycap>显示高级选项</keycap>,
+            分别配置<keycap>初始运行</keycap>，<keycap>控制台</keycap>等参数。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>.
+            点击<keycap>确定</keycap>。
           </para>
         </step>
         <step>
           <para>
-            将会弹出<keycap>新建虚拟机 - 引导操作</keycap>窗口, 用户可以在在其
-            引导下配置虚拟磁盘, 虚拟网卡等参数, 或者点击<keycap>以后再配置</keycap>.
+            将会弹出<keycap>新建虚拟机 - 引导操作</keycap>窗口，用户可以在在其
+            引导下配置虚拟磁盘，虚拟网卡等参数，或者点击<keycap>以后再配置</keycap>。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机已经创建好了, 在虚拟机列表下会显示出来, 但是状态是 <keycap>Down</keycap>,
-        用户在使用这台虚拟机之前, 最少要创建一个虚拟磁盘, 虚拟网卡, 然后需要
-        在上面安装操作系统.
+        虚拟机已经创建好了，在虚拟机列表下会显示出来，但是状态是 <keycap>Down</keycap>,
+        用户在使用这台虚拟机之前，最少要创建一个虚拟磁盘，虚拟网卡，然后需要
+        在上面安装操作系统。
       </para>
       </formalpara>
     </section>
@@ -465,7 +465,7 @@
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-1">
         <title>虚拟机常规设置解释</title>
         <para>
-          下面列出的设置适用于创建和编辑虚拟机.
+          下面列出的设置适用于创建和编辑虚拟机。
         </para>
         <table id="VM_General_Setting">
           <title>虚拟机的通用设置</title>
@@ -494,9 +494,9 @@
                   基于模板
                 </entry>
                 <entry>
-                  模板是一个虚拟机的模型, 里面预定义了虚拟机的规则, 虚拟硬件等参数,
-                  安装了相应的操作系统和应用软件. 默认情况下创建虚拟机的时候是
-                  空模板.
+                  模板是一个虚拟机的模型，里面预定义了虚拟机的规则，虚拟硬件等参数,
+                  安装了相应的操作系统和应用软件。默认情况下创建虚拟机的时候是
+                  空模板。
                 </entry>
               </row>
               <row>
@@ -504,7 +504,7 @@
                   操作系统
                 </entry>
                 <entry>
-                  虚拟机内部将要运行的操作系统.
+                  虚拟机内部将要运行的操作系统。
                 </entry>
               </row>
               <row>
@@ -512,19 +512,19 @@
                   优化
                 </entry>
                 <entry>
-                  虚拟机将会基于什么类型优化. 目前有两种类型可供用户选择:
+                  虚拟机将会基于什么类型优化。目前有两种类型可供用户选择:
                   <variablelist>
                     <varlistentry><term>服务器</term>
                     <listitem>
                       <para>
-                        默认的选项, 基于服务器优化的虚拟机没有声卡等相关设置.
+                        默认的选项，基于服务器优化的虚拟机没有声卡等相关设置。
                       </para>
                     </listitem>
                     </varlistentry>
                     <varlistentry><term>桌面</term>
                     <listitem>
                       <para>
-                        该优化选项创建的虚拟机有一个声卡, 镜像是精简置配的.
+                        该优化选项创建的虚拟机有一个声卡，镜像是精简置配的。
                       </para>
                     </listitem>
                     </varlistentry>
@@ -536,8 +536,8 @@
                   名称
                 </entry>
                 <entry>
-                  虚拟机的名字, 必须限制在 64 个字符之类, 不能包含空格, 至少
-                  包含 A-Z 或者 0-9 的一个字符.
+                  虚拟机的名字，必须限制在 64 个字符之类，不能包含空格，至少
+                  包含 A-Z 或者 0-9 的一个字符。
                 </entry>
               </row>
               <row>
@@ -545,7 +545,7 @@
                   描述
                 </entry>
                 <entry>
-                  虚拟机的描述.
+                  虚拟机的描述。
                 </entry>
               </row>
               <row>
@@ -561,12 +561,12 @@
                   Stateless
                 </entry>
                 <entry>
-                  如果想让虚拟机运行在 Stateless 模式, 请勾选这个单选框. Stateless
-                  主要是桌面虚拟机使用的选项. 它的工作原理是这样的, 运行 Stateless
-                  的虚拟机启动后, 将会创建一个 COW 的临时磁盘, 虚拟磁盘的所有改变
-                  都会写入这个磁盘, 原先的磁盘不会被改变. 这样, 该虚拟机关机之后,
-                  他的状态就会恢复到开机之前. 如果只是为了很短时间内运行虚拟机,
-                  或者只是想临时使用虚拟机, 那么这种模式很有用.
+                  如果想让虚拟机运行在 Stateless 模式，请勾选这个单选框。Stateless
+                  主要是桌面虚拟机使用的选项。它的工作原理是这样的，运行 Stateless
+                  的虚拟机启动后，将会创建一个 COW 的临时磁盘，虚拟磁盘的所有改变
+                  都会写入这个磁盘，原先的磁盘不会被改变。这样，该虚拟机关机之后,
+                  他的状态就会恢复到开机之前。如果只是为了很短时间内运行虚拟机,
+                  或者只是想临时使用虚拟机，那么这种模式很有用。
                 </entry>
               </row>
               <row>
@@ -574,10 +574,10 @@
                   以暂停模式启动
                 </entry>
                 <entry>
-                  选择此配置的话, 虚拟机总是在暂停模式下启动虚拟机. 对于需要
-                  准备很长时间才能建立 spice 连接的场景来说, 暂停模式很有用.
-                  例如, 如果 spice client 和虚拟机运行的网络很远, 网络
-                  很慢的时候.
+                  选择此配置的话，虚拟机总是在暂停模式下启动虚拟机。对于需要
+                  准备很长时间才能建立 spice 连接的场景来说，暂停模式很有用。
+                  例如，如果 spice client 和虚拟机运行的网络很远，网络
+                  很慢的时候。
                 </entry>
               </row>
               <row>
@@ -585,15 +585,15 @@
                   删除保护
                 </entry>
                 <entry>
-                  选择此项之后, 该虚拟机就不能删除了. 除非该选项被取消.
+                  选择此项之后，该虚拟机就不能删除了。除非该选项被取消。
                 </entry>
               </row>
             </tbody>
           </tgroup>
         </table>
         <para>
-          在创建虚拟机或者编辑虚拟机窗口最下方是虚拟网卡的配置, 用<keycap>+</keycap>
-          或者<keycap>-</keycap>号来增加或者删除虚拟网卡.
+          在创建虚拟机或者编辑虚拟机窗口最下方是虚拟网卡的配置，用<keycap>+</keycap>
+          或者<keycap>-</keycap>号来增加或者删除虚拟网卡。
         </para>
       </section>
 
@@ -604,7 +604,7 @@
         </para>
         <note>
           <para>
-            系统设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            系统设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_System_Setting">
@@ -626,9 +626,9 @@
                   内存大小
                 </entry>
                 <entry>
-                  分配给虚拟机的内存总是. 分配虚拟机内存的时候, 要考虑该虚拟机
-                  使用的场景. 另外, 虚拟机可用的内存也取决于虚拟机内部操作系统
-                  的限制, 比如 32 的操作系统最大只能用 4G 的内存大小.
+                  分配给虚拟机的内存总是。分配虚拟机内存的时候，要考虑该虚拟机
+                  使用的场景。另外，虚拟机可用的内存也取决于虚拟机内部操作系统
+                  的限制，比如 32 的操作系统最大只能用 4G 的内存大小。
                 </entry>
               </row>
               <row>
@@ -636,8 +636,8 @@
                   虚拟 CPU 的总数
                 </entry>
                 <entry>
-                  分配给虚拟机的虚拟 CPU 的数量. 分配的数量不要超过物理机的
-                  CPU 总数.
+                  分配给虚拟机的虚拟 CPU 的数量。分配的数量不要超过物理机的
+                  CPU 总数。
                 </entry>
               </row>
               <row>
@@ -653,8 +653,8 @@
                   虚拟插槽
                 </entry>
                 <entry>
-                  分配给虚拟机的虚拟 CPU 插槽数目. 分配的数量不要超过物理机的
-                  插槽数目.
+                  分配给虚拟机的虚拟 CPU 插槽数目。分配的数量不要超过物理机的
+                  插槽数目。
                 </entry>
               </row>
             </tbody>
@@ -669,7 +669,7 @@
         </para>
         <note>
           <para>
-            初始运行这只只有点击<keycap>显示高级选项</keycap>才会显示.
+            初始运行这只只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Initial_Setting">
@@ -691,7 +691,7 @@
                   常规 - 时区
                 </entry>
                 <entry>
-                  指定虚拟机硬件的时区.
+                  指定虚拟机硬件的时区。
                 </entry>
               </row>
               <row>
@@ -699,8 +699,8 @@
                   Windows - 域
                 </entry>
                 <entry>
-                  虚拟机运行的域. 这个选项只有在操作系统那里设置 Windows 操作
-                  系统才有意义.
+                  虚拟机运行的域。这个选项只有在操作系统那里设置 Windows 操作
+                  系统才有意义。
                 </entry>
               </row>
             </tbody>
@@ -715,7 +715,7 @@
         </para>
         <note>
           <para>
-            控制台设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            控制台设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Console_Setting">
@@ -737,9 +737,9 @@
                   协议
                 </entry>
                 <entry>
-                  除了 Windows 8 和 Windows Server 2012, 推荐是用 SPICE 作为
-                  Linux 和 Windows 虚拟机的访问协议, 并且它也是默认值. 另外用户
-                  还可以选择用 VNC 作为连接的协议.
+                  除了 Windows 8 和 Windows Server 2012，推荐是用 SPICE 作为
+                  Linux 和 Windows 虚拟机的访问协议，并且它也是默认值。另外用户
+                  还可以选择用 VNC 作为连接的协议。
                 </entry>
               </row>
               <row>
@@ -747,7 +747,7 @@
                   VNC 键盘格式
                 </entry>
                 <entry>
-                  设置 VNC 的键盘布局. 该选项只有选择 VNC 作为连接协议才会出现.
+                  设置 VNC 的键盘布局。该选项只有选择 VNC 作为连接协议才会出现。
                 </entry>
               </row>
               <row>
@@ -755,20 +755,20 @@
                   USB 支持
                 </entry>
                 <entry>
-                  设置是否让虚拟机使用 USB 设备, 该选项只有设置 SPICE 为访问协议
-                  才有效. 有下列三种选项可以选择:
+                  设置是否让虚拟机使用 USB 设备，该选项只有设置 SPICE 为访问协议
+                  才有效。有下列三种选项可以选择:
                   <variablelist>
                     <varlistentry><term>Disabled</term>
                     <listitem>
                       <para>
-                        禁止从 SPICE 客户端运行所在的机器到虚拟机的 USB 重定向.
+                        禁止从 SPICE 客户端运行所在的机器到虚拟机的 USB 重定向。
                       </para>
                     </listitem>
                     </varlistentry>
                     <varlistentry><term>Legacy</term>
                     <listitem>
                       <para>
-                        该选项从 3.0 版本之后已经不被支持了.
+                        该选项从 3.0 版本之后已经不被支持了。
                       </para>
                     </listitem>
                     </varlistentry>
@@ -776,8 +776,8 @@
                     <listitem>
                       <para>
                         启用从 SPICE 客户端运行所在的机器到虚拟机的 USB 重定向
-                        的支持. 该功能不需要在虚拟机内部安装任何额外的驱动或者
-                        代理程序.
+                        的支持。该功能不需要在虚拟机内部安装任何额外的驱动或者
+                        代理程序。
                       </para>
                     </listitem>
                     </varlistentry>
@@ -789,10 +789,10 @@
                   监控器
                 </entry>
                 <entry>
-                  设置虚拟显示器的数量. 该选项只有设置 SPICE 为访问协议才有效.
-                  用户可以选择<keycap>1</keycap>, <keycap>2</keycap>,
+                  设置虚拟显示器的数量。该选项只有设置 SPICE 为访问协议才有效。
+                  用户可以选择<keycap>1</keycap>，<keycap>2</keycap>,
                   <keycap>4</keycap>个.由于 Windows 8 和 Windows Server 2012
-                  不支持 SPICE 协议, 所以如果虚拟机是这几类操作系统, 那么该选项无效.
+                  不支持 SPICE 协议，所以如果虚拟机是这几类操作系统，那么该选项无效。
                 </entry>
               </row>
               <row>
@@ -800,9 +800,9 @@
                   启用智能卡
                 </entry>
                 <entry>
-                  智能卡是在信用卡上安装一个拇指大小的微型电脑芯片, 这个芯片
-                  包含了持卡人的各种信息. 可以广泛用于身份识别和支付工具等.
-                  利用智能卡, 可以用来保护 &OVIRT; 系统中的虚拟机.
+                  智能卡是在信用卡上安装一个拇指大小的微型电脑芯片，这个芯片
+                  包含了持卡人的各种信息。可以广泛用于身份识别和支付工具等。
+                  利用智能卡，可以用来保护 &OVIRT; 系统中的虚拟机。
                 </entry>
               </row>
               <row>
@@ -810,11 +810,11 @@
                   禁用严格的用户检查
                 </entry>
                 <entry>
-                  点击<keycap>高级参数</keycap>就可以看到该选项, 如果设置了该
-                  选项, 那么在已经有一个用户连接了虚拟机的时候, 另一个用户想要
-                  连接的话, 不需要重启该虚拟机. 用户检查有在一种情况下例外, 在
-                  超级用户想要连接该虚拟机的时候, 其它用户就不能连接该虚拟机,
-                  如果其它用户想要连接, 只能等到虚拟机重启.
+                  点击<keycap>高级参数</keycap>就可以看到该选项，如果设置了该
+                  选项，那么在已经有一个用户连接了虚拟机的时候，另一个用户想要
+                  连接的话，不需要重启该虚拟机。用户检查有在一种情况下例外，在
+                  超级用户想要连接该虚拟机的时候，其它用户就不能连接该虚拟机,
+                  如果其它用户想要连接，只能等到虚拟机重启。
                 </entry>
               </row>
               <row>
@@ -822,9 +822,9 @@
                   启用声卡
                 </entry>
                 <entry>
-                  并不是所有的虚拟机都想要一个虚拟声卡设备, 比如你的虚拟机用来
-                  运行服务器应用, 那么虚拟声卡就不需要. 用户可以根据自己的需求
-                  来启用或者禁用声卡.
+                  并不是所有的虚拟机都想要一个虚拟声卡设备，比如你的虚拟机用来
+                  运行服务器应用，那么虚拟声卡就不需要。用户可以根据自己的需求
+                  来启用或者禁用声卡。
                 </entry>
               </row>
               <row>
@@ -833,11 +833,11 @@
                 </entry>
                 <entry>
                   VirtIO Console 设备是一种用于主机的应用程序和虚拟机的应用
-                  程序之间通信的设备. 它是一个 QEMU 模拟的设备. 它有两端和这个
-                  设备连接, 主机端和虚拟机端, 主机端通常对应一个本地网络套接字等
-                  用户可以读写的设备, 虚拟机端对应一个字符设备, 有驱动用来
-                  给虚拟机的应用程序提供读写这个设备的接口. 这样, 数据流就
-                  在这两端建立了.
+                  程序之间通信的设备。它是一个 QEMU 模拟的设备。它有两端和这个
+                  设备连接，主机端和虚拟机端，主机端通常对应一个本地网络套接字等
+                  用户可以读写的设备，虚拟机端对应一个字符设备，有驱动用来
+                  给虚拟机的应用程序提供读写这个设备的接口。这样，数据流就
+                  在这两端建立了。
                 </entry>
               </row>
             </tbody>
@@ -854,7 +854,7 @@
         </para>
         <note>
           <para>
-            主机设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            主机设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Host_Setting">
@@ -883,16 +883,16 @@
                     <varlistentry><term>群集里的任何主机</term>
                     <listitem>
                       <para>
-                        虚拟机开始可以运行在群集里的任何主机上.
+                        虚拟机开始可以运行在群集里的任何主机上。
                       </para>
                     </listitem>
                     </varlistentry>
                     <varlistentry><term>专有的</term>
                     <listitem>
                       <para>
-                        虚拟机开始运行在用户指定的集群里的某一台主机上. 但是
-                        在集群的迁移策略或者高可用生效的时候, 虚拟机有可能会被
-                        迁移到其它主机上运行.
+                        虚拟机开始运行在用户指定的集群里的某一台主机上。但是
+                        在集群的迁移策略或者高可用生效的时候，虚拟机有可能会被
+                        迁移到其它主机上运行。
                       </para>
                     </listitem>
                     </varlistentry>
@@ -905,29 +905,29 @@
                 </entry>
                 <entry>
                   <para>
-                    设置虚拟机的移植选项, 如果这里的选项没有被使用, 那么虚拟机的
-                    移植设置和群集的移植设置一致.
+                    设置虚拟机的移植选项，如果这里的选项没有被使用，那么虚拟机的
+                    移植设置和群集的移植设置一致。
                   </para>
                   <variablelist>
                     <varlistentry><term>允许手动和自动移植</term>
                     <listitem>
                       <para>
-                        虚拟机能根据群集状态自动的移植到另一台主机上, 也可由
-                        用户手动开始移植.
+                        虚拟机能根据群集状态自动的移植到另一台主机上，也可由
+                        用户手动开始移植。
                       </para>
                     </listitem>
                     </varlistentry>
                     <varlistentry><term>只允许手动移植</term>
                     <listitem>
                       <para>
-                        虚拟机只能通过用户手动从移植到另一台主机上.
+                        虚拟机只能通过用户手动从移植到另一台主机上。
                       </para>
                     </listitem>
                     </varlistentry>
                     <varlistentry><term>不允许移植</term>
                     <listitem>
                       <para>
-                        虚拟机不能被移植, 不管是自动还是手动.
+                        虚拟机不能被移植，不管是自动还是手动。
                       </para>
                     </listitem>
                     </varlistentry>
@@ -940,9 +940,9 @@
                 </entry>
                 <entry>
                   <para>
-                    该选项可以让虚拟机充分利用主机的 CPU 指令集. 该选项只有当
+                    该选项可以让虚拟机充分利用主机的 CPU 指令集。该选项只有当
                     用户选择了<keycap>只允许手动迁移</keycap>和<keycap>不允许迁移</keycap>
-                    时才能选择.
+                    时才能选择。
                   </para>
                 </entry>
               </row>
@@ -958,7 +958,7 @@
         </para>
         <note>
           <para>
-            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_High_Availability_Setting">
@@ -981,15 +981,15 @@
                 </entry>
                 <entry>
                   <para>
-                    选择此项来设置虚拟机的高可用. 例如, 当主机转为维护模式或者
-                    主机异常时, 虚拟机将会被自动的迁移到其它主机或者在其它主机
-                    上重新运行. 但是如果主机被管理员手动关系, 那么虚拟机并
+                    选择此项来设置虚拟机的高可用。例如，当主机转为维护模式或者
+                    主机异常时，虚拟机将会被自动的迁移到其它主机或者在其它主机
+                    上重新运行。但是如果主机被管理员手动关系，那么虚拟机并
                     不会被自动迁移到另一台主机
                   </para>
                   <para>
                     注意如果虚拟机的迁移选项设置为<keycap>只允许手动移植</keycap>,
-                    或者<keycap>不允许移植</keycap>, 则该选项是无效的. 虚拟机要
-                    设置为高可用的, 那么它必须在需要的时候可以被迁移到其它主机.
+                    或者<keycap>不允许移植</keycap>，则该选项是无效的。虚拟机要
+                    设置为高可用的，那么它必须在需要的时候可以被迁移到其它主机。
                   </para>
                 </entry>
               </row>
@@ -1000,7 +1000,7 @@
                 <entry>
                   <para>
                     设置该虚拟机被迁移到另一台主机或者在另一台主机上重新运行的
-                    优先级.
+                    优先级。
                   </para>
                 </entry>
               </row>
@@ -1010,16 +1010,16 @@
                 </entry>
                 <entry>
                   <para>
-                    允许用户给虚拟机添加一个看门狗计时器. 看门狗计时器主要用来
-                    检测和恢复机器的硬件错误. 一旦设置了看门狗计时器, 当系统
-                    运行时, 计时器不断的自我减小, 如果系统运行正常时, 系统驱动
-                    不断重置计时器使得计时器不为0, 如果计时器变为0, 则说明系统
-                    除了问题. 相应的看门狗计时器就要采取相应的动作. 该功能常用于
-                    服务器的高可用.
+                    允许用户给虚拟机添加一个看门狗计时器。看门狗计时器主要用来
+                    检测和恢复机器的硬件错误。一旦设置了看门狗计时器，当系统
+                    运行时，计时器不断的自我减小，如果系统运行正常时，系统驱动
+                    不断重置计时器使得计时器不为0，如果计时器变为0，则说明系统
+                    除了问题。相应的看门狗计时器就要采取相应的动作。该功能常用于
+                    服务器的高可用。
                   </para>
                   <para>
                     <keycap>Watchdog 模型</keycap>: 添加到虚拟机的看门口定时器的
-                    设备类型. 目前我们只支持<keycap>i6300esb</keycap>.
+                    设备类型。目前我们只支持<keycap>i6300esb</keycap>。
                   </para>
 
                   <para>
@@ -1028,29 +1028,29 @@
                   <itemizedlist>
 	                <listitem>
 	                  <para>
-                        <keycap>无</keycap> - 不采取任何动作. 不过该事件仍会
-                        记录到审计日志里.
+                        <keycap>无</keycap> - 不采取任何动作。不过该事件仍会
+                        记录到审计日志里。
 	                  </para>
 	                </listitem>
                     <listitem>
 	                  <para>
-                        <keycap>重置</keycap> - 虚拟机将会被重启, 管理端会得到
-                        该重置事件的通知.
+                        <keycap>重置</keycap> - 虚拟机将会被重启，管理端会得到
+                        该重置事件的通知。
 	                  </para>
 	                </listitem>
                     <listitem>
 	                  <para>
-                        <keycap>断电</keycap> - 虚拟机马上被断电关闭.
+                        <keycap>断电</keycap> - 虚拟机马上被断电关闭。
 	                  </para>
 	                </listitem>
                     <listitem>
 	                  <para>
-                        <keycap>转储</keycap> - 执行转储操作, 虚拟机马上被暂停.
+                        <keycap>转储</keycap> - 执行转储操作，虚拟机马上被暂停。
 	                  </para>
 	                </listitem>
                     <listitem>
 	                  <para>
-                        <keycap>暂停</keycap> - 虚拟机将被暂定, 随后可以被用户恢复.
+                        <keycap>暂停</keycap> - 虚拟机将被暂定，随后可以被用户恢复。
 	                  </para>
 	                </listitem>
                   </itemizedlist>
@@ -1068,7 +1068,7 @@
         </para>
         <note>
           <para>
-            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            高可用设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Resource_Allocation_Setting">
@@ -1096,7 +1096,7 @@
                   CPU 共享
                 </entry>
                 <entry>
-                  允许用户设置相当于其他虚拟机, 这台虚拟机能使用的 CPU 资源.
+                  允许用户设置相当于其他虚拟机，这台虚拟机能使用的 CPU 资源。
                   <itemizedlist>
 	                <listitem>
 	                  <para>
@@ -1128,7 +1128,7 @@
                   CPU pinning 拓扑结构
                 </entry>
                 <entry>
-                  该选项能使得虚拟机运行在物理主机的物理 CPU 上. 使用方法为:
+                  该选项能使得虚拟机运行在物理主机的物理 CPU 上。使用方法为:
                   <itemizedlist>
 	                <listitem>
 	                  <para>
@@ -1144,11 +1144,11 @@
 	                <listitem>
 	                  <para>
                         <keycap>1#1-4,^2</keycap> - 绑定虚拟 CPU 0 和物理 CPU
-                        1-4中的一个, 除了物理 CPU 2
+                        1-4中的一个，除了物理 CPU 2
 	                  </para>
 	                </listitem>
                   </itemizedlist>
-                  为了能绑定虚拟 CPU 和物理 CPU, 迁移设置必须选择<keycap>不允许迁移</keycap>.
+                  为了能绑定虚拟 CPU 和物理 CPU，迁移设置必须选择<keycap>不允许迁移</keycap>。
                 </entry>
               </row>
               <row>
@@ -1159,7 +1159,7 @@
                   保证的物理内存
                 </entry>
                 <entry>
-                  保证分给虚拟机的物理内存数量.
+                  保证分给虚拟机的物理内存数量。
                 </entry>
               </row>
               <row>
@@ -1169,8 +1169,8 @@
                   启用内存 Balloon 设备
                 </entry>
                 <entry>
-                  是否启用 Balloon 设备. Balloon 设备能提高主机利用内存的能力,
-                  能让同一台主机多运行虚拟机, 不过会使得虚拟机的性能有一点降低.
+                  是否启用 Balloon 设备。Balloon 设备能提高主机利用内存的能力,
+                  能让同一台主机多运行虚拟机，不过会使得虚拟机的性能有一点降低。
                 </entry>
               </row>
               <row>
@@ -1180,7 +1180,7 @@
                 <entry>
                 </entry>
                 <entry>
-                  只有从模板创建的虚拟机才能使用<keycap>模板 Provision</keycap> 选项.
+                  只有从模板创建的虚拟机才能使用<keycap>模板 Provision</keycap> 选项。
                 </entry>
               </row>
               <row>
@@ -1190,8 +1190,8 @@
                   Thin
                 </entry>
                 <entry>
-                  该类型只有需要时候才会发生存储的分配, 这种类型的分配是对空间
-                  的优化, 比 clone 的性能要差一点.
+                  该类型只有需要时候才会发生存储的分配，这种类型的分配是对空间
+                  的优化，比 clone 的性能要差一点。
                 </entry>
               </row>
               <row>
@@ -1201,8 +1201,8 @@
                   Clone
                 </entry>
                 <entry>
-                  在创建磁盘初始, 就完成了所有磁盘的分配, 比 Thin 的读写速度要高,
-                  不过空间占用比 Thin 的多.
+                  在创建磁盘初始，就完成了所有磁盘的分配，比 Thin 的读写速度要高,
+                  不过空间占用比 Thin 的多。
                 </entry>
               </row>
               <row>
@@ -1212,8 +1212,8 @@
                   VirtIO-SCSI Enabled
                 </entry>
                 <entry>
-                  是否启用 VirtIO-SCSI的控制器, 默认的 VirtIO 磁盘使用的是 IDE
-                  的控制器. 这里可以改变默认方式.
+                  是否启用 VirtIO-SCSI的控制器，默认的 VirtIO 磁盘使用的是 IDE
+                  的控制器。这里可以改变默认方式。
                 </entry>
               </row>
             </tbody>
@@ -1227,7 +1227,7 @@
         </para>
         <note>
           <para>
-            启动设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            启动设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Boot_Setting">
@@ -1274,8 +1274,8 @@
                   第二个设备
                 </entry>
                 <entry>
-                  如果第一个设备启动失败, 那么就会从这里选择的第二个设备启动,
-                  注意, 之前在第一个设备选择的设备在这里被隐藏了.
+                  如果第一个设备启动失败，那么就会从这里选择的第二个设备启动,
+                  注意，之前在第一个设备选择的设备在这里被隐藏了。
                 </entry>
               </row>
               <row>
@@ -1283,8 +1283,8 @@
                   附加 CD
                 </entry>
                 <entry>
-                  这里可以给虚拟机附加 CD, 这里的 CD ISO 映像只能从 ISO
-                  存储域里面选择.
+                  这里可以给虚拟机附加 CD，这里的 CD ISO 映像只能从 ISO
+                  存储域里面选择。
                 </entry>
               </row>
             </tbody>
@@ -1298,7 +1298,7 @@
         </para>
         <note>
           <para>
-            自定义属性设置只有点击<keycap>显示高级选项</keycap>才会显示.
+            自定义属性设置只有点击<keycap>显示高级选项</keycap>才会显示。
           </para>
         </note>
         <table id="VM_Custom_Properties_Setting">
@@ -1323,7 +1323,7 @@
                   sap_agent
                 </entry>
                 <entry>
-                  给设置 SAP 监控.
+                  给设置 SAP 监控。
                 </entry>
                 <entry>
                   -
@@ -1334,7 +1334,7 @@
                   sndbuf
                 </entry>
                 <entry>
-                  设置虚拟机套接字的发送缓存大小, 默认值是 0.
+                  设置虚拟机套接字的发送缓存大小，默认值是 0。
                 </entry>
                 <entry>
                   -
@@ -1345,12 +1345,12 @@
                   vhost
                 </entry>
                 <entry>
-                  可以将vhost-net 禁用掉, vhost-net 是在主机的 virtio 网络
-                  驱动, 可以提高虚拟机的网络性能.
+                  可以将vhost-net 禁用掉，vhost-net 是在主机的 virtio 网络
+                  驱动，可以提高虚拟机的网络性能。
                 </entry>
                 <entry>
-                  vhost-net 提供了比 virtio-net更高的网络性能, 禁用此项通常
-                  用来隔离某个虚拟机, 然后调试该虚拟机的网络.
+                  vhost-net 提供了比 virtio-net更高的网络性能，禁用此项通常
+                  用来隔离某个虚拟机，然后调试该虚拟机的网络。
                 </entry>
               </row>
               <row>
@@ -1358,13 +1358,13 @@
                   viodiskcache
                 </entry>
                 <entry>
-                  设置 virtio 磁盘的缓存模式. <keycap>writethrough</keycap>
-                  同时把数据写到缓存和磁盘中才返回, 性能较低. <keycap>writeback</keycap>
-                  将数据写入到缓存中就返回, 性能较高, 但是不能保证数据安全. <keycap>none</keycap>
-                  不使用缓存.
+                  设置 virtio 磁盘的缓存模式。<keycap>writethrough</keycap>
+                  同时把数据写到缓存和磁盘中才返回，性能较低。<keycap>writeback</keycap>
+                  将数据写入到缓存中就返回，性能较高，但是不能保证数据安全。<keycap>none</keycap>
+                  不使用缓存。
                 </entry>
                 <entry>
-                  默认值是 none, 如果设置了其它值, 虚拟机将不能迁移.
+                  默认值是 none，如果设置了其它值，虚拟机将不能迁移。
                 </entry>
               </row>
             </tbody>
@@ -1377,9 +1377,9 @@
       <title>通过现成的模板复制虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        从模板克隆一个虚拟机和从模板创建一个虚拟机类似. 克隆出来的虚拟机拥有
-        原先模板的一切内容, 包括同样的硬件配置, 同样的操作系统和应用软件等.
-        但是当虚拟机被克隆之后, 它就不依赖于该模板了.
+        从模板克隆一个虚拟机和从模板创建一个虚拟机类似。克隆出来的虚拟机拥有
+        原先模板的一切内容，包括同样的硬件配置，同样的操作系统和应用软件等。
+        但是当虚拟机被克隆之后，它就不依赖于该模板了。
       </para>
       </formalpara>
 
@@ -1387,30 +1387,30 @@
         <title>基于现成的模板克隆虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>新建虚拟机</keycap>按钮, 打开<keycap>新建虚拟机</keycap>窗口.
+            点击<keycap>新建虚拟机</keycap>按钮，打开<keycap>新建虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>集群</keycap>, 在<keycap>基于模板</keycap>下拉菜单中
-            选择需要的模板.
+            选择<keycap>集群</keycap>，在<keycap>基于模板</keycap>下拉菜单中
+            选择需要的模板。
           </para>
         </step>
         <step>
           <para>
-            输入<keycap>名称</keycap>, <keycap>描述</keycap>, 和<keycap>注释</keycap>.
+            输入<keycap>名称</keycap>，<keycap>描述</keycap>，和<keycap>注释</keycap>。
             其它保留默认(或者根据需要可以修改)
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>资源分配</keycap>标签, 在存储分配:模板 provisioning
-            处, 选择<keycap>Thin</keycap>或者<keycap>克隆</keycap>.
+            点击<keycap>资源分配</keycap>标签，在存储分配:模板 provisioning
+            处，选择<keycap>Thin</keycap>或者<keycap>克隆</keycap>。
           </para>
           <figure id="clone-vm-from-temp"><title>基于现成的模板克隆虚拟机</title>
           <mediaobject>
@@ -1420,42 +1420,42 @@
           </mediaobject>
           </figure>
           <para>
-            用户可以基于自己的需求选择不同的分配模式, 两种分配模式分别在磁盘
-            的读写速度和占用空间上有所不同.
+            用户可以基于自己的需求选择不同的分配模式，两种分配模式分别在磁盘
+            的读写速度和占用空间上有所不同。
           </para>
           <itemizedlist>
 	        <listitem>
 	          <para>
                 <keycap>Thin Provision</keycap>: 这种模式创建磁盘的速度很快,
-                对存储的占用得很少. 它只在需要时候分配磁盘空间, 是一种按需分配的
-                方式, 但是磁盘的读写速度比 Preallocated 慢, 这是默认的选项.
+                对存储的占用得很少。它只在需要时候分配磁盘空间，是一种按需分配的
+                方式，但是磁盘的读写速度比 Preallocated 慢，这是默认的选项。
 	          </para>
 	        </listitem>
 	        <listitem>
 	          <para>
                 <keycap>Preallocated</keycap>: 这种模式创建磁盘的速度很慢,
-                对存储的占用得很多. 在创建的时候就分配了所需的所有磁盘空间, 优点是
-                磁盘的读写速度比 Thin Provision 快.
+                对存储的占用得很多。在创建的时候就分配了所需的所有磁盘空间，优点是
+                磁盘的读写速度比 Thin Provision 快。
 	          </para>
 	        </listitem>
           </itemizedlist>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建虚拟机.
+            点击<keycap>确定</keycap>创建虚拟机。
           </para>
         </step>
       </procedure>
 
       <note>
         <para>
-          克隆虚拟机会花很长时间, 因为它复制了整个模板的内容. 在此期间, 虚拟机
-          处于镜像锁定状态.
+          克隆虚拟机会花很长时间，因为它复制了整个模板的内容。在此期间，虚拟机
+          处于镜像锁定状态。
         ￼        </para>
       </note>
       <formalpara><title>结果</title>
       <para>
-        虚拟机已经创建好了, 在虚拟机列表下会显示出来, 用户可以开始使用这个虚拟机了.
+        虚拟机已经创建好了，在虚拟机列表下会显示出来，用户可以开始使用这个虚拟机了。
       </para>
       </formalpara>
     </section>
@@ -1464,17 +1464,17 @@
       <title>定义虚拟网卡及建立磁盘，完成虚拟机设置</title>
       <formalpara><title>摘要</title>
       <para>
-        虚拟机至少需要一个虚拟磁盘和虚拟网卡, 可以使用创建虚拟机时候弹出的
-        <keycap>新建虚拟机 - 引导操作</keycap>窗口来完成这些操作.
+        虚拟机至少需要一个虚拟磁盘和虚拟网卡，可以使用创建虚拟机时候弹出的
+        <keycap>新建虚拟机 - 引导操作</keycap>窗口来完成这些操作。
       </para>
       </formalpara>
 
       <procedure>
-        <title>定义虚拟网卡及建立磁盘, 完成虚拟机设置</title>
+        <title>定义虚拟网卡及建立磁盘，完成虚拟机设置</title>
         <step>
           <para>
-            在 <keycap>新建虚拟机 - 引导操作</keycap>窗口, 点击<keycap>网络接口</keycap>,
-            打开<keycap>新建网络接口</keycap>窗口, 使用默认设置即可工作.
+            在 <keycap>新建虚拟机 - 引导操作</keycap>窗口，点击<keycap>网络接口</keycap>,
+            打开<keycap>新建网络接口</keycap>窗口，使用默认设置即可工作。
           </para>
           <figure id="vm-new-network-interface"><title>添加虚拟网络</title>
           <mediaobject>
@@ -1486,35 +1486,35 @@
         </step>
         <step>
           <para>
-            选择<keycap>配置</keycap>和<keycap>类型</keycap>, 设置网络接口的
-            详细参数. 默认状态下<keycap>链路状态</keycap>是<keycap>Up</keycap>.
+            选择<keycap>配置</keycap>和<keycap>类型</keycap>，设置网络接口的
+            详细参数。默认状态下<keycap>链路状态</keycap>是<keycap>Up</keycap>。
           </para>
         </step>
         <step>
           <para>
-            如果想要设置 MAC 地址的话, 在<keycap>自定义的 MAC 地址</keycap>
-            处设置给虚拟机的 MAC 地址.
+            如果想要设置 MAC 地址的话，在<keycap>自定义的 MAC 地址</keycap>
+            处设置给虚拟机的 MAC 地址。
           </para>
         </step>
         <step>
           <para>
             该窗口还允许设置设置<keycap>卡的状态</keycap>: <keycap>已插入</keycap>
-            还是<keycap>已拔出</keycap>.
+            还是<keycap>已拔出</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建网路接口, 打开<keycap>新建虚拟机 - 引导操作</keycap>窗口.
+            点击<keycap>确定</keycap>创建网路接口，打开<keycap>新建虚拟机 - 引导操作</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>配置虚拟磁盘</keycap>按钮, 打开<keycap>添加虚拟磁盘</keycap>窗口.
+            点击<keycap>配置虚拟磁盘</keycap>按钮，打开<keycap>添加虚拟磁盘</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            添加一个<keycap>内部的</keycap>或者<keycap>外部(直接 LUN)</keycap>磁盘.
+            添加一个<keycap>内部的</keycap>或者<keycap>外部(直接 LUN)</keycap>磁盘。
           </para>
           <figure id="vm-new-disk"><title>添加虚拟磁盘</title>
           <mediaobject>
@@ -1526,20 +1526,20 @@
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建创建虚拟磁盘. 至此, 虚拟机已经完成基本的
-            设备的配置了.
+            点击<keycap>确定</keycap>创建创建虚拟磁盘。至此，虚拟机已经完成基本的
+            设备的配置了。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>以后再配置</keycap>, 完成虚拟机的配置.
+            点击<keycap>以后再配置</keycap>，完成虚拟机的配置。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        通过上面的步骤, 已经向虚拟机添加了一个虚拟网卡和虚拟磁盘了.
+        通过上面的步骤，已经向虚拟机添加了一个虚拟网卡和虚拟磁盘了。
       </para>
       </formalpara>
     </section>
@@ -1548,8 +1548,8 @@
       <title>为虚拟机安装操作系统</title>
       <formalpara><title>摘要</title>
       <para>
-        从空白模板创建的虚拟机只有安装了操作系统才能正常使用, 可以给这种虚拟机
-        安装任何 &OVIRT; 系统支持的操作系统.
+        从空白模板创建的虚拟机只有安装了操作系统才能正常使用，可以给这种虚拟机
+        安装任何 &OVIRT; 系统支持的操作系统。
       </para>
       </formalpara>
 
@@ -1557,12 +1557,12 @@
         <title>为虚拟机安装操作系统</title>
         <step>
           <para>
-            选择刚创建的虚拟机. 它目前的状态应该是 <keycap>Down</keycap>.
+            选择刚创建的虚拟机。它目前的状态应该是 <keycap>Down</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>只运行一次</keycap>, 打开<keycap>运行虚拟机窗口</keycap>.
+            点击<keycap>只运行一次</keycap>，打开<keycap>运行虚拟机窗口</keycap>。
           </para>
           <figure id="vm-run-once"><title>只运行一次</title>
           <mediaobject>
@@ -1574,43 +1574,43 @@
         </step>
         <step>
           <para>
-            打开<keycap>引导选项</keycap>设置引导顺序, 并设置合适的引导盘(一般光盘引导).
+            打开<keycap>引导选项</keycap>设置引导顺序，并设置合适的引导盘(一般光盘引导)。
           </para>
         </step>
         <step>
           <para>
-            如果有需要, 点击 <keycap>Linux 引导选项</keycap>, 设置额外的 Linux
-            虚拟机的启动选项.
+            如果有需要，点击 <keycap>Linux 引导选项</keycap>，设置额外的 Linux
+            虚拟机的启动选项。
           </para>
         </step>
         <step>
           <para>
-            如果有需要, 点击<keycap>初始运行</keycap>, 设置 cloud-init 的参数.
+            如果有需要，点击<keycap>初始运行</keycap>，设置 cloud-init 的参数。
           </para>
         </step>
         <step>
           <para>
-            如果有需要, 点击<keycap>显示协议</keycap>, 选择需要的显示协议.
-            这里, SPICE 是默认的显示协议, 并且是推荐的协议.
+            如果有需要，点击<keycap>显示协议</keycap>，选择需要的显示协议。
+            这里，SPICE 是默认的显示协议，并且是推荐的协议。
           </para>
         </step>
         <step>
           <para>
-            如果有需要, <keycap>点击自定义属性</keycap>, 给虚拟机设置需要的
-            其它属性.
+            如果有需要，<keycap>点击自定义属性</keycap>，给虚拟机设置需要的
+            其它属性。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>运行虚拟机.
+            点击<keycap>确定</keycap>运行虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        已经为裸虚拟机安装了操作系统, 现在, 用户可以登录到该系统开始使用该
-        虚拟机了.
+        已经为裸虚拟机安装了操作系统，现在，用户可以登录到该系统开始使用该
+        虚拟机了。
       </para>
       </formalpara>
     </section>
@@ -1619,66 +1619,66 @@
       <title>为分配了virtio硬件设备的虚拟机安装windows操作系统</title>
       <formalpara><title>摘要</title>
       <para>
-        <keycap>virtio-win.vfd</keycap> 是一个软盘镜像, 包含了针对 Windows 的 virtio 磁盘和网络
-        设备驱动, 使用这些能获得比传统的模拟设备更高的性能.
+        <keycap>virtio-win.vfd</keycap> 是一个软盘镜像，包含了针对 Windows 的 virtio 磁盘和网络
+        设备驱动，使用这些能获得比传统的模拟设备更高的性能。
       </para>
       </formalpara>
 
       <para>
         用户可以使用 <keycap>engine-iso-uploader</keycap> 工具把该软盘镜像上传到
-        ISO 存储域上.
+        ISO 存储域上。
       </para>
 
       <para>
-        下面的步骤描述怎样在安装 Windows 的时候加载使用这些驱动, 前提是用户
-        在配置虚拟机的时候, 已经添加了一个 VirtIO 的磁盘和网卡.
+        下面的步骤描述怎样在安装 Windows 的时候加载使用这些驱动，前提是用户
+        在配置虚拟机的时候，已经添加了一个 VirtIO 的磁盘和网卡。
       </para>
 
       <procedure>
-        <title>在安装 Windows 的时候, 加载 VirtIO 设备</title>
+        <title>在安装 Windows 的时候，加载 VirtIO 设备</title>
         <step>
           <para>
-            在<keycap>虚拟机</keycap>列表中选择待安装系统的虚拟机.
+            在<keycap>虚拟机</keycap>列表中选择待安装系统的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>只运行一次</keycap>, 打开<keycap>运行虚拟机</keycap>窗口.
+            点击<keycap>只运行一次</keycap>，打开<keycap>运行虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>引导选项</keycap>, 展开<keycap>引导选项</keycap>配置.
+            点击<keycap>引导选项</keycap>，展开<keycap>引导选项</keycap>配置。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加软盘</keycap>, 从下拉菜单中选择<keycap>virtio-win.vfd</keycap>.
+            点击<keycap>附加软盘</keycap>，从下拉菜单中选择<keycap>virtio-win.vfd</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加 CD</keycap>, 从下拉菜单中选择你想要安装的 Windows
-            ISO 镜像文件.
+            点击<keycap>附加 CD</keycap>，从下拉菜单中选择你想要安装的 Windows
+            ISO 镜像文件。
           </para>
         </step>
         <step>
           <para>
-            在<keycap>引导序列</keycap>中, 把 <keycap>CD-ROM</keycap>移到最上面.
+            在<keycap>引导序列</keycap>中，把 <keycap>CD-ROM</keycap>移到最上面。
           </para>
         </step>
         <step>
           <para>
-            配置其它想要配置的选项, 然后点击<keycap>确定</keycap>运行虚拟机,
-            点击<keycap>控制台</keycap>连接到虚拟机开始安装.
+            配置其它想要配置的选项，然后点击<keycap>确定</keycap>运行虚拟机,
+            点击<keycap>控制台</keycap>连接到虚拟机开始安装。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        Windows 安装过程前, 包含一个加载额外驱动的步骤, 在这里, 选择该软盘驱动
-        找到需要的驱动加载.
+        Windows 安装过程前，包含一个加载额外驱动的步骤，在这里，选择该软盘驱动
+        找到需要的驱动加载。
       </para>
       </formalpara>
     </section>
@@ -1686,9 +1686,9 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-8">
       <title>仅运行一次虚拟机的解释</title>
       <para>
-        <keycap>只运行一次</keycap>定义了一些仅仅在这次运行的配置. 对于永久性
-        的启动参数, 在<keycap>编辑虚拟机</keycap>的<keycap>引导选项</keycap>中
-        配置.
+        <keycap>只运行一次</keycap>定义了一些仅仅在这次运行的配置。对于永久性
+        的启动参数，在<keycap>编辑虚拟机</keycap>的<keycap>引导选项</keycap>中
+        配置。
       </para>
       <table id="VM_Run_Once_Setting">
         <title>只运行一次设置</title>
@@ -1709,38 +1709,38 @@
                 引导选项
               </entry>
               <entry>
-                该选项可以让用户设置虚拟机的启动顺序, 启动参数, 安装操作系统
-                需要的镜像和额外的驱动等.
+                该选项可以让用户设置虚拟机的启动顺序，启动参数，安装操作系统
+                需要的镜像和额外的驱动等。
                 <itemizedlist>
 	              <listitem>
 	                <para>
                       <keycap>附加软盘</keycap> - 给虚拟机附加一个软盘镜像,
-                      一般在安装 Windows 系统的时候使用. 该软盘镜像必须在 ISO
-                      存储域里.
+                      一般在安装 Windows 系统的时候使用。该软盘镜像必须在 ISO
+                      存储域里。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
                       <keycap>附加 CD</keycap> - 给虚拟机附加一个 ISO 镜像,
-                      用来给虚拟机安装操作系统时候使用. 该 CD 镜像必须在 ISO 存储域里.
+                      用来给虚拟机安装操作系统时候使用。该 CD 镜像必须在 ISO 存储域里。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>引导序列</keycap> - 定义虚拟机从哪个设备找到启动镜像.
+                      <keycap>引导序列</keycap> - 定义虚拟机从哪个设备找到启动镜像。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
                       <keycap>以 Stateless 状态运行</keycap> - 虚拟机关闭之后,
-                      对磁盘做的任何修改将会被还原.
+                      对磁盘做的任何修改将会被还原。
 	                </para>
 	              </listitem>
                   <listitem>
                     <para>
-                      <keycap>以暂停模式启动</keycap> - 虚拟机最开始处于暂停状态.
-                      对于需要准备很长时间才能建立 spice 连接的场景来说, 暂停模式很有用.
-                      例如, 如果 spice client 和虚拟机运行的网络很远, 网络很慢的时候.
+                      <keycap>以暂停模式启动</keycap> - 虚拟机最开始处于暂停状态。
+                      对于需要准备很长时间才能建立 spice 连接的场景来说，暂停模式很有用。
+                      例如，如果 spice client 和虚拟机运行的网络很远，网络很慢的时候。
                     </para>
                   </listitem>
                 </itemizedlist>
@@ -1751,19 +1751,19 @@
                 Linux 引导选项
               </entry>
               <entry>
-                设置了下列参数之后, 虚拟机直接启动一个 Linux 内核, 而不是从 BIOS
-                加载启动镜像.
+                设置了下列参数之后，虚拟机直接启动一个 Linux 内核，而不是从 BIOS
+                加载启动镜像。
                 <itemizedlist>
 	              <listitem>
 	                <para>
-                      <keycap>内核路径</keycap> - 合法的内核镜像的路径. 内核镜像
-                      必须存储在 ISO 域里(使用 iso://path-to-image 的格式), 或者
+                      <keycap>内核路径</keycap> - 合法的内核镜像的路径。内核镜像
+                      必须存储在 ISO 域里(使用 iso://path-to-image 的格式)，或者
                       存储在主机的存储域里(使用/data/images)
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>initrd 路径</keycap> - 合法的 ramdisk 镜像的路径.
+                      <keycap>initrd 路径</keycap> - 合法的 ramdisk 镜像的路径。
                       内核镜像必须存储在 ISO 域里(使用 iso://path-to-image 的格式),
                       或者存储在主机的存储域里(使用/data/images)
 	                </para>
@@ -1781,45 +1781,45 @@
                 初始运行
               </entry>
               <entry>
-                允许用户使用 cloud-init, 并且定义这个虚拟机将使用到的一些设置.
+                允许用户使用 cloud-init，并且定义这个虚拟机将使用到的一些设置。
                 <itemizedlist>
 	              <listitem>
 	                <para>
-                      <keycap>主机名</keycap> - 允许用户指定主机名.
+                      <keycap>主机名</keycap> - 允许用户指定主机名。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>网络</keycap> - 允许用户配置网络, 包括网络接口
-                      设置和 DNS 设置. 多个网络接口可以通过<keycap>新增</keycap>或者
-                      <keycap>删除所选</keycap>来设置.
+                      <keycap>网络</keycap> - 允许用户配置网络，包括网络接口
+                      设置和 DNS 设置。多个网络接口可以通过<keycap>新增</keycap>或者
+                      <keycap>删除所选</keycap>来设置。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>SSH 授权密钥</keycap> - 允许用户指定添加到虚拟机的 SSH 密钥.
+                      <keycap>SSH 授权密钥</keycap> - 允许用户指定添加到虚拟机的 SSH 密钥。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>重新生成 SSH 授权密钥</keycap> - 允许用户重新生成 SSH 密钥.
+                      <keycap>重新生成 SSH 授权密钥</keycap> - 允许用户重新生成 SSH 密钥。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>时区</keycap> - 允许用户指定虚拟机运行的时区.
+                      <keycap>时区</keycap> - 允许用户指定虚拟机运行的时区。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>根密码</keycap> - 允许用户设置虚拟机系统的 root 用户的密码.
+                      <keycap>根密码</keycap> - 允许用户设置虚拟机系统的 root 用户的密码。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
                       <keycap>文件附件</keycap> - 允许用户注入普通文本或者 Base64
-                      内容的文件到虚拟机内部. 文件的路径可以由用户指定. 多个文件可以通过
-                      <keycap>新增</keycap>或者<keycap>删除所选</keycap>来设置.
+                      内容的文件到虚拟机内部。文件的路径可以由用户指定。多个文件可以通过
+                      <keycap>新增</keycap>或者<keycap>删除所选</keycap>来设置。
 	                </para>
 	              </listitem>
                 </itemizedlist>
@@ -1834,12 +1834,12 @@
                 <itemizedlist>
 	              <listitem>
 	                <para>
-                      <keycap>群集里的任何主机</keycap> - 虚拟机可以运行在群集的任何主机上.
+                      <keycap>群集里的任何主机</keycap> - 虚拟机可以运行在群集的任何主机上。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>专有的</keycap> - 用户指定一个主机来运行该虚拟机.
+                      <keycap>专有的</keycap> - 用户指定一个主机来运行该虚拟机。
 	                </para>
 	              </listitem>
                 </itemizedlist>
@@ -1854,13 +1854,13 @@
                 <itemizedlist>
 	              <listitem>
 	                <para>
-                      <keycap>VNC</keycap> - 需要一个 VNC 客户端来连接.
+                      <keycap>VNC</keycap> - 需要一个 VNC 客户端来连接。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>SPICE</keycap> - &OVIRT; 管理系统推荐使用的显示协议, 注意:
-                      Windows 8 and Server 2012 不能使用此协议.
+                      <keycap>SPICE</keycap> - &OVIRT; 管理系统推荐使用的显示协议，注意:
+                      Windows 8 and Server 2012 不能使用此协议。
 	                </para>
 	              </listitem>
                 </itemizedlist>
@@ -1871,30 +1871,30 @@
                 自定义属性
               </entry>
               <entry>
-                可以传递给 VDSM 的额外属性.
+                可以传递给 VDSM 的额外属性。
                 <itemizedlist>
 	              <listitem>
 	                <para>
-                      <keycap>sap_agent</keycap> - 设置 SAP 监控.
+                      <keycap>sap_agent</keycap> - 设置 SAP 监控。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>sndbuf</keycap> - 设置虚拟机套接字的发送缓存大小, 默认值是 0.
+                      <keycap>sndbuf</keycap> - 设置虚拟机套接字的发送缓存大小，默认值是 0。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>vhost</keycap> - 可以将vhost-net 禁用掉, vhost-net
-                      是在主机的 virtio 网络驱动, 可以提高虚拟机的网络性能.
+                      <keycap>vhost</keycap> - 可以将vhost-net 禁用掉，vhost-net
+                      是在主机的 virtio 网络驱动，可以提高虚拟机的网络性能。
 	                </para>
 	              </listitem>
 	              <listitem>
 	                <para>
-                      <keycap>viodiskcache</keycap> - 设置 virtio 磁盘的缓存模式.
-                      <keycap>writethrough</keycap> 同时把数据写到缓存和磁盘中才返回, 性能较低.
-                      <keycap>writeback</keycap> 将数据写入到缓存中就返回, 性能较高,
-                      但是不能保证数据安全. <keycap>none</keycap>不使用缓存.
+                      <keycap>viodiskcache</keycap> - 设置 virtio 磁盘的缓存模式。
+                      <keycap>writethrough</keycap> 同时把数据写到缓存和磁盘中才返回，性能较低。
+                      <keycap>writeback</keycap> 将数据写入到缓存中就返回，性能较高,
+                      但是不能保证数据安全。<keycap>none</keycap>不使用缓存。
 	                </para>
 	              </listitem>
                 </itemizedlist>
@@ -1913,7 +1913,7 @@
       <title>SPICE</title>
       <para>
         SPICE(Simple Protocol for Independent Computing Environments) 协议主要
-        是用来为用户提供一个图形化的访问虚拟机的方式, 它有以下特点:
+        是用来为用户提供一个图形化的访问虚拟机的方式，它有以下特点:
       </para>
 
       <itemizedlist>
@@ -1959,7 +1959,7 @@
       <title>启动虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        可以通过管理员门户启动一个虚拟机.
+        可以通过管理员门户启动一个虚拟机。
       </para>
       </formalpara>
 
@@ -1967,22 +1967,22 @@
         <title>启动虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要开启
-            的虚拟机. 目前他的状态是 <keycap>Down</keycap>.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要开启
+            的虚拟机。目前他的状态是 <keycap>Down</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击开机按钮.
+            点击开机按钮。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的状态变为 <keycap>Up</keycap>. 虚拟机的显示协议会被显示
-        出来(VNC 或者 SPICE). 如果在虚拟机内部安装了 <keycap>ovirt-guest-agent</keycap>,
-        那么虚拟机的 IP 地址和安装的应用程序也会显示出来.
+        虚拟机的状态变为 <keycap>Up</keycap>。虚拟机的显示协议会被显示
+        出来(VNC 或者 SPICE)。如果在虚拟机内部安装了 <keycap>ovirt-guest-agent</keycap>,
+        那么虚拟机的 IP 地址和安装的应用程序也会显示出来。
       </para>
       </formalpara>
     </section>
@@ -1990,12 +1990,12 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_5-3">
       <title>为windows/linux安装SPICE的浏览器插件</title>
       <para>
-        SPICE 协议默认的连接显示虚拟机的协议. 如果用户使用 Firefox 和 IE 浏览器
-        访问用户, 那么可以直接从门户通过浏览器的插件直接连接虚拟机.
+        SPICE 协议默认的连接显示虚拟机的协议。如果用户使用 Firefox 和 IE 浏览器
+        访问用户，那么可以直接从门户通过浏览器的插件直接连接虚拟机。
       </para>
       <formalpara><title>摘要</title>
       <para>
-        以下步骤描述了在 Linux 客户端下为 Firefox 浏览器安装 SPICE 插件的过程.
+        以下步骤描述了在 Linux 客户端下为 Firefox 浏览器安装 SPICE 插件的过程。
       </para>
       </formalpara>
 
@@ -2003,7 +2003,7 @@
         <title>为 Firefox 浏览器安装 SPICE 插件</title>
         <step>
           <para>
-            打开终端, 以 root 用户运行
+            打开终端，以 root 用户运行
           </para>
           <programlisting language="Bash">
 # yum install nfs-utils
@@ -2013,14 +2013,14 @@
 
       <formalpara><title>结果</title>
       <para>
-        插件将会安装到合适的目录, 重启 Firefox, 就可以直接在门户通过
-        SPICE 连接虚拟机了.
+        插件将会安装到合适的目录，重启 Firefox，就可以直接在门户通过
+        SPICE 连接虚拟机了。
       </para>
       </formalpara>
 
       <formalpara><title>摘要</title>
       <para>
-        以下步骤描述了在 Windows 客户端下为 IE 浏览器安装 SPICE 插件的过程.
+        以下步骤描述了在 Windows 客户端下为 IE 浏览器安装 SPICE 插件的过程。
       </para>
       </formalpara>
 
@@ -2028,30 +2028,30 @@
         <title>为 IE 浏览器安装 SPICE 插件</title>
         <step>
           <para>
-            用户第一次连接虚拟机的时候, 会有一个提示显示在浏览器上, 提示用户安装
-            SPICE ActiveX 插件. 当前用户必须有超级管理用户权限才能安装, 如果
-            没有, 请联系管理员帮忙安装
+            用户第一次连接虚拟机的时候，会有一个提示显示在浏览器上，提示用户安装
+            SPICE ActiveX 插件。当前用户必须有超级管理用户权限才能安装，如果
+            没有，请联系管理员帮忙安装
           </para>
         </step>
         <step>
           <para>
-            安装 SPICE ActiveX 插件的时候, IE 浏览器会弹出一个安全警告. 确定你要
-            安装之后, 该插件将会被安装.
+            安装 SPICE ActiveX 插件的时候，IE 浏览器会弹出一个安全警告。确定你要
+            安装之后，该插件将会被安装。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        IE 浏览器的 SPICE ActiveX 插件将会被安装到该系统上.
+        IE 浏览器的 SPICE ActiveX 插件将会被安装到该系统上。
       </para>
       </formalpara>
       <important>
         <para>
-          如果用户没有使用超级管理员权限安装 IE 的 SPICE 插件, 那么用户会得到
-          一个警告: usbclerk 将不会被安装. 如果没有安装 usbclerk, 那么用户
-          可以正常使用 SPICE 连接虚拟机, 除了用户不能在虚拟机里使用 USB 设备.
-          如果用户需要使用 USB 设备, 请联系系统管理员安装它.
+          如果用户没有使用超级管理员权限安装 IE 的 SPICE 插件，那么用户会得到
+          一个警告: usbclerk 将不会被安装。如果没有安装 usbclerk，那么用户
+          可以正常使用 SPICE 连接虚拟机，除了用户不能在虚拟机里使用 USB 设备。
+          如果用户需要使用 USB 设备，请联系系统管理员安装它。
         </para>
       </important>
     </section>
@@ -2060,9 +2060,9 @@
       <title>登录到虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        默认的连接显示虚拟机的协议是 SPICE. 用户可以在管理门户通过 SPICE 协议
-        直接连接虚拟机. 如果虚拟机被设置为使用 VNC 协议, 那么用户需要一个 VNC
-        客户端来连接虚拟机.
+        默认的连接显示虚拟机的协议是 SPICE。用户可以在管理门户通过 SPICE 协议
+        直接连接虚拟机。如果虚拟机被设置为使用 VNC 协议，那么用户需要一个 VNC
+        客户端来连接虚拟机。
       </para>
       </formalpara>
 
@@ -2070,14 +2070,14 @@
         <title>登陆到虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。目前他的状态是 <keycap>Up</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>控制台</keycap>按钮, 或者右键点击虚拟机,
-            选择<keycap>控制台</keycap>.
+            点击<keycap>控制台</keycap>按钮，或者右键点击虚拟机,
+            选择<keycap>控制台</keycap>。
           </para>
           <figure id="vm-console"><title>控制台</title>
           <mediaobject>
@@ -2089,21 +2089,21 @@
         </step>
         <step>
           <para>
-            A. 如果虚拟机的显示协议是 SPICE, 那么将会打开一个 SPICE 的窗口,
-            用户可以用这个窗口访问虚拟机.
+            A。如果虚拟机的显示协议是 SPICE，那么将会打开一个 SPICE 的窗口,
+            用户可以用这个窗口访问虚拟机。
           </para>
           <para>
-            B. 如果虚拟机的显示协议是 VNC, 用户将会被提示下载一个名为 "vonsole.vv"
-            的文件. 这个文件包含了用户用 VNC 客户端登陆虚拟机的所有信息.
-            使用文本编辑器打开该文件, 然后使用 VNC 客户端加上文件里的信息访问
-            虚拟机.
+            B。如果虚拟机的显示协议是 VNC，用户将会被提示下载一个名为 "vonsole.vv"
+            的文件。这个文件包含了用户用 VNC 客户端登陆虚拟机的所有信息。
+            使用文本编辑器打开该文件，然后使用 VNC 客户端加上文件里的信息访问
+            虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        用户可以通过控制台直接从浏览器访问虚拟机.
+        用户可以通过控制台直接从浏览器访问虚拟机。
       </para>
       </formalpara>
     </section>
@@ -2113,49 +2113,49 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-1">
       <title>关闭或暂停虚拟机</title>
       <para>
-        用户在登陆进虚拟机之后, 能从虚拟机里面关机. 但是有时候也需要从管理门户
-        关闭该虚拟机.
+        用户在登陆进虚拟机之后，能从虚拟机里面关机。但是有时候也需要从管理门户
+        关闭该虚拟机。
       </para>
 
       <para>
-        &OVIRT; 管理系统提供了很优雅的关闭虚拟机的方式, 如果虚拟机安装了
-        guest tools, 那么这种方式就可以用来从管理门户关闭虚拟机. 从门户端
-        关闭虚拟机应该是要有计划的, 至少应该保证在不能影响用户使用的情况下关闭.
+        &OVIRT; 管理系统提供了很优雅的关闭虚拟机的方式，如果虚拟机安装了
+        guest tools，那么这种方式就可以用来从管理门户关闭虚拟机。从门户端
+        关闭虚拟机应该是要有计划的，至少应该保证在不能影响用户使用的情况下关闭。
       </para>
 
       <para>
-        在关闭 Windows 虚拟机的时候, 所有的用户都必须登出该虚拟机. 如果有用户
-        还在登陆中, 那么该虚拟机在界面中将会显示 <keycap>Powering Off</keycap>
-        状态. 此时如果需要关闭虚拟机, 那么用户必须手动连接进虚拟机, 因为 Windows
+        在关闭 Windows 虚拟机的时候，所有的用户都必须登出该虚拟机。如果有用户
+        还在登陆中，那么该虚拟机在界面中将会显示 <keycap>Powering Off</keycap>
+        状态。此时如果需要关闭虚拟机，那么用户必须手动连接进虚拟机，因为 Windows
         一直提示以下信息:
       </para>
       <para>
-        Other people are logged on to this computer. Shutting down Windows might
-        cause them to lose data. Do you want to continue shutting down?
+        Other people are logged on to this computer。Shutting down Windows might
+        cause them to lose data。Do you want to continue shutting down?
       </para>
 
       <para>
-        如果管理员不能优雅的关闭虚拟机, 比如虚拟机失去响应. 这个时候管理员还可以
-        强制关闭该虚拟机, 点击界面上的<keycap>断电</keycap>按钮来强制结束.
+        如果管理员不能优雅的关闭虚拟机，比如虚拟机失去响应。这个时候管理员还可以
+        强制关闭该虚拟机，点击界面上的<keycap>断电</keycap>按钮来强制结束。
       </para>
 
       <warning>
         <para>
-          把虚拟机断电的时候要小心, 因为这样会丢失虚拟机内部的数据.
+          把虚拟机断电的时候要小心，因为这样会丢失虚拟机内部的数据。
         </para>
       </warning>
 
       <para>
-        暂停一个虚拟机会使得该虚拟机进入冬眠模式, 该模式下虚拟机的状态将被保存.
-        运行中的应用程序数据会写入到硬盘中保存, 此时 CPU 使用率将为 0.
+        暂停一个虚拟机会使得该虚拟机进入冬眠模式，该模式下虚拟机的状态将被保存。
+        运行中的应用程序数据会写入到硬盘中保存，此时 CPU 使用率将为 0。
       </para>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_6-2">
       <title>关闭虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>, 或者配置了高级电源
-        管理, 那么用户可以从管理员门户优雅的关闭该虚拟机.
+        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>，或者配置了高级电源
+        管理，那么用户可以从管理员门户优雅的关闭该虚拟机。
       </para>
       </formalpara>
 
@@ -2163,20 +2163,20 @@
         <title>关闭虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。目前他的状态是 <keycap>Up</keycap>。
           </para>
         </step>
         <step>
           <para>
-            右击该虚拟机, 点击<keycap>关闭</keycap>来关闭该虚拟机.
+            右击该虚拟机，点击<keycap>关闭</keycap>来关闭该虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的<keycap>状态</keycap>变为<keycap>Down</keycap>.
+        虚拟机的<keycap>状态</keycap>变为<keycap>Down</keycap>。
       </para>
       </formalpara>            
     </section>
@@ -2187,8 +2187,8 @@
       </para>
       <formalpara><title>摘要</title>
       <para>
-        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>, 或者配置了高级电源
-        管理, 那么用户可以从管理员门户暂停该虚拟机. 该虚拟机将会进入休眠模式.
+        如果虚拟机安装了 <keycap>ovirt-guest-agent</keycap>，或者配置了高级电源
+        管理，那么用户可以从管理员门户暂停该虚拟机。该虚拟机将会进入休眠模式。
       </para>
       </formalpara>
 
@@ -2196,20 +2196,20 @@
         <title>暂停虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机. 目前他的状态是 <keycap>Up</keycap>.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。目前他的状态是 <keycap>Up</keycap>。
           </para>
         </step>
         <step>
           <para>
-            右击该虚拟机, 点击<keycap>挂起</keycap>来暂停该虚拟机.
+            右击该虚拟机，点击<keycap>挂起</keycap>来暂停该虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的<keycap>状态</keycap>变为<keycap>Suspended</keycap>.
+        虚拟机的<keycap>状态</keycap>变为<keycap>Suspended</keycap>。
       </para>
       </formalpara>      
       <para>
@@ -2223,7 +2223,7 @@
       <title>编辑资源</title>
       <formalpara><title>摘要</title>
       <para>
-        编辑资源的属性.
+        编辑资源的属性。
       </para>
       </formalpara>
 
@@ -2231,23 +2231,23 @@
         <title>编辑资源</title>
         <step>
           <para>
-            使用资源标签, 搜索标签等找到想要的资源.
+            使用资源标签，搜索标签等找到想要的资源。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>。
           </para>
         </step>
         <step>
           <para>
-            改变资源的属性, 点击<keycap>确定</keycap>.
+            改变资源的属性，点击<keycap>确定</keycap>。
           </para>
         </step>
       </procedure>
       <formalpara><title>结果</title>
       <para>
-        该资源属性的值将会被保存.
+        该资源属性的值将会被保存。
       </para>
       </formalpara>
     </section>
@@ -2256,8 +2256,8 @@
       <title>删除虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        用户不再需要该虚拟机的时候, 可以把它从数据中心删除掉. 删除虚拟机的时候
-        必须先把该虚拟机暂停.
+        用户不再需要该虚拟机的时候，可以把它从数据中心删除掉。删除虚拟机的时候
+        必须先把该虚拟机暂停。
       </para>
       </formalpara>
 
@@ -2265,32 +2265,32 @@
         <title>删除虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
            <keycap>删除</keycap>按钮只在虚拟机处于<keycap>Down</keycap>状态
-           才会可用.
+           才会可用。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>删除</keycap>, 在<keycap>删除虚拟机窗口</keycap>, 如果
-            想要把虚拟机使用的磁盘也一并删除, 那么勾选<keycap>删除磁盘</keycap>.
+            点击<keycap>删除</keycap>，在<keycap>删除虚拟机窗口</keycap>，如果
+            想要把虚拟机使用的磁盘也一并删除，那么勾选<keycap>删除磁盘</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>删除该虚拟机.
+            点击<keycap>确定</keycap>删除该虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机将会被删除, 将会从虚拟机列表里消失.
+        虚拟机将会被删除，将会从虚拟机列表里消失。
       </para>
       </formalpara>
     </section>
@@ -2299,13 +2299,13 @@
       <title>添加、编辑虚拟磁盘</title>
       <formalpara><title>摘要</title>
       <para>
-        &OVIRT; 管理系统允许用户给虚拟机添加新的磁盘. 用户可以给虚拟机添加新的
-        磁盘, 或者把之前创建的浮动磁盘分配给虚拟机. 用户也可以创建虚拟机之间可以
-        共享的磁盘. 或者编辑磁盘的属性.
+        &OVIRT; 管理系统允许用户给虚拟机添加新的磁盘。用户可以给虚拟机添加新的
+        磁盘，或者把之前创建的浮动磁盘分配给虚拟机。用户也可以创建虚拟机之间可以
+        共享的磁盘。或者编辑磁盘的属性。
 
-        默认情况下, 创建的磁盘类型是内部磁盘. 用户也可以直接增加外部的磁盘.
-        内部磁盘被 &OVIRT; 管理系统管理. 用户要使用外部磁盘, 必须先把该磁盘(LUN)
-        的 target 增加到系统里. 创建的磁盘可以是共享的, 或者是浮动的.
+        默认情况下，创建的磁盘类型是内部磁盘。用户也可以直接增加外部的磁盘。
+        内部磁盘被 &OVIRT; 管理系统管理。用户要使用外部磁盘，必须先把该磁盘(LUN)
+        的 target 增加到系统里。创建的磁盘可以是共享的，或者是浮动的。
       </para>
       </formalpara>
 
@@ -2313,19 +2313,19 @@
         <title>给虚拟机添加磁盘</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
       <step>
         <para>
-          在详细信息面板上, 点击<keycap>磁盘</keycap>, 将会显示附加到该虚拟机
-          上的所有磁盘.
+          在详细信息面板上，点击<keycap>磁盘</keycap>，将会显示附加到该虚拟机
+          上的所有磁盘。
         </para>
       </step>
         <step>
           <para>
-            点击<keycap>添加</keycap>, 打开<keycap>添加磁盘</keycap>窗口.
+            点击<keycap>添加</keycap>，打开<keycap>添加磁盘</keycap>窗口。
           </para>
           <figure id="vm-add-disk"><title>给虚拟机添加磁盘</title>
           <mediaobject>
@@ -2338,25 +2338,25 @@
         <step>
           <para>
             在<keycap>内部的</keycap>和<keycap>外部(直接 LUN)</keycap>之间来
-            选择要添加的磁盘类型.
+            选择要添加的磁盘类型。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>附加磁盘</keycap>, 选择要添加的磁盘. 或者直接创建
-            一个新的磁盘附加给虚拟机.
+            点击<keycap>附加磁盘</keycap>，选择要添加的磁盘。或者直接创建
+            一个新的磁盘附加给虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘.
+            点击窗口又下角的<keycap>确定</keycap>给虚拟机分配浮动磁盘。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        我们已经给虚拟机分配给了新的磁盘, 在虚拟机的磁盘列表上会被列出来.
+        我们已经给虚拟机分配给了新的磁盘，在虚拟机的磁盘列表上会被列出来。
       </para>
       </formalpara>
     </section>
@@ -2364,9 +2364,9 @@
       <title>添加、编辑虚拟网卡</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以给虚拟机添加网络接口使得虚拟机有多块网卡. 用户也编辑已经添加
-        的网卡, 更新网卡的某些属性. 下面描述的步骤可以在虚拟机运行的时候执行,
-        但是某些操作必须要虚拟机关机才能执行.
+        用户可以给虚拟机添加网络接口使得虚拟机有多块网卡。用户也编辑已经添加
+        的网卡，更新网卡的某些属性。下面描述的步骤可以在虚拟机运行的时候执行,
+        但是某些操作必须要虚拟机关机才能执行。
       </para>
       </formalpara>
 
@@ -2374,19 +2374,19 @@
         <title>给虚拟机添加网络接口</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
             在下面的虚拟机详细信息面板上选择<keycap>网络接口</keycap>列出目前
-            附加到该虚拟机下的网络接口.
+            附加到该虚拟机下的网络接口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>新建</keycap>, 打开<keycap>新建网络接口</keycap>窗口.
+            点击<keycap>新建</keycap>，打开<keycap>新建网络接口</keycap>窗口。
           </para>
           <figure id="vm-new-network-interface2"><title>添加虚拟网络</title>
           <mediaobject>
@@ -2398,46 +2398,46 @@
         </step>
         <step>
           <para>
-            输入网卡的<keycap>名称</keycap>.
+            输入网卡的<keycap>名称</keycap>。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>配置</keycap>和<keycap>类型</keycap>, 设置网络接口的
-            详细参数. 默认状态下<keycap>链路状态</keycap>是<keycap>Up</keycap>.
+            选择<keycap>配置</keycap>和<keycap>类型</keycap>，设置网络接口的
+            详细参数。默认状态下<keycap>链路状态</keycap>是<keycap>Up</keycap>。
           </para>
         </step>
         <step>
           <para>
-            如果想要设置 MAC 地址的话, 在<keycap>自定义的 MAC 地址</keycap>
-            处设置给虚拟机的 MAC 地址.
+            如果想要设置 MAC 地址的话，在<keycap>自定义的 MAC 地址</keycap>
+            处设置给虚拟机的 MAC 地址。
           </para>
         </step>
         <step>
           <para>
             该窗口还允许设置设置<keycap>卡的状态</keycap>: <keycap>已插入</keycap>
-            还是<keycap>已拔出</keycap>.
+            还是<keycap>已拔出</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建网路接口.
+            点击<keycap>确定</keycap>创建网路接口。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        我们已经给虚拟机添加了新的网络接口, 在虚拟机的<keycap>网络接口</keycap>
-        列表上会被列出来.
+        我们已经给虚拟机添加了新的网络接口，在虚拟机的<keycap>网络接口</keycap>
+        列表上会被列出来。
       </para>
       </formalpara>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_7-5">
       <title>虚拟机网卡设置窗口配置解释</title>
       <para>
-        下表详细解释了在新建或者编辑虚拟网络接口的时候使用到的属性. 用户可以给
-        一个虚拟机添加多个网卡, 这样虚拟机就处于多网卡模式了.
+        下表详细解释了在新建或者编辑虚拟网络接口的时候使用到的属性。用户可以给
+        一个虚拟机添加多个网卡，这样虚拟机就处于多网卡模式了。
       </para>
       <table id="VM_Network_Setting">
         <title>网络接口的属性</title>
@@ -2458,8 +2458,8 @@
                 <keycap>名称</keycap>
               </entry>
               <entry>
-                网络接口的名称, 必须限制在 21 个字符之类, 可以由大小写字母, 数字,
-                下划线和连字符组成.
+                网络接口的名称，必须限制在 21 个字符之类，可以由大小写字母，数字,
+                下划线和连字符组成。
               </entry>
             </row>
             <row>
@@ -2467,8 +2467,8 @@
                 <keycap>配置</keycap>
               </entry>
               <entry>
-                虚拟网络所处的的主机的逻辑网络名字. 模型情况下, 所有虚拟机网络
-                接口都放在 ovirtmgmt 下.
+                虚拟网络所处的的主机的逻辑网络名字。模型情况下，所有虚拟机网络
+                接口都放在 ovirtmgmt 下。
               </entry>
             </row>
             <row>
@@ -2476,7 +2476,7 @@
                 <keycap>链路状态</keycap>
               </entry>
               <entry>
-                是否该网络接口连接到了逻辑网络上.
+                是否该网络接口连接到了逻辑网络上。
                 <itemizedlist>
                   <listitem>
                     <para>
@@ -2485,15 +2485,15 @@
                     <itemizedlist>
                       <listitem>
                         <para>
-                          当网卡的状态是已插入时, 意味着网络接口已经连接到逻辑
-                          网络上了, 处于激活状态.
+                          当网卡的状态是已插入时，意味着网络接口已经连接到逻辑
+                          网络上了，处于激活状态。
                         </para>
                       </listitem>
                     </itemizedlist>
                     <itemizedlist>
                       <listitem>
                         <para>
-                          当网卡的状态是已拔出时, 意味着网卡变为已插入时,
+                          当网卡的状态是已拔出时，意味着网卡变为已插入时,
                           网络接口将会自动连接和激活
                         </para>
                       </listitem>
@@ -2501,7 +2501,7 @@
                   </listitem>
                   <listitem>
                     <para>
-                      Down: 网口接口没有连接到任何网络. 这种状态下虚拟机将不能使用该网络接口.
+                      Down: 网口接口没有连接到任何网络。这种状态下虚拟机将不能使用该网络接口。
                     </para>
                   </listitem>
                 </itemizedlist>
@@ -2512,11 +2512,11 @@
                 <keycap>类型</keycap>
               </entry>
               <entry>
-                虚拟网卡的类型. 有三种类型, VirtIO. rtl8139 和 e1000. VirtIO
-                是最快的虚拟网卡类型, 但是使用该网卡需要额外的 VirtIO 驱动.
-                大部分 Linux 操作系统都自带 VirtIO 的驱动. Windows 没有包含
-                VirtIO 驱动, 但是用户可以通过 guest tools ISO
-                或者虚拟软盘来安装. 另外两种类型的网卡已经包含在大部分操作系统里了.
+                虚拟网卡的类型。有三种类型，VirtIO。rtl8139 和 e1000。VirtIO
+                是最快的虚拟网卡类型，但是使用该网卡需要额外的 VirtIO 驱动。
+                大部分 Linux 操作系统都自带 VirtIO 的驱动。Windows 没有包含
+                VirtIO 驱动，但是用户可以通过 guest tools ISO
+                或者虚拟软盘来安装。另外两种类型的网卡已经包含在大部分操作系统里了。
               </entry>
             </row>
             <row>
@@ -2524,10 +2524,10 @@
                 <keycap>自定义的 MAC 地址</keycap>
               </entry>
               <entry>
-                用户可以在这里设置网络接口的 MAC 地址. 如果用户没有选择的话,
-                &OVIRT; 管理系统会为该网卡自动选择一个独立的 MAC 地址. 请注意
-                如果两个虚拟网卡有相同的 MAC 地址, 那么使用这两个网卡的时候会
-                发生网络异常.
+                用户可以在这里设置网络接口的 MAC 地址。如果用户没有选择的话,
+                &OVIRT; 管理系统会为该网卡自动选择一个独立的 MAC 地址。请注意
+                如果两个虚拟网卡有相同的 MAC 地址，那么使用这两个网卡的时候会
+                发生网络异常。
               </entry>
             </row>
             <row>
@@ -2535,7 +2535,7 @@
                 <keycap>卡的状态</keycap>
               </entry>
               <entry>
-                是否把网络接口插入该虚拟机.
+                是否把网络接口插入该虚拟机。
                 <itemizedlist>
                   <listitem>
                     <para>
@@ -2545,13 +2545,13 @@
                       <listitem>
                         <para>
                           如果 <keycap>链路状态</keycap> 是 <keycap>Up</keycap>,
-                          那么此网卡已经正确连接到逻辑网络了, 并且已激活可用
+                          那么此网卡已经正确连接到逻辑网络了，并且已激活可用
                         </para>
                       </listitem>
                       <listitem>
                         <para>
                           如果 <keycap>链路状态</keycap> 是 <keycap>Down</keycap>,
-                          那么此网卡没有连接到逻辑网络.
+                          那么此网卡没有连接到逻辑网络。
                         </para>
                       </listitem>
                     </itemizedlist>
@@ -2565,13 +2565,13 @@
                       <listitem>
                         <para>
                           如果 <keycap>链路状态</keycap> 是 <keycap>Up</keycap>,
-                          当网卡被插入时, 该网络接口将自动连接到逻辑网络
+                          当网卡被插入时，该网络接口将自动连接到逻辑网络
                         </para>
                       </listitem>
                       <listitem>
                         <para>
                           如果 <keycap>链路状态</keycap> 是 <keycap>Down</keycap>,
-                          该网络接口没有连接到逻辑网络, 知道网卡插入时
+                          该网络接口没有连接到逻辑网络，知道网卡插入时
                         </para>
                       </listitem>
                     </itemizedlist>
@@ -2587,8 +2587,8 @@
       <title>热插拔虚拟磁盘</title>
       <formalpara><title>摘要</title>
       <para>
-        &OVIRT; 系统允许用户热插拔磁盘. 热插拔允许在虚拟机运行的时候动态的添加
-        或者删除磁盘.
+        &OVIRT; 系统允许用户热插拔磁盘。热插拔允许在虚拟机运行的时候动态的添加
+        或者删除磁盘。
       </para>
       </formalpara>
 
@@ -2596,30 +2596,30 @@
         <title>热插拔磁盘</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            从显示的虚拟机详细面板中选择<keycap>磁盘</keycap>标签.
+            从显示的虚拟机详细面板中选择<keycap>磁盘</keycap>标签。
           </para>
         </step>
         <step>
           <para>
-            选择想要热插拔的磁盘.
+            选择想要热插拔的磁盘。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>激活</keycap>或者<keycap>取消激活</keycap>按钮.
+            点击<keycap>激活</keycap>或者<keycap>取消激活</keycap>按钮。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        磁盘的会从虚拟机动态添加或者删除.
+        磁盘的会从虚拟机动态添加或者删除。
       </para>
       </formalpara>
     </section>
@@ -2628,8 +2628,8 @@
       <title>热插拔虚拟网卡</title>
       <formalpara><title>摘要</title>
       <para>
-        &OVIRT; 系统允许用户热插拔虚拟网卡. 热插拔允许在虚拟机运行的时候动态的添加
-        或者删除虚拟网卡.
+        &OVIRT; 系统允许用户热插拔虚拟网卡。热插拔允许在虚拟机运行的时候动态的添加
+        或者删除虚拟网卡。
       </para>
       </formalpara>
 
@@ -2637,32 +2637,32 @@
         <title>热插拔网卡</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            从显示的虚拟机详细面板中选择<keycap>网络接口</keycap>标签.
+            从显示的虚拟机详细面板中选择<keycap>网络接口</keycap>标签。
           </para>
         </step>
         <step>
           <para>
-            选择想要热插拔的磁盘, 点击<keycap>编辑</keycap>按钮, 打开
-            <keycap>网络接口</keycap>窗口.
+            选择想要热插拔的磁盘，点击<keycap>编辑</keycap>按钮，打开
+            <keycap>网络接口</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            如果想要热添加网卡, 选中<keycap>已插入</keycap>, 如果想要热删除
-            网卡, 选择<keycap>已拔出</keycap>.
+            如果想要热添加网卡，选中<keycap>已插入</keycap>，如果想要热删除
+            网卡，选择<keycap>已拔出</keycap>。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟网卡的会从虚拟机动态添加或者删除.
+        虚拟网卡的会从虚拟机动态添加或者删除。
       </para>
       </formalpara>
     </section>
@@ -2671,46 +2671,46 @@
       <title>从虚拟机中删除磁盘或网卡</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以将虚拟机里的虚拟磁盘和网卡删除. 如果选择删除磁盘, 那么磁盘的
-        数据将会被删除.
+        用户可以将虚拟机里的虚拟磁盘和网卡删除。如果选择删除磁盘，那么磁盘的
+        数据将会被删除。
       </para>
       </formalpara>
 
       <para>
-        这和热删除磁盘和网卡不同, 只有处于<keycap>非激活</keycap>状态的磁盘和网卡才能被删除.
+        这和热删除磁盘和网卡不同，只有处于<keycap>非激活</keycap>状态的磁盘和网卡才能被删除。
       </para>
 
       <procedure>
         <title>从虚拟机中删除磁盘或网卡</title>
         <step>
           <para>
-            选择你要操作的虚拟机.
+            选择你要操作的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            选择相关的资源, 比如<keycap>磁盘或者</keycap>或者是
-            <keycap>网络接口</keycap>.
+            选择相关的资源，比如<keycap>磁盘或者</keycap>或者是
+            <keycap>网络接口</keycap>。
           </para>
         </step>
         <step>
           <para>
-            选择需要删除的资源. 首先该资源必须处于<keycap>非激活</keycap>状态.
+            选择需要删除的资源。首先该资源必须处于<keycap>非激活</keycap>状态。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>删除</keycap>按钮. 在弹出的确认窗口中选择
-            <keycap>确定</keycap>. 如果删除的资源是磁盘, 选择
-            <keycap>永久的删除</keycap>单选框彻底删除磁盘, 如果只是想从该虚拟机
-            删除该磁盘, 想要保留磁盘, 比如如果该磁盘是共享, 那么不要选择该选项.
+            点击<keycap>删除</keycap>按钮。在弹出的确认窗口中选择
+            <keycap>确定</keycap>。如果删除的资源是磁盘，选择
+            <keycap>永久的删除</keycap>单选框彻底删除磁盘，如果只是想从该虚拟机
+            删除该磁盘，想要保留磁盘，比如如果该磁盘是共享，那么不要选择该选项。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟磁盘或者网卡会从虚拟机里删除.
+        虚拟磁盘或者网卡会从虚拟机里删除。
       </para>
       </formalpara>
     </section>
@@ -2946,11 +2946,11 @@
       <title>为虚拟机创建快照</title>
       <formalpara><title>摘要</title>
       <para>
-        快照, 指的是在某个时间点将虚拟机的所有数据都保存. 包括操作系统, 应用程序
-        以及数据. 便于日后可以恢复到这个时间的这个状态. 快照本身会将虚拟镜像保存
-        为一个 COW 的文件或卷, 当然并不是复制镜像, 而是基于原来的加上一个新的
-        COW层. 所有变化的数据是存放在新的COW层里的. 用户可以使用快照将虚拟机
-        恢复到原先的状态.
+        快照，指的是在某个时间点将虚拟机的所有数据都保存。包括操作系统，应用程序
+        以及数据。便于日后可以恢复到这个时间的这个状态。快照本身会将虚拟镜像保存
+        为一个 COW 的文件或卷，当然并不是复制镜像，而是基于原来的加上一个新的
+        COW层。所有变化的数据是存放在新的COW层里的。用户可以使用快照将虚拟机
+        恢复到原先的状态。
       </para>
       </formalpara>
 
@@ -2958,32 +2958,32 @@
         <title>为虚拟机创建快照</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>创建</keycap>, 打开<keycap>创建快照</keycap>窗口
+            点击<keycap>创建</keycap>，打开<keycap>创建快照</keycap>窗口
           </para>
         </step>
         <step>
           <para>
-            输入快照的<keycap>描述</keycap>.
+            输入快照的<keycap>描述</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建快照.
+            点击<keycap>确定</keycap>创建快照。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        快照开始创建的时候, 它的状态是<keycap>Locked</keycap>, 当快照创建完成
-        之后, 它的状态变为<keycap>Ok</keycap>. 用户点击某一个快照时, 该快照里面
-        包含的常规信息, 磁盘信息, 网络接口信息, 已安装的应用程序信息都会显示出来.
+        快照开始创建的时候，它的状态是<keycap>Locked</keycap>，当快照创建完成
+        之后，它的状态变为<keycap>Ok</keycap>。用户点击某一个快照时，该快照里面
+        包含的常规信息，磁盘信息，网络接口信息，已安装的应用程序信息都会显示出来。
       </para>
       </formalpara>
     </section>
@@ -2991,42 +2991,42 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-2">
       <title>使用快照恢复虚拟机</title>
       <para>
-        快照可以用来恢复虚拟机到之前的状态.
+        快照可以用来恢复虚拟机到之前的状态。
       </para>
       <procedure>
         <title>使用快照恢复虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机, 确保虚拟机处于<keycap>关机</keycap>状态.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机，确保虚拟机处于<keycap>关机</keycap>状态。
           </para>
         </step>
         <step>
           <para>
-            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
-            的所有快照.
+            在详细信息面板上，点击<keycap>快照</keycap>，将会显示该虚拟机
+            的所有快照。
           </para>
         </step>
         <step>
           <para>
-            选择要恢复的快照.
+            选择要恢复的快照。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>预览</keycap>进入预览模式.
+            点击<keycap>预览</keycap>进入预览模式。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>提交</keycap>把快照提交到虚拟机.
+            点击<keycap>提交</keycap>把快照提交到虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机将会被恢复到创建快照时的时间点.
+        虚拟机将会被恢复到创建快照时的时间点。
       </para>
       </formalpara>
     </section>
@@ -3035,7 +3035,7 @@
       <title>从快照中创建虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以使用之前创建的快照克隆一个虚拟机.
+        用户可以使用之前创建的快照克隆一个虚拟机。
       </para>
       </formalpara>
 
@@ -3043,28 +3043,28 @@
         <title>从快照创建虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
 
         <step>
           <para>
-            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
-            的所有快照.
+            在详细信息面板上，点击<keycap>快照</keycap>，将会显示该虚拟机
+            的所有快照。
           </para>
         </step>
 
         <step>
           <para>
-            鼠标单击需要的快照, 然后点击<keycap>克隆</keycap>,
-            打开<keycap>从快照克隆虚拟机</keycap>窗口, 如图:
+            鼠标单击需要的快照，然后点击<keycap>克隆</keycap>,
+            打开<keycap>从快照克隆虚拟机</keycap>窗口，如图:
           </para>
         </step>
 
         <step>
           <para>
-            输入需要的<keycap>名称</keycap>, <keycap>描述(可选)</keycap>,
+            输入需要的<keycap>名称</keycap>，<keycap>描述(可选)</keycap>,
             <keycap>注释(可选)</keycap>
           </para>
           <figure id="vm-clone-from-snapshot"><title>从克隆快照窗口</title>
@@ -3077,7 +3077,7 @@
         </step>
         <step>
           <para>
-            点击窗口又下角的<keycap>确定</keycap>克隆虚拟机.
+            点击窗口又下角的<keycap>确定</keycap>克隆虚拟机。
           </para>
         </step>
       </procedure>
@@ -3087,7 +3087,7 @@
       <title>删除快照</title>
       <formalpara><title>摘要</title>
       <para>
-        永久删除一个快照.
+        永久删除一个快照。
       </para>
       </formalpara>
 
@@ -3095,41 +3095,41 @@
         <title>删除快照</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要连接
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要连接
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            在详细信息面板上, 点击<keycap>快照</keycap>, 将会显示该虚拟机
-            的所有快照.
+            在详细信息面板上，点击<keycap>快照</keycap>，将会显示该虚拟机
+            的所有快照。
           </para>
         </step>
         <step>
           <para>
-            选择要删除的<keycap>快照</keycap>.
+            选择要删除的<keycap>快照</keycap>。
           </para>
         </step>
         <step>
           <para>
-            关闭关联词快照的所有运行着的虚拟机.
+            关闭关联词快照的所有运行着的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>删除</keycap>, 打开<keycap>删除快照</keycap>窗口.
+            点击<keycap>删除</keycap>，打开<keycap>删除快照</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>删除快照.
+            点击<keycap>确定</keycap>删除快照。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的该快照将会被删除. 删除快照并不会影响该虚拟机的使用.
+        虚拟机的该快照将会被删除。删除快照并不会影响该虚拟机的使用。
       </para>
       </formalpara>
     </section>
@@ -3139,91 +3139,91 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-1">
       <title>导出和导入虚拟机</title>
       <para>
-        在 &OVIRT; 系统中, 虚拟机和模板可以在不同的数据中心之间移动, 更进一步,
-        它们甚至可以在不同的 &OVIRT; 环境中移动. &OVIRT; 管理系统用于用户导入
-        导出 OVF(Open Virtual Machine Format) 格式的模板和虚拟机. 该功能
+        在 &OVIRT; 系统中，虚拟机和模板可以在不同的数据中心之间移动，更进一步,
+        它们甚至可以在不同的 &OVIRT; 环境中移动。&OVIRT; 管理系统用于用户导入
+        导出 OVF(Open Virtual Machine Format) 格式的模板和虚拟机。该功能
         一般用于以下场景中:
         <itemizedlist>
 	      <listitem>
 	        <para>
-              在不同的 &OVIRT; 环境中移动虚拟机资源.
+              在不同的 &OVIRT; 环境中移动虚拟机资源。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              在同一个 &OVIRT; 环境的不同数据中心之间移动虚拟机资源.
+              在同一个 &OVIRT; 环境的不同数据中心之间移动虚拟机资源。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              备份虚拟机镜像和模板.
+              备份虚拟机镜像和模板。
 	        </para>
 	      </listitem>
         </itemizedlist>
       </para>
 
       <para>
-        要完成上述功能, 需要三步:
+        要完成上述功能，需要三步:
         <itemizedlist>
 	      <listitem>
 	        <para>
-              首先导出虚拟机镜像和模板到导出域.
+              首先导出虚拟机镜像和模板到导出域。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              然后将该导出域从所在的数据中心分离, 然后附加到另外一个数据中上.
-              可以将导出域附加到同一个 &OVIRT; 系统中的不同数据中心上, 或者附加到
-              另一个 &OVIRT; 管理系统中的数据中心上.
+              然后将该导出域从所在的数据中心分离，然后附加到另外一个数据中上。
+              可以将导出域附加到同一个 &OVIRT; 系统中的不同数据中心上，或者附加到
+              另一个 &OVIRT; 管理系统中的数据中心上。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              把虚拟机和磁盘导入到新附加的数据中心上.
+              把虚拟机和磁盘导入到新附加的数据中心上。
 	        </para>
 	      </listitem>
         </itemizedlist>
 
-        在数据中心之间移动虚拟机的时候, 虚拟机必须处于关机状态. 如果虚拟机从
-        模板创建的, 那么创建虚拟机的模板也必须处于目的数据中心里, 或者导出虚拟机
-        的时候选中 <keycap>Collapse 快照</keycap> 选项.
+        在数据中心之间移动虚拟机的时候，虚拟机必须处于关机状态。如果虚拟机从
+        模板创建的，那么创建虚拟机的模板也必须处于目的数据中心里，或者导出虚拟机
+        的时候选中 <keycap>Collapse 快照</keycap> 选项。
       </para>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_10-2">
       <title>导入/导出进程概览</title>
       <para>
-        导出域允许用户在不同的数据中心之间移动虚拟机和模板.
+        导出域允许用户在不同的数据中心之间移动虚拟机和模板。
       </para>
 
       <para>
-        为了导入或者导出虚拟机资源, 一个导出域必须要附加到数据中心中, 而且处于
-        激活状态. 导出域是一个临时的存储域, 里面有两个目录包含了导出的虚拟资源.
-        一个包含了所有虚拟机的 OVF 信息, 另一个包含了虚拟机镜像.
+        为了导入或者导出虚拟机资源，一个导出域必须要附加到数据中心中，而且处于
+        激活状态。导出域是一个临时的存储域，里面有两个目录包含了导出的虚拟资源。
+        一个包含了所有虚拟机的 OVF 信息，另一个包含了虚拟机镜像。
       </para>
 
       <para>
-        用户可以从其它地方导入虚拟机, 比如从 Xen, VMware 或者 windows 平台
-        导入虚拟机, 该过程可以使用 V2V 工具来完成.
+        用户可以从其它地方导入虚拟机，比如从 Xen，VMware 或者 windows 平台
+        导入虚拟机，该过程可以使用 V2V 工具来完成。
       </para>
 
       <para>
-        更多 V2V 工具的使用, 请参考 V2V 手册.
+        更多 V2V 工具的使用，请参考 V2V 手册。
       </para>
 
       <note>
         <para>
-          同一时刻, 一个导出域只能附加到一个数据中心中. 但是导出于即可附加到
-          源数据中心, 也可附加到目的数据中心.
+          同一时刻，一个导出域只能附加到一个数据中心中。但是导出于即可附加到
+          源数据中心，也可附加到目的数据中心。
         </para>
       </note>
 
       <para>
-        为了正常使用导出域, 需要满足以下的几个条件:
+        为了正常使用导出域，需要满足以下的几个条件:
         <itemizedlist>
           <listitem>
             <para>
-              一个附加到源数据中心的导出域.
+              一个附加到源数据中心的导出域。
             </para>
           </listitem>
           <listitem>
@@ -3233,15 +3233,15 @@
           </listitem>
           <listitem>
             <para>
-              如果虚拟机是从模板创建的, 那么创建虚拟机的模板也必须处于目的
-              数据中心里, 或者导出虚拟机的时候选中 <keycap>Collapse 快照</keycap>
-              选项.
+              如果虚拟机是从模板创建的，那么创建虚拟机的模板也必须处于目的
+              数据中心里，或者导出虚拟机的时候选中 <keycap>Collapse 快照</keycap>
+              选项。
             </para>
           </listitem>
         </itemizedlist>
-        一旦虚拟机导出到导出域, 用户就可以开始把这些存在于导出域的虚拟机导入
-        到目的数据中心里. 如果源数据中心和目的数据中心都在同一个 &OVIRT; 系统中,
-        一旦完成导入操作, 用户可以从源数据中心把原来的数据删除.
+        一旦虚拟机导出到导出域，用户就可以开始把这些存在于导出域的虚拟机导入
+        到目的数据中心里。如果源数据中心和目的数据中心都在同一个 &OVIRT; 系统中,
+        一旦完成导入操作，用户可以从源数据中心把原来的数据删除。
       </para>
     </section>
 
@@ -3257,7 +3257,7 @@
         <title>执行导入/导出资源</title>
         <step>
           <para>
-            把导出域附加到源数据中心.
+            把导出域附加到源数据中心。
             <figure id="vm-attach-export-domain"><title>附加导出域</title>
               <mediaobject>
                 <imageobject>
@@ -3269,7 +3269,7 @@
         </step>
         <step>
           <para>
-            把虚拟资源导出到导出域.
+            把虚拟资源导出到导出域。
           <figure id="create-vm-export-vm"><title>导出虚拟机</title>
           <mediaobject>
             <imageobject>
@@ -3281,7 +3281,7 @@
         </step>
         <step>
           <para>
-            从源数据中心分离导出域.
+            从源数据中心分离导出域。
             <figure id="create-vm-detach-vm"><title>附加存储域</title>
             <mediaobject>
               <imageobject>
@@ -3293,7 +3293,7 @@
         </step>
         <step>
           <para>
-            附加导出域到目的数据中心.
+            附加导出域到目的数据中心。
             <figure id="create-vm-attach-vm"><title>附加存储域</title>
             <mediaobject>
               <imageobject>
@@ -3319,7 +3319,7 @@
 
       <formalpara><title>结果</title>
       <para>
-        虚拟资源已经被导入到目的数据中心了.
+        虚拟资源已经被导入到目的数据中心了。
       </para>
       </formalpara>
     </section>
@@ -3328,8 +3328,8 @@
       <title>导出虚拟机到导出存储域</title>
       <formalpara><title>摘要</title>
       <para>
-        导出一个虚拟机到导出域以便该虚拟机可以导入到另一个数据中心. 在开始之间,
-        要求系统至少有一个导出域附加到该虚拟机所在的数据中心.
+        导出一个虚拟机到导出域以便该虚拟机可以导入到另一个数据中心。在开始之间,
+        要求系统至少有一个导出域附加到该虚拟机所在的数据中心。
       </para>
       </formalpara>
 
@@ -3337,39 +3337,39 @@
         <title>导出虚拟机到导出存储域</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的虚拟机. 确保该虚拟机处于<keycap>Down</keycap>状态.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的虚拟机。确保该虚拟机处于<keycap>Down</keycap>状态。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>导出</keycap>打开<keycap>导出虚拟机</keycap>窗口.
+            点击<keycap>导出</keycap>打开<keycap>导出虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
             选择<keycap>强制覆盖</keycap>覆盖在该导出域中存在的相同虚拟机,
-            选择<keycap>Collapse 快照</keycap>, 删除存储在该虚拟机内的快照点.
-            如果该虚拟机是从模板创建的, 这个选项也将删除该虚拟机对模板的依赖.
+            选择<keycap>Collapse 快照</keycap>，删除存储在该虚拟机内的快照点。
+            如果该虚拟机是从模板创建的，这个选项也将删除该虚拟机对模板的依赖。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>导出该虚拟机到导出域.
+            点击<keycap>确定</keycap>导出该虚拟机到导出域。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        将开始虚拟机的导出操作. 虚拟机的状态将变为 <keycap>Image Locked</keycap>.
-        这个操作将持续一段时间, 具体的时间取决于你的虚拟机磁盘大小和硬件环境.
-        用户可以通过<keycap>事件</keycap>标签来查看进度.
+        将开始虚拟机的导出操作。虚拟机的状态将变为 <keycap>Image Locked</keycap>。
+        这个操作将持续一段时间，具体的时间取决于你的虚拟机磁盘大小和硬件环境。
+        用户可以通过<keycap>事件</keycap>标签来查看进度。
       </para>
       </formalpara>
       <para>
-        导出完成后, 该虚拟机将会在该导出域的<keycap>VM Import</keycap> 标签上
-        显示.
+        导出完成后，该虚拟机将会在该导出域的<keycap>VM Import</keycap> 标签上
+        显示。
       </para>
     </section>
 
@@ -3377,8 +3377,8 @@
       <title>导入虚拟机到目标数据中心</title>
       <formalpara><title>摘要</title>
       <para>
-        前面已经将虚拟机导出到导出域里了. 在把虚拟机导入到新的数据中心之前, 该
-        导出域比如先附加到目的数据中心上.
+        前面已经将虚拟机导出到导出域里了。在把虚拟机导入到新的数据中心之前，该
+        导出域比如先附加到目的数据中心上。
       </para>
       </formalpara>
 
@@ -3386,18 +3386,18 @@
         <title>导入虚拟机到目标数据中心</title>
         <step>
           <para>
-            点击存储标签, 列出所有存储域, 选择导出域, 注意该导出域必须处于激活
-            状态.
+            点击存储标签，列出所有存储域，选择导出域，注意该导出域必须处于激活
+            状态。
           </para>
         </step>
         <step>
           <para>
-            在详细面板种, 选择<keycap>虚拟机导入</keycap>, 列出可以导入的虚拟机.
+            在详细面板种，选择<keycap>虚拟机导入</keycap>，列出可以导入的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            选择一个或者多个要导入的虚拟机, 点击<keycap>导入</keycap>, 打开
+            选择一个或者多个要导入的虚拟机，点击<keycap>导入</keycap>，打开
             <keycap>导入虚拟机</keycap>窗口.
             <figure id="create-vm-import-vm"><title>导入虚拟机</title>
             <mediaobject>
@@ -3410,20 +3410,20 @@
         </step>
         <step>
           <para>
-            在下拉菜单中选择适当的<keycap>默认存储域</keycap>, <keycap>集群</keycap>,
-            和<keycap>集群配额</keycap>.
+            在下拉菜单中选择适当的<keycap>默认存储域</keycap>，<keycap>集群</keycap>,
+            和<keycap>集群配额</keycap>。
           </para>
         </step>
         <step>
           <para>
             选中<keycap>Collapse 快照</keycap>可以删除虚拟机的快照点和对
-            模板的依赖.
+            模板的依赖。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>导入虚拟机. 如果有重名的虚拟机, 一个窗口
-            会打开提示用户怎么解决冲突, 如图:
+            点击<keycap>确定</keycap>导入虚拟机。如果有重名的虚拟机，一个窗口
+            会打开提示用户怎么解决冲突，如图:
             <figure id="create-vm-vm-conflict"><title>附加存储域</title>
             <mediaobject>
               <imageobject>
@@ -3448,19 +3448,19 @@
               </para>
             </listitem>
           </itemizedlist>
-          或者选择<keycap>应用到全部</keycap>使用相同的前缀导入所有虚拟机.
+          或者选择<keycap>应用到全部</keycap>使用相同的前缀导入所有虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>导入虚拟机.
+            点击<keycap>确定</keycap>导入虚拟机。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        现在开始导入虚拟机了到目的数据中心了. 这个过程要话一段时间.
+        现在开始导入虚拟机了到目的数据中心了。这个过程要话一段时间。
       </para>
       </formalpara>
     </section>
@@ -3471,87 +3471,87 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-1">
       <title>什么是在线迁移？</title>
       <para>
-        在线迁移将运行中的虚拟机的运行环境从一台主机转移到另一台主机, 这个过程
-        不会中断虚拟机的运行.
+        在线迁移将运行中的虚拟机的运行环境从一台主机转移到另一台主机，这个过程
+        不会中断虚拟机的运行。
       </para>
       <para>
-        此外, 这个过程对使用该虚拟机的中断用户是透明的: 在迁移过程中, 虚拟机不会
-        断电或者暂停, 应用程序不会发生任何的中断.
+        此外，这个过程对使用该虚拟机的中断用户是透明的: 在迁移过程中，虚拟机不会
+        断电或者暂停，应用程序不会发生任何的中断。
       </para>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-2">
       <title>在线迁移的需求</title>
       <para>
-        在线迁移是指允许用户无缝的在主机之间移动虚拟机, 这使得 &OVIRT; 管理系统
-        可以支持很多维护业务. 在使用在线迁移功能之前, 请确保 &OVIRT; 系统配置
-        正确.
+        在线迁移是指允许用户无缝的在主机之间移动虚拟机，这使得 &OVIRT; 管理系统
+        可以支持很多维护业务。在使用在线迁移功能之前，请确保 &OVIRT; 系统配置
+        正确。
       </para>
       <para>
-        要支持在线迁移, 目前需要满足以下条件:
+        要支持在线迁移，目前需要满足以下条件:
         <itemizedlist>
           <listitem>
             <para>
-              源主机和目的主机必须处于同一个集群中, 两个主机的 CPU 必选兼容.
+              源主机和目的主机必须处于同一个集群中，两个主机的 CPU 必选兼容。
             </para>
           </listitem>
           <listitem>
             <para>
-              源主机和目的主机必须同事处于 <keycap>Up</keycap> 状态.
+              源主机和目的主机必须同事处于 <keycap>Up</keycap> 状态。
             </para>
           </listitem>
           <listitem>
             <para>
-              源主机和目的主机必须对同样的虚拟网络和 VLANs 具有同样的访问权限.
+              源主机和目的主机必须对同样的虚拟网络和 VLANs 具有同样的访问权限。
             </para>
           </listitem>
           <listitem>
             <para>
-              源主机和目的主机必须对虚拟机所在的存储域具有访问权限.
+              源主机和目的主机必须对虚拟机所在的存储域具有访问权限。
             </para>
           </listitem>
           <listitem>
             <para>
-              目的主机必须具有足够的 CPU 兼容性来运行虚拟机.
+              目的主机必须具有足够的 CPU 兼容性来运行虚拟机。
             </para>
           </listitem>
           <listitem>
             <para>
-              目的主机必须具有足够的空闲内存来运行虚拟机.
+              目的主机必须具有足够的空闲内存来运行虚拟机。
             </para>
           </listitem>
           <listitem>
             <para>
-              在虚拟机的自定义属性中, 待迁移的虚拟机的 cache 设置不能为除
-              <keycap>none</keycap> 之外的其他值.
+              在虚拟机的自定义属性中，待迁移的虚拟机的 cache 设置不能为除
+              <keycap>none</keycap> 之外的其他值。
             </para>
           </listitem>
         </itemizedlist>
       </para>
       <para>
-        此外, 为了达到很好的性能, 在设置网络的时候, 存储和管理的网络必须分开,
-        这样可以避免存储的网络流量和管理的网络都在一个网卡, 减轻网络负担. 在迁移
-        的时候会在主机之间传送大量的数据.
+        此外，为了达到很好的性能，在设置网络的时候，存储和管理的网络必须分开,
+        这样可以避免存储的网络流量和管理的网络都在一个网卡，减轻网络负担。在迁移
+        的时候会在主机之间传送大量的数据。
       </para>
       <para>
-        在线迁移的数据是在管理网络上流通的. 每一个迁移都限制了能使用的最大
-        带宽(大约是 30MBPS), 能同时并发的迁移数也是有限制的. 如果没有这些
-        限制的话, 一旦并发数很多, 可能会造成网络拥塞. 因此我们推荐在设置主机的
-        网络的时候, 最好把用于存储, 显示, 虚拟机数据等的网络互相隔离开, 使得
-        网络的利用率最大.
+        在线迁移的数据是在管理网络上流通的。每一个迁移都限制了能使用的最大
+        带宽(大约是 30MBPS)，能同时并发的迁移数也是有限制的。如果没有这些
+        限制的话，一旦并发数很多，可能会造成网络拥塞。因此我们推荐在设置主机的
+        网络的时候，最好把用于存储，显示，虚拟机数据等的网络互相隔离开，使得
+        网络的利用率最大。
       </para>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-3">
       <title>自动迁移</title>
       <para>
-        当主机处于维护模式的时候, &OVIRT; 系统会自动迁移该主机上运行的虚拟机
-        到其他主机上. &OVIRT; 会根据主机的负载选择目的主机.
+        当主机处于维护模式的时候，&OVIRT; 系统会自动迁移该主机上运行的虚拟机
+        到其他主机上。&OVIRT; 会根据主机的负载选择目的主机。
       </para>
       <para>
-        在集群的策略起作用时, 比如负载均衡的条件被触发, 管理端会自动地根据策略
-        开始虚拟机的迁移. 我们推荐用户根据自己的环境选择适合的集群策略, 用户
-        也可以选择设置某个虚拟机不允许迁移.
+        在集群的策略起作用时，比如负载均衡的条件被触发，管理端会自动地根据策略
+        开始虚拟机的迁移。我们推荐用户根据自己的环境选择适合的集群策略，用户
+        也可以选择设置某个虚拟机不允许迁移。
       </para>
     </section>
 
@@ -3559,26 +3559,26 @@
       <title>防止虚拟机自动迁移</title>
       <formalpara><title>摘要</title>
       <para>
-        &OVIRT; 系统允许用户禁止虚拟机的自动迁移. 甚至用户可以指定虚拟机不能手动
-        迁移, 即虚拟机只能运行在特定的虚拟机上.
+        &OVIRT; 系统允许用户禁止虚拟机的自动迁移。甚至用户可以指定虚拟机不能手动
+        迁移，即虚拟机只能运行在特定的虚拟机上。
       </para>
       </formalpara>
       <para>
-        在虚拟机的高可用场景里, 有时需要虚拟机只能运行在一台虚拟机里, 不能被各种
-        集群的策略迁移到其他主机.
+        在虚拟机的高可用场景里，有时需要虚拟机只能运行在一台虚拟机里，不能被各种
+        集群的策略迁移到其他主机。
       </para>
 
       <procedure>
         <title>防止虚拟机自动迁移</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要的
-            虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要的
+            虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>打开<keycap>编辑虚拟机</keycap>窗口.
+            点击<keycap>编辑</keycap>打开<keycap>编辑虚拟机</keycap>窗口。
             <figure id="create-vm-edit-vm"><title>编辑虚拟机</title>
             <mediaobject>
               <imageobject>
@@ -3590,43 +3590,43 @@
         </step>
         <step>
           <para>
-            点击<keycap>主机</keycap>标签.
+            点击<keycap>主机</keycap>标签。
           </para>
         </step>
         <step>
-          <para>在<keycap>开始运行在</keycap>设置中, 选择运行在
-          <keycap>集群里的任何主机</keycap>或者<keycap>专有的主机</keycap>.
+          <para>在<keycap>开始运行在</keycap>设置中，选择运行在
+          <keycap>集群里的任何主机</keycap>或者<keycap>专有的主机</keycap>。
           </para>
           <warning>
             <para>
-              目前, 在 &OVIRT; 中, 指定虚拟机运行在特定主机或者指定虚拟机不允
-              许迁移和虚拟机高可用是冲突的, 在这种情况下, 要使用虚拟机高可用, 用户
-              可以通过第三方插件实现.
+              目前，在 &OVIRT; 中，指定虚拟机运行在特定主机或者指定虚拟机不允
+              许迁移和虚拟机高可用是冲突的，在这种情况下，要使用虚拟机高可用，用户
+              可以通过第三方插件实现。
             </para>
           </warning>
         </step>
         <step>
           <para>
-            在<keycap>迁移选项</keycap>中, 选择<keycap>不允许移植</keycap>,
-            此时可以勾选<keycap>使用主机 CPU</keycap>来得到最佳的 CPU 性能.
+            在<keycap>迁移选项</keycap>中，选择<keycap>不允许移植</keycap>,
+            此时可以勾选<keycap>使用主机 CPU</keycap>来得到最佳的 CPU 性能。
           </para>
         </step>
         <step>
           <para>
-            这个时候, 可以在<keycap>资源分配</keycap>上设置
-            <keycap>CPU Pinning 拓扑结构</keycap>.
+            这个时候，可以在<keycap>资源分配</keycap>上设置
+            <keycap>CPU Pinning 拓扑结构</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>完成设置.
+            点击<keycap>确定</keycap>完成设置。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的迁移设置将会被改变.
+        虚拟机的迁移设置将会被改变。
       </para>
       </formalpara>
     </section>
@@ -3635,10 +3635,10 @@
       <title>手动迁移虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以手动迁移运行中的虚拟机到集群中的另一台主机上. 在主机的负载很高
-        的时候这是很有用的. 当主机出现问题或者主机被置为维护模式的时候, 系统会
-        自动迁移虚拟机到其它主机上, 这时候用户不需要手动迁移. 无论怎样, 在线
-        迁移虚拟机并不会中断虚拟机中运行的业务.
+        用户可以手动迁移运行中的虚拟机到集群中的另一台主机上。在主机的负载很高
+        的时候这是很有用的。当主机出现问题或者主机被置为维护模式的时候，系统会
+        自动迁移虚拟机到其它主机上，这时候用户不需要手动迁移。无论怎样，在线
+        迁移虚拟机并不会中断虚拟机中运行的业务。
       </para>
       </formalpara>
 
@@ -3646,37 +3646,37 @@
         <title>手动迁移虚拟机</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的运行中的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的运行中的虚拟机。
           </para>
           <para>
-            点击<keycap>移植</keycap>, 打开<keycap>移植虚拟机</keycap>窗口.
+            点击<keycap>移植</keycap>，打开<keycap>移植虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
             选择<keycap>自动选择主机</keycap>或者<keycap>选择目的地主机</keycap>,
-            并在下拉菜单中选择要迁移到的主机.
+            并在下拉菜单中选择要迁移到的主机。
           </para>
           <note>
             <para>
-              虚拟机迁移的目的主机和源主机都是在一个集群中. 如果选择了
-              <keycap>自动选择主机</keycap>, 系统会根据集群中的负载均衡和电源管理设置为虚拟机
-              选择目的主机.
+              虚拟机迁移的目的主机和源主机都是在一个集群中。如果选择了
+              <keycap>自动选择主机</keycap>，系统会根据集群中的负载均衡和电源管理设置为虚拟机
+              选择目的主机。
             </para>
           </note>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>来开始迁移.
+            点击<keycap>确定</keycap>来开始迁移。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机开始迁移, 一旦虚拟机成功完成迁移, 虚拟机列表中的该虚拟机的
-        <keycap>主机</keycap>会更新为目的主机.
+        虚拟机开始迁移，一旦虚拟机成功完成迁移，虚拟机列表中的该虚拟机的
+        <keycap>主机</keycap>会更新为目的主机。
       </para>
       </formalpara>
     </section>
@@ -3685,22 +3685,22 @@
       <title>设置迁移的优先级</title>
       <formalpara><title>摘要</title>
       <para>
-        &OVIRT; 管理系统一般会把虚拟机的迁移请求保存在一个队列里, 然后根据
-        负载均衡和迁移策略的设置来决定何时发起迁移操作. 如果一个主机已经在某个
-        迁移请求里, 那么下次在调度迁移策略的时候该主机不会被考虑在内, 知道该主机
-        完成了他所在的迁移请求. 如果在迁移队里, 相应的主机能满足迁移的请求. 那么
-        结合集群的迁移策略, 该迁移就能被发起.
+        &OVIRT; 管理系统一般会把虚拟机的迁移请求保存在一个队列里，然后根据
+        负载均衡和迁移策略的设置来决定何时发起迁移操作。如果一个主机已经在某个
+        迁移请求里，那么下次在调度迁移策略的时候该主机不会被考虑在内，知道该主机
+        完成了他所在的迁移请求。如果在迁移队里，相应的主机能满足迁移的请求。那么
+        结合集群的迁移策略，该迁移就能被发起。
       </para>
       </formalpara>
 
       <para>
-        &OVIRT; 管理系统允许给迁移队列里的迁移请求设置优先级. 这样, 虚拟机
-        的迁移请求就会根据优先级排序, 优先级高的请求会被先执行.
+        &OVIRT; 管理系统允许给迁移队列里的迁移请求设置优先级。这样，虚拟机
+        的迁移请求就会根据优先级排序，优先级高的请求会被先执行。
       </para>
 
       <note>
         <para>
-          只能给虚拟服务器设置迁移优先级, 不能给虚拟桌面设置迁移优先级.
+          只能给虚拟服务器设置迁移优先级，不能给虚拟桌面设置迁移优先级。
         </para>
       </note>
 
@@ -3708,36 +3708,36 @@
         <title>设置迁移的优先级</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>, 打开 <keycap>编辑虚拟机</keycap>窗口.
+            点击<keycap>编辑</keycap>，打开 <keycap>编辑虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>高可用性</keycap>标签.
+            点击<keycap>高可用性</keycap>标签。
           </para>
         </step>
         <step>
           <para>
             根据需要在<keycap>运行/移植队列的优先级</keycap>里设置<keycap>低</keycap>,
-            <keycap>中</keycap>或者<keycap>高</keycap>.
+            <keycap>中</keycap>或者<keycap>高</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>保存设置.
+            点击<keycap>确定</keycap>保存设置。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的迁移优先级改变了.
+        虚拟机的迁移优先级改变了。
       </para>
       </formalpara>
     </section>
@@ -3746,8 +3746,8 @@
       <title>取消虚拟机的在线迁移</title>
       <formalpara><title>摘要</title>
       <para>
-        根据虚拟机的大小和硬件环境, 虚拟机的在线迁移可能花很多时间. &OVIRT;
-        管理系统允许用户取消迁移.
+        根据虚拟机的大小和硬件环境，虚拟机的在线迁移可能花很多时间。&OVIRT;
+        管理系统允许用户取消迁移。
       </para>
       </formalpara>
 
@@ -3755,21 +3755,21 @@
         <title>取消虚拟机的在线迁移</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的虚拟机, 这时虚拟机的状态为 <keycap>Migrating from</keycap>.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的虚拟机，这时虚拟机的状态为 <keycap>Migrating from</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>取消移植</keycap>, 或者右键点击该虚拟机,
-            选择<keycap>取消移植</keycap>.
+            点击<keycap>取消移植</keycap>，或者右键点击该虚拟机,
+            选择<keycap>取消移植</keycap>。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机的状态从 <keycap>Migrating from</keycap> 变为 <keycap>Up</keycap>.
+        虚拟机的状态从 <keycap>Migrating from</keycap> 变为 <keycap>Up</keycap>。
       </para>
       </formalpara>
     </section>
@@ -3777,16 +3777,16 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_11-8">
       <title>高可用中自动迁移的事件和日志通知</title>
       <para>
-        当高可用的策略生效时, 虚拟服务器会被自动迁移到其它主机. 该迁移的详细
-        信息会在 <keycap>时间标签</keycap>上显示, 在 enging 的日志上也会有一条记录:
+        当高可用的策略生效时，虚拟服务器会被自动迁移到其它主机。该迁移的详细
+        信息会在 <keycap>时间标签</keycap>上显示，在 enging 的日志上也会有一条记录:
       </para>
       <example>
         <title>
-          Example 8.1. Notification in the Events Tab of the Web Admin Portal
+          Example 8.1。Notification in the Events Tab of the Web Admin Portal
         </title>
         <para>
-          Highly Available <keycap>Virtual_Machine_Name</keycap> failed.
-          It will be restarted automatically.
+          Highly Available <keycap>Virtual_Machine_Name</keycap> failed。
+          It will be restarted automatically。
         </para>
         <para>
           <keycap>Virtual_Machine_Name</keycap> was restarted on Host
@@ -3796,14 +3796,14 @@
 
       <example>
         <title>
-          Example 8.2. Notification in the Manager engine.log
+          Example 8.2。Notification in the Manager engine.log
         </title>
         <para>
           This log can be found on the Red Hat Enterprise Virtualization
           Manager at <keycap>/var/log/ovirt- engine/engine.log</keycap>:
         </para>
         <para>
-          Failed to start Highly Available VM. Attempting to restart.
+          Failed to start Highly Available VM。Attempting to restart。
           VM Name: <keycap>Virtual_Machine_Name</keycap>,
           VM Id:<keycap>Virtual_Machine_ID_Number</keycap>
         </para>
@@ -3816,101 +3816,101 @@
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-1">
       <title>为什么使用高可用？</title>
       <para>
-        当虚拟机需要运行重要的业务的时候, 用户可以设置虚拟机高可用, 让虚拟机
-        的业务在主机出问题的时候不受到干扰.
+        当虚拟机需要运行重要的业务的时候，用户可以设置虚拟机高可用，让虚拟机
+        的业务在主机出问题的时候不受到干扰。
       </para>
       <para>
         虚拟机高可用保证在以下情况下会重启虚拟机:
         <itemizedlist>
 	      <listitem>
 	        <para>
-              由于硬件故障导致主机不可操作.
+              由于硬件故障导致主机不可操作。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              用户把主机置为维护模式.
+              用户把主机置为维护模式。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              由于主机与存储资源失去连接, 变为不可用.
+              由于主机与存储资源失去连接，变为不可用。
 	        </para>
 	      </listitem>
         </itemizedlist>
-        设置了高可用的虚拟机在发生上述情况下会自动重启, 重新在原理的主机或者
-        新的主机上运行.
+        设置了高可用的虚拟机在发生上述情况下会自动重启，重新在原理的主机或者
+        新的主机上运行。
       </para>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-2">
       <title>什么是高可用？</title>
       <para>
-        高可用就是虚拟机的相关资源等发生了问题, 使得虚拟机不能正常运行, 系统会
-        重启该虚拟机使得它变为正常.
+        高可用就是虚拟机的相关资源等发生了问题，使得虚拟机不能正常运行，系统会
+        重启该虚拟机使得它变为正常。
       </para>
 
       <para>
-        虚拟机不能正常运行指的是, 虚拟机异常终止了, 而不是被用户在虚拟机内部关闭,
-        或者被管理员在门户上关闭. 设置了高可用的虚拟机在发生上述情况下会自动重启,
-        重新在原理的主机或者新的主机上运行.
+        虚拟机不能正常运行指的是，虚拟机异常终止了，而不是被用户在虚拟机内部关闭,
+        或者被管理员在门户上关闭。设置了高可用的虚拟机在发生上述情况下会自动重启,
+        重新在原理的主机或者新的主机上运行。
       </para>
 
       <para>
-        &OVIRT; 管理系统会一直监控主机和存储还有其它硬件是否发生故障. 如果相关
-        资源发生了故障, 设置了高可用的虚拟机在发生上述情况下会自动重启,
-        重新在原理的主机或者新的主机上运行.
+        &OVIRT; 管理系统会一直监控主机和存储还有其它硬件是否发生故障。如果相关
+        资源发生了故障，设置了高可用的虚拟机在发生上述情况下会自动重启,
+        重新在原理的主机或者新的主机上运行。
       </para>
 
       <para>
-        如果设置了高可用, 服务终端造成的影响就减为最小了, 因为虚拟机会在数十秒
-        之内重启, 这个过程不需要用户的干涉. 通过在资源利用率低的主机上重启虚拟机,
-        高可用同时会保证整个集群资源的均衡, 这样也保证了集群中一直有足够的资源来
-        使得虚拟机处于运行状态.
+        如果设置了高可用，服务终端造成的影响就减为最小了，因为虚拟机会在数十秒
+        之内重启，这个过程不需要用户的干涉。通过在资源利用率低的主机上重启虚拟机,
+        高可用同时会保证整个集群资源的均衡，这样也保证了集群中一直有足够的资源来
+        使得虚拟机处于运行状态。
       </para>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_12-3">
       <title>高可用的注意事项</title>
       <para>
-        配置高可用的时候, 主机配置好电源管理. 当虚拟机配置和高可用的时候,
-        当运行在其上的主机处于不可操作状态时, 该虚拟机将会在集群中另外一台
-        主机上运行. 高可用需要满足以下条件:
+        配置高可用的时候，主机配置好电源管理。当虚拟机配置和高可用的时候,
+        当运行在其上的主机处于不可操作状态时，该虚拟机将会在集群中另外一台
+        主机上运行。高可用需要满足以下条件:
         <itemizedlist>
 	      <listitem>
 	        <para>
-              必须在运行虚拟机的主机上配置电源管理.
+              必须在运行虚拟机的主机上配置电源管理。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              运行虚拟机的主机所在的集群必须有的其它可用主机.
+              运行虚拟机的主机所在的集群必须有的其它可用主机。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              目的主机必须处于运行状态.
+              目的主机必须处于运行状态。
 	        </para>
 	      </listitem>
 	      <listitem>
 	        <para>
-              源主机和目的主机必须具有对虚拟机磁盘所处的存储的相同的访问权限.
+              源主机和目的主机必须具有对虚拟机磁盘所处的存储的相同的访问权限。
 	        </para>
 	      </listitem>
           <listitem>
             <para>
-              目的主机必须具有足够的 CPU 兼容性来运行虚拟机.
+              目的主机必须具有足够的 CPU 兼容性来运行虚拟机。
             </para>
           </listitem>
           <listitem>
             <para>
-              目的主机必须具有足够的空闲内存来运行虚拟机.
+              目的主机必须具有足够的空闲内存来运行虚拟机。
             </para>
           </listitem>
           <listitem>
             <para>
-              在虚拟机的自定义属性中, 待迁移的虚拟机的 cache 设置不能为除
-              <keycap>none</keycap> 之外的其他值.
+              在虚拟机的自定义属性中，待迁移的虚拟机的 cache 设置不能为除
+              <keycap>none</keycap> 之外的其他值。
             </para>
           </listitem>
         </itemizedlist>
@@ -3921,10 +3921,10 @@
       <title>配置高可用虚拟机</title>
       <formalpara><title>摘要</title>
       <para>
-        在 &OVIRT; 管理系统中, 虚拟机的高可用必须针对每一个虚拟服务器设置.
+        在 &OVIRT; 管理系统中，虚拟机的高可用必须针对每一个虚拟服务器设置。
       <note>
         <para>
-          只能给虚拟服务器设置迁移优先级, 不能给虚拟桌面设置迁移优先级.
+          只能给虚拟服务器设置迁移优先级，不能给虚拟桌面设置迁移优先级。
         </para>
       </note>
       </para>
@@ -3934,18 +3934,18 @@
         <title>设置迁移的优先级</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的虚拟机.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>, 打开 <keycap>编辑虚拟机</keycap>窗口.
+            点击<keycap>编辑</keycap>，打开 <keycap>编辑虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>高可用性</keycap>标签.
+            点击<keycap>高可用性</keycap>标签。
             <figure id="create-vm-high-ava"><title>设置虚拟机高可用</title>
             <mediaobject>
               <imageobject>
@@ -3957,26 +3957,26 @@
         </step>
         <step>
           <para>
-            选择<keycap>高可用</keycap>, 设置启用虚拟服务器的高可用.
+            选择<keycap>高可用</keycap>，设置启用虚拟服务器的高可用。
           </para>
         </step>
         <step>
           <para>
             根据需要在<keycap>运行/移植队列的优先级</keycap>里设置<keycap>低</keycap>,
-            <keycap>中</keycap>或者<keycap>高</keycap>. 迁移开始时, 一个迁移
-            的请求会被加入到迁移队列中, 具有高优先级的请求会先被处理.
+            <keycap>中</keycap>或者<keycap>高</keycap>。迁移开始时，一个迁移
+            的请求会被加入到迁移队列中，具有高优先级的请求会先被处理。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>保存设置.
+            点击<keycap>确定</keycap>保存设置。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        已经给虚拟机配置好了高可用设置. 在常规显示上可以看到设置的结果.
+        已经给虚拟机配置好了高可用设置。在常规显示上可以看到设置的结果。
       </para>
       </formalpara>
     </section>
@@ -3988,7 +3988,7 @@
       <title>在管理员门户中为虚拟机激活SAP监控</title>
       <formalpara><title>摘要</title>
       <para>
-        在虚拟机中启用 SAP 监控.
+        在虚拟机中启用 SAP 监控。
       </para>
       </formalpara>
 
@@ -3996,35 +3996,35 @@
         <title>在管理员门户中为虚拟机激活SAP监控</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机, 找到需要
-            的虚拟机, 确保虚拟机处于关机状态.
+            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
+            的虚拟机，确保虚拟机处于关机状态。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>, 打开<keycap>编辑虚拟机</keycap>窗口.
+            点击<keycap>编辑</keycap>，打开<keycap>编辑虚拟机</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            选择<keycap>自定义属性</keycap>.
+            选择<keycap>自定义属性</keycap>。
           </para>
         </step>
         <step>
           <para>
-            在下拉框里选择<keycap>sap_agent</keycap>. 确保值是 <keycap>true</keycap>.
+            在下拉框里选择<keycap>sap_agent</keycap>。确保值是 <keycap>true</keycap>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>保存.
+            点击<keycap>确定</keycap>保存。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        成功为虚拟机设置了 SAP.
+        成功为虚拟机设置了 SAP。
       </para>
       </formalpara>
     </section>
@@ -4034,22 +4034,22 @@
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-1">
         <title>使用SPICE</title>
         <para>
-          SPICE 是一个专注于虚拟化的远程显示协议, 用户可以用它来查看虚拟桌面和
-          虚拟服务器. SPICE 能给用户提供高质量的用户体验, 很低的 CPU 占用率,
-          还支持高质量视频.
+          SPICE 是一个专注于虚拟化的远程显示协议，用户可以用它来查看虚拟桌面和
+          虚拟服务器。SPICE 能给用户提供高质量的用户体验，很低的 CPU 占用率,
+          还支持高质量视频。
         </para>
         <para>
-          在 Linux 虚拟机中使用 SPICE 显著的改善鼠标的滑动体验. 为了使用 SPICE,
-          虚拟机里面的 X-Windows 需要二外的 qxl 驱动. 在 Centos 5.4 及其以上
-          版本, qxl 驱动是默认提供的. 旧的 centos 版本没有提供这个驱动. 在虚拟机
-          上安装 SPICE 能显示改善用户的图形体验.
+          在 Linux 虚拟机中使用 SPICE 显著的改善鼠标的滑动体验。为了使用 SPICE,
+          虚拟机里面的 X-Windows 需要二外的 qxl 驱动。在 Centos 5.4 及其以上
+          版本，qxl 驱动是默认提供的。旧的 centos 版本没有提供这个驱动。在虚拟机
+          上安装 SPICE 能显示改善用户的图形体验。
         </para>
       </section>
       <section id="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_13-2-2">
         <title>为虚拟机安装qxl驱动</title>
         <formalpara><title>摘要</title>
         <para>
-          下列步骤描述了在 Centos 5.4 以及以上版本中安装 qxl 驱动的方法.
+          下列步骤描述了在 Centos 5.4 以及以上版本中安装 qxl 驱动的方法。
         </para>
         </formalpara>
 
@@ -4057,7 +4057,7 @@
           <title>为虚拟机安装qxl驱动</title>
           <step>
             <para>
-              登陆到 Centos 虚拟机中.
+              登陆到 Centos 虚拟机中。
             </para>
           </step>
           <step>
@@ -4077,7 +4077,7 @@
 
         <formalpara><title>结果</title>
         <para>
-          qxl 驱动已经安装好了, 现在可以配置了.
+          qxl 驱动已经安装好了，现在可以配置了。
         </para>
         </formalpara>
       </section>
@@ -4093,37 +4093,37 @@
           <title>使用gnome为虚拟机配置qxl驱动</title>
           <step>
             <para>
-              点击<keycap>系统</keycap>.
+              点击<keycap>系统</keycap>。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>点击管理</keycap>.
+              点击<keycap>点击管理</keycap>。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>显示</keycap>.
+              点击<keycap>显示</keycap>。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>硬件</keycap>.
+              点击<keycap>硬件</keycap>。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>视频卡配置</keycap>.
+              点击<keycap>视频卡配置</keycap>。
             </para>
           </step>
           <step>
             <para>
-              选择 <keycap>qxl</keycap>, 点击 <keycap>确定</keycap>.
+              选择 <keycap>qxl</keycap>，点击 <keycap>确定</keycap>。
             </para>
           </step>
           <step>
             <para>
-              重新登陆 X-Windows.
+              重新登陆 X-Windows。
             </para>
           </step>
         </procedure>
@@ -4156,7 +4156,7 @@ Driver "qxl" Endsection
 
         <formalpara><title>结果</title>
         <para>
-          qxl 驱动已经配置好, 现在可以使用了.
+          qxl 驱动已经配置好，现在可以使用了。
         </para>
         </formalpara>
       </section>
@@ -4164,7 +4164,7 @@ Driver "qxl" Endsection
         <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
         <formalpara><title>摘要</title>
         <para>
-          编辑 <keycap>/etc/X11/xorg.conf</keycap>, 来启动 spice 的 tablet 设备.
+          编辑 <keycap>/etc/X11/xorg.conf</keycap>，来启动 spice 的 tablet 设备。
         </para>
         </formalpara>
 
@@ -4172,11 +4172,11 @@ Driver "qxl" Endsection
           <title>为虚拟机配置键盘和鼠标,以使SPICE可工作</title>
           <step>
             <para>
-              确保 tablet 设备在系统中被识别出来.
+              确保 tablet 设备在系统中被识别出来。
               <programlisting language="Bash">
 # /sbin/lsusb -v | grep 'QEMU USB Tablet'
               </programlisting>
-              如果没有任何输出的话, 没必要配置 tablet 设备了.
+              如果没有任何输出的话，没必要配置 tablet 设备了。
             </para>
           </step>
           <step>
@@ -4189,7 +4189,7 @@ Driver "qxl" Endsection
           </step>
           <step>
             <para>
-              修改 /etc/X11/xorg.conf 的相关内容为:.
+              修改 /etc/X11/xorg.conf 的相关内容为:。
               <screen>
 Section "ServerLayout"
 Identifier Screen InputDevice InputDevice InputDevice EndSection
@@ -4209,14 +4209,14 @@ EndSection
           </step>
           <step>
             <para>
-              重新登陆 X-Windows.
+              重新登陆 X-Windows。
             </para>
           </step>
         </procedure>
 
         <formalpara><title>结果</title>
         <para>
-          已经在虚拟机中启用了 tablet 设备了.
+          已经在虚拟机中启用了 tablet 设备了。
         </para>
         </formalpara>
       </section>

@@ -8,82 +8,82 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_1">
 	<title>理解虚拟机的存储</title>
 	<para>
-      &OVIRT; 管理系统主要支持三种类型的存储: NFS, ISCSI, 和 FCP.
+      &OVIRT; 管理系统主要支持三种类型的存储: NFS，ISCSI，和 FCP。
 	</para>
 
     <para>
-      在每种存储类型中, 都有一个被分配了 SPM 权限的主机管理主机和存储的访问.
-      只有 SPM 主机拥有对存储池的完全访问权限, 比如修改存储域和存储池的元数据.
-      其它所有非 SPM 主机只有访问虚拟机磁盘数据的权限.
+      在每种存储类型中，都有一个被分配了 SPM 权限的主机管理主机和存储的访问。
+      只有 SPM 主机拥有对存储池的完全访问权限，比如修改存储域和存储池的元数据。
+      其它所有非 SPM 主机只有访问虚拟机磁盘数据的权限。
     </para>
 
     <para>
-      在 NFS, local, 和 POSIX 兼容的文件系统中, SPM 默认使用精简支配的磁盘格式
-      创建虚拟磁盘, 这些磁盘以文件系统中的一个文件而存在.
+      在 NFS，local，和 POSIX 兼容的文件系统中，SPM 默认使用精简支配的磁盘格式
+      创建虚拟磁盘，这些磁盘以文件系统中的一个文件而存在。
     </para>
 
     <para>
-      在 iSCSI 和其基于快设备的数据中心中, SPM 把所有 LUNs 组合成一个 LVM
-      的卷组, 然后在该卷组里创建逻辑卷作为虚拟机磁盘. 默认情况下基于块设备存储的
-      虚拟磁盘是预分配模式的.
+      在 iSCSI 和其基于快设备的数据中心中，SPM 把所有 LUNs 组合成一个 LVM
+      的卷组，然后在该卷组里创建逻辑卷作为虚拟机磁盘。默认情况下基于块设备存储的
+      虚拟磁盘是预分配模式的。
     </para>
 
     <para>
-      如果虚拟机磁盘是预分配的, 指定大小的逻辑卷将被创建作为该虚拟机磁盘.
-      如果一旦虚拟机有什么问题, 用户可以使用 <keycap>kpartx</keycap>,
-      <keycap>vgscan</keycap>, <keycap>vgchange</keycap> 和
-      <keycap>mount</keycap> 等工具来研究调试.
+      如果虚拟机磁盘是预分配的，指定大小的逻辑卷将被创建作为该虚拟机磁盘。
+      如果一旦虚拟机有什么问题，用户可以使用 <keycap>kpartx</keycap>,
+      <keycap>vgscan</keycap>，<keycap>vgchange</keycap> 和
+      <keycap>mount</keycap> 等工具来研究调试。
     </para>
 
     <para>
-      如果虚拟机磁盘是精简支配格式, 那么开始创建的时候, 系统只会创建 1 GB 大小
-      的逻辑卷. 之后虚拟机运行的主机会不断监视该逻辑卷的变化, 一旦该逻辑卷的使用
-      达到一个阀值, SPM 就会扩展该逻辑卷, 使其大小增加 1 GB. 然后该主机会对该
-      扩展时间做出一些回复. 如果虚拟机在此过程中变为暂停状态, 说明 SPM 此时不能
-      扩展该磁盘. 有可能是因为 SPM 现在正忙, 或者没有足够的存储来扩展.
+      如果虚拟机磁盘是精简支配格式，那么开始创建的时候，系统只会创建 1 GB 大小
+      的逻辑卷。之后虚拟机运行的主机会不断监视该逻辑卷的变化，一旦该逻辑卷的使用
+      达到一个阀值，SPM 就会扩展该逻辑卷，使其大小增加 1 GB。然后该主机会对该
+      扩展时间做出一些回复。如果虚拟机在此过程中变为暂停状态，说明 SPM 此时不能
+      扩展该磁盘。有可能是因为 SPM 现在正忙，或者没有足够的存储来扩展。
     </para>
 
     <para>
-      预分配(RAW)格式的虚拟机磁盘的写入速度会比精简支配(Qcow2)的快, 但是创建
-      虚拟机的速度比 Qcow2 的格式慢. Qcow2 格式的磁盘通常使用于非 IO 密集的
-      虚拟机中.
+      预分配(RAW)格式的虚拟机磁盘的写入速度会比精简支配(Qcow2)的快，但是创建
+      虚拟机的速度比 Qcow2 的格式慢。Qcow2 格式的磁盘通常使用于非 IO 密集的
+      虚拟机中。
     </para>
 
     <para>
-      此外, &OVIRT; 管理系统支持虚拟磁盘在线扩容.
+      此外，&OVIRT; 管理系统支持虚拟磁盘在线扩容。
     </para>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_2">
 	<title>理解虚拟磁盘</title>
 	<para>
-      虚拟磁盘有两种类型: <keycap>精简支配</keycap>和<keycap>预分配</keycap>.
-      预分配的磁盘是 RAW 格式的. 精简支配的磁盘是 Qcow2 格式的.
+      虚拟磁盘有两种类型: <keycap>精简支配</keycap>和<keycap>预分配</keycap>。
+      预分配的磁盘是 RAW 格式的。精简支配的磁盘是 Qcow2 格式的。
 	</para>
     <variablelist>
       <varlistentry><term>预分配</term>
       <listitem>
         <para>
-          预分配的虚拟磁盘在创建的时候系统就分配了虚拟磁盘大小的空间. 后端存储
-          设备(基于文件/块设备)为虚拟机保留它所需要的所有存储空间. 这样, 该类型
-          的磁盘就具有很好的性能.
+          预分配的虚拟磁盘在创建的时候系统就分配了虚拟磁盘大小的空间。后端存储
+          设备(基于文件/块设备)为虚拟机保留它所需要的所有存储空间。这样，该类型
+          的磁盘就具有很好的性能。
         </para>
         <para>
-          上述操作在 SAN(iSCSI, FCP)中直接通过创建一个虚拟磁盘大小的块设备
-          完成. 在 NFS 等系统中, 通过在后端文件中填充足够大小的 0 来完成. 系统
-          假设在 NFS 存储中后端文件格式不是 Qcow2, 并且填充的 0 不会被进行重复项
-          消除(如果这个假设有误, 在 NFS 虚拟磁盘的选择中, 不要选择预分配).
+          上述操作在 SAN(iSCSI，FCP)中直接通过创建一个虚拟磁盘大小的块设备
+          完成。在 NFS 等系统中，通过在后端文件中填充足够大小的 0 来完成。系统
+          假设在 NFS 存储中后端文件格式不是 Qcow2，并且填充的 0 不会被进行重复项
+          消除(如果这个假设有误，在 NFS 虚拟磁盘的选择中，不要选择预分配)。
         </para>
       </listitem>
       </varlistentry>
       <varlistentry><term>精简置配</term>
       <listitem>
         <para>
-          对于稀疏虚拟磁盘, 后端存储不用在创建时就分配所有的空间, 可以在运行时
-          按需分配. 这样存储能得到更高效的利用. 但是该机制需要后端存储系统不断
-          监控虚拟磁盘的写操作, 这样会造成一定的性能问题. 对于 NFS 后端存储,
-          虚拟磁盘就是一个文件. 对于 SAN 来说, 虚拟磁盘开始创建得比世界用户
-          需求的要小, 系统不断监控该磁盘的写操作, 然后按需分配存储.
+          对于稀疏虚拟磁盘，后端存储不用在创建时就分配所有的空间，可以在运行时
+          按需分配。这样存储能得到更高效的利用。但是该机制需要后端存储系统不断
+          监控虚拟磁盘的写操作，这样会造成一定的性能问题。对于 NFS 后端存储,
+          虚拟磁盘就是一个文件。对于 SAN 来说，虚拟磁盘开始创建得比世界用户
+          需求的要小，系统不断监控该磁盘的写操作，然后按需分配存储。
         </para>
       </listitem>
       </varlistentry>
@@ -136,7 +136,7 @@
               预分配
             </entry>
             <entry>
-              一个初始大小和虚拟磁盘定义大小一样的文件, 没有格式.
+              一个初始大小和虚拟磁盘定义大小一样的文件，没有格式。
             </entry>
           </row>
           <row>
@@ -150,7 +150,7 @@
               稀疏
             </entry>
             <entry>
-              一个初始大小和0差不多的文件, 没有格式.
+              一个初始大小和0差不多的文件，没有格式。
             </entry>
           </row>
           <row>
@@ -164,7 +164,7 @@
               稀疏
             </entry>
             <entry>
-              一个初始大小和0差不多的文件, Qcow2 格式.
+              一个初始大小和0差不多的文件，Qcow2 格式。
             </entry>
           </row>
           <row>
@@ -178,7 +178,7 @@
               预分配
             </entry>
             <entry>
-              一个初始大小和虚拟磁盘定义大小一样的块设备, 没有格式.
+              一个初始大小和虚拟磁盘定义大小一样的块设备，没有格式。
             </entry>
           </row>
           <row>
@@ -192,7 +192,7 @@
               预分配
             </entry>
             <entry>
-              一个初始大小和虚拟磁盘定义大小一样的块设备, Qcow2 格式.
+              一个初始大小和虚拟磁盘定义大小一样的块设备，Qcow2 格式。
             </entry>
           </row>
           <row>
@@ -206,7 +206,7 @@
               稀疏
             </entry>
             <entry>
-              一个初始大小(1GB)小于虚拟磁盘定义大小的块设备, Qcow2 格式,
+              一个初始大小(1GB)小于虚拟磁盘定义大小的块设备，Qcow2 格式,
               额外的存储空间按需分配(每次分配 1GB)
             </entry>
           </row>
@@ -218,18 +218,18 @@
   <section id="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_3">
 	<title>共享磁盘</title>
 	<para>
-      有些应用程序要求在服务器之间共享存储资源. &OVIRT; 管理系统有一个选项可以
-      把虚拟机磁盘标记为 <keycap>可共享的</keycap>. 这样, 一个虚拟磁盘就可以同时被多个虚拟机
-      访问和共享了.
+      有些应用程序要求在服务器之间共享存储资源。&OVIRT; 管理系统有一个选项可以
+      把虚拟机磁盘标记为 <keycap>可共享的</keycap>。这样，一个虚拟磁盘就可以同时被多个虚拟机
+      访问和共享了。
 	</para>
 
 	<para>
-      共享磁盘并不总所有情况都有用的. 例如把共享磁盘用于存在数据库或者其他高可用
-      业务, 会发生同时读写这些数据造成的数据不一致.
+      共享磁盘并不总所有情况都有用的。例如把共享磁盘用于存在数据库或者其他高可用
+      业务，会发生同时读写这些数据造成的数据不一致。
 	</para>
 
 	<para>
-      另外, 用户不能对共享磁盘做快照. 有快照的虚拟磁盘也不能标记为可共享的.
+      另外，用户不能对共享磁盘做快照。有快照的虚拟磁盘也不能标记为可共享的。
 	</para>
   </section>
 
@@ -239,8 +239,8 @@
 	  <title>创建与其它虚拟机不相关的虚拟机磁盘</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以创建一个独立于所有虚拟机的虚拟磁盘. 然后将此磁盘附加给一个或
-        多个虚拟机.
+        用户可以创建一个独立于所有虚拟机的虚拟磁盘。然后将此磁盘附加给一个或
+        多个虚拟机。
       </para>
       </formalpara>
 
@@ -255,7 +255,7 @@
         <step>
           <para>
             点击导航面板左上角的<keycap>添加</keycap>按钮. 一个添加虚拟磁盘的
-            窗口将会打开.
+            窗口将会打开。
             <figure id="disk-new"><title>创建虚拟磁盘</title>
             <mediaobject>
               <imageobject>
@@ -268,39 +268,39 @@
 
         <step>
           <para>
-            选择<keycap>内部</keycap>或者 <keycap>外部(主机 Lun)</keycap>.
+            选择<keycap>内部</keycap>或者 <keycap>外部(主机 Lun)</keycap>。
           </para>
         </step>
 
         <step>
           <para>
-            输入<keycap>大小</keycap>, <keycap>别名</keycap> 和 <keycap>描述</keycap>.
+            输入<keycap>大小</keycap>，<keycap>别名</keycap> 和 <keycap>描述</keycap>。
           </para>
         </step>
 
         <step>
           <para>
-            在下拉菜单中选择<keycap>接口</keycap>, <keycap>格式</keycap>, <keycap>数据中心</keycap> 和<keycap>存储域</keycap>.
+            在下拉菜单中选择<keycap>接口</keycap>，<keycap>格式</keycap>，<keycap>数据中心</keycap> 和<keycap>存储域</keycap>。
           </para>
         </step>
 
         <step>
           <para>
-            根据需要选择删除后清理, 是可启动的, 或者是可共享的选项.
+            根据需要选择删除后清理，是可启动的，或者是可共享的选项。
           </para>
         </step>
 
         <step>
           <para>
-            点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘.
+            点击窗口又下角的<keycap>确定</keycap>创建虚拟磁盘。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        一个名为 <keycap>Disk1</keycap> 的虚拟磁盘已经创建好了, 该磁盘可在
-        不同的虚拟机之间共享.
+        一个名为 <keycap>Disk1</keycap> 的虚拟磁盘已经创建好了，该磁盘可在
+        不同的虚拟机之间共享。
       </para>
       </formalpara>
     </section>
@@ -325,7 +325,7 @@
                 <keycap>大小</keycap>
               </entry>
               <entry>
-                虚拟磁盘的大小, 以 GB 为单位.
+                虚拟磁盘的大小，以 GB 为单位。
               </entry>
             </row>
             <row>
@@ -333,7 +333,7 @@
                 <keycap>别名</keycap>
               </entry>
               <entry>
-                虚拟磁盘的别名, 有 40 个字符的限制.
+                虚拟磁盘的别名，有 40 个字符的限制。
               </entry>
             </row>
             <row>
@@ -341,7 +341,7 @@
                 <keycap>描述</keycap>
               </entry>
               <entry>
-                该虚拟磁盘的描述, 可选.
+                该虚拟磁盘的描述，可选。
               </entry>
             </row>
             <row>
@@ -349,10 +349,10 @@
                 <keycap>接口</keycap>
               </entry>
               <entry>
-                虚拟机磁盘的接口. VirtIO 是最快的虚拟磁盘接口, 但是使用该接口需
-                要额外的 VirtIO 驱动. 大部分 Linux 操作系统都自带 VirtIO 的驱动.
-                Windows 没有包含 VirtIO 驱动, 但是用户可以通过 guest tools ISO
-                或者虚拟软盘来安装. IDE 接口不需要额外的驱动, 但是速度较慢.
+                虚拟机磁盘的接口。VirtIO 是最快的虚拟磁盘接口，但是使用该接口需
+                要额外的 VirtIO 驱动。大部分 Linux 操作系统都自带 VirtIO 的驱动。
+                Windows 没有包含 VirtIO 驱动，但是用户可以通过 guest tools ISO
+                或者虚拟软盘来安装。IDE 接口不需要额外的驱动，但是速度较慢。
               </entry>
             </row>
             <row>
@@ -360,11 +360,11 @@
                 <keycap>分配策略</keycap>
               </entry>
               <entry>
-                创建虚拟磁盘时的分配策略. 预分配的磁盘在创建时候就分配了所有需
-                要的存储空间. 精简支配的磁盘在开始时只分配 1 GB的空间. 预分配
-                的磁盘需要比精简支配更多的创建时间, 但是有更好地读写性能. 在使用
-                虚拟服务器的时候, 推荐使用预分配的格式. 在使用虚拟桌面的时候,
-                推荐使用精简支配的格式.
+                创建虚拟磁盘时的分配策略。预分配的磁盘在创建时候就分配了所有需
+                要的存储空间。精简支配的磁盘在开始时只分配 1 GB的空间。预分配
+                的磁盘需要比精简支配更多的创建时间，但是有更好地读写性能。在使用
+                虚拟服务器的时候，推荐使用预分配的格式。在使用虚拟桌面的时候,
+                推荐使用精简支配的格式。
               </entry>
             </row>
             <row>
@@ -372,7 +372,7 @@
                 <keycap>数据中心</keycap>
               </entry>
               <entry>
-                虚拟机磁盘所在的数据中心.
+                虚拟机磁盘所在的数据中心。
               </entry>
             </row>
             <row>
@@ -380,7 +380,7 @@
                 <keycap>存储域</keycap>
               </entry>
               <entry>
-                虚拟机磁盘所在的数据域.
+                虚拟机磁盘所在的数据域。
               </entry>
             </row>
             <row>
@@ -388,7 +388,7 @@
                 <keycap>删除后清理</keycap>
               </entry>
               <entry>
-                该磁盘被删除后时候清理该磁盘所在的存储空间.
+                该磁盘被删除后时候清理该磁盘所在的存储空间。
               </entry>
             </row>
             <row>
@@ -396,7 +396,7 @@
                 <keycap>是可启动的</keycap>
               </entry>
               <entry>
-                给磁盘设置启动标志.
+                给磁盘设置启动标志。
               </entry>
             </row>
             <row>
@@ -404,7 +404,7 @@
                 <keycap>是可共享的</keycap>
               </entry>
               <entry>
-                该磁盘可同时被多个虚拟机共享使用.
+                该磁盘可同时被多个虚拟机共享使用。
               </entry>
             </row>
           </tbody>
@@ -412,7 +412,7 @@
       </table>
 
       <para>
-        外部磁盘包括所有内部磁盘的设置出了大小之外, 另外它还有一些自己的属性.
+        外部磁盘包括所有内部磁盘的设置出了大小之外，另外它还有一些自己的属性。
       </para>
       <table id="vm-disk-settings-external">
         <title>外部磁盘属性</title>
@@ -433,7 +433,7 @@
                 <keycap>使用主机</keycap>
               </entry>
               <entry>
-                用来 挂载 LUN 的主机.
+                用来 挂载 LUN 的主机。
               </entry>
             </row>
             <row>
@@ -441,7 +441,7 @@
                 <keycap>存储类型</keycap>
               </entry>
               <entry>
-                外部存储的类型, iSCSI 或者 FC.
+                外部存储的类型，iSCSI 或者 FC。
               </entry>
             </row>
             <row>
@@ -449,7 +449,7 @@
                 <keycap>发现目标</keycap>
               </entry>
               <entry>
-                展开设置目标主机名等.
+                展开设置目标主机名等。
               </entry>
             </row>
             <row>
@@ -457,7 +457,7 @@
                 <keycap>地址</keycap>
               </entry>
               <entry>
-                目标服务器的主机名或 IP 地址.
+                目标服务器的主机名或 IP 地址。
               </entry>
             </row>
             <row>
@@ -465,7 +465,7 @@
                 <keycap>端口</keycap>
               </entry>
               <entry>
-                目标服务器的端口, 默认值是 3260.
+                目标服务器的端口，默认值是 3260。
               </entry>
             </row>
             <row>
@@ -473,7 +473,7 @@
                 <keycap>用户验证</keycap>
               </entry>
               <entry>
-                iSCSI 服务器需要用户验证.
+                iSCSI 服务器需要用户验证。
               </entry>
             </row>
             <row>
@@ -481,7 +481,7 @@
                 <keycap>CHAP 用户和密码</keycap>
               </entry>
               <entry>
-                验证的用户名和密码.
+                验证的用户名和密码。
               </entry>
             </row>
           </tbody>
@@ -489,11 +489,11 @@
       </table>
 
       <para>
-        填写好上表中的属性, 点击确定之后, 虚拟磁盘就会在磁盘列表中显示了.
+        填写好上表中的属性，点击确定之后，虚拟磁盘就会在磁盘列表中显示了。
       </para>
 
       <para>
-        直接使用 LUNs 作为虚拟机磁盘把主机和存储域之间的中间层消除了.
+        直接使用 LUNs 作为虚拟机磁盘把主机和存储域之间的中间层消除了。
       </para>
 
       <para>
@@ -501,17 +501,17 @@
         <itemizedlist>
           <listitem>
             <para>
-              如果直接使用 LUN 作为虚拟机磁盘, 在线存储迁移是不支持的.
+              如果直接使用 LUN 作为虚拟机磁盘，在线存储迁移是不支持的。
             </para>
           </listitem>
           <listitem>
             <para>
-              直接 LUN 磁盘不包含在导出域里.
+              直接 LUN 磁盘不包含在导出域里。
             </para>
           </listitem>
           <listitem>
             <para>
-              直接 LUN 磁盘不包含在虚拟机快照里.
+              直接 LUN 磁盘不包含在虚拟机快照里。
             </para>
           </listitem>
         </itemizedlist>
@@ -522,9 +522,9 @@
 	  <title>在数据域中移动虚拟机磁盘</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可能想要把虚拟磁盘从一个存储域移到另一个存储域. 另外如果虚拟机是基
-        于模板创建并且选择的存储方式是 thin, 那么用户必须要将模板的磁盘复制到
-        存储到存储域中.
+        用户可能想要把虚拟磁盘从一个存储域移到另一个存储域。另外如果虚拟机是基
+        于模板创建并且选择的存储方式是 thin，那么用户必须要将模板的磁盘复制到
+        存储到存储域中。
       </para>
       </formalpara>
 
@@ -537,29 +537,29 @@
         </step>
         <step>
           <para>
-            选择想要移动的磁盘.
+            选择想要移动的磁盘。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>移动</keycap>打开<keycap>移动磁盘</keycap>窗口.
+            点击<keycap>移动</keycap>打开<keycap>移动磁盘</keycap>窗口。
           </para>
         </step>
         <step>
           <para>
-            在下拉列表中选择<keycap>目标</keycap>存储域.
+            在下拉列表中选择<keycap>目标</keycap>存储域。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>移动磁盘.
+            点击<keycap>确定</keycap>移动磁盘。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟磁盘已经从一个存储域移动到另一个存储域了.
+        虚拟磁盘已经从一个存储域移动到另一个存储域了。
       </para>
       </formalpara>
     </section>
@@ -568,12 +568,12 @@
 	  <title>导出虚拟机磁盘</title>
       <formalpara><title>摘要</title>
       <para>
-        导出虚拟机磁盘.
+        导出虚拟机磁盘。
       </para>
       </formalpara>
 
       <procedure>
-        <title>导出虚拟机磁盘.</title>
+        <title>导出虚拟机磁盘。</title>
         <step>
           <para>
             选择<keycap>磁盘</keycap>标签
@@ -581,24 +581,24 @@
         </step>
         <step>
           <para>
-            选择想要导出的磁盘.
+            选择想要导出的磁盘。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>导出</keycap>.
+            点击<keycap>导出</keycap>。
           </para>
         </step>
         <step>
           <para>
-            输入导出的信息, 然后<keycap>确定</keycap>移动磁盘.
+            输入导出的信息，然后<keycap>确定</keycap>移动磁盘。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟磁盘已经导出到存储域了.
+        虚拟磁盘已经导出到存储域了。
       </para>
       </formalpara>
     </section>
