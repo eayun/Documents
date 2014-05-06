@@ -6,31 +6,26 @@
 <chapter id="chap-Documents-administrator-guide-Chapter-pools">
   <title>池</title>
   <section id="sect-Documents-administrator-guide-Chapter-pools_Section_1">
-	<title>介绍虚拟机池</title>
+	<title>虚拟机池简介</title>
 	<para>
-      虚拟机可以被放置在一个池中，用户可以按需从池中获得去你急的使用权。一个普通
-      的虚拟机不能同时被多个用户使用，但是用户可以为不同的目的建立多个不同的虚拟机池。
+      虚拟机可以被放置在一个池中，用户可以按需从池中获得虚拟机的使用权。一个普通的虚拟机不能同时被多个用户使用，但是用户可以为不同的目的建立多个不同的虚拟机池。
 	</para>
 
 	<para>
-      有时用户不仅仅需要使用同一个虚拟机，他只需要能使用某种类型的虚拟机，池的
-      目的就是提供这种虚拟机。
+      用户并不需要总是使用同一个虚拟机，他只需要能使用某种类型的虚拟机，池的目的就是提供这种虚拟机。
 	</para>
 
 	<para>
-      在池中的虚拟机都是无状态的，虚拟机重启之后，写入的数据将不会被保存。池中的
-      虚拟机只在用户需要的时候启动，当用户不需要的时候就会关闭。
+      在池中的虚拟机都是无状态的，虚拟机重启之后，写入的数据将不会被保存。池中的虚拟机只在用户需要的时候启动，当用户不需要的时候就会关闭。
 	</para>
 
 	<para>
-      池中的虚拟机可以预先启动，等待用户的使用。这大大提高了相应的时间，但是相
-      对应的这会造成一定的资源使用。
+      池中的虚拟机可以预先启动，等待用户的使用。这大大提高了响应的时间，但是相对应的，空闲的虚拟机也会造成一定的资源使用。
 	</para>
 
     <note>
       <para>
-        从管理门户访问的虚拟机不是无状态的。因为管理员有时需要向磁盘中写入一些
-        数据。
+        从管理门户访问的虚拟机不是无状态的。因为管理员有时需要向磁盘中写入一些数据。
       </para>
     </note>
   </section>
@@ -41,8 +36,7 @@
 	  <title>创建虚拟机池</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以创建包含多个从同一个模板创建出来的虚拟机。虚拟机池提供给终端
-        用户一般的虚拟机。
+        用户可以创建包含多个从同一个模板创建出来的虚拟机。虚拟机池按需提供给终端用户一般的虚拟机。
       </para>
       </formalpara>
 
@@ -50,75 +44,70 @@
         <title>创建虚拟机池</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>新建</keycap>打开<keycap>新建池</keycap>窗口。
+            点击<emphasis>新建</emphasis>打开<emphasis>新建池</emphasis>窗口。
           </para>
         </step>
         <step>
           <itemizedlist>
             <listitem>
               <para>
-                在下拉菜单中选择<keycap>群集</keycap>，或者使用默认值。
+                在下拉菜单中选择<emphasis>集群</emphasis>，或者使用默认值。
               </para>
             </listitem>
             <listitem>
               <para>
-                在<keycap>基于模板</keycap>下拉菜单中选择合适的模板，或者使用默认值，模板
-                为池中的虚拟机提供了标准的设置。
+                在<emphasis>基于模板</emphasis>下拉菜单中选择合适的模板，或者使用默认值，模板为池中的虚拟机提供了标准的设置。
               </para>
             </listitem>
             <listitem>
               <para>
-                在<keycap>操作系统</keycap>下拉菜单中选择合适的<keycap>操作系统</keycap>，或者使用默认值。
+                在<emphasis>操作系统</emphasis>下拉菜单中选择合适的<emphasis>操作系统</emphasis>，或者使用模板提供的默认值。
               </para>
             </listitem>
             <listitem>
               <para>
-                在<keycap>优化</keycap>下拉菜单中选择<keycap>桌面</keycap>或者<keycap>服务器</keycap>。
+                在<emphasis>优化</emphasis>下拉菜单中选择<emphasis>桌面</emphasis>或者<emphasis>服务器</emphasis>。
               </para>
             </listitem>
           </itemizedlist>
         </step>
         <step>
           <para>
-            输入<keycap>名称</keycap>，<keycap>描述</keycap>，<keycap>注释</keycap>和<keycap>虚拟机的数量</keycap>。
+            输入<emphasis>名称</emphasis>，<emphasis>描述</emphasis>，<emphasis>注释</emphasis>和<emphasis>虚拟机的数量</emphasis>。
           </para>
         </step>
         <step>
           <para>
-            设置每个用户的最大虚拟机数目，这是数值表示配个用户最多可以使用的
-            虚拟机数目。
+            设置<emphasis>每个用户的最大虚拟机数目</emphasis>，这个数值表示每个用户最多可以使用的虚拟机数目。该值最小为 1。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>显示高级选项</keycap>按钮，选择<keycap>系统</keycap>标签。输入池中虚拟机使用的
-            <keycap>内存大小</keycap>和<keycap>虚拟 CPU 的总数</keycap>。
+            点击<emphasis>显示高级选项</emphasis>按钮，选择<emphasis>系统</emphasis>标签。输入池中虚拟机使用的<emphasis>内存大小</emphasis>和<emphasis>虚拟 CPU 的总数</emphasis>，或者使用模板的默认值。
           </para>
         </step>
         <step>
           <para>
-            如果需要，点击<keycap>高级参数</keycap>，设置<keycap>每个虚拟套接字的内核</keycap>和<keycap>虚拟套接字</keycap>。
+            如果需要，点击<emphasis>高级参数</emphasis>，设置<emphasis>每个虚拟套接字的内核</emphasis>和<emphasis>虚拟套接字</emphasis>。这些选项能够设置的值根据您指定的<emphasis>虚拟 CPU 的总数</emphasis>而不同。
           </para>
         </step>
         <step>
           <para>
-            点击池标签，选择池的类型:
+            点击<emphasis>池</emphasis>标签，选择<emphasis>池类型</emphasis>：
             <itemizedlist>
               <listitem>
                 <para>
-                  <keycap>手动</keycap> - 管理员需要手动的将虚拟机放回池中。当虚拟机返回
-                  池中之后，他的磁盘就会重置回初始状态。
+                  <emphasis>手动</emphasis> - 管理员需要手动的将虚拟机放回池中。当虚拟机返回池中之后，他的磁盘就会重置回初始状态。
                 </para>
               </listitem>
               <listitem>
                 <para>
-                  <keycap>自动</keycap> - 虚拟机关机之后，自动的返回池中，他的磁盘会重置
-                  回初始状态。
+                  <emphasis>自动</emphasis> - 虚拟机关机之后，自动的返回池中，他的磁盘会重置回初始状态。
                 </para>
               </listitem>
             </itemizedlist>
@@ -126,24 +115,23 @@
         </step>
         <step>
           <para>
-            不需要<keycap>配置初始运行</keycap>，<keycap>控制台</keycap>，<keycap>主机</keycap>，<keycap>资源分配</keycap>,
-            <keycap>引导选项和自定义属性</keycap>。
+            按需要配置<emphasis>初始运行</emphasis>、<emphasis>控制台</emphasis>、<emphasis>主机</emphasis>、<emphasis>资源分配</emphasis>、<emphasis>引导选项</emphasis>和<emphasis>自定义属性</emphasis>。这些标签下的设置和控制项与<emphasis>新建虚拟机</emphasis>窗口中的项目相同。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>创建虚拟机池。
+            点击<emphasis>确定</emphasis>创建虚拟机池。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        已经创建好了指定数目的虚拟机池。
+        已经创建好了有指定数目的相同虚拟机的池。
       </para>
       </formalpara>
       <para>
-        现在用户可以在<keycap>虚拟机</keycap>标签或者在<keycap>池</keycap>的虚拟机列表上看到这些虚拟机。
+        现在用户可以在<emphasis>虚拟机</emphasis>标签或者在<emphasis>池</emphasis>标签下的虚拟机列表上看到这些虚拟机。
         <figure id="pool-display-vm"><title>显示池中的虚拟机</title>
         <mediaobject>
           <imageobject>
@@ -152,14 +140,32 @@
         </mediaobject>
         </figure>
       </para>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-2"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3-4"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3"/>
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-pools_Section_2-2">
 	  <title>编辑虚拟机池</title>
       <formalpara><title>摘要</title>
       <para>
-        创建虚拟机池之后，它的属性可以被编辑。在编辑池窗口中的能编辑的属性和
-        创建池的属性一样，除了池中的<keycap>虚拟机的数量</keycap>变为
-        <keycap>增加池里的虚拟机数目</keycap>。
+        创建虚拟机池之后，它的属性可以被编辑。在编辑池窗口中的能编辑的属性和创建池窗口中的属性一样，除了池中的<emphasis>虚拟机的数量</emphasis>变为<emphasis>增加池里的虚拟机数目</emphasis>。
       </para>
       </formalpara>
 
@@ -167,13 +173,12 @@
         <title>编辑虚拟机池</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            点击编辑打开<keycap>编辑池</keycap>窗口。
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑池</emphasis>窗口。
           </para>
         </step>
         <step>
@@ -183,7 +188,7 @@
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>。
+            点击<emphasis>确定</emphasis>。
           </para>
         </step>
       </procedure>
@@ -193,44 +198,60 @@
         虚拟机池的属性将会被编辑。
       </para>
       </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_4-3"/>
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
     <section id="sect-Documents-administrator-guide-Chapter-pools_Section_2-3">
 	  <title>在池里的预启动虚拟机</title>
+      <para>
+        <emphasis>前提需求：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-pools_Section_2-1"/>
+          </para>
+        </listitem>
+      </itemizedlist>
       <formalpara><title>摘要</title>
       <para>
-        池中的虚拟机默认情况处于关机状态。当用户向池请求虚拟机时，虚拟机将会开启
-        然后指定给该用户使用。相反，预启动的虚拟机已经处于运行状态，等待分配给
-        用户使用，减少了用户访问该虚拟机的等待时间。当预启动的虚拟机被关闭，它被
-        返回池中，恢复它原先的状态。预启动虚拟机最大的数目是池中的虚拟机总数。
+        池中的虚拟机默认情况处于关机状态。当用户向池请求虚拟机时，虚拟机将会开启然后指定给该用户使用。相反，预启动的虚拟机已经处于运行状态，等待分配给用户使用，减少了用户访问该虚拟机的等待时间。当预启动的虚拟机被关闭，它被返回池中，恢复它原先的状态。预启动虚拟机最大的数目是池中的虚拟机总数。
       </para>
       </formalpara>
 
       <procedure>
-        <title>在池里的预启动虚拟机</title>
+        <title>预启动池里的虚拟机</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            点击编辑打开<keycap>编辑池</keycap>窗口。
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑池</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            在<keycap>预启动的虚拟机</keycap>里设置需要预启动的虚拟机数目。
+            在<emphasis>预启动的虚拟机</emphasis>里设置需要预启动的虚拟机数目。
           </para>
         </step>
         <step>
           <para>
-            在池中确保池的类型设置为<keycap>自动</keycap>。
+            在<emphasis>池</emphasis>标签中确保池的类型设置为<emphasis>自动</emphasis>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>。
+            点击<emphasis>确定</emphasis>。
           </para>
         </step>
       </procedure>
@@ -246,7 +267,7 @@
 	  <title>新增虚拟机到池</title>
       <formalpara><title>摘要</title>
       <para>
-        下列步骤描述如何在池中增加虚拟机的数量。
+        如果用户需要比原先在池中设置的数目多的虚拟机，可以往池中增加虚拟机。
       </para>
       </formalpara>
 
@@ -254,30 +275,29 @@
         <title>新增虚拟机到池</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            点击编辑打开<keycap>编辑池</keycap>窗口。
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑池</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            在<keycap>增加池里的虚拟机数目</keycap>输入要增加的虚拟机数目。
+            在<emphasis>增加池里的虚拟机数目</emphasis>输入要增加的虚拟机数目。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>。
+            点击<emphasis>确定</emphasis>。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        池里的虚拟机数量已经增加了。
+        池里的虚拟机数量增加了。
       </para>
       </formalpara>
     </section>
@@ -294,24 +314,25 @@
         <title>把虚拟机从池中分离</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            分离之前，确保待分离的虚拟机处于<keycap>Down</keycap>状态。在池的
-            详细面板中点击<keycap>虚拟机</keycap>标签，列出池中的虚拟机。
+            分离之前，确保待分离的虚拟机处于<emphasis>Down</emphasis>状态，因为您无法分离一台正在运行中的虚拟机。
+          </para>
+          <para>
+            在池的详细面板中点击<emphasis>虚拟机</emphasis>标签，列出池中的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            选中待分离的虚拟机，点击<keycap>分离</keycap>，打开<keycap>分离虚拟机</keycap>窗口。
+            选中待分离的虚拟机，点击<emphasis>分离</emphasis>，打开<emphasis>分离虚拟机</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>从池中分离虚拟机。
+            点击<emphasis>确定</emphasis>从池中分离虚拟机。
             <figure id="pool-detach-vm"><title>从池中分离虚拟机</title>
             <mediaobject>
               <imageobject>
@@ -320,18 +341,17 @@
             </mediaobject>
             </figure>
           </para>
-          <note>
-            <para>
-              虚拟机从池中分离之后，仍然在 &OVIRT; 系统中能从<keycap>虚拟机</keycap>标签访问。
-              从此成为一个独立的虚拟机。
-            </para>
-          </note>
         </step>
       </procedure>
+      <note>
+        <para>
+          虚拟机从池中分离之后，仍然在 &OVIRT; 系统中能从<emphasis>虚拟机</emphasis>标签访问。其图标将发生改变，表示其为一个独立的虚拟机。
+        </para>
+      </note>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机已经从池中分离
+        虚拟机已经从池中分离。
       </para>
       </formalpara>
     </section>
@@ -340,8 +360,7 @@
 	  <title>删除虚拟机池</title>
       <formalpara><title>摘要</title>
       <para>
-        用户可以从数据中心中删除池。要删除一个池，首先必须删除或者分离池中的
-        虚拟机。分离的虚拟机将作为独立的虚拟机存在。
+        用户可以从数据中心中删除池。要删除一个池，首先必须删除或者分离池中的虚拟机。分离的虚拟机将作为独立的虚拟机存在。
       </para>
       </formalpara>
 
@@ -349,18 +368,17 @@
         <title>删除虚拟机池</title>
         <step>
           <para>
-            点击<keycap>池</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机池。
+            点击<emphasis>池</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机池。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>删除</keycap>打开<keycap>删除池</keycap>窗口。
+            点击<emphasis>删除</emphasis>打开<emphasis>删除池</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>删除池。
+            点击<emphasis>确定</emphasis>删除池。
           </para>
         </step>
       </procedure>
