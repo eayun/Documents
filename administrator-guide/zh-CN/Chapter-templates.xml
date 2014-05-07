@@ -8,24 +8,20 @@
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_1">
     <title>模板介绍</title>
     <para>
-      模板是里面包含了预先配置了硬件和应用软件的虚拟机的模型。模板一半用来批量创建
-      相似的虚拟机。从模板创建出来的虚拟机都有相同的硬件规格和相同的软件及软件设置。
+      模板是里面包含了预先配置了硬件和应用软件的虚拟机的模型。模板一般用来批量创建相似的虚拟机。从模板创建出来的虚拟机都有相同的硬件规格和相同的软件及软件设置。
     </para>
 
     <para>
-      当用户基于某个虚拟机创建模板的时候，首先生成一个该虚拟机磁盘的只读拷贝。该
-      拷贝将会变为所有基于此模板创建的虚拟机的基础镜像。因此，除非将所有基于
-      模板的虚拟机删除，该模板不能被删除。
+      当用户基于某个虚拟机创建模板的时候，首先生成一个该虚拟机磁盘的只读拷贝。该拷贝将会变为所有基于此模板创建的虚拟机的基础镜像。因此，只有将所有基于该模板的虚拟机删除，该模板才能被删除。
     </para>
 
     <para>
-      注意如果虚拟机是从某个模板创建的，为了防止 MAC 地址冲突，系统会为该虚拟机
-      的网卡重新生成新的独一无二的 MAC 地址。
+      从模板创建的虚拟机会使用相同的网卡类型和驱动，但为了防止 MAC 地址冲突，系统会为该虚拟机的网卡重新生成新的独一无二的 MAC 地址。
     </para>
 
     <note>
       <para>
-        如果要基于一个虚拟机要制作模板，该虚拟机必须先封装。
+        如果要基于一个虚拟机要制作模板，则必须先封装该虚拟机。
       </para>
     </note>
   </section>
@@ -44,19 +40,18 @@
         <title>基于存在的虚拟机创建模板</title>
         <step>
           <para>
-            点击<keycap>虚拟机</keycap>标签列出系统中的所有虚拟机，找到需要
-            的虚拟机。
+            点击<emphasis>虚拟机</emphasis>标签列出系统中的所有虚拟机，找到需要的虚拟机。
           </para>
         </step>
         <step>
           <para>
-            确保该虚拟机的状态是 <keycap>Down</keycap>。
+            确保该虚拟机的状态是 <emphasis>Down</emphasis>。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>创建模板</keycap>, 打开<keycap>创建模板窗口</keycap>。
-            <figure id="temp-create-temp"><title>创建模板</title>
+            点击<emphasis>创建模板</emphasis>, 打开<emphasis>新建模板</emphasis>窗口。
+            <figure id="temp-create-temp"><title>新建模板窗口</title>
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/temp-create-temp.png" format="PNG" scale="100"/>
@@ -67,45 +62,52 @@
         </step>
         <step>
           <para>
-            输入模板的<keycap>名称</keycap>和<keycap>描述</keycap>等。
+            输入模板的<emphasis>名称</emphasis>和<emphasis>描述</emphasis>等。
           </para>
         </step>
         <step>
           <para>
-            在下拉菜单中选择<keycap>群集</keycap>和存储<keycap>目标</keycap>，这两个设置的默认值与源虚拟机
-            一样。
+            在下拉菜单中选择<emphasis>集群</emphasis>和存储<emphasis>目标</emphasis>，这两项设置的默认值与源虚拟机一样。
           </para>
         </step>
         <step>
           <para>
-            默认情况下，<keycap>允许所有的用户来访问这个模板</keycap>是被勾选的，该选项使得
-            模板成为公共的。
+            默认情况下，<emphasis>允许所有的用户来访问这个模板</emphasis>是被勾选的，该选项使得模板成为公共的。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>OK</keycap>创建模板。将开始模板的创建。虚拟机的状态将变为 <keycap>Image Locked</keycap>。
-            这个操作将持续一段时间，具体的时间取决于你的虚拟机磁盘大小和硬件环境。
-          </para>
-        </step>
-        <step>
-          <para>
+            点击<emphasis>OK</emphasis>创建模板。将开始模板的创建。虚拟机的状态将变为 <emphasis>Image Locked</emphasis>。这个操作将持续一段时间，具体的时间取决于你的虚拟机磁盘大小和存储硬件环境。
           </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        模板将被创建，在模板标签上会被显示出来。接下来用户可以基于这个模板
-        创建虚拟机。
+        模板将被创建，在模板标签下会被显示出来。接下来用户可以基于这个模板创建虚拟机。
       </para>
       </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine_Section_9-1"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-templates_Section_2-2"/>
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-2">
-      <title>模板创建窗口中的设置解释</title>
+      <title>新建模板窗口中的设置解释</title>
       <para>
-        下表详细解释了<keycap>新建模板</keycap>窗口出现的属性信息。
+        下表详细解释了<emphasis>新建模板</emphasis>窗口出现的属性信息。
       </para>
       <table id="temp-new-template">
         <title>新建模板窗口中的属性</title>
@@ -113,7 +115,7 @@
           <thead>
             <row>
               <entry>
-                属性
+                选项
               </entry>
               <entry>
                 详细描述
@@ -123,16 +125,15 @@
           <tbody>
             <row>
               <entry>
-                <keycap>名字</keycap>
+                <emphasis>名称</emphasis>
               </entry>
               <entry>
-                模板的名称，必须限制在 40 个字符之类，可以由大小写字母，数字,
-                下划线和连字符组成。
+                模板的名称，必须限制在 40 个字符之类，可以由大小写字母、数字、下划线和连字符组成。
               </entry>
             </row>
             <row>
               <entry>
-                <keycap>描述</keycap>
+                <emphasis>描述</emphasis>
               </entry>
               <entry>
                 模板的描述，该字段不是必须的。
@@ -140,29 +141,26 @@
             </row>
             <row>
               <entry>
-                <keycap>群集</keycap>
+                <emphasis>集群</emphasis>
               </entry>
               <entry>
-                模板将会附加到的集群。默认和源虚拟机的集群一致，用户可以选择
-                源虚拟机所在数据中心的任何集群。
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <keycap>目标</keycap>
-              </entry>
-              <entry>
-                模板将会存储于哪个存储域。默认和源虚拟机的存储域一致，用户可以选择源
-                虚拟机所在数据中心的任何存储域。
+                模板将会附加到的集群。默认和源虚拟机的集群一致，用户可以选择源虚拟机所在数据中心的任何集群。
               </entry>
             </row>
             <row>
               <entry>
-                <keycap>允许所有的用户来访问这个模板</keycap>
+                <emphasis>目标</emphasis>
               </entry>
               <entry>
-                公共的模板可以被所有用户访问，私有的模板只能被 <keycap>TemplateAdmin</keycap>
-                和 <keycap>SuperUser</keycap>。访问。
+                模板将会存储于哪个存储域。默认和源虚拟机的存储域一致，用户可以选择源虚拟机所在数据中心的任何存储域。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>允许所有的用户来访问这个模板</emphasis>
+              </entry>
+              <entry>
+                公共的模板可以被所有用户访问，私有的模板只能被具有 <emphasis>TemplateAdmin</emphasis> 和 <emphasis>SuperUser</emphasis> 角色的用户访问。
               </entry>
             </row>
           </tbody>
@@ -181,17 +179,17 @@
         <title>编辑资源</title>
         <step>
           <para>
-            使用资源标签，搜索标签等找到想要的资源。
+            使用资源标签，树形面板或者搜索功能等找到想要的资源。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>。
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            改变资源的属性，点击<keycap>确定</keycap>。
+            改变资源的属性，点击<emphasis>确定</emphasis>。
           </para>
         </step>
       </procedure>
@@ -205,7 +203,7 @@
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-4">
       <title>模板编辑窗口中的设置解释</title>
       <para>
-        下表详细解释了<keycap>编辑模板</keycap>窗口出现的属性信息。
+        下表详细解释了<emphasis>编辑模板</emphasis>窗口出现的属性信息。
       </para>
       <table id="temp-edit-template">
         <title>编辑模板窗口中的属性</title>
@@ -213,7 +211,7 @@
           <thead>
             <row>
               <entry>
-                属性
+                选项名称
               </entry>
               <entry>
                 详细描述
@@ -223,16 +221,15 @@
           <tbody>
             <row>
               <entry>
-                <keycap>名字</keycap>
+                <emphasis>名称</emphasis>
               </entry>
               <entry>
-                模板的名称，必须限制在 40 个字符之类，可以由大小写字母，数字,
-                下划线和连字符组成。
+                模板的名称，必须限制在 40 个字符之类，可以由大小写字母、数字、下划线和连字符组成。
               </entry>
             </row>
             <row>
               <entry>
-                <keycap>描述</keycap>
+                <emphasis>描述</emphasis>
               </entry>
               <entry>
                 模板的描述，该字段不是必须的。
@@ -240,30 +237,31 @@
             </row>
             <row>
               <entry>
-                <keycap>群集</keycap>
+                <emphasis>集群</emphasis>
               </entry>
               <entry>
-                模板将会附加到的集群。默认和源虚拟机的集群一致，用户可以选择
-                源虚拟机所在数据中心的任何集群。
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <keycap>内存大小</keycap>
-              </entry>
-              <entry>
-                分配给虚拟机的内存总是。分配虚拟机内存的时候，要考虑该虚拟机
-                使用的场景。另外，虚拟机可用的内存也取决于虚拟机内部操作系统
-                的限制，比如 32 的操作系统最大只能用 4G 的内存大小。
+                模板将会附加到的集群。默认和源虚拟机的集群一致，用户可以选择源虚拟机所在数据中心的任何集群。
               </entry>
             </row>
             <row>
               <entry>
-                <keycap>虚拟 CPU 的总数</keycap>
+                <emphasis>内存大小</emphasis>
               </entry>
               <entry>
-                分配给虚拟机的虚拟 CPU 的数量。分配的数量不要超过物理机的
-                CPU 总数。
+                <para>
+                  分配给虚拟机的内存。分配虚拟机内存的时候，要考虑该虚拟机使用的场景。
+                </para>
+                <para>
+                  另外，虚拟机可用的内存也受虚拟机内部操作系统和集群兼容版本的限制。
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>虚拟 CPU 的总数</emphasis>
+              </entry>
+              <entry>
+                分配给虚拟机的虚拟 CPU 的数量。分配的数量不要超过物理机的 CPU 总数。
               </entry>
             </row>
             <row>
@@ -271,7 +269,7 @@
                 每个虚拟 CPU 插槽的核数
               </entry>
               <entry>
-                每个虚拟 CPU 插槽所拥有的 CPU 内核数目
+                每个虚拟 CPU 插槽所拥有的 CPU 内核数目。
               </entry>
             </row>
             <row>
@@ -279,8 +277,15 @@
                 虚拟插槽
               </entry>
               <entry>
-                分配给虚拟机的虚拟 CPU 插槽数目。分配的数量不要超过物理机的
-                插槽数目。
+                分配给虚拟机的虚拟 CPU 插槽数目。分配的数量不要超过物理机的插槽数目。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                操作系统
+              </entry>
+              <entry>
+                虚拟机的操作系统类型。
               </entry>
             </row>
             <row>
@@ -288,12 +293,7 @@
                 Stateless
               </entry>
               <entry>
-                如果想让虚拟机运行在 Stateless 模式，请勾选这个单选框。Stateless
-                主要是桌面虚拟机使用的选项。它的工作原理是这样的，运行 Stateless
-                的虚拟机启动后，将会创建一个 COW 的临时磁盘，虚拟磁盘的所有改变
-                都会写入这个磁盘，原先的磁盘不会被改变。这样，该虚拟机关机之后,
-                他的状态就会恢复到开机之前。如果只是为了很短时间内运行虚拟机,
-                或者只是想临时使用虚拟机，那么这种模式很有用。
+                如果想让虚拟机运行在 Stateless 模式，请勾选这个单选框。Stateless 主要是桌面虚拟机使用的选项。它的工作原理是这样的，运行 Stateless 的虚拟机启动后，将会创建一个 COW 的临时磁盘，虚拟磁盘的所有改变都会写入这个磁盘，原先的磁盘不会被改变。这样，该虚拟机关机之后，他的状态就会恢复到开机之前。如果只是为了很短时间内运行虚拟机，或者只是想临时使用虚拟机，那么这种模式很有用。
               </entry>
             </row>
           </tbody>
@@ -311,7 +311,7 @@
 
       <warning>
         <para>
-          如果还存在基于该模板创建的虚拟机，请确保先删除这些虚拟机。
+          如果还存在基于该模板创建的虚拟机，请不要删除该模板，因为那些虚拟机的正常运行仍然需要该模板。
         </para>
       </warning>
 
@@ -319,18 +319,17 @@
         <title>删除模板</title>
         <step>
           <para>
-            点击<keycap>模板</keycap>标签列出系统中的所有模板，找到需要
-            的模板。
+            点击<emphasis>模板</emphasis>标签列出系统中的所有模板，找到需要的模板。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>删除</keycap>，弹出<keycap>删除模板</keycap>窗口。
+            点击<emphasis>删除</emphasis>，弹出<emphasis>删除模板</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>确定</keycap>删除模板。
+            点击<emphasis>确定</emphasis>删除模板。
           </para>
         </step>
       </procedure>
@@ -340,6 +339,16 @@
         模板已经被删除。
       </para>
       </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-virtual-machine-disks_Section_4-2"/>
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6">
@@ -350,38 +359,35 @@
         <title>把模板迁移到导出域中</title>
         <formalpara><title>摘要</title>
         <para>
-          将模板导出到存储域里，之后就可以导入模板到另一个数据中心了。
+          将模板导出到存储域里，之后就可以导入模板到另一个数据中心了，既可以是同一个 &OVIRT; 环境中的，也可以是另外的 &OVIRT; 环境中的数据中心。
         </para>
         </formalpara>
 
         <procedure>
-          <title>导出模板</title>
+          <title>导出模板到导出域</title>
           <step>
             <para>
-              点击<keycap>模板</keycap>标签列出系统中的所有模板，找到需要
-              的模板。
+              点击<emphasis>模板</emphasis>标签列出系统中的所有模板，找到需要的模板。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>导出</keycap>，弹出<keycap>导出模板</keycap>窗口。
+              点击<emphasis>导出</emphasis>，弹出<emphasis>导出模板</emphasis>窗口。
             </para>
             <note>
               <para>
-                选择<keycap>强制覆盖</keycap>覆盖在该导出域中存在的相同名字的模板。
+                选择<emphasis>强制覆盖</emphasis>覆盖在该导出域中存在的相同名字的模板。
               </para>
             </note>
           </step>
           <step>
             <para>
-              点击<keycap>确定</keycap>开始导出，这个操作将持续一段时间,
-              具体的时间取决于你的虚拟机磁盘大小和硬件环境。
+              点击<emphasis>确定</emphasis>开始导出，这个操作将持续一段时间，具体的时间取决于你的虚拟机磁盘大小和存储硬件环境。
             </para>
           </step>
           <step>
             <para>
-              重复以上步骤，直到所有想导出的模板都开始导出为止。在存储标签找到
-              搞导出域，点击<keycap>模板导入</keycap>查看已经导出的模板。
+              重复以上步骤，直到所有想导出的模板都开始导出为止。在<emphasis>存储</emphasis>标签找到该导出域，点击<emphasis>模板导入</emphasis>查看已经导出的模板。
             </para>
           </step>
         </procedure>
@@ -391,14 +397,23 @@
           模板已经被导出到导出域里了。
         </para>
         </formalpara>
+        <para>
+          <emphasis>参见：</emphasis>
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <xref linkend="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-8"/>
+            </para>
+          </listitem>
+        </itemizedlist>
       </section>
 
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-6-2">
         <title>复制模板的虚拟磁盘</title>
         <formalpara><title>摘要</title>
         <para>
-          如果虚拟机是基于模板创建并且选择的存储方式是 thin，那么用户必须要将模板
-          的磁盘复制到存储到存储域中。
+          如果虚拟机是基于模板创建并且选择的存储方式是 thin，且用户想要移动虚拟机的磁盘至另外的存储域，那么用户必须要将模板的磁盘复制到存储该虚拟机磁盘的存储域中。
         </para>
         </formalpara>
 
@@ -406,7 +421,7 @@
           <title>复制模板的虚拟磁盘</title>
           <step>
             <para>
-              选择<keycap>磁盘</keycap>标签
+              选择<emphasis>磁盘</emphasis>标签。
             </para>
           </step>
           <step>
@@ -416,19 +431,19 @@
           </step>
           <step>
             <para>
-              点击<keycap>复制</keycap>打开<keycap>复制磁盘</keycap>窗口。
+              点击<emphasis>复制</emphasis>打开<emphasis>复制磁盘</emphasis>窗口。
             </para>
           </step>
           <step>
             <para>
-              在下拉列表中选择<keycap>目标</keycap>存储域。
+              在下拉列表中选择<emphasis>目标</emphasis>存储域。
             </para>
           </step>
         </procedure>
 
         <formalpara><title>结果</title>
         <para>
-          模板里包含的虚拟磁盘已经创建了。现在用户可以将该磁盘移到其他存储域了。
+          模板里包含的虚拟磁盘已经在目标存储域中创建了。现在用户可以将基于该模板的虚拟机磁盘移动到该目标存储域了。
         </para>
         </formalpara>
       </section>
@@ -436,10 +451,18 @@
 
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7">
       <title>导入模板</title>
-      <para>
-      </para>
       <section id="sect-Documents-administrator-guide-Chapter-templates_Section_2-7-1">
-        <title>导入一个模板到数据中心中</title>
+        <title>导入模板到数据中心中</title>
+        <para>
+          <emphasis>前提需求：</emphasis>
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <xref linkend="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-9"/>
+            </para>
+          </listitem>
+        </itemizedlist>
         <formalpara><title>摘要</title>
         <para>
           从导出域导入模板到数据中心。
@@ -447,22 +470,21 @@
         </formalpara>
 
         <procedure>
-          <title>导入一个模板到数据中心中</title>
+          <title>导入模板到数据中心中</title>
           <step>
             <para>
-              点击<keycap>存储</keycap>标签列出系统中的所有存储，找到需要
-              的模板。
+              点击<emphasis>存储</emphasis>标签列出系统中的所有存储，找到需要的导出域。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>模板导入</keycap>查看可以导入的模板。
+              点击<emphasis>模板导入</emphasis>查看可以导入的模板。
             </para>
           </step>
           <step>
             <para>
-              选择要导入的模板, 点击<keycap>导入</keycap>打开<keycap>导入模板</keycap>窗口。
-              <figure id="temp-import-temp"><title>导出模板</title>
+              选择要导入的模板, 点击<emphasis>导入</emphasis>打开<emphasis>导入模板</emphasis>窗口。
+              <figure id="temp-import-temp"><title>导入模板</title>
               <mediaobject>
                 <imageobject>
                   <imagedata fileref="images/temp-import-temp.png" format="PNG" scale="100"/>
@@ -478,26 +500,23 @@
           </step>
           <step>
             <para>
-              在下拉的菜单中选择适当的<keycap>默认的存储域</keycap>和<keycap>群集</keycap>。
+              在下拉菜单中选择适当的<emphasis>默认的存储域</emphasis>和<emphasis>集群</emphasis>。
             </para>
           </step>
           <step>
             <para>
-              点击<keycap>确定</keycap>开始导入模板。
+              点击<emphasis>确定</emphasis>开始导入模板。
             </para>
           </step>
         </procedure>
 
         <formalpara><title>结果</title>
         <para>
-          模板导入了另外的数据中心。这个操作将持续一段时间，具体的时间取决于你的
-          虚拟机磁盘大小和硬件环境。用户可以通过<keycap>事件</keycap>标签来
-          查看进度。
+          模板导入到了目标数据中心。这个操作将持续一段时间，具体的时间取决于你的虚拟机磁盘大小和存储硬件环境。用户可以通过<emphasis>事件</emphasis>标签来查看进度。
         </para>
         </formalpara>
         <para>
-          一旦模板导入完成，该模板在相关数据中心的资源标签里就会显示。用户可以用
-          该模板创建新的虚拟机。
+          一旦模板导入完成，该模板在相关数据中心的资源标签里就会显示。用户可以用该模板创建新的虚拟机。
         </para>
       </section>
     </section>
@@ -506,19 +525,18 @@
   <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3">
     <title>封装模板准备部署</title>
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-1">
-      <title>手动封装 Linux 虚拟机部署为一个模板</title>
+      <title>手动封装 Linux 虚拟机为一个模板准备部署</title>
       <formalpara><title>摘要</title>
       <para>
-        在基于一个虚拟机制作模板的时候，需要对该虚拟机进行封装。这样可以避免多个
-        基于该模板的虚拟机造成的冲突，MAC 地址等等。
+        在基于一个虚拟机制作模板的时候，需要对该虚拟机进行封装。这样可以避免多个基于该模板的虚拟机造成的冲突，例如 MAC 地址冲突等等。
       </para>
       </formalpara>
 
       <procedure>
-        <title>手动封装 Linux 虚拟机部署为一个模板</title>
+        <title>手动封装 Linux 虚拟机为一个模板准备部署</title>
         <step>
           <para>
-            用 ssh 或者 console 登陆虚拟机，创建标记文件:
+            用 ssh 或者 console 登陆虚拟机，创建标记文件：
           </para>
           <programlisting language="Bash">
 # touch /.unconfigured
@@ -526,7 +544,7 @@
         </step>
         <step>
           <para>
-            删除 ssh host keys:
+            删除 ssh host keys：
           </para>
           <programlisting language="Bash">
 # rm -rf /etc/ssh/ssh_host_*
@@ -534,13 +552,12 @@
         </step>
         <step>
           <para>
-            在文件 <keycap>/etc/sysconfig/network</keycap> 中设置
-            <keycap>HOSTNAME=localhost.localdomain in </keycap>。
+            在文件 <filename>/etc/sysconfig/network</filename> 中设置 <emphasis>HOSTNAME=localhost.localdomain</emphasis>。
           </para>
         </step>
         <step>
           <para>
-            删除 MAC 地址配置文件 /etc/udev/rules.d/70-*。
+            删除配置文件 /etc/udev/rules.d/70-*：
           </para>
           <programlisting language="Bash">
 # rm -rf /etc/udev/rules.d/70-*
@@ -548,47 +565,49 @@
         </step>
         <step>
           <para>
-            在文件 <keycap>/etc/sysconfig/network-scripts/ifcfg-eth*</keycap> 中,
-            删除 <keycap>HWADDR=</keycap>的行。
+            在文件 <filename>/etc/sysconfig/network-scripts/ifcfg-eth*</filename> 中，删除 <emphasis>HWADDR=</emphasis> 所在一行。
           </para>
         </step>
         <step>
           <para>
-            关闭虚拟机:
+            删除所有位于 <filename>/var/log</filename> 下的日志和位于 <filename>/root</filename> 下的安装日志，此步骤不是必须的。
+          </para>
+        </step>
+        <step>
+          <para>
+            关闭虚拟机：
+          </para>
           <programlisting language="Bash">
 # poweroff
           </programlisting>
-          </para>
         </step>
       </procedure>
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机已经封装好了，可以基于此虚拟机制作模板了。用户可以基于创建的模板
-        制作虚拟机而不用担心配置文件冲突的问题。
+        虚拟机已经封装好了，可以基于此虚拟机制作模板了。用户可以基于创建的模板部署虚拟机而不用担心配置文件冲突的问题。
       </para>
       </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-templates_Section_3-2">
-      <title>使用 sys-unconfig 封装 Linux 虚拟机部署为一个模板</title>
+      <title>使用 sys-unconfig 封装 Linux 虚拟机为一个模板准备部署</title>
       <formalpara><title>摘要</title>
       <para>
-        使用 sys-unconfig，该虚拟机进行封装。这样可以避免多个
-        基于该模板的虚拟机造成的冲突，MAC 地址等等。
+        使用 sys-unconfig 对虚拟机进行封装。这样可以避免多个基于该模板的虚拟机造成的冲突，例如 MAC 地址冲突等等。
       </para>
       </formalpara>
 
       <procedure>
-        <title>使用 sys-unconfig 封装 Linux 虚拟机部署为一个模板</title>
+        <title>使用 sys-unconfig 封装 Linux 虚拟机</title>
         <step>
           <para>
-            用 ssh 或者 console 登陆虚拟机，创建标记文件:
+            登录该虚拟机。
           </para>
         </step>
         <step>
           <para>
-            删除 ssh host keys:
+            删除 ssh host keys：
           </para>
           <programlisting language="Bash">
 # rm -rf /etc/ssh/ssh_host_*
@@ -596,13 +615,17 @@
         </step>
         <step>
           <para>
-            在文件 <keycap>/etc/sysconfig/network</keycap> 中设置
-            <keycap>HOSTNAME=localhost.localdomain in </keycap>。
+            在文件 <filename>/etc/sysconfig/network</filename> 中设置 <emphasis>HOSTNAME=localhost.localdomain</emphasis>。
           </para>
         </step>
         <step>
           <para>
-            删除 MAC 地址配置文件 /etc/udev/rules.d/70-*。
+            在文件 <filename>/etc/sysconfig/network-scripts/ifcfg-eth*</filename> 中，删除 <emphasis>HWADDR=</emphasis> 所在一行。
+          </para>
+        </step>
+        <step>
+          <para>
+            删除所有位于 <filename>/var/log</filename> 下的日志和位于 <filename>/root</filename> 下的安装日志，此步骤不是必须的。
           </para>
         </step>
         <step>
@@ -617,8 +640,7 @@
 
       <formalpara><title>结果</title>
       <para>
-        虚拟机将会关闭，虚拟机已经封装好了，可以基于此虚拟机制作模板了。用户可以
-        基于创建的模板制作虚拟机而不用担心配置文件冲突的问题。
+        虚拟机将会关闭，此时虚拟机已经封装好了，可以基于此虚拟机制作模板了。用户可以基于创建的模板部署虚拟机而不用担心配置文件冲突的问题。
       </para>
       </formalpara>
     </section>
