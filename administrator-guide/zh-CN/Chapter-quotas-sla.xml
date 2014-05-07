@@ -9,13 +9,13 @@
   <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Introduction_to_Quota">
     <title>配额简介</title>
     <para>
-      配额是与 &OVIRT; 一同提供的资源限制工具。配额可以被认为是基于用户权限限制层之上的限制层次。
+      配额 &OVIRT; 管理系统提供的资源限制工具。配额可以被认为是基于用户权限限制层之上的限制层次。
     </para>
     <para>
       配额是数据中心之下的对象。
     </para>
     <para>
-      配额为 &OVIRT; 环境的管理员限制用户获得内存、CPU 及存储提供了可能。配额定义了管理员能够指派给用户的内存资源和存储资源。因此用户只能利用分配给它们的资源。当配额资源用尽时，&OVIRT; 将不允许用户进一步的操作。
+      配额允许 &OVIRT; 环境的管理员限制用户获得内存、CPU 及存储资源。配额定义了管理员能够指派给用户的内存资源和存储资源。因此用户只能利用分配给它们的资源。当配额资源用尽时，&OVIRT; 将不允许用户进一步的操作。
     </para>
     <para>
       配额分为以下两种类型：
@@ -47,14 +47,14 @@
               存储配额
             </entry>
             <entry>
-              这类型的配额限制可用的存储空间。
+              这种类型的配额限制可用的存储空间。
             </entry>
           </row>
         </tbody>
       </tgroup>
     </table>
     <para>
-      配额，与 SELinux 类似，有三种模式：
+      配额与 SELinux 类似，有三种模式：
     </para>
     <table>
       <title>配额模式</title>
@@ -98,23 +98,23 @@
       </tgroup>
     </table>
     <para>
-      当用户尝试运行虚拟机时，该虚拟机的规格将会与所应用的配额中的存储限额和运行时资源限额进行比较。
+      当用户尝试运行虚拟机时，该虚拟机的硬件规格将会与所应用的配额中的存储和运行时资源限额进行比较。
     </para>
     <para>
-      如果启动虚拟机将会使得受一个配额限制的所有运行中虚拟机所用资源的总量超过配额中所定义的限额，&MANAGER; 将拒绝运行该虚拟机。
+      如果启动虚拟机将会使得受一个配额限制的所有运行中虚拟机所用资源的总量超过配额中所定义的限额，&MANAGER;将拒绝运行该虚拟机。
     </para>
     <para>
-      当用户创建一个新磁盘时，请求的磁盘大小将会加入到其它受同样一个配额限制的磁盘的磁盘使用总量中。如果该新建的磁盘使得磁盘使用的总量超过配额中允许的限额，磁盘的创建将会失败。
+      当用户创建一个新磁盘时，请求的磁盘大小将会加入到其它受同样一个配额限制的磁盘的使用总量中。如果该新建的磁盘使得磁盘使用的总量超过配额中允许的限额，磁盘的创建将会失败。
     </para>
     <para>
-      配额为在同一硬件上的资源共享提供了可能。配额同时支持硬阈值和软阈值。管理员能够使用配额来为资源设置阈值。这些阈值在用户看起来是全部的可用资源。为了避免用户意外超过阈值时的操作失败，&OVIRT; 还允许使用超过阈值一定的“额外”大小。当用户使用资源超过阈值时，系统将会给用户发送一条警告信息。
+      配额为同一硬件上的资源共享提供了可能。配额同时支持硬阈值和软阈值。管理员能够使用配额来为资源设置阈值。这些阈值在用户看起来是全部的可用资源。为了避免用户意外超过阈值时的操作失败，&OVIRT; 还允许使用超过阈值一定的“额外”大小。当用户使用的资源超过阈值时，系统会给用户发送一条警告信息。
     </para>
     <important>
       <para>
         配额强制限制运行中的虚拟机所使用的资源。忽略这些限制将有可能导致出现您使用不了虚拟机或者虚拟磁盘的情况。
       </para>
       <para>
-        当配额运行在强制模式下时，未分配有配额的虚拟机和虚拟磁盘将不能够被使用。
+        当配额运行在强制模式下时，未被分配配额的虚拟机和虚拟磁盘将不能够被使用。
       </para>
       <para>
         必须为虚拟机分配一个限额才能够启动该虚拟机。
@@ -144,7 +144,7 @@
   <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Quota_Accounting">
     <title>配额审计</title>
     <para>
-      当配额分配给一个用户或者一个资源时，该用户的，或者对该资源的每个涉及存储、虚拟 CPU 或者内存的操作都将引起配额消耗或者配额释放的结果。
+      当配额分配给一个用户或者资源时，该用户的，或者对该资源的每个涉及存储、虚拟 CPU 或者内存的操作都将引起配额消耗或者配额释放的结果。
     </para>
     <para>
       由于配额是作为用户对资源使用的上限限制存在的，配额的计算可能与该用户当前实际的使用情况有所不同。配额是对最大可能的增长而不是当前使用进行计算的。
@@ -152,7 +152,7 @@
     <example>
       <title>配额审计举例</title>
       <para>
-        一个用户运行一个具有一个虚拟 CPU 以及 1024MB 内存的虚拟机。这个操作将从分配给该用户的配额消耗 1 个虚拟 CPU 以及 1024MB 内存。当该虚拟机关闭时，1 个虚拟 CPU 以及 1024MB 内存将被释放回分配给该用户的配额中。运行时配额的审计只在该用户实际运行虚拟机时进行。
+        一个用户运行具有一个虚拟 CPU 以及 1024MB 内存的虚拟机。这个操作将从分配给该用户的配额中消耗 1 个虚拟 CPU 以及 1024MB 内存。当该虚拟机关闭时，1 个虚拟 CPU 以及 1024MB 内存将被释放回分配给该用户的配额中。运行时配额的审计只在该用户实际运行虚拟机时进行。
       </para>
       <para>
         一个用户创建一个精简置备的 10GB 大小的虚拟磁盘。该磁盘的实际使用可能显示该磁盘只实际使用了 3GB 存储大小。但是，配额的消耗，将是该磁盘最大可能的增长，10GB。
@@ -252,27 +252,27 @@
       </step>
       <step>
         <para>
-          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 项目下，使用绿色滑动块设置<emphasis>集群极限</emphasis>。
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 条目下，使用绿色滑动块设置<emphasis>集群极限</emphasis>。
         </para>
       </step>
       <step>
         <para>
-          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 项目下，使用蓝色滑动块设置<emphasis>集群 Grace</emphasis>。
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>内存和 CPU</emphasis> 条目下，使用蓝色滑动块设置<emphasis>集群 Grace</emphasis>。
         </para>
       </step>
       <step>
         <para>
-          点击<emphasis>内存和 CPU</emphasis>项目下右下角的<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
+          点击<emphasis>内存和 CPU</emphasis>条目下右下角的<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
         </para>
       </step>
       <step>
         <para>
-          在<emphasis>内存</emphasis>项目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制内存资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置由此配额设定的内存大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>MB</emphasis> 文本框中输入以 MB 为单位的内存配额。
+          在<emphasis>内存</emphasis>条目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制内存资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置由此配额设定的内存大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>MB</emphasis> 文本框中输入以 MB 为单位的内存配额。
         </para>
       </step>
       <step>
         <para>
-          在 <emphasis>CPU</emphasis> 项目下，选择<emphasis>无限</emphasis>单选框或者<emphasis>限制在</emphasis>单选框并设置由此配额设定的虚拟 CPU 数。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>vCPUs</emphasis> 文本框中输入虚拟 CPU 的数量。
+          在 <emphasis>CPU</emphasis> 条目下，选择<emphasis>无限</emphasis>单选框或者<emphasis>限制在</emphasis>单选框并设置由此配额设定的虚拟 CPU 数。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>vCPUs</emphasis> 文本框中输入虚拟 CPU 的数量。
         </para>
       </step>
       <step>
@@ -282,22 +282,22 @@
       </step>
       <step>
         <para>
-          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>项目下，使用绿色滑动块设置<emphasis>存储极限</emphasis>。
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>条目下，使用绿色滑动块设置<emphasis>存储极限</emphasis>。
         </para>
       </step>
       <step>
         <para>
-          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>项目下，使用蓝色滑动块设置<emphasis>存储 Grace</emphasis>。
+          在<emphasis>新建配额</emphasis>窗口中的<emphasis>存储</emphasis>条目下，使用蓝色滑动块设置<emphasis>存储 Grace</emphasis>。
         </para>
       </step>
       <step>
         <para>
-          在<emphasis>存储</emphasis>项目下点击<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
+          在<emphasis>存储</emphasis>条目下点击<emphasis>编辑</emphasis>按钮打开<emphasis>编辑配额</emphasis>窗口。
         </para>
       </step>
       <step>
         <para>
-          在<emphasis>存储配额</emphasis>项目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制存储资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置该配额将限制用户使用的存储大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>GB</emphasis> 文本框各种输入以 GB 为单位的存储配额大小。
+          在<emphasis>存储配额</emphasis>条目下，选择<emphasis>无限</emphasis>单选框（以允许在集群中不限制存储资源的使用），或者选择<emphasis>限制在</emphasis>单选框以设置该配额将限制用户使用的存储大小。如果您选择了<emphasis>限制在</emphasis>单选框，请在后面的 <emphasis>GB</emphasis> 文本框各种输入以 GB 为单位的存储配额大小。
         </para>
       </step>
       <step>
@@ -391,7 +391,7 @@
   </section>
 
   <section id="sect-Quotas_and_Service_Level_Agreement_Policy-Assigning_a_Quota_to_an_Object">
-    <title>分配配额至一个对象</title>
+    <title>给一个对象分配配额</title>
     <para>
       <emphasis>前提需求：</emphasis>
     </para>
@@ -405,11 +405,11 @@
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何将配额与虚拟机联系起来，即分配该配额至虚拟机对象。
+        此过程展现如何将配额与虚拟机联系起来，即分配该配额至虚拟机对象。
       </para>
     </formalpara>
     <procedure>
-      <title>分配配额至虚拟机</title>
+      <title>给虚拟机分配配额</title>
       <step>
         <para>
           在主面板中选择您计划分配配额到其之上的虚拟机。
@@ -434,13 +434,13 @@
     <formalpara>
       <title>结果</title>
       <para>
-        您成功的将配额分配到您所选择的虚拟机上。
+        成功的将配额分配到您所选择的虚拟机上。
       </para>
     </formalpara>
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何分配配额至虚拟机磁盘。
+        此过程展现如何分配配额至虚拟机磁盘。
       </para>
     </formalpara>
     <procedure>
@@ -479,7 +479,7 @@
     </formalpara>
     <important>
       <para>
-        必须为一个虚拟机所联系的所有对象都选择配额，该虚拟机才能够工作。如果您为虚拟机所联系的一个对象选择配额失败，该虚拟机将不能够正常工作。这种情况下在 &MANAGER; 中抛出的错误将会是很一般的错误，造成很难知道该错误是由于您未为虚拟机所联系的所有对象都选择配额产生的。在虚拟机没有指定的配额时是无法对虚拟机进行快照的。同样的，在虚拟机的虚拟磁盘没有指定的配额时，是无法从该虚拟机创建模板的。
+        必须为一个虚拟机所联系的所有对象都选择配额，该虚拟机才能够工作。如果您为虚拟机所联系的一个对象选择配额失败，该虚拟机将不能够正常工作。这种情况下在&MANAGER;中抛出的错误将会是很一般的错误，造成很难知道该错误是由于您未为虚拟机所联系的所有对象都选择配额产生的。在虚拟机没有指定的配额时是无法对虚拟机进行快照的。同样的，在虚拟机的虚拟磁盘没有指定的配额时，是无法从该虚拟机创建模板的。
       </para>
     </important>
   </section>
@@ -499,7 +499,7 @@
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何使用配额来限制用户能够使用的资源。
+        此过程展现如何使用配额来限制用户能够使用的资源。
       </para>
     </formalpara>
     <procedure>
@@ -593,7 +593,7 @@
     <formalpara>
       <title>结果</title>
       <para>
-        短暂之后，该用户将会出现在详情面板中的<emphasis>消费者</emphasis>标签下。
+        一段短暂的时间之后，该用户将会出现在详情面板中的<emphasis>消费者</emphasis>标签下。
       </para>
     </formalpara>
   </section>
@@ -603,7 +603,7 @@
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何更改已存在的配额。
+        此过程展现如何更改已存在的配额。
       </para>
     </formalpara>
     <procedure>
@@ -654,7 +654,7 @@
       </step>
       <step>
         <para>
-          <emphasis>编辑配额</emphasis>窗口将打开。如果有需要，请在一栏填入配额的名称。
+          <emphasis>编辑配额</emphasis>窗口将打开。如果有需要，请在<emphasis>名称</emphasis>一栏填入配额的名称。
         </para>
       </step>
       <step>
@@ -691,7 +691,7 @@
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何删除配额。
+        此过程展现如何删除配额。
       </para>
     </formalpara>
     <procedure>
@@ -738,7 +738,7 @@
     <formalpara>
       <title>概述</title>
       <para>
-        此过程展现了如何设置服务等级协议 CPU 特性。
+        此过程展现如何设置服务等级协议 CPU 特性。
       </para>
     </formalpara>
     <procedure>
