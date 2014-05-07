@@ -10,10 +10,7 @@
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_1_1">
             <title>关于&OVIRT;&MANAGER;重命名工具</title>
-            <para>在初始环境下运行engine-setup命令，会根据安装过程中提供的fqdn域
-                名生成一系列证书和密钥。如果后期需要修改&MANAGER;的fqdn域名（例
-                如，将&MANAGER;迁移到另一个网络环境），需要使用
-                ovirt-engine-rename命令完成所有相关的调整。
+            <para>在初始环境下运行 <emphasis>engine-setup</emphasis> 命令，会根据安装过程中提供的fqdn域名生成一系列证书和密钥。如果后期需要修改&MANAGER;的fqdn域名（例如，将&MANAGER;迁移到另一个网络环境），需要使用 <emphasis>ovirt-engine-rename</emphasis> 命令完成所有相关的调整。
             </para>
         </section>
         <section id=
@@ -21,13 +18,12 @@
             <title>使用&OVIRT;&MANAGER;重命名工具</title>
             <simplesect>
                 <title>说明：</title>
-                <para>使用ovirt-engine-rename命令更新&MANAGER;的fqdn域名记录。
+                <para>使用 <emphasis>ovirt-engine-rename</emphasis> 命令更新&MANAGER;的fqdn域名记录。
                 </para>
                 <procedure>
                     <title>&OVIRT;&MANAGER;重命名</title>
                     <step>
-                        <para>在DNS系统中准备好&MANAGER;新的fqdn域名记录以及其他
-                            相关记录。
+                        <para>在DNS系统中准备好&MANAGER;新的fqdn域名记录以及其他相关记录。
                         </para>
                     </step>
                     <step>
@@ -39,13 +35,14 @@
                         </para>
                     </step>
                     <step>
-                        <para>执行下面的命令：
-<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
-</screen>
-                        </para>
+                      <para>执行下面的命令：
+                        <programlisting language="Bash">
+# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+                        </programlisting>
+                      </para>
                     </step>
                     <step>
-                        <para>出现下面的提示时，按下回车键，关闭&MANAGER;：
+                        <para>出现下面的提示时，按下<emphasis>回车键</emphasis>，关闭&MANAGER;：
 <screen>During execution engine service will be stopped (OK, Cancel) [OK]:
 </screen>
                         </para>
@@ -58,18 +55,16 @@
                     </step>
                 </procedure>
                 <note>
-                    <para>ovirt-engine-rename支持--name参数，参数后面直接指定
-                        &MANAGER;新的fqdn域名，可以省去后面提示输入域名的步骤，
-                        如：
-<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename \
---name=[new name]
-</screen>
-                    </para>
+                  <para><emphasis>ovirt-engine-rename</emphasis> 支持--name参数，参数后面直接指定&MANAGER;新的fqdn域名，可以省去后面提示输入域名的步骤，如：
+                    <programlisting language="Bash">
+# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename --name=[new name]
+                    </programlisting>
+                  </para>
                 </note>
             </simplesect>
             <simplesect>
                 <title>预期结果：</title>
-                <para>ovirt-engine-rename会修改以下文件关联的&MANAGER;域名：
+                <para><emphasis>ovirt-engine-rename</emphasis> 会修改以下文件关联的&MANAGER;域名：
                     <itemizedlist>
                         <listitem><simpara>
                                 /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
@@ -109,13 +104,9 @@
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_1">
             <title>关于&OVIRT;域管理工具</title>
-            <para>&OVIRT;虚拟化环境使用目录服务对于用户进行管理和验证。要在
-                &OVIRT;虚拟化环境中添加用户，首先通过admin@internal用户为
-                &MANAGER;配置目录服务。添加、删除目录服务时使用
-                engine-manage-domains命令。
+            <para>&OVIRT;虚拟化环境使用目录服务对用户进行管理和验证。要在&OVIRT;虚拟化环境中添加用户，首先通过admin@internal用户为&MANAGER;配置目录服务。添加、删除目录服务时使用<emphasis>engine-manage-domains</emphasis>命令。
             </para>
-            <para>只有&OVIRT;&MANAGER;服务器上安装了engine-manage-domains命令，
-                该命令必须由root用户执行。
+            <para>只有&OVIRT;&MANAGER;服务器上安装了<emphasis>engine-manage-domains</emphasis>命令才可使用该命令。该命令必须由<emphasis>root</emphasis>用户执行。
             </para>
         </section>
 
@@ -123,9 +114,9 @@
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_2">
             <title>&OVIRT;域管理工具的命令行说明</title>
             <para>命令的使用方法如下：
-                <synopsis>
-                    engine-manage-domains -action=ACTION [options]
-                </synopsis>
+            <programlisting language="Bash">
+engine-manage-domains -action=ACTION [options]
+            </programlisting>
                 可用的操作（ACTION）有：
                 <variablelist>
                     <varlistentry>
@@ -152,8 +143,7 @@
                     <varlistentry>
                         <term>validate</term>
                         <listitem>
-                            <para>验证&OVIRT;&MANAGER;中的目录服务。该操作会使用
-                                之前配置的用户和密码对所有目录服务进行验证尝试。
+                            <para>验证&OVIRT;&MANAGER;中的目录服务。该操作会使用之前配置的用户和密码对所有目录服务进行验证尝试。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -165,13 +155,12 @@
                         </listitem>
                     </varlistentry>
                 </variablelist>
-                其他的命令行选项要配合操作一同使用：
+                以下的命令行选项可以配合具体的操作一同使用：
                 <variablelist>
                     <varlistentry>
                         <term>-domain=DOMAIN</term>
                         <listitem>
-                            <para>制定要进行操作的域。对于add、edit和delete操作
-                                -domain是必须指定的。
+                            <para>指定要进行操作的域。对于 <emphasis>add</emphasis>、<emphasis>edit</emphasis>和<emphasis>delete</emphasis>操作-domain是必须指定的。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -181,22 +170,17 @@
                             <para>指定目录服务的类型，支持的目录服务有：
                                 <itemizedlist>
                                     <listitem>
-                                        <para>ActiveDirectory - Active Directory
+                                        <para><emphasis>ActiveDirectory</emphasis> - Active Directory
                                         </para>
                                     </listitem>
                                     <listitem>
-                                        <para>IPA - Identity Management（IdM）
+                                        <para><emphasis>IPA</emphasis> - Identity Management（IdM）
                                         </para>
                                     </listitem>
                                     <listitem>
-                                        <para>RHDS - Red Hat Directory Service。
-                                            RHDS不使用Kerberos，而&OVIRT;虚拟化
-                                            环境要求使用Kerberos，因此使用RHDS时
-                                            需要配置Kerberos域中的一个目录服务。
+                                        <para><emphasis>RHDS</emphasis> - Red Hat Directory Service。RHDS不使用Kerberos，而&OVIRT;虚拟化环境要求使用Kerberos，因此使用RHDS时需要配置Kerberos域中的一个目录服务。
                                             <note>
-                                                <para>使用RHDS时必须安装memberof
-                                                    插件，使用memeberof插件要求
-                                                    用户都是inetuser用户。
+                                                <para>使用RHDS时必须安装<emphasis>memberof</emphasis>插件，使用<emphasis>memeberof</emphasis>插件要求用户都是<emphasis>inetuser</emphasis>用户。
                                                 </para>
                                             </note>
                                         </para>
@@ -208,77 +192,65 @@
                     <varlistentry>
                         <term>-user=USER</term>
                         <listitem>
-                            <para>指定目录服务的用户。在add操作中-user选项是必需
-                                的，edit操作则可以不会指定。
+                            <para>指定目录服务的用户。在<emphasis>add</emphasis>操作中<emphasis>-user</emphasis>选项是必需的，<emphasis>edit</emphasis>操作则可以不会指定。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-passwordFile=FILE</term>
                         <listitem>
-                            <para>指定密码文件，目录服务用户的密码在该文件的第一
-                                行。执行add操作时，-passwordFile或者-interactive
-                                选项必须使用其中一个。
+                            <para>指定密码文件，目录服务用户的密码在该文件的第一行。执行<emphasis>add</emphasis>操作时，<emphasis>-passwordFile</emphasis>或者<emphasis>-interactive</emphasis>选项必须使用其中一个。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-addPermissions</term>
                         <listitem>
-                            <para>为指定的域用户赋予在&OVIRT;&MANAGER;中的
-                                SuperUser角色。默认的情况下，没有启用这一选项，
-                                指定的域用户不会获得SuperUser的角色。在add和edit
-                                操作中可以选择使用-addPermissions选项。
+                            <para>为指定的域用户赋予在&OVIRT;&MANAGER;中的<emphasis>SuperUser</emphasis>角色。默认的情况下，没有启用这一选项，指定的域用户不会获得<emphasis>SuperUser</emphasis>的角色。在<emphasis>add</emphasis>和<emphasis>edit</emphasis>操作中可以选择使用<emphasis>-addPermissions</emphasis>选项。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-interactive</term>
                         <listitem>
-                            <para>指定域用户的密码是否手动（交互式）地提供。在
-                                add操作中，该选项和-passwordFile必须选择其中一个
-                                使用。
+                            <para>指定域用户的密码是否手动（交互式）地提供。在<emphasis>add</emphasis>操作中，该选项和<emphasis>-passwordFile</emphasis>必须选择其中一个使用。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-configFile=FILE</term>
                         <listitem>
-                            <para>指定命令配置文件的路径。不使用默认配置文件时，
-                                使用该选项。
+                            <para>指定命令配置文件的路径。不使用默认配置文件时，使用该选项。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-report</term>
                         <listitem>
-                            <para>该选项和validate操作一起使用时，会生成在验证过
-                                程发生的所有错误信息的报告。
+                            <para>该选项和<emphasis>validate</emphasis>操作一起使用时，会生成在验证过程发生的所有错误信息的报告。
                             </para>
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </para>
-            <para>engine-manage-domains使用方法的完整说明也可以通过下面的命令获
-                取：
-                <screen># engine-manage-domains --help
-                </screen>
+            <para><emphasis>engine-manage-domains</emphasis>使用方法的完整说明也可以通过下面的命令获取：
+            <programlisting language="Bash">
+# engine-manage-domains --help
+            </programlisting>
             </para>
         </section>
 
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_3">
             <title>使用&OVIRT;域管理工具</title>
-            <para>后面几小节通过实际的例子对于&OVIRT;域管理工具的使用方法进行了
-                说明。
+            <para>后面几小节通过实际的例子对&OVIRT;域管理工具的使用方法进行说明。
             </para>
         </section>
 
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_4">
             <title>添加目录服务</title>
-            <para>本例中，engine-manage-domains将IdM域demo.eayunos.eayun.com添加
-                到&OVIRT;&MANAGER;中。使用的用户是eayunos，密码是手动提供的。
+            <para>本例中，<emphasis>engine-manage-domains</emphasis>将<emphasis>IdM</emphasis>域<emphasis>demo.eayunos.eayun.com</emphasis>添加到&OVIRT;&MANAGER;中。使用的用户是<emphasis>eayunos</emphasis>，密码是手动提供的。
                 <example>
                     <title>engine-manage-domains的add操作</title>
 <screen>
@@ -300,9 +272,7 @@ required in order for the changes to take place (service ovirt-engine restart).
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_5">
             <title>修改目录服务</title>
-            <para>本例中，engine-manage-domains对IdM域demo.eayunos.eayun.com的配
-                置进行了更改。更改完成之后，&OVIRT;&MANAGER;查询目录服务时使用新
-                的用户eayunos。命令执行时密码手动提供。
+            <para>本例中，<emphasis>engine-manage-domains</emphasis>对<emphasis>IdM</emphasis>域<emphasis>demo.eayunos.eayun.com</emphasis>的配置进行了更改。更改完成之后，&OVIRT;&MANAGER;查询目录服务时使用新的用户eayunos。命令执行时密码手动提供。
                 <example>
                     <title>engine-manage-domains的edit操作</title>
 <screen>
@@ -324,15 +294,9 @@ required in order for the changes to take place (service ovirt-engine restart).
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_6">
             <title>删除目录服务</title>
-            <para>本例中，engine-manage-domains从&OVIRT;&MANAGER;中删除IdM域
-                demo.eayunos.eayun.com的配置。更改完成之后，&OVIRT;&MANAGER;中属
-                于demo.eayunos.eayun.com的用户将无法登录，但是依然会保留在用户列
-                表中，除非手动清理用户列表。
+            <para>本例中，<emphasis>engine-manage-domains</emphasis>从&OVIRT;&MANAGER;中删除<emphasis>IdM</emphasis>域<emphasis>demo.eayunos.eayun.com</emphasis>的配置。更改完成之后，&OVIRT;&MANAGER;中属于<emphasis>demo.eayunos.eayun.com</emphasis>的用户将无法登录，但是依然会保留在用户列表中，除非手动清理用户列表。
             </para>
-            <para>本例中要删除的目录服务是&OVIRT;&MANAGER;中最后一个，所以命令执
-                行过程中会给出一个警告，提醒用户最后一个目录服务删除之后，只有
-                admin@internal用户可以登录到&MANAGER;，新的用户只能在添加新的目
-                录服务之后手动添加。
+            <para>本例中要删除的目录服务是&OVIRT;&MANAGER;中的最后一个，所以命令执行过程中会给出一个警告，提醒用户最后一个目录服务删除之后，只有<emphasis>admin@internal</emphasis>用户可以登录到&MANAGER;，新的用户只能在添加新的目录服务之后手动添加。
                 <example>
                     <title>engine-manage-domains的delete操作</title>
 <screen>
@@ -350,9 +314,7 @@ and groups of this domain using the Administration portal or the API.
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_7">
             <title>验证目录服务</title>
-            <para>本例中，engine-manage-domains对&OVIRT;&MANAGER;中的目录服务进
-                行验证。验证方法是根据配置文件中每一个目录服务的验证信息进行登录
-                尝试，如果成功登录则说明目录服务可用。
+            <para>本例中，<emphasis>engine-manage-domains</emphasis>对&OVIRT;&MANAGER;中的目录服务进行验证。验证方法是根据配置文件中每一个目录服务的验证信息进行登录尝试，如果成功登录则说明目录服务可用。
                 <example>
                     <title>engine-manage-domains的validate操作</title>
 <screen>
@@ -368,9 +330,7 @@ Manage Domains completed successfully
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_2_8">
             <title>列出所有目录服务</title>
-            <para>本例中，engine-manage-domains会列出&OVIRT;&MANAGER;中所有目录
-                服务。命令结果会列出域名称，域用户（UPN，User Principal Name格
-                式）。
+            <para>本例中，<emphasis>engine-manage-domains</emphasis>会列出&OVIRT;&MANAGER;中的所有目录服务。命令结果会列出域名称，域用户（UPN，User Principal Name格式）。
                 <example>
                     <title>engine-manage-domains的list操作</title>
 <screen>
@@ -382,6 +342,26 @@ Domain: eayunos.eayun.com
                 </example>
             </para>
         </section>
+
+        <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2_9">
+          <title>获取一个配置项的值</title>
+          <example>
+            <title>获取配置项SearchResultsLimit的值</title>
+            <screen>
+              # engine-config --get=SearchResultsLimit --cver=general
+              100
+            </screen>
+          </example>
+        </section>
+        <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_2_10">
+          <title>设置一个配置项的值</title>
+          <example>
+            <title>获取配置项SearchResultsLimit的值</title>
+            <screen>
+              # engine-config --set SearchResultsLimit=50 --cver=general
+            </screen>
+          </example>
+        </section>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-utilites_Section_3">
@@ -389,15 +369,11 @@ Domain: eayunos.eayun.com
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_3_1">
             <title>关于&OVIRT;配置管理工具</title>
-            <para>安装&OVIRT;&MANAGER;时自动对其中一些默认配置进行修改，调整
-                &MANAGER;的配置项有专门的配置管理工具：engine-config。
+            <para>安装&OVIRT;&MANAGER;时会自动对其中一些默认配置进行修改，调整&MANAGER;的配置项有专门的配置管理工具：<emphasis>engine-config</emphasis>。
             </para>
-            <para>&OVIRT;配置管理工具并不依赖于&MANAGER;是否已经启动，配置项是保
-                存在数据库的，因此只需要确保使用配置管理工具时数据库在正常运行。
-                修改过的配置项在&MANAGER;重启之后生效。
+            <para>&OVIRT;配置管理工具并不依赖于&MANAGER;是否已经启动，配置项是保存在数据库的，因此只需要确保使用配置管理工具时数据库在正常运行。修改过的配置项在&MANAGER;重启之后生效。
             </para>
-            <para>&OVIRT;&MANAGER;的配置项是一系列的key-value对。配置管理工具可
-                以进行以下操作：
+            <para>&OVIRT;&MANAGER;的配置项是一系列的key-value对。配置管理工具可以进行以下操作：
                 <itemizedlist>
                     <listitem><simpara>
                         列出所有的配置项（key），
@@ -413,16 +389,14 @@ Domain: eayunos.eayun.com
                     </simpara></listitem>
                 </itemizedlist>
             </para>
-            <para>&OVIRT;配置管理工具可以同时多份&MANAGER;的配置。指定配置的版本
-                时，执行命令需要加上--cver参数，默认的配置的版本是general。
+            <para>&OVIRT;配置管理工具可以同时维护多份&MANAGER;版本的配置。指定配置的版本时，执行命令需要加上--cver参数，默认配置的版本是<emphasis>general</emphasis>。
             </para>
         </section>
 
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_3_2">
             <title>&OVIRT;配置管理工具的命令行说明</title>
-            <para>&OVIRT;&MANAGER;服务器上安装了配置管理工具，关于命令的详细说明
-                可以执行下面的命令获取：
+            <para>&OVIRT;&MANAGER;服务器上安装了配置管理工具，关于命令的详细说明可以执行下面的命令获取：
                 <screen># engine-config --help
                 </screen>
             </para>
@@ -431,7 +405,7 @@ Domain: eayunos.eayun.com
                 <variablelist>
                     <varlistentry>
                         <term>列出所有的配置项</term>
-                        <listitem><para>使用--list选项可以列出所有的配置项
+                        <listitem><para>使用<emphasis>--list</emphasis>选项可以列出所有的配置项
                                 <screen># engine-config --list
                                 </screen>
                                 所有的配置项及其描述都会打印出来。
@@ -439,32 +413,25 @@ Domain: eayunos.eayun.com
                     </varlistentry>
                     <varlistentry>
                         <term>列出所有配置项的值</term>
-                        <listitem><para>使用--all选项可以列出所有配置项的值
+                        <listitem><para>使用<emphasis>--all</emphasis>选项可以列出所有配置项的值
                                 <screen># engine-config --all
                                 </screen>
-                                所有的配置项、配置项当前值以及配置版本都会打印出
-                                来。
+                                所有的配置项、配置项当前值以及配置版本都会打印出来。
                         </para></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>获取指定配置项的值</term>
-                        <listitem><para>使用--get可以获取指定配置项的值
+                        <listitem><para>使用<emphasis>--get</emphasis>可以获取指定配置项的值
                                 <screen># engine-config --get KEY_NAME
                                 </screen>
-                                将KEY_NAME替换为要查询的配置项。命令会打印出该配
-                                置项，配置项当前值以及配置版本。要或者指定配置版
-                                本中配置项的值，需要加上--cver选项。
+                                将<emphasis>KEY_NAME</emphasis>替换为要查询的配置项。命令会打印出该配置项，配置项当前值以及配置版本。要或者指定配置版本中配置项的值，需要加上<emphasis>--cver</emphasis>选项。
                         </para></listitem>
                     </varlistentry>                    <varlistentry>
                         <term>设置指定配置项的值</term>
-                        <listitem><para>使用--set可以设置指定配置项的值，要设置
-                                指定配置版本中配置项的值，需要加上--cver选项。
+                        <listitem><para>使用<emphasis>--set</emphasis>可以设置指定配置项的值，要设置指定配置版本中配置项的值，需要加上<emphasis>--cver</emphasis>选项。
 <screen># engine-config --set KEY_NAME=KEY_VALUE --cver=VERSION
 </screen>
-                                将KEY_NAME替换为要设置的配置项，KEY_VALUE替换为
-                                配置项的值，设置其他版本配置中的配置项时将
-                                VERSION替换为配置的版本。
-                        </para></listitem>
+                                将<emphasis>KEY_NAME</emphasis>替换为要设置的配置项，<emphasis>KEY_VALUE</emphasis>替换为配置项的值，设置其他版本配置中的配置项时将<emphasis>VERSION</emphasis>替换为配置的版本。</para></listitem>
                     </varlistentry>
                 </variablelist>
             </simplesect>
@@ -473,14 +440,9 @@ Domain: eayunos.eayun.com
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_3_3">
             <title>admin@internal用户</title>
-            <para>安装&OVIRT;&MANAGER;时会自动创建admin@internal用户，用户信息保
-                存在&MANAGER;自身的数据库中，其他用户则需要从目录服务中添加。和
-                外部目录服务的用户域不同，internal域无法增加、删除用户。
-                admin@internal用户在&OVIRT;&MANAGER;中拥有SuperUser角色，具有管
-                理权限。
+            <para>安装&OVIRT;&MANAGER;时会自动创建<emphasis>admin@internal</emphasis>用户，用户信息保存在&MANAGER;自身的数据库中，其他用户则需要从目录服务中添加。和外部目录服务的用户域不同，internal域无法增加、删除用户。<emphasis>admin@internal</emphasis>用户在&OVIRT;&MANAGER;中拥有SuperUser角色，具有管理权限。
             </para>
-            <para>admin@internal用户的密码在安装&MANAGER;的过程中设置，修改密码
-                需要使用engine-config命令。
+            <para><emphasis>admin@internal</emphasis>用户的密码在安装&MANAGER;的过程中设置，修改密码需要使用<emphasis>engine-config</emphasis>命令。
             </para>
         </section>
 
@@ -489,11 +451,11 @@ Domain: eayunos.eayun.com
             <title>修改admin@internal用户的密码</title>
             <procedure>
                 <step>
-                    <para>使用root用户登录到&OVIRT;&MANAGER;服务器。
+                    <para>使用<emphasis>root</emphasis>用户登录到&OVIRT;&MANAGER;服务器。
                     </para>
                 </step>
                 <step>
-                    <para>使用engine-config命令为admin@internal设置新的密码：
+                    <para>使用<emphasis>engine-config</emphasis>命令为<emphasis>admin@internal</emphasis>设置新的密码：
                         <screen># engine-config -s AdminPassword=interactive
                         </screen>
                         如果密码中有特殊字符，注意使用转义。
@@ -556,10 +518,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3000</entry>
                             <entry>
-                                事务执行多长时间之后会被认为是僵尸事务并被杀死。
-                                该配置对大规模存储操作的影响需要特别考虑。如果存
-                                储设备速度较慢而虚拟镜像体积较大，或者事务运行时
-                                间超过3000分钟（50个小时），需要适量增大该配置。
+                                事务执行多长时间之后会被认为是僵尸事务并被杀死。该配置对大规模存储操作的影响需要特别考虑。如果存储设备速度较慢而虚拟镜像体积较大，或者事务运行时间超过3000分钟（50个小时），需要适量增大该配置。
                             </entry>
                         </row>
                         <row>
@@ -583,16 +542,12 @@ Domain: eayunos.eayun.com
                         <row>
                             <entry>AttestationTrustst&#x200B;ore</entry>
                             <entry>
-                                和attestation服务器进行加密通信时使用的
-                                truststore文件。
+                                和attestation服务器进行加密通信时使用的truststore文件。
                             </entry>
                             <entry>字符串</entry>
                             <entry>TrustStore.jks</entry>
                             <entry>
-                                将attestation服务器
-                                /var/lib/oat-appraiser/Certificate/目录下的
-                                TrustStore.jks文件复制到&MANAGER;服务器的
-                                /usr/share目录下。
+                                将attestation服务器<emphasis>/var/lib/oat-appraiser/Certificate/</emphasis>目录下的TrustStore.jks文件复制到&MANAGER;服务器的<emphasis>/usr/share</emphasis>目录下。
                             </entry>
                         </row>
                         <row>
@@ -608,8 +563,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                快速初始化时使用的配置。除非有明确的原因，否则不
-                                建议修改该配置。
+                                快速初始化时使用的配置。除非有明确的原因，否则不建议修改该配置。
                             </entry>
                         </row>
                         <row>
@@ -649,9 +603,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>0</entry>
                             <entry>
-                                &NODE;服务器上允许虚拟机运行或者迁移消耗的最大
-                                swap使用率。如果服务器上swap使用率超过上限，虚拟
-                                机或者虚拟机迁移不会启动。
+                                &NODE;服务器上允许虚拟机运行或者迁移消耗的最大swap使用率。如果服务器上swap使用率超过上限，虚拟机或者虚拟机迁移不会启动。
                             </entry>
                         </row>
                         <row>
@@ -660,9 +612,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>4.9</entry>
                             <entry>
-                                将主机加入到&MANAGER;时，主机上安装的VDSM版本必
-                                须不低于配置项指定的版本。新版本的VDSM特性更丰
-                                富。
+                                将主机加入到&MANAGER;时，主机上安装的VDSM版本必须不低于配置项指定的版本。新版本的VDSM特性更丰富。
                             </entry>
                         </row>
                         <row>
@@ -682,38 +632,29 @@ Domain: eayunos.eayun.com
 /etc/pki/ovirt-&#x200B;engine/certs/engin&#x200B;e.cer
                             </entry>
                             <entry>
-                                &OVIRT;&MANAGER;进行SSL/TSL通信时使用的证书文
-                                件。
+                                &OVIRT;&MANAGER;进行SSL/TSL通信时使用的证书文件。
                             </entry>
                         </row>
                         <row>
                             <entry>CpuOverCommitD&#x200B;urationMinutes</entry>
                             <entry>
-                                CPU使用率超过集群调度策略的上限时，等待多长时间
-                                才开始进行实际的调度操作（时间以分钟为单位）。
+                                CPU使用率超过集群调度策略的上限时，等待多长时间才开始进行实际的调度操作（时间以分钟为单位）。
                             </entry>
                             <entry>整数</entry>
                             <entry>2</entry>
                             <entry>
-                                当集群调度策略设置为even时，如果检测到主机CPU使
-                                用超过配置上限，&MANAGER;会等待配置项设置的一段
-                                时间之后才开始进行虚拟机迁移。
+                                当集群调度策略设置为even时，如果检测到主机CPU使用超过配置上限，&MANAGER;会等待配置项设置的一段时间之后才开始进行虚拟机迁移。
                             </entry>
                         </row>
                         <row>
                             <entry>DisableFenceAtSt&#x200B;artupInSec</entry>
                             <entry>
-                                在&OVIRT;&MANAGER;启动时禁用fence操作一段时间（
-                                以秒为单位）
+                                在&OVIRT;&MANAGER;启动时禁用fence操作一段时间（以秒为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>300</entry>
                             <entry>
-                                &OVIRT;&MANAGER;启动时对主机进行检测，如果主机没
-                                有响应的时间超过该配置项设置的值，则认为主机的状
-                                态为不可操作，并开始执行fence操作。如果&MANAGER;
-                                服务器处于低速的网络环境，则需要考虑适量增大该配
-                                置。
+                                &OVIRT;&MANAGER;启动时对主机进行检测，如果主机没有响应的时间超过该配置项设置的值，则认为主机的状态为不可操作，并开始执行fence操作。如果&MANAGER;服务器处于低速的网络环境，则需要考虑适量增大该配置。
                             </entry>
                         </row>
                         <row>
@@ -722,9 +663,7 @@ Domain: eayunos.eayun.com
                             <entry>多个字符串</entry>
                             <entry>animation</entry>
                             <entry>
-                                使用SPICE连接虚拟机时要关闭哪些特效。目前支持的
-                                值有：animation、&#x200B;wallpaper、&#x200B;
-                                font-smooth和all。
+                                使用SPICE连接虚拟机时要关闭哪些特效。目前支持的值有：animation、&#x200B;wallpaper、&#x200B;font-smooth和all。
                             </entry>
                         </row>
                         <row>
@@ -733,8 +672,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>16</entry>
                             <entry>
-                                使用SPICE连接虚拟机时使用的色深，可以配置的值有
-                                16和32。
+                                使用SPICE连接虚拟机时使用的色深，可以配置的值有16和32。
                             </entry>
                         </row>
                         <row>
@@ -745,10 +683,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>true</entry>
                             <entry>
-                                如果配置项的值为“true”，当客户端通过SPICE连接虚
-                                拟机时，虚拟机所在主机的证书以及&MANAGER;的CA证
-                                书都会发送到客户端，目的是提供额外的安全认证机
-                                制。
+                                如果配置项的值为“true”，当客户端通过SPICE连接虚拟机时，虚拟机所在主机的证书以及&MANAGER;的CA证书都会发送到客户端，目的是提供额外的安全认证机制。
                             </entry>
                         </row>
                         <row>
@@ -764,8 +699,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>true</entry>
                             <entry>
-                                该配置项可以配置是否根据集群策略中配置的规则来进
-                                行虚拟机的负载均衡调度。
+                                该配置项可以配置是否根据集群策略中配置的规则来进行虚拟机的负载均衡调度。
                             </entry>
                         </row>
                         <row>
@@ -774,10 +708,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>5</entry>
                             <entry>
-                                当存储域的剩余空间减少到配置项指定的数值时产生一
-                                个警告。该配置项也会在判断存储相关操作是否会超过
-                                这个限制的过程中产生作用。添加或者导出磁盘镜像会
-                                会因为剩余空间不足而失败。
+                                当存储域的剩余空间减少到配置项指定的数值时产生一个警告。该配置项也会在判断存储相关操作是否会超过这个限制的过程中产生作用。添加或者导出磁盘镜像会因为剩余空间不足而失败。
                             </entry>
                         </row>
                         <row>
@@ -788,8 +719,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                当存储域的剩余空间百分比减少到配置项指定的数值
-                                时，存储域被认为是空间不足。
+                                当存储域的剩余空间百分比减少到配置项指定的数值时，认为空间不足。
                             </entry>
                         </row>
                         <row>
@@ -802,8 +732,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>75</entry>
                             <entry>
-                                使用even负载均衡策略时，每台主机运行虚拟机的最大
-                                数量。
+                                使用even负载均衡策略时，每台主机运行虚拟机的最大数量。
                             </entry>
                         </row>
                         <row>
@@ -814,8 +743,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>75</entry>
                             <entry>
-                                对于新创建的集群生效，使用PowerSave负载均衡策略
-                                时，主机CPU使用率的上限。
+                                对于新创建的集群生效，使用PowerSave负载均衡策略时，主机CPU使用率的上限。
                             </entry>
                         </row>
                         <row>
@@ -824,8 +752,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>30</entry>
                             <entry>
-                                LDAP查询的超时限制，超过配置项指定的时间之后查询
-                                会被终止。
+                                LDAP查询的超时限制，超过配置项指定的时间之后查询会被终止。
                             </entry>
                         </row>
                         <row>
@@ -834,8 +761,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>30</entry>
                             <entry>
-                                LDAP搜索操作的超时限制，超过配置项指定的时间之后
-                                搜索操作会被终止。
+                                LDAP搜索操作的超时限制，超过配置项指定的时间之后搜索操作会被终止。
                             </entry>
                         </row>
                         <row>
@@ -844,8 +770,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>30</entry>
                             <entry>
-                                LDAP查询时连接LDAP服务器的超时限制，超过配置项指
-                                定的时间之后，连接会被终止。
+                                LDAP查询时连接LDAP服务器的超时限制，超过配置项指定的时间之后，连接会被终止。
                             </entry>
                         </row>
                         <row>
@@ -865,9 +790,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>1024</entry>
                             <entry>
-                                主机剩余内存低于配置项指定的数值时，会被认为是内
-                                存不足。当主机剩余内存低于下限时，该事件会记录到
-                                审计日志，不会对主机本身进行任何其他操作。
+                                主机剩余内存低于配置项指定的数值时，会被认为是内存不足。当主机剩余内存低于下限时，该事件会记录到审计日志，不会对主机本身进行任何其他操作。
                             </entry>
                         </row>
                         <row>
@@ -880,8 +803,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>0</entry>
                             <entry>
-                                使用even负载均衡策略时，每台主机运行虚拟机的最小
-                                数量。
+                                使用even负载均衡策略时，每台主机运行虚拟机的最小数量。
                             </entry>
                         </row>
                         <row>
@@ -892,8 +814,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>20</entry>
                             <entry>
-                                对于新创建的集群生效。使用PowerSave负载均衡策略
-                                时，主机CPU使用率的下限。
+                                对于新创建的集群生效。使用PowerSave负载均衡策略时，主机CPU使用率的下限。
                             </entry>
                         </row>
                         <row>
@@ -906,8 +827,7 @@ Domain: eayunos.eayun.com
                                 00:1a:4a:f1:3a:ff
                             </entry>
                             <entry>
-                                虚拟机网卡的MAC地址从配置项指定的地址区间中分
-                                配。
+                                虚拟机网卡的MAC地址从配置项指定的地址区间中分配。
                             </entry>
                         </row>
                         <row>
@@ -925,8 +845,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>250</entry>
                             <entry>
-                                一个数据中心中添加的主机数量的上限。如有需要，经
-                                过测试之后，可以增加配置项指定的数值。
+                                一个数据中心中添加的主机数量的上限。如有需要，经过测试之后，可以增加配置项指定的数值。
                             </entry>
                         </row>
                         <row>
@@ -944,9 +863,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>160</entry>
                             <entry>
-                                单台虚拟机分配虚拟CPU核心的上限（虚拟机CPU核心的
-                                数量，等于每个Socket中CPU核心的数量乘以Socket的
-                                数量。
+                                单台虚拟机分配虚拟CPU核心的上限（虚拟机CPU核心的数量，等于每个Socket中CPU核心的数量乘以Socket的数量)。
                             </entry>
                         </row>
                         <row>
@@ -964,8 +881,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3</entry>
                             <entry>
-                                虚拟机在主机上尝试重新运行次数的上限，重试次数超
-                                过上限之后，主机会提示虚拟机无法运行的错误信息。
+                                虚拟机在主机上尝试重新运行次数的上限，重试次数超过上限之后，主机会提示虚拟机无法运行的错误信息。
                             </entry>
                         </row>
                         <row>
@@ -985,8 +901,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>5</entry>
                             <entry>
-                                将确认存储域状态异常之前等待检测结果返回的最大延
-                                时时间。
+                                将确认存储域状态异常之前等待检测结果返回的最大延时时间。
                             </entry>
                         </row>
                         <row>
@@ -995,10 +910,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>30</entry>
                             <entry>
-                                检测存储域状态时，vdsmd会为每一个存储域设置一个
-                                “lastCheck”值。如果lastCheck对应的时间距离当前时
-                                间超过了配置项指定的数值，则存储域被认为是异常状
-                                态。
+                                检测存储域状态时，vdsmd会为每一个存储域设置一个“lastCheck”值。如果lastCheck对应的时间距离当前时间超过了配置项指定的数值，则存储域被认为是异常状态。
                             </entry>
                         </row>
                         <row>
@@ -1059,22 +971,18 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3</entry>
                             <entry>
-                                使用虚拟机池时新建虚拟机失败次数的上限。虚拟机失
-                                败次数超过限制，操作会被终止。
+                                使用虚拟机池时新建虚拟机失败次数的上限。虚拟机失败次数超过限制，操作会被终止。
                             </entry>
                         </row>
                         <row>
                             <entry>NumberOfVmsFor&#x200B;TopSizeVms</entry>
                             <entry>
-                                存储域的虚拟机列表中显示的虚拟机数量（按虚拟机磁
-                                盘大小排序）
+                                存储域的虚拟机列表中显示的虚拟机数量（按虚拟机磁盘大小排序）
                             </entry>
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                存储域的虚拟机标签中，按照使用磁盘空间大小排序对
-                                虚拟机进行列表。列表中最多显示配置项指定数目的虚
-                                拟机。
+                                存储域的虚拟机标签中，按照使用磁盘空间大小排序对虚拟机进行列表。列表中最多显示配置项指定数目的虚拟机。
                             </entry>
                         </row>
                         <row>
@@ -1085,9 +993,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>5</entry>
                             <entry>
-                                2次从VDSM重新载入虚拟机信息之间主机监控操作的次
-                                数。每次主机监控操作都是根据该配置项指定的数值确
-                                定是否需要重新加载虚拟机信息。
+                                2次从VDSM重新载入虚拟机信息之间主机监控操作的次数。每次主机监控操作都是根据该配置项指定的数值确定是否需要重新加载虚拟机信息。
                             </entry>
                         </row>
                         <row>
@@ -1105,8 +1011,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1115,8 +1020,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1125,8 +1029,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1135,8 +1038,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1145,8 +1047,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1155,8 +1056,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1165,8 +1065,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1175,8 +1074,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                使用sysprep创建Windows虚拟机模板使用的产品序列
-                                号。
+                                使用sysprep创建Windows虚拟机模板使用的产品序列号。
                             </entry>
                         </row>
                         <row>
@@ -1191,14 +1089,12 @@ Domain: eayunos.eayun.com
                         <row>
                             <entry>SANWipeAfterDel&#x200B;ete</entry>
                             <entry>
-                                创建虚拟磁盘时重新初始化更安全，但是IO所花费的
-                                时间较长（根据磁盘大小情况而定）。
+                                创建虚拟磁盘时重新初始化更安全，但是IO所花费的时间较长（根据磁盘大小情况而定）。
                             </entry>
                             <entry>字符串</entry>
                             <entry>false</entry>
                             <entry>
-                                该配置项会影响新建虚拟磁盘时是否选中“删除后清
-                                理”（新建虚拟磁盘在SAN类型的存储域中时）。
+                                该配置项会影响新建虚拟磁盘时是否选中“删除后清理”（新建虚拟磁盘在SAN类型的存储域中时）。
                             </entry>
                         </row>
                         <row>
@@ -1216,8 +1112,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>100</entry>
                             <entry>
-                                使用web管理门户或者REST api执行查询（没有特殊参
-                                数）时，搜索结果条目数量的上限。
+                                使用web管理门户或者REST api执行查询（没有特殊参数）时，搜索结果条目数量的上限。
                             </entry>
                         </row>
                         <row>
@@ -1237,10 +1132,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>300</entry>
                             <entry>
-                                当主机重启或者被fence时，如果主机在配置项指定的
-                                时间限制之前没有相应，则主机被认为是“Non
-                                Responsive”状态。如果主机重启时间较长，可以适量
-                                调整该配置。
+                                当主机重启或者被fence时，如果主机在配置项指定的时间限制之前没有相应，则主机被认为是“NonResponsive”状态。如果主机重启时间较长，可以适量调整该配置。
                             </entry>
                         </row>
                         <row>
@@ -1249,8 +1141,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>无</entry>
                             <entry>
-                                该配置项配置之后，SPICE代理会自动开启。没有设
-                                置，则不会使用SPICE代理。
+                                该配置项配置之后，SPICE代理会自动开启。没有设置，则不会使用SPICE代理。
                             </entry>
                         </row>
                         <row>
@@ -1283,8 +1174,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>true</entry>
                             <entry>
-                                用户门户中SPICE客户端选项中的“启动USB自动共享”是
-                                否默认选中。
+                                用户门户中SPICE客户端选项中的“启动USB自动共享”是否默认选中。
                             </entry>
                         </row>
                         <row>
@@ -1293,8 +1183,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3</entry>
                             <entry>
-                                SPM切换失败的重试次数。如果SPM指令失败，后台会开
-                                始尝试切换SPM，失败的指令会在新的SPM上重新执行。
+                                SPM切换失败的重试次数。如果SPM指令失败，后台会开始尝试切换SPM，失败的指令会在新的SPM上重新执行。
                             </entry>
                         </row>
                         <row>
@@ -1303,10 +1192,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3</entry>
                             <entry>
-                                监控存储域时，如果当前的SPM失效，不会立即进行切
-                                换。首先尝试重新连接当前的SPM，如果重试超过该配
-                                置指定的数值，则认为SPM已经停止运行，必须进行失
-                                效切换。
+                                监控存储域时，如果当前的SPM失效，不会立即进行切换。首先尝试重新连接当前的SPM，如果重试超过该配置指定的数值，则认为SPM已经停止运行，必须进行失效切换。
                             </entry>
                         </row>
                         <row>
@@ -1315,8 +1201,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>1</entry>
                             <entry>
-                                作为SPM的主机，可以使用该配置项指定数值的额外虚
-                                拟CPU，以满足SPM操作产生的开销。
+                                作为SPM的主机，可以使用该配置项指定数值的额外虚拟CPU，以满足SPM操作产生的开销。
                             </entry>
                         </row>
                         <row>
@@ -1338,8 +1223,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>600</entry>
                             <entry>
-                                SSH连接没有活动的时间超过配置项指定的数值时，会
-                                话会被终止。
+                                SSH连接没有活动的时间超过配置项指定的数值时，会话会被终止。
                             </entry>
                         </row>
                         <row>
@@ -1368,9 +1252,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>5</entry>
                             <entry>
-                                VDSM首次发现存储域故障之后，经过配置项指定的时间
-                                （以分钟为单位）之后仍然没有恢复，则认为存储域不
-                                可用。
+                                VDSM首次发现存储域故障之后，经过配置项指定的时间（以分钟为单位）之后仍然没有恢复，则认为存储域不可用。
                             </entry>
                         </row>
                         <row>
@@ -1512,9 +1394,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>60</entry>
                             <entry>
-                                主机无响应的时间超过配置项指定的时间之后，开始执
-                                行fence操作。该配置项一般和VDSAttemptsTo&#x200B;
-                                ResetCount一起使用。
+                                主机无响应的时间超过配置项指定的时间之后，开始执行fence操作。该配置项一般和VDSAttemptsTo&#x200B;ResetCount一起使用。
                             </entry>
                         </row>
                         <row>
@@ -1536,8 +1416,7 @@ Domain: eayunos.eayun.com
                             TimeToReduceFai&#x200B;ledRunOnVdsInMi&#x200B;nutes
                             </entry>
                             <entry>
-                                主机上运行虚拟机失败后处于“错误”状态的时间（以分
-                                钟为单位）
+                                主机上运行虚拟机失败后处于“错误”状态的时间（以分钟为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>30</entry>
@@ -1571,9 +1450,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>80</entry>
                             <entry>
-                                负载均衡策略中，判断主机负载是否过高的标准（CPU
-                                使用率方面）。该配置项可以在集群的策略配置对话框
-                                中进行配置。
+                                负载均衡策略中，判断主机负载是否过高的标准（CPU使用率方面）。该配置项可以在集群的策略配置对话框中进行配置。
                             </entry>
                         </row>
                         <row>
@@ -1598,9 +1475,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>2</entry>
                             <entry>
-                                在对主机发起fence操作之间尝试重新连接主机的次
-                                数，该配置项和TimeoutToReset&#x200B;VdsInSeconds
-                                配合使用。
+                                在对主机发起fence操作之间尝试重新连接主机的次数，该配置项和TimeoutToReset&#x200B;VdsInSeconds配合使用。
                             </entry>
                         </row>
                         <row>
@@ -1613,8 +1488,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>1</entry>
                             <entry>
-                                根据主机负载情况对虚拟机运行情况做出调整的时间间
-                                隔。（该配置项也是第一次进行负载均衡调度的时间）
+                                根据主机负载情况对虚拟机运行情况做出调整的时间间隔。（该配置项也是第一次进行负载均衡调度的时间）
                             </entry>
                         </row>
                         <row>
@@ -1623,8 +1497,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>3</entry>
                             <entry>
-                                等待主机恢复正常状态的超时时间（主机状态一般显示
-                                为“初始化”或者“恢复”。
+                                等待主机恢复正常状态的超时时间（主机状态一般显示为“初始化”或者“恢复”。
                             </entry>
                         </row>
                         <row>
@@ -1672,9 +1545,7 @@ Domain: eayunos.eayun.com
                             </entry>
                             <entry>字符串</entry>
                             <entry>
-                                System Administrator has initiated shutdown of
-                                this Virtual Machine. Virtual Machine is
-                                shutting down.
+                                System Administrator has initiated shutdown of this Virtual Machine. Virtual Machine is shutting down.
                             </entry>
                             <entry>-</entry>
                         </row>
@@ -1701,8 +1572,7 @@ Domain: eayunos.eayun.com
                             </entry>
                             <entry>整数</entry>
                             <entry>
-                                524288，2097152，&#x200B;2097152，2097152
-                                （针对不同兼容版本时存在差异）
+                                524288，2097152，&#x200B;2097152，2097152（针对不同兼容版本时存在差异）
                             </entry>
                             <entry>-</entry>
                         </row>
@@ -1712,26 +1582,18 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>en-US</entry>
                             <entry>
-                                可用的键盘布局有：ar， da， de-ch， en-us， et，
-                                fo， fr-be， fr-ch， hu， it， li， mk， nl，
-                                no， pt， ru， sv， tr， deen-gb， es， fi，
-                                fr， fr-ca， hr， is， ja， lv， nl-be， pl，
-                                pt-br， sl， th.
+                                可用的键盘布局有：ar， da， de-ch， en-us， et，fo， fr-be， fr-ch， hu， it， li， mk， nl，no， pt， ru， sv， tr， deen-gb， es， fi，fr， fr-ca， hr， is， ja， lv， nl-be， pl，pt-br， sl， th.
                             </entry>
                         </row>
                         <row>
                             <entry>WaitForVdsInitI&#x200B;nSec</entry>
                             <entry>
-                                在SPM选举中等待主机完成初始化的超时时间（以秒为
-                                单位）
+                                在SPM选举中等待主机完成初始化的超时时间（以秒为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>60</entry>
                             <entry>
-                                该配置项和VdsRecoveryTim&#x200B;eoutInMinutes类
-                                似，不同的是适用于SPM选举过程中，而且时间更短。
-                                如果选中的SPM主机在进行初始化，会等待其进入正常
-                                状态。
+                                该配置项和VdsRecoveryTim&#x200B;eoutInMinutes类似，不同的是适用于SPM选举过程中，而且时间更短。如果选中的SPM主机在进行初始化，会等待其进入正常状态。
                             </entry>
                         </row>
                         <row>
@@ -1744,8 +1606,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>180</entry>
                             <entry>
-                                用户手动执行电源操作时，2次操作之间的最短间隔时
-                                间。
+                                用户手动执行电源操作时，2次操作之间的最短间隔时间。
                             </entry>
                         </row>
                         <row>
@@ -1754,8 +1615,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>cluster，dc</entry>
                             <entry>
-                                fence操作中，代理服务的默认属性，定义如何搜索代
-                                理服务。
+                                fence操作中，代理服务的默认属性，定义如何搜索代理服务。
                             </entry>
                         </row>
                         <row>
@@ -1771,8 +1631,7 @@ Domain: eayunos.eayun.com
                             <entry>字符串</entry>
                             <entry>-</entry>
                             <entry>
-                                进行sysprep操作时域未知或者未指定时，使用该配置
-                                项指定的用户。
+                                进行sysprep操作时域未知或者未指定时，使用该配置项指定的用户。
                             </entry>
                         </row>
                         <row>
@@ -1781,8 +1640,7 @@ Domain: eayunos.eayun.com
                             <entry>密码</entry>
                             <entry>Empty</entry>
                             <entry>
-                                进行sysprep操作时域未知或者未指定时，使用该配置
-                                项指定的用户密码。
+                                进行sysprep操作时域未知或者未指定时，使用该配置项指定的用户密码。
                             </entry>
                         </row>
                         <row>
@@ -1791,8 +1649,7 @@ Domain: eayunos.eayun.com
                             <entry>整数</entry>
                             <entry>30</entry>
                             <entry>
-                                用户会话的超时时间（对于所有的登录方式都生效：用
-                                户门户、管理门户，API等）。
+                                用户会话的超时时间（对于所有的登录方式都生效：用户门户、管理门户，API等）。
                             </entry>
                         </row>
                         <row>
@@ -1841,16 +1698,12 @@ UserSessionTime&#x200B;OutInvalidatio&#x200B;nInterval
                         <row>
                             <entry>VdsLocalDisksLo&#x200B;wFreeSpace</entry>
                             <entry>
-                                主机上磁盘剩余空间的阈值，剩余空间小于此值时，主
-                                机被认为是剩余磁盘空间低，以MB为单位
+                                主机上磁盘剩余空间的阈值，剩余空间小于此值时，主机被认为是剩余磁盘空间低，以MB为单位
                             </entry>
                             <entry>整数</entry>
                             <entry>1000</entry>
                             <entry>
-                                如果设置为低于1000的值，会导致在为数据中心增加存
-                                储空间之前虚拟机的性能开始下降。如果数据中心中有
-                                大量虚拟机在生成和接受数据，应该适量增大该配置项
-                                的数值。
+                                如果设置为低于1000的值，会导致在为数据中心增加存储空间之前虚拟机的性能开始下降。如果数据中心中有大量虚拟机在生成和接受数据，应该适量增大该配置项的数值。
                             </entry>
                         </row>
                         <row>
@@ -1858,16 +1711,12 @@ UserSessionTime&#x200B;OutInvalidatio&#x200B;nInterval
                             VdsLocalDisksCr&#x200B;iticallyLowFree&#x200B;Space
                             </entry>
                             <entry>
-                                当主机剩余磁盘空间低于该值时，必须立刻采取措施
-                                （以MB为单位）
+                                当主机剩余磁盘空间低于该值时，必须立刻采取措施（以MB为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>500</entry>
                             <entry>
-                                如果设置为低于500的值，会导致在为数据中心增加存
-                                储空间之前虚拟机的性能开始下降。如果数据中心中有
-                                大量虚拟机在生成和接受数据，应该适量增大该配置项
-                                的数值。
+                                如果设置为低于500的值，会导致在为数据中心增加存储空间之前虚拟机的性能开始下降。如果数据中心中有大量虚拟机在生成和接受数据，应该适量增大该配置项的数值。
                             </entry>
                         </row>
                         <row>
@@ -1876,8 +1725,7 @@ UserSessionTime&#x200B;OutInvalidatio&#x200B;nInterval
                             <entry>字符串</entry>
                             <entry>false</entry>
                             <entry>
-                                如果设置为true，同一个MAC地址可以在多个虚拟机中
-                                使用。默认情况，所有虚拟网卡的MAC都是唯一的。
+                                如果设置为true，同一个MAC地址可以在多个虚拟机中使用。默认情况，所有虚拟网卡的MAC都是唯一的。
                             </entry>
                         </row>
                         <row>
@@ -1912,8 +1760,7 @@ UserSessionTime&#x200B;OutInvalidatio&#x200B;nInterval
                                 VmPoolMonitorIn&#x200B;tervalInMinutes
                             </entry>
                             <entry>
-                                监控虚拟机池中预启动虚拟机数目的时间间隔（以分钟
-                                为单位）
+                                监控虚拟机池中预启动虚拟机数目的时间间隔（以分钟为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>5</entry>
@@ -1933,9 +1780,7 @@ UserSessionTime&#x200B;OutInvalidatio&#x200B;nInterval
 NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
                             </entry>
                             <entry>
-                                调整主机网络时，如果新的配置导致主机和管理中心之
-                                间的通信中断，超过配置项指定的时间之后，自动回滚
-                                到主机之前的配置，以秒为单位。
+                                调整主机网络时，如果新的配置导致主机和管理中心之间的通信中断，超过配置项指定的时间之后，自动回滚到主机之前的配置，以秒为单位。
                             </entry>
                             <entry>整数</entry>
                             <entry>120</entry>
@@ -1951,8 +1796,7 @@ NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
                             <entry>字符串</entry>
                             <entry>false</entry>
                             <entry>
-                                如果设置为true，允许用户创建同时Virt和Gluster服
-                                务的集群。
+                                如果设置为true，允许用户创建同时Virt和Gluster服务的集群。
                             </entry>
                         </row>
                         <row>
@@ -1962,12 +1806,10 @@ NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
                             <entry>是否启用反MAC地址欺骗过滤</entry>
                             <entry>字符串</entry>
                             <entry>
-                                false，false，&#x200B;true，true（针对不同兼容版
-                                本时存在差异）
+                                false，false，&#x200B;true，true（针对不同兼容版本时存在差异）
                             </entry>
                             <entry>
-                                如果启用反MAC地址欺骗，虚拟网卡发出的所有数据帧
-                                中都会包含MAC地址信息。
+                                如果启用反MAC地址欺骗，虚拟网卡发出的所有数据帧中都会包含MAC地址信息。
                             </entry>
                         </row>
                         <row>
@@ -1976,9 +1818,7 @@ NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
                             <entry>字符串</entry>
                             <entry>false</entry>
                             <entry>
-                                如果设置为true，管理中心会验证主机的时钟和自身的
-                                差异是否在可接受的范围之内。可接受的时间误差由
-                                HostTimeDriftInSec配置项设置。
+                                如果设置为true，管理中心会验证主机的时钟和自身的差异是否在可接受的范围之内。可接受的时间误差由HostTimeDriftInSec配置项设置。
                             </entry>
                         </row>
                         <row>
@@ -1987,8 +1827,7 @@ NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
                             <entry>字符串</entry>
                             <entry>Active</entry>
                             <entry>
-                                有效的工作模式有：Active， Maintenance，
-                                Prepare。
+                                有效的工作模式有：Active， Maintenance，Prepare。
                             </entry>
                         </row>
                         <row>
@@ -2005,8 +1844,7 @@ NetworkConnecti&#x200B;vityCheckTimeou&#x200B;tInSeconds
 LogMaxPhysicalM&#x200B;emoryUsedThresh&#x200B;oldInPercentage
                             </entry>
                             <entry>
-                                主机物理内存使用率的阈值，超过该限制之后，触发审
-                                计日志事件（百分比）
+                                主机物理内存使用率的阈值，超过该限制之后，触发审计日志事件（百分比）
                             </entry>
                             <entry>整数</entry>
                             <entry>95</entry>
@@ -2017,8 +1855,7 @@ LogMaxPhysicalM&#x200B;emoryUsedThresh&#x200B;oldInPercentage
                             LogMaxCpuUsedTh&#x200B;resholdInPercen&#x200B;tage
                             </entry>
                             <entry>
-                                主机物理CPU使用率的阈值，超过该限制之后，触发审
-                                计日志事件（百分比）
+                                主机物理CPU使用率的阈值，超过该限制之后，触发审计日志事件（百分比）
                             </entry>
                             <entry>整数</entry>
                             <entry>95</entry>
@@ -2029,8 +1866,7 @@ LogMaxPhysicalM&#x200B;emoryUsedThresh&#x200B;oldInPercentage
 LogMaxNetworkUs&#x200B;edThresholdInPe&#x200B;rcentage
                             </entry>
                             <entry>
-                                主机物理网卡使用率的阈值，超过该限制之后，触发审
-                                计日志事件（百分比）
+                                主机物理网卡使用率的阈值，超过该限制之后，触发审计日志事件（百分比）
                             </entry>
                             <entry>整数</entry>
                             <entry>95</entry>
@@ -2039,8 +1875,7 @@ LogMaxNetworkUs&#x200B;edThresholdInPe&#x200B;rcentage
                         <row>
                             <entry>LogMinFreeSwapT&#x200B;hresholdInMB</entry>
                             <entry>
-                                主机swap剩余空间的阈值，超过该限制之后，触发审计
-                                日志事件（以MB为单位）
+                                主机swap剩余空间的阈值，超过该限制之后，触发审计日志事件（以MB为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>256</entry>
@@ -2051,8 +1886,7 @@ LogMaxNetworkUs&#x200B;edThresholdInPe&#x200B;rcentage
                             LogMaxSwapUsedT&#x200B;hresholdInPerce&#x200B;ntage
                             </entry>
                             <entry>
-                                主机swap空间使用率的阈值，超过该限制之后，触发审
-                                计日志事件（百分比）
+                                主机swap空间使用率的阈值，超过该限制之后，触发审计日志事件（百分比）
                             </entry>
                             <entry>整数</entry>
                             <entry>95</entry>
@@ -2082,8 +1916,7 @@ LogMaxNetworkUs&#x200B;edThresholdInPe&#x200B;rcentage
                             <entry>字符串</entry>
                             <entry>Engine:6100</entry>
                             <entry>
-                                地址的格式：Off（没有代理服务）、Host:端口号、
-                                Engine:端口号、主机名（或者ip地址）:端口号。
+                                地址的格式：Off（没有代理服务）、Host:端口号、Engine:端口号、主机名（或者ip地址）:端口号。
                             </entry>
                         </row>
                         <row>
@@ -2091,8 +1924,7 @@ LogMaxNetworkUs&#x200B;edThresholdInPe&#x200B;rcentage
                             WebSocketProxyT&#x200B;icketValiditySe&#x200B;conds
                             </entry>
                             <entry>
-                                WebSocket代理服务票证验证的间隔时间（以秒为单
-                                位）
+                                WebSocket代理服务票证验证的间隔时间（以秒为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>120</entry>
@@ -2145,8 +1977,7 @@ OnlyRequiredNet&#x200B;worksMandatoryF&#x200B;orVdsSelection
                             <entry>字符串</entry>
                             <entry>false</entry>
                             <entry>
-                                如果设置为true，选择虚拟机在哪一台主机上运行时，
-                                只考虑必需的网络。
+                                如果设置为true，选择虚拟机在哪一台主机上运行时，只考虑必需的网络。
                             </entry>
                         </row>
                         <row>
@@ -2191,8 +2022,7 @@ OnlyRequiredNet&#x200B;worksMandatoryF&#x200B;orVdsSelection
                         <row>
                             <entry>QoSInboundPeakD&#x200B;efaultValue</entry>
                             <entry>
-                                网络接受数据（传输高峰期）时QoS数值（以Mb/s为单
-                                位）
+                                网络接受数据（传输高峰期）时QoS数值（以Mb/s为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>10</entry>
@@ -2201,8 +2031,7 @@ OnlyRequiredNet&#x200B;worksMandatoryF&#x200B;orVdsSelection
                         <row>
                             <entry>QoSInboundBurst&#x200B;DefaultValue</entry>
                             <entry>
-                                网络接受数据（传输突发时）时QoS数值（以Mb/s为单
-                                位）
+                                网络接受数据（传输突发时）时QoS数值（以Mb/s为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>100</entry>
@@ -2222,8 +2051,7 @@ OnlyRequiredNet&#x200B;worksMandatoryF&#x200B;orVdsSelection
                         <row>
                             <entry>QoSOutboundPeak&#x200B;DefaultValue</entry>
                             <entry>
-                                网络发送数据（传输高峰期）时QoS数值（以Mb/s为单
-                                位）
+                                网络发送数据（传输高峰期）时QoS数值（以Mb/s为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>10</entry>
@@ -2232,8 +2060,7 @@ OnlyRequiredNet&#x200B;worksMandatoryF&#x200B;orVdsSelection
                         <row>
                             <entry>QoSOutboundBurs&#x200B;tDefaultValue</entry>
                             <entry>
-                                网络发送数据（传输突发时）时QoS数值（以Mb/s为单
-                                位）
+                                网络发送数据（传输突发时）时QoS数值（以Mb/s为单位）
                             </entry>
                             <entry>整数</entry>
                             <entry>100</entry>
@@ -2274,7 +2101,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>整数</entry>
                             <entry>100</entry>
                             <entry>
-                                设置为0时可以去取消超时时间的限制。
+                                设置为0时可以取消超时时间的限制。
                             </entry>
                         </row>
                         <row>
@@ -2306,9 +2133,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>布尔值</entry>
                             <entry>true</entry>
                             <entry>
-                                设置为“true”时，RDP客户端连接时会使用虚拟机
-                                Agent提供的虚拟机的fqdn域名（前提是虚拟机配置了
-                                fqdn域名）。
+                                设置为“true”时，RDP客户端连接时会使用虚拟机Agent提供的虚拟机的fqdn域名（前提是虚拟机配置了fqdn域名）。
                             </entry>
                         </row>
                         <row>
@@ -2321,9 +2146,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                负载均衡策略启用了speed优化之后，如果有超过配置
-                                项指定阈值的调度请求没有处理，则直接跳过对主机权
-                                值的计算，迅速完成调度。
+                                负载均衡策略启用了speed优化之后，如果有超过配置项指定阈值的调度请求没有处理，则直接跳过对主机权值的计算，迅速完成调度。
                             </entry>
                         </row>
                         <row>
@@ -2343,10 +2166,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>整数</entry>
                             <entry>10</entry>
                             <entry>
-                                如果SchedulerAllo&#x200B;wOverBooking配置为
-                                “true”，而且集群允许overbooking，当出现大于配置
-                                项指定数值的调度情况没有处理时，则直接跳过调度资
-                                源同步的过程。
+                                如果SchedulerAllo&#x200B;wOverBooking配置为“true”，而且集群允许overbooking，当出现大于配置项指定数值的调度情况没有处理时，则直接跳过调度资源同步的过程。
                             </entry>
                         </row>
                         <row>
@@ -2357,9 +2177,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
                             <entry>整数</entry>
                             <entry>300</entry>
                             <entry>
-                                在确认主机处于准备进去维护模式之前等待的延时时
-                                间。这段时间之后会将此触发将主机置于维护状态的操
-                                作。
+                                在确认主机处于准备进去维护模式之前等待的延时时间。这段时间之后会将此触发将主机置于维护状态的操作。
                             </entry>
                         </row>
                     </tbody>
@@ -2373,10 +2191,7 @@ AttestationServ&#x200B;ice/resources/P&#x200B;ollHosts
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_4_1">
             <title>关于&OVIRT;虚拟机镜像上传工具</title>
-            <para>使用engine-image-uploader工具可以查看export存储域的列表，上传
-                OVF格式的虚拟机镜像文件到指定export存储域。&OVIRT;&MANAGER;能够
-                识别和使用上传的虚拟机镜像。engine-image-uploader目前只支持在
-                &OVIRT;&MANAGER;中导出的经过gzip压缩的虚拟机镜像。
+            <para>使用<emphasis>engine-image-uploader</emphasis>工具可以查看export存储域的列表，上传OVF格式的虚拟机镜像文件到指定export存储域。&OVIRT;&MANAGER;能够识别和使用上传的虚拟机镜像。engine-image-uploader目前只支持在&OVIRT;&MANAGER;中导出的经过gzip压缩的虚拟机镜像。
             </para>
             <para>使用虚拟机镜像上传工具极大地简化了分发虚拟机镜像的工作。
             </para>
@@ -2404,21 +2219,18 @@ engine-image-uploader [options] upload [file].[file]...[file]
             <para>2种操作模式：list和upload。
                 <itemizedlist>
                     <listitem>
-                        <para>list操作会列出所有可以上传镜像的export存储域。
+                        <para><emphasis>list</emphasis>操作会列出所有可以上传镜像的export存储域。
                         </para>
                     </listitem>
                     <listitem>
-                        <para>upload操作将指定的镜像文件上传到指定的存储域。
+                        <para><emphasis>upload</emphasis>操作将指定的镜像文件上传到指定的存储域。
                         </para>
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>使用engine-image-uploader时必须指定list或者upload其中一种操
-                作。进行upload操作时最少提供一个镜像文件名已进行上传。
+            <para>使用<emphasis>engine-image-uploader</emphasis>时必须指定<emphasis>list</emphasis>或者<emphasis>upload</emphasis>其中一种操作。进行<emphasis>upload</emphasis>操作时最少提供一个镜像文件名已进行上传。
             </para>
-            <para>其他的命令行参数可以对engine-image-uploader命令进行更精细的控
-                制，也可以将一些默认的配置参数写入到配置文件：
-                /etc/ovirt-engine/im ageuploader.conf。
+            <para>其他的命令行参数可以对<emphasis>engine-image-uploader</emphasis>命令进行更精细的控制，也可以将一些默认的配置参数写入到配置文件： <emphasis>/etc/ovirt-engine/im ageuploader.conf</emphasis>。
             </para>
 
             <simplesect>
@@ -2434,8 +2246,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>--config-file=配置文件路径</term>
                         <listitem>
-                            <para>指定配置文件。默认的配置文件是
-                                /etc/ovirt-engine/imageuploader.conf。
+                            <para>指定配置文件。默认的配置文件是<emphasis>/etc/ovirt-engine/imageuploader.conf</emphasis>。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2457,16 +2268,14 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>--verbose</term>
                         <listitem>
-                            <para>设置命令执行过程产生尽可能多的输出内容。默认不
-                                开启该选项。
+                            <para>设置命令执行过程产生尽可能多的输出内容。默认不开启该选项。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-f，--force</term>
                         <listitem>
-                            <para>当目标存储域中已经存在一个和将要上传的文件名字
-                                相同，则必须使用强制模式。默认开启该选项。
+                            <para>当目标存储域中已经存在一个和将要上传的文件名字相同，则必须使用强制模式。默认开启该选项。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2479,18 +2288,14 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>-u 用户名，--user=用户名</term>
                         <listitem>
-                            <para>上传镜像文件时使用的用户。用户名的格式为：
-                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
-                                经存在。
+                            <para>上传镜像文件时使用的用户。用户名的格式为：<emphasis>user@domain</emphasis>。同时用户必须在&OVIRT;&MANAGER;中已经存在。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-r FQDN</term>
                         <listitem>
-                            <para>指定镜像文件上传的目标&OVIRT;&MANAGER;服务器的
-                                FQDN域名。默认是localhost:443，即运行该命令的服
-                                务器和&OVIRT;&MANAGER;是同一台服务器。
+                            <para>指定镜像文件上传的目标&OVIRT;&MANAGER;服务器的<emphasis>FQDN</emphasis>域名。默认是<emphasis>localhost:443</emphasis>，即运行该命令的服务器和&OVIRT;&MANAGER;是同一台服务器。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2506,7 +2311,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>-e，--export-domain=Export存储域名称</term>
                         <listitem>
-                            <para>指定镜像文件上传的目标Export存储域。
+                            <para>指定镜像文件上传的目标<emphasis>Export</emphasis>存储域。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2520,35 +2325,28 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>-i，--ovf-id</term>
                         <listitem>
-                            <para>开启该选项之后，镜像文件的UUID不会被修改。默认
-                                的情况下，镜像文件上传之后会自动获取一个新的
-                                UUID，不会和其他的UUID冲突。
+                            <para>开启该选项之后，镜像文件的UUID不会被修改。默认的情况下，镜像文件上传之后会自动获取一个新的UUID，不会和其他的UUID冲突。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-d，--disk-instance-id</term>
                         <listitem>
-                            <para>开启该选项之后，镜像文件中所有磁盘的实例ID不会
-                                被修改。默认的情况下，镜像文件上传之后磁盘都会自
-                                动获取一个新的UUID防止出现冲突。
+                            <para>开启该选项之后，镜像文件中所有磁盘的实例ID不会被修改。默认的情况下，镜像文件上传之后磁盘都会自动获取一个新的UUID防止出现冲突。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-m，--mac-address</term>
                         <listitem>
-                            <para>开启该选项之后，镜像文件中的网络组件不会被删
-                                除。默认情况下镜像文件上传时其中的网络组件会被删
-                                除以防止和其他的网络设备发生冲突。
+                            <para>开启该选项之后，镜像文件中的网络组件不会被删除。默认情况下镜像文件上传时其中的网络组件会被删除以防止和其他的网络设备发生冲突。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-N 新镜像文件名，--name=新镜像文件名</term>
                         <listitem>
-                            <para>开启该选项之后，镜像文件上传之后会使用新的文件
-                                名。
+                            <para>开启该选项之后，镜像文件上传之后会使用新的文件名。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2574,9 +2372,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
                         </para>
                     </step>
                     <step>
-                        <para>登录到Export存储域所在的实际服务器，找到Export存储
-                            域对应的NFS共享目录，该目录下应该有2个目录：images和
-                            master。
+                        <para>登录到Export存储域所在的实际服务器，找到Export存储域对应的NFS共享目录，该目录下应该有2个目录：<emphasis>images</emphasis>和<emphasis>master</emphasis>。
                         </para>
                     </step>
                     <step>
@@ -2586,16 +2382,14 @@ engine-image-uploader [options] upload [file].[file]...[file]
                         </para>
                     </step>
                     <step>
-                        <para>使用生成的ovf文件即可在&OVIRT;&MANAGER;中恢复虚拟
-                            机。
+                        <para>使用生成的ovf文件即可在&OVIRT;&MANAGER;中恢复虚拟机。
                         </para>
                     </step>
                 </procedure>
             </simplesect>
             <simplesect>
                 <title>预期结果：</title>
-                <para>创建的ovf文件，可以通过engine-image-uploader命令上传到
-                    &OVIRT;&MANAGER;进行虚拟机导入。
+                <para>创建的ovf文件，可以通过<emphasis>engine-image-uploader</emphasis>命令上传到&OVIRT;&MANAGER;进行虚拟机导入。
                 </para>
             </simplesect>
         </section>
@@ -2603,7 +2397,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_4_4">
             <title>engine-image-uploader使用示例</title>
-            <para>下面的示例使用engine-image-uploader列出存储域上传OVF文件：
+            <para>下面的示例使用<emphasis>engine-image-uploader</emphasis>列出存储域上传OVF文件：
             </para>
             <example>
                 <title>使用engine-image-uploader上传文件</title>
@@ -2649,18 +2443,15 @@ engine-image-uploader [options] collect
             <para>2种操作模式：list和collect。
                 <itemizedlist>
                     <listitem>
-                        <para>list操作会列出&OVIRT;&MANAGER;中的数据中心、集群或
-                            者主机。
+                        <para>list操作会列出&OVIRT;&MANAGER;中的数据中心、集群或者主机。
                         </para>
                     </listitem>
                     <listitem>
-                        <para>collect操作会从&OVIRT;&MANAGER;抓取相关的日志和信
-                            息，并打包放置在/tmp/logcollector目录下。
+                        <para>collect操作会从&OVIRT;&MANAGER;抓取相关的日志和信息，并打包放置在/tmp/logcollector目录下。
                         </para>
                     </listitem>
                 </itemizedlist>
-                如果没有指定其他参数，默认的操作是自动收集当前&MANAGER;中所有数
-                据中心、集群和主机相关的信息和日志，并打包。
+                如果没有指定其他参数，默认的操作是自动收集当前&MANAGER;中所有数据中心、集群和主机相关的信息和日志，并打包。
             </para>
             <para>engine-log-collector提供了一些参数对命令的行为进行控制。
             </para>
@@ -2689,16 +2480,14 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--local-tmp=收集日志文件的存放路径</term>
                         <listitem>
-                            <para>指定收集到的日志文件的存放路径。默认的路径是：
-                                /tmp/logcollector。
+                            <para>指定收集到的日志文件的存放路径。默认的路径是：/tmp/logcollector。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>--ticket-number=TICKET</term>
                         <listitem>
-                            <para>指定ticket序号，主要用于区分生成的日志文件的名
-                                称。
+                            <para>指定ticket序号，主要用于区分生成的日志文件的名称。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2719,16 +2508,14 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--quiet</term>
                         <listitem>
-                            <para>启用该选项之后，将命令的输出减少到最少。该选项
-                                默认是不启用的。
+                            <para>启用该选项之后，将命令的输出减少到最少。该选项默认是不启用的。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-v，--verbose</term>
                         <listitem>
-                            <para>启用该选项之后，命令将输出尽可能详细的信息。该
-                                选项默认是不启用的。
+                            <para>启用该选项之后，命令将输出尽可能详细的信息。该选项默认是不启用的。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2737,13 +2524,9 @@ engine-image-uploader [options] collect
 
             <simplesect>
                 <title>&OVIRT;&MANAGER;相关选项</title>
-                <para>下面这些选项可能指定访问&OVIRT;&MANAGER;时验证登录的方式、
-                    选择需要收集的日志或者信息的类型、来源等。
+                <para>下面这些选项可能指定访问&OVIRT;&MANAGER;时验证登录的方式、选择需要收集的日志或者信息的类型、来源等。
                 </para>
-                <para>这些选项可以配合使用，如：engine-log-collector --user=
-                    admin@local --cluster ClusterA,ClusterB --hosts
-                    "SalesHost"*，将使用admin@local登录&MANAGER;，并收集
-                    ClusterA和ClusterB这2个集群中所有SaleHost主机的日志和信息。
+                <para>这些选项可以配合使用，如：engine-log-collector --user=admin@local --cluster ClusterA,ClusterB --hosts "SalesHost"*，将使用admin@local登录&MANAGER;，并收集ClusterA和ClusterB这2个集群中所有SaleHost主机的日志和信息。
                 </para>
                 <variablelist>
                     <varlistentry>
@@ -2756,45 +2539,35 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>-u 用户，--user=用户</term>
                         <listitem>
-                            <para>登录&MANAGER;时使用的用户。用户名的格式为：
-                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
-                                经存在。
+                            <para>登录&MANAGER;时使用的用户。用户名的格式为：user@domain。同时用户必须在&OVIRT;&MANAGER;中已经存在。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-r FQDN</term>
                         <listitem>
-                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认
-                                是localhost，即运行该命令的服务器和
-                                &OVIRT;&MANAGER;是同一台服务器。
+                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认是localhost，即运行该命令的服务器和&OVIRT;&MANAGER;是同一台服务器。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-c 集群，--cluster=集群</term>
                         <listitem>
-                            <para>收集指定集群（可以是多个）相关的日志和信息。如
-                                果指定多个集群，集群名之间使用“,”分隔。支持使用
-                                通配符。
+                            <para>收集指定集群（可以是多个）相关的日志和信息。如果指定多个集群，集群名之间使用“,”分隔。支持使用通配符。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-d 数据中心，--datacenter=数据中心</term>
                         <listitem>
-                            <para>收集指定数据中心（可以是多个）相关的日志和信
-                                息。如果指定多个数据中心，数据中心名之间使用“,“
-                                分隔。支持使用通配符。
+                            <para>收集指定数据中心（可以是多个）相关的日志和信息。如果指定多个数据中心，数据中心名之间使用“,“分隔。支持使用通配符。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-H 主机列表，--hosts=主机列表</term>
                         <listitem>
-                            <para>收集指定主机（或者多个主机）相关的日志和信息。
-                                多个主机使用“,”分割，可以使用主机名、ip地址，
-                                fqdn域名，也支持使用通配符。
+                            <para>收集指定主机（或者多个主机）相关的日志和信息。多个主机使用“,”分割，可以使用主机名、ip地址，fqdn域名，也支持使用通配符。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2852,24 +2625,21 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--jboss-stdjar=STATE</term>
                         <listitem>
-                            <para>是否收集JBoss标准JAR状态信息。STATE可选的值为
-                                on或者off，默认为on。
+                            <para>是否收集JBoss标准JAR状态信息。STATE可选的值为on或者off，默认为on。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>--jboss-servjar=STATE</term>
                         <listitem>
-                            <para>是否收集所有服务配置目录下的JAR状态信息。STATE
-                                可选的值为on或者off，默认为on。
+                            <para>是否收集所有服务配置目录下的JAR状态信息。STATE可选的值为on或者off，默认为on。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>--jboss-twiddle=STATE</term>
                         <listitem>
-                            <para>是否收集twiddle数据。STATE可选的值为on或者
-                                off，默认是on。
+                            <para>是否收集twiddle数据。STATE可选的值为on或者off，默认是on。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2903,8 +2673,7 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--max-connections=最大连接数</term>
                         <listitem>
-                            <para>设置与虚拟机之间的SSH连接的MAX_CONNECTIONS参
-                                数，默认为10。
+                            <para>设置与虚拟机之间的SSH连接的MAX_CONNECTIONS参数，默认为10。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2913,18 +2682,15 @@ engine-image-uploader [options] collect
 
             <simplesect>
                 <title>PostgreSQL数据库相关选项</title>
-                <para>如果更改了&OVIRT;&MANAGER;数据库名和数据库用户，则需要在执
-                    行命令时通过参数指定数据库名和数据库用户。
+                <para>如果更改了&OVIRT;&MANAGER;数据库名和数据库用户，则需要在执库名和数据库用户。
                 </para>
-                <para>如果数据库不再本地，则需要通过pg-hostdb指定数据库所在的服
-                    务器。要收集远程数据库服务器的日志，数据库需要安装SOS插件。
+                <para>如果数据库不再本地，则需要通过pg-hostdb指定数据库所在的服务器的日志，数据库需要安装SOS插件。
                 </para>
                 <variablelist>
                     <varlistentry>
                         <term>--no-postgresql</term>
                         <listitem>
-                            <para>不收集数据库相关日志和信息。默认该选项没有开
-                                启。
+                            <para>不收集数据库相关日志和信息。默认该选项没有开启。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2938,8 +2704,7 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--pg-dbname=数据库名</term>
                         <listitem>
-                            <para>指定连接到数据库服务器要访问的数据库，默认为
-                                engine。
+                            <para>指定连接到数据库服务器要访问的数据库，默认为engine。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2953,8 +2718,7 @@ engine-image-uploader [options] collect
                     <varlistentry>
                         <term>--pg-host-key=公钥文件</term>
                         <listitem>
-                            <para>指定访问数据库时使用的公钥。当数据库服务器不在
-                                本地时，需要使用该选项。
+                            <para>指定访问数据库时使用的公钥。当数据库服务器不在本地时，需要使用该选项。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -2965,9 +2729,7 @@ engine-image-uploader [options] collect
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_5_3">
             <title>日志收集工具的使用示例</title>
-            <para>不加任何参数执行engine-log-collector时会自动收集&OVIRT;
-                &MANAGER;所有相关的日志和信息。数据库日志也默认收集，除非加上
-                --no-postgresql选项。下面使用日志收集工具的示例：
+            <para>不加任何参数执行engine-log-collector时会自动收集&OVIRT;和信息。数据库日志也默认收集，除非加上项。下面使用日志收集工具的示例：
                 <screen># engine-log-collector
 INFO: Gathering oVirt Engine information...
 INFO: Gathering PostgreSQL the oVirt Engine database and log files from
@@ -2995,12 +2757,9 @@ The MD5 for this file is be89822f20719d1094a39bc9ced3df49 and its size is 38.2M
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_6_1">
             <title>关于ISO镜像上传工具</title>
-            <para>&OVIRT;&MANAGER;中包含了ISO镜像上传工具，使用该工具上传ISO镜
-                像。
+            <para>&OVIRT;&MANAGER;中包含了ISO镜像上传工具，使用该工具上传ISO镜像。
             </para>
-            <para>ISO上传工具的命令是engine-iso-uploader，必须在&OVIRT;&MANAGER;
-                服务器上以root身份执行该命令。执行engine-iso-uploader -h可以查看
-                命令的帮助信息。
+            <para>ISO上传工具的命令是engine-iso-uploader，必须在&OVIRT;&MANAGER;服务器上以root身份执行该命令。执行engine-iso-uploader -h可以查看命令的帮助信息。
             </para>
         </section>
 
@@ -3019,14 +2778,11 @@ engine-image-uploader [options] upload [file].[file]...[file]
                         </para>
                     </listitem>
                     <listitem>
-                        <para>upload操作会上传ISO镜像文件（可以是多个，多个ISO镜
-                            像文件之间使用空格分隔）到指定的ISO存储域。默认通过
-                            NFS共享目录上传，也支持使用SSH上传。
+                        <para>upload操作会上传ISO镜像文件（可以是多个，多个ISO镜像文件之间使用空格分隔）到指定的ISO存储域。默认通过NFS共享目录上传，也支持使用SSH上传。
                         </para>
                     </listitem>
                 </itemizedlist>
-                ISO镜像上传工具必须指定list或者upload其中一项操作，使用upload操
-                作时，最少需要提供一个待上传镜像文件的路径。
+                ISO镜像上传工具必须指定list或者upload其中一项操作，使用upload操作时，最少需要提供一个待上传镜像文件的路径。
             </para>
             <para>engine-iso-uploader提供了一些参数对命令的行为进行控制。
             </para>
@@ -3055,24 +2811,21 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>--quiet</term>
                         <listitem>
-                            <para>启用该选项之后,将命令的输出减少到最少。该选项
-                                默认是不启用的。
+                            <para>启用该选项之后,将命令的输出减少到最少。该选项默认是不启用的。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-v，--verbose</term>
                         <listitem>
-                            <para>启用该选项之后,命令将输出尽可能详细的信息。该
-                                选项默认是不启用的。
+                            <para>启用该选项之后,命令将输出尽可能详细的信息。该选项默认是不启用的。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-f，--force</term>
                         <listitem>
-                            <para>当目标存储域中已经存在一个和将要上传的文件名字
-                                相同，则必须使用强制模式。默认开启该选项。
+                            <para>当目标存储域中已经存在一个和将要上传的文件名字相同，则必须使用强制模式。默认开启该选项。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -3085,18 +2838,14 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>-u 用户名，--user=用户名</term>
                         <listitem>
-                            <para>指定上传文件时使用的用户名。用户名的格式为：
-                                user@domain。同时用户必须在&OVIRT;&MANAGER;中已
-                                经存在。
+                            <para>指定上传文件时使用的用户名。用户名的格式为：user@domain。同时用户必须在&OVIRT;&MANAGER;中已经存在。
                             </para>
                         </listitem>
                     </varlistentry>
                     <varlistentry>
                         <term>-r FQDN</term>
                         <listitem>
-                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认
-                                是localhost，即运行该命令的服务器和
-                                &OVIRT;&MANAGER;是同一台服务器。
+                            <para>指定目标&OVIRT;&MANAGER;服务器的FQDN域名。默认是localhost，即运行该命令的服务器和&OVIRT;&MANAGER;是同一台服务器。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -3105,8 +2854,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
 
             <simplesect>
                 <title>ISO存储域相关选项</title>
-                <para>指定ISO镜像文件上传的目标ISO存储域，下面的2个选项互斥，不
-                    能同时使用。
+                <para>指定ISO镜像文件上传的目标ISO存储域，下面的2个选项互斥，不能同时使用。
                 </para>
                 <variablelist>
                     <varlistentry>
@@ -3128,8 +2876,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
 
             <simplesect>
                 <title>连接相关选项</title>
-                <para>ISO镜像上传工具默认使用NFS共享上传文件，使用下面的选项可以
-                    切换为使用SSH连接上传。
+                <para>ISO镜像上传工具默认使用NFS共享上传文件，使用下面的选项可以切换为使用SSH连接上传。
                 </para>
                 <variablelist>
                     <varlistentry>
@@ -3149,8 +2896,7 @@ engine-image-uploader [options] upload [file].[file]...[file]
                     <varlistentry>
                         <term>-k 公钥文件，--key-file=公钥文件</term>
                         <listitem>
-                            <para>指定SSH连接的公钥文件。不使用公钥验证时，会提
-                                示输入指定SSH用户的密码。
+                            <para>指定SSH连接的公钥文件。不使用公钥验证时，会提示输入指定SSH用户的密码。
                             </para>
                         </listitem>
                     </varlistentry>
@@ -3172,9 +2918,7 @@ upload CentOS-6.5-x86_64.iso
         <section id=
             "sect-Documents-administrator-guide-Chapter-utilites_Section_6_4">
             <title>ISO镜像上传工具基本使用示例</title>
-            <para>下面是ISO镜像上传工具的基本使用方法的示例。第一条命令列出了
-                &OVIRT;&MANAGER;中可用的ISO存储域，使用的用户是admin@local。第二
-                条命令通过NFS共享将ISO镜像文件上传到了指定的ISO存储域。
+            <para>下面是ISO镜像上传工具的基本使用方法的示例。第一条命令列出了&OVIRT;&MANAGER;中可用的ISO存储域，使用的用户是admin@local。第二条命令通过NFS共享将ISO镜像文件上传到了指定的ISO存储域。
             </para>
             <example>
                 <title>列出ISO存储域以及上传ISO镜像</title>
