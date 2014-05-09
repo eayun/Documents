@@ -6,7 +6,7 @@
 <chapter id="chap-Documents-administrator-guide-Chapter-storage-domain">
   <title>&OVIRT;存储域</title>
   <para>
-    &OVIRT;存储域用来存储虚拟机镜像，ISO 文件，和虚拟机快照等。存储域是通过以下技术来实现的:
+    &OVIRT; 使用集中化的存储系统来存储虚拟机镜像、ISO 文件和虚拟机快照等。存储域是通过以下技术来实现的：
   </para>
   <itemizedlist>
     <listitem>
@@ -42,27 +42,51 @@
   <para>存储域是建立数据中心的一个先决条件，只有在存储域在添加和激活之后，数据中心才能被初始化。
   </para>
 
-  <para>目前，&OVIRT;有三种类型的存储域:
+  <para>
+    &OVIRT; 平台让用户能够通过管理员门户的<emphasis>存储</emphasis>标签对存储进行分配及管理。<emphasis>存储</emphasis>标签下将列出所有的存储域，详情面板中将列出存储域的具体信息。
+  </para>
+
+  <para>目前，&OVIRT; 有三种类型的存储域：
   </para>
   <itemizedlist>
     <listitem>
-      <para>数据存储域 存放虚拟机镜像，快照，模板等内容。数据存储域不能在不同的数据中心中共享。并且数据存储域的类型要和数据中心的类型一致，只有在数据存储域被添加到了数据中心之后，其它类型的存储域才能被添加。
+      <para>数据存储域：数据存储域用以存放数据中心中的虚拟机和模板的虚拟磁盘镜像及 OVF 文件，同时还用以存储虚拟机的快照。
+      </para>
+      <para>
+        数据存储域不能在不同的数据中心中共享。并且数据存储域的类型要和数据中心的类型一致，只有在数据存储域被添加到了数据中心之后，其它类型的存储域才能被添加。
       </para>
     </listitem>
     <listitem>
-      <para>ISO 存储域 存放 ISO 镜像文件，可以在不同的数据中心中共享
+      <para>ISO 存储域：存放 ISO 镜像文件，可以在不同的数据中心中共享。ISO 存储域使得数据中心不需要使用物理的光盘等设备。
       </para>
     </listitem>
     <listitem>
-      <para>导出域 是一个临时的存储域名，主要用来在不同的数据中心和 &OVIRT;虚拟化管理平台之间复制和移动镜像文件。导出域可以用来备份虚拟机，虽然导出域可以在不同的数据中心移动，但是只能在一个数据中心中被激活。
+      <para>导出域：是一个临时的存储域，主要用来在不同的数据中心和 &OVIRT; 虚拟化管理平台之间复制和移动镜像文件。导出域可以用来备份虚拟机，虽然导出域可以在不同的数据中心间移动，但是同一时间只能在一个数据中心中被激活。
       </para>
     </listitem>
   </itemizedlist>
+  <important>
+    <para>
+      要添加存储域，用户必须通过管理员门户登录，并且数据中心中必须有至少有一台主机处于 <emphasis>Up</emphasis> 状态。
+    </para>
+  </important>
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_1">
     <title>理解&OVIRT;存储域</title>
     <para>
-      暂时忽略，有需要的人可以自行加上。
+      存储域是一系列有相同的存储接口的镜像的集合。存储域包含了模板和虚拟机（包括快照）的完整镜像，或者 ISO 文件。存储域可以由块设备（SAN - iSCSI 或者 FCP） 或者文件系统（NAS - NFS、GlusterFS 或者 其它 POSIX 兼容的文件系统）组成。
+    </para>
+    <para>
+      在 NFS 上，所有的虚拟磁盘、模板以及快照都以文件的形式存在。
+    </para>
+    <para>
+      在 SAN（iSCSI/FCP）上，每个虚拟磁盘、模板或者快照都是一个逻辑卷。块设备被组合成为一个被称作“卷组”的逻辑上的概念，然后该卷组被 LVM（Logical Volume Manager，逻辑卷管理器）分割成为每个单独的逻辑卷作为虚拟磁盘使用。
+    </para>
+    <para>
+      虚拟磁盘可以是 Qcow2 或者 RAW 格式。存储的类型可以为稀疏的或者预分配的。快照总是稀疏的，但用户可以对 RAW 格式的或者稀疏的虚拟磁盘镜像做快照。
+    </para>
+    <para>
+      使用相同存储域的虚拟机能够在属于同一集群的主机之间进行迁移。
     </para>
   </section>
 
@@ -73,59 +97,53 @@
     <itemizedlist>
       <listitem>
         <para>
-          V1:
+          V1：
         </para>
         <para>
-          每个存储域包含描述自身结构的元数据和所有用于保存虚拟机镜像的
-          物理卷的名字.
+          每个存储域包含描述自身结构的元数据和所有用于保存虚拟机镜像的物理卷的名字。
         </para>
         <para>
-          此外, 主存储域还包含所有其他存储域的元数据和池中所有物理卷的名字.
-          元数据的大小被限制在 2kb, 这个大小是为了限制一个池中存储域的数量.
+          此外, 主存储域还包含所有其他存储域的元数据和池中所有物理卷的名字。元数据的大小被限制在 2kb，这个大小限制了一个池中能支持的存储域的数量。
         </para>
         <para>
-          模板和虚拟机的基本镜像是只读的.
+          模板和虚拟机的基本镜像是只读的。
         </para>
         <para>
-          V1 版本的元数据适用于 NFS, iSCSI 和
-          FC 存储域.
+          V1 版本的元数据适用于 NFS、iSCSI 和 FC 存储域。
         </para>
       </listitem>
       <listitem>
         <para>
-          V2:
+          V2：
         </para>
         <para>
-          所有的存储域和池的元数据是作为逻辑卷的标签存储的, 而不是直接写到
-          逻辑卷中. 虚拟机卷的元数据仍让是存储在域的逻辑卷中.
+          所有的存储域和池的元数据是作为逻辑卷的标签存储的，而不是直接写到逻辑卷中。虚拟机磁盘卷的元数据仍然是存储在域的逻辑卷中。
         </para>
         <para>
-          物理卷的名字不在包含在元数据中.
+          物理卷的名字不在包含在元数据中。
         </para>
         <para>
-          模板和虚拟机的基本镜像是只读的.
+          模板和虚拟机的基本镜像是只读的。
         </para>
         <para>
-          V2 版本的元数据适用于 iSCSI 和 FC 存储域.
+          V2 版本的元数据适用于 iSCSI 和 FC 存储域。
         </para>
       </listitem>
       <listitem>
         <para>
-          V3:
+          V3：
         </para>
         <para>
-          所有的存储域和池的元数据是作为逻辑卷的标签存储的, 而不是直接写到
-          逻辑卷中. 虚拟机卷的元数据仍让是存储在域的逻辑卷中.
+          所有的存储域和池的元数据是作为逻辑卷的标签存储的，而不是直接写到逻辑卷中。虚拟机卷的元数据仍然是存储在域的逻辑卷中。
         </para>
         <para>
-          在 V3 中基本的虚拟机磁盘和模板不再是只读的. 这个改变带来一下功能:
-          使得在线快照, 在线存储迁移和从快照克隆虚拟机.
+          在 V3 中基本的虚拟机磁盘和模板不再是只读的。这个改变使得在线快照、在线存储迁移和从快照克隆虚拟机都能够进行。
         </para>
         <para>
-          这个版本还支持 unicode 编码, 允许非英文的卷名.
+          这个版本还支持 unicode 编码，允许非英文的卷名。
         </para>
         <para>
-          V3 版本的元数据适用于 NFS, GlusterFS, POSIX, iSCSI, and FC 存储.
+          V3 版本的元数据适用于 NFS、GlusterFS、POSIX、iSCSI 和 FC 存储域。
         </para>
         <!--  FIXME: 升级说明暂时不写了, 因为我们就一个版本 :) -->
       </listitem>
@@ -133,12 +151,18 @@
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3">
-    <title>添加基于文件的存储域</title>
+    <title>准备并添加基于文件的存储域</title>
     <para>
     </para>
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-1">
       <title>准备 NFS 存储</title>
-      <procedure><title>An Example Procedure</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          以下步骤在一台装有 CentOS 6 或者 Fedora 的服务器上运行，准备 NFS 文件共享以供 &OVIRT; 使用。
+        </para>
+      </formalpara>
+      <procedure><title>准备 NFS 存储</title>
       <step>
         <para>
           安装 NFS 软件包
@@ -153,7 +177,8 @@
           配置 NFS 开机启动
         </para>
         <programlisting language="Bash">
-# chkconfig --add rpcbind # chkconfig --add nfs
+# chkconfig --add rpcbind
+# chkconfig --add nfs
 # chkconfig rpcbind on
 # chkconfig nfs on
         </programlisting>
@@ -168,10 +193,10 @@
 
       <step>
         <para>
-          创建共享目录(以/export/iso为例子)
+          创建共享目录（以 /export/iso 为例子）
         </para>
         <para>
-          注意:共享目录的属组和拥有者必须是 vdsm和kvm
+          注意:共享目录的属组和拥有者必须是 vdsm 和 kvm。
         </para>
         <programlisting language="Bash">
 # mkdir /exports/iso
@@ -196,29 +221,38 @@
           重载 NFS 服务
         </para>
         <para>
-          因为我们已经添加了一个新的共享目录，需要重载 NFS 的配置使它生效
+          因为我们添加了一个新的共享目录，需要重载 NFS 的配置使它生效
         </para>
         <programlisting language="Bash">
 # service nfs reload
         </programlisting>
       </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          NFS 文件共享创建成功，可以将其附加至 &OVIRT; &MANAGER; 中了。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-2">
       <title>添加 NFS 存储</title>
-      <para>NFS存储域可以用来存放虚拟机镜像文件，ISO 文件，或者用来作为导出域。
-      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>NFS存储域可以用来存放虚拟机镜像文件、ISO 文件或者用来作为导出域。
+        </para>
+      </formalpara>
       <procedure><title>添加 NFS 存储</title>
       <step>
         <para>
-          在 &OVIRT;管理界面中打开"存储"标签
+          在 &OVIRT; 管理界面中打开<emphasis>存储</emphasis>标签列出已存在的存储域。
         </para>
       </step>
 
       <step>
         <para>
-          点击新建存储域
+          点击<emphasis>新建域</emphasis>按钮打开<emphasis>新建域</emphasis>窗口。
         </para>
         <figure id="add-nfs"><title>添加 NFS 存储</title>
         <mediaobject>
@@ -231,30 +265,47 @@
 
       <step>
         <para>
-          输入存储域的名字(比如 test-nfs)
+          输入存储域的<emphasis>名称</emphasis>（比如 test-nfs）。
         </para>
       </step>
       <step>
         <para>
-          选择数据中心，存储类型，和一台用于挂载存储的主机
+          从下拉菜单中选择<emphasis>数据中心</emphasis>、<emphasis>域功能/存储类型</emphasis>和<emphasis>使用主机</emphasis>。
+        </para>
+        <para>
+          如果可用，使用下拉菜单选择适当的<emphasis>格式</emphasis>。
         </para>
       </step>
       <step>
         <para>
-          最后，填写 NFS 服务器的完整路径，比如 192.168.176.157:/exports/iso，然后点击确定，一段时间之后，你会看见我们新建的存储域已经在存储列表里面了
+          最后，在<emphasis>导出路径</emphasis>中填写 NFS 服务器的完整路径，比如 192.168.176.157:/exports/iso，然后点击确定，一段时间之后，你会看见我们新建的存储域已经在存储列表里面了
         </para>
       </step>
       </procedure>
+      <important>
+        <para>
+          与存储域的通信都通过所选择的<emphasis>使用主机</emphasis>而不是通过 &OVIRT; &MANAGER;本身。所以至少数据中心中必须有一台活动主机才能够配置存储。
+        </para>
+      </important>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新建的 NFS 存储域将会出现在<emphasis>存储</emphasis>标签下，其状态显示为 <emphasis>Locked</emphasis>。操作完成之后它将会被自动附加至数据中心。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-3">
       <title>准备本地存储</title>
-      <para>
-        本地存储域是在一个主机上建立的，在主机上建立本地存储的时候，这个主机会自动加入到一个新的数据中心和集群上，这个数据中心和集群很特殊，其它主机不能加入到它之上。另外，由于是本地存储的关系，在这个主机域上运行的虚拟机只能在该主机上运行，并且不能迁移到其它主机上。
-      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          本地存储域是在一个主机上建立的，在主机上建立本地存储的时候，这个主机会自动加入到一个新的数据中心和集群上，这个数据中心和集群很特殊，其它主机不能加入到它之上。多主机的集群要求所有的主机能够访问相同的存储域，这在本地存储上是不可能的。另外，由于是本地存储的关系，在这个主机域上运行的虚拟机只能在该主机上运行，并且不能迁移到其它主机上。
+        </para>
+      </formalpara>
       <procedure><title>准备本地存储</title>
       <step>
-        <para>在主机上，创建本地存储域需要的目录，注意目录名称必须是 /data/images/rhev
+        <para>在主机上，创建本地存储域需要的目录，注意目录名称必须是 /data/images/rhev。
         </para>
         <programlisting language="Bash">
 # mkdir -p /data/images/rhev
@@ -265,34 +316,43 @@
         <para>修改主机域的目录权限
         </para>
         <programlisting language="Bash">
-          # chown 36:36 /data /data/images /data/images/rhev
-          # chmod 0755 /data /data/images /data/images/rhev
+# chown 36:36 /data /data/images /data/images/rhev
+# chmod 0755 /data /data/images /data/images/rhev
         </programlisting>
       </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          本地存储准备完成，可以添加到 &OVIRT; 环境中了。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_3-4">
       <title>添加本地存储</title>
-      <para>
-        在一个主机上添加本地存储域，同时配置了一个新的数据中心，新的集群，并把该主机加入到该集群上。
-      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          在一个主机上添加本地存储域，同时配置了一个新的数据中心，新的集群，并把该主机加入到该集群上。
+        </para>
+      </formalpara>
       <procedure><title>添加本地存储</title>
       <step>
         <para>
-          选择 host 标签
+          点击<emphasis>主机</emphasis>标签选择需要配置本地存储的主机。
         </para>
       </step>
 
       <step>
         <para>
-          点击维护模式，把 host 设置为维护模式
+          点击<emphasis>维护</emphasis>把主机设置为维护模式。
         </para>
       </step>
 
       <step>
         <para>
-          点击配置本地存储，打开配置本地存储窗口。
+          点击<emphasis>配置本地存储</emphasis>打开<emphasis>配置本地存储</emphasis>窗口。
         </para>
         <figure id="add-local-fs"><title>添加本地存储</title>
         <mediaobject>
@@ -305,22 +365,28 @@
 
       <step>
         <para>
-          分别点击数据中心，集群，存储的编辑按钮配置他们的名字
+          分别点击<emphasis>数据中心</emphasis>、<emphasis>集群</emphasis>和<emphasis>存储</emphasis>旁边的<emphasis>编辑</emphasis>按钮配置他们的名称。
         </para>
       </step>
 
       <step>
         <para>
-          设置该本地存储域的名字
+          在文本框中填入本地存储的路径。
         </para>
       </step>
 
       <step>
         <para>
-          点击 OK，保存
+          点击确定保存设置并关闭该窗口。
         </para>
       </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          主机将在它自己的新的数据中心中上线。
+        </para>
+      </formalpara>
     </section>
   </section>
 
@@ -334,25 +400,36 @@
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5">
     <title>添加兼容 POSIX 的存储域</title>
     <para>
-      &OVIRT; 管理系统支持兼容 POSIX 的文件系统作为存储域，用户可以使用这类文件系统作为它们的存储环境，而不仅仅是 NFS，iSCSI，或者 FCP 之类的存储
+      &OVIRT; 管理系统支持使用兼容 POSIX 的文件系统作为存储域。用户可以使用这类文件系统作为它们的存储环境，而不仅仅是 NFS，iSCSI，或者 FCP 之类的存储
     </para>
     <para>
-      但是请注意，你选择的 POSIX 文件系统必须支持稀疏文件特性和直接 I/O，否则，是不能被 &OVIRT; 管理系统兼容的，比如 CIFS由于不支持直接 I/O，所以和我们的管理系统不兼容。
+      但是请注意，你选择的 POSIX 文件系统必须支持稀疏文件特性和直接 I/O，否则，是不能被 &OVIRT; 管理系统兼容的，比如 CIFS由于不支持直接 I/O，所以和 &OVIRT; 管理系统不兼容。
     </para>
+    <important>
+      <para>
+        不要将一个 NFS 存储作为 POSIX 兼容的文件系统创建存储域。确保对于 NFS 存储总是创建一个 NFS 存储域。
+      </para>
+    </important>
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-1">
       <title>添加兼容 POSIX 的存储域</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          用户希望使用兼容 POSIX 的文件系统作为存储域。
+        </para>
+      </formalpara>
       <procedure><title>添加兼容 POSIX 的文件系统</title>
       <step>
         <para>
-          点击存储标签
+          点击<emphasis>存储</emphasis>标签列出已存在的存储域。
         </para>
       </step>
 
       <step>
         <para>
-          点击新建存储域，打开新建存储域窗口，如图:
+          点击<emphasis>新建域</emphasis>打开<emphasis>新建域</emphasis>窗口，如图：
         </para>
-        <figure id="add-posix"><title>添加 NFS 存储</title>
+        <figure id="add-posix"><title>添加 POSIX 存储</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/storage-add-posix.png" format="PNG" width="100%" scalefit="1"/>
@@ -363,58 +440,64 @@
 
       <step>
         <para>
-          输入存储域的名称，描述和评论(这两项可选)
+          输入存储域的名称，描述和注释（这两项可选）。
         </para>
       </step>
 
       <step>
         <para>
-          在数据中心的下拉框里，选择关联的数据中心，注意，这个数据中心必须得是 POSIX 类型的，如果 POSIX 类型的数据中心不存在，可以暂时选择 none。
+          在<emphasis>数据中心</emphasis>的下拉框里，选择关联的数据中心。注意该数据中心必须得是 POSIX 类型的，如果 POSIX 类型的数据中心不存在，可以暂时选择 <emphasis>(none)</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          从域功能/存储域类型下拉菜单中选择 Data/POSIX complaint FS
+          从<emphasis>域功能/存储域类型</emphasis>下拉菜单中选择 <emphasis>Data/POSIX complaint FS</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          在使用主机下拉菜单，选择适当的主机
+          在<emphasis>使用主机</emphasis>下拉菜单选择适当的主机。
         </para>
       </step>
 
       <step>
         <para>
-          填写 POSIX 文件系统的路径，和 mount 参数的路径是一致的
+          填写 POSIX 文件系统的<emphasis>路径</emphasis>，和 mount 参数的路径是一致的。
         </para>
       </step>
 
       <step>
         <para>
-          填写 VFS 类型，和 mount 的 "-t" 参数是一致的
+          填写 <emphasis>VFS 类型</emphasis>，和 mount 的 <emphasis>-t</emphasis> 参数是一致的。
         </para>
       </step>
 
       <step>
         <para>
-          填写挂载选项，和 mount 的 "-o" 参数是一致的
+          填写<emphasis>挂载选项</emphasis>，和 mount 的 <emphasis>-o</emphasis> 参数是一致的。
         </para>
       </step>
 
       <step>
         <para>
-          点击确定保存设置，新加该存储到 &OVIRT; 系统中。
+          点击确定保存设置，添加该存储到 &OVIRT; 系统中。
         </para>
       </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          成功挂载了一个 POSIX 兼容的文件系统作为存储域。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_5-2">
       <title>准备 pNFS 存储</title>
       <para>
-        作为对传统 NFS 的巨大改善，pNFS 一出世就得到了大家的认同。当使用 pNFS 协议的时候，客户端可以充分利用它的并行传输协议改善系统性能。pNFS 支持三种存储/布局模式: files，objects，blocks。但是请注意，目前 &OVIRT; 管理系统仅支持文件的存储模式。
+        作为对传统 NFS 的巨大改善，pNFS 一出世就得到了大家的认同。当使用 pNFS 协议的时候，客户端可以充分利用它的并行传输协议改善系统性能。pNFS 支持三种存储/布局模式：files，objects，blocks。但是请注意，目前 &OVIRT; 管理系统仅支持文件的存储模式。
       </para>
       <para>
         为了验证 pNFS 能否在系统上使用，可以使用以下的挂载参数挂载一个 pNFS 的服务器:
@@ -425,11 +508,15 @@
         <programlisting language="Bash">
 # -o v4.1
         </programlisting>
-
+        设置 pNFS 路径的权限以使得 &OVIRT; 能够进行访问：
+        <programlisting language="Bash">
+# chown 36:36 [pNFS 资源路径]
+        </programlisting>
         第一次挂载 pNFS，nfs_layout_nfsv41_files 模块会自动的被加到到内核中，可以验证该模块是否被加载:
         <programlisting language="Bash">
 # lsmod | grep nfs_layout_nfsv41_files
         </programlisting>
+        还可以使用 mount 命令验证是否成功使用 NFSv4.1 挂载。该命令的输出项使用 NFSv4.1 挂载的项目将会包含 minorverion=1 字样。
       </para>
     </section>
 
@@ -441,13 +528,13 @@
       <procedure><title>添加 pNFS 存储</title>
       <step>
         <para>
-          点击存储标签
+          点击<emphasis>存储</emphasis>标签列出系统中的存储域。
         </para>
       </step>
 
       <step>
         <para>
-          点击新建存储域，打开新建存储域窗口，如图:
+          点击<emphasis>新建域</emphasis>打开<emphasis>新建域</emphasis>窗口，如图：
         </para>
         <figure id="add-pnfs"><title>添加 pNFS 存储</title>
         <mediaobject>
@@ -460,48 +547,52 @@
 
       <step>
         <para>
-          输入存储域的名称，描述和评论(这两项可选)
+          输入存储域的名称，描述和注释（这两项可选）。
         </para>
       </step>
 
       <step>
         <para>
-          选择适当的数据中心，域功能/存储域类型，和适当的主机。
+          在下拉菜单中选择适当的<emphasis>数据中心</emphasis>、<emphasis>域功能/存储域类型</emphasis>和<emphasis>使用主机</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          输入 pNFS 到处域的路径。如: 192.168.176.41:/pnfs-export
+          输入 pNFS 的<emphasis>导出路径</emphasis>。如: 192.168.176.41:/pnfs-export
         </para>
       </step>
 
       <step>
         <para>
-          在 VFS 类型这里，输入 nfs4
+          在 <emphasis>VFS 类型</emphasis>中输入 <emphasis>nfs4</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          挂载选项这里，填写 minorversion=1
+          在 <emphasis>挂载选项</emphasis>中填写 <emphasis>minorversion=1</emphasis>
         </para>
       </step>
 
       <step>
         <para>
-          点击确定保存设置，新加该存储到 &OVIRT; 系统中。
+          点击确定保存设置，添加该存储到 &OVIRT; 系统中。
         </para>
       </step>
 
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          新建的 pNFS 存储域将会出现在<emphasis>存储</emphasis>标签下，其状态显示为 <emphasis>Locked</emphasis>。操作完成之后它将会被自动附加至数据中心。
+        </para>
+      </formalpara>
     </section>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6">
-    <title>添加基于块设备的存储域</title>
-    <para>
-    </para>
+    <title>准备并添加基于块设备的存储域</title>
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-1">
       <title>准备 iSCSI 存储</title>
       <para>
@@ -510,7 +601,7 @@
       <procedure><title>准备 iSCSI 存储</title>
       <step>
         <para>
-          安装相关软件包
+          安装相关软件包。
         </para>
         <programlisting language="Bash">
 # yum install -y scsi-target-utils
@@ -519,7 +610,7 @@
 
       <step>
         <para>
-          编辑 /etc/tgt/targets.conf 文件，增加类似的以下几行(根据你的实际情况调整)
+          编辑 <filename>/etc/tgt/targets.conf</filename> 文件，增加以下几行内容（根据你的实际情况调整）：
         </para>
         <programlisting language="XML" role="XML">
           <![CDATA[
@@ -529,11 +620,14 @@
 </target>
           ]]>
         </programlisting>
+        <para>
+          Target 通常由创建的年份以及月份，服务器所在的完全合格域名，服务器名称以及目标编号组成。
+        </para>
       </step>
 
       <step>
         <para>
-          重启 tgtd 服务
+          重启 tgtd 服务。
         </para>
         <programlisting language="Bash">
 # service tgtd restart
@@ -542,7 +636,7 @@
 
       <step>
         <para>
-          让 tgtd 服务开机启动
+          让 tgtd 服务开机启动。
         </para>
         <programlisting language="Bash">
 # chkconfig tgtd on
@@ -551,7 +645,7 @@
 
       <step>
         <para>
-          如果配置了 iptables 防火墙，必须把 iSCSI 用来和客户端通信的端口(默认是 3260)打开:
+          如果配置了 iptables 防火墙，必须把 iSCSI 用来和客户端通信的端口（默认是 3260）打开:
         </para>
         <programlisting language="Bash">
 # iptables -I INPUT 6 -p tcp --dport 3260 -j ACCEPT
@@ -560,33 +654,42 @@
 
       <step>
         <para>
-          保存 iptables 的配置
+          保存 iptables 的配置。
         </para>
         <programlisting language="Bash">
 # service iptables save
         </programlisting>
       </step>
       </procedure>
-      <para>
-        现在，你已经创建好了一个 iSCSI 存储了，接下来就是把它添加到 &OVIRT; 管理系统中了。
-      </para>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          现在，你已经创建好了一个 iSCSI 存储了，接下来就是把它添加到 &OVIRT; 管理系统中了。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-2">
       <title>添加 iSCSI 存储</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          &OVIRT; 平台通过从已存在的 LUN 组成的逻辑卷组创建存储域来支持 iSCSI 存储。同一时间，逻辑卷组和 LUN 都只能附加到一个数据域中。
+        </para>
+      </formalpara>
       <para>
-        注意，只能添加 iSCSI 存储域到 类型为 iSCSI 或者 none 的数据中心。
+        注意，只能添加 iSCSI 存储域到类型为 iSCSI 的数据中心。
       </para>
       <procedure><title>添加 iSCSI 存储</title>
       <step>
         <para>
-          点击新建存储域标签，列出目前存在的所有存储域
+          点击<emphasis>存储</emphasis>标签，列出目前存在的所有存储域。
         </para>
       </step>
 
       <step>
         <para>
-          点击新建存储域按钮，打开新建窗口: 如图:
+          点击<emphasis>新建域</emphasis>按钮打开<emphasis>新建域</emphasis>窗口，如图：
         </para>
         <figure id="add-iscsi"><title>添加 iSCSI 存储</title>
         <mediaobject>
@@ -599,86 +702,91 @@
 
       <step>
         <para>
-          输入存储域的名字，这里我输入 41iscsi
+          输入存储域的<emphasis>名称</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          在数据中心下拉框选择一个 iSCSI 类型的数据中心，如果暂时没有该类型的数据中心，先选择 none
+          在<emphasis>数据中心</emphasis>下拉框选择一个 iSCSI 类型的数据中心，如果暂时没有该类型的数据中心，先选择 <emphasis>(none)</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          从域功能/存储域类型下拉菜单中选择 Data/iSCSI
+          从<emphasis>域功能/存储域类型</emphasis>下拉菜单中选择 <emphasis>Data/iSCSI</emphasis>。
         </para>
       </step>
 
       <step>
         <para>
-          在使用主机下拉菜单，选择适当的主机
+          在<emphasis>使用主机</emphasis>下拉菜单，选择适当的主机。
         </para>
+        <important>
+          <para>
+            与存储域的通信都通过所选择的<emphasis>使用主机</emphasis>而不是通过 &OVIRT; &MANAGER;本身。所以至少数据中心中必须有一台活动主机才能够配置存储。
+          </para>
+        </important>
       </step>
 
       <step>
         <para>
-          &OVIRT; 虚拟化管理平台目前支持自动发现和登录 iSCSI LUNS，只要你设置好了 iSCSI 的服务器地址等信息，其它的事情管理平台会自动帮你完成:
+          &OVIRT; 虚拟化管理平台目前支持自动发现和登录 iSCSI LUNS，只要你设置好了 iSCSI 的服务器地址等信息，其它的事情管理平台会自动帮你完成：
         </para>
-        <itemizedlist>
+        <orderedlist numeration="loweralpha">
           <listitem>
             <para>
-              a。点击 发现目标，如果 iSCSI target 已经登录了，那么会自动把没有用的 LUNS显示出来。
+              点击<emphasis>发现目标</emphasis>，如果 iSCSI target 已经登录了，那么会自动把没有用的 LUN 显示出来。
             </para>
           </listitem>
           <listitem>
             <para>
-              b。输入 iSCSI 服务器的地址
+              输入 iSCSI 服务器的<emphasis>地址</emphasis>。
             </para>
           </listitem>
           <listitem>
             <para>
-              c。端口号一般不用改
+              <emphasis>端口</emphasis>通常为 3260，一般不需要进行更改。
             </para>
           </listitem>
           <listitem>
             <para>
-              d。如果启用了 CHAP 用户验证，勾选用户验证，并填写 CHAP 用户名和密码。
+              如果启用了 CHAP 用户验证，勾选<emphasis>用户验证</emphasis>，并填写 CHAP 用户名和密码。
             </para>
           </listitem>
           <listitem>
             <para>
-              e。点击发现按钮
+              点击<emphasis>发现</emphasis>按钮。
             </para>
           </listitem>
           <listitem>
             <para>
-              f。在下面的target列表中，选择要登录的 target，点击登录按钮，或者点击登录全部
+              在下面的 target 列表中，选择要登录的 target，点击<emphasis>登录</emphasis>按钮，或者点击<emphasis>登录全部</emphasis>。
             </para>
           </listitem>
-        </itemizedlist>
+        </orderedlist>
       </step>
 
       <step>
         <para>
-          在target列表中，点击 "+" 按钮，展开所有该目标没有使用的 LUNS
+          在 target 列表中，点击 + 按钮，展开所有该目标没有使用的 LUN。
         </para>
       </step>
 
       <step>
         <para>
-          在显示的 LUNS 列表中，选择需要使用的 LUN。
+          在显示的 LUN 列表中，选择将用以创建存储域的 LUN。
         </para>
       </step>
 
       <step>
         <para>
-          点击确定，创建 iSCSI 存储域，并关闭窗口。
+          点击<emphasis>确定</emphasis>，创建 iSCSI 存储域，并关闭窗口。
         </para>
       </step>
       </procedure>
       <para>
-        几分钟之后，就可以看到创建好的 iSCSI 存储域名了，如图:
+        几分钟之后，就可以看到创建好的 iSCSI 存储域名了，如图所示：
       </para>
       <figure id="add-iscsi-done"><title>完成 iSCSI 存储域的搭建</title>
       <mediaobject>
@@ -693,34 +801,38 @@
       <title>添加 FCP 存储</title>
       <para>
       </para>
+      <!-- TODO: this section is not done yet -->
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_6-4">
       <title>在&OVIRT;虚拟化中不可用的 LUNS</title>
       <para>
       </para>
+      <!-- TODO: this section is not done yet -->
+      <!-- TODO: this section is not done yet -->
     </section>
   </section>
 
   <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7">
-    <title>&OVIRT;存储域的操作</title>
-    <para>
-    </para>
+    <title>存储任务</title>
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-1">
-      <title>导入存在的 "ISO 域"或者"导出域"</title>
-      <para>
-        如果已经有一个存在的 ISO 域或者导出域，现在想把它添加到数据中心中，这个时候只需要把这个存储域导入数据中心:
-      </para>
-      <procedure><title>导入存在的 ISO/导出域</title>
+      <title>导入存在的 ISO 域或导出域</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          如果已经有一个存在的已在其它数据中心中使用的 ISO 域或者导出域，现在想把它添加到数据中心中，导入虚拟机或者使用其中的 ISO 镜像。
+        </para>
+      </formalpara>
+      <procedure><title>导入存在的 ISO域或导出域</title>
       <step>
         <para>
-          点击存储标签，列出目前存在的所有存储域
+          点击<emphasis>存储</emphasis>标签，列出目前存在的所有存储域。
         </para>
       </step>
 
       <step>
         <para>
-          点击导入域按钮，打开导入域窗口，如图:
+          点击<emphasis>导入域</emphasis>按钮，打开<emphasis>导入预配置的域</emphasis>窗口，如图：
         </para>
         <figure id="import-domain"><title>导入存储域</title>
         <mediaobject>
@@ -733,41 +845,60 @@
 
       <step>
         <para>
-          在数据中心下拉框选择一个想到导入到的数据中心
+          在<emphasis>数据中心</emphasis>下拉框选择一个想到导入到的数据中心。
         </para>
       </step>
 
       <step>
         <para>
-          从域功能/存储域类型下拉菜单中选择 ISO/NFS，ISO/POSIX Complaint FS，或者 Export/NFS
+          从<emphasis>域功能/存储域类型</emphasis>下拉菜单中选择 ISO/NFS、ISO/POSIX Complaint FS 或者 Export/NFS。
         </para>
       </step>
 
       <step>
         <para>
-          在使用主机下拉菜单，选择适当的主机
+          在<emphasis>使用主机</emphasis>下拉菜单，选择适当的主机。
+        </para>
+        <important>
+          <para>
+            与存储域的通信都通过所选择的<emphasis>使用主机</emphasis>而不是通过 &OVIRT; &MANAGER;本身。所以至少数据中心中必须有一台活动主机才能够配置存储。
+          </para>
+        </important>
+      </step>
+
+      <step>
+        <para>
+          填写<emphasis>导出路径</emphasis>，如 192.168.3.157:/home/ovirt/iso。
         </para>
       </step>
 
       <step>
         <para>
-          填写导出路径，如: 192.168.3.157:/home/ovirt/iso
+          点击<emphasis>确定</emphasis>导入存储域，并关闭窗口。
         </para>
       </step>
-
       <step>
         <para>
-          点击确定，创建 iSCSI 存储域，并关闭窗口。
+          存储域被导入到数据中心中并在<emphasis>存储</emphasis>标签下显示。下一步是将其附加到数据中心中，将在本章后面的内容说明。
         </para>
       </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          成功地导入了已存在的导出域或者 ISO 域。将其附加到数据中心中以使用它。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-2">
       <title>上传 ISO 到 ISO 域</title>
-      <para>
-        &OVIRT; 管理平台提供了一个简单的脚本，用来上传 ISO 文件到 ISO 存储域，并设置合理的访问权限。
-      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          &OVIRT; 管理平台提供了一个简单的脚本，用来上传 ISO 文件到 ISO 存储域，并设置合理的访问权限。
+        </para>
+      </formalpara>
       <procedure>
         <title>上传 ISO 到 ISO 存储域</title>
         <step>
@@ -778,13 +909,13 @@
 
         <step>
           <para>
-            使用 root 用户登录到 &OVIRT; 管理平台系统。
+            使用 <emphasis>root</emphasis> 用户登录到 &OVIRT; 管理平台系统。
           </para>
         </step>
 
         <step>
           <para>
-            使用 engine-iso-uploader 命令查看存在的 ISO 存储域的名字
+            使用 <command>engine-iso-uploader</command> 命令查看存在的 ISO 存储域的名字：
           </para>
           <programlisting language="Bash">
 # engine-iso-uploader list
@@ -793,28 +924,47 @@
 
         <step>
           <para>
-            使用 engine-iso-uploader 命令上传 ISO 文件
+            使用 <command>engine-iso-uploader</command> 命令上传 ISO 文件：
           </para>
           <programlisting language="Bash">
 # engine-iso-uploader --iso-domain=ISO-DOMAIN upload /tmp/ovirt-node-iso-3.1.0-0.999.456.el6.iso
           </programlisting>
           <para>
-            该命令需要一个 ISO 存储域的名称作为参数，通过上面讲到的命令获取，还需要输入 ISO 文件的完整路径，该命令会提示用户输入 REST API 的密码。
+            该命令需要一个 ISO 存储域的名称作为参数，使用上一步的命令获取，还需要输入 ISO 文件的完整路径，该命令会提示用户输入 REST API 的密码。
           </para>
         </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          ISO 上传完成并出现在命令中指定的 ISO 存储域中。同时也将出现在创建该 ISO 存储域所附加到的数据中心中的虚拟机时可用的启动媒介列表中。
+        </para>
+      </formalpara>
+      <para>
+        <emphasis>参见：</emphasis>
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <xref linkend="sect-Documents-administrator-guide-Chapter-utilites_Section_6"/>
+          </para>
+        </listitem>
+      </itemizedlist>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-3">
-      <title>存储域的维护模式</title>
-      <para>
-        在从数据中心中分离存储域或者删除该存储域时，需要先将该存储域置为维护模式，如果该存储域是主存储域，必须先制定另一个存储域作为主存储域才能置为维护模式。
-      </para>
+      <title>设置存储域为维护模式</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          在从数据中心中分离存储域或者删除该存储域时，需要先将该存储域置为维护模式，如果该存储域是主存储域，必须先指定另一个存储域作为主存储域才能将其置为维护模式。
+        </para>
+      </formalpara>
       <procedure>
         <title>设置存储域为维护模式</title>
         <step>
           <para>
-            点击存储标签，列出目前存在的所有存储域。
+            点击<emphasis>存储</emphasis>标签，列出目前存在的所有存储域。
           </para>
         </step>
 
@@ -826,22 +976,25 @@
 
         <step>
           <para>
-            在存储域的详细信息面板上，点击数据中心标签，点击该存储域属于的数据中心。
+            在存储域的详细信息面板上，点击<emphasis>数据中心</emphasis>标签，点击该存储域属于的数据中心。
           </para>
         </step>
 
         <step>
           <para>
-            点击"维护"
+            点击<emphasis>维护</emphasis>按钮。存储域将会被取消激活并显示状态为 <emphasis>Inactive</emphasis>。
           </para>
         </step>
       </procedure>
-      <para>
-        现在，你可以从数据中心编辑，分离，移除，或者重新激活该存储域。
-      </para>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          您现在可以在数据中心中编辑、分离、删除或者重新激活该不活动的存储域。
+        </para>
+      </formalpara>
       <note>
         <para>
-          你也可以通过数据中心具体信息面板的存储标签激活，分离，或者设置存储域为维护模式。
+          你也可以通过<emphasis>数据中心</emphasis>标签下的详情面板的存储标签激活、分离或者设置存储域为维护模式。
         </para>
       </note>
     </section>
@@ -858,218 +1011,255 @@
         <title>编辑资源</title>
         <step>
           <para>
-            使用资源标签, 搜索标签等找到想要的资源.
+            使用资源标签、树形面板或者搜索功能等找到想要的资源。
           </para>
         </step>
         <step>
           <para>
-            点击<keycap>编辑</keycap>打开<keycap>编辑窗口</keycap>.
+            点击<emphasis>编辑</emphasis>打开<emphasis>编辑</emphasis>窗口。
           </para>
         </step>
         <step>
           <para>
-            改变资源的属性, 点击<keycap>确定</keycap>.
+            改变资源的属性, 点击<emphasis>确定</emphasis>。
           </para>
         </step>
       </procedure>
       <formalpara><title>结果</title>
       <para>
-        该资源属性的值将会被保存.
+        该资源属性的值将会被保存。
       </para>
       </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-5">
       <title>激活存储域</title>
-      <para>
-        如果相对数据中心的存储域做一些修改，必须首先把该存储域置于维护模式，然后再激活它。
-      </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            1。点击存储标签，找到待激活的存储域
-          </para>
-        </listitem>
-
-        <listitem>
-          <para>
-            在存储域的详细信息面板上，点击数据中心标签，点击该存储域属于的数据中心。
-          </para>
-        </listitem>
-
-        <listitem>
-          <para>
-            点击"激活"
-          </para>
-        </listitem>
-      </itemizedlist>
-      <important>
+      <formalpara>
+        <title>概述</title>
         <para>
-          如果待激活的存储域是一个 ISO 域，但是该数据中心里没有活动中的数据域，那么激活将会失败，并会显示一个错误。
+          如果对数据中心的存储域做了一些修改，现在该存储域应该处于维护模式。想要重新使用必须激活它。
         </para>
-      </important>
+      </formalpara>
+      <procedure>
+        <title>激活存储域</title>
+        <step>
+          <para>
+            点击<emphasis>存储</emphasis>标签，找到待激活的存储域。
+          </para>
+        </step>
+
+        <step>
+          <para>
+            在存储域的详细信息面板上，点击<emphasis>数据中心</emphasis>标签，点击该存储域所属的数据中心。
+          </para>
+        </step>
+
+        <step>
+          <para>
+            点击<emphasis>激活</emphasis>。
+          </para>
+          <important>
+            <para>
+              如果待激活的存储域是一个 ISO 域，但是该数据中心里没有活动中的数据域，那么激活将会失败，并会显示一个错误。
+            </para>
+          </important>
+        </step>
+      </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          存储域被激活，可以再次被使用。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-6">
       <title>移除存储域</title>
-      <para>
-        下面的步骤描述如何移除一个数据中心中的存储域:
-      </para>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          用户想要删除虚拟化环境中某个数据中心中的存储域。
+        </para>
+      </formalpara>
       <procedure>
         <title>移除存储域</title>
         <step>
           <para>
-            点击存储标签，找到待移除的存储域
+            点击<emphasis>存储</emphasis>标签，找到待移除的存储域。
           </para>
         </step>
 
         <step>
           <para>
-            把该存储域置为维护模式，是它变为 "deactivate" 的
+            把该存储域置为维护模式，使其处于非活动的状态。
           </para>
         </step>
 
         <step>
           <para>
-            从数据中心中分离该存储域
+            从数据中心中分离该存储域。
           </para>
         </step>
 
         <step>
           <para>
-            点击 "删除" 按钮，弹出删除存储域窗口。
+            点击<emphasis>删除</emphasis>按钮打开<emphasis>删除存储域</emphasis>确认窗口。
           </para>
         </step>
 
         <step>
           <para>
-            从列表中选择适当的主机
+            从列表中选择适当的主机。
           </para>
         </step>
 
         <step>
           <para>
-            点击确定移除该存储域，并关闭该窗口。
+            点击<emphasis>确定</emphasis>移除该存储域，并关闭该窗口。
           </para>
         </step>
       </procedure>
-      <para>
-        之后，可以看到存储域已经被移除了。
-      </para>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          存储域已经从虚拟化环境中被移除了。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-7">
       <title>销毁存储域</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          如果发生一些错误，存储域也许无法通过正常的手段移除。销毁一个存储域是强制把它从 &OVIRT; 管理系统移除，而不考虑存储域导出目录的情况。
+        </para>
+      </formalpara>
       <para>
-        如果发生一些错误，存储域也许通过正常的手段移除。销毁一个存储域是强制的把它从 &OVIRT; 管理系统移除，而不考虑存储域导出目录。
-      </para>
-      <para>
-        如果想使用一个被销毁的存储域，必须手动修复该存储域的导出目录。
+        如果想重新使用一个被销毁的存储域，必须手动修复该存储域的导出目录。
       </para>
       <procedure>
         <title>销毁一个存储域</title>
         <step>
           <para>
-            点击存储标签，找到待激活的存储域
+            点击<emphasis>存储</emphasis>标签，找到待激活的存储域。
           </para>
         </step>
 
         <step>
           <para>
-            右键点击该存储域，选择"销毁"，弹出销毁存储域确认对话框
+            右键点击该存储域，点击<emphasis>销毁</emphasis>打开<emphasis>销毁存储域</emphasis>确认窗口。
           </para>
         </step>
 
         <step>
           <para>
-            选择"同意操作"，然后点击"确定"来销毁存储域
+            勾选<emphasis>批准操作</emphasis>，然后点击<emphasis>确定</emphasis>来销毁存储域。
           </para>
         </step>
       </procedure>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          存储域被销毁。如果想要重新使用该存储域，必须手动修复该存储域的导出目录。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-8">
-      <title>从数据中心分离存储域</title>
-      <para>
-        下面的步骤描述如何从数据中心分离导出域:
-      </para>
+      <title>从数据中心分离导出域</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          将导出域从数据中心中分离从而将模板或者虚拟机导入到另外的数据中心。
+        </para>
+      </formalpara>
       <procedure>
-        <title>从数据中心分离导出域:</title>
+        <title>从数据中心分离导出域</title>
         <step>
           <para>
-            点击存储标签，找到待分离的导出域
+            点击<emphasis>存储</emphasis>标签，找到待分离的导出域。
           </para>
         </step>
 
         <step>
           <para>
-            在存储域的详细信息面板上，点击数据中心标签，点击该存储域属于的数据中心。
+            在存储域的详细信息面板上，点击<emphasis>数据中心</emphasis>标签，点击该存储域所属的数据中心。
           </para>
         </step>
 
         <step>
           <para>
-            点击维护模式，把该导出域置为维护模式
+            点击<emphasis>维护</emphasis>把该导出域置为维护模式。
           </para>
         </step>
 
         <step>
           <para>
-            点击分离，弹出分离确认窗口
+            点击<emphasis>分离</emphasis>打开<emphasis>分离存储</emphasis>确认窗口。
           </para>
         </step>
 
         <step>
           <para>
-            点击确定分离该导出域，并关闭该窗口。
+            点击<emphasis>确定</emphasis>分离该导出域，并关闭该窗口。
           </para>
         </step>
       </procedure>
-      <para>
-        操作结束后，该导出域就从数据中心分离了，可以加入到另一个数据中心中。
-      </para>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          操作结束后，该导出域就从数据中心分离了，可以加入到另一个数据中心中。
+        </para>
+      </formalpara>
     </section>
 
     <section id="sect-Documents-administrator-guide-Chapter-storage-domain_Section_7-9">
-      <title>添加导出域到数据中心</title>
-      <para>
-        下面的步骤描述如何添加一个导出域到数据中心:
-      </para>
+      <title>附加导出域到数据中心</title>
+      <formalpara>
+        <title>概述</title>
+        <para>
+          附加导出域到数据中心。
+        </para>
+      </formalpara>
       <procedure>
-        <title>添加导出域到数据中心</title>
+        <title>附加导出域到数据中心</title>
         <step>
           <para>
-            点击存储标签，找到待添加的导出域
+            点击<emphasis>存储</emphasis>标签，找到待附加的导出域。
           </para>
         </step>
 
         <step>
           <para>
-            在存储域的详细信息面板上，点击数据中心标签
+            在存储域的详细信息面板上，点击<emphasis>数据中心</emphasis>标签。
           </para>
         </step>
 
         <step>
           <para>
-            点击"附加"，打开一个新窗口
+            点击<emphasis>附加</emphasis>打开<emphasis>附加到数据中心</emphasis>窗口。
           </para>
         </step>
 
         <step>
           <para>
-            选择要附加到的数据中心
+            选择要附加到的数据中心。
           </para>
         </step>
 
         <step>
           <para>
-            点击确定，附加该存储域
+            点击<emphasis>确定</emphasis>附加该存储域。
           </para>
         </step>
       </procedure>
-      <para>
-        操作结束后，该导出域就从数据中心分离了，可以加入到另一个数据中心中。
-      </para>
+      <formalpara>
+        <title>结果</title>
+        <para>
+          该导出域附加到所选择的数据中心中并被自动激活。
+        </para>
+      </formalpara>
     </section>
   </section>
 
