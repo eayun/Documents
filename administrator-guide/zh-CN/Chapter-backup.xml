@@ -3,6 +3,7 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "administrator-guide.ent">
 %BOOK_ENTITIES;
 ]>
+<!-- This documentation needs to be finished -->
 <chapter id="chap-Documents-administrator-guide-Chapter-backup">
 	<title>备份</title>
 	<para>
@@ -22,7 +23,7 @@
                       <procedure><title>使用engine-backup程序备份数据库及配置文件</title>
                          <step>
                           <para>
-                            engine-backup是备份和恢复统一到一起的程序，根据用户的参数而做区别。
+                            engine-backup是将备份和恢复统一到一起的程序，根据用户的参数而做区别。
                           </para>
                          </step>
                          <step>
