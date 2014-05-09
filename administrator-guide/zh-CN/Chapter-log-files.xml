@@ -27,7 +27,7 @@
                         <entry>
 /var/log/ovirt-engine/setup/ovirt-engine-remove-yyyymmddhhmmss.log
                         </entry>
-                        <entry>清除&OVIRT;&MANAGER;安装时产生的日志。
+                        <entry>清除&OVIRT;&MANAGER;时产生的日志。
                         </entry>
                     </row>
                 </tbody>
@@ -49,15 +49,19 @@
                     <row>
                         <entry>/var/log/ovirt-engine/engine.log
                         </entry>
-                        <entry>记录&OVIRT;&MANAGER;大部分的活动，包括前端GUI异
-                            常、目录服务查询、数据库访问等。
+                        <entry>记录&OVIRT;&MANAGER;大部分的活动，包括前端GUI异常、目录服务查询、数据库访问等。
                         </entry>
                     </row>
                     <row>
                         <entry>/var/log/ovirt-engine/host-deploy
                         </entry>
-                        <entry>该目录下记录在&MANAGER;中添加主机过程中主机初始化
-                            相关的日志。
+                        <entry>该目录下记录在&MANAGER;中添加主机过程中主机初始化相关的日志。
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>/var/lib/ovirt-engine/setup-history.txt
+                        </entry>
+                        <entry>记录和安装和升级&MANAGER;的信息。
                         </entry>
                     </row>
                 </tbody>
@@ -68,8 +72,7 @@
     <section id=
         "sect-Documents-administrator-guide-Chapter-log-files_Section_3">
         <title>SPICE日志文件</title>
-        <para>在整个&OVIRT;虚拟化环境中不同的地方那个都有SPICE相关的日志，包括客
-            户端和虚拟机上。
+        <para>在整个&OVIRT;虚拟化环境中不同的地方都有SPICE相关的日志，包括客户端和虚拟机上。
         </para>
         <table>
             <title></title>
@@ -86,19 +89,15 @@
                         <entry><para>
                                 <itemizedlist>
                                     <listitem>
-                                        <simpara>右键点击主菜单的“我的电脑”，点
-                                            击“树形”。
+                                        <simpara>右键点击主菜单的“我的电脑”，点击“属性”。
                                         </simpara>
                                     </listitem>
                                     <listitem>
-                                        <simpara>进入“高级”系统配置，点击“环境变
-                                            量”。
+                                        <simpara>进入“高级”系统配置，点击“环境变量”。
                                         </simpara>
                                     </listitem>
                                     <listitem>
-                                        <simpara>找到“用户”或者“系统”变量，新建
-                                            一个变量“SPICEX_DEBUG_LEVEL”，值为
-                                            4。
+                                        <simpara>找到“用户”或者“系统”变量，新建一个值为4的变量“SPICEX_DEBUG_LEVEL”。
                                         </simpara>
                                     </listitem>
                                 </itemizedlist>
@@ -112,19 +111,15 @@ C:\Documents and Settings\(User Name)\Local Settings\T emp\spicex.log
                         <entry><para>
                                 <itemizedlist>
                                     <listitem>
-                                        <simpara>右键点击主菜单的“我的电脑”，点
-                                            击“属性”。
+                                        <simpara>右键点击主菜单的“我的电脑”，点击“属性”。
                                         </simpara>
                                     </listitem>
                                     <listitem>
-                                        <simpara>进入“高级”系统配置，点击“环境变
-                                            量”。
+                                        <simpara>进入“高级”系统配置，点击“环境变量”。
                                         </simpara>
                                     </listitem>
                                     <listitem>
-                                        <simpara>找到“用户”或者“系统”变量，新建
-                                            一个变量“SPICEX_DEBUG_LEVEL”，值为
-                                            4。
+                                        <simpara>找到“用户”或者“系统”变量，新建一个值为4的变量“SPICEX_DEBUG_LEVEL”。
                                         </simpara>
                                     </listitem>
                                 </itemizedlist>
@@ -139,8 +134,7 @@ C:\Documents and Settings\(User Name)\Local Settings\T emp\spicex.log
                     <row>
                         <entry>&OVIRT;&NODE;上的SPICE服务进程</entry>
                         <entry>/var/log/libvirt/qemu/(虚拟机名称).log</entry>
-                        <entry>启动虚拟机之前，首先执行export
-                            SPIECE_DEBUG_LEVEL=5。
+                        <entry>启动虚拟机之前，首先执行export SPIECE_DEBUG_LEVEL=5。
                         </entry>
                     </row>
                 </tbody>
@@ -165,8 +159,7 @@ C:\Documents and Settings\(User Name)\Local Settings\T emp\spicex.log
                     </row>
                     <row>
                         <entry>/var/log/vdsm/spm-lock.log</entry>
-                        <entry>记录主机关于SPM角色申请、释放、更新、更新失败的信
-                            息。
+                        <entry>记录主机关于SPM角色申请、释放、更新、更新失败的信息。
                         </entry>
                     </row>
                     <row>
@@ -191,11 +184,9 @@ C:\Documents and Settings\(User Name)\Local Settings\T emp\spicex.log
             <title>安装远程日志服务器</title>
             <simplesect>
                 <title>说明</title>
-                <para>将&OVIRT;虚拟化环境中的日志保存在统一的日志服务器更有利于
-                    调试以及故障排除。
+                <para>将&OVIRT;虚拟化环境中的日志保存在统一的日志服务器更有利于调试以及故障排除。
                 </para>
-                <para>在日志服务器上按照下面的步骤进行操作，可以单独安装一台日志
-                    服务器或者直接在&OVIRT;&MANAGER;上进行配置。
+                <para>在日志服务器上按照下面的步骤进行操作，可以单独安装一台日志服务器或者直接在&OVIRT;&MANAGER;上进行配置。
                 </para>
                 <procedure>
                     <title>安装远程日志服务器</title>
@@ -231,8 +222,7 @@ $InputUDPServerBindRuleset remote
             </simplesect>
             <simplesect>
                 <title>预期结果：</title>
-                <para>日志服务器可以接受&OVIRT;&NODE;服务器的日志（messages和
-                    secure这2个日志文件中的日志类型）。
+                <para>日志服务器可以接受&OVIRT;&NODE;服务器的日志（messages和secure这2个日志文件中的日志类型）。
                 </para>
             </simplesect>
         </section>
@@ -248,39 +238,29 @@ $InputUDPServerBindRuleset remote
             </simplesect>
             <simplesect>
                 <title>说明：</title>
-                <para>&OVIRT;&NODE;的配置界面中的Logging可以配置将日志信息传输到
-                    远程服务器。
+                <para>&OVIRT;&NODE;的配置界面中的Logging可以配置将日志信息传输到远程服务器。
                 </para>
                 <procedure>
                     <title>&OVIRT;&NODE;的日志配置</title>
                     <step>
-                        <title>日志轮转配置</title>
-                        <para>日志轮转功能简化了对于日志文件的管理。
-                            &OVIRT;&NODE;中日志文件的大小到达指定限制时会自动进
-                            行轮转操作。
+                        <title>logrotate配置</title>
+                        <para>logrotate简化了对于日志文件的管理。&OVIRT;&NODE;中日志文件的大小到达指定限制时会自动进行轮转操作。
                         </para>
-                        <para>日志轮转操作会将日志文件重命名，并新建一个使用原来
-                            文件名的空日志文件。配置界面中的“Logrotate Max Log
-                            Size”中配置的数值，决定日志文件是否需要轮转。
+                        <para>logrotate会将日志文件重命名，并新建一个使用原来文件名的空日志文件。配置界面中的“Logrotate Max LogSize”中配置的数值，决定日志文件是否需要轮转。
                         </para>
-                        <para>“Logrotate Max Log Size”中数值的单位是kb，默认值为
-                            1024。
+                        <para>“Logrotate Max Log Size”中数值的单位是kb，默认值为1024。
                         </para>
                     </step>
                     <step>
                         <title>rsyslog配置</title>
-                        <para>rsyslog是&OVIRT;&NODE;上使用的日志服务程序。通过配
-                            置rsyslog，可以将&OVIRT;&NODE;的日志传输到远程服务器
-                            上。
+                        <para>rsyslog是&OVIRT;&NODE;上使用的日志服务程序。通过配置rsyslog，可以将&OVIRT;&NODE;的日志传输到远程服务器上。
                             <orderedlist numeration="loweralpha">
                                 <listitem>
-                                    <para>在“Server Address”中填入远程日志服务器
-                                        的地址（ip或者域名、主机名）。
+                                    <para>在“Server Address”中填入远程日志服务器的地址（ip或者域名、主机名）。
                                     </para>
                                 </listitem>
                                 <listitem>
-                                    <para>在“Server Port”中填入远程日志服务器日
-                                        志服务程序的监听端口，默认为514。
+                                    <para>在“Server Port”中填入远程日志服务器日志服务程序的监听端口，默认为514。
                                     </para>
                                 </listitem>
                             </orderedlist>
