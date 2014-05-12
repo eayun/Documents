@@ -3,7 +3,7 @@
   <formalpara>
     <title>概述</title>
     <para>
-      为特定资源分配管理员或者用户权限，使得用户能够管理或者使用该资源。
+      为特定资源分配管理员或者用户角色，使得用户能够管理或者使用该资源。
     </para>
   </formalpara>
   <procedure>

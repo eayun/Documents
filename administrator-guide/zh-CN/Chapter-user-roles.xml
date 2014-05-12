@@ -724,7 +724,7 @@
         </step>
         <step>
           <para>
-            选中用户的详情面板中，通常在<emphasis>常规</emphasis>子标签下，将显示出用户的常规信息，例如域名，电子邮件以及用户状态。
+            详情面板中显示了选中的用户，通常在<emphasis>常规</emphasis>子标签下，将显示出用户的常规信息，例如域名，电子邮件以及用户状态。
           </para>
         </step>
         <step>
@@ -815,7 +815,7 @@
     <section id="sect-Users_and_Roles-Configuring_Roles">
       <title>配置角色</title>
       <para>
-        角色是在 &OVIRT; &MANAGER;中可进行配置的预定义的权限集合。角色提供在数据中心中的资源以及对不同的物理和虚拟资源上不同级别的使用和管理权限控制。
+        角色是在 &OVIRT; &MANAGER;中可进行配置的预定义的权限集合。角色提供在数据中心中的资源以及对不同的物理和虚拟资源上不同级别的使用和管理权限的控制。
       </para>
       <para>
         使用多层次管理，被应用到一个容器对象的角色将同样被应用到该容器对象包含的所有单独对象中。举例说明，当主机管理员角色在特定的主机上被分配给一个用户时，该用户将具有能够执行所有可用的主机操作的权限，但只对于该分配的主机。但是，当主机管理员角色是在数据中心上被分配给用户时，该用户将具有对于该数据中心的集群中的所有主机能够执行主机操作的权限。
@@ -950,7 +950,7 @@
     <example>
       <title>集群权限</title>
       <para>
-        张三是公司财务部门的系统管理员。所有他们部门的虚拟资源都在 &OVIRT; 中一个叫做<emphasis>财务部</emphasis>的<emphasis>集群</emphasis>之下。在该集群上他被分配了 <emphasis>ClusterAdmin</emphasis> 角色。这将允许他管理集群中的所有虚拟机，因为虚拟机是集群容器中的子对象。管理虚拟机包括编辑、添加以及删除虚拟资源包括虚拟磁盘以及进行快照。但他将不能管理在这个集群意外的其它任何资源。由于 <emphasis>ClusterAdmin</emphasis> 是一个管理员角色，他能够使用管理员门户对这些资源进行管理，但他却不能够使用用户门户。
+        张三是公司财务部门的系统管理员。所有他们部门的虚拟资源都在 &OVIRT; 中一个叫做<emphasis>财务部</emphasis>的<emphasis>集群</emphasis>之下。在该集群上他被分配了 <emphasis>ClusterAdmin</emphasis> 角色。这将允许他管理集群中的所有虚拟机，因为虚拟机是集群容器中的子对象。管理虚拟机包括编辑、添加以及删除虚拟资源包括虚拟磁盘以及进行快照。但他将不能管理在这个集群以外的其它任何资源。由于 <emphasis>ClusterAdmin</emphasis> 是一个管理员角色，他能够使用管理员门户对这些资源进行管理，但他却不能够使用用户门户。
       </para>
     </example>
     <example>
@@ -994,7 +994,7 @@
         </figure>
       </para>
       <para>
-        上面所示的 <emphasis>USerManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<xref linkend="figure-Users_and_Roles-EayunOS_Object_Hierarchy"/>中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
+        上面所示的 <emphasis>UserManager</emphasis> 自定义角色能够进行用户、权限以及角色管理。这些操作是在 <emphasis>系统</emphasis> 对象——在<xref linkend="figure-Users_and_Roles-EayunOS_Object_Hierarchy"/>中所示的架构中最顶层的对象。这意味着这些操作将被应用于系统中的所有其它对象。该角色的<emphasis>账户类型</emphasis>被设置为<emphasis>管理员</emphasis>。这意味着当罗斯被分配这个角色时，他只能够使用管理员门户，而不是用户门户。
       </para>
     </example>
   </section>
