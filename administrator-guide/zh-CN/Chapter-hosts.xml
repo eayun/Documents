@@ -13,19 +13,19 @@
       主机，也被称作宿主机，是供虚拟机在其之上运行的物理服务器。&OVIRT; 中的虚拟化是由 KVM(Kernel-based Virtual Machine) 这个可动态加载的 Linux 内核模块提供的。
     </para>
     <para>
-      KVM 能够同时支持多个虚拟机，虚拟机之上的系统可以是 Windows 或者 Linux。虚拟机在主机之中是以 Linux 进程和线程的存在形式运行着，并且由 &OVIRT; &MANAGER;远程地进行管理。&OVIRT; 环境中存在一个或者多个主机。
+      KVM 能够同时支持多个虚拟机，虚拟机之上的系统可以是 Windows 或者 Linux。虚拟机在主机之中是以 Linux 进程和线程的存在形式运行着，并且由 &OVIRT; &MANAGER;进行远程管理。&OVIRT; 环境中存在一个或者多个主机。
     </para>
     <para>
-      &OVIRT; 支持使用两种方式来安装主机。您可以使用 &OVIRT; 主机安装光盘，或者在一台标准的 RHEL/Centos 之上安装主机所需要的软件包，来完成主机的安装。
+      &OVIRT; 支持使用两种方式来安装主机。您可以使用 &OVIRT; 主机安装光盘，或者在一台标准的 RHEL/CentOS 之上安装主机所需要的软件包，来完成主机的安装。
     </para>
     <para>
       &OVIRT; 主机可以使用针对虚拟化环境提供优化策略的 <emphasis>tuned</emphasis> 来进行配置，从而提高主机性能。关于 <emphasis>tuned</emphasis> 的更多信息，请参考 RHEL 文档中的相关章节。
     </para>
     <para>
-      &OVIRT; 主机默认启用了安全相关的特性。SELinux(Security Enhanced Linux，安全强化 Linux) 和 iptables 防火墙默认都是启用的，并且您能够进行全方位的配置。&MANAGER; 能够在 &OVIRT; 主机添加到 &OVIRT; 环境时打开所需要的端口。关于端口的详细列表，请参见<xref linkend="sect-Firewalls-Virtualization_Host_Firewall_Requirements"/>。
+      &OVIRT; 主机默认启用了安全相关的特性。SELinux(Security Enhanced Linux，安全强化 Linux) 和 iptables 防火墙默认都是启用的，并且您能够进行全方位的配置。&MANAGER;能够在 &OVIRT; 主机添加到 &OVIRT; 环境时打开所需要的端口。关于端口的详细列表，请参见<xref linkend="sect-Firewalls-Virtualization_Host_Firewall_Requirements"/>。
     </para>
     <para>
-      主机是一台带有 Intel VT 或者 AMD-V CPU 扩展的 64 位服务器，在其之上运行着 RHEL/Centos 6.1 及之后的 64 位版本操作系统。
+      主机是一台带有 Intel VT 或者 AMD-V CPU 技术的 64 位服务器，在其之上运行着 RHEL/CentOS 6.1 及之后的 64 位版本操作系统。
     </para>
     <para>
       在 &OVIRT; 平台上的物理主机，具备如下特点：
@@ -90,14 +90,14 @@
       &OVIRT; 主机是一个定制过的 Linux 系统，其上面只有运行虚拟机所需要的相关软件包。主机是无状态的，并且除非被明确要求，否则它将不会往硬盘上写入其它内容。
     </para>
     <para>
-      &OVIRT; 主机能够从 &OVIRT; &MANAGER; 中直接添加并且进行配置。另外您也可以在主机上进行配置使其主动连接到 &OVIRT; &MANAGER;；在&MANAGER;上只需要批准该台主机加入环境中即可。
+      &OVIRT; 主机能够从 &OVIRT; &MANAGER;中直接添加并且进行配置。另外您也可以在主机上进行配置使其主动连接到 &OVIRT; &MANAGER;；在&MANAGER;上只需要批准该台主机加入环境中即可。
     </para>
     <para>
-      与普通的 RHEL/Centos 主机不同的是，&OVIRT; 主机无法作为一台存储节点被添加到启用了 Gluster 服务的集群中。
+      与普通的 RHEL/CentOS 主机不同的是，&OVIRT; 主机无法作为一台存储节点被添加到启用了 Gluster 服务的集群中。
     </para>
     <important>
       <para>
-        &OVIRT; 主机是一个封闭的系统。如果您需要安装其它 rpm 软件包，请使用普通的 RHEL/Centos 主机。
+        &OVIRT; 主机是一个封闭的系统。如果您需要安装其它 rpm 软件包，请使用普通的 RHEL/CentOS 主机。
       </para>
     </important>
   </section>
@@ -105,7 +105,7 @@
   <section id="sect-Hosts-Foreman_Host_Provider_Hosts">
     <title>由 Foreman 提供的主机</title>
     <para>
-      由 Foreman 提供的主机同样能够被 &OVIRT; &MANAGER;用作虚拟化主机。首先您需要将 Foreman 作为一个外部供应商添加到&MANAGER;中，然后您就可以像对待 &OVIRT; 主机或者 RHEL/Centos 主机一样添加并使用由 Foreman 提供的主机。
+      由 Foreman 提供的主机同样能够被 &OVIRT; &MANAGER;用作虚拟化主机。首先您需要将 Foreman 作为一个外部供应商添加到&MANAGER;中，然后您就可以像对待 &OVIRT; 主机或者 RHEL/CentOS 主机一样添加并使用由 Foreman 提供的主机。
     </para>
     <important>
       <para>
@@ -115,9 +115,9 @@
   </section>
 
   <section id="sect-Hosts-RHEL_Hosts">
-    <title>RHEL/Centos 主机</title>
+    <title>RHEL/CentOS 主机</title>
     <para>
-      您可以将安装了标准的 RHEL6/Centos6 系统的服务器作为主机使用。&OVIRT; 支持使用安装了 AMD64/Intel64 版本的 RHEL6/Centos6 服务器作为主机。
+      您可以将安装了标准的 RHEL6/CentOS6 系统的服务器作为主机使用。&OVIRT; 支持使用安装了 RHEL6/CentOS6 版本的 AMD64/Intel64 服务器作为主机。
     </para>
     <para>
       在&MANAGER;中添加一台主机可能需要一些时间，因为虚拟化平台将会完成如下的步骤：虚拟化检测，安装所需要的软件包，创建所需要的网络桥接并重启主机。使用 &OVIRT; 管理员门户底部的信息栏查看管理系统与主机之间的连接情况和安装过程。
@@ -127,18 +127,18 @@
   <section id="sect-Hosts-Host_Tasks">
     <title>主机任务</title>
     <section id="sect-Hosts-Adding_a_RHEL_Host">
-      <title>添加 RHEL/Centos 主机</title>
+      <title>添加 RHEL/CentOS 主机</title>
       <formalpara>
         <title>概述</title>
         <para>
-          RHEL/Centos 主机基于标准安装的 RHEL/Centos 系统。在将其添加到 &OVIRT; 环境之前，您必须先完成对该台物理主机的配置。
+          RHEL/CentOS 主机基于标准安装的 RHEL/CentOS 系统。在将其添加到 &OVIRT; 环境之前，您必须先完成对该台物理主机的配置。
         </para>
       </formalpara>
       <para>
         &OVIRT; &MANAGER;将会登录该台主机，然后进行主机虚拟化特性的检测，安装所需要的软件包，创建网桥，然后重启主机。添加主机的过程可能需要大概 10 分钟。
       </para>
       <procedure>
-        <title>添加 RHEL/Centos 主机</title>
+        <title>添加 RHEL/CentOS 主机</title>
         <step>
           <para>
             点击主面板中的<emphasis>主机</emphasis>标签，列出当前环境中的主机。
@@ -178,7 +178,7 @@
         </step>
         <step>
           <para>
-            您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
+            您已经完成了添加 RHEL/CentOS 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
           </para>
           <itemizedlist>
             <listitem>
@@ -195,7 +195,7 @@
         </step>
         <step>
           <para>
-            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/Centos 主机时必须的步骤，在这里我们暂时不关注这些操作。
+            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/CentOS 主机时必须的步骤，在这里我们暂时不关注这些操作。
           </para>
         </step>
         <step>
@@ -231,7 +231,7 @@
       <formalpara>
         <title>概述</title>
         <para>
-          添加 Foreman 提供的主机和添加 RHEL/Centos 主机的操作基本是一致的，区别仅在于&MANAGER;识别这两种类型主机的方式。以下过程概括了添加一台由 Foreman 提供的主机的步骤。
+          添加 Foreman 提供的主机和添加 RHEL/CentOS 主机的操作基本是一致的，区别仅在于&MANAGER;识别这两种类型主机的方式。以下过程概括了添加一台由 Foreman 提供的主机的步骤。
         </para>
       </formalpara>
       <procedure>
@@ -285,7 +285,7 @@
         </step>
         <step>
           <para>
-            您已经完成了添加 RHEL/Centos 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
+            您已经完成了添加 RHEL/CentOS 主机所需要的必须步骤。还可以点击展开<emphasis>高级参数</emphasis>显示主机的高级设置选项。
           </para>
           <itemizedlist>
             <listitem>
@@ -302,7 +302,7 @@
         </step>
         <step>
           <para>
-            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/Centos 主机时必须的步骤，在这里我们暂时不关注这些操作。
+            你可以使用左侧的标签来配置<emphasis>电源管理</emphasis>和 <emphasis>SPM</emphasis>；但由于这些操作不是添加 RHEL/CentOS 主机时必须的步骤，在这里我们暂时不关注这些操作。
           </para>
         </step>
         <step>
@@ -386,7 +386,7 @@
       <section id="sect-Hosts-Host_General_Settings_Explained">
         <title>主机常规设置项的解释</title>
         <para>
-          这些选项适用于修改主机的详细信息和添加 RHEL/Centos 主机和 Foreman 提供的主机。
+          这些选项适用于修改主机的详细信息和添加 RHEL/CentOS 主机和 Foreman 提供的主机。
         </para>
         <para>
           下面的<emphasis>常规</emphasis>设置表中包含了<emphasis>新建主机</emphasis>或<emphasis>编辑主机</emphasis>时<emphasis>常规</emphasis>标签中所需要的信息。
@@ -537,7 +537,7 @@
                   <itemizedlist>
                     <listitem>
                       <para>
-                        如果该勾选该选项，当主机需要隔离时，两个隔离代理将会同时进行工作。这意味着两个代理必须都响应电源管理的停止指令主机才能正常关机；当有个代理响应了电源管理的启动指令时，主机将会启动。
+                        如果勾选该选项，当主机需要隔离时，两个隔离代理将会同时进行工作。这意味着两个代理必须都响应电源管理的停止指令主机才能正常关机；当有个代理响应了电源管理的启动指令时，主机将会启动。
                       </para>
                     </listitem>
                     <listitem>
@@ -769,7 +769,7 @@
         <title>配置主机电源管理</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -870,7 +870,7 @@
         <title>配置主机 SPM 设置</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -926,7 +926,7 @@
         <title>手动指派 SPM 角色到主机</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -969,7 +969,7 @@
         <title>编辑资源</title>
         <step>
           <para>
-            使用主面板中的标签、树形面板或者搜索功能来查找并在主面板中选择相应的资源。
+            使用主面板中的标签、树形面板或者搜索功能查找并在主面板中选择相应的资源。
           </para>
         </step>
         <step>
@@ -1015,7 +1015,7 @@
         <title>将主机切换至维护模式</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1048,7 +1048,7 @@
         <title>从维护模式将主机激活</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1081,7 +1081,7 @@
         <title>删除主机</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1134,7 +1134,7 @@
         <title>使用标签自定义主机</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1184,7 +1184,7 @@
         <title>刷新主机能力</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1212,7 +1212,7 @@
         <title>编辑主机网卡和添加逻辑网络到主机</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1423,7 +1423,7 @@
         <title>使用 &OVIRT; 管理员门户创建网卡绑定设备</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1546,7 +1546,7 @@
         <title>保存主机网络配置</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1595,7 +1595,7 @@
         <title>查看或编辑逻辑网络的网关</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
@@ -1634,7 +1634,7 @@
         如果一台拥有电源管理设备的主机与&MANAGER;失去连接，该台主机能够从管理员门户被隔离（重启）。所有在该主机之上运行的虚拟机将会被停止，其中高可用的虚拟机将会在另外的主机上启动。
       </para>
       <para>
-        所有电源管理的操作并不是直接有 &OVIRT; &MANAGER;进行的，而是通过一台代理主机。因此，要完成电源管理操作，至少需要两台主机。
+        所有电源管理的操作并不是直接由 &OVIRT; &MANAGER;进行的，而是通过一台代理主机。因此，要完成电源管理操作，至少需要两台主机。
       </para>
       <para>
         隔离机制允许集群对异常的主机失效采取行动，并保证了电源节省、负载均衡以及虚拟机高可用策略的正常工作。您自始至终都需要为您主机上的电源管理设备配置用于隔离的参数并测试其准确性。
@@ -1682,7 +1682,7 @@
         <title>在主机上设置隔离参数</title>
         <step>
           <para>
-            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能来查找并在主面板中选择主机。
+            使用<emphasis>主机</emphasis>标签、树形面板或者搜索功能查找并在主面板中选择主机。
           </para>
         </step>
         <step>
