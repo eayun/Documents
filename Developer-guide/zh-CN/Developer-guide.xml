@@ -3,11 +3,76 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<book>
-	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Chapter.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-	<index />
+<book status="draft">
+  <xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <part>
+    <title>介绍</title>
+    <partintro>
+      <para>
+        此部分主要是介绍 &OVIRT; 开发者指南。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-authentication-security.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-rest-example.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-python-quick-start-example.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  <part>
+    <title>REST 应用程序接口</title>
+    <partintro>
+      <para>
+        此部分主要是讲解 &OVIRT; 应用程序指南。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-entry-point.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-compatibility-version.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-capabilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-common-features.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Data-centers.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Host-clusters.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Storage-domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Virtual-machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Floating-disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Templates.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-vm-pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Roles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Users.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Tags.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Events.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  <part>
+    <title>Python语言软件开发包</title>
+    <partintro>
+      <para>
+        此部分主要是讲解 &OVIRT; 应用程序开发，有Python SDK来完成。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-sdk-overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-using-sdk.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-python-reference.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  <part>
+    <title>Java语言软件开发包</title>
+    <partintro>
+      <para>
+        此部分主要是讲解 &OVIRT; 应用程序开发，有Java SDK来完成。
+      </para>
+    </partintro>
+    <xi:include href="Chapter-java-sdk-overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-using-java-sdk.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </part>
+  <xi:include href="Appendix-api-using-curl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-uiplugins.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-certificates.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-enumerated-value-translation.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-event-codes.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Appendix-timezones.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+ <index />
 </book>
 

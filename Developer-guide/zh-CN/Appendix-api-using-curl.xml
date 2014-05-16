@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-eayunos-api-api-using-curl">
+  <title>&OVIRT; &MANAGER;用户界面插件</title>
+
+  <section id="sect-eayunos-api-api-using-curl-1">
+    <title>&OVIRT; &MANAGER;用户界面插件</title>
+    <para>
+    </para>
+  </section>
+
+</appendix>
