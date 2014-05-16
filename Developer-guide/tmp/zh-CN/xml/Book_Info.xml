@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE bookinfo PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY PRODUCT "EayunOS">
+<!ENTITY BOOKID "Developer-guide">
+<!ENTITY YEAR "2014">
+<!ENTITY HOLDER "| 易云捷讯技术有限公司 |">
+<!ENTITY OVIRT " EayunOS ">
+<!ENTITY OVIRT_STORAGE " Eayun Storage ">
+<!ENTITY MANAGER "虚拟化管理中心">
+<!ENTITY NODE "虚拟化宿主机">
+<!ENTITY DEFAULT_LOGICAL_NETWORK "ovirtmgmt">
+]>
+<bookinfo id="book-EayunOS-Developer-guide-Developer_guide" lang="zh-CN">
+	<title>Developer-guide</title>
+	 <subtitle>&OVIRT;开发者参考手册</subtitle>
+	 <productname>EayunOS</productname>
+	 <productnumber>4.0</productnumber>
+	 <edition>0</edition>
+	 <pubsnumber>0</pubsnumber>
+	 <abstract>
+		<para>
+			针对开发者的参考手册。
+		</para>
+
+	</abstract>
+	 <corpauthor>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+			</imageobject>
+
+		</inlinemediaobject>
+
+	</corpauthor>
+	 <xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	 <xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</bookinfo>
+

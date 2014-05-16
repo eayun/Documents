@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY PRODUCT "EayunOS">
+<!ENTITY BOOKID "Developer-guide">
+<!ENTITY YEAR "2014">
+<!ENTITY HOLDER "| 易云捷讯技术有限公司 |">
+<!ENTITY OVIRT " EayunOS ">
+<!ENTITY OVIRT_STORAGE " Eayun Storage ">
+<!ENTITY MANAGER "虚拟化管理中心">
+<!ENTITY NODE "虚拟化宿主机">
+<!ENTITY DEFAULT_LOGICAL_NETWORK "ovirtmgmt">
+]>
+<section lang="zh-CN">
+	<title>文档约定</title>
+	 <para>
+		本手册使用几个约定来突出某些用词和短语以及信息的某些片段。
+	</para>
+	 <para>
+		在 PDF 版本以及纸版中，本手册使用在 <ulink url="http://wenq.org/wqy2/index.cgi?MicroHei">文泉驿微米黑 字体</ulink>。如果您在您的系统中安装了 文泉驿微米黑 字体套件，它还可用于 HTML 版本。如果没有安装，则会显示可替换的类似字体。
+	</para>
+	 <section>
+		<title>排版约定</title>
+		 <para>
+			我们使用四种排版约定突出特定用词和短语。这些约定及其使用环境如下。
+		</para>
+		 <para>
+			<literal>单行粗体</literal>
+		</para>
+		 <para>
+			用来突出系统输入，其中包括 shell 命令、文件名以及路径。还可用来突出按键以及组合键。例如：
+		</para>
+		 <blockquote>
+			<para>
+				要看到您当前工作目录中文件 <filename>my_next_bestselling_novel</filename> 的内容，请在 shell 提示符后输入 <command>cat my_next_bestselling_novel</command> 命令并按 <keycap>Enter</keycap> 键执行该命令。
+			</para>
+
+		</blockquote>
+		 <para>
+			以上内容包括一个文件名，一个 shell 命令以及一个按键，它们都以固定粗体形式出现，且全部与上下文有所区别。
+		</para>
+		 <para>
+			按键组合与单独按键之间的区别是按键组合是使用加号将各个按键连在一起。例如：
+		</para>
+		 <blockquote>
+			<para>
+				按 <keycap>Enter</keycap> 执行该命令。
+			</para>
+			 <para>
+				按 <keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F2</keycap></keycombo> 切换到虚拟终端。
+			</para>
+
+		</blockquote>
+		 <para>
+			第一个示例突出的是要按的特定按键。第二个示例突出了按键组合：一组要同时按下的三个按键。
+		</para>
+		 <para>
+			如果讨论的是源码、等级名称、方法、功能、变量名称以及在段落中提到的返回的数值，那么都会以上述形式出现，即<literal>固定粗体</literal>。例如：
+		</para>
+		 <blockquote>
+			<para>
+				与文件相关的等级包括用于文件系统的 <classname>filesystem</classname>、用于文件的 <classname>file</classname> 以及用于目录的 <classname>dir</classname>。每个等级都有其自身相关的权限。
+			</para>
+
+		</blockquote>
+		 <para>
+			<application>比例粗体</application>
+		</para>
+		 <para>
+			这是指在系统中遇到的文字或者短语，其中包括应用程序名称、对话框文本、标记的按钮、复选框以及单选按钮标签、菜单标题以及子菜单标题。例如：
+		</para>
+		 <blockquote>
+			<para>
+				在主菜单条中选择<menuchoice><guimenu>「系统」</guimenu><guisubmenu>「首选项」</guisubmenu><guimenuitem>「鼠标」</guimenuitem></menuchoice>启动 <application>鼠标首选项</application>。在<guilabel>「按钮」</guilabel>标签中点击<guilabel>「惯用左手鼠标」 </guilabel>复选框并点击 <guibutton>关闭</guibutton>切换到主鼠标按钮从左向右（让鼠标适合左手使用）。
+			</para>
+			 <para>
+				要在 <application>gedit</application> 文件中插入特殊字符，请在主菜单栏中选择<menuchoice><guimenu>「应用程序」</guimenu><guisubmenu>「附件」</guisubmenu><guimenuitem>「字符映射表」</guimenuitem></menuchoice>。接下来选择从 <application>Character Map</application> 菜单中选择<menuchoice><guimenu>Search</guimenu><guimenuitem>「查找......」</guimenuitem></menuchoice>，在<guilabel>「搜索」</guilabel>字段输入字符名称并点击<guibutton>「下一个」</guibutton>按钮。此时会在<guilabel>「字符映射表」</guilabel>中突出您搜索的字符。双击突出的字符将其放在<guilabel>「要复制的文本」</guilabel>字段中，然后点击<guibutton>「复制」</guibutton>按钮。现在返回您的文档，并选择 <application>gedit</application> 菜单中的<menuchoice><guimenu>「编辑」</guimenu><guimenuitem>「粘贴」</guimenuitem></menuchoice>。
+			</para>
+
+		</blockquote>
+		 <para>
+			以上文本包括应用程序名称、系统范围菜单名称及项目、应用程序特定菜单名称以及按钮和 GUI 界面中的文本，所有都以比例粗体出现并与上下文区别。
+		</para>
+		 <para>
+			<command><replaceable>固定粗斜体</replaceable></command> 或者 <application><replaceable>比例粗斜体 </replaceable></application>
+		</para>
+		 <para>
+			无论固定粗体或者比例粗体，附加的斜体表示是可替换或者变量文本。斜体表示那些不直接输入的文本或者那些根据环境改变的文本。例如：
+		</para>
+		 <blockquote>
+			<para>
+				要使用 ssh 连接到远程机器，请在 shell 提示符后输入 <command>ssh <replaceable>username</replaceable>@<replaceable>domain.name</replaceable></command>。如果远程机器是 <filename>example.com</filename> 且您在该其机器中的用户名为 john，请输入 <command>ssh john@example.com</command>。
+			</para>
+			 <para>
+				<command>mount -o remount <replaceable>file-system</replaceable></command> 命令会重新挂载命名的文件系统。例如：要重新挂载 <filename>/home</filename> 文件系统，则命令为 <command>mount -o remount /home</command>。
+			</para>
+			 <para>
+				要查看目前安装的软件包版本，请使用 <command>rpm -q <replaceable>package</replaceable></command> 命令。它会返回以下结果：<command><replaceable>package-version-release</replaceable></command>。
+			</para>
+
+		</blockquote>
+		 <para>
+			请注意上述使用黑斜体的文字 -- username、domain.name、file-system、package、version 和 release。每个字都是一个站位符，可用作您执行命令时输入的文本，也可作为该系统显示的文本。
+		</para>
+		 <para>
+			不考虑工作中显示标题的标准用法，斜体表示第一次使用某个新且重要的用语。例如：
+		</para>
+		 <blockquote>
+			<para>
+				Publican 是一个 <firstterm>DocBook</firstterm> 发布系统。
+			</para>
+
+		</blockquote>
+
+	</section>
+	
+	 <section>
+		<title>抬升式引用约定</title>
+		 <para>
+			终端输出和源代码列表要与周围文本明显分开。
+		</para>
+		 <para>
+			将发送到终端的输出设定为 <computeroutput>Mono-spaced Roman</computeroutput> 并显示为：
+		</para>
+		 
+<screen>books        Desktop   documentation  drafts  mss    photos   stuff  svn
+books_tests  Desktop1  downloads      images  notes  scripts  svgs</screen>
+		 <para>
+			源码列表也设为 <computeroutput>Mono-spaced Roman</computeroutput>，但添加下面突出的语法：
+		</para>
+		 <xi:include href="Program_Listing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+	</section>
+	
+	 <section>
+		<title>备注及警告</title>
+		 <para>
+			最后，我们使用三种视觉形式来突出那些可能被忽视的信息。
+		</para>
+		 <note>
+			<para>
+				备注是对手头任务的提示、捷径或者备选的解决方法。忽略提示不会造成负面后果，但您可能会错过一个更省事的诀窍。
+			</para>
+
+		</note>
+		 <important>
+			<para>
+				重要框中的内容是那些容易错过的事情：配置更改只可用于当前会话，或者在应用更新前要重启的服务。忽略‘重要’框中的内容不会造成数据丢失但可能会让您抓狂。
+			</para>
+
+		</important>
+		 <warning>
+			<para>
+				警告是不应被忽略的。忽略警告信息很可能导致数据丢失。
+			</para>
+
+		</warning>
+
+	</section>
+	
+
+</section>
+
+

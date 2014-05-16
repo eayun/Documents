@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY PRODUCT "EayunOS">
+<!ENTITY BOOKID "Developer-guide">
+<!ENTITY YEAR "2014">
+<!ENTITY HOLDER "| 易云捷讯技术有限公司 |">
+<!ENTITY OVIRT " EayunOS ">
+<!ENTITY OVIRT_STORAGE " Eayun Storage ">
+<!ENTITY MANAGER "虚拟化管理中心">
+<!ENTITY NODE "虚拟化宿主机">
+<!ENTITY DEFAULT_LOGICAL_NETWORK "ovirtmgmt">
+]>
+<section lang="zh-CN">
+	<title>我们需要您的反馈</title>
+	 <indexterm>
+		<primary>十分感谢！</primary>
+		 <secondary>jiansheng.li@eayun.com</secondary>
+
+	</indexterm>
+	 <para>
+		请发送邮件到eayun_virtualization@googlegroup.com, 我们会及时的反馈。
+	</para>
+</section>
+
+
