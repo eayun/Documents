@@ -4,20 +4,20 @@
 %BOOK_ENTITIES;
 ]>
 <appendix id="appe-Documents-administrator-guide-Revision_History">
-	<title>Revision History</title>
+	<title>修订历史</title>
 	<simpara>
 		<revhistory>
 			<revision>
 				<revnumber>0.0-0</revnumber>
-				<date>Wed Feb 12 2014</date>
+				<date>Mon Jun 9 2014</date>
 				<author>
-					<firstname>Enter your first name here.</firstname>
-					<surname>Enter your surname here.</surname>
-					<email>Enter your email address here.</email>
+					<firstname>潘</firstname>
+					<surname>礼洋</surname>
+					<email>liyang.pan@eayun.com</email>
 				</author>
 				<revdescription>
 					<simplelist>
-						<member>Initial creation by publican</member>
+						<member>改善 EayunOS 的恢复过程的步骤</member>
 					</simplelist>
 				</revdescription>
 			</revision>
