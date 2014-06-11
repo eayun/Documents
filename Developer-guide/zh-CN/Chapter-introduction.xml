@@ -4,30 +4,117 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-introduction_Chapter">
-	<title>introduction Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-introduction_Chapter-introduction_Section_1">
-		<title>introduction Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-introduction_Chapter-introduction_Section_2">
-		<title>introduction Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>介绍</title>
+  <section id="sect-EayunOS-Developer-guide-introduction_Chapter-introduction_Section_1">
+    <title>&OVIRT; REST API 的介绍</title>
+    <para>
+      &OVIRT;&MANAGER;提供了<emphasis>含状态传输（REST）</emphasis>API。该API为开发者和系统管理员提供了在标准web界面之外控制&OVIRT;的途径。该 REST API 用于开发者和系统管理员使用自定义的脚本或者外部程序通过超文本传输协议（HTTP）来与&OVIRT;进行集成。
+    </para>
+    <para>
+      使用 REST API 的好处有：
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>
+          广泛的客户端支持-任何能够支持 HTTP 协议的语言，框架，或系统都能够使用 API。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          自我描述性-客户端的应用基本不需要对虚拟化平台有了解，因为很多细节只有在运行时才需要知道。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          基于资源的模型-基于资源的 REST 模型能够提供一种自然的途径来管理虚拟化平台。
+        </para>
+      </listitem>
+    </orderedlist>
+    <para>
+      这些好处能够给开发者和系统管理员：
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>
+          与企业及系统进行集成。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          与第三方虚拟化软件集成。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          执行自动化的维护和错误检查任务。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          自动向&OVIRT;虚拟化环境执行任务。
+        </para>
+      </listitem>
+    </orderedlist>
+    <para>
+      该文档充当&OVIRT;&MANAGER; REST API 的参考资料。它的目标是给开发者和系统管理员提供指引和实例来帮助他们利用&OVIRT;虚拟化环境所提供的功能，这些功能可以通过直接访问或通过所提供的 Python 库来使用。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-introduction_Chapter-introduction_Section_2">
+    <title>含状态传输</title>
+    <para>
+      <emphasis>含状态传输（REST）</emphasis>是一种设计的架构，它集中于服务的资源和它的展现。一个资源的展现是对一个服务器所管理的一个元素的关键性信息的抽象。一个客户端程序通过一个 统一资源标志符（URI）来发送请求给服务器上的一个元素，该元素由请求的 URI 来定位，该请求通过标准的 HTTP 方法，例如 GET，POST，PUT，和 DELETE。这能够提供服务端与客户顿之间的无状态通信，即每一次通信都不依赖其他任何一次通信，并且包括请求所需的所有信息。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-introduction_Chapter-introduction_Section_3">
+    <title>&OVIRT;虚拟化 REST API 的前提条件</title>
+    <para>
+      本向导需要如下条件：
+      <orderedlist>
+        <listitem>
+          <para>
+            一个网络安装的包含 REST API 的&OVIRT;&MANAGER;；
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            一个从 REST API 发送或者接收 HTTP 请求的客户端或程式库。例如：
+            <orderedlist>
+              <listitem>
+                <para>
+                  &OVIRT;提供一个 Python 软件开发工具（SDK），它用来与 REST API 进行通信。本向导包含一个简单的示例来帮助开发者快速入门。
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  本向导包括关于使用 cURL 的基本指导。
+                </para>
+              </listitem>
+            </orderedlist>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+             需要有对超文本传输协议（HTTP）的了解，因为这是与 REST API 进行交互所使用的协议。互联网工程任务组（IETF）提供了一个请求评议（RFC）来解释超文本传输协议：http://www.ietf.org/rfc/rfc2616.txt；并且，
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            需要对可扩展标记语音（XML）的了解，因为 API 使用它来构建资源的展现方式。W3C 提供了所有的规范：http://www.w3.org/TR/xml/。
+          </para>
+        </listitem>
+      </orderedlist>
+    </para>
+    <note>
+      <para>
+        每一个版本的&OVIRT;企业虚拟化都有一个独特相关联的 SDK。请确保你所使用的 SDK 能和你当前的环境吻合。例如，如果你所使用的是&OVIRT;企业虚拟化的3.2版本，你就需要使用对应3.2版本的 SDK。
+      </para>
+    </note>
+    <para>
+      需要补充的是，如果你需要使用 Python SDK 的话你需要下载并安装 ovirt-engine-sdk-python 软件包。更加详细的信息可以参考&OVIRT;虚拟化安装手册来获知如何下载并安装它们。
+    </para>
+  </section>
 
 </chapter>
 
