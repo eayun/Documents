@@ -4,30 +4,257 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-authentication-securitys_Chapter">
-	<title>authentication-securitys Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-authentication-securitys_Chapter-authentication-securitys_Section_1">
-		<title>authentication-securitys Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-authentication-securitys_Chapter-authentication-securitys_Section_2">
-		<title>authentication-securitys Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>认证和安全</title>
+  <section id="chap-EayunOS-Developer-guide-authentication-securitys_Chapter-Section_1">
+    <title>TLS/SSL 认证</title>
+    <para>
+      &OVIRT;&MANAGER;的API需要超文本传输安全协议（HTTPS）<footnote><para>HTTPS 在<ulink url="http://tools.ietf.org/html/rfc2818"><citetitle>RFC 2818 HTTP Over TLS</citetitle></ulink>中有详述。</para></footnote>来和客户端建立安全的连接，例如管理端的 SDK 和 CLI 组件。这就需要获得&OVIRT;&MANAGER;的安全证书并将之导入到客户端程序的证书列表中。
+    </para>
+    <important>
+      <para>
+        请使用安全的连接来获得&OVIRT;&MANAGER;的证书。
+      </para>
+    </important>
+    <procedure>
+      <title>获得证书</title>
+      <para>
+        你可以使用如下三种方法来获得&OVIRT;&MANAGER;的证书并传输到客户端机器上：
+      </para>
+      <step>
+        <para>
+          <emphasis>方法1</emphasis> - 使用命令行工具从管理端下载证书。命令行工具的示例有 cURL 和 Wget。它们都可以在多平台下使用。
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              如果使用的是 cURL：
+            </para>
+            <screen>$ curl -o rhevm.cer http://[EayunOS-server]/ca.crt</screen>
+          </listitem>
+          <listitem>
+            <para>
+              如果使用的是 Wget：
+            </para>
+            <screen>$ wget -O rhevm.cer http://[EayunOS-server]/ca.crt</screen>
+          </listitem>
+        </itemizedlist>
+      </step>
+      <step>
+        <para>
+          <emphasis>方法2</emphasis> - 使用浏览器访问如下连接：
+        </para>
+        <screen>http://[EayunOS-server]/ca.crt</screen>
+        <para>
+          根据浏览器的不同，浏览器要么会下载证书文件，要么会将证书导入浏览器的证书列表中。
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              如果浏览器下载了证书文件，将证书文件保存为<emphasis>EayunOS.cer</emphasis>文件。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              如果浏览器导入了证书文件，将证书从浏览器的证书设置里导出并保存为<emphasis>EayunOS.cer</emphasis>文件。
+            </para>
+          </listitem>
+        </itemizedlist>
+      </step>
+      <step>
+        <para>
+          <emphasis>方法3</emphasis> - 登陆管理端，将证书从信任库中导出并复制到你的客户端机器中去。
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              以 root 用户 ssh 连接到管理端。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              使用 Java 的 <emphasis>keytool</emphasis> 命令将信任库中的证书导出：
+            </para>
+            <screen>$ keytool -exportcert -keystore /etc/pki/ovirt-engine/.truststore -alias cacert -storepass mypass -file EayunOS.cer</screen>
+            <para>
+              这将创建一个名为 <emphasis>EayunOS.cer</emphasis> 的文件。
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              使用 <emphasis>scp</emphasis> 命令将上布的证书文件复制到客户端机器中去。
+            </para>
+            <screen>$ scp rhevm.cer [username]@[client-machine]:[directory]</screen>
+          </listitem>
+        </itemizedlist>
+      </step>
+    </procedure>
+    <para>
+      以上的三个方法都会在你的客户端机器上产生一个名为 <emphasis>EayunOS.cer</emphasis> 的文件。一个 API 用户将会把该文件导入到客户端的证书信用库中去。
+    </para>
+    <procedure>
+      <title>将证书文件导入到客户端的证书信用库中</title>
+      <step>
+        <para>
+          将证书文件导入到客户端的证书信用库中的动作取决于客户端是怎么保存和操作证书的。本向导包含一些导入证书的示例。对于没有使用网络安全服务（NSS）或者 Java 密钥库（JKS）的客户端，请参见你们自己的文档来获得更多关于导入证书的信息。
+        </para>
+      </step>
+    </procedure>
+  </section>
 
+  <section id="chap-EayunOS-Developer-guide-authentication-securitys_Chapter-Section_2">
+    <title>HTTP 认证</title>
+    <para>
+      任何一个&OVIRT;企业虚拟化账户都可以访问 REST API。一个 API 用户在发出请求时必须要提供&OVIRT;&MANAGER;的用户名和密码。每一个请求都使用了 HTTP 的基本授权方式<footnote><para>基本授权在<ulink url="http://tools.ietf.org/html/rfc2617"><citetitle>RFC 2617 HTTP Authentication: Basic and Digest Access Authentication</citetitle></ulink>中有详述。</para></footnote>来加密这些凭证。如果一个请求不包含合适的认证头（<emphasis>Authorization</emphasis> header），API 将返回一个状态码为401的结果（<emphasis>401 Authorization Required</emphasis>）。
+    </para>
+    <example>
+      <title>不带正确凭证访问 REST API 的结果</title>
+      <screen>HEAD [base] HTTP/1.1
+Host: [host]
+
+HTTP/1.1 401 Authorization Required
+      </screen>
+    </example>
+    <para>
+      请求将会携带一个给某个指定域（realm）的认证头。并且一个 API 用户将会加密正确的&OVIRT;&MANAGER;的域与用户信息并保存在凭证中，凭证的格式为 <emphasis>username@domain:password</emphasis>。
+    </para>
+    <para>
+      下表展示了用 base64 加密凭证的过程。
+    </para>
+    <table>
+      <title>API 访问所加密的凭证</title>
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              属性
+            </entry>
+            <entry>
+              值
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              用户名
+            </entry>
+            <entry>
+              &OVIRT;admin
+            </entry>
+          </row>
+          <row>
+            <entry>
+              域
+            </entry>
+            <entry>
+              domain.example.com
+            </entry>
+          </row>
+          <row>
+            <entry>
+              密码
+            </entry>
+            <entry>
+              123456
+            </entry>
+          </row>
+          <row>
+            <entry>
+              未加密的凭证
+            </entry>
+            <entry>
+              &OVIRT;admin@domain.example.com:123456
+            </entry>
+          </row>
+          <row>
+            <entry>
+              base64 加密的凭证
+            </entry>
+            <entry>
+              cmhldm1hZG1pbkBibGFjay5xdW1yYW5ldC5jb206MTIzNDU2
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      一个 API 用户提供如下的基于 base64 加密的凭证：
+    </para>
+    <example>
+      <title>使用正确的凭证来访问 REST API 示例</title>
+      <screen>HEAD [base] HTTP/1.1
+Host: [host]
+Authorization: Basic cmhldm1hZG1pbkBibGFjay5xdW1yYW5ldC5jb206MTIzNDU2
+
+HTTP/1.1 200 OK
+...
+      </screen>
+    </example>
+    <important>
+      <para>
+        基本的认证牵涉到潜在的敏感数据，例如密码，将会以明文传输。REST API 要求使用超文本安全传输协议（HTTPS）来在应用层上加密请求的明文数据。
+      </para>
+    </important>
+    <important>
+      <para>
+        有一些 bse64 的库会将结果分成多行并且在每行后会增加一个换行符。这将会破坏消息头且造成一次失败的请求。认证消息头要求加密的凭证要在消息头的一行之内。
+      </para>
+    </important>
+  </section>
+
+  <section id="chap-EayunOS-Developer-guide-authentication-securitys_Chapter-Section_3">
+    <title>会话认证</title>
+    <para>
+      API 也可以提供对会话认证的支持。一个 API 用户如果初次发送一个包含了认证详情的请求，则该用户将会在接下来的请求中使用会话 cookie 来认证。下面的步骤将演示如何使用会话认证。
+    </para>
+    <procedure>
+      <title>请求一个认证了的会话</title>
+      <step>
+        <para>
+          发送请求并携带 <emphasis>Authorization</emphasis> 和 <emphasis>Prefer: persistent-auth</emphasis>
+        </para>
+        <screen>HEAD [base] HTTP/1.1
+Host: [host]
+Authorization: Basic cmhldm1hZG1pbkBibGFjay5xdW1yYW5ldC5jb206MTIzNDU2
+Prefer: persistent-auth
+
+HTTP/1.1 200 OK
+...
+        </screen>
+        <para>
+          这将会返回携带如下头的响应：
+        </para>
+        <screen>Set-Cookie: JSESSIONID=5dQja5ubr4yvI2MM2z+LZxrK; Path=/api; Secure</screen>
+        <para>
+          注意上面的 <emphasis>JSESSIONID=</emphasis> 的值，在本示例中该值为 <emphasis>JSESSIONID=5dQja5ubr4yvI2MM2z+LZxrK</emphasis>。
+        </para>
+      </step>
+      <step>
+        <para>
+          发送随后的请求，并在这些请求中加入 <emphasis>Prefer: persistent-auth</emphasis> 和 <emphasis>cookie</emphasis> 的头信息，其中 <emphasis>cookie</emphasis> 头的值为 <emphasis>JSESSIONID=</emphasis> 的值。<emphasis>Authorization</emphasis> 头在使用了会话认证后不再需要了。
+        </para>
+        <screen>HEAD [base] HTTP/1.1
+Host: [host]
+Prefer: persistent-auth
+cookie: JSESSIONID=5dQja5ubr4yvI2MM2z+LZxrK
+
+HTTP/1.1 200 OK
+...
+        </screen>
+      </step>
+      <step>
+        <para>
+          当会话不再需要的时候，执行一次不包含 <emphasis>Prefer: persistent-auth</emphasis> 头的请求给服务器。
+        </para>
+        <screen>HEAD [base] HTTP/1.1
+Host: [host]
+Authorization: Basic cmhldm1hZG1pbkBibGFjay5xdW1yYW5ldC5jb206MTIzNDU2
+
+HTTP/1.1 200 OK
+...
+        </screen>
+      </step>
+    </procedure>
+  </section>
 </chapter>
 
