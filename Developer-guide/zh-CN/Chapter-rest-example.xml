@@ -4,30 +4,1292 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-rest-examples_Chapter">
-	<title>rest-examples Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_1">
-		<title>rest-examples Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_2">
-		<title>rest-examples Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>REST API 快速入门示例</title>
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_1">
+    <title>REST API 快速入门介绍</title>
+    <para>
+      本章将要介绍如何使用 REST API 来创建一个基本的&OVIRT;虚拟化环境以及如何创建一台虚拟机。
+    </para>
+    <para>
+      在标准的需求下，还需要以下条件来完成入门示例：
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          一台能网络连通的且配置好的&OVIRT;企业虚拟化主机；
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          一个包含操作系统的 ISO 镜像文件。本章使用 CentOS 6 作为 ISO 安装的示例。并且使用
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          &OVIRT;企业虚拟化的 <emphasis>engine-iso-uploader</emphasis> 工具来上传已选择的操作系统镜像文件。
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      本示例通过一个客户端使用 <emphasis>cURL</emphasis> 来演示 REST 请求。请注意任何能够兼容 HTTP 的客户端程序都能使用 <emphasis>cURL</emphasis>。
+    </para>
+    <important>
+      <para>
+      为了简洁，本示例中的 HTTP 请求中的头信息只发送 <emphasis>Host:</emphasis> 和 <emphasis>Authorization:</emphasis> 属性。但是这些属性都是一定需要的并且会根据你的&OVIRT;&MANAGER;的安装环境指定不同的值。
+      </para>
+    </important>
+    <important>
+      <para>
+        所有的用来认证的细节（<emphasis>USER:PASS</emphasis>）和证书位置（<emphasis>CERT</emphasis>）的 <emphasis>cURL</emphasis> 示例都包括占位符。
+      </para>
+    </important>
+    <note>
+      <para>
+        &OVIRT;&MANAGER;会生成一个全局唯一标识符（GUID）作为每一个资源的 <emphasis>id</emphasis> 属性。本示例中的标识码将会与你的&OVIRT;企业虚拟化环境的标识码有所不一样。
+      </para>
+    </note>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_2">
+    <title>示例：访问 API 入口</title>
+    <para>
+      下面的请求代码会获得 API 入口的展示。
+    </para>
+    <example>
+      <title>访问 API 的入口</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <screen>GET /api HTTP/1.1
+Accept: application/xml
+      </screen>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <screen># curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] https://[EayunOS Host]:443/api
+      </screen>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<api>
+ <link rel="capabilities" href="/api/capabilities"/>
+ <link rel="clusters" href="/api/clusters"/>
+ <link rel="clusters/search" href="/api/clusters?search={query}"/>
+ <link rel="datacenters" href="/api/datacenters"/>
+ <link rel="datacenters/search" href="/api/datacenters?search={query}"/>
+ <link rel="events" href="/api/events"/>
+ <link rel="events/search" href="/api/events?search={query}"/>
+ <link rel="hosts" href="/api/hosts"/>
+ <link rel="hosts/search" href="/api/hosts?search={query}"/>
+ <link rel="networks" href="/api/networks"/>
+ <link rel="roles" href="/api/roles"/>
+ <link rel="storagedomains" href="/api/storagedomains"/>
+ <link rel="storagedomains/search" href="/api/storagedomains?
+search={query}"/>
+ <link rel="tags" href="/api/tags"/>
+ <link rel="templates" href="/api/templates"/>
+ <link rel="templates/search" href="/api/templates?search={query}"/>
+ <link rel="users" href="/api/users"/>
+ <link rel="groups" href="/api/groups"/>
+ <link rel="domains" href="/api/domains"/>
+ <link rel="vmpools" href="/api/vmpools"/>
+ <link rel="vmpools/search" href="/api/vmpools?search={query}"/>
+ <link rel="vms" href="/api/vms"/>
+ <link rel="vms/search" href="/api/vms?search={query}"/>
+ <special_objects>
+ <link rel="templates/blank"
+ href="/api/templates/00000000-0000-0000-0000-000000000000"/>
+ <link rel="tags/root"
+ href="/api/tags/00000000-0000-0000-0000-000000000000"/>
+ </special_objects>
+ <product_info>
+ <name>Red Hat Enterprise Virtualization</name>
+ <vendor>Red Hat</vendor>
+ <version revision="0" build="0" minor="0" major="3"/>
+ </product_info>
+ <summary>
+ <vms>
+ <total>5</total>
+ <active>0</active>
+ </vms>
+ <hosts>
+ <total>1</total>
+ <active>1</active>
+ </hosts>
+ <users>
+ <total>1</total>
+ <active>1</active>
+ </users>
+ <storage_domains>
+ <total>2</total>
+ <active>2</active>
+ </storage_domains>
+ </summary>
+</api>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      入口提供给了用户一个获得虚拟化环境的资源列表的连接。每一个资源集链接的 <emphasis>rel=</emphasis> 属性都提供了其下属族源集的索引入口链接。本示例的下一步将检查 <emphasis>数据中心</emphasis> 资源集，它通过 <emphasis>rel="datacenter"</emphasis> 链接来实现访问。
+    </para>
+    <para>
+      API 的入口也包含了其它的资源集，如 <emphasis>product_info</emphasis>，<emphasis>special_objects</emphasis> 和 <emphasis>summary</emphasis>。有关这些资源的介绍将在其他章节中。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_3">
+    <title>示例：列出数据中心集合</title>
+    <para>
+      &OVIRT;&MANAGER;在安装的时候默认安装了一个 <emphasis>Default</emphasis> 的数据中心。本示例使用了 <emphasis>Default</emphasis> 数据中心作为示例的基本条件。
+    </para>
+    <para>
+      如下的请求获得了一个数据中心的集合展现：
+    </para>
+    <example>
+      <title>列出数据中心集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <screen>GET /api HTTP/1.1
+Accept: application/xml
+      </screen>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <screen># curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] \
+ https://[EayunOS Host]:443/api/datacenters
+      </screen>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<data_centers>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988">
+ <name>Default</name>
+ <description>The default Data Center</description>
+ <link rel="storagedomains"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/
+ storagedomains"/>
+ <link rel="permissions"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-
+5254004ac988/permissions"/>
+ <storage_type>nfs</storage_type>
+ <storage_format>v1</storage_format>
+ <version minor="0" major="3"/>
+ <supported_versions>
+ <version minor="0" major="3"/>
+ </supported_versions>
+ <status>
+ <state>up</state>
+ </status>
+ </data_center>
+</data_centers>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      注意 <emphasis>Default</emphasis> 数据中心的 <emphasis>id</emphasis> 代码。该代码从其它的数据中心里识别出该数据中心。
+    </para>
+    <para>
+      数据中心也包含指向<emphasis>存储域</emphasis>子资源集的链接。数据中心用该子集合来从主存储域集合附加存储域，示例将会在后面的章节里。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_4">
+    <title>示例：列出主机集群集合</title>
+    <para>
+      &OVIRT;&MANAGER;在安装的时候默认安装了一个 <emphasis>Default</emphasis> 的集群。本示例使用了 <emphasis>Default</emphasis> 集群作为在&OVIRT;企业虚拟化环境资源分组的方式。
+    </para>
+    <para>
+      如下的请求获得了一个集群的集合展现：
+    </para>
+    <example>
+      <title>列出主机集群集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <screen>GET /api HTTP/1.1
+Accept: application/xml
+      </screen>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <screen># curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] \
+ https://[EayunOS Host]:443/api/clusters
+      </screen>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<clusters>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95">
+ <name>Default</name>
+ <description>The default server cluster</description>
+ <link rel="networks"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks"/>
+ <link rel="permissions"
+ href="/api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/permissions"/>
+ <cpu id="Intel Penryn Family"/>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988"/>
+ <memory_policy>
+ <overcommit percent="100"/>
+ <transparent_hugepages>
+ <enabled>false</enabled>
+ </transparent_hugepages>
+ </memory_policy>
+ <scheduling_policy/>
+ <version minor="0" major="3"/>
+ <error_handling>
+ <on_error>migrate</on_error>
+ </error_handling>
+ </cluster>
+</clusters>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      注意 <emphasis>Default</emphasis> 集群的 <emphasis>id</emphasis> 代码。该代码从其它的集群里识别出该集群。
+    </para>
+    <para>
+      <emphasis>Default</emphasis> 集群和 <emphasis>Default</emphasis> 数据中心通过 <emphasis>data_center</emphasis> 元素的 <emphasis>id</emphasis> 和 <emphasis>href</emphasis> 属性相联系起来。
+    </para>
+    <para>
+      <emphasis>网络</emphasis>子资源集包含了一个该集群有关的网络资源列表。下一节将更详细的介绍<emphasis>网络</emphasis>资源集。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_5">
+    <title>示例：列出逻辑网络集合</title>
+    <para>
+      &OVIRT;&MANAGER;在安装的时候默认安装了一个<emphasis>默认</emphasis>的逻辑网络。该网络在&OVIRT;&MANAGER;中充当了访问主机的管理网络。
+    </para>
+    <para>
+      该网络与 <emphasis>Default</emphasis> 集群相关联，并且是 <emphasis>Default</emphasis> 数据中心的成员。该示例使用 <emphasis>&DEFAULT_LOGICAL_NETWORK;</emphasis> 逻辑网络来连接到虚拟机。
+    </para>
+    <para>
+      如下的请求获得了一个逻辑网络的集合展现：
+    </para>
+    <example>
+      <title>列出逻辑网络集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <screen>GET /api HTTP/1.1
+Accept: application/xml
+      </screen>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <screen># curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] \
+ https://[EayunOS Host]:443/api/networks
+      </screen>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<networks>
+ <network id="00000000-0000-0000-0000-000000000009"
+ href="/api/networks/00000000-0000-0000-0000-000000000009">
+ <name>ovirtmgmt</name>
+ <description>Management Network</description>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988"/>
+ <stp>false</stp>
+ <status>
+ <state>operational</state>
+ </status>
+ <display>false</display>
+ </network>
+</networks>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      <emphasis>&DEFAULT_LOGICAL_NETWORK;</emphasis> 逻辑网络附加到了 <emphasis>Default</emphasis> 数据中心，它是通过数据中心的	<emphasis>id</emphasis> 代码相联系起来。
+    </para>
+    <para>
+      <emphasis>&DEFAULT_LOGICAL_NETWORK;</emphasis> 逻辑网络也通过集群的<emphasis>逻辑网络</emphasis>子资源集附加到了 <emphasis>Default</emphasis> 集群。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_6">
+    <title>示例：列出主机集合</title>
+    <para>
+      本示例使用了&OVIRT;&NODE;。&OVIRT;&MANAGER;可以自动注册已经配置好的&OVIRT;&NODE;。本示例将示范如何获得主机的列表展现，并且示范怎么将名为 <emphasis>hypervisor</emphasis> 的&OVIRT;&NODE;注册到虚拟化环境中去。
+    </para>
+    <example>
+      <title>列出主机集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <screen>GET /api HTTP/1.1
+Accept: application/xml
+      </screen>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <screen># curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] \
+ https://[EayunOS Host]:443/api/hosts
+      </screen>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Accept: application/xml
+<hosts>
+ <host id="0656f432-923a-11e0-ad20-5254004ac988"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988">
+ <name>hypervisor</name>
+ <actions>
+ <link rel="install"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/install"/>
+ <link rel="activate"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/activate"/>
+ <link rel="fence"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/fence"/>
+ <link rel="deactivate"
+ href="/api/hosts/0656f432-923a-11e0-ad20-
+5254004ac988/deactivate"/>
+ <link rel="approve"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/approve"/>
+ <link rel="iscsilogin"
+ href="/api/hosts/0656f432-923a-11e0-ad20-
+5254004ac988/iscsilogin"/>
+ <link rel="iscsidiscover"
+ href="/api/hosts/0656f432-923a-11e0-ad20-
+5254004ac988/iscsidiscover"/>
+ <link rel="commitnetconfig"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/
+ commitnetconfig"/>
+ </actions>
+ <link rel="storage"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/storage"/>
+ <link rel="nics"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/nics"/>
+ <link rel="tags"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/tags"/>
+ <link rel="permissions"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/permissions"/>
+ <link rel="statistics"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988/statistics"/>
+ <address>10.64.14.110</address>
+ <status>
+ <state>non_operational</state>
+ </status>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+ <port>54321</port>
+ <storage_manager>true</storage_manager>
+ <power_management>
+ <enabled>false</enabled>
+ <options/>
+ </power_management>
+ <ksm>
+ <enabled>false</enabled>
+ </ksm>
+ <transparent_hugepages>
+ <enabled>true</enabled>
+ </transparent_hugepages>
+ <iscsi>
+ <initiator>iqn.1994-05.com.example:644949fe81ce</initiator>
+ </iscsi>
+Chapter 3. REST API Quick Start Example
+31 <cpu>
+ <topology cores="2"/>
+ <name>Intel(R) Core(TM)2 Duo CPU E8400 @ 3.00GHz</name>
+ <speed>2993</speed>
+ </cpu>
+ <summary>
+ <active>0</active>
+ <migrating>0</migrating>
+ <total>0</total>
+ </summary>
+ </host>
+</hosts
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      注意 <emphasis>Default</emphasis> 主机的 <emphasis>id</emphasis> 代码。该代码从其它的主机里识别出该主机。
+    </para>
+    <para>
+      本主机是 <emphasis>Default</emphasis> 集群中的一员并且访问集群的 <emphasis>nics</emphasis> 子资源集，说明该主机有一个与 <emphasis>&DEFAULT_LOGICAL_NETWORK;</emphasis> 网络的连接。
+    </para>
+    <para>
+      <emphasis>网络</emphasis>子资源集包含了一个该集群有关的网络资源列表。下一节将更详细的介绍<emphasis>网络</emphasis>资源集。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_7">
+    <title>示例：批准主机</title>
+    <para>
+      <emphasis>hypervisor</emphasis> 主机资源包含了一个 <emphasis>approve</emphasis> 操作。用户通过 <emphasis>POST</emphasis> 请求来访问该操作的 URI。
+    </para>
+    <example>
+      <title>批准一台已配置好的&OVIRT;&NODE;</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/hosts/0656f432-923a-11e0-ad20-5254004ac988/approve HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\G
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<action/>" \
+ https://[EayunOS Host]:443/api/hosts/0656f432-923a-11e0-ad20-
+5254004ac988/approve
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      POST 请求需要一个 body 实体来触发一个动作。由于该动作不需要另外的参数，body 实体里包含了一个空的 <emphasis>action</emphasis> 元素。
+    </para>
+    <para>
+      你只能对&OVIRT;&NODE;来使用 <emphasis>approve</emphasis> 操作。&OVIRT;&NODE;的 Linux 版本需要其它的步骤来连接至虚拟化环境。
+    </para>
+    <para>
+      这些步骤将批准并且激活你的在虚拟化环境中的主机。此时&NODE;的<emphasis>状态</emphasis>从<emphasis>不可操作</emphasis>到<emphasis>运行</emphasis>状态。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_8">
+    <title>示例：创建 NFS 数据存储</title>
+    <para>
+      一个 NFS 数据存储是一个导出的 NFS 共享存储，被附加在了一个数据中心，并且提供虚拟客户机的镜像存储。创建一个 NFS 数据存储需要一个 POST 请求，并且提供数据存储的描述信息，该请求发给数据存储资源集合的 URL。
+    </para>
+    <example>
+      <title>创建一个 NFS 的数据存储</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_domain>
+ <name>data1</name>
+ <type>data</type>
+ <storage>
+ <type>nfs</type>
+ <address>192.168.0.10</address>
+ <path>/data1</path>
+ </storage>
+ <host>
+ <name>hypervisor</name>
+ </host>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<storage_domain><name>data1</name><type>data</type> \
+ <storage><type>nfs</type><address>192.168.0.10</address> \
+ <path>/data1</path></storage> \
+ <host><name>hypervisor</name></host></storage_domain>" \
+ https://[EayunOS Host]:443/api/storagedomains
+]]>
+        </programlisting>
+      </para>
+      <para>
+        该 API 创建了一个名为 <emphasis>data1</emphasis> 的 NFS 数据存储，且它的导出路径为 <emphasis>192.168.0.10:/data1</emphasis>，并且通过&NODE;来设置到存储的连接。该 API 同时返回了新建的数据存储的如下资源展现。
+      </para>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Accept: application/xml
+<storage_domain id="9ca7cb40-9a2a-4513-acef-dc254af57aac"
+ href="/api/storagedomains/9ca7cb40-9a2a-4513-acef-dc254af57aac">
+ <name>data1</name>
+ <link rel="permissions"
+ href="/api/storagedomains/9ca7cb40-9a2a-4513-acef-dc254af57aac/
+ permissions"/>
+ <link rel="files"
+ href="/api/storagedomains/9ca7cb40-9a2a-4513-acef-dc254af57aac/files"/>
+ <type>data</type>
+ <master>false</master>
+ <storage>
+ <type>nfs</type>
+ <address>192.168.0.10</address>
+ <path>/data1</path>
+ </storage>
+ <available>175019917312</available>
+ <used>27917287424</used>
+ <committed>10737418240</committed>
+ <storage_format>v1</storage_format>
+ <host id="0656f432-923a-11e0-ad20-5254004ac988"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988">
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_9">
+    <title>示例：创建一个 NFS ISO 存储</title>
+    <para>
+      一个 NFS ISO 存储是一个已经被挂载的且被附加到一个数据中心的 NFS 共享存储，它提供 DVD/CD-ROM ISO 文件和虚拟化的软盘镜像文件的存储。创建的新的存储需要一个 POST 请求，并且提供存储的描述信息，该请求发给存储资源集合的 URL。
+    </para>
+    <example>
+      <title>创建一个 NFS ISO 存储</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_domain>
+ <name>iso1</name>
+ <type>iso</type>
+ <storage>
+ <type>nfs</type>
+ <address>192.168.0.10</address>
+ <path>/iso1</path>
+ </storage>
+ <host>
+ <name>hypervisor</name>
+ </host>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<storage_domain><name>iso1</name><type>iso</type> \
+ <storage><type>nfs</type><address>192.168.0.10</address> \
+ <path>/iso1</path></storage> \
+ <host><name>hypervisor</name></host></storage_domain>" \
+ https://[EayunOS Host]:443/api/storagedomains
+]]>
+        </programlisting>
+      </para>
+      <para>
+        该 API 创建了一个名为 <emphasis>iso1</emphasis> 的 NFS iso 数据存储，且它的导出路径为 <emphasis>192.168.0.10:/iso1</emphasis>，并且通过&NODE;来设置到存储的连接。该 API 同时返回了新建的数据存储的如下资源展现。
+      </para>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Accept: application/xml
+<storage_domain id="00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da">
+ <name>iso1</name>
+ <link rel="permissions"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/
+ permissions"/>
+ <link rel="files"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/files"/>
+ <type>iso</type>
+ <host id="" href="">
+ <master>false</master>
+ <storage>
+ <type>nfs</type>
+ <address>192.168.0.10</address>
+ <path>/iso1</path>
+ </storage>
+ <available>82678120448</available>
+ <used>18253611008</used>
+ <committed>0</committed>
+ <storage_format>v1</storage_format>
+ <host id="0656f432-923a-11e0-ad20-5254004ac988"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988">
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_10">
+    <title>示例：附加存储域到数据中心</title>
+    <para>
+      如下的请求将名为 <emphasis>data1</emphasis> 和 <emphasis> iso1</emphasis> 的存储域附加到了名为 <emphasis>Default</emphasis> 的数据中心：
+    </para>
+    <example>
+      <title>将 data1 存储域附加到 Default 数据中心</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_domain>
+ <name>data1</name>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<storage_domain><name>data1</name></storage_domain>" \
+ https://[EayunOS Host]:443/api/datacenters/01a45ff0-915a-11e0-8b87-
+5254004ac988/storagedomains
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <example>
+      <title>将 iso1 存储域附加到 Default 数据中心</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_domain>
+ <name>iso1</name>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<storage_domain><name>iso1</name></storage_domain>" \
+ https://[EayunOS Host]:443/api/datacenters/01a45ff0-915a-11e0-8b87-
+5254004ac988/storagedomains
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      这些 POST 请求在 <emphasis>Default</emphasis> 数据中心的 <emphasis>storagedomains</emphasis> 子集合下为我们新增了两个 <emphasis>storage_domain</emphasis> 资源。这意味着 <emphasis>storagedomain</emphasis> 子集合包含了附加的数据中心的存储域。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_11">
+    <title>示例：激活存储域</title>
+    <para>
+      本示例将 <emphasis>data1</emphasis> 和 <emphasis>iso1</emphasis> 存储域激活，并且供&OVIRT;&MANAGER;时用。
+    </para>
+    <example>
+      <title>激活 data1 存储域</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/storagedomains/
+9ca7cb40-9a2a-4513-acef-dc254af57aac/activate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<action/>" \
+ https://[EayunOS Host]:443/api/datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/9ca7cb40-9a2a-4513-acef-dc254af57aac/activate
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <example>
+      <title>激活 iso1 存储域</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/storagedomains/
+00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/activate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<action/>"
+ https://[EayunOS Host]:443/api/datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/activat
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      这些步骤激活了两个存储域并为数据中心所使用。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_12">
+    <title>示例：创建虚拟机</title>
+    <para>
+      下面的示例将在 <emphasis>Default</emphasis> 数据中心下创建创建一台名为 <emphasis>vm1</emphasis> 的虚拟机，且该i虚拟机基于虚拟化环境中的 <emphasis>Blank</emphasis> 模板。该请求设置了虚拟机的 <emphasis>memory</emphasis> 大小为 512MB，并且设置了启动设备为一个虚拟磁盘。
+    </para>
+    <example>
+      <title>创建虚拟机</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/vms HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vm>
+ <name>vm1</name>
+ <cluster>
+ <name>default</name>
+ </cluster>
+ <template>
+ <name>Blank</name>
+ </template>
+ <memory>536870912</memory>
+ <os>
+ <boot dev="hd"/>
+ </os>
+</vm>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<vm><name>vm1</name><cluster><name>default</name> \
+ </cluster><template><name>Blank</name></template> \
+ <memory>536870912</memory><os><boot dev='hd'/></os></vm>" \
+ https://[EayunOS Host]:443/api/vms
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+HTTP/1.1 200 OK
+Accept: application/xml
+<vm id="6efc0cfa-8495-4a96-93e5-ee490328cf48"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48">
+ <name>vm1</name>
+ <actions>
+ <link rel="shutdown"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/shutdown"/>
+ <link rel="start"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/start"/>
+ <link rel="stop"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/stop"/>
+ <link rel="suspend"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/suspend"/>
+ <link rel="detach"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/detach"/>
+ <link rel="export"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/export"/>
+ <link rel="move"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/move"/>
+ <link rel="ticket"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/ticket"/>
+ <link rel="migrate"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/migrate"/>
+ </actions>
+ <link rel="disks"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/disks"/>
+ <link rel="nics"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/nics"/>
+ <link rel="cdroms"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/cdroms"/>
+ <link rel="snapshots"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/snapshots"/>
+ <link rel="tags"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/tags"/>
+ <link rel="permissions"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/permissions"/>
+ <link rel="statistics"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/statistics"/>
+ <type>desktop</type>
+ <status>
+ <state>down</state>
+ </status>
+ <memory>536870912</memory>
+ <cpu>
+ <topology cores="1" sockets="1"/>
+ </cpu>
+ <os type="Unassigned">
+ <boot dev="cdrom"/>
+ </os>
+ <high_availability>
+ <enabled>false</enabled>
+ <priority>0</priority>
+ </high_availability>
+ <display>
+ <type>spice</type>
+ <monitors>1</monitors>
+ </display>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+Chapter 3. REST API Quick Start Example
+41 href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+ <template id="00000000-0000-0000-0000-000000000000"
+ href="/api/templates/00000000-0000-0000-0000-000000000000"/>
+ <start_time>2011-06-15T04:48:02.167Z</start_time>
+ <creation_time>2011-06-15T14:48:02.078+10:00</creation_time>
+ <origin>rhev</origin>
+ <stateless>false</stateless>
+ <placement_policy>
+ <affinity>migratable</affinity>
+ </placement_policy>
+ <memory_policy>
+ <guaranteed>536870912</guaranteed>
+ </memory_policy>
+</vm>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_13">
+    <title>示例：创建虚拟机网卡</title>
+    <para>
+      如下示例将创建一张虚拟机网卡给虚拟机，用来将虚拟机连接到&DEFAULT_LOGICAL_NETWORK;网络。
+    </para>
+    <example>
+      <title>创建虚拟机网卡</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/nics HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<nic>
+ <interface>virtio</interface>
+ <name>nic1</name>
+ <network>
+ <name>ovirtmgmt</name>
+ </network>
+</nic>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<nic><name>nic1</name><network><name>ovirtmgmt</name></network></nic>" \
+ https://[EayunOS Host]:443/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/nics
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_14">
+    <title>示例：创建虚拟机存储磁盘</title>
+    <para>
+      如下示例将为示例虚拟机创建一个 8 GB 的 Copy-On-Write 模式的存储磁盘
+    </para>
+    <example>
+      <title>创建虚拟机存储磁盘</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/disks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<disk>
+ <storage_domains>
+ <storage_domain id="9ca7cb40-9a2a-4513-acef-dc254af57aac"/>
+ </storage_domains>
+ <size>8589934592</size>
+ <type>system</type>
+ <interface>virtio</interface>
+ <format>cow</format>
+ <bootable>true</bootable>
+</disk>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<disk><storage_domains> \
+ <storage_domain id='9ca7cb40-9a2a-4513-acef-dc254af57aac'/> \
+ </storage_domains><size>8589934592</size><type>system</type> \
+ <interface>virtio</interface><format>cow</format> \
+ <bootable>true</bootable></disk>" \
+ https://[EayunOS Host]:443/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/disks
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      <emphasis>storage_domain</emphasis> 元素告诉 API 将存储磁盘保存至 <emphasis>data1</emphasis> 存储域。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_15">
+    <title>示例：附加 ISO 镜像到虚拟机</title>
+    <para>
+      我们的示例虚拟机需要将启动设备设置为 CD-ROM 或者是 DVD ISO 镜像，用来为虚拟机安装操作系统。本示例使用了 CentOS 6 ISO 镜像作为安装软体。
+    </para>
+    <para>
+      ISO 镜像必须要在 <emphasis>iso1</emphasis> ISO 存储域中。&OVIRT;企业虚拟化平台提供了上传工具用来将 ISO 镜像上传至正确的位置并且有正确的用户权限。
+    </para>
+    <para>
+      一旦 ISO 文件上传完成，API 用户就可以在 ISO 存储域的 <emphasis>files</emphasis> 子集合下来浏览文件资源：
+    </para>
+    <example>
+      <title>浏览 ISO 存储域的 files 子集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+GET /api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/files HTTP/1.1
+Accept: application/xml
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X GET -H "Accept: application/xml" -u [USER:PASS] --cacert [CERT] \
+ https://[EayunOS Host]:443/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-
+3c898fa8b6da/files
+]]>
+        </programlisting>
+      </para>
+      <para>
+        API 返回如下的 files 子资源集的展现：
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+<files>
+ <file id="CentOS-6.5-x86_64-dvd.iso"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/
+ files/CentOS-6.5-x86_64-dvd.iso.iso">
+ <name>CentOS-6.5-x86_64-dvd.iso.iso</name>
+ <storage_domain id="00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"/>
+ </file>
+</files>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      一个 API 用户将 <emphasis>CentOS-6.5-x86_64-dvd.iso</emphasis> 附加到我们的示例虚拟机中。
+    </para>
+    <example>
+      <title>附加一个 ISO 镜像到虚拟机</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/cdroms HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<cdrom>
+ <file id="CentOS-6.5-x86_64-dvd.iso"/>
+</cdrom>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<cdrom><file id='CentOS-6.5-x86_64-dvd.iso'/></cdrom>" \
+ https://[EayunOS Host]:443/api/vms/6efc0cfa-8495-4a96-93e5-
+ee490328cf48/cdroms
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_16">
+    <title>示例：启动虚拟机</title>
+    <para>
+      虚拟环境已经准备就绪并且虚拟机包含所有必须的组建来正常工作。本示例使用 <emphasis>start</emphasis> 操作来启动虚拟机。
+    </para>
+    <example>
+      <title>启动虚拟机</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/start HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <vm>
+ <os>
+ <boot dev="cdrom"/>
+ </os>
+ </vm>
+</action>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
+\
+ -u [USER:PASS] --cacert [CERT] \
+ -d "<action><vm><os><boot dev='cdrom'/></os></vm></action>" \
+ https://[EayunOS Host]:443/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48/start
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      多余的信息用作仅在本次启动过程中使用 CD-ROM 作为虚拟机的启动设备。这将能够使虚拟机使用已附加的 ISO 镜像来安装 CentOS 6。在虚拟机以后的启动中都会将启动设备设置回为<emphasis>磁盘</emphasis>。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-rest-examples_Chapter-rest-examples_Section_17">
+    <title>示例：查看系统事件</title>
+    <para>
+      <emphasis>vm1</emphasis> 的 <emphasis>start</emphasis> 操作将会在 <emphasis>events</emphasis> 集合中创建几个事件条目。本示例列出了事件集合，并且识别出使用 API 启动虚拟机的事件。
+    </para>
+    <example>
+      <title>列出主机集群集合</title>
+      <para>
+        <emphasis>请求：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+GET /api/events HTTP/1.1
+Accept: application/xml
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>cURL 命令：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+# curl -X GET -H "Accept: application/xml" -u [USER:PASS] \
+ --cacert [CERT] \
+ https://[EayunOS Host]:443/api/events
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>结果：</emphasis>
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+<events>
+ ...
+ <event id="103" href="/api/events/103">
+ <description>User admin logged out.</description>
+ <code>31</code>
+ <severity>normal</severity>
+ <time>2011-06-29T17:42:41.544+10:00</time>
+ <user id="80b71bae-98a1-11e0-8f20-525400866c73"
+ href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+ </event>
+ <event id="102" href="/api/events/102">
+ <description>vm1 was started by admin (Host: hypervisor).</description>
+ <code>153</code>
+ <severity>normal</severity>
+ <time>2011-06-29T17:42:41.499+10:00</time>
+ <user id="80b71bae-98a1-11e0-8f20-525400866c73"
+ href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+ <vm id="6efc0cfa-8495-4a96-93e5-ee490328cf48"
+ href="/api/vms/6efc0cfa-8495-4a96-93e5-ee490328cf48"/>
+ <host id="0656f432-923a-11e0-ad20-5254004ac988"
+ href="/api/hosts/0656f432-923a-11e0-ad20-5254004ac988"/>
+ </event>
+ <event id="101" href="/api/events/101">
+ <description>User admin logged in.</description>
+ <code>30</code>
+ <severity>normal</severity>
+ <time>2011-06-29T17:42:40.505+10:00</time>
+ <user id="80b71bae-98a1-11e0-8f20-525400866c73"
+ href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+ </event
+ ...
+</events>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        如下事件将发生：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <emphasis>id="101"</emphasis> - API 使用 <emphasis>admin</emphasis> 的用户名和密码进行认证。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis>id="102"</emphasis> - API，作为 <emphasis>admin</emphasis> 用户的角色，在&NODE;上启动虚拟机 <emphasis>vm1</emphasis>。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis>id="103"</emphasis> - API 登出了 <emphasis>admin</emphasis> 的用户账户。
+          </para>
+        </listitem>
+      </itemizedlist>
+    </example>
+  </section>
 
 </chapter>
 
