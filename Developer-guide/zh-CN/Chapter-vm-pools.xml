@@ -15,6 +15,7 @@
 			下表显示了虚拟机池中定义的元素。
 		</para>
 
+
 		<table>
 			<title>虚拟机池元素</title>
 			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
