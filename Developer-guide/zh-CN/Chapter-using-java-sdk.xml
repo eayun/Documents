@@ -4,30 +4,429 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-using-java-sdk_Chapter">
-	<title>using-java-sdk Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_1">
-		<title>using-java-sdk Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_2">
-		<title>using-java-sdk Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>使用 Java 软件开发工具</title>
+  <para>
+    本章概述了几个怎么在 Java IDE 下使用 Java 软件开发工具的大致步骤。需要在 Java IDE 下使用 Java 软件开发工具的话，<emphasis>ovirt-engine-sdk-java</emphasis> 和 <emphasis>ovirt-engine-sdk-java-javadoc</emphasis> 中的 .jar 文件必须以外部库的方式加入到 Java 工程中。如下的 .jar 文件也需要加入：
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis>apache-commons-logging</emphasis>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis>commons-beanutils</emphasis>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis>commons-codec</emphasis>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis>httpclient</emphasis>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis>httpcore</emphasis>
+      </para>
+    </listitem>
+  </itemizedlist>
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_1">
+    <title>连接到&OVIRT;&MANAGER;</title>
+    <para>
+      <emphasis>Api</emphasis> 类充当了一个关口用来连接&OVIRT;&MANAGER;和操作&OVIRT;&MANAGER;的资源。每当你的工程需要与管理端互动时，你必须定义一个该类的实例。
+    </para>
+    <para>
+      要定义一个该类的实例，首先需要将 <emphasis>Api</emphasis> 类 import 到你的工程。
+    </para>
+    <screen>import org.ovirt.engine.sdk.Api;
+    </screen>
+    <para>
+      接下来，声明一个该类的实例如下：
+    </para>
+    <screen>Api api = new Api("[你的管理端的地址]", "[用户名]@[域]", 
+"[密码]", "[证书路径]");
+    </screen>
+    <para>
+      在上面代码中，管理端的地址指的是连接到&OVIRT;&MANAGER;的地址和端口名称，用户名，域和密码是登陆需要的内容，证书的路径是保存在你本地的用于与管理端建立 SSL 连接所需的证书文件。要了解使用证书文件的更多信息，参见 <xref linkend="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_13"/>。
+    </para>
+    <para>
+      如下的示例更详细地描述了该过程：
+    </para>
+    <para>
+      <programlisting>
+        <![CDATA[
+import org.ovirt.engine.sdk.Api;
+import java.io.IOException;
+public class Main
+{
+ private static final String URL = "https://localhost:443/api";
+ 
+ @SuppressWarnings("unused");
+ public static void main(String[] args) throws ClientProtocolException,
+ ServerException, UnsecuredConnectionAttemptError, IOException
+ {
+ // #1 Authenticate using the user name and password
+ Api api = new Api(URL, "admin@interal", "123456", "/home/user/.ovirtsdk/");
+ 
+ ...
+ }
+}
+]]>
+      </programlisting>
+    </para>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_2">
+    <title>列出资源实体</title>
+    <para>
+      下列的示例概括了怎么在&OVIRT;&MANAGER;中列出资源实体。在本示例中，将列出虚拟机资源，是通过 <emphasis>Api</emphasis> 类的 <emphasis>getVMs()</emphasis> 方法实现的。
+    </para>
+    <procedure>
+      <title>列出资源实体</title>
+      <step>
+        <para>
+          声明一个该类型的实体的 <emphasis>List</emphasis>，然后通过如下代码获得实体的 <emphasis>List</emphasis>。
+        </para>
+        <para>
+          <programlisting>
+            <![CDATA[
+List<VM> vms = api.getVMs().list();
+]]>
+          </programlisting>
+        </para>
+      </step>
+    </procedure>
+  </section>
 
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_3">
+    <title>编辑资源属性</title>
+    <para>
+      下列示例概括了如何编辑一个资源的属性。在本示例中，需要编辑的属性是名字为‘test’的虚拟机的描述属性，且将要更改为‘java_sdk’。
+    </para>
+    <procedure>
+      <title>编辑一个资源的属性</title>
+      <step>
+        <para>
+          声明一个待编辑属性的资源的实例：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          设置新的属性：
+        </para>
+        <screen>vm.setDescription("java_sdk");
+        </screen>
+      </step>
+      <step>
+        <para>
+          执行更新操作：
+        </para>
+        <screen>VM newVM = vm.update();
+        </screen>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_4">
+    <title>获得资源属性</title>
+    <para>
+      在 Java 软件开发工具中，资源可以以两种方式来索引：<emphasis>name</emphasis>，和 <emphasis>UUID</emphasis>。如果资源存在，它们都会返回该资源的对象。
+    </para>
+    <para>
+      通过 <emphasis>name</emphasis> 属性来获得资源：
+    </para>
+    <screen>VM vm = api.getVMs().get("test");
+    </screen>
+    <para>
+      通过 <emphasis>UUID</emphasis> 属性来获得资源：
+    </para>
+    <screen>VM vm = api.getVMs().get(UUID.fromString("5a89a1d2-32be-33f7-a0d1-f8b5bc974ff6"));
+    </screen>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_5">
+    <title>添加资源</title>
+    <para>
+      下面的示例将概括两种向&OVIRT;&MANAGER;添加新资源的方法。在这些示例中，被添加的资源是虚拟机。
+    </para>
+    <formalpara>
+      <title>示例1</title>
+      <para>
+        在本示例中，一个 <emphasis>VM</emphasis> 类的实例将被声明用来表示准备添加的虚拟机。然后，往该虚拟机的实例中设置想要的属性，最后，该虚拟机被添加到了管理端。
+      </para>
+    </formalpara>
+    <screen>org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
+vmParams.setName("myVm");
+vmParams.setCluster(api.getClusters().get("myCluster"));
+vmParams.setTemplate(api.getTemplates().get("myTemplate"));
+...
+    </screen>
+    <screen>VM vm = api.getVMs().add(vmParams);
+    </screen>
+    <formalpara>
+      <title>示例2</title>
+      <para>
+        在本示例中，一个 <emphasis>VM</emphasis> 类的实例将如同示例1中的流程创建好。但是与使用 <emphasis>get</emphasis> 方法来从管理端获得已有资源不同，每一个属性都以索引到新定义的属性的实例方式来设置属性。最后，该虚拟机被添加到了管理端。
+      </para>
+    </formalpara>
+    <screen>org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
+vmParams.setName("myVm");
+org.ovirt.engine.sdk.entities.Cluster clusterParam = new Cluster();
+clusterParam.setName("myCluster");
+vmParams.setCluster(clusterParam);
+org.ovirt.engine.sdk.entities.Template templateParam = new Template();
+templateParam.setName("myTemplate");
+vmParams.setTemplate(templateParam);
+...
+    </screen>
+    <screen>VM vm = api.getVMs().add(vmParams);
+    </screen>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_6">
+    <title>在资源上执行操作</title>
+    <para>
+      如下的示例概括了怎么在资源上执行操作。在本示例中，名为‘test’的虚拟机将被启动。
+    </para>
+    <procedure>
+      <title>在资源上执行操作</title>
+      <step>
+        <para>
+          声明一个资源的实例：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          声明发送给资源的操作参数：
+        </para>
+        <screen>Action actionParam = new Action();
+org.ovirt.engine.sdk.entities.VM vmParam = new 
+org.ovirt.engine.sdk.entities.VM();
+actionParam.setVm(vmParam);
+        </screen>
+      </step>
+      <step>
+        <para>
+          执行操作：
+        </para>
+        <screen>Action res = vm.start(actionParam);
+        </screen>
+      </step>
+    </procedure>
+    <para>
+      或者，你可以以内部方法的方式来执行操作。
+    </para>
+    <screen>Action res = vm.start(new Action()
+{
+ {
+ setVm(new org.ovirt.engine.sdk.entities.VM());
+ }
+});
+    </screen>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_7">
+    <title>列出子资源</title>
+    <para>
+      下列的示例概括了怎么列出资源的子资源集合。在本示例中，名为‘test’的虚拟机的子资源将被列出。
+    </para>
+    <procedure>
+      <title>列出子资源</title>
+      <step>
+        <para>
+          声明一个准备列出子资源的资源的实例：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          列出子资源：
+        </para>
+        <programlisting>
+          <![CDATA[
+List<VMDisk> disks = vm.getDisks().list();
+]]>
+        </programlisting>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_8">
+    <title>获得子资源</title>
+    <para>
+      下列的示例概括了怎么获得资源的子资源集合。在本示例中，名为‘test’的虚拟机的子资源，即名为‘my disk’的磁盘将会被使用。
+    </para>
+    <procedure>
+      <title>获得子资源</title>
+      <step>
+        <para>
+          声明一个准备使用的子资源的实例：
+        </para>
+        <screen>VMDisk disk = vm.getDisks().get("my disk");
+        </screen>
+      </step>
+      <step>
+        <para>
+          列出子资源：
+        </para>
+        <programlisting>
+          <![CDATA[
+List<VMDisk> disks = vm.getDisks().list();
+]]>
+        </programlisting>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_9">
+    <title>向资源添加子资源</title>
+    <para>
+      下列的示例概括了怎么向资源添加子资源。在本示例中，名为‘test’的虚拟机将会被增加一块大小为‘1073741824L’字节，接口类型为‘virtio’，格式为‘cow’的虚拟机磁盘。
+    </para>
+    <procedure>
+      <title>向资源添加一个子资源</title>
+      <step>
+        <para>
+          声明一个准备添加子资源的资源的实例：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          创建参数以设置资源的属性：
+        </para>
+        <programlisting>
+          <![CDATA[
+Disk diskParam = new Disk();
+diskParam.setProvisionedSize(1073741824L);
+diskParam.setInterface("virtio");
+diskParam.setFormat("cow");
+]]>
+        </programlisting>
+      </step>
+      <step>
+        <para>
+          添加子资源：
+        </para>
+        <screen>Disk disk = vm.getDisks().add(diskParam);
+        </screen>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_10">
+    <title>编辑子资源</title>
+    <para>
+      下列示例概括了如何编辑子资源。在本示例中，‘test’虚拟机的‘test_Disk1’磁盘的名称将会跟新为‘test_Disk1_updated’。
+    </para>
+    <procedure>
+      <title>编辑一个子资源</title>
+      <step>
+        <para>
+          定义一个资源以准备编辑其子资源：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          定义一个子资源以准备编辑：
+        </para>
+        <screen>VMDisk disk = vm.getDisks().get("test_Disk1");
+        </screen>
+      </step>
+      <step>
+        <para>
+          设置属性的值：
+        </para>
+        <screen>disk.setAlias("test_Disk1_updated");
+        </screen>
+      </step>
+      <step>
+        <para>
+          更新子资源：
+        </para>
+        <screen>VMDisk updateDisk = disk.update();
+        </screen>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_11">
+    <title>在子资源上执行操作</title>
+    <para>
+      下列示例概括了怎么在子资源上执行操作。在本示例中，虚拟机‘test’的磁盘‘test_Disk1’将被激活。
+    </para>
+    <procedure>
+      <title>在子资源上执行操作</title>
+      <step>
+        <para>
+          定义一个资源以准备操作其子资源：
+        </para>
+        <screen>VM vm = api.getVMs().get("test");
+        </screen>
+      </step>
+      <step>
+        <para>
+          定义一个子资源以准备编辑：
+        </para>
+        <screen>VMDisk disk = vm.getDisks().get("test_Disk1");
+        </screen>
+      </step>
+      <step>
+        <para>
+          设置对子资源所做操作的参数：
+        </para>
+        <screen>Action actionParam = new Action();
+        </screen>
+      </step>
+      <step>
+        <para>
+          更新子资源：
+        </para>
+        <screen>Action result = disk.activate(actionParam);
+        </screen>
+      </step>
+    </procedure>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_12">
+    <title>Java SDK 的最佳实践</title>
+    <para>
+      <emphasis>Api</emphasis> 实例应该在使用完后关闭以释放资源。
+    </para>
+    <programlisting>
+      <![CDATA[
+Api api = new Api(URL, USER, PASSWORD);
+
+try {
+ api.getDataCenters().add(new DataCenter());
+ ...
+}
+
+finally {
+ api.shutdown();
+}
+]]>
+    </programlisting>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_13">
+    <title>使用 SSL（安全套接字层）</title>
+    <para>
+      &OVIRT;&MANAGER;Java SDK
+    </para>
+  </section>
 </chapter>
 

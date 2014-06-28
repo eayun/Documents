@@ -4,30 +4,63 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-java-sdk-overview_Chapter">
-	<title>java-sdk-overview Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-java-sdk-overview_Chapter-java-sdk-overview_Section_1">
-		<title>java-sdk-overview Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-java-sdk-overview_Chapter-java-sdk-overview_Section_2">
-		<title>java-sdk-overview Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>软件开发工具概览</title>
+  <section id="sect-EayunOS-Developer-guide-java-sdk-overview_Chapter-java-sdk-overview_Section_1">
+    <title>java 软件开发工具介绍</title>
+    <para>
+      java 软件开发工具是一组类的集合来让你能够在以 Java 为基础的工程里与&OVIRT;&MANAGER;进行交互。通过下载这些类并加入到你的工程依赖中，你能够访问高级自动化的管理功能。
+    </para>
+    <para>
+      java 软件开发工具使用了 ovirt-engine-sdk-java 包，请查看&OVIRT;企业虚拟化安装手册来获得更多如何获得该软件包的信息。
+    </para>
+    <para>
+      你同时也需要：
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          一个安装好的&OVIRT;&MANAGER;环境。
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          一个安装且设置好的&OVIRT;&NODE;环境。
+        </para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-java-sdk-overview_Chapter-java-sdk-overview_Section_2">
+    <title>下载 java 软件开发工具</title>
+    <formalpara>
+      <title>摘要</title>
+      <para>
+        下载 java 软件开发工具和配套的&OVIRT;&MANAGER;文档。
+      </para>
+    </formalpara>
+    <procedure>
+      <title>下载 java 软件开发工具</title>
+      <step>
+        <para>
+          打开终端。
+        </para>
+      </step>
+      <step>
+        <para>
+          运行以下命令：
+        </para>
+        <screen># yum install ovirt-engine-sdk-java
+# yum install ovirt-engine-sdk-java-javadoc
+        </screen>
+      </step>
+    </procedure>
+    <formalpara>
+      <title>结果</title>
+      <para>
+        java 软件开发工具和配套的&OVIRT;&MANAGER;文档已经下载到了 <emphasis>/usr/share/java/ovirt-engine-sdk-java</emphasis> 目录中并且可以被添加到 Java 工程中。
+      </para>
+    </formalpara>
+  </section>
 
 </chapter>
 
