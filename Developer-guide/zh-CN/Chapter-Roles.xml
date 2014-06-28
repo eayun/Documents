@@ -60,7 +60,7 @@
 							布尔值：true或false
 						</entry>
 						<entry>
-							定义是否能更新或删除角色。设置mutable为false后，角色将创建未红帽公司虚拟环境下的角色
+							定义是否能更新或删除角色。设置mutable为false后，角色将创建未&OVIRT;公司虚拟环境下的角色
 						</entry>
 						<entry>
 							
