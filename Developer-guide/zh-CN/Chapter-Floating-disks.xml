@@ -4,29 +4,542 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Floating-disks_Chapter">
-	<title>Floating-disks Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>浮动磁盘</title>
 	<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_1">
-		<title>Floating-disks Section 1</title>
+		<title>浮动磁盘的元素</title>
 		<para>
-			This is a test paragraph in a section
+			<emphasis>磁盘</emphasis>集合提供红帽公司虚拟环境中所有磁盘的信息。用户可以从任何虚拟机上附加和分离磁盘,并且能使磁盘在两个虚拟机之间浮动。API 用户通过从入口点获得的 URL 中,用<emphasis> rel=”disks”</emphasis>链接访问该信息。
+下表显示了磁盘资源中的特定元素。
 		</para>
+
+		<para>
+			下表显示了磁盘资源中的特定元素。
+		</para>
+
+		<table>
+			<title>浮动磁盘的元素</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<row>
+						<entry>元素</entry>
+						<entry>类型</entry>
+						<entry>描述</entry>
+						<entry>属性</entry>
+					</row>
+				</thead>
+
+				<tbody>
+					<!--line1-->
+					<row>
+						<entry>link rel="statistics" </entry>
+						<entry>关系</entry>
+						<entry>
+							链接数据子集的虚拟机的磁盘数据
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+					
+					<!--line2-->
+					<row>
+						<entry>image_id </entry>
+						<entry>GUID </entry>
+						<entry>
+							定义的存储域中,虚 拟 机的 映 像 存
+储
+						</entry>
+						<entry>
+						
+						</entry>
+					</row>
+
+					<!--line3-->
+					<row>
+						<entry>sorage_domains</entry>
+						<entry>复合型</entry>
+						<entry>
+							与 这 个磁 盘 相 关联的存储域,每个storage_domains 元素包含了一个与存储域的GUID相关联的id属性。可以使用POST来修改该元素,来执行从一个存储域到另一个存储域的动态迁移。
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+
+					<!--line4-->
+					<row>
+						<entry>size</entry>
+						<entry>整型</entry>
+						<entry>
+							磁盘大小,以字节计算
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line5-->
+					<row>
+						<entry>provisioned_size</entry>
+						<entry>整型</entry>
+						<entry>
+							预分配的磁盘大小,以字节计算
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line6-->
+					<row>
+						<entry>actual_size</entry>
+						<entry>整型</entry>
+						<entry>
+							实际磁盘大小,以字节计算
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line7-->
+					<row>
+						<entry>status</entry>
+						<entry>
+							ilegal, invalid, 磁盘设备的状态,这些状态是locked 或 ok
+						</entry>
+						<entry>
+							磁盘设备的状态,这些状态是列表在 capabilities 的disk_states 表中的
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line8-->
+					<row>
+						<entry>interface</entry>
+						<entry>枚举</entry>
+						<entry>
+							用来连接磁盘设备的接口,是capabilities 中的枚举值表
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line9-->
+					<row>
+						<entry>format</entry>
+						<entry>枚举</entry>
+						<entry>
+							底层存储的框架,存在capabilities 中的枚举值表中。Copy On Write(COW)允许较属性小开销的快照,Raw 则不允许快照,但是会提供更高的功能
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line10-->
+					<row>
+						<entry>sparse</entry>
+						<entry>布尔值：true或false</entry>
+						<entry>
+							设置为 true 以后,磁盘的物理存储将不能被预分配
+						</entry>
+						<entry>
+
+						</entry>
+					</row>
+
+					<!--line11-->
+					<row>
+						<entry>
+							bootable
+						</entry>
+						<entry>
+							布尔值:true 或false
+						</entry>
+						<entry>
+							设置为 true 以后,该磁盘将被变为可启动的。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line12-->
+					<row>
+						<entry>
+							shareable
+						</entry>
+						<entry>
+							布尔值:true 或false
+						</entry>
+						<entry>
+							设置为 true 以后,磁盘将可以被多个虚拟机共享
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line13-->
+					<row>
+						<entry>
+							wipe_after_delete
+						</entry>
+						<entry>
+							布尔值:true 或false
+						</entry>
+						<entry>
+							设置为 true 以后,删除磁盘时,磁盘的底层物理存储将归零。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line14-->
+					<row>
+						<entry>
+							propagate_errors
+						</entry>
+						<entry>
+							布尔值:true 或false
+						</entry>
+						<entry>
+							设置为 true 以后,磁盘的错误不会引起虚拟机暂停,相反,磁盘错误将会传到宿主机的操作系统中。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line15-->
+					<row>
+						<entry>
+							quota id
+						</entry>
+						<entry>
+							GUID
+						</entry>
+						<entry>
+							设置磁盘配额
+						</entry>
+						<entry>
+						
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							lunStorage
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							对存储使用的直接LUN映射。需要一个storage元素，其中要包含iSCSI或FCP设备的细节。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							active
+						</entry>
+						<entry>
+							布尔值：true或false
+						</entry>
+						<entry>
+							定义磁盘是否连接到虚拟机
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>		
+
+		<important>
+			<para>
+				搜索磁盘相关的问题需要使用<emphasis>别名</emphasis>参数搜索，而不是用<emphasis>名称</emphasis>参数。
+			</para>
+		</important>
+		
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_2">
-		<title>Floating-disks Section 2</title>
+		<title>浮动磁盘的XML表示</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>磁盘设备的XML表示</title>
+				<programlisting>
+					<![CDATA[
+<disk id="ed7feafe-9aaf-458c-809a-ed789cdbd5b4"
+href="/api/disks/ed7feafe-9aaf-458c-809a-ed789cdbd5b4">
+<link rel="statistics"
+href="/api/disks/ed7feafe-9aaf-458c-809a-ed789cdbd5b4/statistics"/>
+<storage_domains>
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+</storage_domains>
+<size>10737418240</size>
+<type>system</type>
+<status>
+<state>ok</state>
+</status>
+<interface>virtio</interface>
+<format>raw</format>
+<bootable>true</bootable>
+<shareable>true</shareable>
+<lunStorage>
+<storage>
+<logical_unit id="lun1">
+...
+</logical_unit>
+<storage>
+</lunStorage>
+</disk>
+					]]>
+				</programlisting>
+			</example>
 		</para>
+	</section>
+
+
+	<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_3">
+
+	<title>方法</title>
+	
+		
+		<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_3-1">
+		<title>创建浮动磁盘</title>
+
+			<para>
+				新建浮动磁盘时,API 需要知道<emphasis> size</emphasis> 和<emphasis> storage_domains</emphasis> 的值。
+			</para>
+
+			<para>
+				<example>
+					<title>新建浮动磁盘设备</title>
+					<programlisting>
+						<![CDATA[
+POST /api/disks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<disk>
+<storage_domains>
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+</storage_domains>
+<size>8589934592</size>
+<type>system</type>
+<interface>virtio</interface>
+<format>cow</format>
+</disk>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+	</section>
+
+
+	<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_4">
+		<title>子集</title>
+
+		
+		<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_4-1">
+			<title>读取数据子</title>
+
+				<para>
+					每个浮动磁盘表示了特定磁盘数据的数据子集,每个数据包含以下元素:
+				</para>
+
+				<table>
+					<title>虚拟磁盘数据的元素</title>
+					<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+						<thead>
+							<row>
+								<entry>
+									元素
+								</entry>
+								<entry>
+									元素
+								</entry>
+								<entry>
+									描述
+								</entry>
+							</row>
+						</thead>
+
+						<tbody>
+							
+							<row>
+								<entry>
+									name
+								</entry>
+								<entry>
+									字符串
+								</entry>
+								<entry>
+									数据条目的唯一标识
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									dscription
+								</entry>
+								<entry>
+									字符串
+								</entry>
+								<entry>
+									描述数据的纯文本文件
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									unit
+								</entry>
+								<entry>
+									字符串
+								</entry>
+								<entry>
+									度 量 数 据值 的 单元 或 比率
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									tpye
+								</entry>
+								<entry>
+									GAUGE 或COUNT ER
+								</entry>
+								<entry>
+									读取数据度量的类型
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									values type=
+								</entry>
+								<entry>
+									INT EGER 或DECIMAL
+								</entry>
+								<entry>
+									读 取 数 据值 后 接的 数 据类型
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									datum
+								</entry>
+								<entry>
+									见 values type
+								</entry>
+								<entry>
+									一个值中的单一数据
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									disk id=
+								</entry>
+								<entry>
+									关系
+								</entry>
+								<entry>
+									包含磁盘资源的关系
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+
+				<para>
+					下表列出了浮动磁盘的读取数据类型。
+				</para>
+
+				<table>
+					<title>磁盘读取数据类型</title>
+					<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+						<thead>
+							<row>
+								<entry>
+									名称
+								</entry>
+								<entry>
+									描述
+								</entry>
+							</row>
+						</thead>
+
+						<tbody>
+							<row>
+								<entry>
+									data.current.read
+								</entry>
+								<entry>
+									读取磁盘时的数据传输速率,以字节每秒计算
+								</entry>
+							</row>
+
+							<row>
+								<entry>
+									data.current.write
+								</entry>
+								<entry>
+									写入磁盘时的数据传输速率,以字节每秒计算
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+
+				<para>
+					<example>
+						<title>虚拟机读取数据子集的XML表示</title>
+						<programlisting>
+							<![CDATA[
+<statistics>
+<statistic id="33b9212b-f9cb-3fd0-b364-248fb61e1272"
+href="/api/disks/f28ec14c-fc85-43e1-818d-96b49d50e27b/statistics/
+33b9212b-f9cb-3fd0-b364-248fb61e1272">
+<name>data.current.read</name>
+<description>Read data rate</description>
+<values type="DECIMAL">
+<value>
+<datum>0</datum>
+</value>
+</values>
+<type>GAUGE</type>
+<unit>BYTES_PER_SECOND</unit>
+<disk id="f28ec14c-fc85-43e1-818d-96b49d50e27b"
+href="/api/disks/f28ec14c-fc85-43e1-818d-96b49d50e27b"/>
+</statistic>
+...
+</statistics>
+							]]>
+						</programlisting>
+					</example>
+				</para>
+	
+				<note>
+					<para>
+						该读取数据子集是只读的。
+					</para>
+				</note>
+		</section>		
 	</section>
 
 </chapter>

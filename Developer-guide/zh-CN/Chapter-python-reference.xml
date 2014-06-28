@@ -4,30 +4,35 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-python-reference_Chapter">
-	<title>python-reference Chapter</title>
+	<title>Python参考文档</title>
 	<para>
-		This is a test paragraph
+	
 	</para>
 	<section id="sect-EayunOS-Developer-guide-python-reference_Chapter-python-reference_Section_1">
-		<title>python-reference Section 1</title>
+		<title>python参考文档</title>
 		<para>
-			This is a test paragraph in a section
+	            ovirt-sdk包里默认有参考文档，其使用pydoc来自动生成的：
 		</para>
+                <itemizedlist>
+                  <listitem>
+                     <para>
+                      ovirtskd.api
+                     </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                      ovirtsdk.infrastructure.brokers
+                     </para>
+                  </listitem>
+                </itemizedlist>
+                <para>
+                  如果你嫌上述查看麻烦的话，也可使用Pydoc直接在线产看：
+                </para>
+                <programlisting language="Bash">
+                    $pydoc MODULE
+                </programlisting>
 	</section>
 	
-	<section id="sect-EayunOS-Developer-guide-python-reference_Chapter-python-reference_Section_2">
-		<title>python-reference Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
 
 </chapter>
 
