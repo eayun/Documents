@@ -4,29 +4,597 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Templates_Chapter">
-	<title>Templates Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>模板</title>
 	<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_1">
-		<title>Templates Section 1</title>
+		<title>虚拟机的模板元素</title>
 		<para>
-			This is a test paragraph in a section
+			模板子集提供了红帽公司虚拟环境中有关虚拟机模板的信息, API 用户可以
+通过从入口的 URL 获取的<emphasis> rel=”templates”</emphasis>链接访问这些信息。
 		</para>
+
+		<para>
+			下表显示了虚拟机模板资源中的特定元素:
+		</para>
+
+		<table>
+			<title>虚拟机模板元素</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<row>
+						<entry>
+							元素
+						</entry>
+						<entry>
+							类型
+						</entry>
+						<entry>
+							描述
+						</entry>
+						<entry>
+							属性
+						</entry>
+					</row>
+				</thead>
+				
+				<tbody>
+					<row>
+						<entry>
+							link rel=”disks”
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							为虚拟机模板资源提供的到磁盘子集链接
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel="nics"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							为虚拟机模板资源提供到网卡子集的链接
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel="cdroms"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							为虚拟机模板资源提供的到光盘子集的链接
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel="permissions"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							所提供的虚拟机模板的类型,是存在 capabilities 中的枚举值表
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							type
+						</entry>
+						<entry>
+							枚举
+						</entry>
+						<entry>
+							所提供的虚拟机模板的类型,是存在 capabilities 中的枚举值表
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							status
+						</entry>
+						<entry>
+							illegal,locked 或 ok
+						</entry>
+						<entry>
+							模板的状态,这些状态被列
+举在 capabilities 中的template_states 表中
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							memory
+						</entry>
+						<entry>
+							整型
+						</entry>
+						<entry>
+							分配给宿主机的总内存,以字节计算
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							cpu
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							宿主机可用的 cpu(sockets和 cores 的数目)
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							os type=
+						</entry>
+						<entry>
+							字符串
+RHEL5 或WindowsXP
+						</entry>
+						<entry>
+							宿主机的操作系统类型
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							os boot dev=
+						</entry>
+						<entry>
+							枚举
+						</entry>
+						<entry>
+							以 dev 属性列出的启动设备,存在 capabilities 的枚举值表中。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							os kernel
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							内核映像的路径,该路径是从模板中配置启动的
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							os initrd
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							内核之上使用的 initrd 映像的路径
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							os cmdline
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							在内核之上使用的内核命令行参数
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							cluster id=
+						</entry>
+						<entry>
+							GUID
+						</entry>
+						<entry>
+							模板的主机集群
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							vm id=
+						</entry>
+						<entry>
+							GUID
+						</entry>
+						<entry>
+							该模板所基于的 vm(虚拟机)
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							creation_time
+						</entry>
+						<entry>
+							xsd:dateTime
+输入格式: YYYY-MM-DDT hh:m m :ss
+						</entry>
+						<entry>
+							模板创建的日期和时间
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							origin
+						</entry>
+						<entry>
+							rhev,ovirt, vm ware 或 xen
+						</entry>
+						<entry>
+							系统源自哪个模板
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							high_availability
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							设置 enable 为 true 后,vm可以在主机崩溃时自动重启,控制了 vm 启动的顺序
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							display
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							显示类型(vnc 或 spice),端口和显示屏的数量allow_reconnect 的布尔值定义了客户端是否可以通过显示进行重连
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							stateless
+						</entry>
+						<entry>
+							布尔值：true或false
+						</entry>
+						<entry>
+							无状态模板包含的磁盘快照是在启动时拍摄,并在关闭时删除,这意味着状态的改变在重新启动以后就不再存在
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+					
+					<row>
+						<entry>
+							usb
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							定义虚拟机模板的 USB 策略,需要设置 enable 为 true,type 为 native 或 legacy。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+					
+					<row>
+						<entry>
+							placement_policy
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							设置虚拟机迁移的放置策略,需要一个默认值 host=和一个 afffinity(migratable,user_migratable 或pinned),并将置空的主机设置为首选。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>						
+						<entry>
+							custom_properties
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							用户定义的环境变量集,可以作为参数传递给自定义脚本。每个custom_properties 包含 name和 value 属性,存在capabilities 中的枚举值表中
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+	
+					<row>
+						<entry>
+							timezone
+						</entry>
+						<entry>
+							tz database
+输入格式:Area/Location
+						</entry>
+						<entry>
+							Windows 虚拟机模板的系统准备工具的时区设置
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							domain
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							Windows 虚拟机模板的系统准备工具中的域设置需要域集合的name
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_2">
-		<title>Templates Section 2</title>
+		<title>虚拟机模板的XML表示</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>虚拟机模板的XML表示</title>
+				<programlisting>
+					<![CDATA[
+<template id="00000000-0000-0000-0000-000000000000"
+href="/api/templates/00000000-0000-0000-0000-000000000000">
+<name>Blank</name>
+<description>Blank template</description>
+<actions>
+<link rel="export"
+href="/api/templates/00000000-0000-0000-0000-000000000000/export"/>
+</actions>
+<link rel="disks"
+href="/api/templates/00000000-0000-0000-0000-000000000000/disks"/>
+<link rel="nics"
+href="/api/templates/00000000-0000-0000-0000-000000000000/nics"/>
+<link rel="cdroms"
+href="/api/templates/00000000-0000-0000-0000-000000000000/cdroms"/>
+<link rel="permissions"
+href="/api/templates/00000000-0000-0000-0000-000000000000/permissions"/>
+<type>server</type>
+<status>
+<state>ok</state>
+</status>
+<memory>536870912</memory>
+<cpu>
+<topology cores="1" sockets="1"/>
+</cpu>
+<os>
+<boot dev="hd"/>
+<kernel/>
+<initrd/>
+<cmdline/>
+</os>
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+<creation_time>2010-08-16T14:24:29</creation_time>
+<origin>rhev</origin>
+<highly_available>
+<enabled>true</enabled>
+<priority>100</priority>
+</highly_available>
+<display>
+<type>vnc</type>
+<port>5910</port>
+<monitors>1</monitors>
+</display>
+<stateless>false</stateless>
+<usb>
+<enabled>true</enabled>
+</usb>
+</template>
+					]]>
+				</programlisting>
+			</example>
 		</para>
+	</section>
+
+
+
+	<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_3">
+		<title>方法</title>
+		
+		<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_3-1">
+			<title>创建模板</title>
+			<para>
+				新建模板需要<emphasis> name</emphasis> 和<emphasis> vm</emphasis> 元素,用<emphasis> id</emphasis> 属性或<emphasis> name</emphasis> 元素验证<emphasis> vm</emphasis>
+			</para>
+
+			<para>
+				<example>
+					<title>从虚拟机上创建模板</title>
+					<programlisting>
+						<![CDATA[
+POST /api/templates HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<template>
+<name>template1</name>
+<vm id="082c794b-771f-452f-83c9-b2b5a19c0399"/>
+</template>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_3-2">
+			<title>修改模板</title>
+
+			<para>
+				<emphasis>name, description, type, memory, cpu topology, os, high_availability, display,stateless, usb</emphasis> 和<emphasis> timezone</emphasis> 元素是可以快速修改的。
+			</para>
+
+			<para>
+				<example>
+					<title>将一个虚拟机模板的内存修改为 1GB</title>
+					<programlisting>
+						<![CDATA[
+PUT /api/templates/a03dca95-98cb-430d-89dc-b11482543748 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<template>
+<memory>1073741824</memory>
+</template>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_3-3">
+			<title>移除模板</title>
+
+			<para>
+				移除模板需要<emphasis> DELETE</emphasis> 请求。
+			</para>
+
+			<para>
+				<example>
+					<title>移除虚拟机模板</title>
+					<programlisting>
+						<![CDATA[
+DELETE /api/templates/a03dca95-98cb-430d-89dc-b11482543748 HTTP/1.1
+HTTP/1.1 204 No Content
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+	</section>
+
+
+	<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_4">
+		<title>操作</title>
+
+		
+		<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_4-1">
+			<title>导出模板</title>
+			<para>
+				模板集合具有导出的操作。
+			</para>
+
+			<para>
+				导 出 操 作 可 以将 一 个 模 板导 出 到<emphasis> Export</emphasis> 存 储 域 中 , 目 标 存 储 域 是 以<emphasis>storage_domain</emphasis> 定义的。
+			</para>
+
+			<para>
+				如果虚拟机模板在目标域中有相同的名字,则会提示导出失败。如果将<emphasis>exclusive</emphasis> 参数设置为<emphasis> true</emphasis>,那么导出时将会覆盖原有虚拟机模板。
+			</para>
+
+			<para>
+				<example>
+					<title>将模板导出到导出存储域</title>
+					<programlisting>
+						<![CDATA[
+POST /api/templates/a03dca95-98cb-430d-89dc-b11482543748/export HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+<exclusive>true<exclusive/>
+</action>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
 	</section>
 
 </chapter>

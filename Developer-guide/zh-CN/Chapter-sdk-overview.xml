@@ -39,7 +39,7 @@
 			</orderedlist>
 		</para>
                 <para>
-                    当开发者安装ovirt-sdk的时候，如果原来的系统里没有安装python2.6,系统会自动将之安装。
+                    当开发者安装ovirt-engine-sdk-python的时候，如果原来的系统里没有安装python2.6,系统会自动将之安装。
                 </para>
 	</section>
 
@@ -47,7 +47,7 @@
 		<title>安装&OVIRT;软件开发包</title>
                 <formalpara><title>摘要</title>
 		  <para>
-                    &OVIRT;软件开发包由rpm包ovirt-sdk提供，此rpm包包含了所有的&OVIRT;管理端抛出的API的python语言绑定。
+                    &OVIRT;软件开发包由rpm包ovirt-engine-sdk-python提供，此rpm包包含了所有的&OVIRT;管理端抛出的API的python语言绑定。
                     开发者必须先行安装此rpm包，才可使用或者编写程序。  			
 		  </para>
                </formalpara>
@@ -64,16 +64,16 @@
                   </step>
                   <step>
                     <para>
-                     使用yum程序安装ovirt-sdk:
+                     使用yum程序安装ovirt-engine-sdk-python:
                     </para>
                     <programlisting language="Bash">
-                        # yum install ovirt-sdk
+                        # yum install ovirt-engine-sdk-python
                     </programlisting>
                   </step>
                </procedure>
               <formalpara><title>结果</title>
                  <para>
-                   rpm包ovirt-sdk现在已经安装完毕，由python实现的库现在可以在本地使用了。
+                   rpm包ovirt-engine-sdk-python现在已经安装完毕，由python实现的库现在可以在本地使用了。
                  </para>
               </formalpara>
 	</section>

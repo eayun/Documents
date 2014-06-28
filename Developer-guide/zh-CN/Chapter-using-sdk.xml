@@ -4,30 +4,222 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-python-sdk_Chapter">
-	<title>python-sdk Chapter</title>
+	<title>使用软件开发包</title>
 	<para>
-		This is a test paragraph
+	
 	</para>
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_1">
+		<title>使用python连接到应用程序接口</title>
+		<para>
+		   使用ovirtsdk.api模块，创建类API的实例，python才能连接到REST API，所以在脚本的开始部分，写如下导入语句是必须的：
+		</para>
+                <programlisting language="python">
+                 from ovirtsdk.api import API
+                </programlisting>
+                <para>
+                  类API的构造函数可接受很多参数，目前支持的参数有如下内容：
+                </para>
+                <formalpara><title>url</title>
+                  <para>
+                   指定&OVIRT;管理端的URL以连接到它，包含路径/api。此参数是强制性的，必须给定。
+                  </para>
+                </formalpara>
+                <formalpara><title>username</title>
+                  <para>
+                  指定连接时使用的用户名，使用UPN格式。此参数是强制性的，必须给定。
+                  </para>
+                </formalpara>
+                <formalpara><title>password</title>
+                  <para>
+                   指定连接时使用的用户的密码。此参数是强制性的，必须给定。
+                  </para>
+                </formalpara>
+                <formalpara><title>key_file</title>
+                  <para>
+                   指定PEM格式的密钥文件，其包含和cert_file所指定的认证所关联的私钥。此参数为可选参数。
+                  </para>
+                </formalpara>
+                <formalpara><title>cert_file</title>
+                  <para>
+                   指定PEM格式的客户端证书，此证书用于客户端连接到服务器时建立身份关系。此参数为可选参数。
+                  </para>
+                </formalpara>
+                <formalpara><title>ca_file</title>
+                  <para>
+                  指定从服务端取得授权证书的证书文件。 除非insecure设置为true,否则，此选项为强制性的。
+                  </para>
+                </formalpara>
+                <formalpara><title>port</title>
+                  <para>
+                   若没有在url中指定特定的端口，可使用此参数指定。此参数为可选参数。
+                  </para>
+                </formalpara>
+                <formalpara><title>timeout</title>
+                  <para>
+                   指定超时时间，单位为秒。此参数为可选参数。
+                  </para>
+                </formalpara>
+                <formalpara><title>persistent_auth</title>
+                  <para>
+                   指定当次连接为持久，参数为True或False,此参数为可选参数，且默认为False。
+                  </para>
+                </formalpara>
+                <formalpara><title>insecure</title>
+                  <para>
+                   允许通过ssl连接而无需获得证书的授权，参数为True或False,如果将insecure设置为Fasle(也是系统默认的)，ca_file必须提供。
+                   请谨慎使用此参数，这容易被使用man-in-the-middle (MIT M)攻击。
+                  </para>
+                </formalpara>
+                <formalpara><title>filter</title>
+                  <para>
+                   指定基于用户权限的过滤器是否起作用，合法的参数为True或false.若Filter设置为false,也是系统默认的，则加入此必须为管理员。
+                   若设置为True,则任何用户都可以使用，但且其可运行的动作等是基于用户权限，也就是由管理端自动过滤掉不属于他的权限。
+                   此参数为可选参数。
+                  </para>
+                </formalpara>
+                <formalpara><title>debug</title>
+                  <para>
+                   指定建立的连接是否打开调试模式，参数为True或Fasle,为可选参数。
+                  </para>
+                </formalpara>
+                <para>
+                开发者可以建立和操作多个ovirtsdk.API的python类的实例去和多个&OVIRT;管理端的RESTful API通信。 
+                </para>
+                <para>
+                 下面的这个实例脚本，建立了一个API类的实例，使用test()方法检测连接是否正常，使用disconnect()断开连接：
+                </para>
+                <programlisting language="python">
+     from ovirtsdk.api import API
+
+api_instance = API ( url="https://192.168.3.91",
+                     username="admin@internal",
+                     password="abc123",
+                     ca_file="/etc/pki/ovirt-engine/ca.pem")
+if api_instance.test() == 1:
+   print "Connected successfully!"
+else:
+   print "didn't connect.try again."
+
+api_instance.disconnect()
+                </programlisting>
+                <para>
+                 使用Pydoc,可以将ovirtsdk.api所有的方法列出来。
+                </para>
+	</section>
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_2">
+		<title>资源及其集合</title>
+		<para>
+		 使用python语言来实现RESTfull API的绑定，有其理论和实践上的优势。所有的RESTful API有下面两项内容
+                 是程序员所必须掌握的：  	
+		</para>
+                <formalpara><title>资源</title>
+		<para>
+		 资源在RESTful API中是一个固定的包含一组属性相关的以及特定的类型的接口对象，用于资源交互的接口提供的方法
+                 有更新(update)和删除(delete)。另外一些资源的所支持的动作需指定其所属类型，比如主机资源中审批方法。	
+		</para>
+                </formalpara>
+                <formalpara><title>资源集合</title>
+		<para>
+		 顾名思义，资源集合即是一组相同类型的资源的集合，API同时提供高级别的资源集合，也提供子的资源集合。举例说明：
+                 主机(hosts)资源集合是一个高级别的，其包含了环境中所有的主机，host.nics则是一个子的资源集合的例子，其包含了主机
+                 资源集合中所有的网卡。
+                 用于资源交互的接口提供的方法有增加(add),获取(get)和列出(list)。
+                </para>
+                </formalpara>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_3">
+		<title>从资源集合中检索资源</title>
+		<para>
+	         使用get和list方法从资源集合中来检索需要的资源。 
+		</para>
+                <formalpara><title>get</title>
+                  <para>从资源集合中检索单一的资源，结果由所提供的名称的参数而定，get方法可以有如下两个参数：
+                  <itemizedlist>
+                     <listitem>
+                        <para>
+                          名称:要检索的资源的名称。
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                         id: 要检索资源的全球统一身份认证（GUID）。 
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+                  </para>
+                </formalpara>
+                <formalpara><title>list</title>
+                  <para>
+                   检索多个资源，结构由所提供的条件而定。方法list提供下列参数：
+                  <itemizedlist>
+                     <listitem>
+                        <para>
+                         **kwargs: 作为一个额外参数的字典，允许存放基于过滤器的关键字。
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                         query: 一个和&OVIRT;管理端提供的搜索格式相同的队列。 
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                          max: 检索资源的最大条数。
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>
+                          case_sensitive: 是否大小写敏感，（True或False,默认是True)。
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+                  </para>
+                </formalpara>
+	</section>
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_4">
 		<title>python-sdk Section 1</title>
 		<para>
 			This is a test paragraph in a section
 		</para>
 	</section>
 	
-	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_2">
-		<title>python-sdk Section 2</title>
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_5">
+		<title>python-sdk Section 1</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			This is a test paragraph in a section
 		</para>
 	</section>
-
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_6">
+		<title>python-sdk Section 1</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_7">
+		<title>python-sdk Section 1</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_8">
+		<title>python-sdk Section 1</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
+	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_9">
+		<title>python-sdk Section 1</title>
+		<para>
+			This is a test paragraph in a section
+		</para>
+	</section>
+	
 </chapter>
 

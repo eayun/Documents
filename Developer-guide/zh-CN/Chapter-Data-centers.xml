@@ -4,30 +4,204 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Data-Centerss_Chapter">
-	<title>Data-Centerss Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_1">
-		<title>Data-Centerss Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_2">
-		<title>Data-Centerss Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>数据中心</title>
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_1">
+    <title>数据中心元素</title>
+    <para>
+      <emphasis>datacenters</emphasis> 集合提供了在&OVIRT;企业虚拟化环境中的数据中心的信息。一个 API 用户可以通过入口 URI 中的 <emphasis>rel="datacenters"</emphasis> 链接来获得该信息。
+    </para>
+    <para>
+      下表显示出了数据中心的资源展现中的具体元素。
+    </para>
+    <table>
+      <title>数据中心元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              名称
+            </entry>
+            <entry>
+              类型
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>link rel="storagedomains"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              附加到该数据中心的存储域的集合的链接。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="permissions"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              数据中心的权限集合的链接。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="quotas"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              数据中心的配额集合的链接。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage_type</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              描述该数据中心的存储类型。在 <emphasis>capabilities</emphasis> 里可看到该类型的所有枚举。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage_format</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              描述该数据中心的存储格式版本。在 <emphasis>capabilities</emphasis> 里可看到该类型的所有枚举。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>version major= minor=</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              数据中心的兼容性版本。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>supported_versions</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              数据中心所支持的兼容性版本（<emphasis>version</emphasis>）列表。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              见下面
+            </entry>
+            <entry>
+              数据中心的状态。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      <emphasis>status</emphasis> 包含了如下的枚举值哦：<emphasis>uninitialized</emphasis>，<emphasis>up</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>not_operational</emphasis>，<emphasis>problematic</emphasis> 和 <emphasis>contend</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 里的 <emphasis>data_center_states</emphasis> 元素下列出。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_2">
+    <title>数据中心的 XML 展现</title>
+    <example>
+      <title>一个数据中心的 XML 展现</title>
+      <programlisting>
+        <![CDATA[
+<data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988">
+ <name>Default</name>
+ <description>The default Data Center</description>
+ <link rel="storagedomains"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/
+ storagedomains"/>
+ <link rel="permissions"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-
+5254004ac988/permissions"/>
+ <link rel="quotas"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/quotas"/>
+ <storage_type>nfs</storage_type>
+ <storage_format>v3</storage_format>
+ <version minor="1" major="3"/>
+ <supported_versions>
+ <version minor="1" major="3"/>
+ </supported_versions>
+ <status>
+ <state>up</state>
+ </status>
+</data_center>
+]]>
+      </programlisting>
+    </example>
+  </section>
 
 </chapter>
 
