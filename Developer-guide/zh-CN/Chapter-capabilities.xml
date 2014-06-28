@@ -4,30 +4,1691 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-capabilitiess_Chapter">
-	<title>capabilitiess Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_1">
-		<title>capabilitiess Section 1</title>
+   <title>功能</title>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_1">
+      <title>功能</title>
 		<para>
-			This is a test paragraph in a section
+         功能集合提供了关于&OVIRT;企业级虚拟管理版本所具有的功能的信息。这些功能包括了具体属性的动态特性和可用枚举值。一个API用户通过从入口点URI获得的链接<emphasis>rel="capabilities"</emphasis>来获取信息。
 		</para>
 	</section>
-	
 	<section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_2">
-		<title>capabilitiess Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+		<title>版本依赖功能</title>
+	  	<para>
+	  		 功能元素包含了许多版本元素，这些版本元素描述了一些依赖兼容性级别的特性。
+      </para>
+      <para>
+         版本元素包含了主词属性版本号的属性。由它可以看出当前的版本级别。
+      </para>
+      <para>
+         下面的表示显示出了具体到&OVIRT;3.0，3.1，3.2和3.3版本的功能。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3"
+   ...
+</version>
+<version major="3"
+   ...
+</version>
+<version major="3"
+   ...
+</version>
+<version major="3"
+   ...
+</version>
+   ...
+</capabilities></capabilities>
+         ]]>
+      </programlisting>
+      <para>
+         每个版本都包含一些其特有的功能。
+      </para>
 	</section>
-
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_3">
+      <title>当前版本</title>
+      <para>
+         <emphasis>当前</emphasis>元素标明了具体的版本是否当前兼容级别最高的。其值是布尔值<emphasis>true</emphasis>或者<emphasis>false</emphasis>。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+    ...
+    <current>true</current>
+    ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_4">
+      <title>特点</title>
+      <para>
+         每一个版本包含了一张兼容特性的表。下面的表列出了与&OVIRT;企业级虚拟3.3版本相兼容的特性。
+      </para>
+      <table>
+         <title>特征类型</title>
+         <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+               <row>
+                  <entry>
+                     特征
+                  </entry>
+                  <entry>
+                     描述
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     透明大页存储策略
+                  </entry>
+                  <entry>
+                     允许你定义主机的透明大页存储可用性。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     Gluster支持
+                  </entry>
+                  <entry>
+                     这个特性提供了对使用用于存储的Gluster容器和Bricks的支持。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     POSIX-FS存储类型
+                  </entry>
+                  <entry>
+                     这个特性提供了对POSIX-FS存储类型的支持。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     端口镜像
+                  </entry>
+                  <entry>
+                     允许你为虚拟网络接口插件定义可用的端口镜像。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     显示服务时间
+                  </entry>
+                  <entry>
+                     在API中显示当前的数据和时间。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     显示主机内存
+                  </entry>
+                  <entry>
+                     显示一个特定主机的所有内存。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     显示主机套接字
+                  </entry>
+                  <entry>
+                     允许定义主机CPU拓扑。有三个属性——<emphasis>sockets,threads</emphasis>和<emphasis>cores</emphasis>这些定义了显示出来的主机套接字、线程和每个插槽的内核的数量。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     搜索大小写敏感性
+                  </entry>
+                  <entry>
+                     允许通过提供URL参数指定一个搜索查询是否需要大小写敏感。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <emphasis>GET</emphasis>请求可接收结果的最大限值。
+                  </entry>
+                  <entry>
+                     允许指定从<emphasis>GET</emphasis>请求返回结果的最大数量。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     JSON内容类型   
+                  </entry>
+                  <entry>
+                     允许定义请求头，它可以使为设置<emphasis>POST</emphasis>和<emphasis>PUT</emphasis>请求的相对ID成为可能。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     激活的和未激活的硬盘
+                  </entry>
+                  <entry>
+                     允许通过为一块具体的虚拟硬盘指定激活和吊销的动作来操作硬盘。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     激活的和未激活的网络接口插件。
+                  </entry>
+                  <entry>
+                     允许通过为一块具体的网络接口差价指定激活的和吊销的动作操作网络接口插件。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     快照重构
+                  </entry>
+                  <entry>
+                     允许未虚拟机重构快照。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     从指定的存储域中移除模板硬盘。
+                  </entry>
+                  <entry>
+                     允许从一个使用<emphasis>DELETE</emphasis>请求的具体存储域中移除虚拟机模板硬盘。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     移动硬盘
+                  </entry>
+                  <entry>
+                     移动硬盘是没有附加在任何虚拟机上的硬盘。这样的硬盘出现在根集合中而不是在特定的虚拟机下。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     异步删除
+                  </entry>
+                  <entry>
+                     允许通过指定异步URL参数来指定<emphasis>DELETE</emphasis>请求，从而实现异步的功效。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     基于会话的权限
+                  </entry>
+                  <entry>
+                     允许通过提供一个合适的请求头来维护客户端和服务器段的会话，不用再在每一个请求上进行登录操作。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     虚拟机程序
+                  </entry>
+                  <entry>
+                     允许绘制一张关于在某一具体虚拟机上安装的所有程序的表
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     VirtIO-SCSI支持
+                  </entry>
+                  <entry>
+                     这个特性提供了对版虚拟的SCSI控制器设备的支持。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     特定的资源评价
+                  </entry>
+                  <entry>
+                     允许添加特定的对数据中心和其他资源的评价。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     刷新主机功能
+                  </entry>
+                  <entry>
+                     允许在主机上实行数据的同步，同时刷新可用于一台具体主机的网络接口列表。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     内存快照
+                  </entry>
+                  <entry>
+                     允许包含作为虚拟机快照的一部分的存储状态。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     Watchdog设备
+                  </entry>
+                  <entry>
+                     允许为虚拟机创建Watchdog设备。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     SSH权限方法
+                  </entry>
+                  <entry>
+                     允许使用一个管理用户密码或者SSH公共密钥为基于SSH上的主机添加权限。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     强制选择SPM
+                  </entry>
+                  <entry>
+                     允许强制选择作为SPM的主机。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     控制台设备
+                  </entry>
+                  <entry>
+                     允许在虚拟机中控制附带的控制台设备。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     存储域的存储服务设备
+                  </entry>
+                  <entry>
+                     允许查看存储服务，它或者是连接到一个具体的存储域有或者是来自一个具体的存储域。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     附加和分离存储服务链接
+                  </entry>
+                  <entry>
+                     允许附加分离存储服务，它或者是连接到一个具体的存储域有或者是来自一个具体的存储域。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     QxI唯一的PCI
+                  </entry>
+                  <entry>
+                     允许通过一个唯一的PCI客户设备查看多视频设备。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     从OVF配置中添加虚拟机
+                  </entry>
+                  <entry>
+                     允许从一个已经提供的OVF配置中添加虚拟机
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     虚拟网络接口插件文件
+                  </entry>
+                  <entry>
+                     允许为一个具体的虚拟网络接口插件配置一个定义了服务，特性和端口镜像文件                     
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     图像存储域(技术预览)
+                  </entry>
+                  <entry>
+                     允许导入导出图像格式至一个图像存储域上，比如OpenStsack图像服务(Glance)。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     虚拟机合法域名
+                  </entry>
+                  <entry>
+                     允许提取一个具体虚拟机的合法域名。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     附加磁盘快照至虚拟机
+                  </entry>
+                  <entry>
+                     这个特点支持往虚拟机中附加磁盘快照。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     初始化云
+                  </entry>
+                  <entry>
+                     允许用初始化云来初始化一个虚拟机。
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <para>
+         特征元素和其属性的完整列表位于部分相关版本的顶部。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <features>
+            <feature>
+             <name>Transparent-Huge-Pages Memory Policy</name>
+             <transparent_huepages/>
+             </feature>
+        </features>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_5">
+      <title>CPU</title>
+      <para>
+         每个集群都配置了最小的CPU类型,在那个集群中的所有主机都必须支持这个迷你CPU。运行在集群主机中的客户都在这种类型下的CPU运行，以确保每一个用户都可以迁移至集群中的任何一台主机上。
+      </para>
+      <table>
+         <title>CPU特性</title>
+         <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+               <row>
+                  <entry>
+                           元素
+                  </entry>
+                  <entry>
+                           描述
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <emphasis>id</emphasis>
+                  </entry>
+                  <entry>
+                     CPU模式下透明的标示符
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     level
+                  </entry>
+                  <entry>
+                     作为列表中CPU相对的优先级的指示 
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+   <version major="3" minor="3">
+       ...
+       <cpus>
+           <cpu id="Intel Conroe Family">
+               <level>3</level>
+           </cpu>
+           <cpu id="Intel Penryn Family">
+               <level>4</level>
+           </cpu>
+           ...
+       </cpus>
+       ...
+   </version>
+</capatilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_6">
+      <title>
+         电源管理
+      </title>
+      <para>
+         &OVIRT;企业级平台为主机提供了一个支持<emphasis>power_managers</emphasis>的防护配置主机列表。每一个电源管理选项都包含了许多属性。
+      </para>
+      <table>
+         <title>
+            电源管理属性
+         </title>
+         <tgroup cols="2" align="left" colsep="1" rowsep="1">
+            <thead>
+               <row>
+                  <entry>
+                     元素
+                  </entry>
+                  <entry>
+                     描述
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <emphasis>type</emphasis>
+                  </entry>
+                  <entry>
+                     支持的防护设备类型。
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <emphasis>options</emphasis>
+                  </entry>
+                  <entry>
+                     可用于支持防护设备的选项列表。选项包括了一个<emphasis>name</emphasis>和一个值<emphasis>类型</emphasis>。
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <power_managers>
+            <power_management type="apc">
+                <options>
+                    <option name="secure" type="bool"/>
+                    <option name="port" type="int"/>
+                    <option name="slot" type="int"/>
+                </options>
+            </power_management>
+            <power_management type="apc_snmp">
+                <options>
+                    <option name="port" type="int"/>
+                </options>
+                </power_management>
+                <power_management type="bladecenter">
+                <options>
+                    <option name="secure" type="bool"/>
+                    <option name="port" type="int"/>
+                    <option name="slot" type="int"/>
+                    </options>
+                    </power_management>
+                    ...
+                </power_managers>
+                ...
+            </version>
+        </capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_7">
+      <title>
+         防护类型
+      </title>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <fence_types>
+             <fence_type>manual</fence_type>
+             <fence_type>restart</fence_type>
+             <fence_type>start</fence_type>
+             <fence_type>stop</fence_type>
+             <fence_type>status</fence_type>
+        </fence_types>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_8">
+      <title>
+         存储类型
+      </title>
+      <para>
+         <emphasis>storage_types</emphasis>元素定义了可得到的物理<emphasis>存储类型</emphasis>选项。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <storage_types>
+            <storage_type>iscsi</storage_type>
+            <storage_type>fcp</storage_type>
+            <storage_type>nfs</storage_type>
+            <storage_type>localfs</storage_type>
+            <storage_type>posixfs</storage_type>
+            <storage_type>glusterfs</storage_type>
+        </storage_types>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_9">
+      <title>
+         配置类型
+      </title>
+      <para>
+         <emphasis>configuration_types</emphasis>元素罗列出了可用的配置类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <configuration_types>
+        <configuration_type>ovf</configuration_type>
+        </configuration_types>
+        ...
+    </version>
+</capabilities></configuration_type></configuration_types></version></capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_10">
+      <title>
+         存储域类型
+      </title>
+      <programlisting> 
+      <![CDATA[         
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <storage_domain_types>
+            <storage_domain_type>data</storage_domain_type>
+            <storage_domain_type>iso</storage_domain_type>
+            <storage_domain_type>export</storage_domain_type>
+            <storage_domain_type>image</storage_domain_type>
+        </storage_domain_types>
+        ...
+    </version>
+ </capabilities>
+       ]]>
+       </programlisting>
+    </section>
+    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_11">
+       <title>
+          虚拟机类型
+       </title>
+       <para>
+          <emphasis>vm_types</emphasis>元素定义了每一个可用于创建的虚拟机类型<emphasis>(vm_type)</emphasis>
+       </para>
+       <programlisting>
+          <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <vm_types>
+            <vm_type>desktop</vm_type>
+            <vm_type>server</vm_type>
+        </vm_types>
+        ...
+    </version>
+</capabilities> 
+          ]]>
+       </programlisting>
+    </section>
+    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_12">
+       <title>
+         启动设备
+       </title>
+       <para>
+          每一个虚拟机会从以选择的设备中启动。<emphasis>boot_devices</emphasis>元素罗列除了<emphasis>boot_device</emphasis>选项。
+       </para>
+       <programlisting>
+          <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <boot_devices>
+            <boot_device>cdrom</boot_device>
+            <boot_device>hd</boot_device>
+            <boot_device>network</boot_device>
+        </boot_devices>
+        ...
+    </version>
+</capabilities>
+          ]]>
+       </programlisting>
+    </section>
+    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_13">
+       <title>
+         显示元素
+      </title>  
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <display_types>
+            <display_type>vnc</display_type>
+            <display_type>spice</display_type>
+        </display_types>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>    
+   </section>
+   <section  id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_14">
+      <title>
+         NIC接口类型
+      </title>
+      <para>
+         一个虚拟机需要一个网络接口才能联网。<emphasis>nic_interfaces</emphasis>元素定义了所支持的可用网卡类型。每一个<emphasis>nic_interface</emphasis>因为虚拟机的不同类型的从而取决于可用的驱动。VirtIO驱动可用于&OVIRT;企业级Linux4.8以及更高的版本还有Windows虚拟机也是可用的。Windows不需要徐东就可以支持rtl8139。其他Linux机器或者&OVIRT;企业级更早的Linux版本都使用e1000或者rtl8139。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <nic_interfaces>
+           <nic_interface>e1000</nic_interface>
+           <nic_interface>virtio</nic_interface>
+           <nic_interface>rtl8139</nic_interface>
+           <nic_interface>rtl8139_virtio</nic_interface>
+        </nic_interfaces>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section  id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_15">
+      <title>
+         操作系统类型
+      </title>
+      <para>
+         每一个虚拟机包含了一个<emphasis>os_type</emphasis>值来定义虚拟机操作系统。默认值是unassigned。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <os_types>
+        <os_type>windows_2008x64</os_type>
+        <os_type>unassigned</os_type>
+        <os_type>other</os_type>
+        <os_type>other_linux</os_type>
+        <os_type>windows_2008r2</os_type>
+        <os_type>ubuntu_12_04</os_type>
+        <os_type>windows_2008</os_type>
+        <os_type>windows_7x64</os_type>
+        <os_type>windows_2003x64</os_type>
+        <os_type>windows_8x64</os_type>
+        <os_type>windows_7</os_type>
+        <os_type>rhel_6x64</os_type>
+        <os_type>ubuntu_12_10</os_type>
+        <os_type>rhel_6</os_type>
+        <os_type>rhel_5</os_type>
+        <os_type>rhel_4x64</os_type>
+        <os_type>rhel_4</os_type>
+        <os_type>rhel_3</os_type>
+        <os_type>windows_8</os_type>
+        <os_type>windows_2008R2x64</os_type>
+        <os_type>windows_2012x64</os_type>
+        <os_type>windows_xp</os_type>
+        <os_type>rhel_3x64</os_type>
+        <os_type>windows_2012x64</os_type>
+        <os_type>windows_2003</os_type>
+        <os_type>ubuntu_13_10</os_type>
+        <os_type>rhel_5x64</os_type>
+        <os_type>sles_11</os_type>
+        <os_type>ubuntu_13_04</os_type>
+              </os_types>
+              ...
+          </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_16">
+      <title>
+         磁盘格式
+      </title>
+      <para>
+         API用户为虚拟磁盘选择了格式。<emphasis>disk_formats</emphasis>元素定义了格式类型。<emphasis>disk_format</emphasis>类型包括了域分配<emphasis>(raw)</emphasis>或者精简预先配置(写入时复制或者<emphasis>cow</emphasis>)
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <disk_formats>
+            <disk_format>cow</disk_format>
+            <disk_format>raw</disk_format>
+        </disk_formats>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_17">
+      <title>
+         磁盘接口
+      </title>
+      <para>
+         <emphasis>disk_interfaces</emphasis>元素罗列出了使用虚拟磁盘的仿真接口协议选项。<emphasis>disk_interface</emphasis>选项
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <disk_interfaces>
+           <disk_interface>ide</disk_interface>
+           <disk_interface>virtio_scsi</disk_interface>
+           <disk_interface>virtio</disk_interface>
+        </disk_interfaces>
+        ...
+    </version>
+ </capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_18">
+      <title>
+         虚拟机相似之处
+      </title>
+      <para>
+         虚拟机在一个集群的不同主机之间进行迁移。<emphasis>vm_affinities</emphasis>为虚拟机定义了每一个可迁移的可能性。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <vm_affinities>
+           <affinity>migratable</affinity>
+           <affinity>user_migratable</affinity>
+           <affinity>pinned</affinity>
+        </vm_affinities>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_19">
+      <title>
+         自定义属性
+      </title>
+      <para>
+         <emphasis>custom_properties</emphasis>元素为虚拟环境罗列出了一些环境变量。虚拟环境使用这些变量作为事件触发VDSM脚本的参数。每一个<emphasis>custom_property</emphasis>包括了属性名和一个有规律的表达式，以此来定义属性值的格式。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <custom_properties>
+           <custom_property name="sap_agent" regexp="^(true|false)$"/>
+           <custom_property name="sndbuf" regexp="^[0-9]+$"/>
+           <custom_property name="vhost"
+              regexp="^(([a-zA-Z0-9_]*):(true|false))
+              (,(([a-zA-Z0-9_]*):(true|false)))*$"/>
+           <custom_property name="viodiskcache"
+              regexp="^(none|writeback|writethrough)$"/>
+        </custom_properties>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_20">
+      <title>
+         启动协议
+      </title>
+      <para>
+         启动协议元素在主机启动时罗列出了每一个可能的IP分配启动协议。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <boot_protocols>
+           <boot_protocol>dhcp</boot_protocol>
+           <boot_protocol>static</boot_protocol>
+           <boot_protocol>none</boot_protocol>
+        </boot_protocols>
+        ...
+     </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_21">
+      <title>
+         错误处理
+      </title>
+      <para>
+         &OVIRT;企业级虚拟管理决定了是否将虚拟机迁移到非操作中的用于<emphasis>error_handing</emphasis>元素中的<emphasis>on_error</emphasis>选项之一的主机
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <error_handling>
+           <on_error>migrate</on_error>
+           <on_error>do_not_migrate</on_error>
+           <on_error>migrate_highly_available</on_error>
+        </error_handling>
+        ...
+     </version>
+<capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_22">
+      <title>
+         存储格式
+      </title>
+      <para>
+         <emphasis>存储格式</emphasis>元素为存储元数据罗列出了可用 <emphasis>format</emphasis>版本
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <storage_formats>
+            <format>v1</format>
+            <format>v2</format>
+            <format>v3</format>
+        </storage_formats>
+        ...
+        </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_23">
+      <title>
+         创建状态
+      </title>
+      <para>
+         
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <creation_states>
+           <creation_state>pending</creation_state>
+           <creation_state>in_progress</creation_state>
+           <creation_state>complete</creation_state>
+           <creation_state>failed</creation_state>
+        </creation_states>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_24">
+      <title>
+         电源管理状态
+      </title>
+      <para>
+         <emphasis>power_management_states</emphasis>元素为电源管理罗列出了可得状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+       ...
+       <power_management_states>
+          <power_management_state>on</power_management_state>
+          <power_management_state>off</power_management_state>
+          <power_management_state>unknown</power_management_state>
+       </power_management_states>
+       ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_25">
+      <title>
+         主机状态
+      </title>
+      <para>
+         <emphasis>host_states</emphasis>元素罗列出了可得状态，在这些状态当中主机可以被替代。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <host_states>
+           <host_state>down</host_state>
+           <host_state>error</host_state>
+           <host_state>initializing</host_state>
+           <host_state>installing</host_state>
+           <host_state>install_failed</host_state>
+           <host_state>maintenance</host_state>
+           <host_state>non_operational</host_state>
+           <host_state>non_responsive</host_state>
+           <host_state>pending_approval</host_state>
+           <host_state>preparing_for_maintenance</host_state>
+           <host_state>connecting</host_state>
+           <host_state>reboot</host_state>
+           <host_state>unassigned</host_state>
+           <host_state>up</host_state>
+        </host_states>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_26">
+      <title>
+         主机非运行细节
+      </title>
+      <para>
+         <emphasis>host_non_operational_details</emphasis>元素罗列出了一台主机可能处于非操作状态的原因。        
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<host_non_operational_details>
+<host_non_operational_detail>
+none
+</host_non_operational_detail>
+<host_non_operational_detail>
+general
+</host_non_operational_detail>
+<host_non_operational_detail>
+cpu_type_incompatible_with_cluster
+</host_non_operational_detail>
+<host_non_operational_detail>
+storage_domain_unreachable
+</host_non_operational_detail>
+<host_non_operational_detail>
+network_unreachable
+</host_non_operational_detail>
+<host_non_operational_detail>
+version_incompatible_with_cluster
+</host_non_operational_detail>
+<host_non_operational_detail>
+kvm_not_running
+</host_non_operational_detail>
+<host_non_operational_detail>
+timeout_recovering_from_crash
+</host_non_operational_detail>
+<host_non_operational_detail>
+vm_network_is_bridgeless
+</host_non_operational_detail>
+<host_non_operational_detail>
+gluster_command_failed
+</host_non_operational_detail>
+<host_non_operational_detail>
+gluster_host_uuid_not_found
+</host_non_operational_detail>
+<host_non_operational_detail>
+emulated_machines_incompatible_with_cluster
+</host_non_operational_detail>
+<host_non_operational_detail>
+untrusted
+</host_non_operational_detail>
+<host_non_operational_detail>
+uninitialized
+</host_non_operational_detail>
+<host_non_operational_detail>
+cluster_version_incompatible_with_cluster
+</host_non_operational_detail>
+</host_non_operational_details>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_27">
+      <title>
+         网络状态
+      </title>
+      <para>
+         <emphasis>network_states</emphasis>元素罗列出了网络可能处于的可用的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <network_states>
+            <host_state>operational</host_state>
+            <host_state>non-operational</host_state>
+        </network_states>
+        ...
+    </version>
+</capabilities></host_state></host_state></network_states></version></capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_28">
+      <title>
+         存储域状态
+      </title>
+      <para>
+         <emphasis>storage_domain_states</emphasis>元素罗列出了存储域可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <storage_domain_states>
+           <storage_domain_state>active</storage_domain_state>
+           <storage_domain_state>inactive</storage_domain_state>
+           <storage_domain_state>locked</storage_domain_state>
+           <storage_domain_state>mixed</storage_domain_state>
+           <storage_domain_state>unattached</storage_domain_state>
+           <storage_domain_state>maintenance</storage_domain_state>
+           <storage_domain_state>unknown</storage_domain_state>
+        </storage_domain_states>
+        ...
+    </version>
+</capabilities>
+         ]]> 
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_29">
+      <title>
+         模板类型
+      </title>
+      <para>
+         <emphasis>template_states</emphasis>元素罗列出了模板可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+    <version major="3" minor="3">
+        ...
+        <template_states>
+           <template_state>illegal</template_state>
+           <template_state>locked</template_state>
+           <template_state>ok</template_state>
+        </template_states>
+        ...
+    </version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_30">
+      <title>
+         虚拟机状态
+      </title>
+      <para>
+         <emphasis>vm_states</emphasis>元素罗列出了虚拟机可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<vm_states>
+<vm_state>unassigned</vm_state>
+<vm_state>down</vm_state>
+<vm_state>up</vm_state>
+<vm_state>powering_up</vm_state>
+<vm_state>paused</vm_state>
+<vm_state>migrating</vm_state>
+<vm_state>unknown</vm_state>
+<vm_state>not_responding</vm_state>
+<vm_state>wait_for_launch</vm_state>
+<vm_state>reboot_in_progress</vm_state>
+<vm_state>saving_state</vm_state>
+<vm_state>restoring_state</vm_state>
+<vm_state>suspended</vm_state>
+<vm_state>image_locked</vm_state>
+<vm_state>powering_down</vm_state>
+</vm_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_31">
+      <title>
+         虚拟机暂停细节
+      </title>
+      <para>
+         <emphasis>vm_pause_details</emphasis>元素罗列出了虚拟机可能的暂停状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<vm_pause_details>
+<vm_pause_detail>none</vm_pause_detail>
+<vm_pause_detail>eother</vm_pause_detail>
+<vm_pause_detail>eio</vm_pause_detail>
+<vm_pause_detail>enospc</vm_pause_detail>
+<vm_pause_detail>eperm</vm_pause_detail>
+<vm_pause_detail>noerr</vm_pause_detail>
+</vm_pause_details>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_32">
+      <title>
+         磁盘状态
+      </title>
+      <para>
+         <emphasis>disk_states</emphasis>元素罗列出了磁盘可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<disk_states>
+<disk_state>illegal</disk_state>
+<disk_state>locked</disk_state>
+<disk_state>ok</disk_state>
+</disk_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_33">
+      <title>
+         主机网络接口卡
+      </title>
+      <para>
+         <emphasis>host_nic_states</emphasis>元素罗列出了主机网络接口卡可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<host_nic_states>
+<host_nic_state>down</host_nic_state>
+<host_nic_state>up</host_nic_state>
+</host_nic_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_34">
+      <title>
+         数据中心状态
+      </title>
+      <para>
+         <emphasis>data_center_states</emphasis>元素罗列出了数据中心可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+ pabilities>
+<version major="3" minor="3">
+...
+<data_center_states>
+<data_center_state>uninitialized</data_center_state>
+<data_center_state>up</data_center_state>
+<data_center_state>maintenance</data_center_state>
+<data_center_state>non_operational</data_center_state>
+<data_center_state>problematic</data_center_state>
+<data_center_state>contend</data_center_state>
+</data_center_states>
+...
+</version>
+</capabilities>     
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_35">
+      <title>
+         虚拟机设计类型
+      </title>
+      <para>
+         <emphasis>vm_device_types</emphasis>元素罗列出了的虚拟机可能处于的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<vm_device_types>
+<vm_device_types>floppy</vm_device_types>
+<vm_device_types>cdrom</vm_device_types>
+</vm_device_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_36">
+      <title>
+         看门狗模式
+      </title>
+      <para>
+         <emphasis>watchdog_models</emphasis>元素罗列出了虚拟机的看门狗模式。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<watchdog_models>
+<model>i6300esb</model>
+</watchdog_models>
+...
+</version>
+</capabilities>         
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_37">
+      <title>
+         看门狗操作
+      </title>
+      <para>
+         <emphasis>watchdog_actions</emphasis>元素罗列出了当计时器达到零时，看门狗可能执行的操作。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<watchdog_actions>
+<action>none</action>
+<action>reset</action>
+<action>poweroff</action>
+<action>pause</action>
+<action>dump</action>
+</watchdog_actions>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_38">
+      <title>
+         Gluster卷类型
+      </title>
+      <para>
+         <emphasis>gluster_volume_types</emphasis>元素罗列出了Gluster卷的类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<gluster_volume_types>
+<gluster_volume_type>distribute</gluster_volume_types>
+<gluster_volume_types>replicate</gluster_volume_types>
+<gluster_volume_type>distributed_replicate</gluster_volume_types>
+<gluster_volume_types>stripe</gluster_volume_types>
+<gluster_volume_type>distributed_stripe</gluster_volume_types>
+<gluster_volume_types>striped_replicate</gluster_volume_types>
+<gluster_volume_type>distributed_striped_replicate</gluster_volume_types>
+</gluster_volume_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_39">
+      <title>
+         Gluster传输类型
+      </title>
+      <para>
+         <emphasis>transport_types</emphasis>元素罗列出了Gluster卷可有的传输类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<transport_types>
+<transport_type>tcp</transport_type>
+<transport_type>rdma</transport_type>
+</transport_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_40">
+      <title>
+         许可证
+      </title>
+      <para>
+         许可证准许一个用户分配角色的动作。
+      </para>
+      <table>
+         <title>许可证属性</title>
+         <tgroup cols="3" align="left" colsep="1" rowsep="1">
+            <thead>
+               <row>
+                  <entry>
+                     元素
+                  </entry>
+                  <entry>
+                     类型
+                  </entry>
+                  <entry>
+                     描述
+                  </entry>                  
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <emphasis>id=</emphasis>
+                  </entry>
+                  <entry>
+                     integer
+                  </entry>
+                  <entry>
+                     许可证的不透明标示符
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <emphasis>name</emphasis>
+                  </entry>
+                  <entry>
+                     string
+                  </entry>
+                  <entry>
+                     许可证的名字
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <emphasis>administrative</emphasis>
+                  </entry>
+                  <entry>
+                     Boolean:true或false
+                  </entry>
+                  <entry>
+                     许可证智能指定唯一的一个管理员角色。
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+...
+<permits>
+<permit id="1">
+<name>create_vm</name>
+<administrative>false</administrative>
+</permit>
+<permit id="2">
+<name>delete_vm</name>
+<administrative>false</administrative>
+</permit>
+...
+</permits>
+...
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_41">
+      <title>
+         调度策略
+      </title>
+      <para>
+         <emphasis>scheduling_policies</emphasis>元素为集群中的主机定义了负载均衡和节电模式。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+...
+<scheduling_policies>
+<policy>evenly_distributed</policy>
+<policy>power_saving</policy>
+</scheduling_policies>
+...
+</capabilities>         
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_42">
+      <title>
+         使用
+      </title>
+      <para>
+         <emphasis>usages</emphasis>元素罗列出了可得的网络使用类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<usages>
+<usage>display</usage>
+<usage>vm</usage>
+<usage>migration</usage>
+</usages>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_43">
+      <title>
+         NFS版本
+      </title>
+      <para>
+         <emphasis>nfs_versions</emphasis>元素罗列出了NFS存储的可用版本。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<nfs_versions>
+<nfs_version>auto</nfs_version>
+<nfs_version>v3</nfs_version>
+<nfs_version>v4</nfs_version>
+</nfs_versions>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section  id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_44">
+      <title>
+         电源管理代理类型
+      </title>
+      <para>
+         <emphasis>pm_proxy_types</emphasis>元素罗列出了电源管理代理类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<pm_proxy_types>
+<pm_proxy_type>cluster</pm_proxy_type>
+<pm_proxy_type>dc</pm_proxy_type>
+</pm_proxy_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_45">
+      <title>
+         处理器模式
+      </title>
+      <para>
+         <emphasis>cpu_modes</emphasis>元素罗列出了可用的CPU模式。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<cpu_modes>
+<cpu_mode>custom</cpu_mode>
+<cpu_mode>host_model</cpu_mode>
+<cpu_mode>host_passthrough</cpu_mode>
+</cpu_modes>
+...
+</version>
+</capabilities>         
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_46">
+      <title>
+         SCSI Generio I/O选项
+      </title>
+      <para>
+         <emphasis>sgin_options</emphasis>元素罗列出了可用的SCSI Generio I/O选项
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<sgio_options>
+<sgio_option>filtered</sgio_option>
+<sgio_option>unfiltered</sgio_option>
+</sgio_options>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_47">
+      <title>
+         验证方法
+      </title>
+      <para>
+         <emphasis>authentication_methods</emphasis>元素罗列出了可用的验证方法。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<authentication_methods>
+<authentication_method>password</authentication_method>
+<authentication_method>publickey</authentication_method>
+</authentication_methods>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_48">
+      <title>
+         步骤类型
+      </title>
+      <para>
+         <emphasis>step_types</emphasis>元素罗列出了不同的步骤类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<step_types>
+<step_type>validating</step_type>
+<step_type>executing</step_type>
+<step_type>finalizing</step_type>
+<step_type>unknown</step_type>
+</step_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_49">
+      <title>
+         有效负载编码
+      </title>
+      <para>
+         <emphasis>payload_encodings</emphasis>元素罗列出了可用于负载的不同编码。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<payload_encodings>
+<payload_encodings>base64</payload_encodings>
+<payload_encodings>plaintext</payload_encodings>
+</payload_encodings>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_50">
+      <title>
+         Gluster卷类型
+      </title>
+      <para>
+         <emphasis>gluster_volume_types</emphasis>元素罗列出了Gluster卷类型可能的类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<gluster_volume_types>
+<gluster_volume_type>distribute</gluster_volume_type>
+<gluster_volume_type>replicate</gluster_volume_type>
+<gluster_volume_type>distributed_replicate</gluster_volume_type>
+<gluster_volume_type>stripe</gluster_volume_type>
+<gluster_volume_type>distributed_stripe</gluster_volume_type>
+<gluster_volume_type>striped_replicate</gluster_volume_type>
+<gluster_volume_type>distributed_striped_replicate</gluster_volume_type>
+</gluster_volume_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_51">
+      <title>
+         传输类型  
+      </title>
+      <para>
+         <emphasis>传输类型</emphasis>元素
+      </para>
+   </section>
 </chapter>
-
