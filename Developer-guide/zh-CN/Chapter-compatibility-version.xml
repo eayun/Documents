@@ -4,30 +4,105 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-campatibilitys_Chapter">
-	<title>campatibilitys Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>版本兼容性水平</title>
 	<section id="sect-EayunOS-Developer-guide-campatibilitys_Chapter-campatibilitys_Section_1">
-		<title>campatibilitys Section 1</title>
+		<title>版本兼容性水平</title>
 		<para>
-			This is a test paragraph in a section
-		</para>
+         每个连接到&OVIRT;企业级管理的主机都有一个VDSM版本。VDSM是虚拟机基础架构的代理，虚拟机基础架构是运行在一个管理程序或主机上的，并且它还为虚拟机，网络和存储提供了本地管理。&OVIRT;企业级虚拟管理用VDSM的最新和旧一些的版本控制了监控器和主机。
+      </para>
+      <para>
+         管理端将虚拟机从集群中的一台主机迁移到另一台主机上。这意味着管理端排除了某些从VDSM的当前版本特性，直到集群中的所有主机拥有相同的VDSM版本或更早的已经安装过的。
+      </para>
+      <para>
+         API描绘了每台主机的<emphasis>兼容性级别</emphasis>的概念，这与已安装的VDSM版本相一致。一个版本元素包含了主要的和次要的属性，这些属性描述了兼容性级别。
+      </para>
+      <para>
+         当管理员将集群中的所有主机都升级到某一版本时，在<emphasis>supported_versions</emphasis>元素下会显示<emphasis>版本</emphasis>级别。这指出了现在集群的版本是可以更新到那个级别。一旦管理员更新一个数据中心的所有集群至一个预定版本时，数据中心便可更新到那个版本。
+      </para>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-campatibilitys_Chapter-campatibilitys_Section_2">
-		<title>campatibilitys Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
+		<title>升级兼容版本</title>
+      <example>
+         <title>升级兼容版本</title>
+         <para>
+            API为&OVIRT;企业级管理3.0提交了下面的兼容性级别的报告。
+         </para>
+         <para>
+            例子：
+         </para>
+         <programlisting>
+            <![CDATA[
+<host ...>
+...
+<version major="3" minor="0"/>
+...
+</host>
+<cluster ...>
+...
+<version major="3" minor="0"/>
+<supported_versions/>
+...
+</cluster>
+<data_center ...>
+...
+<version major="3" minor="0"/>
+<supported_versions/>
+...
+</data_center>
+            ]]>
+         </programlisting>
+         <para>
+            集群中的所有主机都更新到了VDSM<emphasis>3.1</emphasis>版本，API报告如下：
+         </para>
+         <programlisting>
+            <![CDATA[
+<host ...>
+...
+<version major="3" minor="1"/>
+...
+</host>
+<cluster ...>
+...
+<version major="3" minor="0"/>
+<supported_versions>
+<version major="3" minor="1"/>
+</supported_versions>
+...
+</cluster>
+<data_center ...>
+...
+<version major="3" minor="0"/>
+<supported_versions/>
+...
+</data_center>
+            ]]>
+         </programlisting>
+         <para>
+            集群现在可更新到3.1。当集群更新时，API报告如下：
+         </para>
+         <programlisting>
+            <![CDATA[
+            ter ...>
+...
+<version major="3" minor="1"/>
+<supported_versions/>
+...
+</cluster>
+<data_center ...>
+...
+<version major="3" minor="0"/>
+<supported_versions>
+<version major="3" minor="1"/>
+</supported_versions>
+...
+</data_center>]>
+            ]]>
+         </programlisting>
+         <para>
+            API用户将数据中心更新到3.1版本。一旦更新，API会为数据中心导出现有的特性至&OVIRT;企业级虚拟3.1版本。
+         </para>
+      </example>
 	</section>
-
 </chapter>
 
