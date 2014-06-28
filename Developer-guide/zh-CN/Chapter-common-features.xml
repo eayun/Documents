@@ -4,30 +4,521 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-common-featuress_Chapter">
-	<title>common-featuress Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+   <title>共同特点</title>
 	<section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_1">
-		<title>common-featuress Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
+		<title>元素属性图标</title>
+      <note>
+         <title>
+            注意
+         </title>
+         <para>
+            在本指南中，每个资源的要素都详细的记录在表中。这些表包含了列属性，显示了描绘元素属性的图标。这些图标的含义请看
+            <ulink url="#1">Table 8.1,“ Element property icons”</ulink>
+         </para>
+      </note>
+      <table>
+         <title>
+            元素属性图标
+         </title>
+         <tgroup cols="3" colsep="1" rowsep="1">
+            <thead>
+               <row>
+                  <entry>
+                     属性
+                  </entry>
+                  <entry>
+                     描述
+                  </entry>
+                  <entry>
+                     图标
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     创建所需
+                  </entry>
+                  <entry>
+                     客户端提供的一个关于创建资源的表示必须要包含这些元素，但是对于资源的更新来说，这并不是强制的。
+                  </entry>
+                  <entry>
+                     <inlinemediaobject>
+                        <imageobject>
+                           <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                        </imageobject>
+                     </inlinemediaobject>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     不可更新
+                  </entry>
+                  <entry>
+                     当更新一个资源的时候，这些元素不能改变它们的值。只有它们的值不再被API用户更改时，客户端提供的用于显示更新的元素才会被包含进来。
+                  </entry>
+                  <entry>
+                     <inlinemediaobject>
+                        <imageobject>
+                           <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                        </imageobject>
+                     </inlinemediaobject>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     只读
+                  </entry>
+                  <entry>
+                     这些元素只可读。只读元素的值不能被创建和更改。
+                  </entry>
+                  <entry>
+                     <inlinemediaobject>
+                        <imageobject>
+                           <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                        </imageobject>
+                     </inlinemediaobject>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </section>
 	<section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_2">
-		<title>common-featuress Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
-
+      <title>表示法</title>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_2-1">
+         <title>
+            表示法
+         </title>
+         <para>
+            API结构资源表示，如下面的xml文档结构所示:
+         </para>
+         <programlisting>
+            <![CDATA[
+<resource id="resource_id" href="/api/collection/resource_id">
+    <name>Resource-Name</name>
+    <description>A description of the resource</description>
+    ...
+</resource>   
+         ]]>
+         </programlisting>
+         <para>
+            在一个虚拟机的上下文中，表示如下所示：
+         </para>
+         <programlisting>
+            <![CDATA[
+<vm id="5b9bbce5-0d72-4f56-b931-5d449181ee06"
+  href="/api/vms/5b9bbce5-0d72-4f56-b931-5d449181ee06">
+    <name>RHEL6-Machine</name>
+    <description>Red Hat Enterprise Linux 6 Virtual Machine</description>
+    ...
+</vm>               
+            ]]>
+         </programlisting>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_2-2">
+         <title>
+            资源表示的普通属性
+         </title>
+         <para>
+            所有资源表示包含了一组普通的属性。
+         </para>
+         <table>
+            <title>资源表示的普通属性</title>
+            <tgroup cols="4" colsep="1" rowsep="1">
+               <thead>
+                  <row>
+                     <entry>
+                        属性
+                     </entry>
+                     <entry>
+                        类型
+                     </entry>
+                     <entry>
+                        描述
+                     </entry>
+                     <entry>
+                        属性
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <emphasis>id</emphasis>
+                     </entry>
+                     <entry>
+                        GUID
+                     </entry>
+                     <entry>
+                        虚拟机架构中的每个资源都有一个id,这个id扮演着全局唯一标示符（GUID）的角色。这个GUID是子鉴定资源的主要方法。
+                     </entry>
+                     <entry>
+                     
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>href</emphasis>
+                     </entry>
+                     <entry>
+                        string
+                     </entry>
+                     <entry>
+                        资源的详细位置——绝对路径
+                     </entry>
+                     <entry>
+                     
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>   
+         </table>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_2-3">
+         <title>
+            资源表示常见元素
+         </title>
+         <para>
+            所有的资源表示都包含了许多常见元素。
+         </para>
+         <table>
+            <title>
+               资源表示常见元素
+            </title>
+            <tgroup cols="4" colsep="1" rowsep="1">
+               <thead>
+                  <row>
+                     <entry>
+                        元素
+                     </entry>
+                     <entry>
+                        类型
+                     </entry>
+                     <entry>
+                        描述
+                     </entry>
+                     <entry>
+                        属性
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <emphasis>name</emphasis>
+                     </entry>
+                     <entry>
+                        string
+                     </entry>
+                     <entry>
+                        一个用户提供的为了读取改资源而设置的名字。
+                     </entry>
+                     <entry>
+                        
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>description</emphasis>
+                     </entry>
+                     <entry>
+                        string
+                     </entry>
+                     <entry>
+                        一个用户提供的且格式随意的为读取资源而写的描述。
+                     </entry>
+                     <entry>
+                     
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3">
+      <title>集合</title>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-1">
+         <title>
+            集合
+         </title>
+         <para>
+            集合是一组相同类型的资源。
+         </para>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-2">
+         <title>
+            列出集合中所有的资源
+         </title>
+         <para>
+            利用<emphasis>GET</emphasis>对从entry point中得到的集合URI的请求来获取集合中的资源列表。
+         </para>
+         <para>
+            包含一个<emphasis>Accept</emphasis>的HTTP请求头从而为响应格式定义文件类型。
+         </para>
+         <programlisting>
+         <![CDATA[
+GET /api/[collection] HTTP/1.1
+Accept: [MIME type]
+         ]]>
+         </programlisting>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-3">
+         <title>
+            列出子集合中的扩展资源。
+         </title>   
+         <para>
+            当<emphasis>Accept</emphasis>头包含了详细的参数时，API会扩展资源描述以此来包含子集合。
+         </para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection HTTP/1.1
+Accept: application/xml; detail=subcollection
+            ]]>
+         </programlisting>
+         <para>
+            这个包含了多个子集合要求，它使用了分离的详细参数,要么是：
+         </para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection HTTP/1.1
+Accept: application/xml; detail=subcollection1; detail=subcollection2
+            ]]>
+         </programlisting>
+         <para>
+            要么这个详细的参数使用一个 + 操作符分离开的子集合。
+         </para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection HTTP/1.1
+Accept: application/xml; detail=subcollection1+subcollection2+subcollection3
+            ]]>
+         </programlisting>
+         <para>
+            API未下面的主集合扩展了子集合。
+         </para>
+         <table>
+            <title>
+               使用子集合的集合
+            </title>
+            <tgroup cols="3" colsep="1" rowsep="1">
+               <thead>
+                  <row>
+                     <entry>
+                        集合
+                     </entry>
+                     <entry>
+                        扩展子集合的支持
+                     </entry>
+                  </row>
+               </thead>            
+               <tbody>
+                  <row>
+                     <entry>
+                        <emphasis>主机</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>statistics</emphasis>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>主机</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>statistics,nics,disks</emphasis>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <example>
+            <title>
+               虚拟机集合中的一个对扩展的统计，网络接口卡和磁盘子集合的请求。
+            </title>
+            <programlisting>
+               <![CDATA[
+GET /api/vms HTTP/1.1
+Accept: application/xml; detail=statistics+nics+disks
+               ]]>
+            </programlisting>
+         </example>
+      </section>
+      <section id = "sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-4">
+         <title>搜索队列中的集合</title>
+         <para>在那个集合的搜索查询中的一个对链接<emphasis>"collection/search"</emphasis>的<emphasis>GET</emphasis>请求。API只返回符合搜索查询限制条件的集合中的资源。</para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection?search={query} HTTP/1.1
+Accept: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<collection>
+<resource id="resource_id" href="/api/collection/resource_id">
+...
+</resource>
+...
+</collection>            
+            ]]>        
+         </programlisting>
+      </section>
+      <section id = "sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-5">
+         <title>
+            最大结果参数
+         </title>
+         <para>
+            使用额外的最大URL参数来限制结果列表。
+         </para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection;max=1 HTTP/1.1
+Accept: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<collection>
+<resource id="resource_id" href="/api/collection/resource_id">
+<name>Resource-Name</name>
+<description>A description of the resource</description>
+...
+</resource>
+</collection>
+            ]]>
+         </programlisting>
+         <note>
+            <para>
+               如果集合是可搜索的，最大参数将会覆盖数据库中默认的最大返回结果。
+            </para>
+         </note>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-6">
+         <title>
+            大小写敏感性
+         </title>
+         <para>
+            所有的搜索查询默认都是大小写敏感的。URL语法提供了一个布尔值选项来切换大小写。
+         </para>
+         <example>
+            <title>
+               大小写敏感的搜索查询
+            </title>
+            <programlisting>
+               <![CDATA[
+GET /api/collection;case-sensitive=false?search={query} HTTP/1.1
+Accept: application/xml
+               ]]>
+            </programlisting>
+         </example>
+      </section>
+      <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_3-7">
+         <title>
+            查询语法
+         </title>
+         <para>
+            API使用URI模板来执行通过<emphasis>GET</emphasis>请求的搜索查询。
+         </para>
+         <programlisting>
+            <![CDATA[
+GET /api/collection?search={query} HTTP/1.1
+Accept: application/xml
+            ]]>
+         </programlisting>
+         <para>
+            查询模板值指向了API连接的<emphasis>集合</emphasis>的查找查询。这个集合使用了与&OVIRT;企业级查询语言相同的格式：<emphasis>(criteria) [sortby (elem ent) asc|desc]</emphasis>
+         </para>
+         <para>
+            <emphasis>sortby</emphasis>子句是可选的，只有在排列结果的时候才会需要。
+         </para>
+         <table>
+            <title>
+               示例搜索查询
+            </title>
+            <tgroup cols="3" colsep="1" rowsep="1">
+               <thead>
+                  <row>
+                     <entry>
+                        集合
+                     </entry>
+                     <entry>
+                        准则
+                     </entry>
+                     <entry>
+                        结果
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <emphasis>hosts</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>vms.status=up</emphasis>
+                     </entry>
+                     <entry>
+                        显示一个虚拟机中<emphasis>up</emphasis>状态的所有主机的列表。
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>vms</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>dom ain=qa.com pany.com</emphasis>
+                     </entry>
+                     <entry>
+                        显示了所有运行在特定域上的虚拟机列表。
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>vms</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>dom ain=qa.com pany.com</emphasis>
+                     </entry>
+                     <entry>
+                        显示了用户名为<emphasis>mary</emphasis>的这个用户的所有虚拟机列表
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>events</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>severity>norm al sortby time</emphasis>
+                     </entry>
+                     <entry>
+                        显示了所有<emphasis>事件</emphasis>的列表，这些事件往往是比<emphasis>normal</emphasis>较重要的且是按照<emphasis>time</emphasis>元素值排序的。
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <emphasis>events</emphasis>
+                     </entry>
+                     <entry>
+                        <emphasis>severity>norm al sortby time desc</emphasis>
+                     </entry>
+                     <entry>
+                        显示了所有事件的列表,这些事件往往比<emphasis>normal</emphasis>重要且是按照<emphasis>time</emphasis>元素值降序排列的。
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <para>API需要<emphasis>query</emphasis>模板作为URL编码，以此来转换保留字符，比如说operators和spaces</para>
+         <example>
+            <title>
+               URL编码搜索查询
+            </title>
+            <programlisting>
+               <![CDATA[
+GET /api/vms?search=name%3Dvm1 HTTP/1.1
+Accept: application/xml
+               ]]>
+            </programlisting>
+         </example>
+      </section>
+   </section>
 </chapter>
 
