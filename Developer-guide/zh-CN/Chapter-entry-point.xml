@@ -88,7 +88,7 @@
     ...
     <product_info>
        <name>EayunOS Enterprise Virtualization</name>
-       <vendor>EayunOS Hat</vendor>
+       <vendor>EayunOS</vendor>
        <version revision="0" build="0" minor="2" major="3"/>
     </product_info>
     ...
