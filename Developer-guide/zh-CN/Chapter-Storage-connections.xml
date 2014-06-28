@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-EayunOS-Developer-guide-Storage_Connections_Chapter">
+  <title>存储连接</title>
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_1">
+    <title>存储连接元素</title>
+    <table>
+      <title>存储连接的基本元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>type</emphasis>
+            </entry>
+            <entry>
+              <emphasis>nfs</emphasis>，<emphasis>posixfs</emphasis>，<emphasis>local</emphasis>，或者 <emphasis>iscsi</emphasis> 之一.
+            </entry>
+            <entry>
+              存储的类型
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>address</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              存储的主即名和 IP 地址。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <para>
+                （只在 NFS 或 iSCSI 上需要）
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>host</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              存储的主机名和 IP 地址。<emphasis>host</emphasis> 是可选的。提供该选项将会尝试通过主机与存储建立连接；不提供该选项只会将存储信息存入数据库。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <table>
+      <title>存储连接的基于文件的存储元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>path</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              存储域的挂载的文件路径。<emphasis>path</emphasis> 不能被更新为已经使用了的存储连接。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>mount_options</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              挂载 PosixFS 共享存储的选项。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>vfs_type</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              PosixFS 共享存储的 Linux 兼容的文件系统类型。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>nfs_version</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              时用的 NFS 存储的版本。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>nfs_timeo</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              NFS 客户端请求的超时时间，单位为十进制秒。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>nfs_retrans</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              NFS 客户端为完成请求尝试的重新发送请求的次数。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>port</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              iSCSI 存储域所使用的 TCP 端口。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>target</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              存储设备的目标 IQN 号。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>username</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              登陆目标的 CHAP 用户名。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>password</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              登陆目标的 CHAP 密码。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_2">
+    <title>存储连接资源的 XML 展现</title>
+    <example>
+      <title>一个存储连接资源的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<storage_connections>
+ <storage_connection href= "/api/storageconnections/608c5b96-9939-4331-96b5-
+197f28aa2e35" id="608c5b96-9939-4331-96b5-197f28aa2e35">
+ <address>domain.example.com</address>
+ <type>nfs</type>
+ <path>/var/lib/exports/iso</path>
+ </storage_connection>
+ <storage_connection href= "/api/storageconnections/2ebb3f78-8c22-4666-8df4-
+e4bb7fec6b3a" id="2ebb3f78-8c22-4666-8df4-e4bb7fec6b3a">
+ <address>domain.example.com</address>
+ <type>posixfs</type>
+ <path>/export/storagedata/username/data</path>
+ <vfs_type>nfs</vfs_type>
+ </storage_connection>
+</storage_connections>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3">
+    <title>方法</title>
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-1">
+      <title>创建一个新的存储连接</title>
+      <para>
+        创建一个新的存储连接需要 <emphasis>POST</emphasis> 请求。
+      </para>
+      <para>
+        创建一个新的存储连接可以不用创建新的存储域。<emphasis>id</emphasis> 和 <emphasis>name</emphasis> 属性是可选的；提供这些选项的话将会尝试通过主机建立与存储的连接。
+      </para>
+      <example>
+        <title>创建一个新的存储连接</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/storageconnections HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_connection>
+ <type>nfs</type>
+ <address>domain.example.com</address>
+ <path>/export/storagedata/username/data</path>
+ <host>
+ <name>Host_Name</name>
+ </host>
+</storage_connection>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-2">
+      <title>移除一个存储连接</title>
+      <para>
+        移除一个存储连接需要 <emphasis>DELETE</emphasis> 请求。只有当没有任何存储域或者 LUN 磁盘没有使用该存储连接，该存储连接才能被删除。
+      </para>
+      <para>
+        主机的 <emphasis>id</emphasis> 和 <emphasis>name</emphasis> 属性是可选的；提供这些选项的话将会尝试通过主机移除该存储的连接。
+      </para> 
+      <example>
+        <title>移除一个存储连接</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/storageconnections/Storage_Connection_ID HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<host>
+ <name>Host_Name</name>
+</host>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-3">
+      <title>更新一个存储连接</title>
+      <para>
+        更新一个存储连接需要 <emphasis>PUT</emphasis> 请求。
+      </para>
+      <para>
+        主机的 <emphasis>id</emphasis> 和 <emphasis>name</emphasis> 属性是可选的；提供这些选项的话将会尝试通过主机更新该存储的连接。
+      </para>
+      <example>
+        <title>更新一个存储连接</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/storageconnections/Storage_Connection_ID HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_connection> 
+ <address>updated.example.domain.com</address>
+ <host>
+ <name>Host_name</name>
+ </host>
+</storage_connection>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-4">
+      <title>通过已有存储连接添加存储域</title>
+      <para>
+        通过已有存储连接添加存储域需要 <emphasis>POST</emphasis> 请求。该功能只适用于基于文件的存储：<emphasis>NFS</emphasis>，<emphasis>POSIX</emphasis>，和 <emphasis>local</emphasis>。
+      </para>
+      <example>
+        <title>通过已有存储连接添加存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<storage_domain>
+ <name>New_Domain</name>
+ <type>data</type>
+ <storage id="Storage_Connection_ID"/>
+ <host>
+ <name>Host_Name</name>
+ </host>
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-5">
+      <title>向 iSCSI 存储曾加一个存储连接</title>
+      <para>
+        向 iSCSI 存储曾加一个存储连接需要 <emphasis>POST</emphasis> 请求。
+      </para>
+      <example>
+        <title>向 iSCSI 存储曾加一个存储连接</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/storagedomains/iSCSI_Domain_ID/storageconnections HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<storage_connection id="Storage_Connection_ID">
+</storage_connection>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-6">
+      <title>从 iSCSI 存储删除一个存储连接</title>
+      <para>
+        从 iSCSI 存储删除一个存储连接需要 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>从 iSCSI 存储删除一个存储连接</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE
+/api/storagedomains/iSCSI_Domain_ID/storageconnections/Storage_Connection_ID 
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
+</chapter>
+

@@ -33,6 +33,7 @@
     <xi:include href="Chapter-Host-clusters.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Chapter-Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Chapter-Storage-domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Chapter-Storage-connections.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Chapter-Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Chapter-Virtual-machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Chapter-Floating-disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
