@@ -3,31 +3,1186 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-EayunOS-Developer-guide-Test_Chapter">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+<chapter id="chap-EayunOS-Developer-guide-Storage_Chapter">
+  <title>存储域</title>
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_1">
+    <title>存储域的元素</title>
+    <para>
+      <emphasis>storagedomains</emphasis> 集合提供了&OVIRT;虚拟化环境中的存储域的信息。API 用户可以用从 API 入口获得的 <emphasis>rel="storagedomains"</emphasis> 链接来访问这些信息。
+    </para>
+    <para>
+      下表展示了存储域资源的展现中的各个元素。
+    </para>
+    <table>
+      <title>存储域元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>link rel="permissions"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              存储域权限子集的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="files"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              存储域文件（<emphasis>files</emphasis>）子集的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="vms"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个存储域的虚拟机（<emphasis>vms</emphasis>）的子集的链接，且存储域的类型（<emphasis>type</emphasis>）为 <emphasis>export</emphasis>
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="templates"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个存储域的模板（<emphasis>templates</emphasis>）的子集的链接，且存储域的类型（<emphasis>type</emphasis>）为 <emphasis>export</emphasis>
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>type</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              存储域的类型。<emphasis>capabilities</emphasis> 里包含的所有枚举类型的列表。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>master</emphasis>
+            </entry>
+            <entry>
+              布尔型：true 或 false
+            </entry>
+            <entry>
+              如果是 <emphasis>true</emphasis> 的话该存储域为主存储域。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>host</emphasis>
+            </entry>
+            <entry>
+              复合型
+            </entry>
+            <entry>
+              该存储域初始化所用的主机的索引，对该主机的唯一限制条件是该主机拥有与指定物理存储的连接。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage</emphasis>
+            </entry>
+            <entry>
+              复合型
+            </entry>
+            <entry>
+              描述当前存储域的存储信息。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>available</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              字节单位的空余空间。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>used</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              字节单位的已使用空间。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>committed</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              字节单位的已提交的空间。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage_format</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              描述存储域的存储格式版本。从 <emphasis>capabilities</emphasis> 中可获得各个枚举值。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage_domain_state</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              定义了当前存储域是否已经附加到一个数据中心上了。从 <emphasis>capabilities</emphasis> 中可获得各个枚举值。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <important>
+      <para>
+        本章的 API 文档是实验性的，并且可能会有改动。且不在向后兼容的内容中。
+      </para>
+    </important>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_2">
+    <title>存储域的 XML 展现</title>
+    <example>
+      <title>一个存储域的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"
+ href="/api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed">
+ <name>data0</name>
+ <link rel="permissions"
+ href="/api/storagedomains/be24cd98-8e23-49c7-b425-
+1a12bd12abb0/permissions"/>
+ <link rel="files"
+ href="/api/storagedomains/be24cd98-8e23-49c7-b425-1a12bd12abb0/files"/>
+ <type>data</type>
+ <master>true</master>
+ <storage>
+ <type>nfs</type>
+ <address>172.31.0.6</address>
+ <path>/exports/RHEVX/images/0</path>
+ </storage>
+ <available>156766306304</available>
+ <used>433791696896</used>
+ <committed>617401548800</committed>
+ <storage_format>v1</storage_format>
+ <storage_domain_state>unattached</storage_domain_state>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3">
+    <title>操作</title>
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3-1">
+      <title>创建存储域</title>
+      <para>
+        创建一个存储域需要 <emphasis>name</emphasis>，<emphasis>type</emphasis>，<emphasis>host</emphasis> 和 <emphasis>storage</emphasis> 元素。且使用 <emphasis>id</emphasis> 属性或者 <emphasis>name</emphasis> 元素来识别 <emphasis>host</emphasis>。
+      </para>
+      <example>
+        <title>创建一个存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+ 
+<storage_domain>
+ <name>data1</name>
+ <type>data</type>
+ <host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+ <storage>
+ <type>nfs</type>
+ <address>172.31.0.6</address>
+ <path>/exports/RHEVX/images/0</path>
+ </storage>
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        API 用户需要在存储域创建完成以后才能将存储域附加到数据中心。
+      </para>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3-2">
+      <title>更新存储域</title>
+      <para>
+        存储域创建后只有 <emphasis>name</emphasis> 元素能够更新。
+      </para>
+      <example>
+        <title>更新一个存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+ 
+<storage_domain>
+ <name>data2</name>
+ ...
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3-3">
+      <title>移除存储域</title>
+      <para>
+        移除存储域需要 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除一个存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4">
+    <title>存储类型</title>
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-1">
+      <title>存储类型</title>
+      <para>
+        <emphasis>storage</emphasis> 元素包含一个 <emphasis>type</emphasis> 元素，它是 <emphasis>capabilities</emphasis> 集合下的一个布尔值。
+      </para>
+      <para>
+        存储元素也包含了一个附加的与每一种存储类型（<emphasis>type</emphasis>）有关的元素。接下来的几小节将验证这个附加的 <emphasis>type</emphasis> 元素。
+      </para>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-2">
+      <title>NFS 存储</title>
+      <para>
+        下表包含了 <emphasis>storage</emphasis> 描述下的与 <emphasis>nfs</emphasis> 有关的元素。
+      </para>
+      <table>
+        <title>与 NFS 有关的元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>address</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                NFS 服务的主机名和 IP 地址。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>path</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                NFS 服务器上可挂载的目录。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-3">
+      <title>PosixFS 存储</title>
+      <para>
+        下表包含了 <emphasis>storage</emphasis> 描述下的与 <emphasis>posixfs</emphasis> 有关的元素。
+      </para>
+      <table>
+        <title>与 PosixFS 有关的元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>address</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                PosixFS 服务的主机名和 IP 地址。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>path</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                PosixFS 服务器上可挂载的目录。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>vfs_type</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                PosixFS 共享存储的 Linux 支持的文件系统类型。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>mount_options</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                挂载 PosixFS 共享存储的选项
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-4">
+      <title>iSCSI 和 FCP 存储</title>
+      <para>
+        下表包含了 <emphasis>storage</emphasis> 描述下的与 <emphasis>iscsi</emphasis> 与 <emphasis>fcp</emphasis> 有关的元素信息。
+      </para>
+      <table>
+        <title>与 iSCSI 与 FCP 有关的元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>logical_unit id=</emphasis>
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                逻辑单元的 <emphasis>id</emphasis>。一个存储域也能接受多个 iSCSI 或 FCP 的逻辑单元。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>override_luns</emphasis>
+              </entry>
+              <entry>
+                布尔型
+              </entry>
+              <entry>
+                定义是否用新的配置覆盖所有逻辑单元的设置，设置 <emphasis>true</emphasis> 来覆盖。设置 <emphasis>true</emphasis> 来覆盖。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        <emphasis>logical_unit</emphasis> 包含了一系列的子元素。
+      </para>
+      <table>
+        <title>逻辑单元的元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>address</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                包含存储设备的服务器地址。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>port</emphasis>
+              </entry>
+              <entry>
+                整数
+              </entry>
+              <entry>
+                服务器的端口号。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>target</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                存储设备的目标 IQN。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>username</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                登陆到目标所使用的 CHAP 用户名。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>password</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                登陆到目标所使用的 CHAP 密码。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>serial</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                目标的 serial ID 号。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>vendor_id</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                目标的生产商名称。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>product_id</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                目标的产品码。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>lun_mapping</emphasis>
+              </entry>
+              <entry>
+                整数
+              </entry>
+              <entry>
+                目标的逻辑单元设备的映射。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        当使用 iSCSI 的时候，如果 <emphasis>logical_unit</emphasis> 描述也包含了 iSCSI 目标的详情且包含了 LUN，目标将在存储域创建好时自动登陆。
+      </para>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-5">
+      <title>LocalFS 存储</title>
+      <para>
+        <emphasis>storage</emphasis> 描述里的 <emphasis>localfs</emphasis> 相关的元素为：
+      </para>
+      <table>
+        <title>与 LocalFS 相关的元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>path</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                主机内的本地存储的路径。
+              </entry>
+              <entry>
+                <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                  </imageobject>
+                </inlinemediaobject>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        一个 <emphasis>localfs</emphasis> 存储域需要一个 <emphasis>storage_type</emphasis> 设置为 <emphasis>localfs</emphasis> 类型的数据中心。该数据中心仅包含仅含有一个主机的一个集群。
+      </para>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_5">
+    <title>导出存储类型</title>
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_5-1">
+      <title>导出存储类型</title>
+      <para>
+        <emphasis>type</emphasis> 设置为了 <emphasis>export</emphasis> 的存储域包含了 <emphasis>vms</emphasis> 和 <emphasis>templates</emphasis> 的子集，即列出了该存储域中的候选虚拟机和模板。
+      </para>
+      <example>
+        <title>列出导出存储域的虚拟机子集合</title>
+        <programlisting>
+          <![CDATA[
+GET /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/vms
+Accept: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<vms>
+ <vm id="082c794b-771f-452f-83c9-b2b5a19c0399"
+ href="/api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/
+ vms/082c794b-771f-452f-83c9-b2b5a19c0399">
+ <name>vm1</name>
+ ...
+ <storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"
+ href="/api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed"/>
+ <actions>
+ <link rel="import" href="/api/storagedomains/
+ fabe0451-701f-4235-8f7e-e20e458819ed/vms/
+ 082c794b-771f-452f-83c9-b2b5a19c0399/import"/>
+ </actions>
+ </vm>
+</vms>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        这些存储中的虚拟机和模板集合与顶级目录下的虚拟机和模板很相似，只是本集合中资源包含了 <emphasis>storage_domain</emphasis> 索引和 <emphasis>import</emphasis> 操作。
+      </para>
+      <para>
+        <emphasis>import</emphasis> 操作将 <emphasis>export</emphasis> 存储域中的虚拟机和模板导入。目标集群和存储域的信息通过 <emphasis>cluster</emphasis> 和 <emphasis>storage_domain</emphasis> 索引来设置。
+      </para>
+      <para>
+        对导入的虚拟机或模板添加 <emphasis>name</emphasis> 元素来重命名虚拟机或模板。
+      </para>
+      <example>
+        <title>从导出存储域导入一虚拟机的操作</title>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/vms/
+082c794b-771f-452f-83c9-b2b5a19c0399/import HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <storage_domain>
+ <name>images0</name>
+ </storage_domain>
+ <cluster>
+ <name>Default</name>
+ </cluster>
+</action>
+]]>
+        </programlisting>
+      </example>
+      <example>
+        <title>从导出存储域导入一模板的操作</title>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/templates/
+082c794b-771f-452f-83c9-b2b5a19c0399/import HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <storage_domain>
+ <name>images0</name>
+ </storage_domain>
+ <cluster>
+ <name>Default</name>
+ </cluster>
+</action>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        通过指定可选择的 <emphasis>clone</emphasis> 布尔值来将导入的虚拟机变成新的实体。
+      </para>
+      <example>
+        <title>从导出存储域导入一虚拟机，且将虚拟机做成新的实体的操作</title>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/vms/
+082c794b-771f-452f-83c9-b2b5a19c0399/import HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <storage_domain>
+ <name>images0</name>
+ </storage_domain>
+ <cluster>
+ <name>Default</name>
+ </cluster>
+ <clone>true</clone>
+ <vm>
+ <name>MyVM</name>
+ </vm>
+ ...
+</action>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        通过指定可选择的 <emphasis>disks</emphasis> 元素来通过 <emphasis>disk id</emphasis> 元素选择导入哪个磁盘。
+      </para>
+      <example>
+        <title>为导入操作选择一个磁盘</title>
+        <programlisting>
+          <![CDATA[
+POST /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/vms/
+082c794b-771f-452f-83c9-b2b5a19c0399/import HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <cluster>
+ <name>Default</name>
+ </cluster>
+ <vm>
+ <name>MyVM</name>
+ </vm>
+ ...
+ <disks>
+ <disk id="4825ffda-a997-4e96-ae27-5503f1851d1b"/>
+ </disks>
+</action>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        通过 <emphasis>DELETE</emphasis> 请求来从<emphasis>导出</emphasis>域删除虚拟机或模板。
+      </para>
+      <example>
+        <title>从导出存储域中删除虚拟机</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/vms/
+082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+HTTP/1.1 204 No Content
+]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_6">
+    <title>子集</title>
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_6-1">
+      <title>文件子集</title>
+      <para>
+        存储域下的文件（<emphasis>files</emphasis>）子集可以为客户端程序提供一种列出可用文件的途径。该子集一般用于 ISO 存储域，它包含了管理员用户在&OVIRT;&MANAGER;下上传的 ISO 镜像文件和虚拟软盘（VFDs）文件。
+      </para>
+      <para>
+        VM 要想添加 CD-ROM 的话需要给 CD-ROM 添加一个 ISO 存储域下的 <emphasis>files</emphasis> 子集中的 ISO 镜像文件。
+      </para>
+      <example>
+        <title>列出 ISO 存储域内的 files 子集合</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+GET /api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/files HTTP/1.1
+Accept: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<files>
+ <file id="en_winxp_pro_with_sp2.iso"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/files/
+ en_winxp_pro_with_sp2.iso">
+ <name>en_winxp_pro_with_sp2.iso</name>
+ <type>iso</type>
+ <storage_domain id="00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"/>
+ </file>
+ <file id="boot.vfd"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da/files/
+ boot.vfd">
+ <name>boot.vfd</name>
+ <type>vfd</type>
+ <storage_doman id="00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"
+ href="/api/storagedomains/00f0d9ce-da15-4b9e-9e3e-3c898fa8b6da"/>
+ </file>
+</files>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        与其它元素一样，files 元素含有不透明的 <emphasis>id</emphasis> 和 <emphasis>href</emphasis> 元素。<emphasis>name</emphasis> 元素包含了文件名。
+      </para>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_7">
+    <title>操作</title>
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_7-1">
+      <title>导入已存在的存储域</title>
+      <para>
+        API 给用户提供了能让&OVIRT;&MANAGER;在不重新格式化现有的存储并导入到另一个实例的前提下来移除一个 ISO 或者 Export 存储域。导入存储域与添加存储域的区别仅在于导入时不需要指定 <emphasis>name</emphasis>。
+      </para>
+      <example>
+        <title>导入一个现有的存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<storage_domain>
+ <type>export</type>
+ <storage>
+ <type>nfs</type>
+ <address>172.31.0.6</address>
+ <path>/exports/RHEVX/export-domain</path>
+ </storage>
+ <host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+</storage_domain>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"
+ href="/api/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed">
+ <name>export1</name>
+ ...
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_7-2">
+      <title>移除一个存储域</title>
+      <para>
+        一个 <emphasis>storage_domain</emphasis> 索引传给了针对一个存储域的 <emphasis>DELETE</emphasis> 请求的 body 部分。<emphasis>storage_domain</emphasis> 索引采用了如下的格式：
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+<storage_domain>
+ <host id="..."/>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        或者
+      </para>
+      <para>
+        <programlisting>
+          <![CDATA[
+<storage_domain>
+ <host>
+ <name>...</name>
+ </host>
+</storage_domain>
+]]>
+        </programlisting>
+      </para>
+      <para>
+        <emphasis>格式化存储域</emphasis>
+      </para>
+      <para>
+        一个 API 用户提供了一个可选的 <emphasis>format</emphasis> 元素来指定是否格式化存储域。
+      </para>
+      <example>
+        <title>在删除了存储域后格式化存储域</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+<storage_domain>
+ <host id="..."/>
+ <format>true</format>
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        如果 <emphasis>format</emphasis> 元素没有指定，那么存储域不会被格式化。
+      </para>
+      <para>
+        存储域的逻辑移除
+      </para>
+      <para>
+        API 还提供了一个逻辑移除存储域的方法。该方法保持存储域的数据，用于以后的导入。使用 <emphasis>destroy</emphasis> 元素即可逻辑上移除存储域而保留存储域的数据。
+      </para>
+      <example>
+        <title>存储域的逻辑移除</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+<storage_domain>
+ <host id="..."/>
+ <destroy>true</destroy>
+</storage_domain>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
 
 </chapter>
 
