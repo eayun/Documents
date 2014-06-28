@@ -203,5 +203,68 @@
     </example>
   </section>
 
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3">
+    <title>方法</title>
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-1">
+      <title>创建一个新的数据中心</title>
+      <para>
+        创建新的数据中心需要 <emphasis>name</emphasis>，<emphasis>storge_type</emphasis> 和 <emphasis>version</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<data_center>
+ <name>NewDatacenter</name>
+ <storage_type>nfs</storage_type>
+ <version minor="1" major="3"/>
+</data_center>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-2">
+      <title>更新一个数据中心</title>
+      <para>
+        <emphasis>name</emphasis>，<emphasis>description</emphasis>，<emphasis>storage_type</emphasis>，<emphasis>version</emphasis> 和 <emphasis>storage_format</emphasis> 元素可以更新。
+      </para>
+      <example>
+        <title>更新一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+PUT /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<data_center>
+ <name>UpdatedName</name>
+ <description>An updated description for the data center</description>
+</data_center>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-3">
+      <title>移除一个数据中心</title>
+      <para>
+        移除一个数据中心需要一个 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988 HTTP/1.1
+
+HTTP/1.1 204 No Content
+]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
 </chapter>
 
