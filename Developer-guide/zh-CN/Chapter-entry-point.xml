@@ -33,8 +33,8 @@
  <link rel="vms" href="/api/vms"/>
     ...
     <product_info>
-       <name>Red Hat Enterprise Virtualization</name>
-       <vendor>Red Hat</vendor>
+       <name>EayunOS Enterprise Virtualization</name>
+       <vendor>EayunOS</vendor>
        <version revision="0" build="0" minor="1" major="3"/>
     </product_info>    
     <special_objects>
@@ -87,8 +87,8 @@
  <api>
     ...
     <product_info>
-       <name>Red Hat Enterprise Virtualization</name>
-       <vendor>Red Hat</vendor>
+       <name>EayunOS Enterprise Virtualization</name>
+       <vendor>EayunOS Hat</vendor>
        <version revision="0" build="0" minor="2" major="3"/>
     </product_info>
     ...
