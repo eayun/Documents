@@ -4,30 +4,246 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Users_Chapter">
-	<title>Users Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>用户</title>
+
 	<section id="sect-EayunOS-Developer-guide-Users_Chapter-Users_Section_1">
-		<title>Users Section 1</title>
+		<title>用户元素</title>
 		<para>
-			This is a test paragraph in a section
+			用户位于集合顶部并且用<emphasis>rel="users"</emphasis>关联。单个<emphasis>user</emphasis>元素包含下列内容：
 		</para>
+
+		<table>
+			<title>用户元素</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<row>
+						<entry>
+							元素
+						</entry>
+						<entry>
+							类型
+						</entry>
+						<entry>
+							描述
+						</entry>
+						<entry>
+							属性
+						</entry>
+					</row>
+				</thead>
+
+				<tbody>
+					
+					<row>
+						<entry>
+							user_name
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							用户的主体名称（UPN）。用于添加新用户时，使用UPN会更方便。
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel="tags"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							与标签子集相关的用户
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel="roles"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							与角色子集相关的用户
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							name
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							用户的自由文本名称
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							domain
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							包含目录服务器的域
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+					<row>
+						<entry>
+							groups
+						</entry>
+						<entry>
+							复合型
+						</entry>
+						<entry>
+							用户的一系列目录服务器组
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Users_Chapter-Users_Section_2">
-		<title>Users Section 2</title>
+		<title>用户的XML表示</title>
+
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>用户的XML表示</title>
+				<programlisting>
+					<![CDATA[
+GET /api/users HTTP/1.1
+Accept: application/xml
+<user id="225f15cd-e891-434d-8262-a66808fcb9b1"
+href="/api/users/225f15cd-e891-434d-8262-a66808fcb9b1">
+<name>RHEV-M Admin</name>
+<actions/>
+<link rel="roles"
+href="/api/users/225f15cd-e891-434d-8262-a66808fcb9b1/roles"/>
+<link rel="tags"
+href="/api/users/225f15cd-e891-434d-8262-a66808fcb9b1/tags"/>
+<domain>domain.example.com</domain>
+<logged_in>false</logged_in>
+<user_name>rhevmadmin@domain.example.com</user_name>
+<groups>
+<group>Group Policy Creator Owners@domain.example.com/Users</group>
+<group>Domain Admins@domain.example.com/Users</group>
+<group>Enterprise Admins@domain.example.com/Users</group>
+<group>Schema Admins@domain.example.com/Users</group>
+<group>Administrators@domain.example.com/Builtin</group>
+</groups>
+</user>
+					]]>
+				</programlisting>
+			</example>
 		</para>
 	</section>
+
+
+	<section id="sect-EayunOS-Developer-guide-Users_Chapter-Users_Section_3">
+		<title>方法</title>
+
+		
+		<section id="sect-EayunOS-Developer-guide-Users_Chapter-Users_Section_3-1">
+			<title>添加用户</title>
+
+			<para>
+				API用户可以用<emphasis>POST</emphasis>请求将一个用户添加到红帽公司虚拟管理数据库的<emphasis>users</emphasis>集合中。客户端提供的新用户包含一张嵌入的<emphasis>roles</emphasis>表，这张表中至少有一个内部角色分配给了用户。例如，下面的例子请求分配两个内部角色给用户<emphasis>joe@ dom ain.exam ple.com </emphasis>:
+			</para>
+
+			<para>
+				<example>
+					<title>从目录服务器上添加用户，并给用户分配两个角色</title>
+				<programlisting>
+					<![CDATA[
+POST /api/users HTTP/1.1
+Content-Type: application/xml
+Accept: application/xml
+<user>
+<user_name>joe@domain.example.com</user_name>
+<roles>
+<role>
+<name>RHEVMPowerUser</name>
+</role>
+<role id="00000000-0000-0000-0001-000000000003"/>
+</roles>
+</user>
+					]]>
+				</programlisting>
+				</example>
+			</para>
+
+			<para>
+				新用户是以红帽公司虚拟管理中的用户ID或通过目录服务器的用户主体名称(UPN)进行验证的。从目录服务器域中报告用户ID格式可能与红帽公司虚拟管理中的格式不同，例如LDIF，ID将拥有相反的字节顺序，并且用base-64编码。因此用UPN来关联新用户会更方便。
+			</para>
+
+			<note>
+				<para>
+					用户在添加到红帽公司虚拟环境管理数据库之前就已经在目录服务器中存在。API用户在创建用户时可以提前从<emphasis>domains</emphasis>集合上查询域。
+				</para>
+			</note>
+
+			<para>
+				使用name或ID验证角色，上面的例子展示里这两种方法。
+			</para>
+
+		</section>
+
+		<section id="sect-EayunOS-Developer-guide-Users_Chapter-Users_Section_3-2">
+			<title>为用户添加一个角色</title>
+
+			<para>
+				使用<emphasis>POST</emphasis>或<emphasis>DELETE</emphasis>请求进一步将角色从用户中附加或删除。下面的例子说明了API用户如何将<emphasis>RHEVMVDIUser</emphasis>角色添加并分配到指定的用户中。
+			</para>
+
+			<note>
+				<para>
+					嵌入式用户角色的用户列表元素仅用于初始创建。所有用户角色的交互式<emphasis>post-creation</emphasis>分配都要通过<emphasis>roles</emphasis>子集来完成。
+				</para>
+			</note>
+
+			<para>
+				<example>
+					<title>为用户添加一个角色</title>
+					<programlisting>
+						<![CDATA[
+POST /api/users/225f15cd-e891-434d-8262-a66808fcb9b1/roles HTTP/1.1
+Content-Type: application/xml
+Accept: application/xml
+<role>
+<name>RHEVMVDIUser</name>
+</role>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+	</section>
+
 
 </chapter>
 
