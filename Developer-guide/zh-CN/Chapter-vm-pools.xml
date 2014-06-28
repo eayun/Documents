@@ -38,6 +38,7 @@
 				</thead>
 
 				<tbody>
+					<!--line1-->
 					<row>
 						<entry>
 							size
@@ -53,6 +54,7 @@
 						</entry>
 					</row>
 
+					<!--line2-->
 					<row>
 						<entry>
 							cluster id=
@@ -68,6 +70,7 @@
 						</entry>
 					</row>
 
+					<!--line3-->
 					<row>
 						<entry>
 							template id=
@@ -88,7 +91,7 @@
 
 		<important>
 			<para>
-				本章的API用户是试验性的，并且可能发生改变。不覆盖向后兼容的声明。
+				本章的API用户是试验性的，并且可能发生改变。不会覆盖向后兼容的声明。
 			</para>
 		</important>
 
