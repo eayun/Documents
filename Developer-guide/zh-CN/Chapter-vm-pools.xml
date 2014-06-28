@@ -4,29 +4,198 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-vm-pools_Chapter">
-	<title>vm-pools Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>虚拟机池</title>
 	<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_1">
-		<title>vm-pools Section 1</title>
+		<title>虚拟机池元素</title>
 		<para>
-			This is a test paragraph in a section
+			虚拟机池提供了红帽公司虚拟环境中关于虚拟机池的信息, API 用户可以通过入口的 URL 以<emphasis> rel=”vmpools”</emphasis>访问这些信息。
 		</para>
+		
+		<para>
+			下表显示了虚拟机池中定义的元素。
+		</para>
+
+		<table>
+			<title>虚拟机池元素</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<row>
+						<entry>
+							元素
+						</entry>
+						<entry>
+							类型
+						</entry>
+						<entry>
+							描述
+						</entry>
+						<entry>
+							属性
+						</entry>
+					</row>
+
+				</thead>
+
+				<tbody>
+					<row>
+						<entry>
+							size
+						</entry>
+						<entry>
+							整型
+						</entry>
+						<entry>
+							虚拟机池中的虚拟机数量
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							cluster id=
+						</entry>
+						<entry>
+							GUID
+						</entry>
+						<entry>
+							虚拟机池中运行的集群资源
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							template id=
+						</entry>
+						<entry>
+							GUID
+						</entry>
+						<entry>
+							该虚拟机池中的虚拟机所基于的模板
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+
+		<important>
+			<para>
+				本章的API用户是试验性的，并且可能发生改变。不覆盖向后兼容的声明。
+			</para>
+		</important>
+
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_2">
-		<title>vm-pools Section 2</title>
+		<title>虚拟机池的XML表示</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>虚拟机池的XML表示</title>
+				<programlisting>
+					<![CDATA[
+<vmpool id="2d2d5e26-1b6e-11e1-8cda-001320f76e8e"
+href="/api/vmpools/2d2d5e26-1b6e-11e1-8cda-001320f76e8e">
+<name>VMPool1</name>
+<description>Virtual Machine Pool 1</description>
+<size>2</size>
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+<template id="00000000-0000-0000-0000-000000000000"
+href="/api/templates/00000000-0000-0000-0000-000000000000"/>
+</vmpool>
+					]]>
+				</programlisting>				
+			</example>			
 		</para>
+
+	</section>
+
+
+	<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_3">
+		<title>方法</title>
+
+		
+		<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_3-1">
+			<title>新建虚拟机池</title>
+			
+			<para>
+				新建一个虚拟机池需要定义<emphasis>name, cluster</emphasis>和<emphasis>template</emphasis>元素。用<emphasis>id</emphasis>属性或<emphasis>name</emphasis>属性来验证<emphasis>cluster</emphasis>和<emphasis>template</emphasis>。
+			</para>
+
+			<para>
+				<example>
+					<title>新建虚拟机池</title>
+					<programlisting>
+						<![CDATA[
+POST /api/vmpools HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vmpool>
+<name>VM Pool A</name>
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+<template id="00000000-0000-0000-0000-000000000000"
+href="/api/templates/00000000-0000-0000-0000-000000000000"/>
+</vmpool>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+		</section>
+
+		<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_3-2">
+			<title>更改虚拟机池</title>
+			<para>
+				<emphasis>name, description</emphasis>和<emphasis>size</emphasis>是可以快速修改的。
+			</para>
+
+			<para>
+				<example>
+					<title>更改虚拟机池</title>
+					<programlisting>
+						<![CDATA[
+PUT /api/vmpools/2d2d5e26-1b6e-11e1-8cda-001320f76e8e HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vmpool>
+<name>VM Pool B</name>
+<description>Virtual Machine Pool B</description>
+<size>3</size>
+</vmpool>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_3-3">
+			<title>移除虚拟机池</title>
+
+			<para>
+				移除虚拟机池需要<emphasis>DELETE</emphasis>请求。
+			</para>
+
+			<para>
+				<example>
+					<title>移除一个虚拟机</title>
+					<programlisting>
+						<![CDATA[
+DELETE /api/vmpools/2d2d5e26-1b6e-11e1-8cda-001320f76e8e HTTP/1.1
+HTTP/1.1 204 No Content
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
 	</section>
 
 </chapter>

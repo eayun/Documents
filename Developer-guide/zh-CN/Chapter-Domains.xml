@@ -4,29 +4,301 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Domains_Chapter">
-	<title>Domains Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>域</title>
+	
 	<section id="sect-EayunOS-Developer-guide-Domains_Chapter-Domains_Section_1">
-		<title>Domains Section 1</title>
+		<title>域元素</title>
 		<para>
-			This is a test paragraph in a section
+			API提供了用户和组使用domain集合直接从服务器访问信息的功能，域的信息是以<emphasis>rel=”domains”</emphasis>链接关联的。
 		</para>
+		
+		<table>
+			<title>域元素</title>
+			<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<row>
+						<entry>
+							元素
+						</entry>
+						<entry>
+							类型
+						</entry>
+						<entry>
+							描述
+						</entry>
+					</row>
+				</thead>
+				
+				<tbody>
+					<row>
+						<entry>
+							name
+						</entry>
+						<entry>
+							字符串
+						</entry>
+						<entry>
+							域的名称
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel=”users”
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							与该域相关的用户子集
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							link rel=”groups”
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							与该域相关的组子集
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+
+		<para>
+			链接到<emphasis>用户</emphasis>和<emphasis>组</emphasis>的子集也可以搜索问题。
+		</para>
+
+		<note>
+			<para>
+				域集合及其子集是只读的。
+			</para>
+		</note>
+
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Domains_Chapter-Domains_Section_2">
-		<title>Domains Section 2</title>
+		<title>域的XML表示</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>域的XML表示</title>
+				<programlisting>
+					<![CDATA[
+<domain id="77696e32-6b38-7268-6576-2e656e676c61"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61">
+<name>domain.example.com</name>
+<link rel="users"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/users"/>
+<link rel="groups"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/groups"/>
+<link rel="users/search"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/
+users?search={query}"/>
+<link rel="groups/search"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/
+groups?search={query}"/>
+</domain>
+					]]>
+				</programlisting>
+			</example>
 		</para>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Domains_Chapter-Domains_Section_3">
+		<title>子集</title>
+		
+		<section id="sect-EayunOS-Developer-guide-Domains_Chapter-Domains_Section_3-1">
+			<title>域用户子集</title>
+
+			<para>
+				用户子集包含了目录服务上的所有用户。这些信息用来将新用户添加到红帽公司的虚拟环境中。
+			</para>
+			
+			<table>
+				<title>域用户元素</title>
+				<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+					<thead>
+						<row>
+							<entry>
+								元素
+							</entry>
+							<entry>
+								类型
+							</entry>
+							<entry>
+								描述
+							</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>
+								name
+							</entry>
+							<entry>
+								字符串
+							</entry>
+							<entry>
+								用户姓名
+							</entry>
+						</row>
+
+						<row>
+							<entry>
+								last_name
+							</entry>
+							<entry>
+								字符串
+							</entry>
+							<entry>
+								用户的姓
+							</entry>
+						</row>
+
+						<row>
+							<entry>
+								user_name
+							</entry>
+							<entry>
+								字符串
+							</entry>
+							<entry>
+								目录服务器上的用户名
+							</entry>
+						</row>
+
+						<row>
+							<entry>
+								domain id
+							</entry>
+							<entry>
+								GUID
+							</entry>
+							<entry>
+								含有目录服务器的域
+							</entry>
+						</row>
+
+						<row>
+							<entry>
+								groups
+							</entry>
+							<entry>
+								复合型
+							</entry>
+							<entry>
+								该用户的一系列目录服务器组
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+	
+			<para>
+				<example>
+					<title>用户子集中用户的XML表示</title>
+					<programlisting>
+						<![CDATA[
+<user id="225f15cd-e891-434d-8262-a66808fcb9b1"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/users/
+d3b4e7be-5f57-4dac-b937-21e1771a501f">
+<name>RHEV-M Admin</name>
+<user_name>rhevmadmin@domain.example.com</user_name>
+<domain id="77696e32-6b38-7268-6576-2e656e676c61"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61"/>
+<groups>
+<group>
+<name>domain.example.com/Users/Enterprise Admins</name>
+</group>
+<group>
+<name>domain.example.com/Users/Domain Admins</name>
+</group>
+...
+</groups>
+</user>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+
+		</section>
+
+		<section id="sect-EayunOS-Developer-guide-Domains_Chapter-Domains_Section_3-2">
+			<title>域组子集</title>
+		
+			<para>
+				组子集包含了目录服务器中所有的组。一个域组资源包含一系列元素。
+			</para>
+
+			<table>
+				<title>域组元素</title>
+				<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+					<thead>
+						<row>
+							<entry>
+								元素
+							</entry>
+							<entry>
+								类型
+							</entry>
+							<entry>
+								描述
+							</entry>
+						</row>
+					</thead>
+					
+					<tbody>
+						<row>
+							<entry>
+								name
+							</entry>
+							<entry>
+								字符串
+							</entry>
+							<entry>
+								组的名称
+							</entry>
+						</row>
+						
+						<row>
+							<entry>
+								domain id
+							</entry>
+							<entry>
+								GUID
+							</entry>
+							<entry>
+								含有目录服务器的域
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+
+			<para>
+				<example>
+					<title>组子集中组的XML表示</title>
+					<programlisting>
+						<![CDATA[
+<group id="85bf8d97-273c-4a5c-b801-b17d58330dab"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61/groups/
+85bf8d97-273c-4a5c-b801-b17d58330dab">
+<name>example.com/Users/Enterprise Admins</name>
+<domain id="77696e32-6b38-7268-6576-2e656e676c61"
+href="/api/domains/77696e32-6b38-7268-6576-2e656e676c61"/>
+</group>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+		</section>
+
 	</section>
 
 </chapter>
