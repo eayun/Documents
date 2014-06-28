@@ -3,31 +3,1292 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-EayunOS-Developer-guide-clusterss_Chapter">
-	<title>clusterss Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-clusterss_Chapter-clusterss_Section_1">
-		<title>clusterss Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-clusterss_Chapter-clusterss_Section_2">
-		<title>clusterss Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+<chapter id="chap-EayunOS-Developer-guide-clusters_Chapter">
+  <title>主机集群</title>
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_1">
+    <title>主机集群的元素</title>
+    <para>
+      <emphasis>集群</emphasis>集合提供了在&OVIRT;虚拟化环境中的主机集群的信息。一个 API 用户通过 <emphasis>rel="clusters"</emphasis> 链接来获得入口的 URI。
+    </para>
+    <para>
+      下表展示了主机集群内的具体元素的资源展现。
+    </para>
+    <table>
+      <title>主机集群元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>name</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              用户提供，且易读的集群的名字，<emphasis>name</emphasis>在所有集群集合中是唯一的
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>description</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              由用户提供的任意写的，可读性强的描述集群的信息
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="networks"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个该集群下的所有网络资源集合的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="permissions"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个该集群下的所有权限的集合的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="glustervolumes"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个该集群下的所有存储卷的集合的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="glusterhooks"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              一个该集群下的所有存储卷挂钩的集合的链接
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>cpu id=</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              一个集群下所有主机都必须满足的服务器 CPU 类型
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>data_center id=</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              一个该集群所属的数据中心的索引
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>memory_policy</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              定义了集群下的主机内存的使用策略
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>scheduling_policy</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              定义了集群下的负载均衡和节电的设置
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>version major= minor=</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              集群的兼容版本信息
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>supported_versions</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              一个集群可支持的版本列表
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>error_handling</emphasis>
+            </entry>
+            <entry>
+              复合体/枚举
+            </entry>
+            <entry>
+              定义了当集群内的主机变成了不可操作状态时对主机上虚拟机的处理办法。需要一个单独的包含在 <emphasis>capabilities</emphasis> 列表属性里的枚举类型的 <emphasis>on_error</emphasis> 元素。
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>virt_service</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义该集群是否提供虚拟化服务
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>gluster_service</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义该集群是否提供&OVIRT_STORAGE;服务
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>threads_as_cores</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义该集群是否能够运行包含多于物理主机的 CPU 的物理核心数的虚拟机 CPU 的虚拟机
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>tunnel_migration</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义在虚拟机迁移时是否使用 libvirt-to-libvirt 管道
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>trusted_service</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义是否使用 OpenAttestation 服务来鉴别物理主机
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>ballooning_enabled</emphasis>
+            </entry>
+            <entry>
+              布尔型
+            </entry>
+            <entry>
+              定义该集群是否使用内存气球功能
+            </entry>
+            <entry>
+              
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>
+        当主机的空闲内存低于 20% 时，像 <emphasis>mom .Controllers.Balloon - INFO Ballooning guest:half1 from 10964 00 to 1991580 </emphasis> 一样的内存气球指令将被日至记录到 <emphasis>/etc/vdsm /m om .conf</emphasis> 中。<emphasis>/etc/vdsm /m om .conf</emphasis> 是内存超分配的日至文件。如果有虚拟机不使用内存气球的话也将会被记录到该日至文件中。
+      </para>
+    </note>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_2">
+    <title>内存策略的元素</title>
+    <para>
+      <emphasis>memory_policy</emphasis> 元素将包含如下的元素：
+    </para>
+    <table>
+      <title>内存策略元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>overcommit percent=</emphasis>
+            </entry>
+            <entry>
+              符合体
+            </entry>
+            <entry>
+              设置了主机能够运行的虚拟机的内存总和的最大数目。由于 KSM 提供的内存共享技术，主机可以运行比主机物理内存更多的虚拟机。建议的值包括 <emphasis>100</emphasis>（无），<emphasis>150</emphasis>（服务器负载），<emphasis>200</emphasis>（桌面负载）。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>transparent_hugepages</emphasis>
+            </entry>
+            <entry>
+              符合体
+            </entry>
+            <entry>
+              定义了 <emphasis>enabled</emphasis> 状态的透明的大页内存。状态为 true 或者 false。请检查 <emphasis>capabilities</emphasis> 功能集来确认你的版本支持透明大页内存技术。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_3">
+    <title>集群策略的元素</title>
+    <para>
+      <emphasis>scheduling_policy</emphasis> 元素包含如下的元素：
+    </para>
+    <table>
+      <title>集群策略元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>policy</emphasis>
+            </entry>
+            <entry>
+              枚举型
+            </entry>
+            <entry>
+              集群中虚拟机给主机的调度策略。一个枚举类型的列表将展示在 <emphasis>capabilities</emphasis> 中
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>thresholds low= high= duration=</emphasis>
+            </entry>
+            <entry>
+              符合体
+            </entry>
+            <entry>
+              定义了主机的 CPU 限制。<emphasis>hight</emphasis> 值控制了主机的最大的可承受的 CPU 使用率且不被看作是负载过大。<emphasis>low</emphasis> 值控制了主机的最小的 CPU 使用率且不被看作是负载过小。<emphasis>duration</emphasis> 属性值定义了主机负载过大所需保持的时间，超过该时间后负载均衡调度器将超负载的主机上的负载转移至集群中其它的主机
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_4">
+    <title>主机集群的 XML 展现</title>
+    <example>
+      <title>一个主机集群的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95">
+ <name>Default</name>
+ <description>The default server cluster</description>
+ <link rel="glustervolumes"
+ href="/api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes"/>
+ <link rel="networks"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks"/>
+ <link rel="permissions"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/permissions"/>
+ <cpu id="Intel Penryn Family"/>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988"/>
+ <memory_policy>
+ <overcommit percent="100"/>
+ <transparent_hugepages>
+ <enabled>false</enabled>
+ </transparent_hugepages>
+ </memory_policy>
+ <scheduling_policies>
+ <policy>evenly_distributed</policy>
+ <thresholds low="10" high="75" duration="120"/>
+ </scheduling_policies>
+ <version minor="0" major="3"/>
+ <supported_versions>
+ <version minor="0"<usage> major="3"/>
+ </supported_versions>
+ <error_handling>
+ <on_error>migrate</on_error>
+ </error_handling>
+ <virt_service>true</virt_service>
+ <gluster_service>false</gluster_service>
+</cluster>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_5">
+    <title>方法</title>
+    <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_5-1">
+      <title>创建一个主机集群</title>
+      <para>
+        创建新的集群需要 <emphasis>name</emphasis>，<emphasis>cpu id=</emphasis> 和 <emphasis>datacenter</emphasis> 元素。可用过 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 元素来识别 <emphasis>datacenter</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一个主机集群</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/clusters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<cluster>
+ <name>cluster1</name>
+ <cpu id="Intel Penryn Family"/>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"/>
+</cluster>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_5-2">
+      <title>更新一个主机集群</title>
+      <para>
+        在主机集群创建好后可以更新 <emphasis>name</emphasis>，<emphasis>description</emphasis>，<emphasis>cpu id=</emphasis> 和 <emphasis>error_handling</emphasis> 元素。
+      </para>
+      <example>
+        <title>更新一个主机集群</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<cluster>
+ <description>Cluster 1</description>
+</cluster>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_5-3">
+      <title>删除一个主机集群</title>
+      <para>
+        删除一个主机集群需要一个 <emphasis>DELETE</emphasis> 元素。
+      </para>
+      <example>
+        <title>删除一个主机集群</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95 HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6">
+    <title>子集</title>
+    <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-1">
+      <title>网络子集</title>
+      <para>
+        和一个集群联系起来的网络以 <emphasis>networks</emphasis> 子集来展现。该集群内的没一台主机都连接到该网络。
+      </para>
+      <para>
+        集群的 <emphasis>network</emphasis> 子集和标准的 <emphasis>network</emphasis> 资源基本一样，除了以下的附加元素：
+      </para>
+      <table>
+        <title>集群策略元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>cluster id=</emphasis>
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                索引到该网络是其成员的集群。
+              </entry>
+              <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>required</emphasis>
+              </entry>
+              <entry>
+                布尔
+              </entry>
+              <entry>
+                定义必须的或可选的网络状态。
+              </entry>
+              <entry>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>display</emphasis>
+              </entry>
+              <entry>
+                布尔
+              </entry>
+              <entry>
+                定义显示网络的状态。用于老版本的兼容。
+              </entry>
+              <entry>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>usages</emphasis>
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                定义了网络的一系列 <emphasis>usage</emphasis> 元素。用户可以在此层面上定义该网络为<emphasis>虚拟机</emphasis>或者<emphasis>显示</emphasis>网络。
+              </entry>
+              <entry>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        一个 API 用户使用标准的 REST 方法来操作 <emphasis>networks</emphasis> 子集。向一个 <emphasis>networks</emphasis> 子集执行 <emphasis>POST</emphasis> 且内容为 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 的操作将会使该网络与该集群相关联。
+      </para>
+      <example>
+        <title>使一个网络与一个集群相关联</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<network id="da05ac09-00be-45a1-b0b5-4a6a2438665f">
+ <name>rhevm</name>
+</network>
+HTTP/1.1 201 Created
+Location: http://{host}/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/networks/da05ac09-00be-45a1-b0b5-4a6a2438665f
+Content-Type: application/xml
+<network id="da05ac09-00be-45a1-b0b5-4a6a2438665f"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks/
+ da05ac09-00be-45a1-b0b5-4a6a2438665f">
+ <name>rhevm</name>
+ <status>
+ <state>operational</state>
+ </status>
+ <description>Display Network</description>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+ <data_center id="d70d5e2d-b8ad-494a-a4d2-c7a5631073c4"
+ href="/api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4"/>
+ <required>true</required>
+ <usages>
+ <usage>VM</usage>
+ </usages>
+</network>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        使用 <emphasis>PUT</emphasis> 请求来更新资源。
+      </para>
+      <example>
+        <title>设置显示网络的状态</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks/da05ac09-00be-
+45a1-b0b5-4a6a2438665f HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<network>
+ <required>false</required>
+ <usages>
+ <usage>VM</usage>
+ <usage>DISPLAY</usage>
+ </usages>
+</network>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        必须的或者可选的网络状态通过设置了 <emphasis>required</emphasis> 元素的布尔值（true 或 false）的 <emphasis>PUT</emphasis> 请求来设置。
+      </para>
+      <example>
+        <title>设置可选网络的状态</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks/da05ac09-00be-
+45a1-b0b5-4a6a2438665f HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<network>
+ <required>false</required>
+</network>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        要取消关连关系的话，可以对资源集中对应的资源发送 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除网络与集群的关联关系</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/networks/da05ac09-
+00be-45a1-b0b5-4a6a2438665f HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+    <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2">
+      <title>存储卷子集</title>
+      <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-1">
+        <title>&OVIRT_STORAGE;卷子集</title>
+        <important>
+          <para>
+            本节提的内容仅用于技术预览。
+          </para>
+        </important>
+        <para>
+          &OVIRT;虚拟化提供了一个途径来创建和管理&OVIRT_STORAGE;。&OVIRT_STORAGE;和主机集群相关联并且以 <emphasis>glustervolumes</emphasis> 子集来展现。
+        </para>
+        <important>
+          <para>
+            控制&OVIRT;企业虚拟化的卷需要&OVIRT_STORAGE; 2.0
+          </para>
+        </important>
+        <para>
+          在 <emphasis>glustervolumes</emphasis> 子集中的&OVIRT_STORAGE;资源通过下列元素来展现：
+        </para>
+        <table>
+          <title>Gluster 卷元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类别
+                </entry>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  属性
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>volume_type</emphasis>
+                </entry>
+                <entry>
+                  枚举类型
+                </entry>
+                <entry>
+                  定义了卷类别，要查看所有卷类别列表请参见 <emphasis>capailities</emphasis> 集合。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>bricks</emphasis>
+                </entry>
+                <entry>
+                  关系
+                </entry>
+                <entry>
+                  &OVIRT_STORAGE;块（brick）的子集。当创建一个新的卷时，创建的请求需要在该集群中创建和管理一系列 <emphasis>brick</emphasis> 元素。需要&OVIRT_STORAGE;服务器的 <emphasis>server_id</emphasis> 和块目录的 <emphasis>brick_dir</emphasis> 元素。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>transport_types</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  定义了一系列的卷的 <emphasis>transport_type</emphasis> 元素。<emphasis>capailities</emphasis> 集合展示了可用的 transport_type。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>replica_count</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  定义了复制式的卷的文件复制计数
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>stripe_count</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  定义条带卷（striped volume）的条带计数
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>options</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  一系列&OVIRT_STORAGE;<emphasis>option</emphasis> 元素。每一个 <emphasis>option</emphasis> 包括属性名 <emphasis>name</emphasis> 和属性值 <emphasis>value</emphasis>。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <example>
+          <title>一个&OVIRT_STORAGE;卷得 XML 表示</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+<gluster_volume id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95
+ /glustervolume/e199f877-900a-4e30-8114-8e3177f47651">
+ <name>GlusterVolume1</name>
+ <link rel="bricks"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95
+ /glustervolume/e199f877-900a-4e30-8114-8e3177f47651/bricks"/>
+ <volume_type>DISTRIBUTED_REPLICATE</volume_type>
+ <transport_types>
+ <transport_type>TCP</transport_type>
+ </transport_types>
+ <replica_count>2</replica_count>
+ <stripe_count>1</stripe_count>
+ <options>
+ <option>
+ <name>cluster.min-free-disk</name>
+ <value>536870912</value>
+ </option>
+ </options> 
+</gluster_volume>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <para>
+          通过包含 <emphasis>name</emphasis>，<emphasis>volume_type</emphasis> 和 <emphasis>bricks</emphasis> 的 POST 请求来对子集创建&OVIRT_STORAGE;卷。
+        </para>
+        <example>
+          <title>创建一个&OVIRT_STORAGE;卷</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-9d998063fa95/glustervolumes HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<gluster_volume>
+ <name>GlusterVolume1</name>
+ <volume_type>DISTRIBUTED_REPLICATE</volume_type>
+ <bricks>
+ <brick>
+ <server_id>server1</server_id>
+ <brick_dir>/exp1</brick_dir>
+ </brick>
+ <bricks>
+</gluster_volume>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <para>
+          通过 <emphasis>DELETE</emphasis> 请求来移除&OVIRT_STORAGE;卷。
+        </para>
+        <example>  
+          <title>移除一个&OVIRT_STORAGE;卷</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+DELETE /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651 HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <important>
+          <para>
+            <emphasis>glustervolumes</emphasis> 中的资源不能被更新。
+          </para>
+        </important>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-2">
+        <title>块子集</title>
+        <para>
+          <emphasis>glustervolumes</emphasis> 子集包含它自己的 <emphasis>bricks</emphasis> 子集来定义单个的在&OVIRT_STORAGE;中的块。一个卷的 <emphasis>bricks</emphasis> 子集的展现使用了如下的元素：
+        </para>
+        <table>
+          <title>块元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类别
+                </entry>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  属性
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>server_id</emphasis>
+                </entry>
+                <entry>
+                  <emphasis>字符串</emphasis>
+                </entry>
+                <entry>
+                  &OVIRT_STORAGE;服务器的索引
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>brick_dir</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  定义了&OVIRT_STORAGE;服务器的块目录
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>replica_count</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  定义了卷中的块的文件复制计数
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>stripe_count</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  定义了卷中的块的条带计数
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          通过包含 <emphasis>server_id</emphasis> 和 <emphasis>brick_dir</emphasis> 的 POST 请求来对子集创建新的块。
+        </para>
+        <example>
+          <title>新加一个块</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651/bricks 
+HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<brick>
+ <server_id>server1</server_id>
+ <brick_dir>/exp1</brick_dir>
+</brick>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <para>
+          通过 DELETE 请求来移除一个块。
+        </para>
+        <example>
+          <title>移除一个块</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+DELETE /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-
+8e3177f47651/bricks/0a473ebe-01d2-444d-8f58-f565a436b8eb HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <important>
+          <para>
+            <emphasis>bricks</emphasis> 里的资源不能被更新。
+          </para>
+        </important>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3">
+        <title>操作</title>
+        <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3-1">
+          <title>启动操作</title>
+          <para>
+            <emphasis>start</emphasis> 操作使一个 Gluster 卷可以使用。
+          </para>
+          <example>
+            <title>启动一个卷</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651/start HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action/>
+]]>
+              </programlisting>
+            </para>
+          </example>
+          <para>
+            使用一个可选的 <emphasis>force</emphasis> 布尔值来强制在正在运行的卷上执行操作。这在处于运行的卷上启动禁用的块有用处。
+          </para>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3-2">
+          <title>停止操作</title>
+          <para>
+            <emphasis>stop</emphasis> 操作将取消激活一个 Gluster 卷。   
+          </para>
+          <example>
+            <title>停止一个卷</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651/stop HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action/>
+]]>
+              </programlisting>
+            </para>
+          </example>
+          <para>
+            使用一个可选的 <emphasis>force</emphasis> 布尔值来强制执行停止操作。
+          </para>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3-3">
+          <title>设置选项操作</title>
+          <para>
+            <emphasis>setoption</emphasis> 操作将设置一个 Gluster 卷的选项。  
+          </para>
+          <example>
+            <title>设置一个选项</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651/setoption 
+HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action>
+ <option>
+ <name>cluster.min-free-disk</name>
+ <value>536870912</value>
+ </option>
+<action>
+]]>
+              </programlisting>
+            </para>
+          </example>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3-4">
+          <title>重新设置选项操作</title>
+          <para>
+            <emphasis>resetoption</emphasis> 操作将重新设置一个卷的选项。
+          </para>
+          <example>
+            <title>重新设置一个选项</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-8e3177f47651/resetoption 
+HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action>
+ <option>
+ <name>cluster.min-free-disk</name>
+ </option>
+<action>
+]]>
+              </programlisting>
+            </para>
+          </example>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-2-3-5">
+          <title>重新设置所有选项操作</title>
+          <para>
+            <emphasis>resetalloption</emphasis> 操作将重新设置一个卷的所有选项。         
+          </para>
+          <example>
+            <title>重新设置所有选项</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/clusters/99408929-82cf-4dc7-a532-
+9d998063fa95/glustervolumes/e199f877-900a-4e30-8114-
+8e3177f47651/resetalloptions HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action/>
+]]>
+              </programlisting>
+            </para>
+          </example>
+        </section>
+      </section>
+    </section>
+  </section>
 
 </chapter>
 
