@@ -99,7 +99,7 @@ href="/api/groups/85bf8d97-273c-4a5c-b801-b17d58330dab/roles"/>
 		<title>从目录服务器上添加组</title>
 
 		<para>
-			API可以添加已存在的目录服务器组到红帽公司的虚拟管理数据库中，可以使用<emphasis>POST</emphasis>请求完成此添加至组集合的操作。
+			API可以添加已存在的目录服务器组到&OVIRT;公司的虚拟管理数据库中，可以使用<emphasis>POST</emphasis>请求完成此添加至组集合的操作。
 		</para>
 
 		<para>
