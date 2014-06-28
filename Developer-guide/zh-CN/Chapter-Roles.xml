@@ -4,29 +4,310 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Roles_Chapter">
-	<title>Roles Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
+	<title>角色</title>
+
 	<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_1">
-		<title>Roles Section 1</title>
+		<title>角色元素</title>
 		<para>
-			This is a test paragraph in a section
+			从接口入口点的URL获取的<emphasis>rel="roles"</emphasis>链接可以访问系统角色的数据集。
 		</para>
+		
+		<table>
+			<title>角色元素</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+				<thead>
+					<!--head-->
+					<row>
+						<entry>
+							元素
+						</entry>
+						<entry>
+							类型
+						</entry>
+						<entry>
+							描述
+						</entry>
+						<entry>
+							属性
+						</entry>
+					</row>
+				</thead>
+
+				<tbody>
+
+					<!--line1-->
+					<row>
+						<entry>
+							link="perm its"
+						</entry>
+						<entry>
+							关系
+						</entry>
+						<entry>
+							链接到角色许可的许可权限子集
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line2-->
+					<row>
+						<entry>
+							mutable
+						</entry>
+						<entry>
+							布尔值：true或false
+						</entry>
+						<entry>
+							定义是否能更新或删除角色。设置mutable为false后，角色将创建未红帽公司虚拟环境下的角色
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+
+					<!--line3-->
+					<row>
+						<entry>
+							administrative
+						</entry>
+						<entry>
+							布尔值:true或false
+						</entry>
+						<entry>
+							定义角色为只能由管理员操作
+						</entry>
+						<entry>
+							
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_2">
-		<title>Roles Section 2</title>
+		<title>角色集合的XML表示</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			<example>
+				<title>角色集合的XML表示</title>
+				<programlisting>
+					<![CDATA[
+<roles>
+<role id="00000000-0000-0000-0000-000000000001"
+href="/api/roles/00000000-0000-0000-0000-000000000001">
+<name>SuperUser</name>
+<description>Roles management administrator</description>
+<link rel="permits"
+href="/api/roles/00000000-0000-0000-0000-000000000001/permits"/>
+<mutable>false</mutable>
+<administrative>true</administrative>
+</role>
+<role id="00000000-0000-0000-0001-000000000001"
+href="/api/roles/00000000-0000-0000-0001-000000000001">
+<name>RHEVMUser</name>
+<description>RHEVM user</description>
+<link rel="permits"
+href="/api/roles/00000000-0000-0000-0001-000000000001/permits"/>
+<mutable>false</mutable>
+<administrative>false</administrative>
+</role>
+<role id="00000000-0000-0000-0001-000000000002"
+href="/api/roles/00000000-0000-0000-0001-000000000002">
+<name>RHEVMPowerUser</name>
+<description>RHEVM power user</description>
+<link rel="permits"
+href="/api/roles/00000000-0000-0000-0001-000000000002/permits"/>
+<mutable>false</mutable>
+<administrative>false</administrative>
+</role>
+</roles>
+					]]>
+				</programlisting>
+			</example>
 		</para>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_3">
+		<title>方法</title>
+
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_3-1">
+			<title>创建角色</title>
+			
+			<para>
+				创建角色需要定义<emphasis>name，administrative</emphasis>和一个内部的<emphasis>permits</emphasis>表。
+			</para>
+
+			<para>
+				<example>
+					<title>创建角色</title>
+					<programlisting>
+						<![CDATA[
+POST /api/roles HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<role>
+<name>Finance Role</name>
+<administrative>true</administrative>
+<permits>
+<permit id="1"/>
+</permits>
+</role>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_3-2">
+			<title>修改角色</title>
+
+			<para>
+				<emphasis>name, description</emphasis> 和<emphasis>administrative</emphasis>元素是可以快速修改的。
+			</para>
+
+			<para>
+				<example>
+					<title>修改角色</title>
+					<programlisting>
+						<![CDATA[
+PUT /api/roles/8de42ad7-f307-408b-80e8-9d28b85adfd7 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<role>
+<name>Engineering Role</name>
+<description>Standard users in the Engineering Role</description>
+<administrative>false</administrative>
+</role>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_3-3">
+			<title>移除角色</title>
+
+			<para>
+				移除角色需要<emphasis>DELETE</emphasis>请求。
+			</para>
+
+			<para>
+				<example>
+					<title>移除角色</title>
+					<programlisting>
+						<![CDATA[
+DELETE /api/roles/8de42ad7-f307-408b-80e8-9d28b85adfd7 HTTP/1.1
+HTTP/1.1 204 No Content
+						]]>
+					</programlisting>
+				</example>
+			</para>
+
+		</section>
+
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_4">
+		<title>角色许可权限子集</title>
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_4-1">
+			<title>角色许可权限子集</title>
+
+			<para>
+				每个角色包含一个许可操作集或<emphasis>permits</emphasis>权限，这些集合是列在<emphasis>capabilities</emphasis>表中的。若想查看更多信息，请访问<emphasis>permits</emphasis>权限集。
+			</para>
+
+			<para>
+				角色的权限已列为一张子集表：
+			</para>
+
+			<para>
+				<example>
+					<title>列出角色权限</title>
+					<programlisting>
+						<![CDATA[
+GET /api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9/permits HTTP/1.1
+Accept: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<permits>
+<permit id="1"
+href="/api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9/permits/1">
+<name>create_vm</name>
+<administrative>false</administrative>
+<role id="b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9"
+href="/api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9"/>
+</permit>
+...
+</permits>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_4-2">
+			<title>将一个许可权限分配给角色</title>
+
+			<para>
+				可以用<emphasis>POST</emphasis>请求从许可权限子集中分配许可权限给用户角色。可以用<emphasis>id</emphasis>属性或<emphasis>name</emphasis>元素分配指定权限。
+			</para>
+
+			<para>
+				<example>
+					<title>给角色分配许可权限</title>
+					<programlisting>
+						<![CDATA[
+POST /api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9/permits HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<permit id="1"/>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+<permits>
+<permit id="1"
+href="/api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9/permits/1">
+<name>create_vm</name>
+<administrative>false</administrative>
+<role id="b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9"
+href="/api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9"/>
+</permit>
+</permits>
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
+
+		<section id="sect-EayunOS-Developer-guide-Roles_Chapter-Roles_Section_4-3">
+			<title>移除角色许可权限</title>
+			
+			<para>
+				可以用<emphasis>DELETE</emphasis>请其移除角色许可权限。
+			</para>
+
+			<para>
+				<example>
+					<title>移除角色许可权限</title>
+					<programlisting>
+						<![CDATA[
+DELETE /api/roles/b67dfbe2-0dbc-41e4-86d3-a2fbef02cfa9/permits/1 HTTP/1.1
+HTTP/1.1 204 No Content
+						]]>
+					</programlisting>
+				</example>
+			</para>
+		</section>
+
 	</section>
 
 </chapter>
