@@ -4,30 +4,3114 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Virtual-machines_Chapter">
-	<title>Virtual-machines Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_1">
-		<title>Virtual-machines Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_2">
-		<title>Virtual-machines Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>虚拟机</title>
+    <para>
+      15.1. 虚拟机元素
+    </para>
+    <para>
+      15.2. XML表示的虚拟机
+    </para>
+    <para>
+      15.3. 方法
+    </para>
+    <para>
+      15.4. 子集
+    </para>
+    <para>
+      15.5. 操作
+    </para>
+  <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_1">
+    <title>虚拟机元素</title>
+      <para>
+        VMS集合提供红帽公司虚拟化环境中有关虚拟机的信息。API用户可以通过<emphasis>rel="vms"</emphasis>链接从入口点获得的URL来访问这些信息。
+      </para>
+      <para>
+        下面的表格展示了包含在虚拟机资源中特定元素的表示。
+      </para>
 
+      <table>
+        <title>虚拟机元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+          
+            <!--表头-->
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                图标
+              </entry>
+            </row>
+          </thead>
+          
+          <tbody>
+            <!--第一行-->
+            <row>              
+              <entry>
+                link rel=”disks”
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到磁盘子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第二行-->
+            <row>
+              <entry>
+                link rel=”nics” 
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到网卡子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第三行-->
+            <row>
+              <entry>
+                ink rel="snapshots"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到快照子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第四行-->
+            <row>
+              <entry>
+                link rel="tags"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到快照子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第五行-->
+            <row>
+              <entry>
+                link rel="tags"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到标签子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第六行-->
+            <row>
+              <entry>
+                link rel="permissions"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到权限子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第七行-->
+            <row>
+              <entry>
+                link rel="statistics"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到统计数据子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第八行-->
+            <row>
+              <entry>
+                link rel="watchdogs"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                链接到watchdog（看门狗）子集的虚拟机资源
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第九行-->
+            <row>
+              <entry>
+                type
+              </entry>
+              <entry>
+                枚举
+              </entry>
+              <entry>
+                虚拟机的类型，存在capabilities的枚举表中
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十行-->
+            <row>
+              <entry>
+                status
+              </entry>
+              <entry>
+                见下文
+              </entry>
+              <entry>
+                虚拟机的状态
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十一行-->
+            <row>
+              <entry>
+                memory
+              </entry>
+              <entry>
+                整型
+              </entry>
+              <entry>
+                分配给主机的内存的字节数
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十二行-->
+            <row>
+              <entry>
+                cpu
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                定义虚拟机的CPU细节。包括拓扑子元素设置给宿主机的可用逻辑socket和可用每个socket可用的处理器数量。总可用虚拟机处理器数量等于socket的数量乘以每个socket可用的处理器数量。
+
+CPU频率使用一系列vcpupin元素产生从虚拟CPU到物理主机CPU的映射。每个vcpuin元素包含一个虚拟CPU属性(vcpu)和一个属性来决定使用哪个物理CPU(cpuset)。设置cpuset为单个CPU(cpuset=”0”)，多个CPU(cpuset=”0,2”)，CPU范围(cpuset=”0-3”)，或CPU排除范围(cpuset=”0-3,^2”)。
+
+cpu_mode子元素定义了虚拟CPU和主机CPU的密切关系。它有三个值：如果没有设置任何模式，自定义是default(自定义)模式；host_model模式以libvirt最容易理解的方式复制主机CPU；host_passthrough模式能通过所有主机到宿主机的方向，包括libvirt所不能识别的。然而，host_passthrough模式将阻止虚拟机的迁移。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十三行-->
+            <row>
+              <entry>
+                os type=
+              </entry>
+              <entry>
+                字符串等
+RHEL5 或 WindowsXP
+              </entry>
+              <entry>
+                宿主机操作系统的类型
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十四行-->
+            <row>
+              <entry>
+                os boot dev=
+              </entry>
+              <entry>
+                枚举
+              </entry>
+              <entry>
+                ev属性在boot元素上描述的启动设备表,存在capabilities的枚举表中
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十五行-->
+            <row>
+              <entry>
+                os kernel
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                虚拟机启动配置的内核映像路径。这个选项支持直接启动Linux内核而不用通过BIOS引导启动。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十七行-->
+            <row>
+              <entry>
+                os initrd
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                一个被使用到原先版本指定内核的initrd的映像路径。该选项支持直接启动Linux内核而不用通过BOIS引导启动。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十八行-->
+            <row>
+              <entry>
+                os cmdline
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                一个用于定义内核的内核命令行参数字符串。该选项支持直接启动Linux内核而不用通过BOIS引导启动。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第十九行-->
+            <row>
+              <entry>
+                high_availability
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                设置enabled值为true后，虚拟机或主机崩溃时能自动重启，它是一个优先级元素，能控制虚拟机重新启动的顺序
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第二十行-->
+            <row>
+              <entry>
+                display
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                显示器类型(vnc或spice)、端口和监视器的数量。allow_reconnect布尔值指定客户端是否能通过显示器重新连接。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第二十一行-->
+            <row>
+              <entry>
+                cluster id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                虚拟机主机集群
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第21行-->
+            <row>
+              <entry>
+                template id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                基于虚拟机的模板
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第22行-->
+            <row>
+              <entry>
+                domain id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                虚拟机域
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第23行-->
+            <row>
+              <entry>
+                start_time
+              </entry>
+              <entry>
+                xsd:dateTime 
+输入格式: YYYY-MM-DDThh:mm:ss
+              </entry>
+              <entry>
+                虚拟机创建的时间和日期
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--第24行-->
+            <row>
+              <entry>
+                origin
+              </entry>
+              <entry>
+                Rhev、ovirt、vmware、xen
+              </entry>
+              <entry>
+                虚拟机的源系统
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line25-->
+            <row>
+              <entry>
+                sateless
+              </entry>
+              <entry>
+                布尔值:true或false
+              </entry>
+              <entry>
+                当为true值时，虚拟机处于无主机状态。无主机状态的虚拟机包含在启动时获取的快照和在关闭时删除的快照。这意味着状态改变在重新启动后将不保留。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line26-->
+            <row>
+              <entry>
+                placement_policy
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                设置虚拟机迁移的安置策略。请求默认主机host=和affinity(migratable, user_migratable或pinned)。离开主机，清空未选择的主机。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line27-->
+            <row>
+              <entry>
+                memory_policy
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                设置虚拟机存储策略。定义了保证主机上虚拟机能够运行的最小内存。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line28-->
+            <row>
+              <entry>
+                quota id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                设置虚拟机配额
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line29-->
+            <row>
+              <entry>
+                custom_properties
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                一组用户定义的环境变量作为参数传递给自定义脚本。每个custom_property包含名称和值的属性。枚举值的列表中可用的功能。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line30-->
+            <row>
+              <entry>
+                usb
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                定义虚拟机的USB策略。请求一个enable元素来设置布尔值和type元素，该元素类型为native或legacy
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line31-->
+            <row>
+              <entry>
+                guest_info
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                宿主机的客户端信息。包括一个有address属性的ip元素
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line32-->
+            <row>
+              <entry>
+                vmpool
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                虚拟机池的引用。该元素只作为虚拟机池的一部分使用
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line33-->
+            <row>
+              <entry>
+                timezone
+              </entry>
+              <entry>
+                tz database
+输入格式： Area/Location
+              </entry>
+              <entry>
+                为windows虚拟机设置的系统设备的时区
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line34-->
+            <row>
+              <entry>
+                domain
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                为windows虚拟机设置的系统设备的域，从domains集合中请求一个name值
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line35-->
+            <row>
+              <entry>
+                payloads
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                定义一个在虚拟机启动时向虚拟机交付内容的payload元素的设置，每个payload请求一个type属性(cdrom或floppy)和一个使用name来指定名称和位置的file元素。在file元素中，包含一个content元素，该元素定义了向file交付的内容。
+
+payload元素用于cloud-init中。当cloud-init用于设置虚拟机时，payload将被自动创建，包含设置了cd-rom和file子元素的type属性、openstack/latest/meta_data.json 和 openstack/latest/user_data，type元素将传送配置参数到虚拟机中。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+
+
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        <emphasis>status</emphasis>包含以下列举的值：<emphasis>unassigned, down, up, powering_up, powered_down, paused, migrating_from, migrating_to, unknown, not_responding, wait_for_launch, reboot_in_progress, saving_state, restoring_state, suspended, image_illegal, image_locked </emphasis>或 <emphasis>powering_down</emphasis>。这些状态值列在<emphasis>capabilities</emphasis>的<emphasis>vm_states</emphasis>表中。
+      </para>
+
+
+  </section>
+	
+  <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_2">
+    <title>虚拟机的XML表示</title>
+
+    <para>
+      <example>
+        <title>虚拟机的XML表示</title>
+        <programlisting>
+          <![CDATA[
+<vm id="082c794b-771f-452f-83c9-b2b5a19c0399"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399">
+<name>vm1</name>
+<description>Virtual Machine 1</description>
+<actions>
+<link rel="start"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/start"/>
+<link rel="stop"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/stop"/>
+<link rel="shutdown"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/shutdown"/>
+<link rel="suspend"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/suspend"/>
+<link rel="detach"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/detach"/>
+<link rel="migrate"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/migrate"/>
+<link rel="export"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/export"/>
+<link rel="import"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/import"/>
+<link rel="move"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/move"/>
+<link rel="ticket"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/ticket"/>
+</actions>
+<link rel="disks"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks"/>
+<link rel="nics"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/nics"/>
+<link rel="cdroms"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/cdroms"/>
+<link rel="snapshots"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/snapshots"/>
+<link rel="users"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/users"/>
+<link rel="tags"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/tags"/>
+<link rel="permissions"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/permissions"/>
+<link rel="statistics"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/statistics"/>
+<type>desktop</type>
+<status>
+<state>up</state>
+</status>
+<memory>536870912</memory>
+<cpu>
+<topology cores="2" sockets="2"/>
+<cpu_tune>
+<vcpu_pin vcpu="0" cpu_set="1-4,^2"/>
+<vcpu_pin vcpu="1" cpu_set="0,1"/>
+<vcpu_pin vcpu="2" cpu_set="2,3"/>
+<vcpu_pin vcpu="3" cpu_set="0,4"/>
+</cpu_tune>
+<cpu_mode>host_passthrough</cpu_mode>
+</cpu>
+<os type="RHEL5">
+<boot dev="hd"/>
+<kernel/>
+177Red Hat Enterprise Virtualization 3.3 D eveloper Guide
+<initrd/>
+<cmdline/>
+</os>
+<highly_available>
+<enabled>true</enabled>
+<priority>20</priority>
+</highly_available>
+<display>
+<type>vnc</type>
+<port>5910</port>
+<monitors>1</monitors>
+<smartcard_enabled>true</smartcard_enabled>
+</display>
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+<template id="00000000-0000-0000-0000-000000000000"
+href="/api/templates/00000000-0000-0000-0000-000000000000"/>
+<start_time>2010-18-16T13:14:15</start_time>
+<creation_time>2010-08-16T14:24:29</creation_time>
+<origin>rhev</origin>
+<stateless>false</stateless>
+<placement_policy>
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+<affinity>migratable</affinity>
+</placement_policy>
+<memory_policy>
+<guaranteed>536870912</guaranteed>
+</memory_policy>
+<usb>
+<enabled>true</enabled>
+</usb>
+<custom_properties>
+<custom_property value="124" name="sndbuf"/>
+</custom_properties>
+<guest_info>
+<ip address="192.168.0.25"/>
+</guest_info>
+<payloads>
+<payload type='cdrom'>
+<file name='/etc/hosts'>
+<content>
+127.0.0.1 localhost myvm.example.com
+</content>
+</file>
+</payload>
+</payloads>
+</vm>
+          ]]>
+        </programlisting>
+      </example>
+    </para>
+        
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_3">
+    <title>方法</title>
+    <!--我是小节分割线-->
+      
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_3-1">
+      <title>创建虚拟机</title>
+
+        <para>
+          创建一个新的虚拟机需要<emphasis>名称，模板</emphasis>和<emphasis>集群</emphasis>元素。用<emphasis>id </emphasis>属性或<emphasis>名称 </emphasis>来确定<emphasis>模板 </emphasis>和<emphasis>名称</emphasis>元素的值。
+        </para>
+
+
+        <para>
+          <example>
+          <title>创建一个从虚拟磁盘启动的且为512M大小的虚拟机</title>
+            <programlisting>
+              <![CDATA[
+POST /api/vms HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vm>
+<name>vm2</name>
+<description>Virtual Machine 2</description>
+<type>desktop</type>
+<memory>536870912</memory>
+<cluster>
+<name>default</name>
+</cluster>
+<template>
+<name>Blank</name>
+</template>
+<os>
+<boot dev="hd"/>
+</os>
+</vm>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+        
+        <note>
+          <para>
+            以上示例的内存转换为字节的公式如下：
+          </para>
+          <para>
+            512MB * 1024 2 = 536870912 字节
+          </para>
+        </note>
+
+    </section>
+	
+
+	
+    <!--我是小节分割线-->
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_3-2">
+      <title>更新虚拟机</title>
+
+      <para>
+        <emphasis>name, description, cluster, type, memory, cpu, os, high_avalibility, display, timezone, domain, stateless, placement_policy, memory_policy, usb, payloads, origin</emphasis>和<emphasis>custom_properties</emphasis>元素是可以快速修改的。
+      </para>
+
+      <para>
+        <example>
+        <title>将虚拟机修改为1GB内存</title>
+          <programlisting>
+            <![CDATA[
+PUT /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vm>
+<memory>1073741824</memory>
+</vm>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+      <note>
+        <para>
+          以上示例的内存转换为字节的公式如下：
+        </para>
+        <para>
+          512MB * 1024 2 = 536870912 字节
+        </para>
+      </note>
+
+
+    </section>
+
+
+    <!--我是小节分割线-->
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_3-3">
+    <title>移除虚拟机</title>
+      <para>
+        移除虚拟机需要<emphasis>DELETE</emphasis>请求。
+      </para>
+
+      <para>
+        <example>
+        <title>移除虚拟机 </title>
+          <programlisting>
+            <![CDATA[
+DELETE /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+HTTP/1.1 204 No Content
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+    </section>		
+
+
+    <!--我是小节分割线-->
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_3-4">
+    <title>移除虚拟机但不删除虚拟磁盘</title>
+      <para>
+        在移除虚拟机前先分离虚拟磁盘，这样可以保存虚拟磁盘。移除虚拟机需要<emphasis>DELETE</emphasis>请求。
+      </para>
+
+      <para>
+        <example>
+        <title>移除虚拟机</title>
+          <programlisting>
+            <![CDATA[
+DELETE /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<vm>
+<disks>
+<detach_only>true</detach_only>
+</disks>
+</vm>
+</action>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+    </section>
+
+
+
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4">
+  <title>子集</title>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1">
+    <title>磁盘子集</title>
+
+      <!--我是小节分割线-->
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1-1">
+      <title>磁盘子集</title>
+
+        <para>
+          <emphasis>磁盘</emphasis>子集代表了所有虚拟机上的虚拟硬盘设备。一个<emphasis>disk</emphasis>的表示包括以下元素：
+        </para>
+
+        <table>
+          <title>虚拟机磁盘元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <thead>
+
+              <!--head-->
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类型
+                </entry>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  属性
+                </entry>
+              </row>
+            </thead>
+        
+            <tbody>
+              <!--line1-->
+              <row>
+                <entry>
+                  link rel=”statistics”
+                </entry>
+                <entry>
+                  关系
+                </entry>
+                <entry>
+                  虚拟机硬盘统计数量的statistics子集链接
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line2-->
+              <row>
+                <entry>
+                  storage_domains
+                </entry>
+                <entry>
+                  复合型
+                </entry>
+                <entry>
+                  与该硬盘联系的存储域，每个storage_domain元素包含一个id属性相关的存储域的GUID，用POST更新来执行从磁盘从一个数据存储域到另一个存储域的动态迁移。
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line3-->
+              <row>
+                <entry>
+                  size
+                </entry>
+                <entry>
+                  整型
+                </entry>
+                <entry>
+                  磁盘字节数
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+
+              <!--line4-->
+              <row>
+                <entry>
+                  provisioned_size
+                </entry>
+                <entry>
+                  整型
+                </entry>
+                <entry>
+                  预分配的磁盘大小，以字节计算
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line5-->
+              <row>
+                <entry>
+                  actual_size
+                </entry>
+                <entry>
+                  整型
+                </entry>
+                <entry>
+                  实际磁盘字节数
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line6-->
+              <row>
+                <entry>
+                  status
+                </entry>
+                <entry>
+                  illegal/invalid/locked/ok
+                </entry>
+                <entry>
+                  磁盘设备的状态。这个状态在disk_states中列出，并置于capabilities下
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line7-->
+              <row>
+                <entry>
+                  interface
+                </entry>
+                <entry>
+                  枚举
+                </entry>
+                <entry>
+                  用于连接磁盘设备的接口驱动类型，是capabilities中的枚举值表
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line8-->
+              <row>
+                <entry>
+                  format
+                </entry>
+                <entry>
+                  枚举
+                </entry>
+                <entry>
+                  底层存储框架，是一个在capabilities中的枚举值表。Copy On Write(COW)技术允许小性能开销的的快照，Raw不允许快照，但是提供了改进的性能。
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line9-->
+              <row>
+                <entry>
+                  spare
+                </entry>
+                <entry>
+                  布尔型：true或false
+                </entry>
+                <entry>
+                  设置为true后，磁盘的物理存储将不能被预分配。
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line10-->
+              <row>
+                <entry>
+                  bootable
+                </entry>
+                <entry>
+                  布尔值：true或false
+                </entry>
+                <entry>
+                  设置为true后，磁盘将被标记为可启动。
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line11-->
+              <row>
+                <entry>
+                  shareable
+                </entry>
+                <entry>
+                  布尔值：true或false
+                </entry>
+                <entry>
+                  设置为true后，可与多个虚拟机共享磁盘
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line12-->
+              <row>
+                <entry>
+                  wipe_after_delete
+                </entry>
+                <entry>
+                  布尔值：true或false
+                </entry>
+                <entry>
+                  设置成true后，当磁盘删除，底层磁盘的物理存储将归零。
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line13-->
+              <row>
+                <entry>
+                  vm id=
+                </entry>
+                <entry>
+                  GUID
+                </entry>
+                <entry>
+                  包含虚拟机的ID
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+             
+              <!--line14-->
+              <row>
+                <entry>
+                  quota id=
+                </entry>
+                <entry>
+                  GUID
+                </entry>
+                <entry>
+                  设置磁盘的配额
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+              <!--line15-->
+              <row>
+                <entry>
+                  lunStorage
+                </entry>
+                <entry>
+                  复合型
+                </entry>
+                <entry>
+                  直接映射映射到LUN的存储使用的引用，需要一个包含iSCSI或FCP设备详情的storage元素
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+
+              <!--line16-->
+              <row>
+                <entry>
+                  active
+                </entry>
+                <entry>
+                  布尔值
+                </entry>
+                <entry>
+                  定义磁盘能否连接到虚拟机
+                </entry>
+                <entry>
+                  
+                </entry>
+              </row>
+
+            </tbody>
+          </tgroup>
+        </table>
+
+
+        <para>
+          <example>
+            <title>磁盘设备的XML表示</title>
+            <programlisting>
+              <![CDATA[
+<disk id="ed7feafe-9aaf-458c-809a-ed789cdbd5b4"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/disks/
+ed7feafe-9aaf-458c-809a-ed789cdbd5b4">
+<link rel="statistics"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks/
+ed7feafe-9aaf-458c-809a-ed789cdbd5b4/statistics"/>
+<storage_domains>
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+</storage_domains>
+<size>10737418240</size>
+<type>system</type>
+<status>
+<state>ok</state>
+</status>
+<interface>virtio</interface>
+<format>raw</format>
+<bootable>true</bootable>
+<shareable>true</shareable>
+<vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
+<lunStorage>
+<storage>
+<logical_unit id="lun1">
+...
+</logical_unit>
+<storage>
+</lunStorage>
+</disk>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          当添加一个新的磁盘时，将请求<emphasis>size</emphasis>元素。当添加一个磁盘到虚拟机且不是从模板上创建时，API会请求<emphasis>storage_domains</emphasis>元素。
+        </para>
+
+
+        <para>
+          <example>
+          <title>在虚拟机上创建新的磁盘设备</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<disk>
+<storage_domains>
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+</storage_domains>
+<size>8589934592</size>
+<type>system</type>
+<interface>virtio</interface>
+<format>cow</format>
+<bootable>true</bootable>
+</disk>
+            ]]>
+          </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          <emphasis>name, description, storage_domains, interface, bootable, shareable, wipe_after_delete</emphasis>和<emphasis>propagate_error</emphasis>元素可以快速修改。
+        </para>
+
+
+        <para>
+          <example>
+          <title>虚拟机磁盘的更新</title>
+            <programlisting>
+              <![CDATA[
+PUT /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/disks/ed7feafe-9aaf-458c-
+809a-ed789cdbd5b4 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<disk>
+<bootable>false</bootable>
+<shareable>false</shareable>
+</disk>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          虚拟机磁盘的移除需要<emphasis>DELETE</emphasis>请求。
+        </para>
+
+        <para>
+          <example>
+          <title>移除虚拟机磁盘</title>
+            <programlisting>
+              <![CDATA[
+DELETE /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/disks/ed7feafe-9aaf-458c-
+809a-ed789cdbd5b4 HTTP/1.1
+HTTP/1.1 204 No Content
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+      </section>
+
+      
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1-2">
+      <title>磁盘克隆</title>
+
+        <para>
+          使用<emphasis>clone</emphasis>元素可以从模板上克隆磁盘。创建虚拟机时，将<emphasis>disks</emphasis>子集中的<emphasis>clone</emphasis>元素设置为<emphasis>true</emphasis>即可。这个操作将从基本模板上克隆磁盘，并将该磁盘附加到虚拟机中。
+        </para>
+
+        <para>
+          <example>
+          <title>从模板上克隆磁盘</title>
+            <para>
+               下面的例子展示了在新建虚拟机时从模板上克隆磁盘。
+            </para>
+            <programlisting>
+              <![CDATA[
+POST /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vm>
+<name>cloned_vm</name>
+<template id="64d4aa08-58c6-4de2-abc4-89f19003b886"/>
+<cluster id="99408929-82cf-4dc7-a532-9d998063fa95"/>
+<disks>
+<clone>true</clone>
+<disk id="4825ffda-a997-4e96-ae27-5503f1851d1b">
+<format>COW</format>
+</disk>
+<disk id="42aef10d-3dd5-4704-aa73-56a023c1464c">
+<format>COW</format>
+</disk>
+</disks>
+</vm>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+        
+        <important>
+          <para>
+            搜索根据磁盘名称搜索虚拟机相关疑问时需要使用<emphasis>别名</emphasis>参数搜索，而不能<emphasis>用名称</emphasis>搜索。
+          </para>
+        </important>
+
+      </section>
+
+      
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1-3">
+      <title>磁盘读取数据子集</title>
+
+        <para>
+          每个虚拟机磁盘揭示了一个特定磁盘<emphasis>读取数据</emphasis>的数据子集，每个<emphasis>statistic</emphasis>包含以下元素：
+        </para>
+
+        <table>
+          <title>虚拟机磁盘读取数据元素</title>
+          <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                name
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                读写数据条目的唯一标识
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                description
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                读写的纯文本描述
+              </entry>
+            </row>
+
+            <!--line3-->
+            <row>
+              <entry>
+                unit
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                度量读写数据值的单元或比率
+              </entry>
+            </row>
+
+            <!--line4-->
+            <row>
+              <entry>
+                type
+              </entry>
+              <entry>
+                GAUGE或COUNTER
+              </entry>
+              <entry>
+                读写数据方法的类型
+              </entry>
+            </row>
+
+            <!--line5-->
+            <row>
+              <entry>
+                values type=
+              </entry>
+              <entry>
+                INTEGER或DECIMAL
+              </entry>
+              <entry>
+                读写值的数据类型
+              </entry>
+            </row>
+
+            <!--line6-->
+            <row>
+              <entry>
+                value
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                一个包含数据的数据集
+              </entry>
+            </row>
+
+            <!--line7-->
+            <row>
+              <entry>
+                datum
+              </entry>
+              <entry>
+                见values type
+              </entry>
+              <entry>
+                一个值中的单独数据
+              </entry>
+            </row>
+
+            <!--line8-->
+            <row>
+              <entry>
+                disk id=
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                包含磁盘资源的关联
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+
+
+        <para>
+          下表列出里虚拟机磁盘的读取数据类型。
+        </para>
+
+
+        <table>
+          <title>虚拟机磁盘的读取数据类型</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+         
+          <thead>            
+            <!--head-->
+            <row>
+              <entry>
+                名称
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                data.current.read
+              </entry>
+              <entry>
+                从磁盘读取时的数据传输速率，以字节每秒计算
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                data.current.write
+              </entry>
+              <entry>
+                从磁盘写入时的数据传输速率，以字节每秒计算
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+        <para>
+          <example>
+          <title>虚拟机读取数据子集的XML表示</title>
+            <programlisting>
+              <![CDATA[
+<statistics>
+<statistic id="33b9212b-f9cb-3fd0-b364-248fb61e1272"
+href="/api/vms/3a42530e-3bc5-4094-829d-489257894c2a/disks/
+f28ec14c-fc85-43e1-818d-96b49d50e27b/statistics/
+33b9212b-f9cb-3fd0-b364-248fb61e1272">
+<name>data.current.read</name>
+<description>Read data rate</description>
+<values type="DECIMAL">
+<value>
+<datum>0</datum>
+</value>
+</values>
+<type>GAUGE</type>
+<unit>BYTES_PER_SECOND</unit>
+<disk id="f28ec14c-fc85-43e1-818d-96b49d50e27b"
+href="/api/vms/3a42530e-3bc5-4094-829d-489257894c2a/
+disks/f28ec14c-fc85-43e1-818d-96b49d50e27b"/>
+</statistic>
+...
+</statistics>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+        <note>
+          <para>
+            该数据读取子集是只读的。
+          </para>
+        </note>
+
+
+      </section>
+
+
+
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1-4">
+      <title>浮动磁盘的附加和分离操作</title>
+
+        <para>
+          可从<emphasis>rel=”disks”</emphasis>主集合中使用<emphasis>POST</emphasis>请求在虚拟机的磁盘子集上附加任何磁盘。需要附加磁盘的<emphasis>id</emphasis>。
+        </para>
+
+        <para>
+          <example>
+          <title>附加浮动磁盘</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<disk>
+<id="d135f1c5-b5e1-4238-9381-b3277f5a3742"/>
+</disk>
+            ]]>
+          </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          可从磁盘资源上使用<emphasis>DELETE</emphasis>请求来将磁盘从虚拟机磁盘子集中分离，但要保证包含<emphasis>detach</emphasis>布尔元素，这样磁盘才不会被损坏。
+        </para>
+
+
+        <para>
+          <example>
+          <title>从虚拟机上分离磁盘</title>
+            <programlisting>
+              <![CDATA[
+DELETE /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks/
+d135f1c5-b5e1-4238-9381-b3277f5a3742HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<detach>true</detach>
+</action>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+      </section>
+
+
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-1-5">
+      <title>磁盘激活和取消激活操作</title>
+
+        <para>
+          每个虚拟机磁盘提供了<emphasis>激活</emphasis>和<emphasis>取消激活</emphasis>的操作来将磁盘从虚拟机上添加或移除。
+        </para>
+
+
+        <para>
+          <example>
+          <title>激活虚拟机磁盘操作</title>
+            <programlisting>
+              <![CDATA[
+POST /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks/a42ada0e-1d69-410d-
+a392-a6980d873e5d/activate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+        <para>
+          <example>
+          <title>取消激活虚拟机磁盘操作</title>
+            <programlisting>
+              <![CDATA[
+POST /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/disks/a42ada0e-1d69-410d-
+a392-a6980d873e5d/deactivate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+        <para>
+          可使用这些操作来热插拔虚拟机磁盘和激活新附加的浮动词盘。
+        </para>
+
+        <important>
+          <para>
+            热插拔特性只支持VirtIO磁盘和支持热插拔的虚拟操作系统，示例的操作系统如下：
+          </para>
+          <para>
+            Red Hat Enterprise Linux 6;
+          </para>
+          <para>
+            Red Hat Enterprise Linux 5;
+          </para>
+          <para>
+            Windows Server 2008;以及
+          </para>
+          <para>
+            Windows Server 2003. 
+          </para>
+        </important>
+
+
+      </section>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-2">
+    <title>网络接口子集</title>
+        
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-2-1">
+      <title>网络接口子集</title>
+
+        <para>
+          网卡子集代表了所有虚拟机上的网络接口设备。一个<emphasis>nic</emphasis>包括以下元素：
+        </para>
+
+        <table>
+          <title>虚拟机网络接口元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <!--head-->
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                link rel="statistics"
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                虚拟机网络接口读取数据的子集链接
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                network id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                须连接的网络接口，允许空id。
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line3-->
+            <row>
+              <entry>
+                interface
+              </entry>
+              <entry>
+                枚举
+              </entry>
+              <entry>
+                网络接口的驱动类型，capabilities中的可用枚举值表
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line4-->
+            <row>
+              <entry>
+                mac address=
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                接口的MAC地址
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line5-->
+            <row>
+              <entry>
+                port_mirroring
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                定义网卡是否接收镜像流量，定义一个包含一系列network id=references的网络
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line6-->
+            <row>
+              <entry>
+                plugged
+              </entry>
+              <entry>
+                布尔值
+              </entry>
+              <entry>
+                定义网卡是否插入虚拟机
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line7-->
+            <row>
+              <entry>
+                linked
+              </entry>
+              <entry>
+                布尔值
+              </entry>
+              <entry>
+                定义网卡是否连接到虚拟机
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+
+        <para>
+          <example>
+          <title>网络接口的XML表示</title>
+          <programlisting>
+            <![CDATA[
+<nic id="7a3cff5e-3cc4-47c2-8388-9adf16341f5e"
+ref="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics/
+7a3cff5e-3cc4-47c2-8388-9adf16341f5e">
+<link rel="statistics"
+href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/nics/
+7a3cff5e-3cc4-47c2-8388-9adf16341f5e/statistics"/>
+<name>nic1</name>
+<interface>virtio</interface>
+<mac address="00:1a:4a:16:84:07"/>
+<network id="00000000-0000-0000-0000-000000000009"
+href="/api/networks/00000000-0000-0000-0000-000000000009"/>
+<vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
+<port_mirroring>
+<networks>
+<network id="56087282-d7a6-11e1-af44-001a4a400e0c"
+href="/api/networks/56087282-d7a6-11e1-af44-001a4a400e0c"/>
+</networks>
+</port_mirroring>
+</nic>
+            ]]>
+          </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+           添加一个新的网络接口时，<emphasis>name</emphasis>和<emphasis>network</emphasis>是必须填写的，要验证<emphasis>network</emphasis>是否包含<emphasis>id</emphasis>属性或<emphasis>name</emphasis>属性。
+        </para>
+
+        <para>
+          <example>
+          <title>新建虚拟机网卡</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<nic>
+<name>nic1</name>
+<network id="00000000-0000-0000-0000-000000000009"/>
+</nic>
+            ]]>
+          </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          API用户可以使用<emphasis>PUT</emphasis>修改网络接口。
+        </para>
+
+
+        <para>
+          <example>
+            <title>更改虚拟机网卡 </title>
+            <programlisting>
+              <![CDATA[
+PUT /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics/
+7a3cff5e-3cc4-47c2-8388-9adf16341f5e HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<nic>
+<name>nic2</name>
+<network id="00000000-0000-0000-0000-000000000010"/>
+<type>e1000</type>
+</nic>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          API用户可以使用<emphasis>DELETE</emphasis>来移除网络接口。
+        </para>
+
+       
+        <para>
+          <example>
+            <title>移除虚拟机网卡 </title>
+            <programlisting>
+              <![CDATA[
+DELETE /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics/
+7a3cff5e-3cc4-47c2-8388-9adf16341f5e HTTP/1.1
+HTTP/1.1 204 No Content
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+        <important>
+          <para>
+            热插拔特性只支持具有热插拔功能的虚拟机操作系统，示例的操作系统如下：
+          </para>
+          <para>
+            Red Hat Enterprise Linux 6;
+          </para>
+          <para>
+            Red Hat Enterprise Linux 5;
+          </para>
+          <para>
+            Windows Server 2008;
+          </para>
+          <para>
+            以及 Windows Server 2003. 
+          </para>
+        </important>
+
+      </section>
+
+
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-2-2">
+      <title>网络接口读取数据子集</title>
+
+        <para>
+          每个虚拟机网络接口呈现一个网络数据的读取数据子集，每个<emphasis>statistic</emphasis>包含如下元素：
+        </para> 
+
+        <table>
+          <title>虚拟网络接口数据元素 </title>
+          <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <!--head-->
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                name
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                数据条目的唯一标识
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                description
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                描述读取数据的纯文本文件
+              </entry>
+            </row>
+
+            <!--line3-->
+            <row>
+              <entry>
+                unit
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                度量读取数据值的单元或比率
+              </entry>
+            </row>
+
+            <!--line4-->
+            <row>
+              <entry>
+                type
+              </entry>
+              <entry>
+                GAUGE或COUNTER
+              </entry>
+              <entry>
+                读写数据方法的类型
+              </entry>
+            </row>
+
+            <!--line5-->
+            <row>
+              <entry>
+                values type=
+              </entry>
+              <entry>
+                INTEGER或DECIMAL
+              </entry>
+              <entry>
+                读写值的数据类型
+              </entry>
+            </row>
+
+            <!--line6-->
+            <row>
+              <entry>
+                value
+              </entry>
+              <entry>
+                复合型
+              </entry>
+              <entry>
+                一个包含数据的数据集
+              </entry>
+            </row>
+
+            <!--line7-->
+            <row>
+              <entry>
+                datum
+              </entry>
+              <entry>
+                见values type
+              </entry>
+              <entry>
+                一个值中的单独数据
+              </entry>
+            </row>
+
+            <!--line8-->
+            <row>
+              <entry>
+                nic id=
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                与网卡资源相关
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+        <para>
+          下表列出了虚拟机上网络接口的读取数据类型：
+        </para>
+
+
+        <table>
+          <title>虚拟机网卡读取数据类型</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+          <thead>
+            
+            <!--head-->
+            <row>
+              <entry>
+                名称
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                data.current.rx
+              </entry>
+              <entry>
+                接收数据率，以字节每秒表示
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                data.current.tx
+              </entry>
+              <entry>
+                传输数据率，以字节每秒表示
+              </entry>
+            </row>
+
+            <!--line3-->
+            <row>
+              <entry>
+                errors.total.rx
+              </entry>
+              <entry>
+                接收数据的总错误数
+              </entry>
+            </row>
+
+            <!--line4-->
+            <row>
+              <entry>
+                data.current.tx
+              </entry>
+              <entry>
+                传输数据的总错误数
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+        <para>
+          <example>
+            <title>虚拟机网卡读取数据子集的XML表示</title>
+            <programlisting>
+              <![CDATA[
+<statistics>
+<statistic id="ecd0559f-e88f-3330-94b4-1f091b0ffdf7"
+href="/api/vms/3a42530e-3bc5-4094-829d-489257894c2a/nics/
+6cd08e76-57c0-41ba-a728-7eba46ae1e36/statistics/
+ecd0559f-e88f-3330-94b4-1f091b0ffdf7">
+<name>data.current.rx</name>
+<description>Receive data rate</description>
+<values type="DECIMAL">
+<value>
+<datum>0</datum>
+</value>
+</values>
+<type>GAUGE</type>
+<unit>BYTES_PER_SECOND</unit>
+<nic id="6cd08e76-57c0-41ba-a728-7eba46ae1e36"
+href="/api/vms/3a42530e-3bc5-4094-829d-489257894c2a/
+nics/6cd08e76-57c0-41ba-a728-7eba46ae1e36"/>
+</statistic>
+...
+</statistics>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+        <note>
+          <para>
+            该数据子集是只读的。
+          </para>
+        </note>
+
+
+      </section>
+
+    </section>
+
+
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-3">
+    <title>CD-ROMs子集</title>
+
+      <para>
+        只读光盘子集描述了虚拟机上的CD-ROM设备。一个<emphasis>cdrom</emphasis>包含以下元素：
+      </para>
+
+     
+      <table>
+        <title>虚拟机只读光盘元素 </title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          
+            <!--head-->
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                file id=
+              </entry>
+              <entry>
+                字符串/文件名
+              </entry>
+              <entry>
+                关于ISO镜像
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+        </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        <example>
+          <title>只读光盘设备的XML表示</title>
+          <programlisting>
+            <![CDATA[
+<cdrom id="00000000-0000-0000-0000-000000000000"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/
+00000000-0000-0000-0000-000000000000">
+<file id="rhel-server-6.0-x86_64-dvd.iso"/>
+<vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
+</cdrom>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+
+      <para>
+        可以用<emphasis>file id</emphasis>元素发送<emphasis>POST</emphasis>请求来添加新的CD-ROM资源。
+      </para>
+
+
+      
+      <para>
+        <example>
+          <title>更改CD-ROM文件</title>
+          <programlisting>
+            <![CDATA[
+PUT /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/00000000-0000-0000-
+0000-000000000000 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<cdrom>
+<file id="fedora-15-x86_64-dvd.iso"/>
+</cdrom>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+      <para>
+        API用户可以使用<emphasis>PUT</emphasis>请求来更改CD-ROM。
+      </para>
+
+
+      <para>
+        <example>
+          <title>更改CD-ROM文件</title>
+          <programlisting>
+            <![CDATA[
+PUT /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/00000000-0000-0000-
+0000-000000000000 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<cdrom>
+<file id="fedora-15-x86_64-dvd.iso"/>
+</cdrom>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+      
+      <para>
+        API用户可以使用附加的<emphasis>current</emphasis> URL的<emphasis>PUT</emphasis>请求来更改当前阶段的CD-ROM。
+      </para>      
+
+      <para>
+        <example>
+          <title>更改当前CD-ROM</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/00000000-0000-0000-
+0000-000000000000;current HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<cdrom>
+<file id="fedora-15-x86_64-dvd.iso"/>
+</cdrom>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+       
+
+      <note>
+        <para>
+           一个虚拟机只能拥有一个CD-ROM设备。
+        </para>
+      </note>
+
+    </section>
+
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-4">
+    <title>快照子集</title>
+ 
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-4-1">
+      <title>快照子集</title>
+
+        <para>
+          虚拟机将磁盘状态保存和恢复为快照。这些快照通过<emphasis>rel=”snapshot”</emphasis>子集进行描述和管理，类似于其他集合。
+        </para>
+
+        <para>
+          每个虚拟机快照使用一个独立的<emphasis>snapshot</emphasis>元素描述，包括如下子元素：
+        </para>
+
+        
+        <table>
+          <title>虚拟机快照元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            
+            <!--head-->
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类型
+              </entry>
+              <entry>
+                描述
+              </entry>
+              <entry>
+                属性
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <!--line1-->
+            <row>
+              <entry>
+                vm id=
+              </entry>
+              <entry>
+                GUID
+              </entry>
+              <entry>
+                该快照所属的虚拟机的ID和URI
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line2-->
+            <row>
+              <entry>
+                date
+              </entry>
+              <entry>
+                xsd:dateTime 
+格式: YYYY-MM-DDThh:mm:ss
+              </entry>
+              <entry>
+                快照创建的日期和时间
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+
+            <!--line3-->
+            <row>
+              <entry>
+                link rel=”prev”
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                该虚拟机原先的快照的链接
+              </entry>
+              <entry>
+                
+              </entry>
+            </row>
+          </tbody>
+          </tgroup>
+        </table>
+
+        <para>
+          新建快照时，只有<emphasis>description</emphasis>元素时指定的。
+        </para>
+
+        <note>
+          <para>
+            请注意，不能用PUT修改快照。
+          </para>
+        </note>
+
+
+        <para>
+          <example>
+            <title>虚拟机快照的XML表示</title>
+            <programlisting>
+              <![CDATA[
+<snapshot id="f5288fd5-5178-4b7d-b87c-c01a40e40168"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/snapshots/
+f5288fd5-5178-4b7d-b87c-c01a40e40168">
+<description>Virtual Machine 1 - Snapshot A</description>
+<actions>
+<link rel="restore"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/snapshots/
+f5288fd5-5178-4b7d-b87c-c01a40e40168/restore"/>
+</actions>
+<link rel="prev"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/snapshots/
+ce411b3e-e4e0-4482-8b2f-d1ed998b9130"/>
+<vm id="5114bb3e-a4e6-44b2-b783-b3eea7d84720"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720"/>
+<date>2010-08-16T14:24:29</date>
+</snapshot>
+              ]]>
+            </programlisting>
+          </example>
+        </para>
+
+
+        <para>
+          API用户可以用<emphasis>rel =”restore”</emphasis>操作来恢复虚拟机快照。
+        </para>
+
+        <para>
+            <programlisting>
+              <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/snapshots/f5288fd5-5178-4b7d-
+b87c-c01a40e40168/restore HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+              ]]>
+            </programlisting>
+        </para>
+
+        <note>
+          <para>
+             REST API还提供在线快照功能，允许用户虚拟机在运行期间拍摄快照。
+          </para>
+        </note>
+
+      </section>
+
+
+      <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-4-2">
+      <title>从快照上克隆虚拟机</title>
+
+        <para>
+          API提供了从原先机器上的快照创建虚拟机的功能。API用户新建一个虚拟机，同时保持完好的原始虚拟机快照。
+        </para>
+
+        <para>
+          从快照上创建一个虚拟机，需要附加一个按虚拟机标准表示的快照，用户可以向<emphasis>vms</emphasis>集合发送<emphasis>POST</emphasis>请求来完成此操作。
+        </para>
+
+        <para>
+          作为虚拟机快照的主要部分,<emphasis>snapshot</emphasis>元素包含<emphasis>snapshot id=</emphasis>元素来定义指定的快照。
+        </para>
+
+        <para>
+          <example>
+            <title>从快照上克隆虚拟机</title>
+            <programlisting>
+               <![CDATA[
+POST /api/vms HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<vm>
+...
+<snapshots>
+<snapshot id="id="3f68ee63-0016-4f8c-9b8a-11d9f28f7c9e"/>
+</snapshots>
+...
+</vm>
+                ]]>
+            </programlisting>
+          </example>
+        </para>
+
+      </section>
+
+    </section>
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_4-5">
+      <title>读取数据子集</title>
+
+      <para>
+        每个虚拟机都描述里特定虚拟机数据的读取数据子集。每个<emphasis>statistic</emphasis>包含以下元素：
+      </para>
+
+      <table>
+        <title>虚拟机读取数据元素</title>
+        <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+
+          <!--head-->
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类型
+            </entry>
+            <entry>
+              描述
+            </entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <!--line1-->
+          <row>
+            <entry>
+              name
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              数据条目的唯一标识
+            </entry>
+          </row>
+
+          <!--line2-->
+          <row>
+            <entry>
+              description
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              读取数据的纯文本文件
+            </entry>
+          </row>
+
+          <!--line3-->
+          <row>
+            <entry>
+              unit
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              度量读写数据值的单元或比率
+            </entry>
+          </row>
+
+          <!--line4-->
+          <row>
+            <entry>
+              type
+            </entry>
+            <entry>
+              GAUGE或COUNTER
+            </entry>
+            <entry>
+              读写数据度量的类型
+            </entry>
+          </row>
+
+          <!--line5-->
+          <row>
+            <entry>
+              values type=
+            </entry>
+            <entry>
+              INTEGER或DECIMAL
+            </entry>
+            <entry>
+              读写值的数据类型
+            </entry>
+          </row>
+
+          <!--line6-->
+          <row>
+            <entry>
+              value
+            </entry>
+            <entry>
+              复合型
+            </entry>
+            <entry>
+              一个包含数据的数据集
+            </entry>
+          </row>
+
+          <!--line7-->
+          <row>
+            <entry>
+              datum
+            </entry>
+            <entry>
+              见values type
+            </entry>
+            <entry>
+              一个值中的单独数据
+            </entry>
+          </row>
+
+          <!--line8-->
+          <row>
+            <entry>
+              vm id=
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              与虚拟机资源相关
+            </entry>
+          </row>
+        </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        下表列出了虚拟机的数据类型。
+      </para>
+
+      <table>
+        <title>虚拟机的读取数据类型</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+        <thead>
+          
+          <!--head-->
+          <row>
+            <entry>
+              名称
+            </entry>
+            <entry>
+              描述
+            </entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <!--line1-->
+          <row>
+            <entry>
+              memory.installed
+            </entry>
+            <entry>
+              分配给虚拟机使用的总内存，以字节计算
+            </entry>
+          </row>
+
+          <!--line1-->
+          <row>
+            <entry>
+              memory.used
+            </entry>
+            <entry>
+              当前虚拟机所使用的内训，以字节计算
+            </entry>
+          </row>
+
+          <!--line2-->
+          <row>
+            <entry>
+              cpu.current.guest
+            </entry>
+            <entry>
+              宿主机的cpu使用率
+            </entry>
+          </row>
+
+          <!--line3-->
+          <row>
+            <entry>
+              cpu.current.hypervisor
+            </entry>
+            <entry>
+              虚拟机管理程序的CPU开销百分比。
+            </entry>
+          </row>
+
+          <!--line4-->
+          <row>
+            <entry>
+              cpu.current.total
+            </entry>
+            <entry>
+              当前所使用的cpu的总的百分比
+            </entry>
+          </row>
+        </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+        <example>
+          <title>虚拟机读取数据子集的XML表示</title>
+          <programlisting>
+            <![CDATA[
+<statistics>
+<statistic id="ef802239-b74a-329f-9955-be8fea6b50a4"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/
+statistics/ef802239-b74a-329f-9955-be8fea6b50a4">
+<name>memory.installed</name>
+<description>Total memory configured</description>
+<unit>BYTES</unit>
+<type>GUAGE</type>
+<values type="DECIMAL">
+<value>
+<datum>1073741824<datum>
+</value>
+</values>
+<vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401"
+href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
+</statistic>
+...
+</statistics>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+      <note>
+        <para>
+          虚拟机的<emphasis>读取数据</emphasis>子集是只读的。
+        </para>
+      </note>
+
+
+    </section>
+  </section>
+
+
+
+  <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5">
+  <title>操作</title>
+ 
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-1">
+    <title>启动虚拟机</title>
+
+      <para>
+        start操作可以启动一个虚拟机。
+      </para>
+
+      <para>
+        <example>
+          <title>启动虚拟机</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/start HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+      <para>
+        start操作允许提供一个vm元素作为参数，若提供了<emphasis>vm</emphasis>元素，虚拟机使用该提供的元素，并在开始时覆盖系统设置。这些设置持续到用户停止虚拟机为止。这些元素包括<emphasis>os, domain, placement_policy, cdroms, stateless </emphasis>和<emphasis>display type</emphasis>。
+      </para>
+
+      <para>
+        <example>
+          <title>启动虚拟机并覆盖参数</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/start HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<pause>true</pause>
+<vm>
+<stateless>true</stateless>
+<display>
+<type>spice</type>
+</display>
+<os>
+<boot dev="cdrom"/>
+</os>
+<cdroms>
+<cdrom>
+<file id="windows-xp.iso"/>
+</cdrom>
+</cdroms>
+<domain>
+<name>domain.example.com</name>
+<user>
+<user_name>domain_user</user_name>
+<password>domain_password</password>
+</user>
+</domain>
+<placement_policy>
+<host id="02447ac6-bcba-448d-ba2b-f0f453544ed2"/>
+</placement_policy>
+</vm>
+</action>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+      <note>
+        <para>
+          使用<emphasis>start</emphasis>操作启动时，只有虚拟机运行Windows操作系统使用<emphasis>domain</emphasis>元素覆盖参数，domain元素决定Windows虚拟机所加入的域。如果这个域在<emphasis>domains</emphasis>集合中不存在，该元素需要额外的用户身分验证信息，包括<emphasis>user_name</emphasis>和<emphasis>password</emphasis>。如果这个域存在于域集合中，则不需要额外的用户身份验证信息。
+        </para>
+      </note>
+
+    </section>
+
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-2">
+    <title>停止虚拟机</title>
+
+      <para>
+        停止操作会强制虚拟机关闭电源。
+      </para>
+
+
+      <para>
+        <example>
+          <title>停止虚拟机</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/stop HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-3">
+    <title>关闭虚拟机</title>
+
+      <para>
+        关闭操作将会向虚拟机发送关闭请求。
+      </para>
+
+      <para>
+        <example>
+          <title>向虚拟机发送关闭请求</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/shutdown HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-4">
+    <title>挂起虚拟机</title>
+
+      <para>
+        挂起操作将保存虚拟机状态并停止虚拟机运行。虚拟机状态会在开始操作中恢复。
+      </para>
+
+
+      <para>
+        <example>
+          <title>保存虚拟机状态和挂起虚拟机</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/suspend HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-5">
+    <title>分离虚拟机池</title>
+      
+      <para>
+        分离操作会将虚拟机从虚拟机池中分离出来。
+      </para>
+
+      <para>
+        <example>
+          <title>分离虚拟机</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/detach HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-6">
+    <title>迁移虚拟机</title>
+
+      <para>
+        迁移操作会将虚拟机从一个物理主机迁移到另一个，目的主机时可选的，红帽公司的虚拟化管理器会自动选择一个默认主机进行迁移。如果一个API用户请求向一个特定的主机迁移，该用户可以用<emphasis>id</emphasis>或<emphasis>name</emphasis>参数指定一个主机。
+      </para>
+
+      <para>
+        <example>
+           <title>虚拟机迁移</title>
+           <programlisting>
+             <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/migrate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+</action>
+             ]]>
+           </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-7">
+    <title>取消虚拟机的迁移</title>
+  
+      <para>
+        取消迁移操作将会停止任何虚拟机的迁移。
+      </para>
+
+      <para>
+        <example>
+           <title>取消虚拟机迁移</title>
+           <programlisting>
+             <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/cancelmigration HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+             ]]>
+           </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-8">
+    <title>导出虚拟机</title>
+
+      <para>
+        导出操作会将虚拟机导出到导出存储域中。目的导出域必须用<emphasis>storage_domain</emphasis>指定。
+      </para>
+
+      <para>
+        如果虚拟机导出到某个指定域时，有同名主机存在，则提示导出失败。如果将<emphasis>exclusive</emphasis>参数设置为<emphasis>true</emphasis>，则不提示用户而直接覆盖已经存在的虚拟机。
+      </para>
+
+      <para>
+        如果希望虚拟机快照不包含导出的虚拟机，则将<emphasis>discard_snapshots</emphasis>参数设置为<emphasis>true</emphasis>。
+      </para>
+
+      <para>
+        <example>
+          <title>将虚拟机导出到导出域</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/export HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<storage_domain>
+<name>export1</name>
+</storage_domain>
+<exclusive>true</exclusive>
+<discard_snapshots>true</discard_snapshots>
+</action>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-9">
+    <title>虚拟机令牌</title>
+    
+      <para>
+        令牌操作生成一个时间敏感的身分验证令牌来访问虚拟机显示的内容。客户端提供的<emphasis>action</emphasis>将选择性地包含一个令牌，这个令牌会包含一个<emphasis>value</emphasis>（如果令牌字符串需要一个特定的形式的话）和一个在几分钟内过期的<emphasis>expiry</emphasis>值。在任何情况下，响应将指定使用的实际令牌值和到期值。
+      </para>
+
+      <para>
+        <example>
+          <title>为虚拟机生成身份验证令牌</title>
+          <programlisting>
+            <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/ticket HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<ticket>
+<expiry>120</expiry>
+</ticket>
+</action>
+200 OK
+Content-Type: application/xml
+<action id="94e07552-14ba-4c27-8ce6-2cc75190d3ef"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/ticket/
+94e07552-14ba-4c27-8ce6-2cc75190d3ef">
+<status>
+<state>complete</state>
+</status>
+<ticket>
+<value>5c7CSzK8Sw41</value>
+<expiry>120</expiry>
+</ticket>
+<link rel="parent"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720"/>
+<link rel="replay"
+href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/ticket"/>
+</action>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_5-10">
+    <title>强制移除虚拟机</title>
+
+      <para>
+        API用户可以使用<emphasis>force</emphasis>操作强制移除错误的虚拟机。这个操作需要<emphasis>DELETE</emphasis>命令。请求的主体包含一个带<emphasis>force</emphasis>参数的<emphasis>action</emphasis>，需要将该参数设置成<emphasis>true</emphasis>。该请求还需要附加Content-type: application/xml 文件头来处理XML的表示。
+      </para>
+
+      <para>
+        <example>
+          <title>强制移除虚拟机</title>
+          <programlisting>
+            <![CDATA[
+DELETE /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+<force>true</force>
+</action>
+            ]]>
+          </programlisting>
+        </example>
+      </para>
+
+    </section>
+
+
+  </section>
 </chapter>
 
