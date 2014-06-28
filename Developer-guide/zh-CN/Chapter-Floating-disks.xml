@@ -8,7 +8,7 @@
 	<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_1">
 		<title>浮动磁盘的元素</title>
 		<para>
-			<emphasis>磁盘</emphasis>集合提供红帽公司虚拟环境中所有磁盘的信息。用户可以从任何虚拟机上附加和分离磁盘,并且能使磁盘在两个虚拟机之间浮动。API 用户通过从入口点获得的 URL 中,用<emphasis> rel=”disks”</emphasis>链接访问该信息。
+			<emphasis>磁盘</emphasis>集合提供&OVIRT;公司虚拟环境中所有磁盘的信息。用户可以从任何虚拟机上附加和分离磁盘,并且能使磁盘在两个虚拟机之间浮动。API 用户通过从入口点获得的 URL 中,用<emphasis> rel=”disks”</emphasis>链接访问该信息。
 下表显示了磁盘资源中的特定元素。
 		</para>
 
