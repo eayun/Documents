@@ -23,7 +23,7 @@
   <section id="sect-EayunOS-Developer-guide-Virtual-machines_Chapter-Virtual-machines_Section_1">
     <title>虚拟机元素</title>
       <para>
-        VMS集合提供红帽公司虚拟化环境中有关虚拟机的信息。API用户可以通过<emphasis>rel="vms"</emphasis>链接从入口点获得的URL来访问这些信息。
+        VMS集合提供&OVIRT;公司虚拟化环境中有关虚拟机的信息。API用户可以通过<emphasis>rel="vms"</emphasis>链接从入口点获得的URL来访问这些信息。
       </para>
       <para>
         下面的表格展示了包含在虚拟机资源中特定元素的表示。
@@ -2962,7 +2962,7 @@ Content-type: application/xml
     <title>迁移虚拟机</title>
 
       <para>
-        迁移操作会将虚拟机从一个物理主机迁移到另一个，目的主机时可选的，红帽公司的虚拟化管理器会自动选择一个默认主机进行迁移。如果一个API用户请求向一个特定的主机迁移，该用户可以用<emphasis>id</emphasis>或<emphasis>name</emphasis>参数指定一个主机。
+        迁移操作会将虚拟机从一个物理主机迁移到另一个，目的主机时可选的，&OVIRT;公司的虚拟化管理器会自动选择一个默认主机进行迁移。如果一个API用户请求向一个特定的主机迁移，该用户可以用<emphasis>id</emphasis>或<emphasis>name</emphasis>参数指定一个主机。
       </para>
 
       <para>
