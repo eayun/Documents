@@ -180,45 +180,243 @@ api_instance.disconnect()
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_4">
-		<title>python-sdk Section 1</title>
+		<title>从资源集合中检索指定资源</title>
 		<para>
-			This is a test paragraph in a section
+		 这个我们举一个实际的例子来说明，下面的例子使用get方法从资源集合中检索指定的资源。
 		</para>
+                <example><title>使用名称来检索指定资源</title>
+		<para>
+		  从资源集合<emphasis>datacenters</emphasis>中检索<emphasis>Default</emphasis>的数据中心，
+                  有就是使用get方法递送<emphasis>name</emphasis>的参数。
+		</para>
+                <programlisting language="Python">
+                  dc = api.datacenters.get("Default")
+                </programlisting>
+		<para>
+		 上述的语法等同于如下：
+		</para>
+                <programlisting language="Python">
+               dc = api.datacenters.get(name="Default")
+                </programlisting>
+                
+                </example>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_5">
-		<title>python-sdk Section 1</title>
+		<title>从资源集合中检索资源列表</title>
 		<para>
-			This is a test paragraph in a section
+		 此功能我们仍然以一个实例来说明，下面的例子使用<emphasis>list</emphasis>方法从资源集合中检索指定的资源。
 		</para>
+                <example><title>将资源集合中所有的资源列出</title>
+                 <para>
+                  将数据中心集合中所有的资源都检索列出，<emphasis>list</emphasis>方法中的<emphasis>query</emphasis>参数
+                  允许使用&OVIRT;管理中心的检索队列，此方法用于SDK不仅可以在管理员门户可行，用户门户也可以。
+                 </para>
+                 <programlisting language="python">
+                  dc_list = []
+                  dc_page_index = 1
+                  dc_page_current = api.datacenters.list(query="page %s" % dc_page_index)
+                  while(len(dc_page_current) != 0):
+                       dc_list = dc_list + dc_page_current
+                       dc_page_index = dc_page_index + 1
+                       dc_page_current = api.datacenters.list(query="page %s" % dc_page_index)
+                 </programlisting>
+                 <para>
+                  在上述例子中，<emphasis>datacents</emphasis>集合中的所有资源，都保存在<emphasis>dc_list</emphasis>这个列表中。
+                 </para>
+                </example>
+                <warning>
+                  <para>
+                  <emphasis>list</emphasis>方法列出的资源受限于&OVIRT;管理端的配置项<emphasis>SearchResultsLimit</emphasis>，
+                  </para>
+                  <para>
+                  若想确保<emphasis>list</emphasis>返回所有的值，请去掉翻页的限制。
+                  </para>
+                  <para>
+                  开发者亦可以使用<emphasis>max</emphasis>这个参数，来对检索结果进行最大限制输出。
+                  </para>
+                </warning>
+                <example><title>基于过滤器的关键字列出资源</title>
+                 <para>
+                  列出<emphasis>datacenters</emphasis>集合中数据类型为<emphasis>nfs</emphasis>的所有资源，此例中参数<emphasis>query
+                  </emphasis>和<emphasis>**karg</emphasis>均有使用，<emphasis>query</emphasis>和上述例子的功能一样，而<emphasis>
+                  **karg</emphasis>则过滤数据中心的存储类型。
+                 </para>
+                 <programlisting language="python">
+                   dc_list = []
+                   dc_page_index = 1
+                   dc_page_current = api.datacenters.list(query="page %s" % dc_page_index,
+                                                                 **{"storage_type": "nfs"})
+                   while(len(dc_page_current) != 0):
+                        dc_list = dc_list + dc_page_current
+                        dc_page_index = dc_page_index + 1
+                        dc_page_current = api.datacenters.list(query="page %s" % dc_page_index,
+                                                                      **{"storage_type": "nfs"})
+                 </programlisting>
+                 <para>
+                  在上述例子中，<emphasis>datacents</emphasis>集合中的存储类型为<emphasis>nfs</emphasis>的数据中心资源，
+                  都保存在<emphasis>dc_list</emphasis>这个列表中。
+                 </para>
+                </example>
+                
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_6">
-		<title>python-sdk Section 1</title>
+		<title>为资源集合添加资源</title>
 		<para>
-			This is a test paragraph in a section
+	         <emphasis>add</emphasis>方法为资源集合增加资源，所添加的资源有参数提供，<emphasis>ovirtsdk.xml.params
+                 </emphasis>模块的实例化即是<emphasis>add</emphasis>方法所需要的参数，而特定类的模块需要使用基于不同类型的资源。
 		</para>
+                <example><title>为资源集合添加资源</title>
+                 <para>
+                   此例中，虚拟机资源被创建。
+                 </para>
+                 <programlisting language="python">
+                 vm_params = params.VM(name="DemoVM",
+                                           cluster=api.clusters.get("Default"),
+                                           template=api.templates.get("Blank"),
+                                           memory=536870912)
+                 vm = api.vms.add(vm_params)
+                 </programlisting>
+                 <para>
+                  此例子中所创建的虚拟机还不可以实际运行到任何的&OVIRT;虚拟化环境中：
+                 </para>
+                </example>
+                <para>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                      <para>
+                        创建了一个参数对象的实例，资源的类型被创建。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                       确认资源集合中什么资源将被添加。
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                       调用<emphasis>add</emphasis>方法，将上述的参数实例当作参数。
+                      </para>
+                    </listitem>
+                </itemizedlist>
+                <para>
+                   有些参数对象本身拥有更加复杂的参数，例如：
+                </para>
+                <example><title>复杂参数</title>
+                 <para>
+                   此例子中，创建了一个NFS的数据中心运行在版本为3.2兼容模式下，首先构造<emphasis>ovirtsdk.xml.params.Version</emphasis>
+                  对象，然后实例对象<emphasis>ovirtsdk.xml.params.DataCenter</emphasis>的参数使用了它，表明一个数据中心被创建，最后使用
+                  <emphasis>add</emphasis>将此数据中心添加。
+                 </para>
+                 <programlisting language="python">
+                 v_params = params.Version(major=3, minor=2)
+                 dc_params = params.DataCenter(name="DemoDataCenter", storage_type="NFS",
+                                                    version=v_params)
+                 dc = api.datacenters.add(dc_params)
+                 </programlisting>
+                 <para>
+                 </para>
+                </example>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_7">
-		<title>python-sdk Section 1</title>
+		<title>更新资源集合</title>
 		<para>
-			This is a test paragraph in a section
+		欲更新资源，开发者必须首先从资源集合中检索到它，更改为想要的内容，然后使用<emphasis>update</emphasis>
+                来保存，使之生效。关于更改使用<emphasis>set_*</emphasis>来更改检索到的资源，<emphasis>*</emphasis>表示资源的某个属性。
 		</para>
+                <example><title>更新资源</title>
+                 <para>
+                  此例中一个名称为<emphasis>DemoDataCenter</emphasis>的数据中心的描述信息被更新：
+                 </para>
+                 <programlisting language="python">
+                 dc = api.datacenters.get("DemoDataCenter")
+                 dc.set_description("This data center description provided using the Python SDK")
+                 dc.update()
+                 </programlisting>
+                 <para>
+                 </para>
+                </example>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_8">
-		<title>python-sdk Section 1</title>
+		<title>从资源集合中删除资源</title>
 		<para>
-			This is a test paragraph in a section
+	         欲删除资源，开发者必须首先从资源集合中检索到它，然后使用<emphasis>delete</emphasis>方法。	
 		</para>
+                <example><title>从资源集合中删除资源</title>
+                 <para>
+                 从<emphasis>vms</emphasis>资源集合中删除一个名叫<emphasis>DemoVM</emphasis>的虚拟机。
+                 </para>
+                 <programlisting language="python">
+                 vm = api.vms.get("DemoVM")
+                 vm.delete()
+                 </programlisting>
+                 <para>
+                 </para>
+                </example>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk_Chapter-python-sdk_Section_9">
-		<title>python-sdk Section 1</title>
+		<title>错误处理</title>
 		<para>
-			This is a test paragraph in a section
+	         当错误发生时，SDK使用异常来高亮显示它们，SDK所定义的异常类型亦是python解释器所定义，所有的异常定义可以从
+                 <emphasis>ovirtsdk.infrastructer.errors</emphasis>模块中找到。	
 		</para>
+                <formalpara><title>ConnectionError</title>
+                  <para>
+                    当传输层发生错误是抛出。
+                  </para>
+                </formalpara>
+                <formalpara><title>DisconnectedError</title>
+                  <para>
+                  当已经明确的断开连接后尝试使用SDK时会抛出。
+                  </para>
+                </formalpara>
+                <formalpara><title>ImmutableError</title>
+                  <para>
+                   当初始化SDK时，此SDK的实例在相同的域下已经存在，这个时候会抛出此异常。
+                  </para>
+                </formalpara>
+                <formalpara><title>NoCertificatesError</title>
+                  <para>
+                   没有CA证书时抛出，当然insecure设置为False。
+                  </para>
+                </formalpara>
+                <formalpara><title>RequestError</title>
+                  <para>
+                   任何类型的oVirt服务端错误发生时抛出。
+                  </para>
+                </formalpara>
+                <formalpara><title>UnsecuredConnectionAttemptError</title>
+                  <para>
+                   当服务端使用的是HTTPS协议，而尝试使用HTTP协议连接时抛出。
+                  </para>
+                </formalpara>
+                <formalpara><title>MissingParametersError</title>
+                  <para>
+                   当使用get()方法时没有提供或id或名称的任何参数时抛出。
+                  </para>
+                </formalpara>
+                <para> 
+                 上述这些异常在捕获和处理时和python的异常一样。
+                </para>
+                <example><title>捕获ConnectionError异常</title>
+                 <programlisting language="python">
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+try:
+     api = API(url="https://HOST",
+               user="USER,
+               pass="PASS,
+               ca_file="/etc/pki/ovirt-engine/ca.pem")
+except ConnectionError, err:
+    print "Connection failed: %s" % err
+                 </programlisting>
+                </example>
+
 	</section>
 	
 </chapter>
