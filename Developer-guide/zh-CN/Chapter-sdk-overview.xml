@@ -4,30 +4,79 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-python-sdk-ovewview_Chapter">
-	<title>python-sdk-ovewview Chapter</title>
+	<title></title>
 	<para>
-		This is a test paragraph
+
 	</para>
 	<section id="sect-EayunOS-Developer-guide-python-sdk-ovewview_Chapter-python-sdk-ovewview_Section_1">
-		<title>python-sdk-ovewview Section 1</title>
+		<title>&OVIRT; 软件开发包介绍</title>
 		<para>
-			This is a test paragraph in a section
+	            &OVIRT; 软件开发包提供了用于编程语言的库，此库调用&OVIRT;管理端提供的REST API.此库包含由API所
+                    抛出的资源表现类以及交互的方法，相比于手动的操纵HTTP请求或手动的编排任务，此开发包可以集中的
+                    编写程序以达到预期的目的。
 		</para>
+                <para>
+                    &OVIRT; 软件开发包包含的类和方法，均是REST API的直接映射，此文档尽可能的以一些实例来阐释，当然
+                    是以所支持的编程语言来说明，更多的类、资源、动作、属性请参考REST API所提供的细节。
+                </para>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-python-sdk-ovewview_Chapter-python-sdk-ovewview_Section_2">
-		<title>python-sdk-ovewview Section 2</title>
+		<title>安装&OVIRT; 软件开发包前的准备</title>
 		<para>
-			This is a test paragraph in Section 2
+		       在安装&OVIRT; 软件开发包前，请确认以下两项内容	
 			<orderedlist>
 				<listitem>
 					<para>
-						This is a test listitem.
+				         系统为CentOS Linux 6.3,或以后的版本。 
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+				         有&OVIRT;的订阅服务.
 					</para>
 				</listitem>
 			</orderedlist>
 		</para>
+                <para>
+                    当开发者安装ovirt-sdk的时候，如果原来的系统里没有安装python2.6,系统会自动将之安装。
+                </para>
 	</section>
 
+	<section id="sect-EayunOS-Developer-guide-python-sdk-ovewview_Chapter-python-sdk-ovewview_Section_3">
+		<title>安装&OVIRT;软件开发包</title>
+                <formalpara><title>摘要</title>
+		  <para>
+                    &OVIRT;软件开发包由rpm包ovirt-sdk提供，此rpm包包含了所有的&OVIRT;管理端抛出的API的python语言绑定。
+                    开发者必须先行安装此rpm包，才可使用或者编写程序。  			
+		  </para>
+               </formalpara>
+               <procedure><title>安装python SDK</title>
+                  <step>
+                    <para>
+                      确认使用的是root用户登录，或者是可以使用sudo的用户。
+                    </para>
+                  </step>
+                  <step>
+                    <para>
+                     确认订阅了&HOLDER;的&OVIRT;产品。
+                    </para>
+                  </step>
+                  <step>
+                    <para>
+                     使用yum程序安装ovirt-sdk:
+                    </para>
+                    <programlisting language="Bash">
+                        # yum install ovirt-sdk
+                    </programlisting>
+                  </step>
+               </procedure>
+              <formalpara><title>结果</title>
+                 <para>
+                   rpm包ovirt-sdk现在已经安装完毕，由python实现的库现在可以在本地使用了。
+                 </para>
+              </formalpara>
+	</section>
+	
 </chapter>
 
