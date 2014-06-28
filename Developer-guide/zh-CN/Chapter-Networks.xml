@@ -4,30 +4,321 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Networkss_Chapter">
-	<title>Networkss Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_1">
-		<title>Networkss Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_2">
-		<title>Networkss Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>网络</title>
+  <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_1">
+    <title>网络元素</title>
+    <para>
+      <emphasis>networks</emphasis> 集合提供了在&OVIRT;企业虚拟化环境中的逻辑网络的信息。一个 API 用户能够通过从 API 入口处 URL 获得的 <emphasis>rel="networks"</emphasis> 链接来获得此信息。
+    </para>
+    <para>
+      下表显示出网络资源展现中的各个元素。
+    </para>
+    <table>
+      <title>块元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>data_center id=</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              该集群所在数据中心的索引。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>vlan id=</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              一个 VLAN 标记。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>mtu</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              设置该逻辑网络的数据包最大传输单元。如果没有设置，逻辑网络会使用默认值。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>stp</emphasis>
+            </entry>
+            <entry>
+              布尔值：true 或 false
+            </entry>
+            <entry>
+              如果生成树协议在该逻辑网络上被启用则该值为 <emphasis>true</emphasis>
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              <emphasis>operational</emphasis> 或 <emphasis>non_operational</emphasis> 之一
+            </entry>
+            <entry>
+              网络的状态。这些状态的列表在 <emphasis>capabilities</emphasis> 下的 <emphasis>network_states</emphasis> 下。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>usages</emphasis>
+            </entry>
+            <entry>
+              复合型
+            </entry>
+            <entry>
+              定义了网络的一组 <emphasis>usage</emphasis> 元素。用户可以在这一层面将网络定义为虚拟机网络。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <important>
+      <para>
+        本章的 API 文档是实验性的，并且可能会有改动。且不在向后兼容的内容中。
+      </para>
+    </important>
+  </section>
 
+  <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_2">
+    <title>网咯资源的 XML 展现</title>
+    <example>
+      <title>一个网咯资源的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<network id="00000000-0000-0000-0000-000000000009"
+ href="/api/networks/00000000-0000-0000-0000-000000000009">
+ <name>rhevm</name>
+ <description>Management Network</description>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"
+ href="/api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988"/>
+ <mtu>1500</mtu>
+ <stp>false</stp>
+ <status>
+ <state>operational</status>
+ </status>
+ <usages>
+ <usage>VM</usage>
+ </usages>
+</network>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_3">
+    <title>操作</title>
+    <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_3-1">
+      <title>创建一个网络资源</title>
+      <para>
+        创建网络资源需要 <emphasis>name</emphasis> 和 <emphasis>datacenter</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一个网络资源</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/networks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<network>
+ <name>network 1</name>
+ <data_center id="01a45ff0-915a-11e0-8b87-5254004ac988"/>
+</network>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_3-2">
+      <title>更新一个网络资源</title>
+      <para>
+        创建网络资源后，<emphasis>name</emphasis>，<emphasis>description</emphasis>，<emphasis>ip</emphasis>，<emphasis>vlan</emphasis>，<emphasis>stp</emphasis> 和 <emphasis>display</emphasis> 元素可以更新。
+      </para>
+      <example>
+        <title>更新一个网络资源</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/networks/e6575a87-377c-4f67-9c1b-7b94eff76b17 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<network>
+ <description>Network 1</description>
+</network>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_3-3">
+      <title>移除一个网络资源</title>
+      <para>
+        移除一个网络资源需要一个 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除一个网络资源</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/networks/e6575a87-377c-4f67-9c1b-7b94eff76b17 HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_4">
+    <title>子集</title>
+    <section id="sect-EayunOS-Developer-guide-Networkss_Chapter-Networkss_Section_4-1">
+      <title>网络的 VNIC 档案（VNIC Profile）子集</title>
+      <para>VNIC（虚拟网络接口控制器）档案，也被称为虚拟机接口档案，是将自定义的档案应用到用户与用户组并且用来限制网络带宽。每一个 <emphasis>vnicprofile</emphasis> 都包含了如下元素：
+      </para>
+      <table>
+        <title>VNIC 档案的元素</title>
+        <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>name</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                档案的唯一识别号
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>description</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                档案的字符串描述
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>network</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                档案将要应用到的逻辑网络的唯一识别号。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>port_mirroring</emphasis>
+              </entry>
+              <entry>
+                布尔值：<emphasis>true</emphasis> 或 <emphasis>false</emphasis>
+              </entry>
+              <entry>
+                档案将要应用到的逻辑网络的唯一识别号。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <example>
+        <title>网络的 VNIC 档案子集的 XML 展现</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+<vnic_profile href= "/api/vnicprofiles/f9c2f9f1-3ae2-4100-a9a5-285ebb755c0d" 
+id="f9c2f9f1-3ae2-4100-a9a5-285ebb755c0d">
+ <name>Peanuts</name>
+ <description>shelled</description>
+ <network href= "/api/networks/00000000-0000-0000-0000-000000000009" 
+id="00000000-0000-0000-0000-000000000009"/>
+ <port_mirroring>false</port_mirroring>
+ </vnic_profile>
+</vnic_profiles>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
 </chapter>
 
