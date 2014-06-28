@@ -8,7 +8,7 @@
 	<section id="sect-EayunOS-Developer-guide-vm-pools_Chapter-vm-pools_Section_1">
 		<title>虚拟机池元素</title>
 		<para>
-			虚拟机池提供了红帽公司虚拟环境中关于虚拟机池的信息, API 用户可以通过入口的 URL 以<emphasis> rel=”vmpools”</emphasis>访问这些信息。
+			虚拟机池提供了&OVIRT;公司虚拟环境中关于虚拟机池的信息, API 用户可以通过入口的 URL 以<emphasis> rel=”vmpools”</emphasis>访问这些信息。
 		</para>
 		
 		<para>
