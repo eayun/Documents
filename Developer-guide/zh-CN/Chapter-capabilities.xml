@@ -1688,7 +1688,198 @@ cluster_version_incompatible_with_cluster
          传输类型  
       </title>
       <para>
-         <emphasis>传输类型</emphasis>元素
+         <emphasis>transport_types</emphasis>元素罗列出了可能的传输协议的类型。
       </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<transport_types>
+<transport_type>tcp</transport_type>
+<transport_type>rdma</transport_type>
+</transport_types>
+...
+</version>
+</capabilities>
+         ]]> 
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_52">
+      <title>
+         Gluster卷状态
+      </title>
+      <para>
+         <emphasis>gluster_volume_states</emphasis>元素罗列出了Gluster卷可用状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<gluster_volume_states>
+<state>up</state>
+<state>down</state>
+</gluster_volume_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_53">
+      <title>
+         块状态
+      </title>
+      <para>
+         <emphasis>brick_states</emphasis>元素列出了可有的块状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<brick_states>
+<state>up</state>
+<state>down</state>
+</brick_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_54">
+      <title>
+         报告设备类型
+      </title>
+      <para>
+         <emphasis>reported_device_types</emphasis>元素列出了可用的报告设备类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<reported_device_types>
+<reported_device_type>network</reported_device_type>
+</reported_device_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_55">
+      <title>
+         IP版本
+      </title>
+      <para>
+         <emphasis>IP版本</emphasis>元素列出了网络设备的IP版本。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<ip_versions>
+<ip_version>v4</ip_version>
+<ip_version>v6</ip_version>
+</ip_versions>
+...
+</version>
+</capabilities>
+         ]]>      
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_56">
+      <title>
+         快照状态
+      </title>
+      <para>
+         <emphasis>snapshot_stutuses</emphasis>元素列出了可有的快照的状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<snapshot_statuses>
+<snapshot_status>ok</snapshot_status>
+<snapshot_status>locked</snapshot_status>
+<snapshot_status>in_preview</snapshot_status>
+</snapshot_statuses>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_57">
+      <title>
+         内容类型
+      </title>
+      <para>
+         <emphasis>content_type</emphasis>元素列出了可用的内容类型。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<content_types>
+<content_type>text</content_type>
+<content_type>binary</content_type>
+</content_types>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_58">
+      <title>
+         挂机状态   
+      </title>
+      <para>
+         <emphasis>hook_states</emphasis>元素列出了可用的挂机状态。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<hook_states>
+<hook_state>enabled</hook_state>
+<hook_state>disabled</hook_state>
+<hook_state>missing</hook_state>
+</hook_states>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
+   </section>
+   <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_59">
+      <title>
+         级
+      </title>
+      <para>
+         <emphasis>stages</emphasis>元素列出了可用的级。
+      </para>
+      <programlisting>
+         <![CDATA[
+<capabilities>
+<version major="3" minor="3">
+...
+<stages>
+<stage>pre</stage>
+<stage>post</stage>
+</stages>
+...
+</version>
+</capabilities>
+         ]]>
+      </programlisting>
    </section>
 </chapter>
