@@ -4,30 +4,2251 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Hosts_Chapter">
-	<title>Hosts Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_1">
-		<title>Hosts Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_2">
-		<title>Hosts Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>主机</title>
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_1">
+    <title>主机元素</title>
+    <para>
+      <emphasis>hosts</emphasis> 集合提供了在&OVIRT;企业虚拟化环境中的主机的信息。API 用户从入口 URI 中通过 <emphasis>rel="hosts"</emphasis> 链接来获得该信息。
+    </para>
+    <para>
+      下表展示了在主机资源展现中的具体的元素信息。
+    </para>
+    <table>
+      <title>存储域元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>link rel="storage"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              展示主机存储的 <emphasis>storage</emphasis> 子集合。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="nics"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              展示主机网络接口的 <emphasis>nics</emphasis> 子集合。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="tags"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              展示主机标签的 <emphasis>tags</emphasis> 子集合。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="permissions"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              展示主机权限的 <emphasis>permissions</emphasis> 子集合。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>link rel="statistics"</emphasis>
+            </entry>
+            <entry>
+              关系
+            </entry>
+            <entry>
+              展示主机统计数据的 <emphasis>statistics</emphasis> 子集合。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>type</emphasis>
+            </entry>
+            <entry>
+              <emphasis>&PRODUCT;</emphasis>
+            </entry>
+            <entry>
+              主机的类型
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>address</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              主机的主机名或 IP 地址
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>certificate</emphasis>
+            </entry>
+            <entry>
+             复合体
+            </entry>
+            <entry>
+              主机证书的索引。包括了 <emphasis>organization</emphasis> 和 <emphasis>subject</emphasis>。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              见下面
+            </entry>
+            <entry>
+              主机的状态
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>cluster id=</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              该主机所在集群的索引。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>port</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              在主机上运行的 vdsm 进程所监听的端口。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>storage_manager</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              定义合适的主机来充当存储域管理者（SPM）。需要主机的 <emphasis>priority</emphasis> 属性和一个布尔值（<emphasis>true</emphasis> 或者 <emphasis>false</emphasis>）。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>power_management</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机的电源管理的配置选项。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>ksm</emphasis>
+            </entry>
+            <entry>
+              布尔值：true 或者 false
+            </entry>
+            <entry>
+              如果内存页面共享技术（KSM）开启的话该属性为 <emphasis>true</emphasis>。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>transparent_hugepages</emphasis>
+            </entry>
+            <entry>
+              布尔值：true 或者 false
+            </entry>
+            <entry>
+              如果透明大页计数开启的话该属性为 <emphasis>true</emphasis>。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>iscsi</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机的 SCSI 发起程序（<emphasis>initiator</emphasis>）。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>cpu</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机 CPU 的统计信息。包括以下子元素如 CPU 的 <emphasis>name</emphasis>，<emphasis>topology cores=</emphasis>，<emphasis>topology sockets=</emphasis> 和 <emphasis>speed</emphasis>。<emphasis>topology cores=</emphasis> 指定了核心的数量，<emphasis>topology sockets=</emphasis> 指定了物理 CPU 的数量。虚拟机可见的核心数量是核心数与物理 CPU 数的乘积。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>memory</emphasis>
+            </entry>
+            <entry>
+              整数
+            </entry>
+            <entry>
+              主机的内存总数（单位是字节）。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>summary</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机上的虚拟机的统计信息。包括 <emphasis>active</emphasis>，<emphasis>migrating</emphasis> 和 <emphasis>total</emphasis> 的虚拟机。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>version major= minor=</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机的兼容性级别。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>root_password</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              主机的 root 用户的密码，此属性约定只在客户端在创建主机时请求中的主机展示中包括此项。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>libvirt_version</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              主机的 libvirt 兼容性级别。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      <emphasis>status</emphasis> 属性只在这些枚举中：<emphasis>down</emphasis>，<emphasis>error</emphasis>，<emphasis>initializing</emphasis>，<emphasis>installing</emphasis>，<emphasis>install_failed</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>non_operational</emphasis>，<emphasis>non_responsive</emphasis>，<emphasis>pending_approval</emphasis>，<emphasis>preparing_for_maintenance</emphasis>，<emphasis>connecting</emphasis>，<emphasis>reboot</emphasis>，<emphasis>unassigned</emphasis> 和 <emphasis>up</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 中的 <emphasis>host_states</emphasis> 有列出。
+    </para>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_2">
+    <title>主机的 XML 展现</title>
+    <example>
+      <title>一个主机的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3">
+ <name>host1</name>
+ <actions>
+ <link rel="install"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/install"/>
+ <link rel="activate"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/activate"/>
+ <link rel="fence"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/fence"/>
+ <link rel="deactivate"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/deactivate"/>
+ <link rel="approve"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/approve"/>
+ <link rel="iscsilogin"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-525400d75548/iscsilogin"/>
+ <link rel="iscsidiscover"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-
+525400d75548/iscsidiscover"/>
+ <link rel="commitnetconfig"
+ href="/api/hosts/762f3276-9d1e-11e0-a27c-
+525400d75548/commitnetconfig"/>
+ </actions>
+ <link rel="storage"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/storage"/>
+ <link rel="nics"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics"/>
+ <link rel="tags"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/tags"/>
+ <link rel="permissions"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/permissions"/>
+ <link rel="statistics"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/statistics"/>
+ <type>rhev-h</type>
+ <address>host1.example.com</address>
+ <status>
+ <state>up</state>
+ </status>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"
+ href="/api/clusters/99408929-82cf-4dc7-a532-9d998063fa95"/>
+ <port>54321</port>
+ <storage_manager priority="2">true</storage_manager>
+ <power_management>
+ <enabled>false</enabled>
+ <options/>
+ </power_management>
+ <ksm>
+ <enabled>true</enabled>
+ </ksm>
+ <transparent_hugepages>
+ <enabled>true</enabled>
+ </transparent_hugepages>
+ <iscsi>
+ <initiator>iqn.2001-04.com.example:diskarrays-sn-a8675309</initiator>
+ </iscsi>
+ <cpu>
+ <topology cores="2" sockets="1"/>
+ <name>Intel(R) Core(TM)2 Duo CPU E8400 @ 3.00GHz</name>
+ <speed>2993</speed>
+ </cpu>
+Red Hat Enterprise Virtualization 3.3 Developer Guide
+170 <summary>
+ <active>2</active>
+ <migrating>0</migrating>
+ <total>3</total>
+ </summary>
+ <version major="3" minor="0"/>
+ <libvirt_version major="0" minor="10" build="2" revision="0" 
+full_version="libvirt-0.10.2-15.el6"/>
+</host>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_3">
+    <title>电源管理元素</title>
+    <para>
+      <emphasis>power_management</emphasis> 元素提供给用户来设定主机电源管理选项，这是主机隔离（fencing）所需要的设置。设置 <emphasis>power_management</emphasis> 时一系列的子元素需要设置。
+    </para>
+    <table>
+      <title>存储域元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>type=</emphasis>
+            </entry>
+            <entry>
+              隔离设备码
+            </entry>
+            <entry>
+              一个隔离设备码列表可以在 <emphasis>capabilities</emphasis> 集合里查看。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>enabled</emphasis>
+            </entry>
+            <entry>
+              布尔值：true 或 false
+            </entry>
+            <entry>
+              提示电源管理是否配置。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>address</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              主机的主机名或 IP 地址。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>username</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              电源管理配置的可用的用户名。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>password</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              电源管理配置的健壮的密码。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>options</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              <emphasis>type=</emphasis> 的隔离选项。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>agent</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              当使用了多个隔离设置时用本属性指定某一个隔离客户端。<emphasis>concurrent</emphasis> 子元素是一个对应选择 <emphasis>concurrent|sequential</emphasis> 设置的 <emphasis>True|False</emphasis>  布尔值。使用 <emphasis>order</emphasis> 子元素来对隔离客户端排优先级。其它的子元素有 <emphasis>address</emphasis>，<emphasis>username</emphasis>，<emphasis>password</emphasis>，和 <emphasis>options</emphasis>。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      <emphasis>options</emphasis> 元素需要一个 <emphasis>option</emphasis> 子元素列表。每一个 <emphasis>option</emphasis> 需要一个 <emphasis>name</emphasis> 和 <emphasis>type</emphasis> 属性。每一种隔离方式都有特定的隔离选项，具体可在 <emphasis>capabilities</emphasis> 集合里查看。
+    </para>
+    <para>
+      当发送 <emphasis>POST</emphasis> 请求给一个新的主机时，包含一个可选的 <emphasis>power_management</emphasis> 配置。<emphasis>power_management</emphasis> 配置可以通过 <emphasis>PUT</emphasis> 请求来更新。
+    </para>
+    <example>
+      <title>一个主机电源管理的配置的 XML 展现</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3">
+ <name>host1</name>
+ ...
+ <power_management type="ilo">
+ <enabled>true</enabled>
+ <address>192.168.1.107</address>
+ <username>admin</username>
+ <password>p@55w0Rd!</password>
+ <options>
+ <option name="secure" value="true"/>
+ <option name="port" value="54345"/>
+ <option name="slot" value="3"/>
+ </options>
+ <agents>
+ <agent type="rsa">
+ <address>192.168.1.111</address>
+ <username>e.xample</username> order="primary"
+ <password>p@55w0rd!</password>
+ <options>
+ <option name="443" value="true"/> 
+ <option name="secure" value "false"/>
+ </options>
+ <concurrent>false</concurrent>
+ <order>1</order>
+ </agent>
+ <agent type="ipmi">
+ <address>192.168.1.112</address>
+ <username>e.xample</username> order="primary"
+ <password>p@55w0rd!</password>
+ <options>
+ <option name="443" value="true"/> 
+ <option name="secure" value "false"/>
+ </options>
+ <concurrent>false</concurrent>
+ <order>2</order>
+ </agent>
+ </agents>
+ </power_management>
+ ...
+</host>
+]]>
+        </programlisting>
+      </para>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_4">
+    <title>内存管理元素</title>
+    <para>
+      API 提供了两种主机内存管理的设置选项。
+    </para>
+    <para>
+      <emphasis>Kernel SamePage Merging (KSM)</emphasis> 减少了相同的内存页即将多个相同内容的内存页索引到一个内存页中。这有利于优化内存的密度。KSM 使用了 <emphasis>ksm</emphasis> 元素。
+    </para>
+    <example>
+      <title>设置 KSM 内存管理</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+PUT /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3 HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3">
+ <ksm>true</ksm>
+</host>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      <emphasis>透明内存大页支持</emphasis>将内存页大小从标准的 4KB 进行扩展。这可以减少主机内存消耗且增加主机的性能。透明内存大页支持使用了 <emphasis>transparent_hugepages</emphasis> 元素。
+    </para>
+    <example>
+      <title>设置透明内存大页管理</title>
+      <para>
+        <programlisting>
+          <![CDATA[
+PUT /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3 HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3">
+ <transparent_hugepages>true</transparent_hugepages>
+</host>
+]]>
+        </programlisting>
+      </para>
+    </example>
+    <para>
+      透明内存大页支持是否可以设置可在 <emphasis>capabilities</emphasis> 集合里查看。
+    </para>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_5">
+    <title>方法</title>
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_5-1">
+      <title>创建主机</title>
+      <para>
+        创建新主机需要 <emphasis>name</emphasis>，<emphasis>address</emphasis> 和 <emphasis>root_password</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一台主机</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<host>
+ <name>host2</name>
+ <address>host2.example.com</address>
+ <root_password>p@55w0Rd!</root_password>
+</host>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <para>
+        主机的创建只允许发生在&OVIRT;&NODE;上。&OVIRT;&MANAGER;自动检测&NODE;且需要执行允许操作才能创建。
+      </para>
+      <para>
+        <emphasis>root_password</emphasis> 元素只会出现在客户端提供的首次请求的内容中，且不会在请求的响应内容中存在。
+      </para>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_5-2">
+      <title>更新主机</title>
+      <para>
+        在主机创建后如下元素可以更新：<emphasis>name</emphasis>，<emphasis>description</emphasis>，<emphasis>cluster</emphasis>，<emphasis>power_management</emphasis>，<emphasis>transparent_hugepages</emphasis> 和 <emphasis>ksm</emphasis>。
+      </para>
+      <example>
+        <title>更新一台主机</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<host>
+ <name>host3</name>
+</host>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_5-3">
+      <title>移除主机</title>
+      <para>
+        移除主机需要 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除一台主机</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3 HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6">
+    <title>子集</title>
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1">
+      <title>主机网络接口子集</title>
+      <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-1">
+        <title>主机网络接口子集</title>
+        <para>
+          <emphasis>nics</emphasis> 子集代表了主机的物理网络接口。每一个 <emphasis>host_nic</emphasis> 元素相当一个网络接口并且包含如下元素：
+        </para>
+        <table>
+          <title>主机网络接口元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类别
+                </entry>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  属性
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>name</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  主机网络接口名称，即 <emphasis>eth0</emphasis>
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <footnote>
+                    <para>
+                      只有在添加绑定的网卡才需要。其它的网卡都是只读的并且不能被添加
+                    </para>
+                  </footnote>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>link rel="statistics"</emphasis>
+                </entry>
+                <entry>
+                  关系
+                </entry>
+                <entry>
+                  主机的网络接口统计信息的 <emphasis>statistics</emphasis> 子集。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/stop.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>link rel="master"</emphasis>
+                </entry>
+                <entry>
+                  关系
+                </entry>
+                <entry>
+                  如果当前网络接口是从接口的话，该属性是主机主网络接口的索引。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>host id=</emphasis>
+                </entry>
+                <entry>
+                  GUID
+                </entry>
+                <entry>
+                  主机的索引
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>network id=</emphasis>
+                </entry>
+                <entry>
+                  GUID
+                </entry>
+                <entry>
+                  主机所连接到的网络（如果有）
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <footnote>
+                    <para>
+                      只有在添加绑定的网卡才需要。其它的网卡都是只读的并且不能被添加
+                    </para>
+                  </footnote>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>mac address=</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  网络接口的 MAC 地址
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>ip address= netmask= gateway= mtu=</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  网络接口的 IP 层的配置。
+                </entry>
+                <entry>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>mtu</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  网络接口的最大传输单元。
+                </entry>
+                <entry>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>boot_protocol</emphasis>
+                </entry>
+                <entry>
+                  枚举型
+                </entry>
+                <entry>
+                  当主机启动时它的网络接口的 IP 分配的策略。所有的策略可在 <emphasis>capabilities</emphasis> 里查看。
+                </entry>
+                <entry>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>speed</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  网络接口的速率（位每秒）。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>status</emphasis>
+                </entry>
+                <entry>
+                  枚举型
+                </entry>
+                <entry>
+                  网络接口的状态信息。所有的状态可在 <emphasis>capabilities</emphasis> 下的 <emphasis>host_nic_states</emphasis> 中查看。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>vlan id</emphasis>
+                </entry>
+                <entry>
+                  整数
+                </entry>
+                <entry>
+                  该网络接口所代表的 VLAN 号。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>bounding</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  所绑定的网络接口的 <emphasis>options</emphasis> 和 <emphasis>salve</emphasis> 网卡列表。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <footnote>
+                    <para>
+                      只有在添加绑定的网卡才需要。其它的网卡都是只读的并且不能被添加
+                    </para>
+                  </footnote>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>bridged</emphasis>
+                </entry>
+                <entry>
+                  布尔值
+                </entry>
+                <entry>
+                  定义了桥接网络的状态。设置为 <emphasis>true</emphasis> 则为桥接网络，<emphasis>false</emphasis> 则不是。
+                </entry>
+                <entry>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <example>
+          <title>主机上的网络接口的 XML 展现</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+<host_nic id="e8f02fdf-3d7b-4135-86e1-1bf185570cd8"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+ e8f02fdf-3d7b-4135-86e1-1bf185570cd8">
+ <name>bond0</name>
+ <link rel="statistics"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+ e8f02fdf-3d7b-4135-86e1-1bf185570cd8/statistics"/> 
+ <host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+ <network id="e657d631-657d-42bb-a536-73501a085d85"
+ href="/api/networks/e657d631-657d-42bb-a536-73501a085d85"/>
+ <mac address="D6:76:F1:3A:AF:74"/>
+ <ip address="192.168.0.128" netmask="255.255.255.0" gateway="192.168.0.1"/>
+ <mtu>1500</mtu>
+ <boot_protocol>dhcp</boot_protocol>
+ <speed>1000000000</speed>
+ <status>
+ <state>up</state>
+ </status>
+ <bonding>
+ <options>
+ ...
+ </options>
+ <slaves>
+ <host_nic id="eb14e154-5e73-4f7f-bf6b-7f52609d94ec"/>
+ <host_nic id="6aede5ca-4c54-4b37-a81b-c0d6b53558ea"/>
+ </slaves>
+ </bonding>
+ <actions>
+ <link rel="attach"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+ e8f02fdf-3d7b-4135-86e1-1bf185570cd8/attach"/>
+ <link rel="detach"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+ e8f02fdf-3d7b-4135-86e1-1bf185570cd8/detach"/>
+ </actions>
+ <bridged>true</bridged>
+</host_nic>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <para>
+          API 用户只能创建绑定的网卡。所有其它的网络接口包含可以使用 <emphasis>POST</emphasis> 请求更新 <emphasis>network</emphasis>，<emphasis>ip</emphasis> 和 <emphasis>boot_protocol</emphasis> 元素。
+        </para>
+        <para>
+          当添加新的网络接口时，<emphasis>name</emphasis> 和 <emphasis>network</emphasis> 元素是必须要指定的，因为需要其中一个属性来确定网络接口。
+        </para>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<host_nic>
+ <name>MyNIC</name>
+ <network id="e657d631-657d-42bb-a536-73501a085d85">
+ <name>MyNetwork</name>
+ </network>
+</host_nic>
+]]>
+          </programlisting>
+        </para>
+        <para>
+          API 用户使用 <emphasis>PUT</emphasis> 请求来修改网络接口。
+        </para>
+        <para>
+          <programlisting>
+            <![CDATA[
+PUT /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+e8f02fdf-3d7b-4135-86e1-1bf185570cd8 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<host_nic>
+ <ip address="192.168.0.129" netmask="255.255.255.0" gateway="192.168.0.1"/>
+</host_nic>
+]]>
+          </programlisting>
+        </para>
+        <para>
+          API 用户使用 <emphasis>DELETE</emphasis> 请求来移除网络接口。
+        </para>
+        <para>
+          <programlisting>
+            <![CDATA[
+DELETE /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/
+e8f02fdf-3d7b-4135-86e1-1bf185570cd8 HTTP/1.1
+HTTP/1.1 204 No Content
+]]>
+          </programlisting>
+        </para>
+        <important>
+          <para>
+            本节所描述的文档是实验性质的且可能以后会有变动。且不包含在向后兼容的内容中。
+          </para>
+        </important>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-2">
+        <title>绑定的网络接口</title>
+        <para>
+          绑定的网络接口以包含了 <emphasis>bounding</emphasis> 的 <emphasis>host_nic</emphasis> 元素来展现。
+        </para>
+        <table>
+          <title>主机网络接口元素</title>
+          <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类别
+                </entry>
+                <entry>
+                  描述
+                </entry>
+                <entry>
+                  属性
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>options</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  绑定的网络接口的 <emphasis>option</emphasis> 列表。每一个 <emphasis>option</emphasis> 包含了 <emphasis>name</emphasis> 和 <emphasis>value</emphasis> 属性。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <footnote>
+                    <para>
+                      只有在添加绑定的网卡才需要。其它的网卡都是只读的并且不能被添加
+                    </para>
+                  </footnote>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>slaves</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  绑定的网络接口的 <emphasis>host_nic id=</emphasis> 元素列表。
+                </entry>
+                <entry>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/exclamation.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                  <footnote>
+                    <para>
+                      只有在添加绑定的网卡才需要。其它的网卡都是只读的并且不能被添加
+                    </para>
+                  </footnote>
+                  <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                    </imageobject>
+                  </inlinemediaobject>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          API 用户当创建了 <emphasis>host_nic(POST)</emphasis> 或更新了<emphasis>host_nic(PUT)</emphasis> 时即创建了一个新的绑定。使用 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 元素来确定从属的 <emphasis>host_nic</emphasis> 元素。
+        </para>
+        <example>
+          <title>创建一个绑定的网络接口</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<host_nic>
+ <name>bond4</name>
+ <network id="e657d631-657d-42bb-a536-73501a085d85"/>
+ <bonding>
+ <options>
+ ...
+ </options>
+ <slaves>
+ <host_nic id="eb14e154-5e73-4f7f-bf6b-7f52609d94ec"/>
+ <host_nic id="6aede5ca-4c54-4b37-a81b-c0d6b53558ea"/>
+ </slaves>
+ </bonding>
+</host_nic>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <important>
+          <para>
+            <emphasis>bound0</emphasis>，<emphasis>bound1</emphasis>，<emphasis>bound2</emphasis>，<emphasis>bound3</emphasis> 和 <emphasis>bound4</emphasis> 是绑定网卡的可用名称。
+          </para>
+        </important>
+        <para>
+          对一个绑定网卡的 URI 使用 <emphasis>DELETE</emphasis> 请求来移除之。
+        </para>
+        <important>
+          <para>
+            改变绑定的网卡设置必须另外提交。
+          </para>
+        </important>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-3">
+        <title>网络接口的统计信息</title>
+        <para>
+          每一个主机的网络接口暴露了 <emphasis>statistics</emphasis> 子集合用来展示主机的网络接口的状态。每一个 <emphasis>statistics</emphasis> 包含了如下元素：
+        </para>
+        <table>
+          <title>主机网络接口元素</title>
+          <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  元素
+                </entry>
+                <entry>
+                  类别
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>name</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  该统计数据的标识。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>description</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  该统计数据的字符串描述。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>unit</emphasis>
+                </entry>
+                <entry>
+                  字符串
+                </entry>
+                <entry>
+                  测量流量信息的单位。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>type</emphasis>
+                </entry>
+                <entry>
+                  <emphasis>GAUGE</emphasis> 或 <emphasis>COUNTER</emphasis> 中的一个
+                </entry>
+                <entry>
+                  测量流量信息的方法类型。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>values type=</emphasis>
+                </entry>
+                <entry>
+                  <emphasis>INTEGER</emphasis> 或 <emphasis>DECIMAL</emphasis> 中的一个
+                </entry>
+                <entry>
+                  测量流量信息的数据类型。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>value</emphasis>
+                </entry>
+                <entry>
+                  复合体
+                </entry>
+                <entry>
+                  含有 <emphasis>datum</emphasis> 的数据集。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>datum</emphasis>
+                </entry>
+                <entry>
+                  见 <emphasis>values type</emphasis>
+                </entry>
+                <entry>
+                  <emphasis>value</emphasis> 中的单独的某一个数据。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>host_nic id=</emphasis>
+                </entry>
+                <entry>
+                  关系
+                </entry>
+                <entry>
+                  与所在的 <emphasis>host_nic</emphasis> 的关系。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          下表列出了主机网络接口的流量统计类型
+        </para>
+        <table>
+          <title>主机网络接口元素</title>
+          <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+              <row>
+                <entry>
+                  名称
+                </entry>
+                <entry>
+                  描述
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis>data.current.rx</emphasis>
+                </entry>
+                <entry>
+                  数据接收的速率，单位是位每秒。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>data.current.tx</emphasis>
+                </entry>
+                <entry>
+                  数据发送的速率，单位是位每秒。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>errors.current.rx</emphasis>
+                </entry>
+                <entry>
+                  接收到的所有错误数据。
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis>errors.current.tx</emphasis>
+                </entry>
+                <entry>
+                  发送的所有错误数据。
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <example>
+          <title>主机网络接口子集合的 XML 展现</title>
+          <para>
+            <programlisting>
+              <![CDATA[
+<statistics>
+ <statistic id="ecd0559f-e88f-3330-94b4-1f091b0ffdf7"
+ href="/api/hosts/25fcdd2e-d452-11e0-bb4d-525400d75548/nics/
+ c34728e8-4338-4540-ac9b-86b8582e602e/statistics/
+ ecd0559f-e88f-3330-94b4-1f091b0ffdf7">
+ <name>data.current.rx</name>
+ <description>Receive data rate</description>
+ <values type="DECIMAL">
+ <value>
+ <datum>0</datum>
+ </value>
+ </values>
+ <type>GAUGE</type>
+ <unit>BYTES_PER_SECOND</unit>
+ <host_nic id="c34728e8-4338-4540-ac9b-86b8582e602e"
+ href="/api/hosts/25fcdd2e-d452-11e0-bb4d-525400d75548/nics/
+ c34728e8-4338-4540-ac9b-86b8582e602e"/>
+ </statistic>
+ ...
+</statistics>
+]]>
+            </programlisting>
+          </para>
+        </example>
+        <note>
+          <para>
+            此 <emphasis>statistics</emphasis> 子集合是只读的。
+          </para>
+        </note>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-4">
+        <title>操作</title>
+        <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-4-1">
+          <title>附加网络接口到主机操作</title>
+          <para>
+            主机的网络接口是附加于网络的，示意主机可以通过该网络接口访问附加到的网络。可以用 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 来确定准备附加到的网络。
+          </para>
+          <example>
+            <title>附加网络接口到主机操作</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/e8f02fdf-3d7b-4135-
+86e1-1bf185570cd8/attach HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <network id="e657d631-657d-42bb-a536-73501a085d85"/>
+</action>
+]]>
+              </programlisting>
+            </para>
+          </example>
+          <important>
+            <para>
+              该网络设置的改变必须另外提交。
+            </para>
+          </important>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-4-2">
+          <title>从主机移除网络接口操作</title>
+          <para>
+            从主机移除网络接口操作。可通过 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 元素来确定将要移除的网络接口。
+          </para>
+          <example>
+            <title>从主机移除网络接口的操作</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/e8f02fdf-3d7b-4135-
+86e1-1bf185570cd8/detach HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <network id="e657d631-657d-42bb-a536-73501a085d85"/>
+</action>
+]]>
+              </programlisting>
+            </para>
+          </example>
+          <important>
+            <para>
+              该网络设置的改变必须另外提交。
+            </para>
+          </important>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-1-4-3">
+          <title>多网络设置操作</title>
+          <para>
+            一台主机的网络接口（<emphasis>nics</emphasis>）集合包含一个设置多个网络接口的操作。可向 <emphasis>setupnetworks</emphasis> 操作元素发送一个 <emphasis>POST</emphasis> 请求。
+          </para>
+          <example>
+            <title>多网络设置操作</title>
+            <para>
+              <programlisting>
+                <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/nics/setupnetworks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <host_nics>
+ <host_nic id="41561e1c-c653-4b45-b9c9-126630e8e3b9">
+ <name>em1</name>
+ <network id="00000000-0000-0000-0000-000000000009"/>
+ <boot_protocol>dhcp</boot_protocol>
+ </host_nic<
+ <host_nic id="3c3f442f-948b-4cdc-9a48-89bb0593cfbd">
+ <name>em2</name>
+ <network id="00000000-0000-0000-0000-000000000010"/>
+ <ip address="10.35.1.247" netmask="255.255.254.0"
+ gateway="10.35.1.254"/>
+ <boot_protocol>static</boot_protocol>
+ </host_nic>
+ <checkConnectivity>true</checkConnectivity>
+ <connectivityTimeout>60</connectivityTimeout>
+ <force>false</false>
+ </host_nics>
+</action>
+]]>
+              </programlisting>
+            </para>
+          </example>
+          <para>
+            该操作将会更新所有指定的包含标准 NIC 元素的网络接口。请求包括下表额外的元素。
+          </para>
+          <table>
+            <title>多网络设置操作所需的额外元素</title>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+              <thead>
+                <row>
+                  <entry>
+                    元素
+                  </entry>
+                  <entry>
+                    类别
+                  </entry>
+                  <entry>
+                    描述
+                  </entry>
+                  <entry>
+                    属性
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>
+                    <emphasis>checkConnectivity</emphasis>
+                  </entry>
+                  <entry>
+                    布尔值
+                  </entry>
+                  <entry>
+                    设置为 <emphasis>true</emphasis> 的话将会验证主机与&OVIRT;&MANAGER;之间的连通性。如果连通性丢失，&OVIRT;&MANAGER;将会回滚设置。
+                  </entry>
+                  <entry>
+                  </entry>
+                </row>
+                <row>
+                  <entry>
+                    <emphasis>connectivityTimeout</emphasis>
+                  </entry>
+                  <entry>
+                    整数
+                  </entry>
+                  <entry>
+                    定义连通性丢失的超时时间。
+                  </entry>
+                  <entry>
+                  </entry>
+                </row>
+                <row>
+                  <entry>
+                    <emphasis>force</emphasis>
+                  </entry>
+                  <entry>
+                    布尔值
+                  </entry>
+                  <entry>
+                    设置为 <emphasis>true</emphasis> 将会保存设置的改变，即使连通性丢失。
+                  </entry>
+                  <entry>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+        </section>
+      </section>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-2">
+      <title>存储子集</title>
+      <para>
+        存储（<emphasis>storage</emphasis>）子集合提供了主机上可用的 iSCSI 和 FCP 存储集合的列表。该存储用于创建存储域。
+      </para>
+      <para>
+        每一个 <emphasis>storage</emphasis> 子集的展现代表了一个 SCSI LUN。
+      </para>
+      <example>
+        <title>一个主机的存储子集合的 XML 展现</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+<host_storage>
+ <storage id="82fb123b-321e-40a1-9889-95dcd2654463"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/storage/
+ 82fb123b-321e-40a1-9889-95dcd2654463">
+ <name>LUN0</name>
+ <type>iscsi</type>
+ <logical_unit id="LUN0">
+ <address>mysan.example.com</address>
+ <target>iqn.2009-08.com.example:mysan.foobar</target>
+ </logical_unit>
+ </storage>
+</host_storage>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <note>
+        <para>
+          <emphasis>host_storage</emphasis> 集合是只读的。
+        </para>
+      </note>
+      <important>
+        <para>
+          本节所描述的文档是实验性质的且可能以后会有变动。且不包含在向后兼容的内容中。
+        </para>
+      </important>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_6-3">
+      <title>主机统计数据子集</title>
+      <para>
+        每一个主机资源暴露了一个 <emphasis>statistics</emphasis> 子集用来描述与主机相关的统计数据。每一个 <emphasis>statistic</emphasis> 都包含了如下的元素：
+      </para>
+      <table>
+        <title>主机统计数据元素</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                类别
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>name</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                统计数据的索引。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>description</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                统计数据的字符串描述。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>unit</emphasis>
+              </entry>
+              <entry>
+                字符串
+              </entry>
+              <entry>
+                用于统计数据的单位或速率。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>type</emphasis>
+              </entry>
+              <entry>
+                <emphasis>GAUGE</emphasis> 或 <emphasis>COUNTER</emphasis> 中的一个 
+              </entry>
+              <entry>
+                统计数据的统计类型。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>value type=</emphasis>
+              </entry>
+              <entry>
+                <emphasis>整数</emphasis> 或 <emphasis>小数</emphasis> 中的一个 
+              </entry>
+              <entry>
+                统计数据的数据类型。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>value</emphasis>
+              </entry>
+              <entry>
+                复合体
+              </entry>
+              <entry>
+                包含 <emphasis>datum</emphasis> 的数据集。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>datum</emphasis>
+              </entry>
+              <entry>
+                见 <emphasis>value types</emphasis>
+              </entry>
+              <entry>
+                <emphasis>value</emphasis> 内的单独的一块数据。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>host id=</emphasis>
+              </entry>
+              <entry>
+                关系
+              </entry>
+              <entry>
+                与 <emphasis>host</emphasis> 资源的关系。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+        下表列出了主机的统计数据类型。
+      </para>
+      <table>
+        <title>主机统计数据类型</title>
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+          <thead>
+            <row>
+              <entry>
+                元素
+              </entry>
+              <entry>
+                描述
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis>memory.total</emphasis>
+              </entry>
+              <entry>
+                主机的所有物理内存，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>memory.used</emphasis>
+              </entry>
+              <entry>
+                主机已使用的物理内存，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>memory.free</emphasis>
+              </entry>
+              <entry>
+                主机空闲的物理内存，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>memory.buffers</emphasis>
+              </entry>
+              <entry>
+                主机 I/O 缓存的大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>memory.cached</emphasis>
+              </entry>
+              <entry>
+                系统缓存大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>swap.total</emphasis>
+              </entry>
+              <entry>
+                主机交换分区的大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>swap.free</emphasis>
+              </entry>
+              <entry>
+                主机交换分区的空闲大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>swap.used</emphasis>
+              </entry>
+              <entry>
+                主机交换分区已使用的大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>swap.cached</emphasis>
+              </entry>
+              <entry>
+                主机已缓存的交换分区的大小，单位是字节。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>ksm.cpu.current</emphasis>
+              </entry>
+              <entry>
+                内存页共享所占用的 CPU 使用率。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>cpu.current.user</emphasis>
+              </entry>
+              <entry>
+                用户所占用的 CPU 使用率。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>cpu.current.system</emphasis>
+              </entry>
+              <entry>
+                系统所占用的 CPU 使用率。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>cpu.current.idle</emphasis>
+              </entry>
+              <entry>
+                CPU 的空闲百分比。
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis>cpu.load.avg.5m</emphasis>
+              </entry>
+              <entry>
+                CPU 每5秒的平均使用率。
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <example>
+        <title>主机的统计信息子集的 XML 展现</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+<statistics>
+ <statistic id="4ae97794-f56d-3f05-a9e7-8798887cd1ac"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/
+ statistics/4ae97794-f56d-3f05-a9e7-8798887cd1ac">
+ <name>memory.total</name>
+ <description>Total memory</description>
+ <unit>BYTES</unit>
+ <type>GUAGE</type>
+ <values type="INTEGER">
+ <value>
+ <datum>3983540224<datum>
+ </value>
+ </values>
+ <host id="2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"
+ href="/api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3"/>
+ </statistic>
+ ...
+</statistics>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <note>
+        <para>
+          主机的 <emphasis>statistics</emphasis> 子集是只读的。
+        </para>
+      </note>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7">
+    <title>操作</title>
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-1">
+      <title>安装 VDSM 操作</title>
+      <para>
+        在主机上安装 VDSM 以及相关的软体。主机类型定义了需要额外增加的参数。
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <emphasis>&OVIRT;企业化 Linux 主机</emphasis> - 该主机类型需要一个 <emphasis>root_password</emphasis> 元素来索引到主机的 <emphasis>root</emphasis> 用户的密码。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis>&OVIRT;&NODE;</emphasis> - 该主机类型需要一个 <emphasis>image</emphasis> 元素来索引到一个存储在&OVIRT;&MANAGER;服务器上的 ISO 文件。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <example>
+        <title>在&OVIRT;企业化 Linux 主机上安装 VDSM 的操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/install HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <root_password>p@55w0Rd!</root_password>
+</action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <example>
+        <title>在&OVIRT;&NODE;上安装 VDSM 的操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/install HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <image>/usr/share/rhev-hypervisor/rhev-hypervisor.iso</image>
+</action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-2">
+      <title>激活主机操作</title>
+      <para>
+        激活主机以使用，如运行虚拟机。
+      </para>
+      <example>
+        <title>激活主机操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/activate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-3">
+      <title>隔离主机操作</title>
+      <para>
+        一个 API 用户使用主机得电源管理来控制 <emphasis>fence</emphasis> 的操作。<emphasis>capabilities</emphasis> 集合列出了可用的 <emphasis>fence_type</emphasis> 选项。
+      </para>
+      <example>
+        <title>隔离主机操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/fence
+Accept: application/xml
+Content-Type: application/xml
+<action>
+ <fence_type>start</fence_type>
+</action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-4">
+      <title>取消激活主机操作</title>
+      <para>
+        取消激活主机可用来对主机执行维护操作。
+      </para>
+      <example>
+        <title>取消激活主机操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/deactivate HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-5">
+      <title>批准主机操作</title>
+      <para>
+        在虚拟化环境中批准一台已经安装好的&OVIRT;&NODE;。该操作也同时接受一个可选的 <emphasis>cluster</emphasis> 元素来定义该台主机的目标集群。
+      </para>
+      <example>
+        <title>批准主机操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/approve HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action>
+ <cluster id="99408929-82cf-4dc7-a532-9d998063fa95"/>
+<action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-6">
+      <title>主机的 iSCSI 登陆操作</title>
+      <para>
+        <emphasis>iscsilogin</emphasis> 操作允许一台主机登陆一个 iSCSI 目标。登陆到一个目标让其中的 LUN 能够在 <emphasis>host_storage</emphasis> 集合里显示。
+      </para>
+      <example>
+        <title>主机的 iSCSI 登陆操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/iscsilogin HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action>
+ <iscsi>
+ <address>mysan.example.com</address>
+ <target>iqn.2009-08.com.example:mysan.foobar</target>
+ <username>jimmy</username>
+ <password>s3kr37</password>
+ </iscsi>
+</action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-7">
+      <title>主机的 iSCSI 发现操作</title>
+      <para>
+        <emphasis>iscsidiscover</emphasis> 操作能让 iSCSI 端口查询出其中的 LUN 列表。
+      </para> 
+      <example>
+        <title>主机的 iSCSI 发现操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/iscsidiscover HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<action>
+ <iscsi>
+ <address>mysan.example.com</address>
+ <port>3260<port>
+ </iscsi>
+</action>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-8">
+      <title>提交主机的网络配置操作</title>
+      <para>
+        一个 API 用户通过提交主机的网络配置来持久化网络接口的附加或分离，或者绑定接口的创建和移除。
+      </para> 
+      <example>
+        <title>提交主机的网络配置操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/commitnetconfig HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+          </programlisting>
+        </para>
+      </example>
+      <important>
+        <para>
+          网络配置只有在网络配置更改后管理端已经建立好与主机的连接且确认主机连接没有丢失的情况下才能提交配置的变更。如果在修改配置时管理端与主机的连接丢失了，主机被要求重启并且网络配置被回滚。
+        </para>
+      </important>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-9">
+      <title>设置 SPM</title>
+      <para>
+        手动设置一台主机为存储池管理者（SPM）。
+      </para>
+      <example>
+        <title>设置 SPM 的操作</title>
+        <para>
+          <programlisting>
+            <![CDATA[
+POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/forceselectspm HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<action/>
+]]>
+          </programlisting>
+        </para>
+      </example>
+    </section>
+  </section>
 
 </chapter>
 
