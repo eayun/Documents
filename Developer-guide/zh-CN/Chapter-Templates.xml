@@ -8,7 +8,7 @@
 	<section id="sect-EayunOS-Developer-guide-Templates_Chapter-Templates_Section_1">
 		<title>虚拟机的模板元素</title>
 		<para>
-			模板子集提供了红帽公司虚拟环境中有关虚拟机模板的信息, API 用户可以
+			模板子集提供了&OVIRT;公司虚拟环境中有关虚拟机模板的信息, API 用户可以
 通过从入口的 URL 获取的<emphasis> rel=”templates”</emphasis>链接访问这些信息。
 		</para>
 
