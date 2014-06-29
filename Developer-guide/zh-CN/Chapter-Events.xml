@@ -4,29 +4,196 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Events_Chapter">
-	<title>Events Chapter</title>
+	<title>事件</title>
 	<para>
-		This is a test paragraph
+		
 	</para>
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_1">
-		<title>Events Section 1</title>
+		<title>事件的元素</title>
 		<para>
-			This is a test paragraph in a section
+                    <emphasis>events</emphasis> 集合提供了&OVIRT;企业虚拟化环境中的事件信息。
+                    一个 API 用户可以通过入口 URI 的 <emphasis>rel="events"</emphasis> 链接
+                    来访问该信息。
 		</para>
+    <table>
+      <title>事件元素</title>
+      <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>description</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              系统事件的描述。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>code</emphasis>
+            </entry>
+            <entry>
+              整型
+            </entry>
+            <entry>
+              事件的编号。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>severity</emphasis>
+            </entry>
+            <entry>
+              <emphasis>normal</emphasis>,<emphasis>warning</emphasis>,<emphasis>error</emphasis>
+              <emphasis>alert</emphasis>,其中的一种。
+            </entry>
+            <entry>
+             事件的级别类型。 
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>time</emphasis>
+            </entry>
+            <entry>
+             格式：<emphasis>YYYY-MM-DDThh:mm:ss</emphasis>
+            </entry>
+            <entry>
+             事件发生时的时间。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>user id</emphasis>
+            </entry>
+            <entry>
+             GUID
+            </entry>
+            <entry>
+             触发事件的用户的认证号码。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+         <note>
+             <para>
+               事件资源集合是只读的。
+             </para>
+         </note>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_2">
+		<title>事件集合的XML描述</title>
+                <example>
+                 <title>事件集合的XML描述</title>
+		 <programlisting language="xml">
+                          <![CDATA[
+
+                   <events>
+                       <event href="/api/events/823" id="823"><description>User admin@internal logged in.</description><code>30</code><severity>normal</severity><time>2014-06-30T06:28:52.040+08:00</time><user href="/api/users/fdfc627c-d875-11e0-90f0-83df133b58cc" id="fdfc627c-d875-11e0-90f0-83df133b58cc"/><origin>oVirt</origin><custom_id>-1</custom_id><flood_rate>30</flood_rate></event>
+                       ....
+                   </events>
+]]>
+		 </programlisting>
+                </example>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_3">
+		<title>虚拟机创建事件的XML描述</title>
+		<para>
+		在虚拟机创建时，事件本身会抛出很多的信息（xml元素表示），不仅仅是用户的信息，
+                甚至是其它各元素之间的关系看下面的实例：	
+		</para>
+                <example>
+                 <title>虚拟机创建事件的XML描述</title>
+		 <programlisting>
+<![CDATA[
+<event href="/api/events/462" id="462">
+<description>VM Fedora-20-x86_64 was created by admin@internal.</description>
+<code>34</code>
+<severity>normal</severity>
+<time>2014-06-18T06:00:22.257+08:00</time>
+<correlation_id>1418eccf</correlation_id>
+<user href="/api/users/fdfc627c-d875-11e0-90f0-83df133b58cc" id="fdfc627c-d875-11e0-90f0-83df133b58cc"/>
+<vm href="/api/vms/ef8f840a-7c9d-49cb-b68a-ccc10d263964" id="ef8f840a-7c9d-49cb-b68a-ccc10d263964"/>
+<storage_domain href="/api/storagedomains/9171766d-5e29-46a6-8aa9-1e02f744b78b" id="9171766d-5e29-46a6-8aa9-1e02f744b78b"/>
+<cluster href="/api/clusters/b7b63d69-916d-4a87-8e78-7a164f1c976f" id="b7b63d69-916d-4a87-8e78-7a164f1c976f"/>
+<data_center href="/api/datacenters/14b39798-b32b-4f1b-a326-2e44f4a1af8c" id="14b39798-b32b-4f1b-a326-2e44f4a1af8c"/>
+<origin>oVirt</origin>
+<custom_id>-1</custom_id>
+<flood_rate>30</flood_rate>
+</event>
+]]>
+		 </programlisting>
+                 <para>
+                  此例可以看到虚拟机与集群、存储域等之间的关系。
+                 </para>
+                </example>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_4">
 		<title>Events Section 2</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+			
 		</para>
+		<para>
+			
+		</para>
+                <example>
+                 <title></title>
+                  <programlisting language="xml">
+                  </programlisting>
+		 <para>
+		 </para>
+                  <programlisting language="xml">
+                  </programlisting>
+                </example>
+                <important>
+                 <para>
+                     
+                 </para>
+                </important>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_5">
+		<title>Events Section 2</title>
+		<para>
+			
+		</para>
+		<para>
+			
+		</para>
+		<para>
+			
+		</para>
+		<para>
+			
+		</para>
+                <example>
+                 <title></title>
+                  <programlisting language="xml">
+                  </programlisting>
+		 <para>
+		 </para>
+                  <programlisting language="xml">
+                  </programlisting>
+                </example>
 	</section>
 
 </chapter>

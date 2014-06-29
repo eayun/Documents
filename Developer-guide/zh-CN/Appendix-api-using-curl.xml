@@ -3,13 +3,243 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<appendix id="appe-eayunos-api-api-using-curl">
-  <title>&OVIRT; &MANAGER;用户界面插件</title>
+<appendix id="appe-API_Usage_with_cURL">
+  <title>使用 cURL 访问 REST API</title>
 
-  <section id="sect-eayunos-api-api-using-curl-1">
-    <title>&OVIRT; &MANAGER;用户界面插件</title>
+  <section id="sect-API_Usage_with_cURL-API_Usage_with_cURL">
+    <title>使用 cURL 访问 REST API</title>
     <para>
+      本附录介绍了如何使用 <command>cURL</command> 工具发起 REST 请求。<command>cURL</command> 是一个用以传输包括 HTTP 在内的多种协议数据，并且支持包括 Linux、Windows、Mac 和 Solaris 等多个平台的命令行工具。大多数的 Linux 发行版都提供了 <command>cURL</command> 软件包。
     </para>
   </section>
 
+  <section id="sect-API_Usage_with_cURL-Installing_cURL">
+    <title>安装 cURL</title>
+    <para>
+      Centos/Fedora 用户可以运行如下命令安装 <command>cURL</command>：
+    </para>
+    <para>
+      <emphasis>yum install curl</emphasis>
+    </para>
+    <para>
+      对于其它的平台，请在 <command>cURL</command> 网站(<ulink url="http://curl.haxx.se/"/>)上查找相关的安装介绍。
+    </para>
+  </section>
+
+  <section id="sect-API_Usage_with_cURL-Using_cURL">
+    <title>使用 cURL</title>
+    <para>
+      <command>cURL</command> 使用命令行接口发送请求至 HTTP 服务器。发起一个请求需要使用如下的命令行语法：
+    </para>
+    <screen>
+Usage: <emphasis>curl <replaceable>[options] uri</replaceable></emphasis>
+    </screen>
+    <para>
+      <emphasis>uri</emphasis> 参数指的是发送请求的目标 HTTP 服务器地址。这将会是您的 &OVIRT; &MANAGER;主机的地址加上 API 入口路径(<emphasis>/api</emphasis>)。
+    </para>
+    <para>
+      <literal>cURL 选项</literal>
+      <blockquote>
+        <para>
+          <literal>-X <replaceable>COMMAND</replaceable>, --request <replaceable>COMMAND</replaceable></literal>
+        </para>
+        <blockquote>
+          <para>
+            要使用的 HTTP 请求命令。在 REST API 的情景中，使用 <emphasis>GET</emphasis>、<emphasis>POST</emphasis>、<emphasis>PUT</emphasis> 或者 <emphasis>DELETE</emphasis>。
+          </para>
+          <para>
+            例如：<emphasis>-X GET</emphasis>
+          </para>
+        </blockquote>
+        <para>
+          <literal>-H <replaceable>LINE</replaceable>, --header <replaceable>LINE</replaceable></literal>
+        </para>
+        <blockquote>
+          <para>
+            发起的请求中要包含的 HTTP 头。如果需要多个 HTTP 头，则使用多次这个选项。
+          </para>
+          <para>
+            例如：<emphasis>-H "Accept: application/xml" -H "Content-Type: application/xml"</emphasis>
+          </para>
+        </blockquote>
+        <para>
+          <literal>-u <replaceable>USERNAME:PASSWORD</replaceable>, --user <replaceable>USERNAME:PASSWORD</replaceable></literal>
+        </para>
+        <blockquote>
+          <para>
+            用于登录 &OVIRT; &MANAGER;的用户名和密码。此属性是 <emphasis>Authorization:</emphasis> HTTP 头的一个易用替代。
+          </para>
+          <para>
+            例如：<emphasis>-u admin@internal:abc123</emphasis>
+          </para>
+        </blockquote>
+        <para>
+          <literal>--cacert <replaceable>CERTIFICATE</replaceable></literal>
+        </para>
+        <blockquote>
+          <para>
+            用于 REST API 的 SSL 通信的证书文件位置。该证书文件保存于本地客户端机器上。使用 <emphasis>-k</emphasis> 选项可以忽略 SSL 证书验证。
+          </para>
+          <para>
+            例如：<emphasis>--cacert ~/Certificates/ca.crt</emphasis>
+          </para>
+        </blockquote>
+        <para>
+          <literal>-d <replaceable>BODY</replaceable>, --data <replaceable>BODY</replaceable></literal>
+        </para>
+        <blockquote>
+          <para>
+            HTTP 请求中要发送的信息体，与 <emphasis>POST</emphasis>、<emphasis>PUT</emphasis> 或者 <emphasis>DELETE</emphasis> 请求方法一同使用。在信息体存在于请求中的情况下请确保同时指定了 <emphasis>Content-Type: application/xml</emphasis> 头。
+          </para>
+          <para>
+            例如：<emphasis><![CDATA[-d "<cdrom><file id='CentOS-6.5-x86_64-minimal.iso'/></cdrom>"]]></emphasis>
+          </para>
+        </blockquote>
+      </blockquote>
+    </para>
+  </section>
+
+  <section id="sect-API_Usage_with_cURL-Examples">
+    <title>示例</title>
+    <section id="sect-API_Usage_with_cURL-GET_Request_with_cURL">
+      <title>使用 cURL 发送 GET 请求</title>
+      <example>
+        <title>GET 请求</title>
+        <para>
+          下面的 <emphasis>GET</emphasis> 请求将列出 <emphasis>vms</emphasis> 集合中的虚拟机。请注意 <emphasis>GET</emphasis> 请求中不包含信息体。
+        </para>
+        <screen>
+GET /api/vms HTTP/1.1
+Accept: application/xml
+        </screen>
+        <para>
+          将方法(<emphasis>GET</emphasis>)、HTTP 头(<emphasis>Accept: application/xml</emphasis>) 和 URI(<emphasis>https://<replaceable>[&OVIRT; &MANAGER;]</replaceable>:443/api/vms</emphasis>) 匹配入 <emphasis>cURL</emphasis> 命令中：
+        </para>
+        <screen>
+$ curl -X GET -H "Accept: application/xml" -u <emphasis><replaceable>[USER:PASS]</replaceable></emphasis> --cacert <emphasis><replaceable>[CERT]</replaceable></emphasis> https://<emphasis><replaceable>[&OVIRT; &MANAGER;]</replaceable></emphasis>:443/api/vms
+        </screen>
+        <para>
+          <emphasis>vms</emphasis> 集合的一个 XML 表示将作为返回结果显示出来。
+        </para>
+      </example>
+    </section>
+    <section id="sect-API_Usage_with_cURL-POST_Request_with_cURL">
+      <title>使用 cURL 发送 POST 请求</title>
+      <example>
+        <title>POST 请求</title>
+        <para>
+          下面的 <emphasis>POST</emphasis> 请求将在 <emphasis>vms</emphasis> 集合中创建一个虚拟机。请注意 <emphasis>POST</emphasis> 请求中必须包含一个信息体。
+        </para>
+        <screen>
+POST /api/vms HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<![CDATA[
+<vm>
+  <name>vm1</name>
+  <cluster>
+    <name>default</name>
+  </cluster>
+  <template>
+    <name>Blank</name>
+  </template>
+  <memory>536870912</memory>
+  <os>
+    <boot dev="hd"/>
+  </os>
+</vm>
+]]>
+        </screen>
+        <para>
+          将方法(<emphasis>POST</emphasis>)、HTTP 头(<emphasis>Accept: application/xml</emphasis> 及 <emphasis>Content-type: application/xml</emphasis>)、URI(<emphasis>https://<replaceable>[&OVIRT; &MANAGER;]</replaceable>:443/api/vms</emphasis>) 和请求的信息体一同匹配入 <emphasis>cURL</emphasis> 命令中：
+        </para>
+        <screen>
+$ curl -X POST -H "Accept: application/xml" -H "Content-type: application/xml" -u <emphasis><replaceable>[USER:PASS]</replaceable></emphasis> --cacert <emphasis><replaceable>[CERT]</replaceable></emphasis> -d "<![CDATA[<vm><name>vm1</name><cluster><name>default</name></cluster><template><name>Blank</name></template><memory>536870912</memory><os><boot dev='hd'/></os></vm>]]>" https://<emphasis><replaceable>[&OVIRT; &MANAGER;]</replaceable></emphasis>:443/api/vms
+        </screen>
+        <para>
+          此操作将会创建一个虚拟机并将其资源的 XML 表示显示出来。
+        </para>
+      </example>
+    </section>
+    <section id="sect-API_Usage_with_cURL-PUT_Request_with_cURL">
+      <title>使用 cURL 发送 PUT 请求</title>
+      <example>
+        <title>PUT 请求</title>
+        <para>
+          下面的 <emphasis>PUT</emphasis> 请求将更新虚拟机的内存资源信息。请注意 <emphasis>PUT</emphasis> 请求中必须包含一个信息体。
+        </para>
+        <screen>
+PUT /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<![CDATA[
+<vm>
+  <memory>1073741824</memory>
+</vm>
+]]>
+        </screen>
+        <para>
+          将方法(<emphasis>PUT</emphasis>)、HTTP 头(<emphasis>Accept: application/xml</emphasis> 及 <emphasis>Content-type: application/xml</emphasis>) 和 URI(<emphasis>https://<replaceable>[&OVIRT; &MANAGER;]</replaceable>:443/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399</emphasis>) 匹配入 <emphasis>cURL</emphasis> 命令中：
+        </para>
+        <screen>
+$ curl -X PUT -H "Accept: application/xml" -H "Content-type: application/xml" -u <emphasis><replaceable>[USER:PASS]</replaceable></emphasis> --cacert <emphasis><replaceable>[CERT]</replaceable></emphasis> -d "<![CDATA[<vm><memory>1073741824</memory></vm>]]>" https://<emphasis><replaceable>[&OVIRT; &MANAGER;]</replaceable></emphasis>:443//api/vms/082c794b-771f-452f-83c9-b2b5a19c039
+        </screen>
+        <para>
+          此操作将会使用新的配置信息更新虚拟机的内存配置。
+        </para>
+      </example>
+    </section>
+    <section id="sect-API_Usage_with_cURL-DELETE_Request_with_cURL">
+      <title>使用 cURL 发送 DELETE 请求</title>
+      <example>
+        <title>DELETE 请求</title>
+        <para>
+          下面的 <emphasis>DELETE</emphasis> 将删除一个虚拟机资源。
+        </para>
+        <screen>
+DELETE /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+        </screen>
+        <para>
+          将方法(<emphasis>DELETE</emphasis>) 和 URI(<emphasis>https://<replaceable>[&OVIRT; &MANAGER;]</replaceable>:443/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399</emphasis>) 匹配入 <emphasis>cURL</emphasis> 命令中：
+        </para>
+        <screen>
+$ curl -X DELETE -u <emphasis><replaceable>[USER:PASS]</replaceable></emphasis> --cacert <emphasis><replaceable>[CERT]</replaceable></emphasis> https://<emphasis><replaceable>[&OVIRT; &MANAGER;]</replaceable></emphasis>:443/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399
+        </screen>
+        <para>
+          此操作将会删除该资源所代表的虚拟机。请注意在这里 <emphasis>Accept: application/xml</emphasis> 的 HTTP 头是可选的，因为 <emphasis>DELETE</emphasis> 的返回为空。
+        </para>
+      </example>
+    </section>
+    <section id="sect-API_Usage_with_cURL-DELETE_Request_Including_Body_with_cURL">
+      <title>使用 cURL 发送带有信息体的 DELETE 请求</title>
+      <example>
+        <title>带有信息体的 DELETE 请求</title>
+        <para>
+          下面的 <emphasis>DELETE</emphasis> 请求将使用可选的信息体作为选项删除一个虚拟机资源。
+        </para>
+        <screen>
+DELETE /api/vms/082c794b-771f-452f-83c9-b2b5a19c0399 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<![CDATA[
+<action>
+  <force>true</force>
+</action>
+]]>
+        </screen>
+        <para>
+          将方法(<emphasis>DELETE</emphasis>)、HTTP 头(<emphasis>Accept: application/xml</emphasis> 及 <emphasis>Content-type: application/xml</emphasis>) 和 URI(<emphasis>https://<replaceable>[&OVIRT; &MANAGER;]</replaceable>:443/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399</emphasis>) 匹配入 <emphasis>cURL</emphasis> 命令中：
+        </para>
+        <screen>
+$ curl -X DELETE -H "Accept: application/xml" -H "Content-type: application/xml" -u <emphasis><replaceable>[USER:PASS]</replaceable></emphasis> --cacert <emphasis><replaceable>[CERT]</replaceable></emphasis> -d "<![CDATA[<action><force>true</force></action>]]>" https://<emphasis><replaceable>[&OVIRT; &MANAGER;]</replaceable></emphasis>:443/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399
+        </screen>
+        <para>
+          此操作将会强制删除该资源所代表的虚拟机。
+        </para>
+      </example>
+    </section>
+  </section>
 </appendix>

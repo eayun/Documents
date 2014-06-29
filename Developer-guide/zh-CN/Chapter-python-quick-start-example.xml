@@ -4,30 +4,1233 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-python-quick-start-examples_Chapter">
-	<title>python-quick-start-examples Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter-python-quick-start-examples_Section_1">
-		<title>python-quick-start-examples Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter-python-quick-start-examples_Section_2">
-		<title>python-quick-start-examples Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>python-quick-start-examples Chapter</title>
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_1">
+    <title>Python 快速开始文档介绍</title>
+    <para>
+      本章提供了一系列例子来演示怎样用 Python 从一个基本的 &OVIRT; 环境中创建虚拟机.
+    </para>
+    <para>
+      这些例子使用 ovirt-engine-sdk-python 软件包提供的 ovirtsdk 来完成.
+    </para>
 
+    <para>
+      为了完成本章的例子, 用户必须具有下列条件:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          已经安装好的 &OVIRT;, 并且该管理系统可以联网.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          安装配置好的 EayunOS Hypervisor, 并且该系统可以联网.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          一个可以用来安装虚拟机操作系统的 ISO 镜像.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          理解 &OVIRT; 中的基本组成元素.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          了解基本的 Python 编程语言.
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <important>
+      <para>
+        所有的 Python 示例都包含占位符(<emphasis>USER</emphasis>和<emphasis>PASS</emphasis>), 根据你的实际情况填写这些值.
+      </para>
+    </important>
+
+    <note>
+      <para>
+        &OVIRT; 为每个资源生成一个 GUID 来标记这些资源, 在下面的例子中这些 GUID 可能不同.
+      </para>
+    </note>
+
+    <note>
+      <para>
+        这些 Python 例子只包含基本的异常和错误处理逻辑. 更多的异常处理请参考 <emphasis>ovirtsdk.infrastructure.errors</emphasis> 模块.
+      </para>
+    </note>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_2">
+    <title>示例: 使用 Python 访问 API 入口</title>
+    <para>
+      ovirtsdk 库提供了 API 入口的类.
+    </para>
+    <example>
+      <title>使用 Python 访问 API 入口</title>
+      <para>
+        下面的例子展示了使用 &OVIRT; 提供的 REST API 连接 &OVIRT;. 为了连接 &OVIRT;, 首先需要创建一个 API 的实例, 如果连接成功, 会在屏幕上打印一个连接成功的信息. 最后我们调用 disconnect() 方法来关闭连接.
+      </para>
+      <para>
+        该 API 的构造函数提供的参数为:
+      </para>
+
+      <itemizedlist>
+        <listitem>
+          <para>
+            连接的管理端的 <emphasis>url</emphasis>.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            需要认证的用户名 <emphasis>username</emphasis>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            需要认证的密码 <emphasis>password</emphasis>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis>ca_file</emphasis> 是到证书的路径. 该证书是管理端所发行的证书. 需要从 <emphasis>https://HOST/ca.crt</emphasis> 获取.
+          </para>
+        </listitem>
+      </itemizedlist>
+
+      <para>
+        当然, 该 API 类的构造函数还有其它参数, 这个例子我们只需要必须的例子.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    print "Connected to %s successfully!" % api.get_product_info().name
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+
+      <para>
+        如果连接成功, 这个例子会输出:
+      </para>
+      <screen>
+Connected to Red Hat Enterprise Virtualization Manager successfully!
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_3">
+    <title>示例: 使用 Python 列出所有数据中心</title>
+    <para>
+      API 类提供了访问数据中心集合的方法 datecenters. 该方法收集所有系统中的数据中心.
+    </para>
+    <example>
+      <title>使用 Python 列出所有数据中心</title>
+      <para>
+        下面的例子列出所有的数据中心. 关于每个数据中心的一些基本信息也会列出来
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    dc_list = api.datacenters.list()
+
+    for dc in dc_list:
+        print "%s (%s)" % (dc.get_name(), dc.get_id())
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+
+      <para>
+        在只有一个默认数据中心存在的环境中, 将会输出以下结果:
+      </para>
+      <screen>
+Default (d8b74b20-c6e1-11e1-87a3-00163e77e2ed)
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_4">
+    <title>示例: 使用 Python 列出所有集群</title>
+    <para>
+      API 类提供了访问集群集合的方法 clusters. 该方法收集所有系统中的集群.
+    </para>
+    <example>
+      <title>使用 Python 列出所有集群</title>
+      <para>
+        下面的例子列出所有的集群. 关于每个集群的一些基本信息也会列出来
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    c_list = api.clusters.list()
+
+    for c in c_list:
+        print "%s (%s)" % (c.get_name(), c.get_id())
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+
+      <para>
+        在只有一个默认集群存在的环境中, 将会输出以下结果:
+      </para>
+      <screen>
+Default (99408929-82cf-4dc7-a532-9d998063fa95)
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_5">
+    <title>示例: 使用 Python 列出逻辑网络</title>
+    <para>
+      API 类提供了访问逻辑网络集合的方法 logicalnetworks. 该方法收集所有系统中的逻辑网络.
+    </para>
+    <example>
+      <title>使用 Python 列出所有逻辑网络</title>
+      <para>
+        下面的例子列出所有的逻辑网络. 关于每个逻辑网络的一些基本信息也会列出来
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    n_list = api.logicalnetworks.list()
+
+    for n in n_list:
+        print "%s (%s)" % (n.get_name(), n.get_id())
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+
+      <para>
+        在只有一个默认数据中心存在的环境中, 将会输出以下结果:
+      </para>
+      <screen>
+ovirtmgmt (00000000-0000-0000-0000-000000000009)
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_6">
+    <title>示例: 使用 Python 列出所有主机</title>
+    <para>
+      API 类提供了访问主机集合的方法 hosts. 该方法收集所有系统中的主机.
+    </para>
+    <example>
+      <title>使用 Python 列出所有主机</title>
+      <para>
+        下面的例子列出所有的主机.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    h_list = api.hosts.list()
+
+    for h in h_list:
+        print "%s (%s)" % (h.get_name(), h.get_id())
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+
+      <para>
+        在只有一个默认主机存在的环境中, 将会输出以下结果:
+      </para>
+      <screen>
+Atlantic (5b333c18-f224-11e1-9bdd-00163e77e2ed)
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_7">
+    <title>示例: 使用 Python 批准主机加入到管理系统中</title>
+    <para>
+      在主机配置过程中, 主机会被加入到管理系统中. 一旦主机加入到管理系统中, 管理系统需要同意该主机的加入, 这样才能在系统中使用.
+    </para>
+    <example>
+      <title>使用 Python 批准主机加入到管理系统中</title>
+      <para>
+        下面的例子展示如何调用 approve 方法.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="HOST",
+              username="USER",
+              password="PASS",
+              ca_file="ca.crt")
+
+    h = api.hosts.get(name="Atlantic")
+
+    if(h.approve()):
+        print "Host '%s' approved (Status: %s)." % (h.get_name(), h.get_status().get_state())
+    else:
+        print "Approval of '%s' failed." % h.get_name()
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 approval 请求成功, 该脚本会输出:
+      </para>
+      <screen>
+Host 'Atlantic' approved (Status: Up).
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_8">
+    <title>示例: 使用 Python 创建 NFS 数据域</title>
+    <para>
+      创建 &OVIRT; 是, 至少需要定义一个数据存储域和一个 ISO 存储域. 数据存储域用来保存虚拟机磁盘镜像, ISO 存储域用来保存安装操作系统的镜像文件.
+    </para>
+    <para>
+      API 类提供了访问数据域集合的方法. 这些集合包含环境中的所有存储域, 这些方法也可以用来添加或者删除数据存储域.
+    </para>
+    <note>
+      <para>
+        下面的例子假设 NFS 服务已经搭建好了. 关于 NFS 服务的搭建请参考 EayunOS 管理员文档.
+      </para>
+    </note>
+    <example>
+      <title>使用 Python 创建 NFS 数据域</title>
+      <para>
+        下面的例子展示如何添加一个 NFS 数据存储域到系统中. 可以分为以下步骤:
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            首先获得需要附加该存储域的数据中心.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+dc = api.datacenters.get(name="Default")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            确定需要用来附加该存储域的主机
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+h = api.hosts.get(name="Atlantic")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            定义 NFS 存储域的参数. 该例子 NFS 的位置为 192.0.43.10/storage/data
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+s = params.Storage(address="192.0.43.10", path="/storage/data", type_="nfs")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            请求创建存储域, 使用 add 方法. 此外还需要传递以下参数:
+            <itemizedlist>
+              <listitem>
+                <para>
+                  存储域的名字.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  上面获得的数据中心对象的句柄.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  上面获得的主机对象的句柄.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  要添加的存储域的类型(data, iso, 或者导出域)
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  使用的存储格式(v1, v2, 或者 v3)
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        下面的脚本是上述的一个总结:
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    dc = api.datacenters.get(name="Default")
+    h = api.hosts.get(name="Atlantic")
+
+    s = params.Storage(address="192.0.43.10", path="/storage/data", type_="nfs")
+    sd_params = params.StorageDomain(name="data1", data_center=dc, host=h, type_="data", storage_format="v3", storage=s)
+
+    try:
+        sd = api.storagedomains.add(sd_params)
+        print "Storage Domain '%s' added (%s)." % (sd.get_name())
+    except Exception as ex:
+        print "Adding storage domain failed: %s" % ex
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 该脚本会输出:
+      </para>
+      <screen>
+Storage Domain 'data1' added (bd954c03-d180-4d16-878c-2aedbdede566).
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_9">
+    <title>示例: 使用 Python 创建 NFS ISO 域</title>
+    <para>
+      为了安装虚拟机, 必须提供 ISO 安装镜像文件. 在 &OVIRT; 中, ISO 镜像文件存在 ISO 存储域中.
+    </para>
+    <note>
+      <para>
+        下面的例子假设 NFS 服务已经搭建好了. 关于 NFS 服务的搭建请参考 EayunOS 管理员文档.
+      </para>
+    </note>
+    <example>
+      <title>使用 Python 创建 NFS ISO 域</title>
+      <para>
+        下面的例子展示如何添加一个 NFS ISO 存储域到系统中. 可以分为以下步骤:
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            首先获得需要附加该存储域的数据中心.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+dc = api.datacenters.get(name="Default")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            确定需要用来附加该存储域的主机
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+h = api.hosts.get(name="Atlantic")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            定义 NFS 存储域的参数. 该例子 NFS 的位置为 192.0.43.10/storage/iso
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+s = params.Storage(address="192.0.43.10", path="/storage/iso", type_="nfs")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            请求创建存储域, 使用 add 方法. 此外还需要传递以下参数:
+            <itemizedlist>
+              <listitem>
+                <para>
+                  存储域的名字.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  上面获得的数据中心对象的句柄.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  上面获得的主机对象的句柄.
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  要添加的存储域的类型(data, iso, 或者导出域)
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  使用的存储格式(v1, v2, 或者 v3)
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        下面的脚本是上述的一个总结:
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    dc = api.datacenters.get(name="Default")
+    h = api.hosts.get(name="Atlantic")
+
+    s = params.Storage(address="192.0.43.10", path="/storage/iso", type_="nfs")
+    sd_params = params.StorageDomain(name="iso1", data_center=dc, host=h, type_="iso", storage_format="v3", storage=s)
+
+    try:
+        sd = api.storagedomains.add(sd_params)
+        print "Storage Domain '%s' added (%s)." % (sd.get_name())
+    except Exception as ex:
+        print "Adding storage domain failed: %s" % ex
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 该脚本会输出:
+      </para>
+      <screen>
+Storage Domain 'iso1' added (789814a7-7b90-4a39-a1fd-f6a98cc915d8).
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_10">
+    <title>示例: 使用 Python 附加存储域到数据中心中</title>
+    <para>
+      一旦添加了存储域, 在使用之前必须要将存储域添加到数据中心, 并且激活.
+    </para>
+    <example>
+      <title>使用 Python 附加存储域到数据中心中</title>
+      <para>
+        下面的例子附加一个数据存储域 data1 和一个 ISO 存储域 iso1 到默认数据中心中. 使用 add 方法来完成该操作.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    dc = api.datacenters.get(name="Default")
+
+    sd_data = api.storagedomains.get(name="data1")
+    sd_iso = api.storagedomains.get(name="iso1")
+
+    try:
+        dc_sd = dc.storagedomains.add(sd_data)
+        print "Attached data storage domain '%s' to data center '%s' (Status: %s)." %
+        (dc_sd.get_name(), dc.get_name, dc_sd.get_status().get_state())
+    except Exception as ex:
+        print "Attaching data storage domain to data center failed: %s." % ex
+
+    try:
+        dc_sd = dc.storagedomains.add(sd_iso)
+        print "Attached ISO storage domain '%s' to data center '%s' (Status: %s)." %
+        (dc_sd.get_name(), dc.get_name, dc_sd.get_status().get_state())
+    except Exception as ex:
+        print "Attaching ISO storage domain to data center failed: %s." % ex
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 call 调用成功, 该脚本会输出:
+      </para>
+      <screen>
+Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).
+Attached ISO storage domain 'iso1' to data center 'Default' (Status: maintenance).
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_11">
+    <title>示例: 使用 Python 激活存储域</title>
+    <para>
+      一旦添加了存储域, 在使用之前必须要将存储域添加到数据中心, 并且激活.
+    </para>
+    <example>
+      <title>使用 Python 附加存储域到数据中心中</title>
+      <para>
+        下面的例子激活数据存储域 data1 和 ISO 存储域 iso1, 使用 activate 方法来完成该操作.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="https://HOST",
+              username="USER",
+              password="PASS",
+              ca_file="ca.crt")
+
+    dc = api.datacenters.get(name="Default")
+
+    sd_data = dc.storagedomains.get(name="data1")
+    sd_iso = dc.storagedomains.get(name="iso1")
+
+    try:
+        sd_data.activate()
+        print "Activated data storage domain '%s' in data center '%s' (Status: %s)." %
+		      (sd_data.get_name(), dc.get_name, sd_data.get_status().get_state())
+    except Exception as ex:
+        print "Activating data storage domain in data center failed: %s." % ex
+
+    try:
+        sd_iso.activate()
+        print "Activated ISO storage domain '%s' in data center '%s' (Status: %s)." %
+		      (sd_iso.get_name(), dc.get_name, sd_iso.get_status().get_state())
+    except Exception as ex:
+        print "Activating ISO storage domain in data center failed: %s." % ex
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 call 调用成功, 该脚本会输出:
+      </para>
+      <screen>
+Activated data storage domain 'data1' in data center 'Default' (Status: active).
+Activated ISO storage domain 'iso1' in data center 'Default' (Status: active).
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_12">
+    <title>示例: 使用 Python 创建虚拟机</title>
+    <para>
+      创建虚拟机分为几个步骤. 第一个步骤是创建虚拟机对象本身.
+    </para>
+    <example>
+      <title>使用 Python 创建虚拟机</title>
+      <para>
+        下面的例子创建一个名为 vm1 的虚拟机. 创建的虚拟机是这样的:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            最少需要 512 MB 的内存.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+vm_memory = 512 * 1024 * 1024
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            加入 Default 集群和 Default 数据中心中.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+vm_cluster = api.clusters.get(name="Default")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            基于 Blank 模板.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+vm_template = api.templates.get(name="Blank")
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            从虚拟硬盘启动.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+vm_os = params.OperatingSystem(boot=[params.Boot(dev="hd")])
+            ]]>
+          </programlisting>
+        </listitem>
+      </itemizedlist>
+      <para>
+        在使用 add 方法创建虚拟机时, 上面的参数必须设置到虚拟机对象中.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="https://HOST",
+              username="USER",
+              password="PASS",
+              ca_file="ca.crt")
+
+    vm_name = "vm1"
+    vm_memory = 512 * 1024 * 1024
+    vm_cluster = api.clusters.get(name="Default")
+    vm_template = api.templates.get(name="Blank")
+    vm_os = params.OperatingSystem(boot=[params.Boot(dev="hd")])
+
+    vm_params = params.VM(name=vm_name,
+                         memory=vm_memory,
+                         cluster=vm_cluster,
+                         template=vm_template,
+                         os=vm_os)
+
+    try:
+        api.vms.add(vm=vm_params)
+        print "Virtual machine '%s' added." % vm_name
+    except Exception as ex:
+        print "Adding virtual machine '%s' failed: %s" % (vm_name, ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+Virtual machine 'vm1' added.
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_13">
+    <title>示例: 使用 Python 创建虚拟网卡</title>
+    <para>
+      需要创建一个虚拟网卡并附加到虚拟机中, 虚拟机才能使用网络.
+    </para>
+    <example>
+      <title>使用 Python 创建虚拟网卡</title>
+      <para>
+        下面的例子创建一个名为 nic 的虚拟网卡. 创建的网卡是这样的:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            网卡接口类型为 virtio.
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+nic_interface = "virtio"
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            连接到 ovirtmgmt 逻辑网络
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+nic_network = api.networks.get(name="ovirtmgmt")
+            ]]>
+          </programlisting>
+        </listitem>
+      </itemizedlist>
+      <para>
+        在使用 add 方法创建虚拟网卡时, 上面的参数必须设置到虚拟网卡对象中.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    vm = api.vms.get(name="vm1")
+
+    nic_name = "nic1"
+    nic_interface = "virtio"
+    nic_network = api.networks.get(name="rhevm")
+
+    nic_params = params.NIC(name=nic_name, interface=nic_interface, network=nic_network)
+
+    try:
+        nic = vm.nics.add(nic_params)
+        print "Network interface '%s' added to '%s'." % (nic.get_name(), vm.get_name())
+    except Exception as ex:
+        print "Adding network interface to '%s' failed: %s" % (vm.get_name(), ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+Network interface 'nic1' added to 'vm1'.
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_14">
+    <title>示例: 使用 Python 创建虚拟磁盘</title>
+    <para>
+      需要创建一个虚拟磁盘并附加到虚拟机中, 虚拟机才能使用存储.
+    </para>
+    <example>
+      <title>使用 Python 创建虚拟磁盘</title>
+      <para>
+        下面的例子创建一个 8GB 大小的 的虚拟磁盘并附加到 vm1 中. 创建的虚拟磁盘是这样的:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            存储在 data1 数据存储域中
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_storage_domain = params.StorageDomains(storage_domain=[api.storagedomains.get(name="data1")])
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            大小为 8GB
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_size = 8*1024*1024
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+             磁盘类型为系统盘
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_type = "system"
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            磁盘接口类型为 virtio
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_interface = "virtio"
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            磁盘格式为 cow
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_format = "cow"
+            ]]>
+          </programlisting>
+        </listitem>
+        <listitem>
+          <para>
+            可作为启动盘
+          </para>
+          <programlisting language="Python">
+            <![CDATA[
+disk_bootable = True
+            ]]>
+          </programlisting>
+        </listitem>
+      </itemizedlist>
+      <para>
+        在使用 add 方法创建虚拟磁盘时, 上面的参数必须设置到虚拟磁盘对象中.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    vm = api.vms.get(name="vm1")
+
+
+    sd = params.StorageDomains(storage_domain=[api.storagedomains.get(name="data1")])
+    disk_size = 8*1024*1024
+    disk_type = "system"
+    disk_interface = "virtio"
+    disk_format = "cow"
+    disk_bootable = True
+
+    disk_params = params.Disk(storage_domains=sd,
+                              size=disk_size,
+                              type_=disk_type,
+                              interface=disk_interface,
+                              format=disk_format,
+                              bootable=disk_bootable)
+
+    try:
+        d = vm.disks.add(disk_params)
+        print "Disk '%s' added to '%s'." % (d.get_name(), vm.get_name())
+    except Exception as ex:
+        print "Adding disk to '%s' failed: %s" % (vm.get_name(), ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+Disk 'vm1_Disk1' added to 'vm1'.
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_15">
+    <title>示例: 使用 Python 附加一个 ISO 镜像到虚拟机中</title>
+    <para>
+      为了在新创建的虚拟机中安装操作系统, 需要附加一个 ISO 文件到虚拟机中.
+    </para>
+    <example>
+      <title>列出 ISO 文件</title>
+      <para>
+        ISO 镜像可以在文件列表中显示. 下面的例子列出 ISO 存储域的文件列表.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="https://HOST",
+              username="USER",
+              password="PASS",
+              ca_file="ca.crt")
+
+    sd = api.storagedomains.get(name="iso1")
+    iso = sd.files.list()
+
+    for i in iso:
+        print "%s" % i.get_name()
+
+except Exception as ex:
+    print "Unexpected error: %s"
+        ]]>
+      </programlisting>
+      <para>
+        如果请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+RHEL6.3-Server-x86_64-DVD1.iso
+      </screen>
+    </example>
+    <example>
+      <title>使用 Python 附加 ISO 文件到虚拟机中</title>
+      <para>
+        下面的例子把 RHEL6.3-Server-x86_64-DVD1.iso ISO 文件附加到 vm1 中.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="HOST",
+              username="USER",
+              password="PASS")
+
+    sd = api.storagedomains.get(name="iso1")
+
+    cd_iso = sd.files.get(name="RHEL6.3-Server-x86_64-DVD1.iso")
+    cd_vm = api.vms.get(name="vm1")
+    cd_params = params.CdRom(file=cd_iso)
+
+    try:
+        cd_vm.cdroms.add(cd_params)
+        print "Attached CD to '%s'." % cd_vm.get_name()
+    except Exception as ex:
+        print "Failed to attach CD to '%s': %s" % (cd_vm.get_name(), ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+If the add request is successful then the script will output:
+        ]]>
+      </programlisting>
+      <para>
+        如果 add 请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+Attached CD to 'vm1'.
+      </screen>
+    </example>
+    <note>
+      <para>
+        上面的例子附加 ISO 文件到一个 Down 状态的虚拟机. 如果要附加到一个运行中的虚拟机, 需要另一个 try 语句.
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+try:
+	cdrom=cd_vm.cdroms.get(id="00000000-0000-0000-0000-000000000000")
+	cdrom.set_file(cd_iso)
+	cdrom.update(current=True)
+	print "Attached CD to '%s'." % cd_vm.get_name()
+except:
+	print "Failed to attach CD to '%s': %s" % (cd_vm.get_name(), ex)
+        ]]>
+      </programlisting>
+    </note>
+    <example>
+      <title>从虚拟机中弹出 cdrom</title>
+      <para>
+        从虚拟机中弹出 cdrom
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="HOST",
+              username="USER",
+              password="PASS")
+
+    sd = api.storagedomains.get(name="iso1")
+    vm = api.vms.get(name="vm1")
+
+    try:
+        vm.cdroms.get(id="00000000-0000-0000-0000-000000000000").delete()
+        print "Removed CD from '%s'." % vm.get_name()
+    except Exception as ex:
+        print "Failed to remove CD from '%s': %s" % (vm.get_name(), ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_16">
+    <title>示例: 使用 Python 启动一个虚拟机</title>
+    <example>
+      <title>使用 Python 启动一个虚拟机</title>
+      <para>
+        以下例子使用 start 方法启动一个虚拟机
+      </para>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API(url="https://HOST",
+              username="USER",
+              password="PASS",
+              ca_file="ca.crt")
+
+    vm = api.vms.get(name="vm1")
+
+    try:
+        vm.start()
+        print "Started '%s'." % vm.get_name()
+    except Exception as ex:
+        print "Unable to start '%s': %s" % (vm.get_name(), ex)
+
+    api.disconnect()
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果 start 请求成功, 将会输出以下结果:
+      </para>
+      <screen>
+Started 'vm1'.
+      </screen>
+    </example>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_17">
+    <title>示例: 使用 Python 检查系统事件</title>
+    <para>
+      &OVIRT; 会记录很多系统时间的日志. 这些时间日志可以用用户接口, 系统日志文件和 API 访问.
+    </para>
+    <example>
+      <title>使用 Python 检查系统事件</title>
+      <para>
+        以下例子使用列出所有系统事件.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            使用 list 方法的 query 参数可以得到所有的事件, 默认情况下 list 方法只会返回第一页的事件, 最大只有 100 的记录.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            这里把结果列表逆序排序, 使得可以按照事件的发生时间输出.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <programlisting language="Python">
+        <![CDATA[
+from ovirtsdk.api import API
+from ovirtsdk.xml import params
+
+try:
+    api = API (url="https://HOST",
+               username="USER",
+               password="PASS",
+               ca_file="ca.crt")
+
+    event_list = []
+    event_page_index = 1
+    event_page_current = api.events.list(query="page %s" % event_page_index)
+
+    while(len(event_page_current) != 0):
+        event_list = event_list + event_page_current
+        event_page_index = event_page_index + 1
+		try:
+            event_page_current = api.events.list(query="page %s" % event_page_index)
+	    except Exception as ex:
+		    print "Error retrieving page %s of list: %s" % (event_page_index, ex)
+
+    event_list.reverse()
+
+    for event in event_list:
+        print "%s %s CODE %s - %s" % (event.get_time(),
+                                      event.get_severity().upper(),
+                                      event.get_code(),
+                                      event.get_description())
+
+except Exception as ex:
+    print "Unexpected error: %s" % ex
+        ]]>
+      </programlisting>
+      <para>
+        如果成功, 将会输出以下的类似结果:
+      </para>
+      <screen>
+2012-09-25T18:40:10.065-04:00 NORMAL CODE 30 - User admin@internal logged in.
+2012-09-25T18:40:10.368-04:00 NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: Atlantic).
+2012-09-25T18:40:10.470-04:00 NORMAL CODE 30 - User admin@internal logged in.
+      </screen>
+    </example>
+  </section>
 </chapter>
-
