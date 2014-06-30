@@ -898,8 +898,7 @@ href="/api/collection/resource_id/subcollection/subresource_id">
          ]]>
       </programlisting>
       <para>
-您是不是要找： The API invoke an action with a POST request to the supplied URI. The body of the POST requires an action representation encapsulating common and task-specific parameters.
-该API调用一个指令与一个POST请求提供的URI。在POST的身体需要
+该API调用一个指令与一个POST请求提供的URI。在POST的请求体需要
 指令表示包封常见和任务特定的参数。
       </para>
       <table>
