@@ -148,52 +148,129 @@
 	</section>
 
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_4">
-		<title>Events Section 2</title>
+		<title>搜索事件</title>
 		<para>
-			
+		和搜索其它资源一样，事件资源集合同样支持搜索。当然你得知道事件是确定发生过的。	
 		</para>
 		<para>
-			
+		使用搜索事件是需要在搜索队列之前加上<emphasis>from</emphasis>参数，而<emphasis>from</emphasis>后面跟的是
+                事件的<emphasis>id</emphasis>号。
 		</para>
                 <example>
-                 <title></title>
+                 <title>搜索特定事件</title>
                   <programlisting language="xml">
+GET /api/events;from=1012?search=type%3D30 HTTP/1.1
+Accept: application/xml
                   </programlisting>
 		 <para>
+                  上述将显示的类型为编号30的，自1012号之后的所有事件。
 		 </para>
                   <programlisting language="xml">
+<![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<events>
+<event id="1018" href="/api/events/1018">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:03:22.485+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+<event id="1016" href="/api/events/1016">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:03:07.236+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+<event id="1014" href="/api/events/1014">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:02:16.009+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+</events>
+]]>
                   </programlisting>
                 </example>
                 <important>
                  <para>
-                     
+                   下列使用方法，在&OVIRT;中仍然有效。  
                  </para>
+                 <programlisting>
+<![CDATA[
+                /api/events?search=type%3D30&from=888
+]]>
+                 </programlisting>
                 </important>
 	</section>
 
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_5">
-		<title>Events Section 2</title>
+		<title>分页显示事件</title>
 		<para>
-			
+		随着系统的运行，虚拟环境会产生大量的事件，但是API提供的搜索显示有限的事件，若需要比默认
+                要多的事件，API提供了将搜索结果分页显示的功能。	
 		</para>
 		<para>
-			
+		下面的搜索队列告诉API显示第几页，且使用了排序<emphasis>sortby</emphasis>子句：	
+                
 		</para>
 		<para>
-			
+	        <emphasis>sortby time asc page 1</emphasis>		
 		</para>
 		<para>
-			
+		<emphasis>sortby</emphasis>子句定义了结果的有序，而且还可按照“升”或“降”。上述例子中，
+                将显示自环境搭建好以后的所有按照从过去到现在的时间顺序事件。
 		</para>
+                <para>
+                 <emphasis>page</emphasis>定义了页面的数字，数字1等于和默认的输出一致，即起始的事件显示。
+                 若要查看更多页，增加<emphasis>page</emphasis>值即可。
+                </para>
+                <para>
+                <emphasis>sortby time asc page 2</emphasis>
+                </para>
+                <para>
+                <emphasis>sortby time asc page 3</emphasis>
+                </para>
+                <para>
+                <emphasis>sortby time asc page 4</emphasis>
+                </para>
                 <example>
-                 <title></title>
+                 <title>分页</title>
+		 <para>
+		 下面即是URL方式的分页显示的搜索队列： 
+                 </para>
                   <programlisting language="xml">
+GET /api/events?search=sortby%20time%20asc%20page%201 HTTP/1.1
+Accept: application/xml
                   </programlisting>
 		 <para>
-		 </para>
+		 显示下一页的内容：
+                 </para>
                   <programlisting language="xml">
+GET /api/events?search=sortby%20time%20asc%20page%202 HTTP/1.1
+Accept: application/xml
+                  </programlisting>
+		 <para>
+		 增加<emphasis>from</emphasis>参数及一个任意的<emphasis>id</emphasis>。
+                 </para>
+                  <programlisting language="xml">
+<![CDATA[
+GET /api/events?search=sortby%20time%20asc%20page%202&from=30 HTTP/1.1
+Accept: application/xml
+]]>
                   </programlisting>
                 </example>
+                  <note>
+                     <para>
+                        %20在URL中表示的是一个空格。
+                     </para>
+                  </note>
 	</section>
 
 </chapter>
