@@ -864,8 +864,23 @@ Body=<action><detach>true</detach></action></detach></action>
 			QEMU客户代理概述	
 		</title>
 		<para>
-			在&OVIRT;企业级Linux6.4中，QEMU客户代理提供了保护了Linux客户虚拟机不至于过早淘汰
-		</para>
+         在&OVIRT;企业级Linux6.4中，QEMU客户代理对Linux客户虚拟机进行保护，以防虚拟机腐化。在提出一个快照请求或创建磁盘的备份拷贝之前，管理堆栈（libvirt）会通过virtio-serial端口发送一个<emphasis>guest-fsfreeze-freeze QMP</emphasis>命令至QEMU GA。这条命令导致了客户端代理会通过<emphasis>FIFREEZE ioctl()</emphasis>核心功能冻结所有的客户虚拟机的文件系统。这个<emphasis>ioctl()</emphasis>功能是有客户端虚拟机中的Linux内核实现的。这个功能刷新了客户端虚拟机内核中的文件系统缓存，使文件系统进入一种持续的状态，并且禁止所有的用户空间的线程写入文件系统。
+      </para>
+      <para>
+         只有在<emphasis>QEMU GA</emphasis>报告成功之前，<emphasis>libvirt</emphasis>将继续执行快照。在它完成期间，<emphasis>libvirt</emphasis>发送了<emphasis>guest-fsfreeze-thaw QMP</emphasis>命令至virtio-serial端口上的<emphasis>QEMU GA</emphasis>。这条命令告诉<emphasis>QEMU GA</emphasis>提出一个<emphasis>FITHAW ioctl()</emphasis>,它将之前不能进行写操作的用户空间的线程进行解锁，并恢复正常的处理。这个过程不能保证当进行虚拟磁盘快照时应用级数据处在一种持续状态中。fsck实用程序没有发现快照恢复的文件系统的问题时非常明显的，而且应用程序不能恢复处理快照的执行和用户空间过程可能不会将它们的内置缓冲写入磁盘。
+      </para>
+      <para>
+         &OVIRT;企业级Linux6.5保证了文件和应用级别异步（缓冲）可以工作。客户系统管理员可以写和安装特定的应用程序，这个应用程序可冻融钩子程序。在冻融钩子程序之前，<emphasis>QEMU GA</emphasis>条用了主钩子脚本（包含<emphasis>QUMU GA</emphasis>包）。主钩子脚本回调个别的特定应用的脚本，这个脚本是由客户端系统管理员提供的，它会临时金庸所有客户端虚拟应用。当模式变为冻结模式时，所有的指令都会执行。
+      </para>
+      <para>
+         在文件系统被冻结之前，客户端系统管理员的脚本会引起数据库和其他文件系统应用
+         去刷新他们的磁盘里的工作缓存并且不再接受远程客户端连接。这些应用的数据随即
+         进入了一种持续状态,在这种状态下可以恢复处理，应用(存储备份的虚拟磁盘后)实例
+        的再生(或者重新开始)也会变为可能。当所有应用程序注销了，并且主钩脚本返回时，QEMU GA过程会冻结文件系统。管理栈会进行快照。这个过程完成并且快照也执行完了之后，文件系统将会恢复服务写入请求。这个过程被称为解冻。
+      </para>
+      <para>
+         解冻是冷冻反向过程。libvirt的指令，QEMU GA解冻了客户端虚拟机的文件系统。它之后会调用钩子脚本（通过主钩脚本）来恢复或者重启应用程序，这些应用程序会在冻结过程中被注销。
+      </para>
 	</section>
 	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_12">
                 <title>
