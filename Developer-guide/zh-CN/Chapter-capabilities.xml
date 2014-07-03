@@ -749,7 +749,7 @@
          磁盘格式
       </title>
       <para>
-         API用户为虚拟磁盘选择了格式。<emphasis>disk_formats</emphasis>元素定义了格式类型。<emphasis>disk_format</emphasis>类型包括了域分配<emphasis>(raw)</emphasis>或者精简预先配置(写入时复制或者<emphasis>cow</emphasis>)
+         API用户为虚拟磁盘选择了格式。<emphasis>disk_formats</emphasis>元素定义了格式类型。<emphasis>disk_format</emphasis>类型包括了预分配<emphasis>(raw)</emphasis>或者精简预先配置(写入时复制或者<emphasis>cow</emphasis>)
       </para>
       <programlisting>
          <![CDATA[
