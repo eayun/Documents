@@ -83,10 +83,10 @@
             <tbody>
                <row>
                   <entry>
-                     透明大页存储策略
+                     透明大页内存策略
                   </entry>
                   <entry>
-                     允许你定义主机的透明大页存储可用性。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
+                     允许你定义主机的透明大页内存可用性。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
                   </entry>
                </row>
                <row>
@@ -94,7 +94,7 @@
                      Gluster支持
                   </entry>
                   <entry>
-                     这个特性提供了对使用用于存储的Gluster容器和Bricks的支持。
+                     这个特性提供了对使用用于存储的Gluster卷和块的支持。
                   </entry>
                </row>
                <row>
