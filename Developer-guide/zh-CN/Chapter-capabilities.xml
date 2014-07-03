@@ -331,10 +331,10 @@
                </row>
                <row>
                   <entry>
-                     图像存储域(技术预览)
+                     镜像存储域(技术预览)
                   </entry>
                   <entry>
-                     允许导入导出图像格式至一个图像存储域上，比如OpenStsack图像服务(Glance)。
+                     允许导入导出图像格式至一个镜像存储域上，比如OpenStsack镜像服务(Glance)。
                   </entry>
                </row>
                <row>
@@ -355,7 +355,7 @@
                </row>
                <row>
                   <entry>
-                     初始化云
+                     Cloud Init
                   </entry>
                   <entry>
                      允许用初始化云来初始化一个虚拟机。
