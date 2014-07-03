@@ -634,7 +634,7 @@
          启动设备
        </title>
        <para>
-          每一个虚拟机会从以选择的设备中启动。<emphasis>boot_devices</emphasis>元素罗列除了<emphasis>boot_device</emphasis>选项。
+          每一个虚拟机会从已选择的设备中启动。<emphasis>boot_devices</emphasis>元素罗列除了<emphasis>boot_device</emphasis>选项。
        </para>
        <programlisting>
           <![CDATA[
