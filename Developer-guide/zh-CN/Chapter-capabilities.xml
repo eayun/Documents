@@ -1105,7 +1105,7 @@ cluster_version_incompatible_with_cluster
    </section>
    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_29">
       <title>
-         模板类型
+         模板状态
       </title>
       <para>
          <emphasis>template_states</emphasis>元素罗列出了模板可能处于的状态。
