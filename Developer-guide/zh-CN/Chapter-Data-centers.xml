@@ -166,7 +166,7 @@
       </tgroup>
     </table>
     <para>
-      <emphasis>status</emphasis> 包含了如下的枚举值哦：<emphasis>uninitialized</emphasis>，<emphasis>up</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>not_operational</emphasis>，<emphasis>problematic</emphasis> 和 <emphasis>contend</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 里的 <emphasis>data_center_states</emphasis> 元素下列出。
+      <emphasis>status</emphasis> 包含了如下的枚举值：<emphasis>uninitialized</emphasis>，<emphasis>up</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>not_operational</emphasis>，<emphasis>problematic</emphasis> 和 <emphasis>contend</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 里的 <emphasis>data_center_states</emphasis> 元素下列出。
     </para>
   </section>
 
