@@ -460,7 +460,7 @@
    <section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_6">
       <title>基于REST服务描述语言（RSDL）</title>
       <para>
-         基于REST服务描述语言(REDL)在完整的xml规范中提供了对REST API中的结构和元素的描述，注入RSDL需要以下请求。
+         基于REST服务描述语言(RSDL)在完整的xml规范中提供了对REST API中的结构和元素的描述，注入RSDL需要以下请求。
       </para>
       <screen>
          GET /api?rsdl HTTP/1.1
