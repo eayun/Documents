@@ -1260,7 +1260,7 @@ cluster_version_incompatible_with_cluster
    </section>
    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_35">
       <title>
-         虚拟机设计类型
+         虚拟机设备类型
       </title>
       <para>
          <emphasis>vm_device_types</emphasis>元素罗列出了的虚拟机可能处于的状态。
