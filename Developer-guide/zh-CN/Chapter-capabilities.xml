@@ -676,7 +676,7 @@
          NIC接口类型
       </title>
       <para>
-         一个虚拟机需要一个网络接口才能联网。<emphasis>nic_interfaces</emphasis>元素定义了所支持的可用网卡类型。每一个<emphasis>nic_interface</emphasis>因为虚拟机的不同类型的从而取决于可用的驱动。VirtIO驱动可用于&OVIRT;企业级Linux4.8以及更高的版本还有Windows虚拟机也是可用的。Windows不需要徐东就可以支持rtl8139。其他Linux机器或者&OVIRT;企业级更早的Linux版本都使用e1000或者rtl8139。
+         一个虚拟机需要一个网络接口才能联网。<emphasis>nic_interfaces</emphasis>元素定义了所支持的可用网卡类型。每一个<emphasis>nic_interface</emphasis>因为虚拟机的不同类型的从而取决于可用的驱动。VirtIO驱动可用于&OVIRT;企业级Linux4.8以及更高的版本还有Windows虚拟机也是可用的。Windows不需要驱动就可以支持rtl8139。其他Linux机器或者&OVIRT;企业级更早的Linux版本都使用e1000或者rtl8139。
       </para>
       <programlisting>
          <![CDATA[
