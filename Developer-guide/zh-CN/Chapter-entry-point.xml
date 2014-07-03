@@ -4,7 +4,7 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-entry-points_Chapter">
-   <title>第五章 入口点</title>
+   <title>入口点</title>
    <para>
       
    </para>
@@ -458,9 +458,9 @@
          </table>
    </section>
    <section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_6">
-      <title>REST式服务语言（RSDL）</title>
+      <title>基于REST服务描述语言（RSDL）</title>
       <para>
-         REST式服务描述语言(REDL)在整个XML的说明书，在REST API中提供了对结构和元素的描述，注入RSDL需要以下请求。
+         基于REST服务描述语言(REDL)在完整的xml规范中提供了对REST API中的结构和元素的描述，注入RSDL需要以下请求。
       </para>
       <screen>
          GET /api?rsdl HTTP/1.1
@@ -597,7 +597,7 @@
                      <emphasis>link</emphasis>
                   </entry>
                   <entry>
-                     一个用于API请求的URI。包括一额URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
+                     一个用于API请求的URI。包括URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
                   </entry>
                </row>
                <row>
@@ -629,7 +629,7 @@
                      <emphasis>body</emphasis>                 
                   </entry>
                   <entry>
-                     定义了HTTP请求体。包含了资源<emphasis>类型</emphasis>和一个<emphasis>参数设置</emphasis>，它包含了一些列带有定义是否需要一个的参数元素
+                     定义了HTTP请求体。包含了资源<emphasis>类型</emphasis>和一个<emphasis>参数设置</emphasis>，它包含了一系列带有定义是否需要一个的参数元素
                   </entry>
                </row>
                <row>
