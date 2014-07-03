@@ -744,7 +744,7 @@ Content-Type: [MIME type]
             这没有包括不变的资源属性，即那种用户试图更改的API。如果要尝试修改绝对不可改变的属性时，API会在响应体中报出一个错误报告。
          </para>
          <para>
-            从表示中移处的属性被忽略而且不可改变。
+            从表示中省略属性被忽略而且不可改变。
          </para>
          </section>
          <section id="sect-EayunOS-Developer-guide-common-featuress_Chapter-common-featuress_Section_4-4">
@@ -772,7 +772,7 @@ Accept: [MIME type]
                子集合关系
             </title>
             <para>
-               一个子集合关系定义了资源与子集合之间的分层链接。这个子集合是存在的并且有着资源上下文的含义。举例来说，一泰虚拟机包含了网络接口，这就意味这API映射到虚拟机资源和网络接口子集合的关系。
+               一个子集合关系定义了资源与子集合之间的分层链接。这个子集合是存在的并且有着资源上下文的含义。举例来说，一台虚拟机包含了网络接口，这就意味这API映射到虚拟机资源和网络接口子集合的关系。
             </para>
             <para>
          子集合被用于模拟如下关系类型：
@@ -837,9 +837,7 @@ href="/api/collection/resource_id/subcollection/subresource_id">
       <para>
          XML元素的链接作为一个替代的子集来表示资源之间的关系。
 XML元素链接是简单地用一个“href”属性指向的链接元素的元素。
-XML元素的链接是用来模拟简单的1：没有一个依赖资源N之间的映射
-和不与关系相关联的数据。例如，一个主机和一个之间的关系
-集群。
+XML元素的链接是用来模拟简单的资源之间的1：N映射，这种资源是独立的且没有与关系关联的数据。例如，一个主机和一个集群之间的关系。
       </para>
       <para>
          这些关系的例子包括：
@@ -900,6 +898,9 @@ href="/api/collection/resource_id/subcollection/subresource_id">
       <para>
 该API调用一个指令与一个POST请求提供的URI。在POST的请求体需要
 指令表示包封常见和任务特定的参数。
+
+API调用一个对提供的URI的<emphasis>POST</emphasis>请求。<emphasis>POST</emphasis>请求体需要一个<emphasis>指令</emphasis>表示，这个表示中封装了通用的与特定于任务的参数。
+
       </para>
       <table>
          <title>
@@ -1078,7 +1079,7 @@ href="/api/collection/resource_id/action/action_id">
                    许可   
                 </title>
             <para>
-         每个资源都包含了一个issions子集。每个<emphasis>permission</emphasis>包含一个用户，一个分配角色和指定的资源。例如：
+               每个资源都包含了一个<emphasis>权限</emphasis>子集。每个<emphasis>permission</emphasis>包含一个用户，一个分配角色和指定的资源。例如：
          </para>
       <programlisting>
          <![CDATA[
