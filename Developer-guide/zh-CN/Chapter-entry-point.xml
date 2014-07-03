@@ -597,7 +597,7 @@
                      <emphasis>link</emphasis>
                   </entry>
                   <entry>
-                     一个用于API请求的URI。包括URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
+                     一个用于API请求的URI。包括一个URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
                   </entry>
                </row>
                <row>
