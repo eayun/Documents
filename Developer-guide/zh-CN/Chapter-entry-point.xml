@@ -740,7 +740,7 @@ http://SERVER:PORT/api/vms/GUID/disks/
                                         ]]>
                                 </programlisting>
 				<para>
-					当创建一个必须通过磁盘ID和快照ID的一块磁盘的时候可看下面的例子：
+					当必须通过磁盘ID和快照ID来创建一块磁盘的时候可看下面的例子：
 				</para>
 				<programlisting>	
 					<![CDATA[
