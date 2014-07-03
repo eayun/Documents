@@ -296,7 +296,7 @@ Accept: application/xml; detail=subcollection1+subcollection2+subcollection3
             ]]>
          </programlisting>
          <para>
-            API未下面的主集合扩展了子集合。
+            API为下面的主集合扩展了子集合。
          </para>
          <table>
             <title>
