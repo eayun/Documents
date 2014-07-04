@@ -312,7 +312,7 @@
   </section>
 
   <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3">
-    <title>操作</title>
+    <title>方法</title>
     <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_3-1">
       <title>创建存储域</title>
       <para>
@@ -394,7 +394,7 @@ HTTP/1.1 204 No Content
     <section id="sect-EayunOS-Developer-guide-Storage_Chapter-Section_4-1">
       <title>存储类型</title>
       <para>
-        <emphasis>storage</emphasis> 元素包含一个 <emphasis>type</emphasis> 元素，它是 <emphasis>capabilities</emphasis> 集合下的一个布尔值。
+        <emphasis>storage</emphasis> 元素包含一个 <emphasis>type</emphasis> 元素，它是 <emphasis>capabilities</emphasis> 集合下的一个枚举值。
       </para>
       <para>
         存储元素也包含了一个附加的与每一种存储类型（<emphasis>type</emphasis>）有关的元素。接下来的几小节将验证这个附加的 <emphasis>type</emphasis> 元素。
@@ -518,7 +518,7 @@ HTTP/1.1 204 No Content
                 字符串
               </entry>
               <entry>
-                PosixFS 服务器上可挂载的目录。
+                PosixFS 服务器上可挂载目录的路径。
               </entry>
               <entry>
                 <inlinemediaobject>
@@ -620,7 +620,7 @@ HTTP/1.1 204 No Content
                 布尔型
               </entry>
               <entry>
-                定义是否用新的配置覆盖所有逻辑单元的设置，设置 <emphasis>true</emphasis> 来覆盖。设置 <emphasis>true</emphasis> 来覆盖。
+                定义是否用新的配置覆盖所有逻辑单元的设置，设置 <emphasis>true</emphasis> 来覆盖。
               </entry>
               <entry>
                 <inlinemediaobject>
@@ -1144,7 +1144,7 @@ Content-Type: application/xml
         <emphasis>格式化存储域</emphasis>
       </para>
       <para>
-        一个 API 用户提供了一个可选的 <emphasis>format</emphasis> 元素来指定是否格式化存储域。
+        一个 API 用户提供了一个可选的 <emphasis>format</emphasis> 元素来指定在删除存储域后是否格式化存储域。
       </para>
       <example>
         <title>在删除了存储域后格式化存储域</title>
