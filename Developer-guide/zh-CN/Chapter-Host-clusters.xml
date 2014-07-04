@@ -589,7 +589,7 @@ HTTP/1.1 204 No Content
     <section id="sect-EayunOS-Developer-guide-clusters_Chapter-clusters_Section_6-1">
       <title>网络子集</title>
       <para>
-        和一个集群联系起来的网络以 <emphasis>networks</emphasis> 子集来展现。该集群内的没一台主机都连接到该网络。
+        和一个集群联系起来的网络以 <emphasis>networks</emphasis> 子集来展现。该集群内的每一台主机都连接到该网络。
       </para>
       <para>
         集群的 <emphasis>network</emphasis> 子集和标准的 <emphasis>network</emphasis> 资源基本一样，除了以下的附加元素：
