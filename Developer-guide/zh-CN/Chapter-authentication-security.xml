@@ -29,13 +29,13 @@
             <para>
               如果使用的是 cURL：
             </para>
-            <screen>$ curl -o rhevm.cer http://[EayunOS-server]/ca.crt</screen>
+            <screen>$ curl -o EayunOS.cer http://[EayunOS-server]/ca.crt</screen>
           </listitem>
           <listitem>
             <para>
               如果使用的是 Wget：
             </para>
-            <screen>$ wget -O rhevm.cer http://[EayunOS-server]/ca.crt</screen>
+            <screen>$ wget -O EayunOS.cer http://[EayunOS-server]/ca.crt</screen>
           </listitem>
         </itemizedlist>
       </step>
@@ -192,12 +192,12 @@ HTTP/1.1 200 OK
     </example>
     <important>
       <para>
-        基本的认证牵涉到潜在的敏感数据，例如密码，将会以明文传输。REST API 要求使用超文本安全传输协议（HTTPS）来在应用层上加密请求的明文数据。
+        基本的认证牵涉到潜在的敏感数据，例如密码，将会以明文传输。REST API 要求使用超文本安全传输协议（HTTPS）来在传输层上加密请求的明文数据。
       </para>
     </important>
     <important>
       <para>
-        有一些 bse64 的库会将结果分成多行并且在每行后会增加一个换行符。这将会破坏消息头且造成一次失败的请求。认证消息头要求加密的凭证要在消息头的一行之内。
+        有一些 base64 的库会将结果分成多行并且在每行后会增加一个换行符。这将会破坏消息头且造成一次失败的请求。认证消息头要求加密的凭证要在消息头的一行之内。
       </para>
     </important>
   </section>

@@ -268,7 +268,7 @@
               布尔值：true 或者 false
             </entry>
             <entry>
-              如果透明大页计数开启的话该属性为 <emphasis>true</emphasis>。
+              如果透明大页开启的话该属性为 <emphasis>true</emphasis>。
             </entry>
             <entry>
             </entry>
@@ -2022,7 +2022,7 @@ Content-type: application/xml
     <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Hosts_Section_7-1">
       <title>安装 VDSM 操作</title>
       <para>
-        在主机上安装 VDSM 以及相关的软体。主机类型定义了需要额外增加的参数。
+        在主机上安装 VDSM 以及相关的软件。主机类型定义了需要额外增加的参数。
       </para>
       <itemizedlist>
         <listitem>

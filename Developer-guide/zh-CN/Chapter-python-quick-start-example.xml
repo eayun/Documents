@@ -347,7 +347,7 @@ Host 'Atlantic' approved (Status: Up).
   <section id="sect-EayunOS-Developer-guide-python-quick-start-examples_Chapter_Section_8">
     <title>示例: 使用 Python 创建 NFS 数据域</title>
     <para>
-      创建 &OVIRT; 是, 至少需要定义一个数据存储域和一个 ISO 存储域. 数据存储域用来保存虚拟机磁盘镜像, ISO 存储域用来保存安装操作系统的镜像文件.
+      创建 &OVIRT; 时, 至少需要定义一个数据存储域和一个 ISO 存储域. 数据存储域用来保存虚拟机磁盘镜像, ISO 存储域用来保存安装操作系统的镜像文件.
     </para>
     <para>
       API 类提供了访问数据域集合的方法. 这些集合包含环境中的所有存储域, 这些方法也可以用来添加或者删除数据存储域.

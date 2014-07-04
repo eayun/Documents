@@ -294,7 +294,7 @@ HTTP/1.1 204 No Content
                 布尔值：<emphasis>true</emphasis> 或 <emphasis>false</emphasis>
               </entry>
               <entry>
-                档案将要应用到的逻辑网络的唯一识别号。
+                默认值为 <emphasis>false</emphasis>。
               </entry>
             </row>
           </tbody>

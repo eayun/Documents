@@ -481,7 +481,7 @@ Content-type: application/xml
         <programlisting>
           <![CDATA[
 # curl -X POST -H "Accept: application/xml" -H "Content-Type: application/xml"
-\G
+\
  -u [USER:PASS] --cacert [CERT] \
  -d "<action/>" \
  https://[EayunOS Host]:443/api/hosts/0656f432-923a-11e0-ad20-
