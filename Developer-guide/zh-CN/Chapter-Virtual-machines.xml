@@ -100,22 +100,7 @@
               </entry>
             </row>
 
-            <!--第四行-->
-            <row>
-              <entry>
-                link rel="tags"
-              </entry>
-              <entry>
-                关系
-              </entry>
-              <entry>
-                链接到快照子集的虚拟机资源
-              </entry>
-              <entry>
-                
-              </entry>
-            </row>
-
+            
             <!--第五行-->
             <row>
               <entry>
@@ -274,7 +259,7 @@ RHEL5 或 WindowsXP
                 枚举
               </entry>
               <entry>
-                ev属性在boot元素上描述的启动设备表,存在capabilities的枚举表中
+               dev属性在boot元素上描述的启动设备表,存在capabilities的枚举表中
               </entry>
               <entry>
                 
@@ -1495,7 +1480,7 @@ Content-type: application/xml
 
 
         <para>
-          下表列出里虚拟机磁盘的读取数据类型。
+          下表列出了虚拟机磁盘的读取数据类型。
         </para>
 
 
@@ -2708,7 +2693,7 @@ Content-type: application/xml
               memory.used
             </entry>
             <entry>
-              当前虚拟机所使用的内训，以字节计算
+              当前虚拟机所使用的内存，以字节计算
             </entry>
           </row>
 
@@ -2962,7 +2947,7 @@ Content-type: application/xml
     <title>迁移虚拟机</title>
 
       <para>
-        迁移操作会将虚拟机从一个物理主机迁移到另一个，目的主机时可选的，&OVIRT;公司的虚拟化管理器会自动选择一个默认主机进行迁移。如果一个API用户请求向一个特定的主机迁移，该用户可以用<emphasis>id</emphasis>或<emphasis>name</emphasis>参数指定一个主机。
+        迁移操作会将虚拟机从一个物理主机迁移到另一个，目的主机是可选的，&OVIRT;公司的虚拟化管理器会自动选择一个默认主机进行迁移。如果一个API用户请求向一个特定的主机迁移，该用户可以用<emphasis>id</emphasis>或<emphasis>name</emphasis>参数指定一个主机。
       </para>
 
       <para>
@@ -3018,7 +3003,7 @@ Content-type: application/xml
       </para>
 
       <para>
-        如果希望虚拟机快照不包含导出的虚拟机，则将<emphasis>discard_snapshots</emphasis>参数设置为<emphasis>true</emphasis>。
+        如果希望导出的虚拟机不包含快照，则将<emphasis>discard_snapshots</emphasis>参数设置为<emphasis>true</emphasis>。
       </para>
 
       <para>
