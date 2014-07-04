@@ -29,7 +29,7 @@
             <para>
               如果使用的是 cURL：
             </para>
-            <screen>$ curl -o rhevm.cer http://[EayunOS-server]/ca.crt</screen>
+            <screen>$ curl -o EayunOS.cer http://[EayunOS-server]/ca.crt</screen>
           </listitem>
           <listitem>
             <para>
