@@ -328,7 +328,7 @@ diskParam.setFormat("cow");
   <section id="sect-EayunOS-Developer-guide-using-java-sdk_Chapter-using-java-sdk_Section_10">
     <title>编辑子资源</title>
     <para>
-      下列示例概括了如何编辑子资源。在本示例中，‘test’虚拟机的‘test_Disk1’磁盘的名称将会跟新为‘test_Disk1_updated’。
+      下列示例概括了如何编辑子资源。在本示例中，‘test’虚拟机的‘test_Disk1’磁盘的名称将会更新为‘test_Disk1_updated’。
     </para>
     <procedure>
       <title>编辑一个子资源</title>
