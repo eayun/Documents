@@ -9,15 +9,15 @@
 		<revhistory>
 			<revision>
 				<revnumber>0.0-0</revnumber>
-				<date>Fri May 16 2014</date>
+				<date>Fri 4 Jul 2014</date>
 				<author>
-					<firstname>李</firstname>
-					<surname>建盛</surname>
-					<email>jiansheng.li@eayun.com</email>
+					<firstname>潘</firstname>
+					<surname>礼洋</surname>
+					<email>liyang.pan@eayun.com</email>
 				</author>
 				<revdescription>
 					<simplelist>
-						<member>Initial creation by publican</member>
+						<member>初版</member>
 					</simplelist>
 				</revdescription>
 			</revision>
