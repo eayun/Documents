@@ -172,7 +172,7 @@ href="/api/users/225f15cd-e891-434d-8262-a66808fcb9b1/tags"/>
 			<title>添加用户</title>
 
 			<para>
-				API用户可以用<emphasis>POST</emphasis>请求将一个用户添加到&OVIRT;公司虚拟管理数据库的<emphasis>users</emphasis>集合中。客户端提供的新用户包含一张嵌入的<emphasis>roles</emphasis>表，这张表中至少有一个内部角色分配给了用户。例如，下面的例子请求分配两个内部角色给用户<emphasis>joe@ dom ain.exam ple.com </emphasis>:
+				API用户可以用<emphasis>POST</emphasis>请求将一个用户添加到&OVIRT;企业虚拟管理数据库的<emphasis>users</emphasis>集合中。客户端提供的新用户包含一张嵌入的<emphasis>roles</emphasis>表，这张表中至少有一个内部角色分配给了用户。例如，下面的例子请求分配两个内部角色给用户<emphasis>joe@ dom ain.exam ple.com </emphasis>:
 			</para>
 
 			<para>
@@ -187,7 +187,7 @@ Accept: application/xml
 <user_name>joe@domain.example.com</user_name>
 <roles>
 <role>
-<name>RHEVMPowerUser</name>
+<name>EAYUNPowerUser</name>
 </role>
 <role id="00000000-0000-0000-0001-000000000003"/>
 </roles>
@@ -198,17 +198,17 @@ Accept: application/xml
 			</para>
 
 			<para>
-				新用户是以&OVIRT;公司虚拟管理中的用户ID或通过目录服务器的用户主体名称(UPN)进行验证的。从目录服务器域中报告用户ID格式可能与&OVIRT;公司虚拟管理中的格式不同，例如LDIF，ID将拥有相反的字节顺序，并且用base-64编码。因此用UPN来关联新用户会更方便。
+				新用户是以&OVIRT;企业虚拟管理中的用户ID或通过目录服务器的用户主体名称(UPN)进行验证的。从目录服务器域中报告用户ID格式可能与&OVIRT;企业虚拟管理中的格式不同，例如LDIF，ID将拥有相反的字节顺序，并且用base-64编码。因此用UPN来关联新用户会更方便。
 			</para>
 
 			<note>
 				<para>
-					用户在添加到&OVIRT;公司虚拟环境管理数据库之前就已经在目录服务器中存在。API用户在创建用户时可以提前从<emphasis>domains</emphasis>集合上查询域。
+					用户在添加到&OVIRT;企业虚拟环境管理数据库之前就已经在目录服务器中存在。API用户在创建用户时可以提前从<emphasis>domains</emphasis>集合上查询域。
 				</para>
 			</note>
 
 			<para>
-				使用name或ID验证角色，上面的例子展示里这两种方法。
+				使用name或ID验证角色，上面的例子展示了这两种方法。
 			</para>
 
 		</section>
@@ -217,7 +217,7 @@ Accept: application/xml
 			<title>为用户添加一个角色</title>
 
 			<para>
-				使用<emphasis>POST</emphasis>或<emphasis>DELETE</emphasis>请求进一步将角色从用户中附加或删除。下面的例子说明了API用户如何将<emphasis>RHEVMVDIUser</emphasis>角色添加并分配到指定的用户中。
+				使用<emphasis>POST</emphasis>或<emphasis>DELETE</emphasis>请求进一步将角色从用户中附加或删除。下面的例子说明了API用户如何将<emphasis>EAYUNVDIUser</emphasis>角色添加并分配到指定的用户中。
 			</para>
 
 			<note>
@@ -235,7 +235,7 @@ POST /api/users/225f15cd-e891-434d-8262-a66808fcb9b1/roles HTTP/1.1
 Content-Type: application/xml
 Accept: application/xml
 <role>
-<name>RHEVMVDIUser</name>
+<name>EAYUNVDIUser</name>
 </role>
 						]]>
 					</programlisting>
