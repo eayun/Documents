@@ -367,7 +367,7 @@ api_instance.disconnect()
 		</para>
                 <formalpara><title>ConnectionError</title>
                   <para>
-                    当传输层发生错误是抛出。
+                    当传输层发生错误时抛出。
                   </para>
                 </formalpara>
                 <formalpara><title>DisconnectedError</title>
