@@ -83,10 +83,10 @@
             <tbody>
                <row>
                   <entry>
-                     透明大页存储策略
+                     透明大页内存策略
                   </entry>
                   <entry>
-                     允许你定义主机的透明大页存储可用性。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
+                     允许你定义主机的透明大页内存可用性。可用的值是<emphasis>true</emphasis>或<emphasis>false</emphasis>。
                   </entry>
                </row>
                <row>
@@ -94,7 +94,7 @@
                      Gluster支持
                   </entry>
                   <entry>
-                     这个特性提供了对使用用于存储的Gluster容器和Bricks的支持。
+                     这个特性提供了对使用用于存储的Gluster卷和块的支持。
                   </entry>
                </row>
                <row>
@@ -163,7 +163,7 @@
                </row>
                <row>
                   <entry>
-                     激活的和未激活的硬盘
+                     激活的和为激活的硬盘
                   </entry>
                   <entry>
                      允许通过为一块具体的虚拟硬盘指定激活和吊销的动作来操作硬盘。
@@ -171,10 +171,10 @@
                </row>
                <row>
                   <entry>
-                     激活的和未激活的网络接口插件。
+                     激活的和为激活的网络接口插件。
                   </entry>
                   <entry>
-                     允许通过为一块具体的网络接口差价指定激活的和吊销的动作操作网络接口插件。
+                     允许通过为一块具体的网络接口插件指定激活的和吊销的动作操作网络接口插件。
                   </entry>
                </row>
                <row>
@@ -182,7 +182,7 @@
                      快照重构
                   </entry>
                   <entry>
-                     允许未虚拟机重构快照。
+                     允许为虚拟机重构快照。
                   </entry>
                </row>
                <row>
@@ -214,7 +214,7 @@
                      基于会话的权限
                   </entry>
                   <entry>
-                     允许通过提供一个合适的请求头来维护客户端和服务器段的会话，不用再在每一个请求上进行登录操作。
+                     允许通过提供一个合适的请求头来维护客户端和服务器端的会话，不用再在每一个请求上进行登录操作。
                   </entry>
                </row>
                <row>
@@ -331,10 +331,10 @@
                </row>
                <row>
                   <entry>
-                     图像存储域(技术预览)
+                     镜像存储域(技术预览)
                   </entry>
                   <entry>
-                     允许导入导出图像格式至一个图像存储域上，比如OpenStsack图像服务(Glance)。
+                     允许导入导出图像格式至一个镜像存储域上，比如OpenStsack镜像服务(Glance)。
                   </entry>
                </row>
                <row>
@@ -355,7 +355,7 @@
                </row>
                <row>
                   <entry>
-                     初始化云
+                     Cloud Init
                   </entry>
                   <entry>
                      允许用初始化云来初始化一个虚拟机。
@@ -408,7 +408,7 @@
                      <emphasis>id</emphasis>
                   </entry>
                   <entry>
-                     CPU模式下透明的标示符
+                     CPU模式下不透明的标示符
                   </entry>
                </row>
                <row>
@@ -634,7 +634,7 @@
          启动设备
        </title>
        <para>
-          每一个虚拟机会从以选择的设备中启动。<emphasis>boot_devices</emphasis>元素罗列除了<emphasis>boot_device</emphasis>选项。
+          每一个虚拟机会从已选择的设备中启动。<emphasis>boot_devices</emphasis>元素罗列除了<emphasis>boot_device</emphasis>选项。
        </para>
        <programlisting>
           <![CDATA[
@@ -676,7 +676,7 @@
          NIC接口类型
       </title>
       <para>
-         一个虚拟机需要一个网络接口才能联网。<emphasis>nic_interfaces</emphasis>元素定义了所支持的可用网卡类型。每一个<emphasis>nic_interface</emphasis>因为虚拟机的不同类型的从而取决于可用的驱动。VirtIO驱动可用于&OVIRT;企业级Linux4.8以及更高的版本还有Windows虚拟机也是可用的。Windows不需要徐东就可以支持rtl8139。其他Linux机器或者&OVIRT;企业级更早的Linux版本都使用e1000或者rtl8139。
+         一个虚拟机需要一个网络接口才能联网。<emphasis>nic_interfaces</emphasis>元素定义了所支持的可用网卡类型。每一个<emphasis>nic_interface</emphasis>因为虚拟机的不同类型的从而取决于可用的驱动。VirtIO驱动可用于&OVIRT;企业级Linux4.8以及更高的版本还有Windows虚拟机也是可用的。Windows不需要驱动就可以支持rtl8139。其他Linux机器或者&OVIRT;企业级更早的Linux版本都使用e1000或者rtl8139。
       </para>
       <programlisting>
          <![CDATA[
@@ -749,7 +749,7 @@
          磁盘格式
       </title>
       <para>
-         API用户为虚拟磁盘选择了格式。<emphasis>disk_formats</emphasis>元素定义了格式类型。<emphasis>disk_format</emphasis>类型包括了域分配<emphasis>(raw)</emphasis>或者精简预先配置(写入时复制或者<emphasis>cow</emphasis>)
+         API用户为虚拟磁盘选择了格式。<emphasis>disk_formats</emphasis>元素定义了格式类型。<emphasis>disk_format</emphasis>类型包括了预分配<emphasis>(raw)</emphasis>或者精简预先配置(写入时复制或者<emphasis>cow</emphasis>)
       </para>
       <programlisting>
          <![CDATA[
@@ -1105,7 +1105,7 @@ cluster_version_incompatible_with_cluster
    </section>
    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_29">
       <title>
-         模板类型
+         模板状态
       </title>
       <para>
          <emphasis>template_states</emphasis>元素罗列出了模板可能处于的状态。
@@ -1260,7 +1260,7 @@ cluster_version_incompatible_with_cluster
    </section>
    <section id="sect-EayunOS-Developer-guide-capabilitiess_Chapter-capabilitiess_Section_35">
       <title>
-         虚拟机设计类型
+         虚拟机设备类型
       </title>
       <para>
          <emphasis>vm_device_types</emphasis>元素罗列出了的虚拟机可能处于的状态。

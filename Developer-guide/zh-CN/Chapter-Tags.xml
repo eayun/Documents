@@ -4,30 +4,338 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Tags_Chapter">
-	<title>Tags Chapter</title>
-	<para>
-		This is a test paragraph
-	</para>
-	<section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_1">
-		<title>Tags Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_2">
-		<title>Tags Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+  <title>标签</title>
+  <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_1">
+    <title>标签元素</title>
+    <para>
+      <emphasis>tags</emphasis> 集合提供了&OVIRT;企业虚拟化环境中的标签信息。一个 API 用户可以通过入口 URI 的 <emphasis>rel="tags"</emphasis> 链接来访问该信息。
+    </para>
+    <para>
+      下表展示了在标签资源展现中的具体元素。
+    </para>
+    <table>
+      <title>存储域元素</title>
+      <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+            <entry>
+              属性
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>host</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              标签附加到的主机的索引。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>user</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              标签附加到的用户的索引。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>vm</emphasis>
+            </entry>
+            <entry>
+              GUID
+            </entry>
+            <entry>
+              标签附加到的虚拟机的索引。
+            </entry>
+            <entry>
+              <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="images/lock.png" format="PNG" scale="100"/>
+                </imageobject>
+              </inlinemediaobject>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>parent</emphasis>
+            </entry>
+            <entry>
+              复合体
+            </entry>
+            <entry>
+              标签附加到的虚拟机的索引。
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  
+  <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_2">
+    <title>标签资源的 XML 展现</title>
+    <example>
+      <title>一个标签资源的 XML 展现</title>
+      <programlisting>
+        <![CDATA[
+<tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"
+ href="/api/tags/f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e">
+ <name>Finance</name>
+ <description>Resources for the Finance department</description>
+ <parent>
+ <tag id="-1" href="/api/tags/-1"/>
+ </parent>
+</tag>
+]]>
+      </programlisting>
+    </example>
+  </section>
 
+  <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_3">
+    <title>关联标签</title>
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_3-1">
+      <title>将标签关联到主机，用户或者虚拟机</title>
+      <para>
+        在 <emphasis>host</emphasis>，<emphasis>user</emphasis> 或者 <emphasis>vms</emphasis> 内的 <emphasis>link rel="tags"</emphasis> 中的集合代表了关联到如上实体的一个标签集。
+      </para>
+      <para>
+        <emphasis>tag</emphasis> 的展现也包含了一个关联到对应实体的 <emphasis>host id</emphasis>，<emphasis>user id</emphasis> 或者 <emphasis>vm id</emphasis>。
+      </para>
+      <para>
+        让一个标签关联到一个实体是通过向集合发送一个 <emphasis>POST</emphasis> 类型的标签索引（通过 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 来时别标签）。
+      </para>
+      <example>
+        <title>将一个标签与虚拟机向关联</title>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<tag>
+ <name>Finance</name>
+</tag>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+<tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"
+ href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags/
+ f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e">
+ <name>Finance</name>
+ <description>Resources for the Finance department</description>
+ <vm id="5114bb3e-a4e6-44b2-b783-b3eea7d84720"
+ href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720"/>
+</tag>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_3-2">
+      <title>删除一个标签</title>
+      <para>
+        删除一个关联是通过向集合中的合适元素执行一个 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>从一个虚拟机中移除一个标签</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags/f436ebfc-67f2-41bd-
+8ec6-902b6f7dcb5e HTTP/1.1
+
+HTTP/1.1 204 No Content
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_3-3">
+      <title>从标签中查询资源集合</title>
+      <para>
+        为了查询一个标签所索引到的实体集合，相应集合的 <emphasis>collection/search</emphasis> URI模板应该被使用以用来查询符合 <emphasis>tag=MyTag</emphasis> 的实体。
+      </para>
+      <example>
+        <title>从标签中查询资源集合</title>
+        <programlisting>
+          <![CDATA[
+GET /api/vms?search=tag%3DFinance HTTP/1.1
+Accept: application/xml
+
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<vms>
+ <vm id="5114bb3e-a4e6-44b2-b783-b3eea7d84720"
+ href="/api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720">
+ ...
+ </vm>
+ ...
+</vms>
+]]>     
+        </programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_4">
+    <title>父标签</title>
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_4-1">
+      <title>父标签</title>
+      <para>
+        一个 API 用户通过给一个标签指定 <emphasis>parent</emphasis> 元素来给父标签创建一个结构化的链接。标签从 <emphasis>root</emphasis> 标签开始以扁平的集合的形式展现，标签内都有一个指向父标签的链接。
+      </para>
+      <note>
+        <para>
+          <emphasis>root</emphasis> 标签是一个特别伪造的父标签，如果标签内没有指定父标签，它就被当成默认的父标签。<emphasis>root</emphasis> 标签不能被删除或者引用父标签。
+        </para>
+      </note>
+      <para>
+        该标签的结构可以以如下的方式展现：
+      </para>
+      <example>
+        <title>标签结构</title>
+        <programlisting>
+          <![CDATA[
+<tags>
+ <tag id="-1" href="/api/tags/-1">
+ <name>root</name>
+ <description>root</description>
+ <parent>
+ <tag id="-1" href="/api/tags/-1"/>
+ </parent>
+ </tag>
+ <tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"
+ href="/api/tags/f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e">
+ <name>Finance</name>
+ <description>Resources for the Finance department</description>
+ <parent>
+ <tag id="-1" href="/api/tags/-1"/>
+ </parent>
+ </tag>
+ <tag id="ac18dabf-23e5-12be-a383-a38b165ca7bd"
+ href="/api/tags/ac18dabf-23e5-12be-a383-a38b165ca7bd">
+ <name>Billing</name>
+ <description>Billing Resources</description>
+ <parent>
+ <tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"
+ href="/api/tags/f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"/>
+ </parent>
+ </tag>
+</tags>
+]]>
+        </programlisting>
+        <para>
+          在这个 XML 展示中，标签遵循如下的结构：
+        </para>
+        <programlisting>
+          <![CDATA[
+root (id: -1)
+ - Finance (id: f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e)
+ - Billing (id: ac18dabf-23e5-12be-a383-a38b165ca7bd)
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_4-2">
+      <title>设置一个父标签</title>
+      <para>
+        向一个包含了 <emphasis>parent</emphasis> 元素的标签发送 <emphasis>POST</emphasis> 请求将会创建将该标签与父标签相关联，可以使用 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 元素来索引到父标签。
+      </para>
+      <example>
+        <title>使用 id 元素设置一个父标签</title>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<tag>
+ <name>Billing</name>
+ <description>Billing Resources</description>
+ <parent>
+ <tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"/>
+ </parent>
+</tag>
+]]>
+        </programlisting>
+      </example>
+      <example>
+        <title>使用 name 元素设置一个父标签</title>
+        <programlisting>
+          <![CDATA[
+POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<tag>
+ <name>Billing</name>
+ <description>Billing Resources</description>
+ <parent>
+ <tag>
+ <name>Finance</name>
+ </tag>
+ </parent>
+</tag>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_4-3">
+      <title>更改一个父标签</title>
+      <para>
+        使用 <emphasis>PUT</emphasis> 请求来更改i标签的父标签：
+      </para>
+      <example>
+        <title>更改父标签</title>
+        <programlisting>
+          <![CDATA[
+PUT /api/tags/ac18dabf-23e5-12be-a383-a38b165ca7bd HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+<tag>
+ <parent>
+ <tag id="f436ebfc-67f2-41bd-8ec6-902b6f7dcb5e"/>
+ </parent>
+</tag>
+]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
 </chapter>
 

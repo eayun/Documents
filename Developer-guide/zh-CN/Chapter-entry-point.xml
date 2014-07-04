@@ -4,7 +4,7 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-entry-points_Chapter">
-   <title>第五章 入口点</title>
+   <title>入口点</title>
    <para>
       
    </para>
@@ -458,9 +458,9 @@
          </table>
    </section>
    <section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_6">
-      <title>REST式服务语言（RSDL）</title>
+      <title>基于REST服务描述语言（RSDL）</title>
       <para>
-         REST式服务描述语言(REDL)在整个XML的说明书，在REST API中提供了对结构和元素的描述，注入RSDL需要以下请求。
+         基于REST服务描述语言(RSDL)在完整的xml规范中提供了对REST API中的结构和元素的描述，注入RSDL需要以下请求。
       </para>
       <screen>
          GET /api?rsdl HTTP/1.1
@@ -597,7 +597,7 @@
                      <emphasis>link</emphasis>
                   </entry>
                   <entry>
-                     一个用于API请求的URI。包括一额URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
+                     一个用于API请求的URI。包括一个URI属性(<emphasis>href</emphasis>)和一个关系类型属性(<emphasis>rel</emphasis>)
                   </entry>
                </row>
                <row>
@@ -629,7 +629,7 @@
                      <emphasis>body</emphasis>                 
                   </entry>
                   <entry>
-                     定义了HTTP请求体。包含了资源<emphasis>类型</emphasis>和一个<emphasis>参数设置</emphasis>，它包含了一些列带有定义是否需要一个的参数元素
+                     定义了HTTP请求体。包含了资源<emphasis>类型</emphasis>和一个<emphasis>参数设置</emphasis>，它包含了一系列带有定义是否需要一个的参数元素
                   </entry>
                </row>
                <row>
@@ -644,4 +644,267 @@
          </tgroup>
       </table>
    </section>
+   <section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_7">
+      	<title>
+	备份-还原API概述
+	      </title>
+      	<para>
+	这个特性为独立的软件供应商提供了备份还原虚拟机的功能。&OVIRT;企业级虚拟管理中的许多API提供了虚拟机完整备份以及虚拟机的完整还原和虚拟机文件级别的还原。&OVIRT;企业级虚拟的备份和还原特性都是以REST API驱动的(而不是由GUI或用户驱动的)
+      	</para>
+      	<para>
+      	ISV的备份-还原API提供了下面的特性：
+     	 </para>
+      	<itemizedlist>
+		<listitem>
+			<para>
+				虚拟机的完整备份
+			</para>
+		</listitem>
+		<listitem>
+                        <para>
+                                从备份还原整个虚拟机
+                        </para>
+                </listitem>
+		<listitem>
+                        <para>
+                                文件级备份
+                        </para>
+                </listitem>
+		<listitem>
+                        <para>
+                                从文件级备份中还原
+                        </para>
+                </listitem>
+		<listitem>
+                        <para>
+                                LAN Free备份(SAN访问磁盘设备,开箱即可用)
+                        </para>
+                </listitem>
+	</itemizedlist>
+   </section>
+	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_8">
+		<title>
+			虚拟机的完整备份
+		</title>
+		<para>
+			虚拟机完整备份可以按照下面的方式实现：
+		</para>
+		<procedure>
+			<step>
+				<para>
+					采取有针对性备份的虚拟机的vm快照。
+				</para>
+			</step>
+			<step>
+				<para>
+					在快照的时候进行对虚拟机配置备份(磁盘配置可以随时进行备份)-(增加作为备份API一部分的&OVIRT;企业级虚拟管理器的功能)
+				</para>
+			</step>
+			<step>
+                                <para>
+                                        安装磁盘快照，它是为了备份数据，而被虚拟设备所创建在(1)中。(为作为备份API一部分的&OVIRT;企业级管理器添加功能)
+                                </para>
+                        </step>
+			<step>
+				<para>
+					备份数据	
+				</para>
+			</step>
+			<step>
+                                <para>
+                                        卸载来自于虚拟设备的且安装在的(4)中的磁盘快照-(为作为备份API一部分的&OVIRT;企业级虚拟管理器添加磁盘快照)
+                                </para>
+                        </step>
+		</procedure>
+		<para>	
+			这里是备份虚拟机的操作的例子
+		</para>
+		<procedure>
+			<step>
+				<para>
+					通过访问，导航到来自REST的想得到的的磁盘快照
+				</para>
+				<programlisting>
+					<![CDATA[
+ERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
+					]]>
+				</programlisting>
+			</step>
+			<step>
+                                <para>
+                                        磁盘id和快照id来POST已拷贝的磁盘。
+                                </para>
+                                <programlisting>
+                                        <![CDATA[
+http://SERVER:PORT/api/vms/GUID/disks/
+                                        ]]>
+                                </programlisting>
+				<para>
+					当必须通过磁盘ID和快照ID来创建一块磁盘的时候可看下面的例子：
+				</para>
+				<programlisting>	
+					<![CDATA[
+<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+</disk></disk>					
+					]]>
+				</programlisting>
+                        </step>
+			<step>
+                                <para>
+                                        在拷贝了磁盘数据之后，用REST和下面的参数将虚拟机中磁盘快照分离出来。
+                                </para>
+                                <programlisting>
+                                        <![CDATA[
+Method = DELETE
+URL indicates to the specific disk in the VM:
+http://SERVER:PORT/api/vms/GUID/disks/GUID
+Body=<action><detach>true</detach></action></detach></action>
+				        ]]>
+                                </programlisting>
+                        </step>
+		</procedure>
+	</section>	
+	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_9">
+		<title>
+			虚拟机的完整还原
+		</title>	
+		<para>
+			<emphasis>
+				总结
+			</emphasis>
+		</para>
+		<para>	
+			下面的步骤展示了如何完整还原虚拟机备份
+		</para>
+		<procedure>
+			<step>
+				<para>
+					为还原创建磁盘
+				</para>
+			</step>
+			<step>
+                                <para>
+                                        为还原虚拟机设备安装磁盘
+                                </para>
+                        </step>
+			<step>
+                                <para>
+                                        卸载虚拟机设备磁盘
+                                </para>
+                        </step>
+			<step>
+                                <para>
+                                        用一个保存在备份流中的设置文件创建虚拟机(为备份API的&OVIRT;企业级虚拟管理器添加功能)
+                                </para>
+                        </step>
+			<step>
+                                <para>
+                                        安装还原磁盘至虚拟机中。
+                                </para>
+                        </step>
+		</procedure>
+		<para>
+			<emphasis>结果</emphasis>
+		</para>
+		<para>
+			你还原了所有虚拟机备份。
+		</para>
+		<para>	
+			这是一个从备份中还原虚拟机的操作的例子：	
+		</para>
+		<procedure>
+			<step>		
+				<para>
+					创建一个以还原为目的磁盘：POST这个新磁盘:(例子)
+				</para>
+				<programlisting>
+					<![CDATA[
+http://SERVER:PORT/api/disks/
+					]]>
+				</programlisting>
+			</step>
+			<step>
+                                <para>
+                                        为虚拟设备安装磁盘:用磁盘idPOST这个已拷贝的磁盘(例子)
+                                </para>
+                                <programlisting>
+                                        <![CDATA[                                      
+sk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+</disk>http://SERVER:PORT/api/disks/
+					]]>
+                                </programlisting>
+                        </step>
+			<step>
+                                <para>
+                                        在从磁盘拷贝完数据后，将磁盘快照从使用REST和下面的参数的虚拟机中卸载磁盘快照(例子)：
+                                </para>
+                                <programlisting>
+                                        <![CDATA[                                      
+Method = DELETE
+URL indicates to the specific disk in the VM:
+http://SERVER:PORT/api/vms/GUID/disks/GUID
+Body=<action><detach>true</detach></action></detach></action>
+					]]>
+                                </programlisting>
+                        </step>
+		</procedure>
+	</section>
+	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_10">
+		<title>&OVIRT;企业级虚拟windows客户机的VSS支持</title>
+		<para>
+			&OVIRT;企业级备份和还原API提供了使用<emphasis>qemu-ga</emphasis>的与Microsoft的整合。这个VSS为客户工具部署的一部分提供了级别不同的用户注册。
+		</para>	
+		<para>
+			<emphasis>qemu-ga</emphasis>提供了VSS支持和对于随时可能出现的现场快照实验。
+		</para>
+	</section>
+	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_11">
+                <title>
+			QEMU客户代理概述	
+		</title>
+		<para>
+         在&OVIRT;企业级Linux6.4中，QEMU客户代理对Linux客户虚拟机进行保护，以防虚拟机腐化。在提出一个快照请求或创建磁盘的备份拷贝之前，管理堆栈（libvirt）会通过virtio-serial端口发送一个<emphasis>guest-fsfreeze-freeze QMP</emphasis>命令至QEMU GA。这条命令导致了客户端代理会通过<emphasis>FIFREEZE ioctl()</emphasis>核心功能冻结所有的客户虚拟机的文件系统。这个<emphasis>ioctl()</emphasis>功能是有客户端虚拟机中的Linux内核实现的。这个功能刷新了客户端虚拟机内核中的文件系统缓存，使文件系统进入一种持续的状态，并且禁止所有的用户空间的线程写入文件系统。
+      </para>
+      <para>
+         只有在<emphasis>QEMU GA</emphasis>报告成功之前，<emphasis>libvirt</emphasis>将继续执行快照。在它完成期间，<emphasis>libvirt</emphasis>发送了<emphasis>guest-fsfreeze-thaw QMP</emphasis>命令至virtio-serial端口上的<emphasis>QEMU GA</emphasis>。这条命令告诉<emphasis>QEMU GA</emphasis>提出一个<emphasis>FITHAW ioctl()</emphasis>,它将之前不能进行写操作的用户空间的线程进行解锁，并恢复正常的处理。这个过程不能保证当进行虚拟磁盘快照时应用级数据处在一种持续状态中。fsck实用程序没有发现快照恢复的文件系统的问题时非常明显的，而且应用程序不能恢复处理快照的执行和用户空间过程可能不会将它们的内置缓冲写入磁盘。
+      </para>
+      <para>
+         &OVIRT;企业级Linux6.5保证了文件和应用级别异步（缓冲）可以工作。客户系统管理员可以写和安装特定的应用程序，这个应用程序可冻融钩子程序。在冻融钩子程序之前，<emphasis>QEMU GA</emphasis>条用了主钩子脚本（包含<emphasis>QUMU GA</emphasis>包）。主钩子脚本回调个别的特定应用的脚本，这个脚本是由客户端系统管理员提供的，它会临时金庸所有客户端虚拟应用。当模式变为冻结模式时，所有的指令都会执行。
+      </para>
+      <para>
+         在文件系统被冻结之前，客户端系统管理员的脚本会引起数据库和其他文件系统应用
+         去刷新他们的磁盘里的工作缓存并且不再接受远程客户端连接。这些应用的数据随即
+         进入了一种持续状态,在这种状态下可以恢复处理，应用(存储备份的虚拟磁盘后)实例
+        的再生(或者重新开始)也会变为可能。当所有应用程序注销了，并且主钩脚本返回时，QEMU GA过程会冻结文件系统。管理栈会进行快照。这个过程完成并且快照也执行完了之后，文件系统将会恢复服务写入请求。这个过程被称为解冻。
+      </para>
+      <para>
+         解冻是冷冻反向过程。libvirt的指令，QEMU GA解冻了客户端虚拟机的文件系统。它之后会调用钩子脚本（通过主钩脚本）来恢复或者重启应用程序，这些应用程序会在冻结过程中被注销。
+      </para>
+	</section>
+	<section id="sect-EayunOS-Developer-guide-entry-points_Chapter-entry-points_Section_12">
+                <title>
+			VSS交易流程	
+		</title>
+		<para>
+			在备份的过程中，请求者和协调此事的人：提供了从一个稳定的系统图片到备份数据，在它们使用的基础上将文件组合在一起，将信息保存在已保存的数据上。并且需要尽可能的不中断的工作流。
+		</para>
+		<para>
+			一个请求(在这种备份场上的示例下)为他们的元数据查询writers，并处理数据，注意对于卷影副本和备份操作的开始的writers的由县级，还会在卷影和操作备份后开始通知。
+		</para>
+		<para>
+			这里是在客户工具安装后，QEMU VSS提供者是如何被注册到Windows操作系统
+		</para>
+		<programlisting>
+			<![CDATA[
+C:\Users\Administratorvssadmin list providers
+vssadmin 1.1 - Volume Shadow Copy Service administrative command-line tool
+(C) Copyright 2001-2005 Microsoft Corp.
+Provider name: 'QEMU Guest Agent VSS Provider'
+Provider type: Software
+Provider Id: {3629d4ed-ee09-4e0e-9a5c-6d8ba2872aef}
+Version: 0.12.1>
+			]]>
+		</programlisting>
+	</section>
 </chapter>

@@ -3,13 +3,145 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "Developer-guide.ent">
 %BOOK_ENTITIES;
 ]>
-<appendix id="appe-eayunos-api-enumerated-value-translation">
-  <title>&OVIRT; &MANAGER;用户界面插件</title>
+<appendix id="appe-Enumerated_Value_Translation">
+  <title>枚举值转换</title>
 
-  <section id="sect-eayunos-api-enumerated-value-translation-1">
-    <title>&OVIRT; &MANAGER;用户界面插件</title>
+  <section id="sect-Enumerated_Value_Translation-Enumerated_Value_Translation">
+    <title>枚举值转换</title>
     <para>
+      API 使用 &OVIRT; 查询语言来进行搜索查询。关于查询语言的更多信息，请参考《&OVIRT; 系统管理员手册》中的“在 &OVIRT; 中进行搜索”相关章节的详细介绍。
     </para>
+    <para>
+      请注意当使用查询语言时，API 中特定的枚举值要求不同的搜索查询。下面的表格提供了对这些关键的枚举值进行转换的参考。
+    </para>
+    <table>
+      <title>枚举值转换</title>
+      <tgroup cols="5" align="left" colsep="1" rowsep="1">
+        <thead>
+          <row>
+            <entry>
+              资源类型
+            </entry>
+            <entry>
+              API 枚举类型
+            </entry>
+            <entry>
+              API 枚举值
+            </entry>
+            <entry>
+              查询语言属性
+            </entry>
+            <entry>
+              查询语言中的值
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              数据中心
+            </entry>
+            <entry>
+              <emphasis>data_center_states</emphasis>
+            </entry>
+            <entry>
+              <emphasis>not_operational</emphasis>
+            </entry>
+            <entry>
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              <emphasis>notoperational</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry morerows="4" valign="middle">
+              主机
+            </entry>
+            <entry morerows="4" valign="middle">
+              <emphasis>host_states</emphasis>
+            </entry>
+            <entry>
+              <emphasis>non_responsive</emphasis>
+            </entry>
+            <entry morerows="4" valign="middle">
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              <emphasis>nonresponsive</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry><emphasis>install_failed</emphasis></entry>
+            <entry><emphasis>installfailed</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>preparing_for_maintenace</emphasis></entry>
+            <entry><emphasis>preparingfornaubtebace</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>non_operational</emphasis></entry>
+            <entry><emphasis>nonoperational</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>pending_approval</emphasis></entry>
+            <entry><emphasis>pendingapproval</emphasis></entry>
+          </row>
+          <row>
+            <entry morerows="9" valign="middle">
+              虚拟机
+            </entry>
+            <entry morerows="9" valign="middle">
+              <emphasis>vm_states</emphasis>
+            </entry>
+            <entry>
+              <emphasis>powering_up</emphasis>
+            </entry>
+            <entry morerows="9" valign="middle">
+              <emphasis>status</emphasis>
+            </entry>
+            <entry>
+              <emphasis>poweringup</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry><emphasis>powering_down</emphasis></entry>
+            <entry><emphasis>poweringdown</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>migrating</emphasis></entry>
+            <entry><emphasis>migratingfrom</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>migrating</emphasis></entry>
+            <entry><emphasis>migratingto</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>not_responding</emphasis></entry>
+            <entry><emphasis>notresponding</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>wait_for_launch</emphasis></entry>
+            <entry><emphasis>waitforlaunch</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>reboot_in_progress</emphasis></entry>
+            <entry><emphasis>rebootinprogress</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>saving_state</emphasis></entry>
+            <entry><emphasis>savingstate</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>restoring_state</emphasis></entry>
+            <entry><emphasis>restoringstate</emphasis></entry>
+          </row>
+          <row>
+            <entry><emphasis>image_locked</emphasis></entry>
+            <entry><emphasis>imagelocked</emphasis></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </section>
-
 </appendix>

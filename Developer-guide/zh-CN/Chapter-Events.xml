@@ -4,29 +4,273 @@
 %BOOK_ENTITIES;
 ]>
 <chapter id="chap-EayunOS-Developer-guide-Events_Chapter">
-	<title>Events Chapter</title>
+	<title>事件</title>
 	<para>
-		This is a test paragraph
+		
 	</para>
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_1">
-		<title>Events Section 1</title>
+		<title>事件的元素</title>
 		<para>
-			This is a test paragraph in a section
+                    <emphasis>events</emphasis> 集合提供了&OVIRT;企业虚拟化环境中的事件信息。
+                    一个 API 用户可以通过入口 URI 的 <emphasis>rel="events"</emphasis> 链接
+                    来访问该信息。
 		</para>
+    <table>
+      <title>事件元素</title>
+      <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+        <thead>
+          <row>
+            <entry>
+              元素
+            </entry>
+            <entry>
+              类别
+            </entry>
+            <entry>
+              描述
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <emphasis>description</emphasis>
+            </entry>
+            <entry>
+              字符串
+            </entry>
+            <entry>
+              系统事件的描述。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>code</emphasis>
+            </entry>
+            <entry>
+              整型
+            </entry>
+            <entry>
+              事件的编号。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>severity</emphasis>
+            </entry>
+            <entry>
+              <emphasis>normal</emphasis>,<emphasis>warning</emphasis>,<emphasis>error</emphasis>
+              <emphasis>alert</emphasis>,其中的一种。
+            </entry>
+            <entry>
+             事件的级别类型。 
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>time</emphasis>
+            </entry>
+            <entry>
+             格式：<emphasis>YYYY-MM-DDThh:mm:ss</emphasis>
+            </entry>
+            <entry>
+             事件发生时的时间。
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <emphasis>user id</emphasis>
+            </entry>
+            <entry>
+             GUID
+            </entry>
+            <entry>
+             触发事件的用户的认证号码。
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+         <note>
+             <para>
+               事件资源集合是只读的。
+             </para>
+         </note>
 	</section>
 	
 	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_2">
-		<title>Events Section 2</title>
+		<title>事件集合的XML描述</title>
+                <example>
+                 <title>事件集合的XML描述</title>
+		 <programlisting language="xml">
+                          <![CDATA[
+
+                   <events>
+                       <event href="/api/events/823" id="823"><description>User admin@internal logged in.</description><code>30</code><severity>normal</severity><time>2014-06-30T06:28:52.040+08:00</time><user href="/api/users/fdfc627c-d875-11e0-90f0-83df133b58cc" id="fdfc627c-d875-11e0-90f0-83df133b58cc"/><origin>oVirt</origin><custom_id>-1</custom_id><flood_rate>30</flood_rate></event>
+                       ....
+                   </events>
+]]>
+		 </programlisting>
+                </example>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_3">
+		<title>虚拟机创建事件的XML描述</title>
 		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						This is a test listitem.
-					</para>
-				</listitem>
-			</orderedlist>
+		在虚拟机创建时，事件本身会抛出很多的信息（xml元素表示），不仅仅是用户的信息，
+                甚至是其它各元素之间的关系看下面的实例：	
 		</para>
+                <example>
+                 <title>虚拟机创建事件的XML描述</title>
+		 <programlisting>
+<![CDATA[
+<event href="/api/events/462" id="462">
+<description>VM Fedora-20-x86_64 was created by admin@internal.</description>
+<code>34</code>
+<severity>normal</severity>
+<time>2014-06-18T06:00:22.257+08:00</time>
+<correlation_id>1418eccf</correlation_id>
+<user href="/api/users/fdfc627c-d875-11e0-90f0-83df133b58cc" id="fdfc627c-d875-11e0-90f0-83df133b58cc"/>
+<vm href="/api/vms/ef8f840a-7c9d-49cb-b68a-ccc10d263964" id="ef8f840a-7c9d-49cb-b68a-ccc10d263964"/>
+<storage_domain href="/api/storagedomains/9171766d-5e29-46a6-8aa9-1e02f744b78b" id="9171766d-5e29-46a6-8aa9-1e02f744b78b"/>
+<cluster href="/api/clusters/b7b63d69-916d-4a87-8e78-7a164f1c976f" id="b7b63d69-916d-4a87-8e78-7a164f1c976f"/>
+<data_center href="/api/datacenters/14b39798-b32b-4f1b-a326-2e44f4a1af8c" id="14b39798-b32b-4f1b-a326-2e44f4a1af8c"/>
+<origin>oVirt</origin>
+<custom_id>-1</custom_id>
+<flood_rate>30</flood_rate>
+</event>
+]]>
+		 </programlisting>
+                 <para>
+                  此例可以看到虚拟机与集群、存储域等之间的关系。
+                 </para>
+                </example>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_4">
+		<title>搜索事件</title>
+		<para>
+		和搜索其它资源一样，事件资源集合同样支持搜索。当然你得知道事件是确定发生过的。	
+		</para>
+		<para>
+		使用搜索事件是需要在搜索队列之前加上<emphasis>from</emphasis>参数，而<emphasis>from</emphasis>后面跟的是
+                事件的<emphasis>id</emphasis>号。
+		</para>
+                <example>
+                 <title>搜索特定事件</title>
+                  <programlisting language="xml">
+GET /api/events;from=1012?search=type%3D30 HTTP/1.1
+Accept: application/xml
+                  </programlisting>
+		 <para>
+                  上述将显示的类型为编号30的，自1012号之后的所有事件。
+		 </para>
+                  <programlisting language="xml">
+<![CDATA[
+HTTP/1.1 200 OK
+Content-Type: application/xml
+<events>
+<event id="1018" href="/api/events/1018">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:03:22.485+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+<event id="1016" href="/api/events/1016">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:03:07.236+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+<event id="1014" href="/api/events/1014">
+<description>User admin logged in.</description>
+<code>30</code>
+<severity>normal</severity>
+<time>2011-07-11T14:02:16.009+10:00</time>
+<user id="80b71bae-98a1-11e0-8f20-525400866c73"
+href="/api/users/80b71bae-98a1-11e0-8f20-525400866c73"/>
+</event>
+</events>
+]]>
+                  </programlisting>
+                </example>
+                <important>
+                 <para>
+                   下列使用方法，在&OVIRT;中仍然有效。  
+                 </para>
+                 <programlisting>
+<![CDATA[
+                /api/events?search=type%3D30&from=888
+]]>
+                 </programlisting>
+                </important>
+	</section>
+
+	<section id="sect-EayunOS-Developer-guide-Events_Chapter-Events_Section_5">
+		<title>分页显示事件</title>
+		<para>
+		随着系统的运行，虚拟环境会产生大量的事件，但是API提供的搜索显示有限的事件，若需要比默认
+                要多的事件，API提供了将搜索结果分页显示的功能。	
+		</para>
+		<para>
+		下面的搜索队列告诉API显示第几页，且使用了排序<emphasis>sortby</emphasis>子句：	
+                
+		</para>
+		<para>
+	        <emphasis>sortby time asc page 1</emphasis>		
+		</para>
+		<para>
+		<emphasis>sortby</emphasis>子句定义了结果的有序，而且还可按照“升”或“降”。上述例子中，
+                将显示自环境搭建好以后的所有按照从过去到现在的时间顺序事件。
+		</para>
+                <para>
+                 <emphasis>page</emphasis>定义了页面的数字，数字1等于和默认的输出一致，即起始的事件显示。
+                 若要查看更多页，增加<emphasis>page</emphasis>值即可。
+                </para>
+                <para>
+                <emphasis>sortby time asc page 2</emphasis>
+                </para>
+                <para>
+                <emphasis>sortby time asc page 3</emphasis>
+                </para>
+                <para>
+                <emphasis>sortby time asc page 4</emphasis>
+                </para>
+                <example>
+                 <title>分页</title>
+		 <para>
+		 下面即是URL方式的分页显示的搜索队列： 
+                 </para>
+                  <programlisting language="xml">
+GET /api/events?search=sortby%20time%20asc%20page%201 HTTP/1.1
+Accept: application/xml
+                  </programlisting>
+		 <para>
+		 显示下一页的内容：
+                 </para>
+                  <programlisting language="xml">
+GET /api/events?search=sortby%20time%20asc%20page%202 HTTP/1.1
+Accept: application/xml
+                  </programlisting>
+		 <para>
+		 增加<emphasis>from</emphasis>参数及一个任意的<emphasis>id</emphasis>。
+                 </para>
+                  <programlisting language="xml">
+<![CDATA[
+GET /api/events?search=sortby%20time%20asc%20page%202&from=30 HTTP/1.1
+Accept: application/xml
+]]>
+                  </programlisting>
+                </example>
+                  <note>
+                     <para>
+                        %20在URL中表示的是一个空格。
+                     </para>
+                  </note>
 	</section>
 
 </chapter>

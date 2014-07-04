@@ -166,7 +166,7 @@
       </tgroup>
     </table>
     <para>
-      <emphasis>status</emphasis> 包含了如下的枚举值哦：<emphasis>uninitialized</emphasis>，<emphasis>up</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>not_operational</emphasis>，<emphasis>problematic</emphasis> 和 <emphasis>contend</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 里的 <emphasis>data_center_states</emphasis> 元素下列出。
+      <emphasis>status</emphasis> 包含了如下的枚举值：<emphasis>uninitialized</emphasis>，<emphasis>up</emphasis>，<emphasis>maintenance</emphasis>，<emphasis>not_operational</emphasis>，<emphasis>problematic</emphasis> 和 <emphasis>contend</emphasis>。这些状态在 <emphasis>capabilities</emphasis> 里的 <emphasis>data_center_states</emphasis> 元素下列出。
     </para>
   </section>
 
@@ -203,5 +203,329 @@
     </example>
   </section>
 
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3">
+    <title>方法</title>
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-1">
+      <title>创建一个新的数据中心</title>
+      <para>
+        创建新的数据中心需要 <emphasis>name</emphasis>，<emphasis>storge_type</emphasis> 和 <emphasis>version</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<data_center>
+ <name>NewDatacenter</name>
+ <storage_type>nfs</storage_type>
+ <version minor="1" major="3"/>
+</data_center>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-2">
+      <title>更新一个数据中心</title>
+      <para>
+        <emphasis>name</emphasis>，<emphasis>description</emphasis>，<emphasis>storage_type</emphasis>，<emphasis>version</emphasis> 和 <emphasis>storage_format</emphasis> 元素可以更新。
+      </para>
+      <example>
+        <title>更新一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+PUT /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+<data_center>
+ <name>UpdatedName</name>
+ <description>An updated description for the data center</description>
+</data_center>
+]]>
+        </programlisting>
+      </example>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_3-3">
+      <title>移除一个数据中心</title>
+      <para>
+        移除一个数据中心需要一个 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>移除一个数据中心</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988 HTTP/1.1
+
+HTTP/1.1 204 No Content
+]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4">
+    <title>子集</title>
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1">
+      <title>存储域子集</title>
+      <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1-1">
+        <title>存储域子集</title>
+        <para>
+          每一个数据中心包含了一个所附加的存储域的子集合。一个 API 用户使用标准的 REST 方法与该子集互动。
+        </para>
+        <para>
+          一个附加了的存储域与顶级目录下的存储域的展现相似，除了附加的存储域有与具体数据中心相关的 <emphasis>status</emphasis> 元素和一个一个操作集。<emphasis>status</emphasis> 元素的状态在 <emphasis>capabilities</emphasis> 下的 <emphasis>storage_domain_states</emphasis> 下列出了。
+        </para>
+        <important>
+          <para>
+            本节所描述的文档是实验性质的且可能以后会有变动。且不包含在向后兼容的内容中。
+          </para>
+        </important>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1-2">
+        <title>附加和分离一个存储域</title>
+        <para>
+          一个数据中心只有当附加了一个存储域后才可使用，该附加操作通过 API 用户向数据中心的存储域子集合发送 <emphasis>POST</emphasis> 请求。
+        </para>
+        <para>
+          当附加一个存储域时，必须提供它的 <emphasis>id</emphasis> 或 <emphasis>name</emphasis>。下面是附加一个存储域的示例：
+        </para>
+        <example>
+          <title>附加一个存储域</title>
+          <programlisting>
+            <![CDATA[
+POST /api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/storagedomains 
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"/>
+
+HTTP/1.1 201 Created
+Location: /datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed
+Content-Type: application/xml
+
+<storage_domain id="fabe0451-701f-4235-8f7e-e20e458819ed"
+ href="/api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/storagedomains/
+ fabe0451-701f-4235-8f7e-e20e458819ed">
+ <name>images0</name>
+ <type>data</type>
+ <status>
+ <state>inactive</state>
+ </status>
+ <master>true</master>
+ <storage>
+ <type>nfs</type>
+ <address>172.31.0.6</address>
+ <path>/exports/EayunOS/images/0</path>
+ </storage>
+ <data_center id="d70d5e2d-b8ad-494a-a4d2-c7a5631073c4"
+ href="/api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4"/>
+ <actions>
+ <link rel="activate"
+ href="/api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/
+ storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/activate"/>
+ <link rel="deactivate"
+ href="/api/datacenters/d70d5e2d-b8ad-494a-a4d2-c7a5631073c4/
+ storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/deactivate"/>
+ </actions>
+</storage_domain>
+]]>
+          </programlisting>
+        </example>
+        <para>
+          通过 <emphasis>DELETE</emphasis> 请求来从一个数据中心分离一个存储域。如需要使该请求异步的化请在请求中添加 <emphasis>async</emphasis> 元素。
+        </para>
+        <example>
+          <title>从数据中心中分离存储域</title>
+          <programlisting>
+            <![CDATA[
+DELETE /api/datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<action>
+ <async>true</async>
+</action>
+]]>
+          </programlisting>
+        </example>
+      </section>
+
+      <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1-3">
+        <title>操作</title>
+        <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1-3-1">
+          <title>激活存储域操作</title>
+          <para>
+            一个附加到数据中心了的存储域需要激活以使用。激活请求不需要具体的参数。
+          </para>
+          <example>
+            <title>激活存储域操作</title>
+            <programlisting>
+              <![CDATA[
+POST /api/datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/activate 
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<action/>
+]]>
+            </programlisting>
+          </example>
+        </section>
+
+        <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-1-3-2">
+          <title>取消激活存储域操作</title>
+          <para>
+            一个附加到数据中心了的存储域需要取消激活才能够移除。取消激活请求不需要具体的参数。
+          </para>
+          <example>
+            <title>取消激活存储域操作</title>
+            <programlisting>
+              <![CDATA[
+POST /api/datacenters/d70d5e2d-b8ad-494a-a4d2-
+c7a5631073c4/storagedomains/fabe0451-701f-4235-8f7e-e20e458819ed/deactivate 
+HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<action/>
+]]>
+            </programlisting>
+          </example>
+        </section>
+      </section>
+    </section>
+
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_4-2">
+      <title>配额子集</title>
+      <important>
+        <para>
+          该节中的内容只供技术预览。
+        </para>
+      </important>
+      <para>
+        配额子集列出了&OVIRT;&MANAGER;作用于资源上的限制条件。一个 API 用户使用 <emphasis>GET</emphasis> 方法来查看该子集合和它们的资源。
+      </para>
+      <example>
+        <title>一个配额的 XML 展现</title>
+        <programlisting>
+          <![CDATA[
+<quota href="/api/datacenters/56087282-d7a6-11e1-af44-001a4a400e0c
+ /quotas/e13ff85a-b2ba-4f7b-8010-e0d057c03dfe" 
+ id="e13ff85a-b2ba-4f7b-8010-e0d057c03dfe">
+ <name>MyQuota</name>
+ <description>A quota for my EayunOS
+ Virtualization environment</description>
+ <data_center href= "/api/datacenters/56087282-d7a6-11e1-af44-001a4a400e0c" 
+ id="56087282-d7a6-11e1-af44-001a4a400e0c"/>
+</quota>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        创建一个新的配额需要 <emphasis>name</emphasis> 和 <emphasis>description</emphasis> 元素。
+      </para>
+      <example>
+        <title>创建一个配额</title>
+        <programlisting>
+          <![CDATA[
+POST /api/datacenters/56087282-d7a6-11e1-af44-001a4a400e0c/quotas HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<quota>
+ <name>VMQuota</name>
+ <description>My new quota for virtual machines</description>
+</quota>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        删除一个配额需要 <emphasis>DELETE</emphasis> 请求。
+      </para>
+      <example>
+        <title>删除一个配额</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/quotas/e13ff85a-
+b2ba-4f7b-8010-e0d057c03dfe HTTP/1.1
+
+HTTP/1.1 204 No Content
+]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_5">
+    <title>操作</title>
+    <section id="sect-EayunOS-Developer-guide-Data-Centerss_Chapter-Data-Centerss_Section_5-1">
+      <title>强制删除数据中心操作</title>
+      <para>
+        当 API 用户遇到无法解决的存储域问题时会强制删除数据中心，比如失去与主存储域的连接或者没有删除存储域时没有可用的主机。API 通过使用 <emphasis>force</emphasis> 操作来在这些情形下得到使用。
+      </para>
+      <para>
+        此操作将会在从&OVIRT;企业虚拟化环境中移除此数据中心前将会从数据中心相关联的数据库中移除此数据中心的条目。这意味着 API 不管存储域的状态怎么样都会移除数据中心。
+      </para>
+      <para>
+        此操作需要 <emphasis>DELETE</emphasis> 方法。请求的 body 中包含了含有 <emphasis>force</emphasis> 参数为 <emphasis>true</emphasis> 的 <emphasis>action</emphasis> 展现。 该请求也需要 <emphasis>Content-type</emphasis>：
+      </para>
+      <para>
+        用来处理 body 中的 XML 展现的 <emphasis>application/xml</emphasis> 头。
+      </para>
+      <example>
+        <title>强制删除数据中心操作</title>
+        <programlisting>
+          <![CDATA[
+DELETE /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<action>
+ <force>true</force>
+</action>
+]]>
+        </programlisting>
+      </example>
+      <para>
+        该操作：
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            从数据中心所关联的 <emphasis>data</emphasis> 存储域的所有数据库信息。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            从数据中心所关联的 <emphasis>data</emphasis> 存储域所关联的虚拟机和模板信息。
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            将关联的 <emphasis>iso</emphasis> 和 <emphasis>export</emphasis> 存储域从数据中心分离；并且
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            从数据库中删除该数据中心的信息。
+          </para>
+        </listitem>
+      </itemizedlist>
+      <important>
+        <para>
+          该操作只移除与数据中心相关联资源的数据库信息。与数据中心相关联的 <emphasis>data</emphasis> 存储域需要手动格式化才能继续使用。<emphasis>iso</emphasis> 和 <emphasis>export</emphasis> 域需要手动清理源数据才能给其它数据中心使用。
+        </para>
+      </important>
+    </section>
+  </section>
 </chapter>
 
