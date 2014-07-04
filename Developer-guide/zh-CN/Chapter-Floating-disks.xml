@@ -107,7 +107,7 @@
 					<row>
 						<entry>status</entry>
 						<entry>
-							ilegal, invalid, 磁盘设备的状态,这些状态是locked 或 ok
+							illegal,invalid,locked或ok中的一种
 						</entry>
 						<entry>
 							磁盘设备的状态,这些状态是列表在 capabilities 的disk_states 表中的
@@ -354,7 +354,7 @@ Content-type: application/xml
 
 		
 		<section id="sect-EayunOS-Developer-guide-Floating-disks_Chapter-Floating-disks_Section_4-1">
-			<title>读取数据子</title>
+			<title>读写数据子集</title>
 
 				<para>
 					每个浮动磁盘表示了特定磁盘数据的数据子集,每个数据包含以下元素:
@@ -423,7 +423,7 @@ Content-type: application/xml
 									GAUGE 或COUNT ER
 								</entry>
 								<entry>
-									读取数据度量的类型
+									读写数据度量的类型
 								</entry>
 							</row>
 
@@ -467,11 +467,11 @@ Content-type: application/xml
 				</table>
 
 				<para>
-					下表列出了浮动磁盘的读取数据类型。
+					下表列出了浮动磁盘的读写数据类型。
 				</para>
 
 				<table>
-					<title>磁盘读取数据类型</title>
+					<title>磁盘读写数据类型</title>
 					<tgroup cols='2' align='left' colsep='1' rowsep='1'>
 						<thead>
 							<row>
@@ -508,7 +508,7 @@ Content-type: application/xml
 
 				<para>
 					<example>
-						<title>虚拟机读取数据子集的XML表示</title>
+						<title>虚拟机读写数据子集的XML表示</title>
 						<programlisting>
 							<![CDATA[
 <statistics>
@@ -536,7 +536,7 @@ href="/api/disks/f28ec14c-fc85-43e1-818d-96b49d50e27b"/>
 	
 				<note>
 					<para>
-						该读取数据子集是只读的。
+						该读写数据子集是只读的。
 					</para>
 				</note>
 		</section>		
