@@ -53,7 +53,7 @@
               字符串
             </entry>
             <entry>
-              存储的主即名和 IP 地址。
+              存储的主机名和 IP 地址。
             </entry>
             <entry>
               <inlinemediaobject>
@@ -164,7 +164,7 @@
               字符串
             </entry>
             <entry>
-              时用的 NFS 存储的版本。
+              使用的 NFS 存储的版本。
             </entry>
             <entry>
             </entry>
@@ -403,12 +403,12 @@ Content-type: application/xml
     </section>
 
     <section id="sect-EayunOS-Developer-guide-Hosts_Chapter-Storage_Connections_Chapter_Section_3-5">
-      <title>向 iSCSI 存储曾加一个存储连接</title>
+      <title>向 iSCSI 存储增加一个存储连接</title>
       <para>
-        向 iSCSI 存储曾加一个存储连接需要 <emphasis>POST</emphasis> 请求。
+        向 iSCSI 存储增加一个存储连接需要 <emphasis>POST</emphasis> 请求。
       </para>
       <example>
-        <title>向 iSCSI 存储曾加一个存储连接</title>
+        <title>向 iSCSI 存储增加一个存储连接</title>
         <para>
           <programlisting>
             <![CDATA[
