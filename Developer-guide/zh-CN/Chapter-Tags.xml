@@ -135,10 +135,10 @@
         <emphasis>tag</emphasis> 的展现也包含了一个关联到对应实体的 <emphasis>host id</emphasis>，<emphasis>user id</emphasis> 或者 <emphasis>vm id</emphasis>。
       </para>
       <para>
-        让一个标签关联到一个实体是通过向集合发送一个 <emphasis>POST</emphasis> 类型的标签索引（通过 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 来时别标签）。
+        让一个标签关联到一个实体是通过向集合发送一个 <emphasis>POST</emphasis> 类型的标签索引（通过 <emphasis>id</emphasis> 或者 <emphasis>name</emphasis> 来识别标签）。
       </para>
       <example>
-        <title>将一个标签与虚拟机向关联</title>
+        <title>将一个标签与虚拟机相关联</title>
         <programlisting>
           <![CDATA[
 POST /api/vms/5114bb3e-a4e6-44b2-b783-b3eea7d84720/tags HTTP/1.1
@@ -318,7 +318,7 @@ Content-Type: application/xml
     <section id="sect-EayunOS-Developer-guide-Tags_Chapter-Tags_Section_4-3">
       <title>更改一个父标签</title>
       <para>
-        使用 <emphasis>PUT</emphasis> 请求来更改i标签的父标签：
+        使用 <emphasis>PUT</emphasis> 请求来更改标签的父标签：
       </para>
       <example>
         <title>更改父标签</title>
