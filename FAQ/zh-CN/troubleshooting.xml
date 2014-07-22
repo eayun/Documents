@@ -390,4 +390,145 @@ COMMIT
           </para>
       </answer>
   </qandaentry>
+  <qandaentry>
+      <question>
+          <para>
+              如何保证更改EayunOS管理中心和虚拟化宿主机服务器IP地址之后，整个EayunOS虚拟化环境仍然能正常工作？
+          </para>
+      </question>
+      <answer>
+          <para>需要根据部署环境分为是否使用本地存储2种情况：</para>
+          <procedure>
+              <title>没有使用本地存储</title>
+              <step>
+                  <para>
+                      在EayunOS管理中心web门户中，将数据中心中所有的存储域、主机设置为“维护模式”；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      修改EayunOS管理中心的IP地址，EayunOS虚拟化宿主机的IP地址，以及其他服务器IP地址（如存储服务器）。各服务器上的/etc/hosts也需要相应进行修改；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      如果存储域所在的服务器IP地址也发生变化，修改存储域属性中的IP地址信息，使用EayunOS管理中心提供的REST API接口，如:
+                      <example>
+                          <title>获取管理中心所有的存储域的连接信息</title>
+                          <screen><![CDATA[# curl -k -u admin@internal https://10.0.0.1/api/storageconnections/
+Enter host password for user 'admin@internal':
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<storage_connections>
+    <storage_connection href="/api/storageconnections/1ffec567-4399-45d5-b1bb-631b4fb36cbe" id="1ffec567-4399-45d5-b1bb-631b4fb36cbe">
+        <address>engine-a</address>
+        <type>nfs</type>
+        <path>/var/lib/exports/iso</path>
+    </storage_connection>
+    <storage_connection href="/api/storageconnections/2b89a474-d346-4f34-b61f-929a0e66cbf7" id="2b89a474-d346-4f34-b61f-929a0e66cbf7">
+        <address>10.0.0.2</address>
+        <type>nfs</type>
+        <path>/backup/isos</path>
+    </storage_connection>
+    <storage_connection href="/api/storageconnections/8e18312f-5deb-4e6e-9d10-70f1d3431265" id="8e18312f-5deb-4e6e-9d10-70f1d3431265">
+        <address>10.0.0.3</address>
+        <type>nfs</type>
+        <path>/backup/exports</path>
+    </storage_connection>
+    <storage_connection href="/api/storageconnections/f87ed61b-5362-41c4-a1f1-beaf866fbf3f" id="f87ed61b-5362-41c4-a1f1-beaf866fbf3f">
+        <address>10.0.0.4</address>
+        <type>iscsi</type>
+        <port>3260</port>
+        <target>iqn.2014-07.com.eayun:01:d75b8174-1b93-ecfc-94d8-87b71fc029d0</target>
+    </storage_connection>
+</storage_connections>
+                        ]]></screen>
+                      </example>
+                      <example>
+                          <title>修改指定存储域</title>
+                          <para>
+                              假设存储域为iSCSI存储，UUID为f87ed61b-5362-41c4-a1f1-beaf866fbf3f，将iSCSI服务器的IP地址修改为10.0.0.5：
+                              <screen><![CDATA[# curl -k -u admin@internal -H "Content-Type: application/xml" -X POST https://10.0.0.1/api/storageconnections/f87ed61b-5362-41c4-a1f1-beaf866fbf3f -d "<storage_connection><address>10.0.0.5</address></storage_connection>"</address></storage_connection>
+                              ]]></screen>
+                          </para>
+                      </example>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      虚拟化宿主机的IP地址发生变化时，直接将管理中心的主机删除，重新添加主机即可。
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      在EayunOS管理中心web门户中重新激活存储域等资源。
+                  </para>
+              </step>
+          </procedure>
+          <procedure>
+              <title>使用本地存储</title>
+              <warning><para>
+                  本地存储由于无法删除主机重新添加，因此必须强行修改EayunOS管理中心数据库来完成操作，一般不建议进行操作，操作请谨慎。
+              </para></warning>
+              <step>
+                  <para>
+                      在EayunOS管理中心web门户中，将数据中心中所有的存储域、主机设置为“维护模式”；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      修改EayunOS管理中心的IP地址、/etc/hosts；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      修改EayunOS虚拟化宿主机的IP地址、/etc/hosts，这一步除了修改ifcfg-ovirtmgmt（管理逻辑网络对应的网桥设备的配置文件，默认为ovirtmgmt，下同）之外，还需要修改/etc/sysconfig/network-scripts/route-ovirtmgmt，将其中的涉及到的服务器原来的IP地址也修改为新的IP地址；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      在eayunos管理中心服务器上，找到数据库中关于虚拟化宿主机（在这里假设为 node-test）的 id：
+                      <example>
+                          <title>查询虚拟化宿主机相关信息</title>
+                          <screen># sudo -u postgres psql
+postgres=# \c engine
+engine=# select vds_id from vds_static where vds_name = 'node-test';
+vds_id                
+--------------------------------------
+ba44f6c0-d05d-47ee-bc87-9cb9d9b7e1f2
+(1 row)
+                          </screen>
+                      </example>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      在EayunOS管理中心服务器上，修改数据库中关于虚拟化属主机的IP地址信息：
+                      <example>
+                          <title>修改数据库</title>
+                          <para>
+                              假设新的IP地址为10.0.0.10，主机对应的UUID为ba44f6c0-d05d-47ee-bc87-9cb9d9b7e1f2，逻辑网络对应的U    UID为6e7f8e1b-23ea-4275-a3e7-13741961e347
+                              <screen># sudo -u postgres psql
+postgres=# \c engine
+engine=# UPDATE vds_static SET host_name = '10.0.0.10' where vds_id = 'ba44f6c0-d05d-47ee-bc87-9cb9d9b7e1f2';
+engine=# UPDATE vds_interface SET addr = '10.0.0.10' where id = '6e7f8e1b-23ea-4275-a3e7-13741961e347';
+                              </screen> 
+                          </para>
+                      </example>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      修改完成，确认无误之后，重启EayunOS管理中心
+                      <screen># service ovirt-engine restart
+                      </screen>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      在EayunOS管理中心web门户中重新激活主机、存储域等资源。
+                  </para>
+              </step>
+          </procedure>
+      </answer>
+  </qandaentry>
 </qandaset>
