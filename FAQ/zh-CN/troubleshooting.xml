@@ -447,7 +447,7 @@ Enter host password for user 'admin@internal':
                           <title>修改指定存储域</title>
                           <para>
                               假设存储域为iSCSI存储，UUID为f87ed61b-5362-41c4-a1f1-beaf866fbf3f，将iSCSI服务器的IP地址修改为10.0.0.5：
-                              <screen><![CDATA[# curl -k -u admin@internal -H "Content-Type: application/xml" -X POST https://10.0.0.1/api/storageconnections/f87ed61b-5362-41c4-a1f1-beaf866fbf3f -d "<storage_connection><address>10.0.0.5</address></storage_connection>"</address></storage_connection>
+                              <screen><![CDATA[# curl -k -u admin@internal -H "Content-Type: application/xml" -X PUT https://10.0.0.1/api/storageconnections/f87ed61b-5362-41c4-a1f1-beaf866fbf3f -d "<storage_connection><address>10.0.0.5</address></storage_connection>"</address></storage_connection>
                               ]]></screen>
                           </para>
                       </example>
