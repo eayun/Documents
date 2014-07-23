@@ -393,6 +393,58 @@ COMMIT
   <qandaentry>
       <question>
           <para>
+              如何配置usb passthrough，是虚拟机可以使用虚拟化宿主机上的USB设备？
+          </para>
+      </question>
+      <answer>
+          <important>
+              <para>
+                 使用usb passthrough要求必须把虚拟机固定在单独一台主机上运行,该虚拟机的迁移操作都会失败。 
+              </para>
+          </important>
+          <procedure>
+              <title>使用usb passthrough</title>
+              <step>
+                  <para>
+                      使用 engine-config 配置虚拟机自定义属性：
+                      <screen><![CDATA[# engine-config -s UserDefinedVMProperties='hostusb=0x[\da-fA-F]{4}:0x[\da-fA-F]{4}(&0x[\da-fA-F]{4}:0x[\da-fA-F]{4})*' --cver=3.3
+                      ]]></screen>
+                  
+                      <note>
+                          <para>
+                              --cver 和虚拟机所在的集群和数据中心的兼容性版本有关，EayunOS 4.0 中默认都是 3.3 ，不建议进行更改。
+                          </para> 
+                      </note>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      重启 EayunOS 管理中心：
+                      <screen># service ovirt-engine restart
+                      </screen>
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      在虚拟化宿主机上通过 lsusb 等工具，找出 USB 设备的 PCI id，如“1234:beef”；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      确认虚拟机已经关闭，通过EayunOS管理门户在虚拟机的配置中添加自定义属性，添加“hostusb”属性，值为实际 USB 设备的 PCI id（注意：填写 id 时，加上“0x”，如“0x1234:0xbeef”）；
+                  </para>
+              </step>
+              <step>
+                  <para>
+                      启动虚拟机，确认 USB 设备是否可用。
+                  </para>
+              </step>
+          </procedure>
+      </answer>
+  </qandaentry>
+  <qandaentry>
+      <question>
+          <para>
               如何保证更改EayunOS管理中心和虚拟化宿主机服务器IP地址之后，整个EayunOS虚拟化环境仍然能正常工作？
           </para>
       </question>
