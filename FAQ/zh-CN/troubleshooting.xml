@@ -583,4 +583,18 @@ engine=# UPDATE vds_interface SET addr = '10.0.0.10' where id = '6e7f8e1b-23ea-4
           </procedure>
       </answer>
   </qandaentry>
+
+  <qandaentry>
+      <question>
+          <para>
+              使用 EayunOS P2V 光盘进行迁移，手动配置 IP 地址时提示“ virt-p2v has shutdown unexpectedly ”？
+          </para>
+      </question>
+      <answer>
+          <para>
+              EayunOS P2V 网络配置界面对于 DNS 服务器地址的处理不够完善，建议手动配置网络时填写 DNS 服务器地址（没有 DNS 服务器的环境，不需要进行 DNS 解析的情况下，可以填写任意地址）。
+          </para>
+      </answer>
+  </qandaentry>
+
 </qandaset>
