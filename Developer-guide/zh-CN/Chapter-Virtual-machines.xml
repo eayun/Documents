@@ -2263,13 +2263,14 @@ href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
       
       <para>
         <example>
-          <title>更改CD-ROM文件</title>
+          <title>添加CD-ROM文件</title>
           <programlisting>
             <![CDATA[
-PUT /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/00000000-0000-0000-
+POST /api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/cdroms/00000000-0000-0000-
 0000-000000000000 HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
+
 <cdrom>
 <file id="fedora-15-x86_64-dvd.iso"/>
 </cdrom>
