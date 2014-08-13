@@ -236,8 +236,8 @@
                     <para>
                         打开一个web浏览器，根据您的系统结构下载以下安装程序之一。
                         <programlisting language="Bash">
-                            <![CDATA[https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/vi rt-vi ewerx64-0.5.6.msi
-                            https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/vi rt-vi ewerx86-0.5.6.msi]]> 
+                            <![CDATA[https://[your manager's address]/eayunVirt/virt-viewer-x64-0.6.0.msi
+                            https://[your manager's address]/eayunVirt/virt-viewer-x86-0.6.0.msi]]>
                         </programlisting>
                     </para>
                 </listitem>

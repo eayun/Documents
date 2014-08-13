@@ -8,16 +8,16 @@
 	<simpara>
 		<revhistory>
 			<revision>
-				<revnumber>0.0-0</revnumber>
-				<date>Wed Feb 12 2014</date>
+				<revnumber>0.0-1</revnumber>
+				<date>Wed 13 Aug 2014</date>
 				<author>
-					<firstname>Enter your first name here.</firstname>
-					<surname>Enter your surname here.</surname>
-					<email>Enter your email address here.</email>
+					<firstname>潘</firstname>
+					<surname>礼洋</surname>
+					<email>liyang.pan@eayun.com</email>
 				</author>
 				<revdescription>
 					<simplelist>
-						<member>Initial creation by publican</member>
+						<member>User Guide: 修正 virt-viewer 下载地址</member>
 					</simplelist>
 				</revdescription>
 			</revision>
