@@ -597,4 +597,23 @@ engine=# UPDATE vds_interface SET addr = '10.0.0.10' where id = '6e7f8e1b-23ea-4
       </answer>
   </qandaentry>
 
+  <qandaentry>
+      <question>
+          <para>
+              使用 EayunOS All in One （4.0） 光盘只安装虚拟化宿主机组件之后，在 EayunOS 虚拟化管理中心中添加主机失败？
+          </para>
+      </question>
+      <answer>
+          <para>
+              使用 EayunOS All in One （4.0） 光盘只安装虚拟化宿主机组件时，默认不安装 ovirt-host-deploy-offline 软件包。在 EayunOS 虚拟化管理中心中添加该主机时会自动通过 YUM 搜索安装新版本的相关软件包，在没有可用的 YUM 软件源的情况下，会导致添加主机失败，解决方法是：
+          </para>
+          <para>
+              挂载 EayunOS All in One （4.0） 光盘，安装光盘 Packages 目录下的 ovirt-host-deploy-offline 软件包
+              <screen># rpm -ivh ovirt-host-deploy-offline-1.1.4-0.0.master.el6.noarch.rpm
+              </screen>
+          </para>
+      </answer>
+  </qandaentry>
+
+
 </qandaset>
