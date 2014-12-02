@@ -134,6 +134,7 @@
 ### 选择Hypervisor键盘
 
 * 摘要
+  * 选择左侧的Keyboard，切换到键盘配置界面。
   * 键盘项允许你配置键盘的布局。
 
 1. 配置Hypervisor的键盘布局
@@ -189,7 +190,7 @@
 
 1. Hypervisor网络配置界面介绍
 
-  选择左侧的 Network 项，可以配置Hypervisor的网络等信息。
+  选择左侧的Network项，可以配置Hypervisor的网络等信息。
 
   * 该界面用来配置：
 
@@ -417,3 +418,29 @@
   日志配置成功。
 
 
+### 配置Hypervisor的Kernel Dumps
+
+* 摘要
+  * 选择左侧的Kdump，切换到Kdump界面。
+  * Hypervisor支持当遇到系统失败的时候使用kdump来导出kernel dumps。
+
+  （图 Kdump配置）
+
+1. kdump产生crash dumps可以导出到NFS或者SSH。选择一个更适合你的导出方法并按下【Enter】键或空格键启用它。
+
+  * 导出位置在NFS上
+
+    设置到NFS上之后，crash log会被导出到NFS上。NFS必须是完整的NFS路径（包含域名和目录）。
+
+  * 导出到SSH
+
+    设置导出到SSH，crash log会被导出到SSH存储中。SSH存储必须是完整的SSH登录（包括完整的域名和用户名）。
+
+1. 选择< Save >并按下【Enter】键，保存Kdump配置。
+
+* 结果
+
+  Kdump配置成功。
+
+
+### 
