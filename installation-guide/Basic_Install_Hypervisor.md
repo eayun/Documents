@@ -91,11 +91,11 @@
 
     （图 开始安装）
 
-    * 结果
+* 结果
 
-      当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
+  当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
 
-      （图 安装完毕）
+    （图 安装完毕）
 
     > #### 注意
     > 移除启动设备，并修改系统启动项，避免重启后又进 入安装流程。
@@ -127,9 +127,9 @@
 
     （图 登录成功）
 
-    * 结果
+* 结果
 
-      你已成功以admin身份登录到Hypervisor中。
+  你已成功以admin身份登录到Hypervisor中。
 
 ### 选择Hypervisor键盘
 
@@ -157,11 +157,12 @@
 
   1. 用方向键调整选项，选择< Save >并按下【Enter】键。
 
-    * 结果
+* 结果
 
-      你已经成功配置了键盘选项。
+  你已经成功配置了键盘选项。
 
 ### 观察Hypervisor的状态
+
 1. 选择左侧的 Status 项，可以看到系统当前的状态的简要描述。
 
   显示信息包括：
@@ -185,6 +186,7 @@
     * < Power Off > : 关闭Hypervisor的电源。
 
 ### 配置Hypervisor网络
+
 1. Hypervisor网络配置界面介绍
 
   选择左侧的 Network 项，可以配置Hypervisor的网络等信息。
@@ -206,57 +208,57 @@
 
   1. 配置Hypervisor主机名
 
-    * 摘要
-      * Hypervisor的主机名是可以配置的。
+  * 摘要
+    * Hypervisor的主机名是可以配置的。
 
     1. 在Network界面下，选择Hostname一栏，输入主机名。
     1. 选择< Save >并按下【Enter】键，保存主机名配置。
     1. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
 
-      * 结果
+  * 结果
 
-        主机名配置成功。
+    主机名配置成功。
 
 
   1. 为Hypervisor配置域名服务器
 
-    * 摘要
-      * Hypervisor支持指定一个或者多个域名服务器，在转换主机名和域名的时候会用到这些服务器。
+  * 摘要
+    * Hypervisor支持指定一个或者多个域名服务器，在转换主机名和域名的时候会用到这些服务器。
 
     1. 设置或者改变主DNS服务器，选择DNS Server1那一栏，并且键入新的主DNS服务器的IP地址。
     1. 设置或者改变备选的DNS服务器，选择DNS Server2那一栏，并且键入行的备用DNS服务器的IP地址。
     1. 选择< Save >并且按下【Enter】键来改变对DNS的配置。
 
-      * 结果
+  * 结果
 
-        主DNS服务器和备选DNS服务器被改变了。
+    主DNS服务器和备选DNS服务器被改变了。
 
   1. 为Hypervisor配置网络时间协议（NTP）
 
-    * 摘要
-      * Hypervisor支持指定一个或者多个网络时间协议服务器，以此来保证虚拟机监视器和NTP服务器的系统时钟同步。保证虚拟机监视器和RHEVM的时间资源同步是非常重要的。这可以确保在RHEV环境中的准确时间。时间的同步影响了VM之间的迁移。
+  * 摘要
+    * Hypervisor支持指定一个或者多个网络时间协议服务器，以此来保证虚拟机监视器和NTP服务器的系统时钟同步。保证虚拟机监视器和RHEVM的时间资源同步是非常重要的。这可以确保在RHEV环境中的准确时间。时间的同步影响了VM之间的迁移。
 
     1. 设置或者改变主NTP服务器，选择NTP Server1那一栏，并且键入新的主NTP服务器的IP地址或者主机名。
     1. 设置或者改变备选的NTP服务器，选择NTP Server2那一栏，并且键入行的备用NTP服务器的IP地址或者主机名。
     1. 选择< Save >并且按【Enter】键来改变对NTP的配置。
 
-      * 结果
+  * 结果
 
-        主NTP服务器和备选NTP服务器被改变了。
+    主NTP服务器和备选NTP服务器被改变了。
 
 
   1. 配置Hypervisor的网络接口
 
-    * 摘要
+  * 摘要
 
-      每个Hypervisor检测到的网络接口都会显示下面内容：
+    每个Hypervisor检测到的网络接口都会显示下面内容：
 
-      * 设备
-      * 状态
-      * 模式
-      * MAC地址
+    * 设备
+    * 状态
+    * 模式
+    * MAC地址
 
-      若要让Hypervisor连接到EayunOS管理端，至少有一个网络接口要配置好。
+    若要让Hypervisor连接到EayunOS管理端，至少有一个网络接口要配置好。
 
 
     1. 设备鉴别
@@ -309,8 +311,30 @@
       1. 选择< Save >并按下【Enter】键保存网络配置。
       1. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
 
-    * 结果
+  * 结果
 
-      等待大约30秒，网络配置成功，提示`All changes were applied successfully`，能够使用网络。
+    等待大约30秒，网络配置成功，提示`All changes were applied successfully`，能够使用网络。
 
- 
+### Hypervisor安全配置
+
+* 摘要
+  * 安全界面用来修改远程和本地通过admin用户访问的密码。SSH密码认证也可以通过这个界面设置为启用或禁用。
+
+1. Hypervisor安全配置
+  1. 启用SSH密码认证
+
+    为远程访问启用SSH密码认证。选择`Enable SSH password authentication`选项，并用【Enter】键或空格键选择启用。
+
+  1. 修改admin密码
+
+    在`Password for the admin user`栏输入一个新的密码。这里，你应该使用一个强壮的密码。
+
+    1. 在Password输入新的admin密码。
+    1. 在Confirm Password输入确认密码，保证Password和Confirm Password中输入的内容是一致的。
+    1. 选择< Save >并按下【Enter】键，保存配置。
+
+* 结果
+
+  安全配置设置成功，配置更新。
+
+
