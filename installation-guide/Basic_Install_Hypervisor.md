@@ -206,135 +206,214 @@
   （图 网络配置界面）
 
 
-  1. 配置Hypervisor主机名
+1. 配置Hypervisor主机名
 
-  * 摘要
-    * Hypervisor的主机名是可以配置的。
+* 摘要
+  * Hypervisor的主机名是可以配置的。
 
-    1. 在Network界面下，选择Hostname一栏，输入主机名。
-    1. 选择< Save >并按下【Enter】键，保存主机名配置。
+  1. 在Network界面下，选择Hostname一栏，输入主机名。
+  1. 选择< Save >并按下【Enter】键，保存主机名配置。
+  1. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
+
+* 结果
+
+  主机名配置成功。
+
+
+1. 为Hypervisor配置域名服务器
+
+* 摘要
+  * Hypervisor支持指定一个或者多个域名服务器，在转换主机名和域名的时候会用到这些服务器。
+
+  1. 设置或者改变主DNS服务器，选择DNS Server1那一栏，并且键入新的主DNS服务器的IP地址。
+  1. 设置或者改变备选的DNS服务器，选择DNS Server2那一栏，并且键入行的备用DNS服务器的IP地址。
+  1. 选择< Save >并且按下【Enter】键来改变对DNS的配置。
+
+* 结果
+
+  主DNS服务器和备选DNS服务器被改变了。
+
+1. 为Hypervisor配置网络时间协议（NTP）
+
+* 摘要
+  * Hypervisor支持指定一个或者多个网络时间协议服务器，以此来保证虚拟机监视器和NTP服务器的系统时钟同步。保证虚拟机监视器和RHEVM的时间资源同步是非常重要的。这可以确保在RHEV环境中的准确时间。时间的同步影响了VM之间的迁移。
+
+  1. 设置或者改变主NTP服务器，选择NTP Server1那一栏，并且键入新的主NTP服务器的IP地址或者主机名。
+  1. 设置或者改变备选的NTP服务器，选择NTP Server2那一栏，并且键入行的备用NTP服务器的IP地址或者主机名。
+  1. 选择< Save >并且按【Enter】键来改变对NTP的配置。
+
+* 结果
+
+  主NTP服务器和备选NTP服务器被改变了。
+
+
+1. 配置Hypervisor的网络接口
+
+* 摘要
+
+  每个Hypervisor检测到的网络接口都会显示下面内容：
+
+  * 设备
+  * 状态
+  * 模式
+  * MAC地址
+
+  若要让Hypervisor连接到EayunOS管理端，至少有一个网络接口要配置好。
+
+
+  1. 设备鉴别
+
+    在Available System NICs处选择一块网卡，并按下【Enter】键，进入网络配置页面。
+
+    （图 网络配置）
+
+    当列表中的每一项所指向的物理设备不明确的时候，Hypervisor可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择< Flash Lights to Identify >键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
+
+  1. IPv4配置
+
+    Hypervisor支持DHCP和静态网络配置（static）。
+
+    * 动态网络配置（DHCP）
+
+      动态网络配置允许Hypervisor通过DHCP来动态的被分配地址。在IPv4 Settings中选择DHCP选项，并按空格来打开动态IPv4网络配置功能。
+
+    * 静态网络配置
+
+      静态网络配置允许Hypervisor手动分配IP地址。在IPv4 Settings中选择Static选项，并按空格来打开静态IPv4网络配置功能。
+
+      选择static选项会出现IP Address，Netmask，Gateway栏。IP Address，Netmask，Gateway栏必须填写，来完成静态网络的配置。
+
+      * 详细说明必须满足的内容：
+
+        * IP Address : 在该网络中不能已经被使用。
+        * Netmask : 需要和网络中其他主机使用的netmask匹配。
+        * Gateway : 需要和网络中的其他机器使用的gateway匹配。
+
+      如果你不清楚要使用的IP Address，Netmask或者Gateway，请联系网络管理员或者考虑动态配置。
+
+      > ##### 示例：Static IPv4网络配置
+      > IPv4 Settings
+      > ( ) Disabled  ( ) DHCP  (\*) Static
+      > IP Address: 192.168.122.100_	Netmask: 255.255.255.0_ Gateway: 192.168.1.1_
+
+  1. IPv6设置
+
+    暂不支持IPv6网络，IPv6网络选项必须保持Disabled。
+
+  1. VLAN配置
+
+    如果需要VLAN的话，在VLAN ID一栏为所选的设备填上VLAN的标识符。
+
+  1. 保存网络配置
+
+    当完成了为所选设备配置好所有的网络选项时，必须对配置进行保存。
+
+    1. 选择< Save >并按下【Enter】键保存网络配置。
     1. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
 
-  * 结果
+* 结果
 
-    主机名配置成功。
+  等待大约30秒，网络配置成功，提示`All changes were applied successfully`，能够使用网络。
 
-
-  1. 为Hypervisor配置域名服务器
-
-  * 摘要
-    * Hypervisor支持指定一个或者多个域名服务器，在转换主机名和域名的时候会用到这些服务器。
-
-    1. 设置或者改变主DNS服务器，选择DNS Server1那一栏，并且键入新的主DNS服务器的IP地址。
-    1. 设置或者改变备选的DNS服务器，选择DNS Server2那一栏，并且键入行的备用DNS服务器的IP地址。
-    1. 选择< Save >并且按下【Enter】键来改变对DNS的配置。
-
-  * 结果
-
-    主DNS服务器和备选DNS服务器被改变了。
-
-  1. 为Hypervisor配置网络时间协议（NTP）
-
-  * 摘要
-    * Hypervisor支持指定一个或者多个网络时间协议服务器，以此来保证虚拟机监视器和NTP服务器的系统时钟同步。保证虚拟机监视器和RHEVM的时间资源同步是非常重要的。这可以确保在RHEV环境中的准确时间。时间的同步影响了VM之间的迁移。
-
-    1. 设置或者改变主NTP服务器，选择NTP Server1那一栏，并且键入新的主NTP服务器的IP地址或者主机名。
-    1. 设置或者改变备选的NTP服务器，选择NTP Server2那一栏，并且键入行的备用NTP服务器的IP地址或者主机名。
-    1. 选择< Save >并且按【Enter】键来改变对NTP的配置。
-
-  * 结果
-
-    主NTP服务器和备选NTP服务器被改变了。
-
-
-  1. 配置Hypervisor的网络接口
-
-  * 摘要
-
-    每个Hypervisor检测到的网络接口都会显示下面内容：
-
-    * 设备
-    * 状态
-    * 模式
-    * MAC地址
-
-    若要让Hypervisor连接到EayunOS管理端，至少有一个网络接口要配置好。
-
-
-    1. 设备鉴别
-
-      在Available System NICs处选择一块网卡，并按下【Enter】键，进入网络配置页面。
-
-      （图 网络配置）
-
-      当列表中的每一项所指向的物理设备不明确的时候，Hypervisor可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择< Flash Lights to Identify >键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
-
-    1. IPv4配置
-
-      Hypervisor支持DHCP和静态网络配置（static）。
-
-      * 动态网络配置（DHCP）
-
-        动态网络配置允许Hypervisor通过DHCP来动态的被分配地址。在IPv4 Settings中选择DHCP选项，并按空格来打开动态IPv4网络配置功能。
-
-      * 静态网络配置
-
-        静态网络配置允许Hypervisor手动分配IP地址。在IPv4 Settings中选择Static选项，并按空格来打开静态IPv4网络配置功能。
-
-        选择static选项会出现IP Address，Netmask，Gateway栏。IP Address，Netmask，Gateway栏必须填写，来完成静态网络的配置。
-
-        * 详细说明必须满足的内容：
-
-          * IP Address : 在该网络中不能已经被使用。
-          * Netmask : 需要和网络中其他主机使用的netmask匹配。
-          * Gateway : 需要和网络中的其他机器使用的gateway匹配。
-
-        如果你不清楚要使用的IP Address，Netmask或者Gateway，请联系网络管理员或者考虑动态配置。
-
-        > ##### 示例：Static IPv4网络配置
-        > IPv4 Settings
-        > ( ) Disabled  ( ) DHCP  (\*) Static
-        > IP Address: 192.168.122.100_	Netmask: 255.255.255.0_ Gateway: 192.168.1.1_
-
-    1. IPv6设置
-
-      暂不支持IPv6网络，IPv6网络选项必须保持Disabled。
-
-    1. VLAN配置
-
-      如果需要VLAN的话，在VLAN ID一栏为所选的设备填上VLAN的标识符。
-
-    1. 保存网络配置
-
-      当完成了为所选设备配置好所有的网络选项时，必须对配置进行保存。
-
-      1. 选择< Save >并按下【Enter】键保存网络配置。
-      1. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
-
-  * 结果
-
-    等待大约30秒，网络配置成功，提示`All changes were applied successfully`，能够使用网络。
 
 ### Hypervisor安全配置
 
 * 摘要
+  * 选择左侧的Security，切换到安全界面。
   * 安全界面用来修改远程和本地通过admin用户访问的密码。SSH密码认证也可以通过这个界面设置为启用或禁用。
 
-1. Hypervisor安全配置
-  1. 启用SSH密码认证
 
-    为远程访问启用SSH密码认证。选择`Enable SSH password authentication`选项，并用【Enter】键或空格键选择启用。
+1. 启用SSH密码认证
 
-  1. 修改admin密码
+  为远程访问启用SSH密码认证。选择`Enable SSH password authentication`选项，并用【Enter】键或空格键选择启用。
 
-    在`Password for the admin user`栏输入一个新的密码。这里，你应该使用一个强壮的密码。
+1. 修改admin密码
 
-    1. 在Password输入新的admin密码。
-    1. 在Confirm Password输入确认密码，保证Password和Confirm Password中输入的内容是一致的。
-    1. 选择< Save >并按下【Enter】键，保存配置。
+  在`Password for the admin user`栏输入一个新的密码。这里，你应该使用一个强壮的密码。
+
+  1. 在Password输入新的admin密码。
+  1. 在Confirm Password输入确认密码，保证Password和Confirm Password中输入的内容是一致的。
+  1. 选择< Save >并按下【Enter】键，保存配置。
 
 * 结果
 
   安全配置设置成功，配置更新。
+
+
+### 配置Hypervisor简单网络管理协议（SNMP）
+
+* 摘要
+  * 选择左侧的SNMP，切换到SNMP界面。
+  * SNMP界面允许你启用和配置SNMP的密码。
+
+  （图 配置SNMP）
+
+1. 选择Enable SNMP栏。
+1. 按下【Enter】键或空格键，选择启用SNMP或禁用SNMP。默认SNMP是禁用的。
+1. 在SNMP Password的Password栏，输入SNMP的密码。
+1. 在SNMP Password的Confirm Password栏，输入确认密码，保证两次输入密码内容一致。
+1. 选择< Save >并按下【Enter】键，保存SNMP配置。
+
+* 结果
+
+  SNMP配置完成。
+
+
+### 配置Hypervisor通用信息模型
+
+* 摘要
+  * 选择左侧的CIM，切换到CIM界面。
+  * 启用和配置通用信息模型（CIM）允许你将Hypervisor连接到现有的CIM管理框架中，并监视Hypervisor上虚拟机的运行。
+
+  （图 配置CIM）
+
+1. 选择Enable CIM栏。
+1. 按下【Enter】键或空格键，选择启用CIM或禁用CIM。默认CIM是禁用的。
+1. 在Password栏输入密码。你将使用这个密码来用CIM访问Hypervisor。
+1. 在Confirm Password栏重新输入一次密码，保证两次输入密码的内容一致。
+1. 选择< Save >并按下【Enter】键，保存CIM配置。
+
+* 结果
+
+  经过设置，Hypervisor可以接受来自CIM使用密码的连接认证。但你要添加你的Hypervisor到你的通用信息模型管理器（CIMOM）。
+
+
+### 配置Hypervisor日志记录
+
+* 摘要
+  * 选择左侧的Logging，切换到Logging界面。
+  * Hypervisor创建并维护来大量的日志文件。Logging界面允许配置一个守护进程来自动导入这些日志到远程服务器中。
+
+  （图 配置日志记录）
+
+1. logrotate配置
+
+  程序logrotate可以简化日志文件的管理。当日志文件达到指定文件大小的时候，Hypervisor使用logrotate来对日志进行轮转操作。
+
+  日志的轮转包括当前日志文件的重命名和创建一个新的日志文件。Logging界面中的Logratate Max Log Size的数值就是用来决定当log多大的时候需要轮转的。
+
+  以KB为单位，输入一个数值来设定Logrotate Max Log Size。默认大小是1024KB。
+
+1. rsyslog配置
+
+  rsyslog是一个多线程的syslog守护进程。Hypervisor可以使用rsyslog在网络上传输log文件到远程的syslog守护进程。
+
+  1. 在Server Address一栏输入远端的rsyslog服务器的地址。
+  1. 在Server Port一栏输入远端rsyslog服务器的端口。默认端口是514。
+
+1. netconsole配置
+
+  netconsole模块允许内核消息发送到一个远程的机器。Hypervisor使用netconsole在网络上传递内核消息。
+
+  1. 输入服务器的地址。
+  1. 输入服务器的端口。默认端口是6666。
+
+1. 保存配置
+
+  选择< Save >并按下【Enter】键，保存日志配置。
+
+* 结果
+
+  日志配置成功。
 
 
