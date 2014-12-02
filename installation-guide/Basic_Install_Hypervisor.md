@@ -124,13 +124,22 @@
     （图 安装完毕）
 
     > #### 注意
-    > 移除启动设备，并修改系统启动项，避免重启后又进 入安装流程。
+    > 移除启动设备，并修改系统启动项，避免重启后又进入安装流程。
 
     > #### 注意
-    > EayunOS Hypervisor可以在SANS和其他网络存储中保 存客户虚拟镜像。Hypervisor也可以被安装在SANs中， 作为BIOS中的一个启动设备，提供HBA配置许可。
+    > EayunOS Hypervisor可以在SANS和其他网络存储中保存客户虚拟镜像。Hypervisor也可以被安装在SANs中， 作为BIOS中的一个启动设备，提供HBA配置许可。
 
     > #### 注意
-    > Hypervisor的安装可以使用多路径设备。SANS和其他网 络存储经常使用多路径。安装的时候默认是开启多路径 的。可以响应scsi_id函数的块设备都是多路径的。这 些设备不包括USB存储设一些老的ATA硬盘。
+    > Hypervisor的安装可以使用多路径设备。SANS和其他网络存储经常使用多路径。安装的时候默认是开启多路径的。可以响应scsi_id函数的块设备都是多路径的。这些设备不包括USB存储设一些老的ATA硬盘。
+
+## Hosted Engine的部署
+### Hosted Engine的部署
+
+### Engine管理端的配置（Engine Console的使用）
+
+### 将第一台HA主机加入Engine环境中
+
+### 访问管理员门户
 
 
 
