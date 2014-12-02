@@ -51,7 +51,9 @@
 
         > ##### 示例
         > Custom Block Device
+        >
         > Please enter one or more disks to use for installing EayunOS Hypervisor. Multiple devices can be separated by comma.
+        >
         > Device path:                                /dev/sda_________________________________
 
         （图 使用其他设备）
@@ -120,6 +122,7 @@
 
     > ##### 登录提示
     > Please login as 'admin' to configure the node
+    >
     > localhost login:
 
   1. 输入用户名admin，按下【Enter】键。
@@ -143,13 +146,21 @@
 
     > ##### 配置键盘布局
     > Keyboard Layout Selection
+    >
     > Choose the Keyboard Layout you would like to apply to this system.
+    >
     > Current Active Keyboard Layout: U.S. English
+    >
     > Available Keyboard Layouts
+    >
     > Tamil (Typewriter)
+    >
     > Turkish
+    >
     > U.S. English
+    >
     > U.S. International
+    >
     > Ukrainian
     > 
     >
@@ -294,7 +305,9 @@
 
       > ##### 示例：Static IPv4网络配置
       > IPv4 Settings
+      >
       > ( ) Disabled  ( ) DHCP  (\*) Static
+      >
       > IP Address: 192.168.122.100_	Netmask: 255.255.255.0_ Gateway: 192.168.1.1_
 
   1. IPv6设置
@@ -349,10 +362,10 @@
 
   （图 配置SNMP）
 
-1. 选择Enable SNMP栏。
+1. 选择`Enable SNMP`栏。
 1. 按下【Enter】键或空格键，选择启用SNMP或禁用SNMP。默认SNMP是禁用的。
-1. 在SNMP Password的Password栏，输入SNMP的密码。
-1. 在SNMP Password的Confirm Password栏，输入确认密码，保证两次输入密码内容一致。
+1. 在`SNMP Password`的Password栏，输入SNMP的密码。
+1. 在`SNMP Password`的Confirm Password栏，输入确认密码，保证两次输入密码内容一致。
 1. 选择< Save >并按下【Enter】键，保存SNMP配置。
 
 * 结果
@@ -368,7 +381,7 @@
 
   （图 配置CIM）
 
-1. 选择Enable CIM栏。
+1. 选择`Enable CIM`栏。
 1. 按下【Enter】键或空格键，选择启用CIM或禁用CIM。默认CIM是禁用的。
 1. 在Password栏输入密码。你将使用这个密码来用CIM访问Hypervisor。
 1. 在Confirm Password栏重新输入一次密码，保证两次输入密码的内容一致。
@@ -455,6 +468,7 @@
 
   > ##### 示例：iSCSI Initiator名称
   > iSCSI Initiator Name:
+  >
   > iqn.2014-12.eayun.com:target1
 
 1. 选择< Save >并按下【Enter】键，保存远程存储的配置。
