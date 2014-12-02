@@ -134,6 +134,64 @@
 
 ## Hosted Engine的部署
 ### Hosted Engine的部署
+1. 安装说明
+
+  目前提供的是基于EayunOS Appliance的部署。
+
+    * EayunOS Appliance存放的目录为`/usr/share/EayunOS-Engine-Appliance/`
+    * 不支持其他方式的部署
+
+1. 部署前配置
+  1. 以admin身份登录到EayunOS系统中
+    1. 输入用户名admin，按下【Enter】键。
+    1. 输入admin用户的密码，该密码是在你安装EayunOS系统过程中所设置的密码，按下【Enter】键。
+
+      （图 登录成功）
+
+  1. 配置主机名（FQDN）
+  1. 配置EayunOS系统的网络接口
+  1. 配置EayunOS安全选项
+
+1. 部署Hosted Engine
+
+  当EayunOS系统安装完成并进行了相应的配置后，就可以进行Hosted Engine的部署了。这个部署命令将进行一些交互，询问你一系列问题，并根据你的回答配置Hosted Engine的环境。当向它提供需要的数据后，它将启动一台虚拟机，作为EayunOS虚拟化管理中心的管理端。
+
+  本章节提供一些主要步骤引导你完成Hosted Engine的部署。每个交互中包含几个需要用户输入的步骤。每一步都会在方括号中提供建议默认值。你可以按下【Enter】键同意使用这些默认值并进入下一个步骤，也可以选择填写括号中的其他值来进行配置。
+
+  1. 选择左侧的Hosted Engine，切换到Hosted Engine界面。
+
+    （图 Hosted Engine界面）
+
+  1. 在Engine ISO/OVA Location一栏填写EayunOS Appliance的存放路径：`/usr/share/EayunOS-Engine-Appliance/EayunOS-Engine-Appliance-4.1-Beta-1411260328.ova.gz`。（内容需要根据最终版本进行更改）
+  1. 选择< Setup Hosted Engine >并按下【Enter】键，开始部署Hosted Engine。
+  1. 提示`Begin Hosted Engine Setup`，选择< Ok >并按下【Enter】键，确定部署。
+  1. 进入命令行的交互界面。
+    1. 选择Hosted Engine虚拟机所使用的存储类型，默认存储类型是nfs3。
+
+      1. 选择nfs3，使用NFS存储
+
+        填写nfs3或直接按下【Enter】键
+
+           Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:
+
+        输入NFS存储的路径，按下
+
+           Please specify the full shared storage connection path to use (example: host:/path): storage-server:/path
+
+      1. 选择iscsi，使用iSCSI存储
+
+        填写iscsi，按下【Enter】键
+
+           Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:iscsi
+
+        。。。。。。
+
+    1. 网络配置
+
+    1. 
+
+
+
 
 ### Engine管理端的配置（Engine Console的使用）
 
