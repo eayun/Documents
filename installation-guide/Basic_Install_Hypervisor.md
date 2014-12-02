@@ -4,11 +4,13 @@
   1. 插入EayunOS Hypervisor安装盘
     1. 启动系统，并确定系统从安装光盘启动。
     1. 出现开机画面。如果不提供输入，EayunOS Hypervisor安装程序会在30秒后，使用默认的内核参数启动（图1. 开机画面）。
-    1. 如果需要选择其他菜单，按下【Down】键，选择【Troubleshooting】，按下【Enter】键，进入菜单选项。（图2. 启动菜单）<br />
+    1. 如果需要选择其他菜单，按下【Down】键，选择【Troubleshooting】，按下【Enter】键，进入菜单选项。（图2. 启动菜单）
+
       * 可选择的菜单有：
         * 
         * 
         *
+
     1. 选择【Start EayunOS】，按下【Enter】，以默认的内核参数启动EayunOS Hypervisor。
 
       或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。（图3. 添加启动参数）<br />
@@ -50,7 +52,7 @@
           > ##### 示例
           > Custom Block Device
           > Please enter one or more disks to use for installing EayunOS Hypervisor. Multiple devices can be separated by comma.
-          > Device path:                                                               /dev/sda_________________________________
+          > Device path:           /dev/sda_________________________________
 
           （图 使用其他设备）
 
@@ -68,11 +70,40 @@
 
       如果选择了`Fill disk with Data partition`，Data这一项无法编辑。如果没有选择，你可以为保留空间设置一个数值。输入-1意味着占用所有的剩余空间。
 
+      （图 配置存储）
+
       选择< Continue >并按下【Enter】键，保存设置并继续下一步操作。
 
     1. 对存储的设置有一个预览，选择< Confirm >并按下【Enter】，确认存储设置并继续下一步操作。
 
+      （图 确认存储设置）
+
       > #### 警告
       > 选定的存储设备上的所有的数据都会被破坏。
 
-    
+    1. EayunOS Hypervisor需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
+
+      （图 设置密码）
+
+      最好使用一个强壮的密码。一个强壮的密码可以是大小写字母、数字和标点字符的混合。密码最少6个字符，不能包含目录字符。
+
+      选择< Install >并按下【Enter】键，开始安装Hypervisor到指定的硬盘上。
+
+      （图 开始安装）
+
+      * 结果
+        * 当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
+
+        （图 安装完毕）
+
+      > #### 注意
+      > 移除启动设备，并修改系统启动项，避免重启后又进 入安装流程。
+
+      > #### 注意
+      > EayunOS Hypervisor可以在SANS和其他网络存储中保 存客户虚拟镜像。Hypervisor也可以被安装在SANs中， 作为BIOS中的一个启动设备，提供HBA配置许可。
+
+      > #### 注意
+      > Hypervisor的安装可以使用多路径设备。SANS和其他网 络存储经常使用多路径。安装的时候默认是开启多路径 的。可以响应scsi_id函数的块设备都是多路径的。这 些设备不包括USB存储设一些老的ATA硬盘。
+
+
+
