@@ -28,7 +28,7 @@
     1. 选择【Start EayunOS】，按下【Enter】键，进入安装界面。
     1. 在Installation窗口中，选择< Install Hypervisor 4.1-apha-2 >（要更新内容），按下【Enter】，开始安装流程；或者选择< Quit >放弃安装。
     1. 首先需要对键盘进行相应的配置，需要选择合适的键盘布局。使用【Up】和【Down】键来选择合适的选项，并按【Enter】键保存你的选择。（图（或例）键盘布局配置）
-    1. 安装脚本自动识别出系统中的所有的硬盘。帮助选择启动和安装Hypervisor的硬盘。该界面的每一项包含每个硬盘的Location，Device Name 和Size。
+    1. 安装脚本自动识别出系统中的所有的硬盘。帮助选择启动和安装Hypervisor的硬盘。该界面的每一项包含每个硬盘的Location，Device Name 和Size。（图 启动设备选择）
 
       第一个硬盘选择界面用来选择Hypervisor启动盘。在该界面选择硬盘后，会把Hypervisor的引导程序安装到该硬盘的主引导记录（MBR）。Hypervisor尝试自动检测系统中的硬盘，然后列出可以用来做启动硬盘的设备。你可以通过Other Device选项手动选择一个块设备。
 
@@ -52,13 +52,27 @@
           > Please enter one or more disks to use for installing EayunOS Hypervisor. Multiple devices can be separated by comma.
           > Device path:                                                               /dev/sda_________________________________
 
+          （图 使用其他设备）
+
           选择< Save >并按下【Enter】键，该操作将保存启动设备并继续下一步安装。
 
       选定用来安装的硬盘将安装EayunOS Hypervisor。Hypervisor自动检测系统中的硬盘并从选择的设备上进行安装。
 
-      > #### 警告
-      > 选定的存储设备上的所有数据都会被破坏
-
         选择< Continue >按钮并按下【Enter】键
 
     1. 接下来，应该配置EayunOS Hypervisor的存储
+
+      选择或取消`Fill disk with Data partition`。该项是默认选择，如果不选择该项，将会看到磁盘剩余的空间，并允许指定给数据分区分配的大小。
+
+      设置Swap，Config，Logging的大小，以MB为单位。
+
+      如果选择了`Fill disk with Data partition`，Data这一项无法编辑。如果没有选择，你可以为保留空间设置一个数值。输入-1意味着占用所有的剩余空间。
+
+      选择< Continue >并按下【Enter】键，保存设置并继续下一步操作。
+
+    1. 对存储的设置有一个预览，选择< Confirm >并按下【Enter】，确认存储设置并继续下一步操作。
+
+      > #### 警告
+      > 选定的存储设备上的所有的数据都会被破坏。
+
+    
