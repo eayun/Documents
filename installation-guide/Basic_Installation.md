@@ -170,22 +170,22 @@
 
       * 选择nfs3，使用NFS存储
 
-        * 填写nfs3或直接按下【Enter】键
+        填写nfs3或直接按下【Enter】键
 
-              Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
+            Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
 
-        * 输入NFS存储的路径，按下【Enter】键
+        输入NFS存储的路径，按下【Enter】键
 
-              Please specify the full shared storage connection path to use (example: host:/path):storage-server:/path
+            Please specify the full shared storage connection path to use (example: host:/path):storage-server:/path
 
       * 选择iscsi，使用iSCSI存储
 
-        * 填写iscsi，按下【Enter】键
+        填写iscsi，按下【Enter】键
 
-              Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
+            Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
 
 
-        * 。。。。。。
+        。。。。。。
 
     1. 安装检测
 
@@ -659,6 +659,7 @@
 
   1. 将第一台HA主机加入EayunOS虚拟化环境的集群里。
 
+        [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
                   Enter the name of the cluster to which you want to add the host (Default) [Default]: 
         [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
 
