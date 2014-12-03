@@ -191,9 +191,9 @@
 
       Hosted Engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
 
-[ INFO  ] Installing on first host
-          Please provide storage domain name. [hosted_storage]: 
-          Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
+        [ INFO  ] Installing on first host
+                  Please provide storage domain name. [hosted_storage]: 
+                  Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
 
       Hosted Engine虚拟机会被加入到一个名为hosted_datacenter（可自己定义名称）里，使用的存储为hosted_storage（可自己定义名称）。
 
