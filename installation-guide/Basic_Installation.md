@@ -706,6 +706,12 @@
 
     系统被重启或关闭。
 
+  1. 设置Engine Console的root密码
+
+    可以使用engineadm用户登录Engine Console，设置了root密码后，也可以用root直接登录到shell界面中。
+
+
+
 ### 将第一台HA主机加入EayunOS虚拟化环境中
 
 * 摘要
@@ -729,17 +735,19 @@
 
   1. hosted-engine部署程序检测EayunOS虚拟化管理中心的状态。
 
+    检测虚拟化管理中心状态，此阶段不需要输入。
+
         [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
 
-     说明EayunOS虚拟化管理中心已经配置完成，能够正常登录和使用。
+    说明EayunOS虚拟化管理中心已经配置完成，能够正常登录和使用。
 
   1. 将第一台HA主机加入EayunOS虚拟化环境的集群里。
+
+    EayunOS初始化时默认会创建一个Default集群，hosted-engine部署程序检测环境中的所有集群，让用户选择HA主机所加入的集群。
 
         [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
                   Enter the name of the cluster to which you want to add the host (Default) [Default]: 
         [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
-
-    EayunOS初始化时默认会创建一个Default集群，hosted-engine部署程序检测环境中的所有集群，让用户选择HA主机所加入的集群。
 
     输入可用的集群名称或直接按下【Enter】键（使用默认集群），将Hosted Engine的Hypervisor主机加入EayunOS虚拟化环境的集群里。
 
@@ -762,6 +770,9 @@
 
     hosted-engine部署程序会等待你把Hosted Engine虚拟机关闭，完成部署。然后，会通过HA服务自动将Hosted Engine虚拟机重启，这样，部署才是完整并成功进行的。
 
+* 结果
+
+  Hosted Engine部署完成，第一台Hypervisor主机被加到EayunOS虚拟化管理中心的环境中。
 
 ### 访问管理员门户
 * 摘要
@@ -1265,3 +1276,59 @@
   远程存储配置成功，配置被更新。
 
 
+## 将EayunOS Hypervisor添加到EayunOS管理端
+
+* 摘要
+  * 如果服务器IP地址有效，你可以直接将Hypervisor连接到EayunOS。
+  * 如果管理器还没有安装，你需要先设置一个密码。一旦管理器安装了，你就可以从管理员入口添加Hypervisor。
+  * Hypervisor用户接口的EayunOS Manager界面同时支持处理这两种情况。
+
+> #### 重要
+> EayunOS Manager界面的设置密码功能可以在Hypervisor上设置root的密码并允许SSH密码认证。一旦Hypervisor被成功的添加到管理器上，那最好禁用SSH密码认证功能。
+
+### 注册Hypervisor主机
+
+1. 通过Hypervisor配置界面注册主机
+  1. 选择左侧的oVirt Engine。
+  1. 在Management Server栏输入EayunOS管理端的IP地址或者完整域名。
+  1. 在Management Server Port输入管理服务器的端口。
+
+    默认值是443。如果EayunOS安装的时候选择了一个不同的端口，在这里指定一个新值来替换默认值。
+
+  1. 不用设置Password和Confirm Password，当管理服务器地址有效的时候这两栏不需要。
+
+    * 进行密码配置
+
+      这其实是对root密码进行配置。
+
+      1. 在Password栏输入密码。
+
+        建议你使用一个强壮的密码。强壮的密码可以是大小写字母，数字，标点符号的混合。密码最少六个字符，而且不应该出现在字典中。
+
+      1. 在Confirm Password栏重新输入你的密码。
+
+      不用设置Management Server和Management Server Port两栏，只要密码设置了，稍后允许管理器添加Hypervisor就可以了，不需要这两栏。
+
+  1. 选择< Save & Register >并按下【Enter】键，保存配置，并将Hypervisor主机注册到EayunOS虚拟化管理中心里。
+  1. 提示`All changes were applied successfully.`，说明注册成功。
+
+* 结果
+
+  EayunOS Manager配置完成，主机被注册到EayunOS虚拟化管理中心。
+
+> #### 注意
+> 如果Hypervisor配置了EayunOS的地址，那Hypervisor重启后自动注册到管理器。在EayunOS的主机选项卡中可以看到该Hypervisor。必须在EayunOS中批准Hypervisor的注册请求，才可以使用该Hypervisor。在下一章节你将了解如何批准一台注册的主机。
+
+
+1. 批准主机
+  1. 打开浏览器，登录EayunOS虚拟化管理中心的管理门户。
+  1. 选择主机选项卡，可以看到之前配置的主机。该主机的状态是Pending Approval。
+  1. 点菜单中的【批准】按键。出现【编辑和批准主机】对话框。你可以使用该对话框修改该主机的名字，核对它的SSH指纹，还可以给支持电源管理卡的主机配置电源管理。
+
+    有关电源管理配置的详细信息，参见EayunOS管理员手册。
+
+  1. 点击【确定】。如果你还没有配置电源管理，你将会被提示，是否跳过该步骤直接运行，再次点【确定】。
+
+* 结果
+
+  该主机的状态变成Installing，安装完成之后，它的状态变成UP。主机成功添加到EayunOS虚拟化管理中心环境中。
