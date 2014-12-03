@@ -191,9 +191,9 @@
 
       Hosted Engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
 
-        [ INFO  ] Installing on first host
-                  Please provide storage domain name. [hosted_storage]: 
-                  Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
+          [ INFO  ] Installing on first host
+                    Please provide storage domain name. [hosted_storage]: 
+                    Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
 
       Hosted Engine虚拟机会被加入到一个名为hosted_datacenter（可自己定义名称）里，使用的存储为hosted_storage（可自己定义名称）。
 
@@ -278,8 +278,8 @@
 
       hosted-engine会验证你的所有答案，并警告你可能发生的问题。
 
-        [ INFO  ] Stage: Setup validation
-        [WARNING] Cannot validate host name settings, reason: resolved host does not match any of the local addresses
+          [ INFO  ] Stage: Setup validation
+          [WARNING] Cannot validate host name settings, reason: resolved host does not match any of the local addresses
 
       在预览阶段，hosted-engine会给你展示你所输入的配置，并提供修改的机会。如果你选择运行，即直接按下【Enter】键（默认为【Yes】），hosted-engine会进行安装并创建EayunOS虚拟化管理中心的虚拟机。
 
@@ -312,15 +312,15 @@
 
       你需要通过控制台打开这台虚拟机，进行EayunOS虚拟化管理中心的配置。详细过程请看【engine-console的使用】。
 
-    [ INFO  ] Creating VM
-              You can now connect to the VM with the following command:
-                  /bin/remote-viewer vnc://localhost:5900
-              Use temporary password "8474yKhl" to connect to vnc console.
-              Please note that in order to use remote-viewer you need to be able to run graphical applications.
-              This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
-              Otherwise you can run the command from a terminal in your preferred desktop environment.
-              If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
-              virsh -c qemu+tls://Test/system console HostedEngine
+          [ INFO  ] Creating VM
+                    You can now connect to the VM with the following command:
+                        /bin/remote-viewer vnc://localhost:5900
+                    Use temporary password "8474yKhl" to connect to vnc console.
+                    Please note that in order to use remote-viewer you need to be able to run graphical applications.
+                    This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
+                    Otherwise you can run the command from a terminal in your preferred desktop environment.
+                    If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
+                    virsh -c qemu+tls://Test/system console HostedEngine
 
       此时，hosted-engine会等待你对EayunOS虚拟化管理中心配置完成。配置完成后，输入【1】，按下【Enter】键，即可继续进行下一步操作。
 
