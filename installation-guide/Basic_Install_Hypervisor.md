@@ -21,7 +21,7 @@
 ### 启动安装
 1. 插入EayunOS安装盘
   1. 启动系统，并确定系统从安装光盘启动。
-  1. 出现开机画面。如果不提供输入，EayunOS Hypervisor安装程序会在30秒后，使用默认的内核参数启动。
+  1. 出现开机画面。如果不提供输入，EayunOS安装程序会在30秒后，使用默认的内核参数启动。
 
     （图 开机画面）
 
@@ -34,7 +34,7 @@
       * 
       * 
 
-  1. 选择【Start EayunOS】，按下【Enter】，以默认的内核参数启动EayunOS Hypervisor。
+  1. 选择【Start EayunOS】，按下【Enter】，以默认的内核参数启动EayunOS。
 
     或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。（图 添加启动参数）
 
@@ -78,17 +78,17 @@
         > Please enter one or more disks to use for installing EayunOS Hypervisor. Multiple devices can be separated by comma.
         >
         > Device path:
-        > /dev/sda_________________________________
+        > /dev/sda__________________
 
         （图 使用其他设备）
 
         选择< Save >并按下【Enter】键，该操作将保存启动设备并继续下一步安装。
 
-    选定用来安装的硬盘将安装EayunOS Hypervisor。Hypervisor自动检测系统中的硬盘并从选择的设备上进行安装。
+    选定用来安装的硬盘将安装EayunOS。Hypervisor自动检测系统中的硬盘并从选择的设备上进行安装。
 
       选择< Continue >按钮并按下【Enter】键
 
-  1. 接下来，应该配置EayunOS Hypervisor的存储
+  1. 接下来，应该配置EayunOS系统的存储
 
     选择或取消`Fill disk with Data partition`。该项是默认选择，如果不选择该项，将会看到磁盘剩余的空间，并允许指定给数据分区分配的大小。
 
@@ -107,7 +107,7 @@
     > #### 警告
     > 选定的存储设备上的所有的数据都会被破坏。
 
-  1. EayunOS Hypervisor需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
+  1. EayunOS系统需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
 
     （图 设置密码）
 
@@ -168,34 +168,40 @@
   1. 进入命令行的交互界面。
     1. 选择Hosted Engine虚拟机所使用的存储类型，默认存储类型是nfs3。
 
-      1. 选择nfs3，使用NFS存储
+      * 选择nfs3，使用NFS存储
 
-        填写nfs3或直接按下【Enter】键
+        * 填写nfs3或直接按下【Enter】键
 
-           Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:
+          > Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:
 
-        输入NFS存储的路径，按下
+        * 输入NFS存储的路径，按下
 
-           Please specify the full shared storage connection path to use (example: host:/path): storage-server:/path
+          > Please specify the full shared storage connection path to use (example: host:/path): storage-server:/path
 
-      1. 选择iscsi，使用iSCSI存储
+      * 选择iscsi，使用iSCSI存储
 
-        填写iscsi，按下【Enter】键
+        * 填写iscsi，按下【Enter】键
 
-           Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:iscsi
+          > Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:iscsi
 
-        。。。。。。
+        * 。。。。。。
+
+    1. 安装检测
+
+      Hosted Engine检测所选择的存储路径，如果未被使用，则
 
     1. 网络配置
+
+      
 
     1. 
 
 
 
 
-### Engine管理端的配置（Engine Console的使用）
+### EayunOS虚拟化管理中心的配置（Engine Console的使用）
 
-### 将第一台HA主机加入Engine环境中
+### 将第一台HA主机加入EayunOS虚拟化环境中
 
 ### 访问管理员门户
 
