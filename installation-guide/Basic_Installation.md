@@ -482,51 +482,56 @@
 
   1. 配置界面的说明
 
-    * Network Configuration : 
-    * Test Network Configuration : 
-    * Set Hostname : 
-    * Set Date and Time : 
-    * Hosts File Configuration : 
-    * Engine Restart : 
+    * Network Configuration : 配置网络。
+    * Test Network Configuration : 测试网络配置。
+    * Set Hostname : 配置主机名。
+    * Set Date and Time : 设置系统的日期和时间。
+    * Hosts File Configuration : 修改hosts配置文件。
+    * Engine Restart : 重启engine服务。
 
-    * Engine Advance Setting : 
-      * Engine Cleanup : 
-      * Engine Setup : 
-      * Reset Web Portal 'admin' user password : 
-      * WGT_DOMAIN initialization : 
-      * Reset Reports Portal 'admin' user password : 
-      * Back : 
+    * Engine Advance Setting : 进入高级配置界面。
+      * Engine Cleanup : 卸载EayunOS虚拟化管理中心。
+      * Engine Setup : 部署或更新EayunOS虚拟化管理中心。
+      * Reset Web Portal 'admin' user password : 重置Web Portal的admin用户密码。
+      * WGT_DOMAIN initialization : WGT_DOMAIN域的初始化。
+      * Reset Reports Portal 'admin' user password : 重置Reports Portal的admin用户密码。
+      * Back : 返回主配置界面。
 
-    * System Restart or Shutdown : 
-      * Restart the System : 
-      * Shutdown the System : 
+    * System Restart or Shutdown : 重启或关闭系统。
+      * Restart the System : 重启系统。
+      * Shutdown the System : 关闭系统。
+      * Back : 返回主配置界面。
 
-    * Shell : 
-    * Summary Information : 
-    * Log OFF : 
+    * Shell : 进入shell界面。
+    * Summary Information : 配置预览。
+    * Log OFF : 登出系统。
 
 1. 初始化配置
   1. 配置网络
     1. 在主配置界面输入【1】并按下【Enter】键。
-    1. 进入网络配置界面，看到原配置的预览。
+    1. 进入网络配置界面。
 
-        IP Address:	old-ip
-        Netmask:	old-netmask
-        Gateway:	old-gateway
-        DNS:	old-dns
+      看到原配置的预览。
+
+          IP Address:	old-ip
+          Netmask:	old-netmask
+          Gateway:	old-gateway
+          DNS:	old-dns
 
     1. 在`Enter the IP Address or c to cancel:`的提示后面，输入要配置的IP地址，并按下【Enter】键。
     1. 在`Enter the Netmask or c to cancel:`的提示后面，输入要配置的Netmask，并按下【Enter】键。
     1. 在`Enter the Gateway or c to cancel:`的提示后面，输入要配置的Gateway，并按下【Enter】键。
     1. 在`Enter the DNS or c to cancel:`的提示后面，输入要配置的DNS，并按下【Enter】键。
-    1. 此时，会对配置有一个预览，给用户提供一个修改的机会。用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
+    1. 此时，会对配置有一个预览，给用户提供一个修改的机会。
 
-              IP Address:	old-ip	==>	new-ip
-              Netmask:	old-netmask	==>	new-netmask
-              Gateway:	old-gateway	==>	new-gateway
-              DNS:	old-dns	==>	new-dns
+      用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
 
-        Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
+                IP Address:	old-ip	==>	new-ip
+                Netmask:	old-netmask	==>	new-netmask
+                Gateway:	old-gateway	==>	new-gateway
+                DNS:	old-dns	==>	new-dns
+                
+          Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
 
     1. 确认修改，输入【Y】并按下【Enter】键，配置网络。配置成功后，自动返回主配置界面。
 
@@ -580,6 +585,7 @@
       1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
       1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
 
+
       > #### 注意
       > 两次输入的密码应该必须相同。
 
@@ -589,12 +595,15 @@
       > #### 重要
       > 设置的密码要与在hosted-engine部署程序中设置的admin密码**一定要匹配**，否则第一台Hypervisor主机将无法访问EayunOS虚拟化管理中心，而导致部署失败。
 
+
     * 结果
 
       重置Web Portal的admin用户密码成功，engine被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
 
+
   > #### 提示
   > 配置进行到这里，初始化配置已经结束，能够正常访问并使用EayunOS虚拟化管理中心。如果不需要进行其他配置，可以转到【将第一台HA主机加入EayunOS虚拟化环境中】章节，继续进行部署。
+
 
 1. 其他配置选项说明
   1. 配置系统日期和时间
@@ -629,6 +638,73 @@
 
     hosts文件修改成功。
 
+  1. 重启Engine
+
+    这个选项可以重启engine服务。
+
+    1. 在主配置界面输入【6】并按下【Enter】键。
+    1. 提示`Engine Restart ([Y]es/[N]o):`，输入【Y】并按下【Enter】键。
+    1. 提示`Engine restart successfully. Press any key to continue.`，按下任意键，退出重启界面，回到主配置界面。
+
+
+    > #### 注意
+    > 当HA服务启动时（部署为完成时HA服务还没有被激活），HA服务检测到engine服务重启，认为engine服务故障，并尝试**重启Hosted Engine虚拟机**，即将整个系统重启。如果不希望系统被重启，需要启用全局维护模式。维护模式详情请参考【维护模式】。
+
+
+  * 结果
+
+    engine服务重启成功。
+
+  1. 高级配置中的其他选项说明
+    1. 在主配置界面输入【7】并按下【Enter】键，进入高级配置界面。
+      1. WGT_DOMAIN初始化
+
+        WGT_DOMAIN。。。。。。（说明）
+
+        1. 在高级配置界面输入【4】并按下【Enter】键。
+        1. 提示`Please enter the password for admin@internal:`，输入admin用户的密码。
+        1. 开始进行初始化，初始化成功后，提示`WGT_DOMAIN initialization successfully.`，说明初始化成功。
+        1. 按下任意键继续，则返回高级配置界面。
+
+      1. 重置Reports Portal的admin用户密码
+
+        （说明）
+
+        1. 在高级配置界面中输入【5】并按下【Enter】键。
+        1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
+        1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
+        1. 开始设置密码。设置成功后，提示`...`
+        1. 输入任意键回到高级配置界面。
+
+      > #### 注意
+      > 两次输入的密码应该必须相同。
+
+      1. 卸载EayunOS虚拟化管理中心
+
+        在高级配置中提供了卸载选项，能够简单快速地把EayunOS 虚拟化管理中心 环境中的关联文件移除。
+
+        1. 在高级配置界面输入【1】并按下【Enter】键。
+        1. 
+
+      > #### 注意
+      > 
+
+      1. Engine Setup
+
+    1. 输入【6】[ 6) Back ]并按下【Enter】键，可返回主配置界面。
+
+  1. 重启或关闭系统
+    1. 在主配置界面输入【8】并按下【Enter】键。
+    1. 进入重启或关闭的选择界面。
+
+      * 输入【1】并按下【Enter】键，可重启系统。
+      * 输入【2】并按下【Enter】键，可关闭系统。
+
+    1. 输入【3】并按下【Enter】键，可返回主配置界面。
+
+  * 结果
+
+    系统被重启或关闭。
 
 ### 将第一台HA主机加入EayunOS虚拟化环境中
 
@@ -653,7 +729,7 @@
 
   1. hosted-engine部署程序检测EayunOS虚拟化管理中心的状态。
 
-      [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+        [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
 
      说明EayunOS虚拟化管理中心已经配置完成，能够正常登录和使用。
 
@@ -693,7 +769,8 @@
 
 1. 打开客户系统上一个web浏览器。
 1. 把https://your-manager-fqdn/ovirt-engine中的your-manager-fqdn用安装时候设置的完整域名（FQDN）替换。第一次访问的时候，需要为浏览器和服务器间的安全连接的证书添加信任。
-1. 显示出登录界面。输入你的用户名和密码。如果第一次登录，使用admin用户和初始化配置时设置的密码登录。
+1. 转到门户标题页面。点击【管理门户】，显示登录页面。
+1. 输入你的用户名和密码。如果第一次登录，使用admin用户和初始化配置时设置的密码登录。
 1. 从域列表中选择要认证的目录服务域，如果使用的是内部的admin用户，就选择internal域。
 1. 管理员门户可以支持多种语言，默认的选项是根据浏览器的语言设置的，如果需要其他语言，在下拉列表中选择。
 1. 点击【登录】按钮。
@@ -764,7 +841,7 @@
         >
         > Please enter one or more disks to use for installing EayunOS Hypervisor. Multiple devices can be separated by comma.
         >
-        > Device path:                                /dev/sda_________________________________
+        > Device path:                                /dev/sda____________
 
         （图 使用其他设备）
 
