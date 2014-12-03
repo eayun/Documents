@@ -346,6 +346,123 @@
   * Engine Console提供了一个控制台界面，对EayunOS虚拟化管理中心进行相应的配置。
   * 可以通过你在hosted-engine部署时所选择的控制台类型来连接Engine Console。
 
+1. 连接Engine Console（vnc连接）
+
+    1. 在安装了图形界面的机器上（如自己的PC），运行命令`/bin/remote-viewer vnc://{hosted_engine_1_ip}:5900`，打开控制台。
+
+      其中，hosted_engine_1_ip是上述运行hosted-engine程序的Hypervisor主机的IP地址。
+
+    1. 将提示你输入控制台密码，点击【确定】。
+
+      这个密码在hosted-engine程序中已经给出。这是由VDSM生成的一个随机密码。
+
+          You can now connect to the VM with the following command:
+              /bin/remote-viewer vnc://localhost:5900
+          Use temporary password "[password]" to connect to vnc console.
+
+* 结果
+
+    你已经连接了Engine Console的控制台。
+
+1. 用engineadm登录EayunOS虚拟化管理中心控制台
+
+    初次登录，需要配置engineadm密码。
+
+    看到提示信息如下：
+
+    > ##### 登录提示信息
+    > Please login as 'engineadm' to configure the appliance
+    >
+    > localhost login:
+
+    1. 在`locaohost login:`输入【engineadm】并按下【Enter】键。
+    1. 提示。。。。
+    1. 。。。
+    1. 登录成功后，看到EayunOS Appliance的一些信息和配置预览。
+
+      （图 Engine Console配置预览）
+
+* 结果
+
+  成功登录到EayunOS虚拟化控制台，看到Appliance的预览信息。按下任意键可以进入进行配置。
+
+1. 预览信息的介绍
+
+  * Hostname : EayunOS虚拟化管理中心的主机名，进行初始化配置之前，默认主机名是localhost。
+  * IP Address : 
+  * Netmask : 
+  * Gateway : 
+  * DNS : 
+  * MAC Address : 运行EayunOS虚拟化管理中心的虚拟机的MAC地址。
+  * System Time : EayunOS虚拟化管理中心的系统时间。
+  * Engine Version : 当前使用的EayunOS虚拟化管理中心的版本信息。
+  * Engine State : 当前EayunOS虚拟化管理中心的状态（Running | | ）。
+  * Web Portal : 可以通过这个URL访问EayunOS虚拟化管理中心的网页门户。
+
+1. 初始化配置
+  1. 按下任意键，进入配置界面。
+
+    （图 Engine Console配置界面）
+
+  1. 配置界面介绍
+
+    * Network Configuration : 
+    * Test Network Configuration : 
+    * Set Hostname : 
+    * Set Date and Time : 
+    * Hosts File Configuration : 
+    * Engine Restart : 
+
+    * Engine Advance Setting : 
+      * Engine Cleanup : 
+      * Engine Setup : 
+      * Reset Web Portal 'admin' user password : 
+      * WGT_DOMAIN initialization : 
+      * Reset Reports Portal 'admin' user password : 
+      * Back : 
+
+    * System Restart or Shutdown : 
+    * Shell : 
+    * Summary Information : 
+    * Log OFF : 
+
+  1. 进行初始化配置
+    1. 配置网络
+      1. 在主配置界面，输入【1】并按下【Enter】键。
+      1. 进入网络配置界面，看到原配置的预览。
+
+          IP Address:	old-ip
+          Netmask:	old-netmask
+          Gateway:	old-gateway
+          DNS:	old-dns
+
+      1. 在`Enter the IP Address or c to cancel:`的提示后，输入要配置的IP地址，并按下【Enter】键。
+      1. 在`Enter the Netmask or c to cancel:`的提示后，输入要配置的Netmask，并按下【Enter】键。
+      1. 在`Enter the Gateway or c to cancel:`的提示后，输入要配置的Gateway，并按下【Enter】键。
+      1. 在`Enter the DNS or c to cancel:`的提示后，输入要配置的DNS，并按下【Enter】键。
+      1. 此时，会对配置有一个预览，给用户提供一个修改的机会。用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
+
+                IP Address:	old-ip	==>	new-ip
+                Netmask:	old-netmask	==>	new-netmask
+                Gateway:	old-gateway	==>	new-gateway
+                DNS:	old-dns	==>	new-dns
+
+          Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
+
+      1. 确认修改，输入【Y】并按下【Enter】键，配置网络。配置成功后，自动返回主配置界面。
+
+    * 结果
+
+      网络配置成功，返回主配置界面。
+
+    1. 测试网络
+
+      Engine Console提供了一个测试网络的选项。可以使用该选项，测试当前Engine的网络连通性。
+
+      1. 在主配置界面，输入【2】并按下【Enter】键。
+      1. 进入测试网络界面，输入要ping的IP地址，并按下【Enter】键。
+      1. 如果网络连通性良好，将返回信息`[test_ip]: Success!`。
+      1. 你可以继续输入其他IP地址进行网络连通性测试。如果不需要再进行其他IP的ping测试，可以不输入任何内容，直接按下【Enter】键，退出测是网络界面，回到主配置界面。
 
 
 
