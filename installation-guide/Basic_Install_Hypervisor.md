@@ -388,6 +388,26 @@
 
 1. 预览信息的介绍
 
+        Welcome to the EayunOS 4.1 Engine Appliance.
+
+        To manage your appliance please browse to Web Portal.
+
+            Hostname:           aa.bb.cc
+            IP Address:         192.168.2.195
+            Netmask:            255.255.252.0
+            Gateway:            192.168.0.1
+            DNS:                8.8.8.8
+            MAC Address:        00:1A:4A:81:E3:67
+            System Time:        2014年 10月 17日 星期五 13:30:33 CST
+            
+            Engine Version:     3.5.0.1
+            Engine State:       Running
+            Web Portal:         http://192.168.2.195
+            
+            
+        Press any key to continue.
+
+
   * Hostname : EayunOS虚拟化管理中心的主机名，进行初始化配置之前，默认主机名是localhost。
   * IP Address : 
   * Netmask : 
@@ -406,7 +426,45 @@
 1. 初始化配置
   1. 按下任意键，进入配置界面。
 
-    （图 Engine Console配置界面）
+    主配置界面如下：
+
+        Advanced Setting
+
+        1) Network Configuration
+        2) Test Network Configuration
+        3) Set Hostname
+        4) Set Date and Time
+        5) Hosts File Configuration
+        6) Engine Restart
+        7) Engine Advance Setting
+        8) System Restart or Shutdown
+        9) Shell
+        10) Summary Information
+        11) Help
+        12) Log OFF
+        
+        
+        Choose the advanced setting: 
+
+    输入【7】并按下【Enter】键，可以进入高级配置界面。高级配置界面如下：
+
+        Engine Advanced Configuration
+        
+        
+        1) Engine Cleanup 
+        2) Engine Setup 
+        3) Reset Web Portal 'admin' password 
+        4) WGT_DOMAIN initialization
+        5) Reset Reports Portal 'admin' user password
+        6) Back
+        
+        
+        Choose the advanced setting:
+
+  EayunOS虚拟化管理中心的初始化配置流程为：`1) -> 2) -> 3) -> 7)[3)]` ，即可完成所需配置。
+
+  > #### 提示
+  > 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
 
   1. 配置界面介绍
 
@@ -430,7 +488,7 @@
     * Summary Information : 
     * Log OFF : 
 
-  1. 进行初始化配置
+  1. 初始化配置
     1. 配置网络
       1. 在主配置界面输入【1】并按下【Enter】键。
       1. 进入网络配置界面，看到原配置的预览。
@@ -490,6 +548,38 @@
 
       主机名配置成功，保存配置后回到主配置界面。
 
+    1. EayunOS高级配置
+
+      Engine Console提供了对EayunOS虚拟化管理中心的高级配置选项（即选项【7】），可以对EayunOS虚拟化管理中心进行其他的配置。
+
+      在主界面输入【7】并按下【Enter】键，进入高级配置界面。
+
+      1. 配置Web Portal的admin用户密码
+
+      > #### 重要
+      > 登录时，在预览界面，看到提示`...`。这是由于Web Portal的admin用户密码是临时生成的密码，在初始化配置中必须重置Web Portal的admin用户密码，否则EayunOS虚拟化管理中心无法正常登录。
+
+        1. 在高级配置界面输入【3】并按下【Enter】键。
+        1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
+        1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
+
+        > #### 注意
+        > 两次输入的密码应该必须相同。
+
+        > #### 注意
+        > 配置好密码后，engine会自动重启。
+
+        > #### 重要
+        > 设置的密码要与在hosted-engine部署程序中设置的admin密码**一定要匹配**，否则第一台Hypervisor主机将无法访问EayunOS虚拟化管理中心，而导致部署失败。
+
+      * 结果
+
+        重置Web Portal的admin用户密码成功，engine被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
+
+    > #### 提示
+    > 配置进行到这里，初始化配置已经结束，能够正常访问并使用EayunOS虚拟化管理中心。如果不需要进行其他配置，可以转到【将第一台HA主机加入EayunOS虚拟化环境中】章节，继续进行部署。
+
+  1. 其他配置选项说明
     1. 配置系统日期和时间
 
       这个选项允许你配置EayunOS虚拟化管理中心的日期和时间。
@@ -521,24 +611,6 @@
     * 结果
 
       hosts文件修改成功。
-
-    1. EayunOS高级配置
-
-      Engine Console提供了对EayunOS虚拟化管理中心的高级配置选项（即选项【7】），可以对EayunOS虚拟化管理中心进行其他的配置。
-
-      在主界面输入【7】并按下【Enter】键，进入高级配置界面。
-
-      1. 配置Web Portal的admin用户密码
-
-      > #### 重要
-      > 登录时，在预览界面，看到提示`...`。这是由于Web Portal的admin用户密码是临时生成的密码，在初始化配置中必须重置Web Portal的admin用户密码，否则EayunOS虚拟化管理中心无法正常登录。
-
-        1. 在高级配置界面输入【3】并按下【Enter】键。
-        1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
-        1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
-
-        > #### 注意
-        > 
 
 
 ### 将第一台HA主机加入EayunOS虚拟化环境中
