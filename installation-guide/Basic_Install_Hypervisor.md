@@ -399,6 +399,10 @@
   * Engine State : 当前EayunOS虚拟化管理中心的状态（Running | | ）。
   * Web Portal : 可以通过这个URL访问EayunOS虚拟化管理中心的网页门户。
 
+  > #### 重要
+
+  > #### 重要
+
 1. 初始化配置
   1. 按下任意键，进入配置界面。
 
@@ -428,7 +432,7 @@
 
   1. 进行初始化配置
     1. 配置网络
-      1. 在主配置界面，输入【1】并按下【Enter】键。
+      1. 在主配置界面输入【1】并按下【Enter】键。
       1. 进入网络配置界面，看到原配置的预览。
 
           IP Address:	old-ip
@@ -436,10 +440,10 @@
           Gateway:	old-gateway
           DNS:	old-dns
 
-      1. 在`Enter the IP Address or c to cancel:`的提示后，输入要配置的IP地址，并按下【Enter】键。
-      1. 在`Enter the Netmask or c to cancel:`的提示后，输入要配置的Netmask，并按下【Enter】键。
-      1. 在`Enter the Gateway or c to cancel:`的提示后，输入要配置的Gateway，并按下【Enter】键。
-      1. 在`Enter the DNS or c to cancel:`的提示后，输入要配置的DNS，并按下【Enter】键。
+      1. 在`Enter the IP Address or c to cancel:`的提示后面，输入要配置的IP地址，并按下【Enter】键。
+      1. 在`Enter the Netmask or c to cancel:`的提示后面，输入要配置的Netmask，并按下【Enter】键。
+      1. 在`Enter the Gateway or c to cancel:`的提示后面，输入要配置的Gateway，并按下【Enter】键。
+      1. 在`Enter the DNS or c to cancel:`的提示后面，输入要配置的DNS，并按下【Enter】键。
       1. 此时，会对配置有一个预览，给用户提供一个修改的机会。用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
 
                 IP Address:	old-ip	==>	new-ip
@@ -459,11 +463,82 @@
 
       Engine Console提供了一个测试网络的选项。可以使用该选项，测试当前Engine的网络连通性。
 
-      1. 在主配置界面，输入【2】并按下【Enter】键。
+      1. 在主配置界面输入【2】并按下【Enter】键。
       1. 进入测试网络界面，输入要ping的IP地址，并按下【Enter】键。
       1. 如果网络连通性良好，将返回信息`[test_ip]: Success!`。
       1. 你可以继续输入其他IP地址进行网络连通性测试。如果不需要再进行其他IP的ping测试，可以不输入任何内容，直接按下【Enter】键，退出测是网络界面，回到主配置界面。
 
+    1. 配置主机名
+
+      默认的主机名是localhost，因此，你需要对主机名进行配置。
+
+      1. 在主配置界面输入【3】并按下【Enter】键。
+      1. 进入主机名配置界面，输入要配置的主机名，并按下【Enter】键。
+
+      > #### 重要
+      > 输入的主机名要与上述hosted-engine部署程序中所输入的主机名相同。
+
+      1. 提示`Set the hostname to "[new_hostname]" ([Y]es/[R]eset/[C]ancel):`。
+
+        * 输入【Y】并按下【Enter】键，即确认修改保存并退出。
+        * 输入【R】并按下【Enter】键，即重新配置并留在主机名配置界面。
+        * 输入【C】并按下【Enter】键，即取消配置并返回到主配置界面。
+
+        输入【Y】并按下【Enter】键，即确认修改保存并退出。
+
+    * 结果
+
+      主机名配置成功，保存配置后回到主配置界面。
+
+    1. 配置系统日期和时间
+
+      这个选项允许你配置EayunOS虚拟化管理中心的日期和时间。
+
+      1. 在主配置界面输入【4】并按下【Enter】键。
+      1. 进入日期和时间配置界面，进行如下配置：
+
+        * 在`Enter the current date (YYYY-MM-DD) or "c" to Cancel :`的提示后面，用YYYY-MM-DD的格式，输入要配置的日期（即当前的日期），按下【Enter】键。
+        * 在`Enter the current time in 24 hour format (HH:MM:SS) or "c" to Cancel :`的提示后面，用HH:MM:SS的格式，输入要配置的时间（即当前的时间），按下【Enter】键。
+
+      1. 提供修改的预览，提示`Apply Date and Time configuration? ([Y]es/[N]o):`，需要用户进行确认。
+
+        * 输入【Y】并按下【Enter】键，即确认修改保存并退出。
+        * 输入【N】并按下【Enter】键，即取消配置并返回到主配置界面。
+
+        输入【Y】并按下【Enter】键，即确认修改保存并退出。
+
+    * 结果
+
+      系统日期和时间修改成功，更新系统日期和时间，返回到主配置界面。
+
+    1. 配置hosts文件
+
+      需要在hosts文件中写好对应的IP域名解析。这个选项提供了hosts文件，可以直接对hosts文件进行修改。
+
+      1. 在主配置界面输入【5】并按下【Enter】键。
+      1. 打开hosts文件，根据需要修改hosts文件中的IP域名解析，修改完成后保存退出。
+
+    * 结果
+
+      hosts文件修改成功。
+
+    1. EayunOS高级配置
+
+      Engine Console提供了对EayunOS虚拟化管理中心的高级配置选项（即选项【7】），可以对EayunOS虚拟化管理中心进行其他的配置。
+
+      在主界面输入【7】并按下【Enter】键，进入高级配置界面。
+
+      1. 配置Web Portal的admin用户密码
+
+      > #### 重要
+      > 登录时，在预览界面，看到提示`...`。这是由于Web Portal的admin用户密码是临时生成的密码，在初始化配置中必须重置Web Portal的admin用户密码，否则EayunOS虚拟化管理中心无法正常登录。
+
+        1. 在高级配置界面输入【3】并按下【Enter】键。
+        1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
+        1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
+
+        > #### 注意
+        > 
 
 
 ### 将第一台HA主机加入EayunOS虚拟化环境中
