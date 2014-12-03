@@ -189,13 +189,13 @@
 
     1. 安装检测
 
-      Hosted Engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
+      hosted-engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
 
           [ INFO  ] Installing on first host
                     Please provide storage domain name. [hosted_storage]: 
                     Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
 
-      Hosted Engine虚拟机会被加入到一个名为hosted_datacenter（可自己定义名称）里，使用的存储为hosted_storage（可自己定义名称）。
+      运行EayunOS虚拟化管理中心的Hosted Engine虚拟机会被加入到一个名为hosted_datacenter（可自己定义名称）里，使用的存储为hosted_storage（可自己定义名称）。
 
       * 当检测到存储已经被使用，则作为Hosted Engine环境的HA主机而部署，询问用户时候作为additional host而加入到EayunOS虚拟化管理中心环境中。相关内容将在【部署HA主机】中进行解释和介绍。
 
@@ -205,7 +205,7 @@
 
           Please indicate a nic to set ovirtmgmt bridge on: (eth0) [eth0]: 
       
-      Hosted Engine部署程序将会检查你的防火墙配置，帮你打开主机与虚拟化管理中心通信所需要的端口。如果不允许Hosted Engine修改iptables的配置，那就必须手动打开EayunOS Hypervisor主机所需要的这些端口。
+      hosted-engine部署程序将会检查你的防火墙配置，帮你打开主机与虚拟化管理中心通信所需要的端口。如果不允许hosted-engine修改iptables的配置，那就必须手动打开EayunOS Hypervisor主机所需要的这些端口。
 
           iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
 
@@ -215,7 +215,7 @@
 
     1. 检查EayunOS Appliance
 
-      Hosted Engine会检查EayunOS Appliance中的一些内容，确认一些需要的信息。在这一阶段不需要输入。
+      hosted-engine会检查EayunOS Appliance中的一些内容，确认一些需要的信息。在这一阶段不需要输入。
 
           [ INFO  ] Checking OVF archive content (could take a few minutes depending on archive size)
           [ INFO  ] Checking OVF XML content (could take a few minutes depending on archive size)
@@ -230,7 +230,7 @@
                  - model_Conroe: Intel Conroe Family
           Please specify the CPU type to be used by the VM [model_SandyBridge]: 
 
-      Hosted Engine自动检测到系统的MAC地址，需要用户进行确认。
+      hosted-engine自动检测到系统的MAC地址，需要用户进行确认。
 
           You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:10:f7:6f]: 
 
@@ -248,9 +248,9 @@
 
     1. 设置EayunOS虚拟化管理中心的管理门户密码
 
-      当前进行部署的是Hosted Engine的第一台Hypervisor主机，即EayunOS虚拟化管理中心并不运行在这台Hypervisor主机上，而是运行在通过该Hosted Engine程序创建的一台虚拟机上，我们已经使用EayunOS Appliance对其进行了封装。
+      当前进行部署的是Hosted Engine的第一台Hypervisor主机，即EayunOS虚拟化管理中心并不运行在这台Hypervisor主机上，而是运行在通过该hosted-engine程序创建的一台虚拟机上，我们已经使用EayunOS Appliance对其进行了封装。
 
-      而在此设置EayunOS虚拟化管理中心的管理门户密码是为了告知这台主机你要设置的管理中心密码。当部署完成以后，Hosted Engine程序会将这台主机加入到EayunOS虚拟化管理中心环境中。因此，密码必须设置正确，如果密码设置错误或不一致，会导致添加该主机失败。
+      而在此设置EayunOS虚拟化管理中心的管理门户密码是为了告知这台主机你要设置的管理中心密码。当部署完成以后，hosted-engine程序会将这台主机加入到EayunOS虚拟化管理中心环境中。因此，密码必须设置正确，如果密码设置错误或不一致，会导致添加该主机失败。
 
           Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
           Confirm 'admin@internal' user password: 
@@ -463,6 +463,16 @@
 
   EayunOS虚拟化管理中心的初始化配置流程为：`1) -> 2) -> 3) -> 7)[3)]` ，即可完成所需配置。
 
+    输入【8】并按下【Enter】键，可以选择重启或关闭系统。
+
+        Restart or Shutdown the System.
+        
+        1) Restart the System
+        2) Shutdown the System
+        3) Back
+        
+        Choose the advanced setting:
+
   > #### 提示
   > 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
 
@@ -484,6 +494,9 @@
       * Back : 
 
     * System Restart or Shutdown : 
+      * Restart the System : 
+      * Shutdown the System : 
+
     * Shell : 
     * Summary Information : 
     * Log OFF : 
@@ -616,7 +629,58 @@
 ### 将第一台HA主机加入EayunOS虚拟化环境中
 
 * 摘要
-  * 上述章节对
+  * 在【Hosted Engine的部署】章节中，hosted-engine部署程序还在等待完成EayunOS虚拟化管理中心的初始化配置。
+  * 在【EayunOS虚拟化管理中心的配置（Engine Console的使用）】章节中，已经完成了初始化配置，可以继续进行hosted-engine的部署。
+
+1. 继续进行Hosted Engine的部署
+
+  在Hosted Engine部署中，hosted-engine部署程序还在等待完成EayunOS虚拟化管理中心的初始化配置。
+
+      To continue make a selection from the options below:
+      (1) Continue setup - engine installation is complete
+      (2) Power off and restart the VM
+      (3) Abort setup
+     
+      (1, 2, 3)[1]:
+
+  输入【1】并按下【Enter】键，告知hosted-engine部署程序EayunOS虚拟化管理中心的初始化配置已经完成，并继续进行下一步操作。
+
+1. 将第一台HA主机加入EayunOS虚拟化环境中
+
+  1. hosted-engine部署程序检测EayunOS虚拟化管理中心的状态。
+
+      [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+
+     说明EayunOS虚拟化管理中心已经配置完成，能够正常登录和使用。
+
+  1. 将第一台HA主机加入EayunOS虚拟化环境的集群里。
+
+                Enter the name of the cluster to which you want to add the host (Default) [Default]: 
+      [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
+
+    EayunOS初始化时默认会创建一个Default集群，hosted-engine部署程序检测环境中的所有集群，让用户选择HA主机所加入的集群。
+
+    输入可用的集群名称或直接按下【Enter】键（使用默认集群），将Hosted Engine的Hypervisor主机加入EayunOS虚拟化环境的集群里。
+
+  1. 关闭运行EayunOS的虚拟机。
+
+    将主机加入集群后，有如下提示：
+
+        [ INFO  ] Still waiting for VDSM host to become operational...
+        [ INFO  ] The VDSM Host is now operational
+                  Please shutdown the VM allowing the system to launch it as a monitored service.
+                  The system will wait until the VM is down.
+
+    通过连接到Engine Console控制台，输入【8】[8) System Restart or Shutdown]并按下【Enter】键，进入重启或关闭界面，输入【2】[2) Shutdown the System]并按下【Enter】键，关闭系统。
+
+        [ INFO  ] Enabling and starting HA services
+                  Hosted Engine successfully set up
+        [ INFO  ] Stage: Clean up
+        [ INFO  ] Stage: Pre-termination
+        [ INFO  ] Stage: Termination
+
+    hosted-engine部署程序会等待你把Hosted Engine虚拟机关闭，完成部署。然后，会通过HA服务自动将Hosted Engine虚拟机重启，这样，部署才是完整并成功进行的。
+
 
 ### 访问管理员门户
 
