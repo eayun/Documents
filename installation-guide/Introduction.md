@@ -28,8 +28,30 @@ EayunOS 是易云云计算解决方案的核心产品。
   * 可以通过外部的目录服务（Directory Server）提供用户管理和验证。
   * 连接整个部署环境的网络通信，包括物理网络和逻辑网络。
 
-
   （图 EayunOS架构预览）
+
+## EayunOS的Self-Hosted Engine架构
+
+### 关于Self-Hosted Engine
+
+  Self-Hosted Engine环境是一台运行在Hypervisor主机上的虚拟机，而这台主机又被虚拟机中的EayunOS虚拟化管理中心所管理。虚拟机是作为主机配置的一部分而被创建的，并且Engine的安装和配置与Hypervisor主机的配置程序是并列的，他们需要一起部署。
+
+  运行EayunOS虚拟化管理中心的虚拟机自创建开始就是高可用的。这意味着，如果运行这台虚拟机的主机切换到维护模式，或者意外故障了，EayunOS虚拟化管理中心虚拟机可以自动迁移到环境中的另一台主机上。
+
+  Self-Hosted Engine架构的主要好处是它需要更少的硬件支持便可运行，因为它是运行在一台Hypservisor上的虚拟机，而不是一台物理机。此外，Engine自动被设置为高可用，而不需要一个单独的集群来支持高可用。
+
+> #### 注意
+> 包含EayunOS管理端的虚拟机的高可用需要被Hypervisor主机管理，而不是EayunOS管理端。
+
+### Self-Hosted Engine架构的好处
+
+* 这将能让我们使用更少的硬件进行部署（EayunOS管理端不需要一台单独的机器）。
+* 我们将能在默认安装的情况下提供EayunOS管理端的高可用，而不是使用一个单独的集群来支持EayunOS管理端的高可用。
+* 这种操作模式将会吸引已经对其它的虚拟化管理平台熟悉的用户。
+
+### Self-Hosted Engine架构的一些限制
+
+  目前，Self-Hosted Engine架构只支持NFS存储和iSCSI存储类型。因此，对运行EayunOS虚拟化管理中心的虚拟机所使用的存储类型有一定的限制（只能使用NFS或iSCSI存储）。
 
 ## EayunOS组件
 
