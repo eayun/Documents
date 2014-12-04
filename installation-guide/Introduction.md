@@ -1,18 +1,18 @@
 # EayunOS介绍
 
-* [ EayunOS架构 ](## EayunOS架构)
+* [ EayunOS架构 ]( EayunOS架构 )
 
-* [ EayunOS系统组件 ]
+* [ EayunOS系统组件 ]( EayunOS组件 )
 
-* [ EayunOS资源 ]
+* [ EayunOS资源 ]( EayunOS资源 )
 
-* [ EayunOS API支持 ]
+* [ EayunOS API支持 ]( EayunOS API支持 )
 
-* [ 虚拟机介绍 ]
+* [ 虚拟机介绍 ]( 虚拟机介绍 )
 
-* [ EayunOS支持的虚拟机操作系统列表 ]
+* [ EayunOS支持的虚拟机操作系统列表 ]( EayunOS支持的虚拟机操作系统列表 )
 
-* [ EayunOS安装流程 ]
+* [ EayunOS安装流程 ]( EayunOS安装流程 )
 
 EayunOS 是易云云计算解决方案的核心产品。
 
@@ -126,6 +126,8 @@ EayunOS 是易云云计算解决方案的核心产品。
 |红帽企业Linux 7	                |64位    	               |支持                   |
 |SUSE企业Linux 10（创建虚拟机时，操作系统类型选择 “其他Linux”）|32位，64位                    |不支持                 |
 |SUSE企业Linux 11（SPICE驱动需要由发行版厂商提供）|32位，64位                    |不支持                 |
+|Debian 7                               |                              |                       |
+|FreeBSD 9.2                            |32位，64位                    |                       |
 |Ubuntu 12.04                           |32位，64位                    |支持                   |
 |Ubuntu 12.10                           |32位，64位                    |支持                   |
 |Ubuntu 13.04                           |32位，64位                    |支持                   |
