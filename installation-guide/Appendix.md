@@ -454,14 +454,16 @@
 
 ## EayunOS虚拟化管理中心日志文件
 
-> ##### 表：
-> 虚拟化管理中心后端服务运行日志
->    |        日志文件        |        说明        |
->    |------------------------|--------------------|
->    |/var/log/ovirt-engine/engine.log|记录EayunOS虚拟化管理中心大部分的活动，包括前端GUI异常、目录服务查询、数据库访问等。|
->    |/var/log/ovirt-engine/host-deploy|该目录下记录在虚拟化管理中心中添加主机过程中主机初始化 相关的日志。|
->    |/var/log/eayunos-engine-console.log|记录使用EayunOS虚拟化管理中心控制台对EayunOS管理端进行配置的信息，包括配置成功或配置失败时的信息。|
->    |/var/log/ovirt-engine-reports|                    |
+> ##### 表： 虚拟化管理中心后端服务运行日志
+
+
+|        日志文件        |        说明        |
+|------------------------|--------------------|
+|/var/log/ovirt-engine/engine.log|记录EayunOS虚拟化管理中心大部分的活动，包括前端GUI异常、目录服务查询、数据库访问等。|
+|/var/log/ovirt-engine/host-deploy|该目录下记录在虚拟化管理中心中添加主机过程中主机初始化 相关的日志。|
+|/var/log/eayunos-engine-console.log|记录使用EayunOS虚拟化管理中心控制台对EayunOS管理端进行配置的信息，包括配置成功或配置失败时的信息。|
+|/var/log/ovirt-engine-reports|                    |
+
 
 ## SPICE日志文件
 
@@ -470,23 +472,23 @@
 > ##### 表：SPICE日志文件
 
 
-    |        日志类型        |        日志位置        |        调整日志级别        |
-    |------------------------|------------------------|----------------------------|
-    |SPICE客户端（Windows 7）|%temp%\spicex.log       |<ul><li>右键点击主菜单的“我的电脑”，点击“树形”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
-    |SPICE客户端（Windows XP）|C:\Documents and Settings\(User Name)\Local Settings\Temp\spicex.log|<ul><li>右键点击主菜单的“我的电脑”，点击“属性”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
-    |SPICE客户端（Linux）    |/var/log/message        |使用SPICE_DEBUG=1 firefox启动Firefox浏览器。|
-    |EayunOS虚拟化宿主机上的SPICE服务进程|/var/log/libvirt/qemu/(虚拟机名称).log|启动虚拟机之前，首先执行export SPIECE_DEBUG_LEVEL=5。|
+|        日志类型        |        日志位置        |        调整日志级别        |
+|------------------------|------------------------|----------------------------|
+|SPICE客户端（Windows 7）|%temp%\spicex.log       |<ul><li>右键点击主菜单的“我的电脑”，点击“树形”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
+|SPICE客户端（Windows XP）|C:\Documents and Settings\(User Name)\Local Settings\Temp\spicex.log|<ul><li>右键点击主菜单的“我的电脑”，点击“属性”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
+|SPICE客户端（Linux）    |/var/log/message        |使用SPICE_DEBUG=1 firefox启动Firefox浏览器。|
+|EayunOS虚拟化宿主机上的SPICE服务进程|/var/log/libvirt/qemu/(虚拟机名称).log|启动虚拟机之前，首先执行export SPIECE_DEBUG_LEVEL=5。|
 
 ## EayunOS虚拟化宿主机日志文件
 
 > ##### 表：EayunOS虚拟化宿主机日志文件
 
 
-    |        日志文件        |        说明        |
-    |------------------------|--------------------|
-    |/var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-yyyymmddhhmmss.log|部署Hosted Engine时产生的日志。（注：部署Hosted Engine才会有此日志）|
-    |/var/log/libvirt/libvirtd.log|libvirt日志。          |
-    |/var/log/vdsm/spm-lock.log|记录主机关于SPM角色申请、释放、更新、更新失败的信息。|
-    |/var/log/vdsm/vdsm.log  |VDSM（虚拟化管理中心在宿主机上的代理程序）日志。|
-    |/var/log/vdsm/mom.log   |VDSM MOM（内存overcommit管理）日志。|
+|        日志文件        |        说明        |
+|------------------------|--------------------|
+|/var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-yyyymmddhhmmss.log|部署Hosted Engine时产生的日志。（注：部署Hosted Engine才会有此日志）|
+|/var/log/libvirt/libvirtd.log|libvirt日志。          |
+|/var/log/vdsm/spm-lock.log|记录主机关于SPM角色申请、释放、更新、更新失败的信息。|
+|/var/log/vdsm/vdsm.log  |VDSM（虚拟化管理中心在宿主机上的代理程序）日志。|
+|/var/log/vdsm/mom.log   |VDSM MOM（内存overcommit管理）日志。|
 
