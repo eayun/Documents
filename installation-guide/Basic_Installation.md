@@ -1,4 +1,17 @@
 # 部署Hosted Engine
+
+* [ 部署前的准备 ]
+
+* [ 安装EayunOS管理端 ]
+  * [ 启动安装 ]
+  * [ 安装EayunOS管理端 ]
+
+* [ Hosted Engine的部署 ]
+  * [ Hosted Engine的部署 ]
+  * [ EayunOS虚拟化管理中心的配置 ]
+  * [ 添加第一台HA Hypervisor主机]
+  * [ 访问管理员门户 ]
+
 ## 部署前的准备
 
 * 条件
@@ -647,6 +660,30 @@
 
 
 # 部署EayunOS Hypervisor主机
+
+* [ 安装EayunOS Hypervisor ]
+  * [ 启动安装 ]
+  * [ 安装EayunOS ]
+
+* [ 配置EayunOS Hypervisor ]
+  * [ 登录Hypervisor ]
+  * [ 选择Hypervisor键盘 ]
+  * [ 观察Hypervisor的状态 ]
+  * [ 配置Hypervisor网络 ]
+  * [ Hypervisor安全配置 ]
+  * [ 配置Hypervisor简单网络管理协议（SNMP） ]
+  * [ 配置Hypervisor通用信息模型 ]
+  * [ 配置Hypervisor日志记录 ]
+  * [ 配置Hypervisor的Kernel Dumps ]
+  * [ 配置Hypervisor远程存储 ]
+
+* [ 将EayunOS Hypervisor添加到EayunOS管理端 ]
+  * [ 注册Hypervisor主机 ]
+  * [ 通过webadmin添加主机 ]
+
+* [ 添加Hosted Engine的HA主机 ]
+
+
 ## 安装EayunOS Hypervisor
 ### 启动安装
 1. 插入EayunOS Hypervisor安装盘
