@@ -449,3 +449,42 @@
     * local模式：本地维护模式。当这个模式设置启用时，单个的高可用代理为了让主机进入维护模式（vdsm/engine），会停止虚拟机，且不会去重启它。另一台集群里的主机会试图去启动engine虚拟机， 同时，第一台主机的维护操作可以继续进行。一个快捷的执行这个过程的方法是手动关闭engine虚拟机，因为虚拟机在给定主机上的任何以外关闭会导致那台主机上的高可用代理暂时将自己的score降为0。在这个情况中，管理员应还应该登录到主机，并且进入维护模式，确保score不会恢复，可能导致主机获取engine的虚拟机。
     * none模式：即取消维护模式。设置维护模式为none后，则取消取消维护模式，高可用代理继续监控engine虚拟机的状态。
 
+# 日志文件
+  |/var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-yyyymmddhhmmss.log|部署Hosted Engine时产生的日志。|
+
+## EayunOS虚拟化管理中心日志文件
+
+> ##### 表：虚拟化管理中心后端服务运行日志
+
+  |        日志文件        |        说明        |
+  |------------------------|--------------------|
+  |/var/log/ovirt-engine/engine.log|记录EayunOS虚拟化管理中心大部分的活动，包括前端GUI异常、目录服务查询、数据库访问等。|
+  |/var/log/ovirt-engine/host-deploy|该目录下记录在虚拟化管理中心中添加主机过程中主机初始化 相关的日志。|
+  |/var/log/eayunos-engine-console.log|记录使用EayunOS虚拟化管理中心控制台对EayunOS管理端进行配置的信息，包括配置成功或配置失败时的信息。|
+  |/var/log/ovirt-engine-reports|                    |
+
+## SPICE日志文件
+
+  在整个EayunOS虚拟化环境中不同的地方那个都有SPICE相关的日志，包括客户端和虚拟机上。
+
+> ##### 表：SPICE日志文件
+
+  |        日志类型        |        日志位置        |        调整日志级别        |
+  |------------------------|------------------------|----------------------------|
+  |SPICE客户端（Windows 7）|%temp%\spicex.log       |<ul><li>右键点击主菜单的“我的电脑”，点击“树形”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
+  |SPICE客户端（Windows XP）|C:\Documents and Settings\(User Name)\Local Settings\Temp\spicex.log|<ul><li>右键点击主菜单的“我的电脑”，点击“属性”。</li><li>进入“高级”系统配置，点击“环境变量”。</li><li>找到“用户”或者“系统”变量，新建一个变量“SPICEX_DEBUG_LEVEL”，值为4。</li></ul>|
+  |SPICE客户端（Linux）    |/var/log/message        |使用SPICE_DEBUG=1 firefox启动Firefox浏览器。|
+  |EayunOS虚拟化宿主机上的SPICE服务进程|/var/log/libvirt/qemu/(虚拟机名称).log|启动虚拟机之前，首先执行export SPIECE_DEBUG_LEVEL=5。|
+
+## EayunOS虚拟化宿主机日志文件
+
+> ##### 表：EayunOS虚拟化宿主机日志文件
+
+  |        日志文件        |        说明        |
+  |------------------------|--------------------|
+  |/var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-yyyymmddhhmmss.log|部署Hosted Engine时产生的日志。（注：部署Hosted Engine才会有此日志）|
+  |/var/log/libvirt/libvirtd.log|libvirt日志。          |
+  |/var/log/vdsm/spm-lock.log|记录主机关于SPM角色申请、释放、更新、更新失败的信息。|
+  |/var/log/vdsm/vdsm.log  |VDSM（虚拟化管理中心在宿主机上的代理程序）日志。|
+  |/var/log/vdsm/mom.log   |VDSM MOM（内存overcommit管理）日志。|
+
