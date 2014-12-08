@@ -4,13 +4,13 @@
 
 * [ 安装EayunOS管理端 ](#安装EayunOS管理端)
   * [ 启动安装 ](#启动安装)
-  * [ 安装EayunOS管理端 ]
+  * [ 安装EayunOS管理端 ](#安装EayunOS管理端)
 
-* [ Hosted Engine的部署 ]
-  * [ Hosted Engine的部署 ]
-  * [ EayunOS虚拟化管理中心的配置 ]
-  * [ 添加第一台HA Hypervisor主机]
-  * [ 访问管理员门户 ]
+* [ Hosted Engine的部署 ](#Hosted Engine的部署)
+  * [ Hosted Engine的部署 ](#Hosted Engine的部署)
+  * [ EayunOS虚拟化管理中心的配置 ](#EayunOS虚拟化管理中心的配置)
+  * [ 添加第一台HA Hypervisor主机](#添加第一台HA Hypervisor主机)
+  * [ 访问管理员门户 ](#访问管理员门户)
 
 ## 部署前的准备
 
@@ -36,7 +36,7 @@
   1. 启动系统，并确定系统从安装光盘启动。
   1. 出现开机画面。如果不提供输入，EayunOS安装程序会在30秒后，使用默认的内核参数启动。
 
-    （图 开机画面）
+  ![start_node](/Documents/images/Node/start_node.png)
 
   1. 如果需要选择其他菜单，按下【Down】键，选择【Troubleshooting】，按下【Enter】键，进入菜单选项。
 
@@ -49,7 +49,9 @@
 
   1. 选择【Start EayunOS】，按下【Enter】，以默认的内核参数启动EayunOS。
 
-    或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。（图 添加启动参数）
+    或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。
+
+    ![start_node_menu](/Documents/images/Node/start_node_menu.png)
 
     此时，EayunOS在设置的启动模式下启动了。
 
@@ -115,26 +117,26 @@
 
   1. 对存储的设置有一个预览，选择< Confirm >并按下【Enter】，确认存储设置并继续下一步操作。
 
-    （图 确认存储设置）
+    ![confirm_disk](/Documents/images/Node/confirm_disk.png)
 
     > #### 警告
     > 选定的存储设备上的所有的数据都会被破坏。
 
   1. EayunOS系统需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
 
-    （图 设置密码）
+    ![set_password](/Documents/images/Node/set_password.png)
 
     最好使用一个强壮的密码。一个强壮的密码可以是大小写字母、数字和标点字符的混合。密码最少6个字符，不能包含目录字符。
 
     选择< Install >并按下【Enter】键，开始安装Hypervisor到指定的硬盘上。
 
-    （图 开始安装）
+    ![installing](/Documents/images/Node/installing.png)
 
 * 结果
 
   当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
 
-    （图 安装完毕）
+  ![install_complete](/Documents/images/Node/install_complete.png)
 
     > #### 注意
     > 移除启动设备，并修改系统启动项，避免重启后又进入安装流程。
@@ -173,13 +175,15 @@
 
   1. 选择左侧的Hosted Engine，切换到Hosted Engine界面。
 
-    （图 Hosted Engine界面）
+  ![node_hosted_engine](/Documents/images/Node/node_hosted_engine.png)
 
   1. 在Engine ISO/OVA Location一栏填写EayunOS Appliance的存放路径：`/usr/share/EayunOS-Engine-Appliance/EayunOS-Engine-Appliance-4.1-Beta-1411260328.ova.gz`。（内容需要根据最终版本进行更改）
   1. 选择< Setup Hosted Engine >并按下【Enter】键，开始部署Hosted Engine。
   1. 提示`Begin Hosted Engine Setup`，选择< Ok >并按下【Enter】键，确定部署。
   1. 进入命令行的交互界面。
-    1. 选择Hosted Engine虚拟机所使用的存储类型，默认存储类型是nfs3。
+    1. 配置存储
+
+      选择Hosted Engine虚拟机所使用的存储类型，默认存储类型是nfs3。
 
       * 选择nfs3，使用NFS存储
 
@@ -212,7 +216,7 @@
 
       * 当检测到存储已经被使用，则作为Hosted Engine环境的HA主机而部署，询问用户时候作为additional host而加入到EayunOS虚拟化管理中心环境中。相关内容将在【部署HA主机】中进行解释和介绍。
 
-    1. 网络配置
+    1. 配置网络
 
       系统会自动检测你所有的网络接口，在此网络接口上建立桥接。在建立桥接之前，系统将会询问你希望在那个网卡上建立桥接。
 
@@ -328,7 +332,7 @@
           [ INFO  ] Creating VM
                     You can now connect to the VM with the following command:
                         /bin/remote-viewer vnc://localhost:5900
-                    Use temporary password "8474yKhl" to connect to vnc console.
+                    Use temporary password "[password]" to connect to vnc console.
                     Please note that in order to use remote-viewer you need to be able to run graphical applications.
                     This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
                     Otherwise you can run the command from a terminal in your preferred desktop environment.
@@ -586,7 +590,7 @@
   * 在【Hosted Engine的部署】章节中，hosted-engine部署程序还在等待完成EayunOS虚拟化管理中心的初始化配置。
   * 在【EayunOS虚拟化管理中心的配置】章节中，已经完成了初始化配置，可以继续进行hosted-engine的部署。
 
-1. 继续进行Hosted Engine的部署
+1. 继续进行Hosted Engine的部署，同步Hypervisor主机和EayunOS虚拟化管理中心。
 
   在Hosted Engine部署中，hosted-engine部署程序还在等待完成EayunOS虚拟化管理中心的初始化配置。
 
@@ -599,7 +603,7 @@
 
   输入【1】并按下【Enter】键，告知hosted-engine部署程序EayunOS虚拟化管理中心的初始化配置已经完成，并继续进行下一步操作。
 
-1. 将第一台HA主机加入EayunOS虚拟化环境中
+1. 将第一台HA主机加入EayunOS虚拟化环境中。
 
   1. hosted-engine部署程序检测EayunOS虚拟化管理中心的状态。
 
@@ -690,7 +694,7 @@
   1. 启动系统，并确定系统从安装光盘启动。
   1. 出现开机画面。如果不提供输入，EayunOS Hypervisor安装程序会在30秒后，使用默认的内核参数启动。
 
-    （图 开机画面）
+    ![start_node](/Document/images/Node/start_node.png)
 
   1. 如果需要选择其他菜单，按下【Down】键，选择【Troubleshooting】，按下【Enter】键，进入菜单选项。
 
@@ -703,7 +707,9 @@
 
   1. 选择【Start EayunOS】，按下【Enter】，以默认的内核参数启动EayunOS Hypervisor。
 
-    或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。（图 添加启动参数）
+    或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。
+
+    ![start_node_menu](/Document/images/Node/start_node_menu.png)
 
     此时，EayunOS在设置的启动模式下启动了。
 
@@ -768,26 +774,26 @@
 
   1. 对存储的设置有一个预览，选择< Confirm >并按下【Enter】，确认存储设置并继续下一步操作。
 
-    （图 确认存储设置）
+    ![confirm_disk](/Documents/images/Node/confirm_disk.png)
 
     > #### 警告
     > 选定的存储设备上的所有的数据都会被破坏。
 
   1. EayunOS Hypervisor需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
 
-    （图 设置密码）
+    ![set_password](/Documents/images/Node/set_password.png)
 
     最好使用一个强壮的密码。一个强壮的密码可以是大小写字母、数字和标点字符的混合。密码最少6个字符，不能包含目录字符。
 
     选择< Install >并按下【Enter】键，开始安装Hypervisor到指定的硬盘上。
 
-    （图 开始安装）
+    ![installing](/Documents/images/Node/installing.png)
 
 * 结果
 
   当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
 
-    （图 安装完毕）
+    ![install_complete](/Documents/images/Node/install_complete.png)
 
     > #### 注意
     > 移除启动设备，并修改系统启动项，避免重启后又进 入安装流程。
@@ -874,7 +880,7 @@
     * 按下【F8】键，显示当前日志和报告文件的目的位置
     * 活跃的虚拟机个数（Running VMs）
 
-    （图 显示状态信息）
+    ![node_status](/Documents/images/Node/node_status.png)
 
 1. 状态界面也提供了一些按钮，用来观察Hypervisor的更多细节，并该变其中的部分状态。
 
@@ -905,7 +911,7 @@
     * < Ping > : 进入界面后允许你ping一个由你指定的IP地址，并且设置ping的次数。
     * < Create Bond > : Create Bond允许你创建网卡之间的绑定。
 
-  （图 网络配置界面）
+  ![node_network](/Documents/images/Node/node_network.png)
 
 
 1. 配置Hypervisor主机名
@@ -967,7 +973,7 @@
 
     在Available System NICs处选择一块网卡，并按下【Enter】键，进入网络配置页面。
 
-    （图 网络配置）
+    ![set_network](/Documents/images/Node/set_network.png)
 
     当列表中的每一项所指向的物理设备不明确的时候，Hypervisor可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择< Flash Lights to Identify >键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
 
@@ -1050,7 +1056,7 @@
   * 选择左侧的SNMP，切换到SNMP界面。
   * SNMP界面允许你启用和配置SNMP的密码。
 
-  （图 配置SNMP）
+  ![node_SNMP](/Documents/images/Node/node_SNMP.png)
 
 1. 选择`Enable SNMP`栏。
 1. 按下【Enter】键或空格键，选择启用SNMP或禁用SNMP。默认SNMP是禁用的。
@@ -1069,7 +1075,7 @@
   * 选择左侧的CIM，切换到CIM界面。
   * 启用和配置通用信息模型（CIM）允许你将Hypervisor连接到现有的CIM管理框架中，并监视Hypervisor上虚拟机的运行。
 
-  （图 配置CIM）
+  ![node_CIM](/Documents/images/Node/node_CIM.png)
 
 1. 选择`Enable CIM`栏。
 1. 按下【Enter】键或空格键，选择启用CIM或禁用CIM。默认CIM是禁用的。
@@ -1088,7 +1094,7 @@
   * 选择左侧的Logging，切换到Logging界面。
   * Hypervisor创建并维护来大量的日志文件。Logging界面允许配置一个守护进程来自动导入这些日志到远程服务器中。
 
-  （图 配置日志记录）
+  ![node_logging](/Documents/images/Node/node_logging.png)
 
 1. logrotate配置
 
@@ -1127,7 +1133,7 @@
   * 选择左侧的Kdump，切换到Kdump界面。
   * Hypervisor支持当遇到系统失败的时候使用kdump来导出kernel dumps。
 
-  （图 Kdump配置）
+  ![node_kdump](/Documents/images/Node/node_kdump.png)
 
 1. kdump产生crash dumps可以导出到NFS或者SSH。选择一个更适合你的导出方法并按下【Enter】键或空格键启用它。
 
@@ -1152,7 +1158,7 @@
   * 选择左侧的Remote Storage，切换到远程存储界面。
   * 支持使用iSCSI initiator来进行远程存储。在Remote Storage界面完成对iSCSI initiator的配置。
 
-  （图 配置远程存储）
+  ![node_remote_storage](/Documents/images/Node/node_remote_storage.png)
 
 1. 在iSCSI Initiator名称栏输入initiator名称。
 
