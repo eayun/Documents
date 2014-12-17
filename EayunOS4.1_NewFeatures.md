@@ -9,21 +9,21 @@
 
 |功能编号|特性名称|简要描述|文档链接|
 |--------|--------|--------|--------|
-|1|USB穿透功能|开发了USB穿透功能，能够在webadmin门户上挂载USB	||
-|2|虚拟机备份|开发了虚拟机备份功能，提供了虚拟机的定时备份，可以在webadmin门户上设置备份策略进行备份||
-|3|域控管理|开发了域控管理功能，目录服务域的添加可以在webadmin门户上完成，无需使用命令行||
+|1|USB穿透功能|开发了USB穿透功能，能够在webadmin门户上挂载USB|[Host Usb的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Host_Usb.md）|
+|2|虚拟机备份|开发了虚拟机备份功能，提供了虚拟机的定时备份，可以在webadmin门户上设置备份策略进行备份|[虚拟机备份的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/VM_Backup.md)<br /><ul><li>**注释**：目前虚拟机备份已经实现自动初始化，因此初始化部分可以忽略。</li></ul>|
+|3|域控管理|开发了域控管理功能，目录服务域的添加可以在webadmin门户上完成，无需使用命令行|[域控的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Engine_Manage_Domains.md)|
 |4|报表功能|加入报表功能，报表门户能够使用；同时可以通过报表对虚拟机的使用情况进行监控||
 |5|管理节点的控制台功能|使用Hosted Engine架构，能够在webadmin门户通过控制台打开管理节点的控制台||
-|6|管理节点的控制台界面|提供类似Node节点的控制台界面，可以直接通过界面进行操作||
-|7|管理节点的高可用功能|使用Hosted Engine架构，管理节点为高可用节点||
-|8|WGT_DOMAIN|在Appliance中封装了WGT_DOMAIN，里面包含VirtIO驱动，初始化后可以直接使用||
+|6|管理节点的控制台界面|提供类似Node节点的控制台界面，可以直接通过界面进行操作|[管理节点控制台界面的解释](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#engine-console%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D)|
+|7|管理节点的高可用功能|使用Hosted Engine架构，管理节点为高可用节点|[HostedEngine高可用的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/HostedEngine_HA.md)|
+|8|WGT_DOMAIN|在Appliance中封装了WGT_DOMAIN，里面包含VirtIO驱动，初始化后可以直接使用|[WGT_DOMAIN的初始化和使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/WGT_DOMAIN.md)|
 |9|界面美化|重新调整界面，对界面进行了美化||
-|10|灾难恢复机制|支持导入数据域（而不仅仅是导出域），可以实现一定的灾难恢复||
+|10|灾难恢复机制|支持导入数据域（而不仅仅是导出域），可以实现一定的灾难恢复|[存储域导出的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/ImportStorageDomain.md)<br /><ul><li>**注意**：由于数据库中的设置，虚拟机的数据每隔一个小时同步一次，因此,测试的话，虚拟机新建以后超过一个小时，才能被导入到另一个环境中</li></ul>|
 |11|虚拟机任务队列|增加虚拟机的调度策略功能，实现任务队列||
-|12|导入License|
+|12|导入License||
 
 
-> #### 修复的问题如下
+> #### 我们的改进
 
 
 |编号|描述|解决|
@@ -43,7 +43,7 @@
 |2|ISO在webadmin中上传|此版本发布后作为附加功能单独发布|
 
 
-> #### oVirt3.5中值的关注地特性
+> #### oVirt3.5中值的关注的特性
 
 
 |特性编号|特性名称|简要描述|
