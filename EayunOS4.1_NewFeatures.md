@@ -9,7 +9,7 @@
 
 |功能编号|特性名称|简要描述|文档链接|
 |--------|--------|--------|--------|
-|1|USB穿透功能|开发了USB穿透功能，能够在webadmin门户上挂载USB|[Host Usb的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Host_Usb.md）|
+|1|USB穿透功能|开发了USB穿透功能，能够在webadmin门户上挂载USB|[Host Usb的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Host_Usb.md)|
 |2|虚拟机备份|开发了虚拟机备份功能，提供了虚拟机的定时备份，可以在webadmin门户上设置备份策略进行备份|[虚拟机备份的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/VM_Backup.md)<br /><ul><li>**注释**：目前虚拟机备份已经实现自动初始化，因此初始化部分可以忽略。</li></ul>|
 |3|域控管理|开发了域控管理功能，目录服务域的添加可以在webadmin门户上完成，无需使用命令行|<ul><li>[域控的介绍](https://github.com/eayun/UIPlugin-Engine-Manage-Domains/blob/master/README.md)</li><li>[域控的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Engine_Manage_Domains.md)</li></ul>|
 |4|报表功能|加入报表功能，报表门户能够使用；同时可以通过报表对虚拟机的使用情况进行监控||
