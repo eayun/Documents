@@ -1,17 +1,18 @@
 # EayunOS介绍
 
 * [ EayunOS架构 ](# EayunOS架构 )
-
+* [ EayunOS的Self-Hosted Engine架构](#EayunOS的Self-Hosted Engine架构)
+  * [关于Self-Hosted Engine](#关于Self-Hosted Engine)
+  * [Self-Hosted Engine架构的好处](#Self-Hosted Engine架构的好处)
+  * [Self-Hosted Engine架构的一些限制](#Self-Hosted Engine架构的一些限制)
 * [ EayunOS系统组件 ](# EayunOS组件 )
-
 * [ EayunOS资源 ](# EayunOS资源 )
-
 * [ EayunOS API支持 ](# EayunOS API支持 )
-
+  * [支持的可读可写访问接口](#支持的可读可写访问接口)
+  * [支持的仅提供只读访问的接口](#支持的仅提供只读访问的接口)
+  * [不支持的接口](#不支持的接口)
 * [ 虚拟机介绍 ](# 虚拟机介绍 )
-
 * [ EayunOS支持的虚拟机操作系统列表 ](# EayunOS支持的虚拟机操作系统列表 )
-
 * [ EayunOS安装流程 ](# EayunOS安装流程 )
 
 EayunOS 是易云云计算解决方案的核心产品。
@@ -163,7 +164,7 @@ EayunOS 是易云云计算解决方案的核心产品。
 |Windows Server 2008 R2                 |64位	                       |支持                   |
 |Windows Server 2012 R2                 |64位                          |不支持                 |
 
-## 安装流程
+## EayunOS安装流程
 
   要部署一套可用的EayunOS虚拟化环境，需要对一系列的组件进行按照和配置，基本流程如下：
 
