@@ -1,3 +1,20 @@
+* [Engine Console的使用](#Engine Console的使用)
+  * [Engine Console的介绍](#Engine Console的介绍)
+    * [预览信息的介绍](#预览信息的介绍)
+    * [配置界面介绍](#配置界面介绍)
+  * [Engine Console的使用介绍](#Engine Console的使用介绍)
+    * [EayunOS基本配置](#EayunOS基本配置)
+    * [EayunOS高级配置](#EayunOS高级配置)
+    * [重启或关闭系统](#重启或关闭系统)
+    * [设置Engine Console的root密码](#设置Engine Console的root密码)
+* [Hosted Engine命令](#Hosted Engine命令)
+  * [Hosted Engine命令的浏览](#Hosted Engine命令的浏览)
+  * [hosted-engine命令参数介绍](#hosted-engine命令参数介绍)
+* [日志文件](#日志文件)
+  * [EayunOS虚拟化管理中心日志文件[(#EayunOS虚拟化管理中心日志文件)
+  * [SPICE日志文件](#SPICE日志文件)
+  * [EayunOS虚拟化宿主机日志文件](#EayunOS虚拟化宿主机日志文件)
+
 # Engine Console的使用
 ## Engine Console的介绍
 ### 预览信息的介绍
@@ -119,7 +136,7 @@
 
 ## Engine Console的使用介绍
 
-### 基本配置
+### EayunOS基本配置
 1. 配置网络
   1. 在主配置界面输入【1】并按下【Enter】键。
   1. 进入网络配置界面。
@@ -364,7 +381,7 @@
         For additional information about a specific command try:
              <command> --help
 
-## hosted-engine命令介绍
+## hosted-engine命令参数介绍
 
 * hosted-engine --deploy
   * Hosted Engine的部署命令，与在界面上选择< Setup Hosted Engine >的作用相同。
@@ -463,6 +480,9 @@
 |/var/log/ovirt-engine/host-deploy|该目录下记录在虚拟化管理中心中添加主机过程中主机初始化 相关的日志。|
 |/var/log/eayunos-engine-console.log|记录使用EayunOS虚拟化管理中心控制台对EayunOS管理端进行配置的信息，包括配置成功或配置失败时的信息。|
 |/var/log/ovirt-engine-reports|                    |
+|/var/log/engine-vm-backup/engine-vm-backup.log||
+|/var/log/engine-manage-domains/engine-manage-domains.log||
+|/var/log/ovirt-optimizer/ovirt-optimizer.log||
 
 
 ## SPICE日志文件
