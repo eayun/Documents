@@ -11,7 +11,7 @@
   * [Hosted Engine命令的浏览](#Hosted Engine命令的浏览)
   * [hosted-engine命令参数介绍](#hosted-engine命令参数介绍)
 * [日志文件](#日志文件)
-  * [EayunOS虚拟化管理中心日志文件[(#EayunOS虚拟化管理中心日志文件)
+  * [EayunOS虚拟化管理中心日志文件](#EayunOS虚拟化管理中心日志文件)
   * [SPICE日志文件](#SPICE日志文件)
   * [EayunOS虚拟化宿主机日志文件](#EayunOS虚拟化宿主机日志文件)
 
