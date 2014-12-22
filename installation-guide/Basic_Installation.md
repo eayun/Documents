@@ -1064,6 +1064,11 @@
 
 1. 当Hypervisor主机配置好网络等必要内容后，可以选择Hosted Engine选项，部署高可用节点。
 1. 选择【Additional HA Node】选项并按下【Enter】键，此时【Additional HA Node】选项被选中，主机将作为高可用节点加入到EayunOS虚拟化管理中心里。
+
+  如图中所示：
+
+  ![additional_node](https://github.com/eayun/Documents/blob/master/images/Node/additional_node.png)
+
 1. 选择< Setup Hosted Engine >并按下【Enter】键，进入shell交互界面。
   1. 选择存储类型，要与第一台高可用节点的配置一致。
 
