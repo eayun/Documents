@@ -847,7 +847,8 @@
 
 
   > #### 提示
-  > 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
+  > * 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
+  > * 配置流程中的7)[6)]指的是7) Engine Advance Setting高级配置界面下的6) Reset Database password。
 
 
     输入【8】并按下【Enter】键，可以选择重启或关闭系统。
@@ -949,9 +950,9 @@
         > 设置的密码要与在hosted-engine部署程序中设置的admin密码**一定要匹配**，否则第一台Hypervisor主机将无法访问EayunOS虚拟化管理中心，而导致部署失败。
 
 
-    * 结果
+      * 结果
 
-      重置Web Portal的admin用户密码成功，engine被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
+        重置Web Portal的admin用户密码成功，engine服务被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
 
 
     1. 配置数据库密码
@@ -968,6 +969,10 @@
 
         > #### 注意
         > 重置数据库密码后，engine服务会自动重启。
+
+        * 结果
+
+          重置数据库密码成功，engine服务被重启，密码生效。
 
   > #### 提示
   > 配置进行到这里，初始化配置已经结束，能够正常访问并使用EayunOS虚拟化管理中心。如果不需要进行其他配置，可以转到【将第一台HA主机加入EayunOS虚拟化环境中】章节，继续进行部署。
