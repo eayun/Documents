@@ -580,8 +580,6 @@
             Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
 
 
-        。。。。。。
-
     1. 安装检测
 
       hosted-engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
@@ -641,11 +639,11 @@
 
           Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
 
-    1. 设置EayunOS虚拟化管理中心的管理门户密码
+    1. 提供EayunOS虚拟化管理中心的管理门户密码
 
       当前进行部署的是Hosted Engine的第一台Hypervisor主机，即EayunOS虚拟化管理中心并不运行在这台Hypervisor主机上，而是运行在通过该hosted-engine程序创建的一台虚拟机上，我们已经使用EayunOS Appliance对其进行了封装。
 
-      而在此设置EayunOS虚拟化管理中心的管理门户密码是为了告知这台主机你要设置的管理中心密码。当部署完成以后，hosted-engine程序会将这台主机加入到EayunOS虚拟化管理中心环境中。因此，密码必须设置正确，如果密码设置错误或不一致，会导致添加该主机失败。
+      而在此设置EayunOS虚拟化管理中心的管理门户密码是为了告知这台主机你要设置的管理中心密码。当下一章节中EayunOS虚拟化管理中心的初始化完成后，将询问要将主机添加到哪个集群中（Default），此时hosted-engine程序会将这台主机加入到EayunOS虚拟化管理中心环境中。因此，密码必须设置正确，如果密码设置错误或不一致，会导致添加该主机失败。
 
           Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
           Confirm 'admin@internal' user password: 
