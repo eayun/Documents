@@ -738,7 +738,7 @@
 * 摘要
   * Engine Console提供了一个控制台界面，对EayunOS虚拟化管理中心进行相应的配置。
   * 可以通过你在hosted-engine部署时所选择的控制台类型来连接Engine Console。
-  * 本章节只介绍部署所需要的步骤，其他相关使用方法请参考【Engine Console的使用】章节。
+  * 本章节只介绍部署所需要的步骤，其他相关使用方法请参考【[Engine Console的使用](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#Engine%20Console%E7%9A%84%E4%BD%BF%E7%94%A8)】章节。
 
 1. 连接Engine Console（vnc连接）
 
@@ -978,7 +978,7 @@
   > 配置进行到这里，初始化配置已经结束，能够正常访问并使用EayunOS虚拟化管理中心。如果不需要进行其他配置，可以转到【将第一台HA主机加入EayunOS虚拟化环境中】章节，继续进行部署。
 
   > #### 提示
-  > 若想了解Engine Console的其他用法，请参考【Engine Console的使用】章节。
+  > 若想了解Engine Console的其他用法，请参考【Engine Console的使用(https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#Engine%20Console%E7%9A%84%E4%BD%BF%E7%94%A8)】章节。
 
 
 ### 添加第一台高可用节点
