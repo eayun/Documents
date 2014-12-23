@@ -738,7 +738,7 @@
 * 摘要
   * Engine Console提供了一个控制台界面，对EayunOS虚拟化管理中心进行相应的配置。
   * 可以通过你在hosted-engine部署时所选择的控制台类型来连接Engine Console。
-  * 本章节只介绍部署所需要的步骤，其他相关使用方法请参考【Engine Console的使用】章节。
+  * 本章节只介绍部署所需要的步骤，其他相关使用方法请参考【[Engine Console的使用](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#Engine%20Console%E7%9A%84%E4%BD%BF%E7%94%A8)】章节。
 
 1. 连接Engine Console（vnc连接）
 
@@ -837,16 +837,18 @@
         3) Reset Web Portal 'admin' password 
         4) WGT_DOMAIN initialization
         5) Reset Reports Portal 'admin' user password
-        6) Back
+        6) Reset Database password
+        7) Back
         
         
         Choose the advanced setting:
 
-  EayunOS虚拟化管理中心的初始化配置流程为：`1) -> 2) -> 3) -> 7)[3)]` ，即可完成所需配置。
+  EayunOS虚拟化管理中心的初始化配置流程为：`1) -> 2) -> 3) -> 7)[3)] -> 7)[6)]` ，即可完成所需配置。
 
 
   > #### 提示
-  > 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
+  > * 配置流程中的7)[3)]指的是7) Engine Advance Setting高级配置界面下的3) Reset Web Portal 'admin' password。
+  > * 配置流程中的7)[6)]指的是7) Engine Advance Setting高级配置界面下的6) Reset Database password。
 
 
     输入【8】并按下【Enter】键，可以选择重启或关闭系统。
@@ -863,7 +865,7 @@
     1. 在主配置界面输入【1】并按下【Enter】键。
     1. 进入网络配置界面。
 
-      看到原配置的预览。
+      看到当前配置的预览。
 
           IP Address:	old-ip
           Netmask:	old-netmask
@@ -885,11 +887,11 @@
                 
           Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
 
-    1. 确认修改，输入【Y】并按下【Enter】键，配置网络。配置成功后，自动返回主配置界面。
+    1. 确认修改，输入【Y】并按下【Enter】键，配置网络。配置成功后，提示`Network Configuration Successfully. Press any key to continue.`，可以按下任意键返回主配置界面。
 
-  * 结果
+	  * 结果
 
-    网络配置成功，返回主配置界面。
+	    网络配置成功，返回主配置界面。
 
   1. 测试网络
 
@@ -898,7 +900,7 @@
     1. 在主配置界面输入【2】并按下【Enter】键。
     1. 进入测试网络界面，输入要ping的IP地址，并按下【Enter】键。
     1. 如果网络连通性良好，将返回信息`[test_ip]: Success!`。
-    1. 你可以继续输入其他IP地址进行网络连通性测试。如果不需要再进行其他IP的ping测试，可以不输入任何内容，直接按下【Enter】键，退出测是网络界面，回到主配置界面。
+    1. 你可以继续输入其他IP地址进行网络连通性测试。如果不需要再进行其他IP的ping测试，可以不输入任何内容，直接按下【Enter】键，退出测试网络界面，回到主配置界面。
 
   1. 配置主机名
 
@@ -931,7 +933,7 @@
     1. 配置Web Portal的admin用户密码
 
       > #### 重要
-      > 登录时，在预览界面，看到提示`...`。这是由于Web Portal的admin用户密码是临时生成的密码，在初始化配置中必须重置Web Portal的admin用户密码，否则EayunOS虚拟化管理中心无法正常登录。
+      > 登录时，在预览界面，看到提示`[ NOTICE ]`和`[ WARNING ]`。这是由于Web Portal的admin用户密码是临时生成的密码，在初始化配置中必须重置Web Portal的admin用户密码，否则EayunOS虚拟化管理中心的部署无法正常完成。
 
       1. 在高级配置界面输入【3】并按下【Enter】键。
       1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
@@ -939,25 +941,44 @@
 
 
         > #### 注意
-        > 两次输入的密码应该必须相同。
+        > 两次输入的密码必须相同。
 
         > #### 注意
-        > 配置好密码后，engine会自动重启。
+        > 重置Web Portal的admin用户密码后，engine服务会自动重启。
 
         > #### 重要
         > 设置的密码要与在hosted-engine部署程序中设置的admin密码**一定要匹配**，否则第一台Hypervisor主机将无法访问EayunOS虚拟化管理中心，而导致部署失败。
 
 
-    * 结果
+      * 结果
 
-      重置Web Portal的admin用户密码成功，engine被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
+        重置Web Portal的admin用户密码成功，engine服务被重启，密码生效，可以使用新密码登录EayunOS虚拟化管理中心。
 
+
+    1. 配置数据库密码
+
+      > #### 重要
+      > 数据库密码在EayunOS虚拟化管理中心虚拟机创建时已经生成，并且设置为某个固定的密码。为了保证数据的安全性，请**务必**重置数据库的密码。
+
+      1. 在高级配置界面数据【6】并按下【Enter】键。
+      1. 在`New password:`的提示后面，输入新的数据库密码，并按下【Enter】键。
+      1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
+
+        > #### 注意
+        > 两次输入的密码必须相同。
+
+        > #### 注意
+        > 重置数据库密码后，engine服务会自动重启。
+
+        * 结果
+
+          重置数据库密码成功，engine服务被重启，密码生效。
 
   > #### 提示
   > 配置进行到这里，初始化配置已经结束，能够正常访问并使用EayunOS虚拟化管理中心。如果不需要进行其他配置，可以转到【将第一台HA主机加入EayunOS虚拟化环境中】章节，继续进行部署。
 
   > #### 提示
-  > 若想了解Engine Console的其他用法，请参考【Engine Console的使用】章节。
+  > 若想了解Engine Console的其他用法，请参考【[Engine Console的使用](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#Engine%20Console%E7%9A%84%E4%BD%BF%E7%94%A8)】章节。
 
 
 ### 添加第一台高可用节点
