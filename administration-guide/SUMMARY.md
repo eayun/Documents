@@ -478,7 +478,7 @@
         * [报表参数](报表，历史数据库/报表参数.md)
         * [右键单击报表](报表，历史数据库/右键单击报表.md)
         * [执行报表](报表，历史数据库/执行报表.md)
-           *[Active Virtual Machines by OS](执行报表ActiveVirtualMachinesbyOS.md)
+           *[Active Virtual Machines by OS](报表，历史数据库/执行报表ActiveVirtualMachinesbyOS.md)
         * [库报表](报表，历史数据库/库报表.md)
         * [服务水平报表](报表，历史数据库/服务水平报表.md)
         * [趋势报表](报表，历史数据库/趋势报表.md)
