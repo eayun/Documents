@@ -18,7 +18,7 @@
 |7|管理节点的高可用功能|使用Hosted Engine架构，管理节点为高可用节点|<ul><li>[HostedEngine高可用的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/HostedEngine_HA.md)</li><li>[HostedEngine一些命令介绍](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#hosted-engine%E5%91%BD%E4%BB%A4)</li></ul>|
 |8|WGT_DOMAIN|在Appliance中封装了WGT_DOMAIN，里面包含VirtIO驱动，初始化后可以直接使用|[WGT_DOMAIN的初始化和使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/WGT_DOMAIN.md)|
 |9|界面美化|重新调整界面，对界面进行了美化||
-|10|灾难恢复机制|支持导入数据域（而不仅仅是导出域），可以实现一定的灾难恢复|[存储域导出的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/ImportStorageDomain.md)<br /><ul><li>**注意**：由于数据库中的设置，虚拟机的数据每隔一个小时同步一次，因此,测试的话，虚拟机新建以后超过一个小时，才能被导入到另一个环境中。</li></ul>|
+|10|灾难恢复机制|支持导入数据域（而不仅仅是导出域），可以实现一定的灾难恢复|<ul><li>[存储域导出的场景测试](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/ImportStorageDomain.md)</li><li>[存储域导出的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/ImportStorageDomain.md)</li></ul><br /><ul><li>**注意**：由于数据库中的设置，虚拟机的数据每隔一个小时同步一次，因此,测试的话，虚拟机新建以后超过一个小时，才能被导入到另一个环境中。</li></ul>|
 |11|虚拟机任务队列|增加虚拟机的调度策略功能，实现任务队列||
 |12|导入License||
 
