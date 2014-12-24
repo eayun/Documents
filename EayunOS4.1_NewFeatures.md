@@ -12,7 +12,7 @@
 |1|USB穿透功能|开发了USB穿透功能，能够在webadmin门户上挂载USB|[Host Usb的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Host_Usb.md)|
 |2|虚拟机备份|开发了虚拟机备份功能，提供了虚拟机的定时备份，可以在webadmin门户上设置备份策略进行备份|[虚拟机备份的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/VM_Backup.md)<br /><ul><li>**注释**：目前虚拟机备份已经实现自动初始化，因此初始化部分可以忽略。</li></ul>|
 |3|域控管理|开发了域控管理功能，目录服务域的添加可以在webadmin门户上完成，无需使用命令行|<ul><li>[域控的介绍](https://github.com/eayun/UIPlugin-Engine-Manage-Domains/blob/master/README.md)</li><li>[域控的使用](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/Engine_Manage_Domains.md)</li></ul>|
-|4|报表功能|加入报表功能，报表门户能够使用；同时可以通过报表对虚拟机的使用情况进行监控||
+|4|报表功能|加入报表功能，报表门户能够使用；同时可以通过报表对虚拟机的使用情况进行监控|[一些报表的说明](https://github.com/eayun/Documents/tree/master/administration-guide/%E6%8A%A5%E8%A1%A8%EF%BC%8C%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E5%BA%93)|
 |5|管理节点的控制台功能|使用Hosted Engine架构，能够在webadmin门户通过控制台打开管理节点的控制台||
 |6|管理节点的控制台界面|提供类似Node节点的控制台界面，可以直接通过界面进行操作|[管理节点控制台界面的解释](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#engine-console%E7%9A%84%E4%BD%BF%E7%94%A8)|
 |7|管理节点的高可用功能|使用Hosted Engine架构，管理节点为高可用节点|<ul><li>[HostedEngine高可用的测试用例](https://github.com/eayun/EayunOS-testcase/blob/master/Evaluation_Test/HostedEngine_HA.md)</li><li>[HostedEngine一些命令介绍](https://github.com/eayun/Documents/blob/master/installation-guide/Appendix.md#hosted-engine%E5%91%BD%E4%BB%A4)</li></ul>|
