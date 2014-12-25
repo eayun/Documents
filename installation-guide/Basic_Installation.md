@@ -516,7 +516,7 @@
   > ##### 示例：iSCSI Initiator名称
   > iSCSI Initiator Name:
   >
-  > iqn.2014-12.eayun.com:target1
+  > iqn.2012-06.eayun.com:target1
 
 1. 选择< Save >并按下【Enter】键，保存远程存储的配置。
 
@@ -567,26 +567,41 @@
 
         填写nfs3或直接按下【Enter】键
 
+        ```
+
             Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
+
+        ```
 
         输入NFS存储的路径，按下【Enter】键
 
+        ```
+
             Please specify the full shared storage connection path to use (example: host:/path):storage-server:/path
+
+        ```
 
       * 选择iscsi，使用iSCSI存储
 
         填写iscsi，按下【Enter】键
 
+        ```
+
             Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]: 
 
+        ```
 
     1. 安装检测
 
       hosted-engine检测所选择的存储路径，如果未被使用，则作为第一台主机部署Hosted Engine。
 
+      ```
+
           [ INFO  ] Installing on first host
                     Please provide storage domain name. [hosted_storage]: 
                     Local storage datacenter name is an internal name and currently will not be shown in engine's admin UI.Please enter local datacenter name [hosted_datacenter]: 
+
+      ```
 
       运行EayunOS虚拟化管理中心的Hosted Engine虚拟机会被加入到一个名为hosted_datacenter（可自己定义名称）里，使用的存储为hosted_storage（可自己定义名称）。
 
@@ -596,24 +611,42 @@
 
       系统会自动检测你所有的网络接口，在此网络接口上建立桥接。在建立桥接之前，系统将会询问你希望在那个网卡上建立桥接。
 
+      ```
+
           Please indicate a nic to set ovirtmgmt bridge on: (eth0) [eth0]: 
+
+      ```
       
       hosted-engine部署程序将会检查你的防火墙配置，帮你打开主机与虚拟化管理中心通信所需要的端口。如果不允许hosted-engine修改iptables的配置，那就必须手动打开EayunOS Hypervisor主机所需要的这些端口。
 
+      ```
+
           iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
 
+      ```
+
       需要提供一个正确的网关地址。
+
+      ```
       
           Please indicate a pingable gateway IP address [192.168.0.1]: 
+
+      ```
 
     1. 检查EayunOS Appliance
 
       hosted-engine会检查EayunOS Appliance中的一些内容，确认一些需要的信息。在这一阶段不需要输入。
 
+      ```
+
           [ INFO  ] Checking OVF archive content (could take a few minutes depending on archive size)
           [ INFO  ] Checking OVF XML content (could take a few minutes depending on archive size)
 
+      ```
+
       检测到系统所支持的CPU类型，需要用户选择要使用的CPU类型。这里，我们使用默认的model_SandyBridge即可。
+
+      ```
 
           The following CPU types are supported by this host:
                  - model_SandyBridge: Intel SandyBridge Family
@@ -623,21 +656,35 @@
                  - model_Conroe: Intel Conroe Family
           Please specify the CPU type to be used by the VM [model_SandyBridge]: 
 
+      ```
+
       hosted-engine自动检测到系统的MAC地址，需要用户进行确认。
 
+      ```
+
           You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:10:f7:6f]: 
+
+      ```
 
     1. 选择连接Hosted Engine虚拟机所使用的控制台类型
 
       支持的控制台类型有vnc和spice。默认选择的是vnc。
 
+      ```
+
           Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
+
+      ```
 
     1. 配置这台Hypervisor主机在EayunOS虚拟化管理中心中的主机名称
 
       当部署完成后，当前运行部署程序的主机会被加入到EayunOS虚拟化管理中心里。你需要配置这台主机的名称，默认名称是hosted_engine_1。
 
+      ```
+
           Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
+
+      ```
 
     1. 提供EayunOS虚拟化管理中心的管理门户密码
 
@@ -645,12 +692,18 @@
 
       而在此设置EayunOS虚拟化管理中心的管理门户密码是为了告知这台主机你要设置的管理中心密码。当下一章节中EayunOS虚拟化管理中心的初始化完成后，将询问要将主机添加到哪个集群中（Default），此时hosted-engine程序会将这台主机加入到EayunOS虚拟化管理中心环境中。因此，密码必须设置正确，如果密码设置错误或不一致，会导致添加该主机失败。
 
+      ```
+
           Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
           Confirm 'admin@internal' user password: 
+
+      ```
 
     1. 输入EayunOS虚拟化管理中心的域名全称（FQDN）
 
       在Hosted Engine架构中，部署完成时，EayunOS虚拟化管理中心的HA主机会通过HA服务验证EayunOS管理端的运行状态。此时，HA服务需要知晓EayunOS虚拟化管理中心的FQDN，以进行验证。如果FQDN的配置不正确或没有配置，会导致验证失败，部署不能完整地完成。
+
+      ```
 
           Please provide the FQDN for the engine you would like to use.
           This needs to match the FQDN that you will use for the engine installation within the VM.
@@ -658,23 +711,34 @@
           it should not point to the base host or to any other existing machine.
           Engine FQDN: 
 
-    1. 配置报告服务（SMTP）？？
+      ```
+    1. 配置报告服务（SMTP）
 
       需要配置报告服务的主机名、TCP端口、email地址和接收email的地址。
+
+      ```
 
           Please provide the name of the SMTP server through which we will send notifications [localhost]: 
           Please provide the TCP port number of the SMTP server [25]: 
           Please provide the email address from which notifications will be sent [root@localhost]: 
           Please provide a comma-separated list of email addresses which will get notifications [root@localhost]: 
 
+      ```
+
     1. 配置完成，对配置进行预览和确认
 
       hosted-engine会验证你的所有答案，并警告你可能发生的问题。
 
+      ```
+
           [ INFO  ] Stage: Setup validation
           [WARNING] Cannot validate host name settings, reason: resolved host does not match any of the local addresses
 
+      ```
+
       在预览阶段，hosted-engine会给你展示你所输入的配置，并提供修改的机会。如果你选择运行，即直接按下【Enter】键（默认为【Yes】），hosted-engine会进行安装并创建EayunOS虚拟化管理中心的虚拟机。
+
+      ```
 
           --== CONFIGURATION PREVIEW ==--
          
@@ -699,11 +763,15 @@
          
           Please confirm installation settings (Yes, No)[Yes]: 
 
+      ```
+
     1. 创建运行EayunOS虚拟化管理中心的虚拟机
 
       hosted-engine会对配置和EayunOS Appliance进行处理，使用Appliance创建一台虚拟机。这台虚拟机已经安装部署好EayunOS虚拟化管理中心，但你需要对它进行一些配置。
 
       你需要通过控制台打开这台虚拟机，进行EayunOS虚拟化管理中心的配置。详细过程请看【engine-console的使用】。
+
+      ```
 
           [ INFO  ] Creating VM
                     You can now connect to the VM with the following command:
@@ -715,9 +783,13 @@
                     If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
                     virsh -c qemu+tls://Test/system console HostedEngine
 
+      ```
+
       此时，hosted-engine会等待你对EayunOS虚拟化管理中心配置完成。配置完成后，输入【1】，按下【Enter】键，即可继续进行下一步操作。
 
       在这里，我们先转入下一章节，对EayunOS虚拟化管理中心进行配置，配置完成后再回到hosted-engine的部署程序中继续未完成的操作。请看【engine-console的使用】。
+
+      ```
 
           If you need to reboot the VM you will need to start it manually using the command:
           hosted-engine --vm-start
@@ -731,6 +803,8 @@
           (3) Abort setup
          
           (1, 2, 3)[1]:
+
+      ```
 
 
 ### EayunOS虚拟化管理中心的部署配置
@@ -750,9 +824,13 @@
 
       这个密码在hosted-engine程序中已经给出。这是由VDSM生成的一个随机密码。
 
+      ```
+
           You can now connect to the VM with the following command:
               /bin/remote-viewer vnc://localhost:5900
           Use temporary password "[password]" to connect to vnc console.
+
+      ```
 
 * 结果
 
@@ -776,6 +854,8 @@
 
       预览信息如下：
 
+      ```
+
           Welcome to the EayunOS 4.1 Engine Appliance.
           
           To manage your appliance please browse to Web Portal.
@@ -795,6 +875,8 @@
               
           Press any key to continue.
 
+      ```
+
 * 结果
 
   成功登录到EayunOS虚拟化控制台，看到Appliance的预览信息。
@@ -808,6 +890,8 @@
   1. 按下任意键，进入主配置界面。
 
     主配置界面如下：
+
+    ```
 
         Advanced Setting
 
@@ -827,7 +911,11 @@
         
         Choose the advanced setting: 
 
+    ```
+
     输入【7】并按下【Enter】键，可以进入高级配置界面。高级配置界面如下：
+
+    ```
 
         Engine Advanced Configuration
         
@@ -843,6 +931,8 @@
         
         Choose the advanced setting:
 
+    ```
+
   EayunOS虚拟化管理中心的初始化配置流程为：`1) -> 2) -> 3) -> 7)[3)] -> 7)[6)]` ，即可完成所需配置。
 
 
@@ -853,6 +943,8 @@
 
     输入【8】并按下【Enter】键，可以选择重启或关闭系统。
 
+    ```
+
         Restart or Shutdown the System.
         
         1) Restart the System
@@ -861,16 +953,22 @@
         
         Choose the advanced setting:
 
+    ```
+
   1. 配置网络
     1. 在主配置界面输入【1】并按下【Enter】键。
     1. 进入网络配置界面。
 
       看到当前配置的预览。
 
+      ```
+
           IP Address:	old-ip
           Netmask:	old-netmask
           Gateway:	old-gateway
           DNS:	old-dns
+
+      ```
 
     1. 在`Enter the IP Address or c to cancel:`的提示后面，输入要配置的IP地址，并按下【Enter】键。
     1. 在`Enter the Netmask or c to cancel:`的提示后面，输入要配置的Netmask，并按下【Enter】键。
@@ -880,12 +978,15 @@
 
       用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
 
+      ```
                 IP Address:	old-ip	==>	new-ip
                 Netmask:	old-netmask	==>	new-netmask
                 Gateway:	old-gateway	==>	new-gateway
                 DNS:	old-dns	==>	new-dns
                 
           Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
+
+      ```
 
     1. 确认修改，输入【Y】并按下【Enter】键，配置网络。配置成功后，提示`Network Configuration Successfully. Press any key to continue.`，可以按下任意键返回主配置界面。
 
@@ -1024,18 +1125,26 @@
 
     将主机加入集群后，有如下提示：
 
+    ```
+
         [ INFO  ] Still waiting for VDSM host to become operational...
         [ INFO  ] The VDSM Host is now operational
                   Please shutdown the VM allowing the system to launch it as a monitored service.
                   The system will wait until the VM is down.
 
+    ```
+
     通过连接到Engine Console控制台，输入【8】[ 8) System Restart or Shutdown ]并按下【Enter】键，进入重启或关闭界面，输入【2】[ 2) Shutdown the System ]并按下【Enter】键，关闭系统。
+
+    ```
 
         [ INFO  ] Enabling and starting HA services
                   Hosted Engine successfully set up
         [ INFO  ] Stage: Clean up
         [ INFO  ] Stage: Pre-termination
         [ INFO  ] Stage: Termination
+
+    ```
 
     hosted-engine部署程序会等待你把Hosted Engine虚拟机关闭，完成部署。然后，会通过HA服务自动将Hosted Engine虚拟机重启，这样，部署才是完整并成功进行的。
 
@@ -1050,7 +1159,7 @@
   * 部署完成后，可以使用web浏览器访问管理员门户。
 
 1. 打开客户系统上一个web浏览器。
-1. 把https://your-manager-fqdn/ovirt-engine中的your-manager-fqdn用安装时候设置的完整域名（FQDN）替换。第一次访问的时候，需要为浏览器和服务器间的安全连接的证书添加信任。
+1. 把`https://your-manager-fqdn/ovirt-engine`中的`your-manager-fqdn`用安装时候设置的完整域名（FQDN）替换。第一次访问的时候，需要为浏览器和服务器间的安全连接的证书添加信任。
 1. 转到门户标题页面。点击【管理门户】，显示登录页面。
 1. 输入你的用户名和密码。如果第一次登录，使用admin用户和初始化配置时设置的密码登录。
 1. 从域列表中选择要认证的目录服务域，如果使用的是内部的admin用户，就选择internal域。
@@ -1086,7 +1195,11 @@
 
     提示信息如下：
 
+    ```
+
         Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:
+
+    ```
 
     > #### 重要
     > 所输入的存储类型必须是部署**第一台高可用节点时所使用的存储类型**。
@@ -1095,7 +1208,11 @@
 
     提示信息如下：
 
+    ```
+
         Please specify the full shared storage connection path to use (example: host:/path):
+
+    ```
 
     > #### 重要
     > 所输入的存储类型必须是部署**第一台高可用节点时所用的存储路径**。即Engine虚拟机所使用的存储路径。
@@ -1104,7 +1221,11 @@
 
     提示信息如下：
 
+    ```
+
         Please specify the Host ID [Must be integer, default: 2]:
+
+    ```
 
     > #### 注意
     > 主机ID不能重复。
@@ -1113,9 +1234,13 @@
 
     提示信息如下：
 
+    ```
+
         Do you want to scp the answer file from the first host? (Yes, No)[Yes]:
         Please provide the FQDN or IP of the first host:
         Enter 'root' user password for host [first_host_ip/FQDN]:
+
+    ```
 
     输入第一台主机的域名全称或IP地址，并输入第一台主机的root用户密码。
 
@@ -1123,7 +1248,11 @@
 
     提示信息如下：
 
+    ```
+
         Please indicate a nic to set ovirtmgmt bridge on: (eth0, eth1)[eth0]:
+
+    ```
 
     选择需要配置桥接的网卡。
 
@@ -1131,9 +1260,13 @@
 
     提示信息如下：
 
+    ```
+
         Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_id]:
         Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
         Confirm 'admin@internal' user password:
+
+    ```
 
     输入高可用节点的名称，并输入EayunOS虚拟化管理中心的admin密码。
 
