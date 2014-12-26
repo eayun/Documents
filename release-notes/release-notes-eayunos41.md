@@ -28,7 +28,8 @@ EayunOS 4.1-0 版本发行注记
     * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新成如下版本：eayunos-engine-console-0.8-13.el6.x86_64.rpm
 * EayunOS 4.1-0 不支持在 dm-multipath 设备上安装
     * 原因：udev 和 multipathd 在系统启动时可能出现竞争，导致系统无法正常启动。
-* Node需要安装EayunDM客户端
+* EayunOS 4.1-0 暂不支持 license 注册
+    * 说明：需要同商务部门确认具体实现方式之后完成。
 * 修改Engine主机名后的部署问题
     * 解决办法：这个问题应该需要在修改Engine主机名后手动修改Node节点上answer文件中关于Engine主机的FQDN参数。
 * WGT_DOMAIN初始化输入密码问题：把退格键时别为密码字符（也就是，不能删除字符）
