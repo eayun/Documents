@@ -26,7 +26,8 @@ EayunOS 4.1-0 版本发行注记
 
 * 报表门户无法显示
     * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新成如下版本：eayunos-engine-console-0.8-13.el6.x86_64.rpm
-* EayunOS 4.1 安装完成之后重启可能会出现启动失败的情况
+* EayunOS 4.1-0 不支持在 dm-multipath 设备上安装
+    * 原因：udev 和 multipathd 在系统启动时可能出现竞争，导致系统无法正常启动。
 * Node需要安装EayunDM客户端
 * 修改Engine主机名后的部署问题
     * 解决办法：这个问题应该需要在修改Engine主机名后手动修改Node节点上answer文件中关于Engine主机的FQDN参数。
