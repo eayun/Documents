@@ -25,7 +25,8 @@ EayunOS 4.1-0 版本发行注记
 # 已知问题
 
 * 报表门户无法显示
-    * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新成如下版本：eayunos-engine-console-0.8-13.el6.x86_64.rpm
+    * 原因：用户在EayunOS虚拟化管理中心控制台修改数据库密码后，报表服务连接数据库失败，导致无法显示报表信息。
+    * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新成如下版本：eayunos-engine-console-0.8-13.el6.x86_64.rpm，登陆EayunOS虚拟化管理中心控制台重新修改数据库密码。
 * EayunOS 4.1-0 不支持在 dm-multipath 设备上安装
     * 原因：udev 和 multipathd 在系统启动时可能出现竞争，导致系统无法正常启动。
 * EayunOS 4.1-0 暂不支持 license 注册
