@@ -21,7 +21,7 @@ EayunOS 4.1-0 版本发行注记
 # 已知问题
 
 * 报表门户无法显示
-    * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新
+    * 解决办法：在 EayunOS 管理节点将如下 rpm 包更新成如下版本：eayunos-engine-console-0.8-13.el6.x86_64.rpm
 * EayunOS 4.1 安装完成之后重启可能会出现启动失败的情况
 * Node需要安装EayunDM客户端
 * 修改Engine主机名后的部署问题
