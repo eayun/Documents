@@ -136,8 +136,9 @@
     * Shutdown the System : 关闭系统。
     * Back : 返回主配置界面。
 
-  * Shell : 进入shell界面。
+  * Shell : 进入命令行。
   * Summary Information : 配置预览。
+  * HELP：查看使用帮助。
   * Log OFF : 登出系统。
 
 ## Engine Console的使用介绍
