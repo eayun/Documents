@@ -7,7 +7,7 @@
     * [EayunOS基本配置](#EayunOS基本配置)
     * [EayunOS高级配置](#EayunOS高级配置)
     * [重启或关闭系统](#重启或关闭系统)
-    * [设置Engine Console的root密码](#设置Engine Console的root密码)
+    * [设置EayunOS虚拟化管理中心root用户的密码](#设置EayunOS虚拟化管理中心root用户的密码)
 * [Hosted Engine命令](#Hosted Engine命令)
   * [Hosted Engine命令的浏览](#Hosted Engine命令的浏览)
   * [hosted-engine命令参数介绍](#hosted-engine命令参数介绍)
@@ -19,7 +19,7 @@
 # Engine Console的使用
 ## Engine Console的介绍
 ### 关于Engine Console
-1. Engine Console全称"EayunOS虚拟化管理中心控制台"，用户可通过该控制台简单、快速的进行虚拟化管理中心的网络配置、admin用户密码的修改、默认ISO域的初始化等操作。
+  Engine Console全称"EayunOS虚拟化管理中心控制台"，用户可通过该控制台简单、快速的进行虚拟化管理中心的网络配置、admin用户密码的修改、默认ISO域的初始化等操作。
 
 ### 预览信息的介绍
 1. 预览信息介绍
@@ -348,7 +348,7 @@
 
   系统被重启或关闭。
 
-### 设置Engine Console的root密码
+### 设置EayunOS虚拟化管理中心root用户的密码
 
   可以使用engineadm用户登录Engine Console，对root密码进行设置。
 
