@@ -43,14 +43,14 @@
 
 
   * Hostname : EayunOS虚拟化管理中心的主机名，进行初始化配置之前，默认主机名是localhost。
-  * IP Address : 
-  * Netmask : 
-  * Gateway : 
-  * DNS : 
+  * IP Address : 运行EayunOS虚拟化管理中心的虚拟机的IP地址。
+  * Netmask : 运行EayunOS虚拟化管理中心的虚拟机的子网掩码。
+  * Gateway : 运行EayunOS虚拟化管理中心的虚拟机的网关。
+  * DNS : 运行EayunOS虚拟化管理中心的虚拟机的DNS服务器地址。
   * MAC Address : 运行EayunOS虚拟化管理中心的虚拟机的MAC地址。
   * System Time : EayunOS虚拟化管理中心的系统时间。
-  * Engine Version : 当前使用的EayunOS虚拟化管理中心的版本信息。
-  * Engine State : 当前EayunOS虚拟化管理中心的状态（Running | | ）。
+  * Engine Version : EayunOS虚拟化管理中心Engine的版本信息。
+  * Engine State : EayunOS虚拟化管理中心的运行状态（Running |Stop）。
   * Web Portal : 可以通过这个URL访问EayunOS虚拟化管理中心的网页门户。
 
 
@@ -91,7 +91,8 @@
       3) Reset Web Portal 'admin' password 
       4) WGT_DOMAIN initialization
       5) Reset Reports Portal 'admin' user password
-      6) Back
+      6) Reset Database password
+      7) Back
       
       
       Choose the advanced setting:
@@ -111,7 +112,7 @@
 1. 配置界面的说明
 
   * Network Configuration : 配置网络。
-  * Test Network Configuration : 测试网络配置。
+  * Test Network Configuration : 测试网络连通性。
   * Set Hostname : 配置主机名。
   * Set Date and Time : 设置系统的日期和时间。
   * Hosts File Configuration : 修改hosts配置文件。
@@ -123,6 +124,7 @@
     * Reset Web Portal 'admin' user password : 重置Web Portal的admin用户密码。
     * WGT_DOMAIN initialization : WGT_DOMAIN域的初始化。
     * Reset Reports Portal 'admin' user password : 重置Reports Portal的admin用户密码。
+    * Reset Database password：修改数据库密码。
     * Back : 返回主配置界面。
 
   * System Restart or Shutdown : 重启或关闭系统。
@@ -159,7 +161,7 @@
               IP Address:	old-ip	==>	new-ip
               Netmask:	old-netmask	==>	new-netmask
               Gateway:	old-gateway	==>	new-gateway
-              DNS:	old-dns	==>	new-dns
+              DNS:		old-dns	==>	new-dns
               
         Confirm the network configuration ([Y]es/[R]eset/[C]ancel):
 
@@ -169,9 +171,9 @@
 
   网络配置成功，返回主配置界面。
 
-1. 测试网络
+1. 测试网络连通性
 
-  Engine Console提供了一个测试网络的选项。可以使用该选项，测试当前Engine的网络连通性。
+  Engine Console提供了一个测试网络连通性的选项。可以使用该选项，测试当前Engine的网络连通性。
 
   1. 在主配置界面输入【2】并按下【Enter】键。
   1. 进入测试网络界面，输入要ping的IP地址，并按下【Enter】键。
@@ -259,7 +261,7 @@
   1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
 
     > #### 注意
-    > 两次输入的密码应该必须相同。
+    > 两次输入的密码必须相同。
 
     > #### 注意
     > 配置好密码后，engine服务会自动重启。因此，不需要管理员手动重启engine服务。但是，管理员也应该注意，如果不希望EayunOS系统被重启，请将系统切换至**全局维护**模式。
@@ -283,19 +285,29 @@
 
 1. 重置Reports Portal的admin用户密码
 
-  这个选项允许管理员修改报表门户的admin用户密码，而不需要通过命令行进行修改，提供了方便。
+  这个选项允许管理员修改报表门户的admin用户密码。
 
   1. 在高级配置界面中输入【5】并按下【Enter】键。
   1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
   1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
   1. 开始设置密码。设置成功后，提示`...`
-  1. 输入任意键回到高级配置界面。
+  1. 按任意键返回高级配置界面。
 
   > #### 注意
-  > 两次输入的密码应该必须相同。
+  > 两次输入的密码必须相同。
 
   > #### 注意
   > 报表门户（Reports Portal）的admin用户和管理门户（Web Portal）的admin用户不是同一个用户，他们是相互独立的用户，只是用户名相同而已。因此，报表门户的admin密码和管理门户的admin密码可以分别设置，不需要设置为相同的密码。
+
+1. 修改数据库密码
+
+  这个选项允许管理员修改数据库密码。
+
+  1. 在高级配置界面中输入【6】并按下【Enter】键。
+  1. 在`Please enter new password:`的提示后面，输入新的数据库密码，并按下【Enter】键。
+  1. 在`Please retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
+  1. 密码修改成功后，提示`Reset Database password Successfully. Press any key to continue.`。
+  1. 按任意键返回高级配置界面。
 
 1. 卸载EayunOS虚拟化管理中心
 
@@ -309,7 +321,7 @@
 
 1. Engine Setup
 
-1. 输入【6】[ 6) Back ]并按下【Enter】键，可返回主配置界面。
+1. 输入【7】[ 7) Back ]并按下【Enter】键，可返回主配置界面。
 
 ### 重启或关闭系统
 1. 在主配置界面输入【8】并按下【Enter】键。
