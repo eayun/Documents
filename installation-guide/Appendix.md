@@ -173,7 +173,7 @@
 
 1. 测试网络连通性
 
-  Engine Console提供了一个测试网络连通性的选项。可以使用该选项，测试当前Engine的网络连通性。
+  Engine Console提供了一个测试网络连通性的选项。可以使用该选项，测试网络连通性。
 
   1. 在主配置界面输入【2】并按下【Enter】键。
   1. 进入测试网络界面，输入要ping的IP地址，并按下【Enter】键。
@@ -254,7 +254,7 @@
 
 1. 配置Web Portal的admin用户密码
 
-  这个选项允许管理员修改管理门户的admin用户密码，而不需要使用命令行修改，提供了方便。
+  这个选项允许管理员修改管理门户的admin用户密码。
 
   1. 在高级配置界面输入【3】并按下【Enter】键。
   1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
@@ -264,7 +264,7 @@
     > 两次输入的密码必须相同。
 
     > #### 注意
-    > 配置好密码后，engine服务会自动重启。因此，不需要管理员手动重启engine服务。但是，管理员也应该注意，如果不希望EayunOS系统被重启，请将系统切换至**全局维护**模式。
+    > 配置好密码后，engine服务会自动重启。但是，管理员也应该注意，如果不希望EayunOS系统被重启，请将系统切换至**全局维护**模式。
 
 * 结果
 
@@ -272,10 +272,10 @@
 
 1. WGT_DOMAIN初始化
 
-  WGT_DOMAIN。。。。。。（说明）
+  这个选项提供了默认ISO域"WGT_DOMAIN"的自动初始化功能。
 
   1. 在高级配置界面输入【4】并按下【Enter】键。
-  1. 提示`Please enter the password for admin@internal:`，输入admin用户的密码。
+  1. 提示`Please enter the password for admin@internal:`，输入管理门户admin用户的密码。
   1. 开始进行初始化，初始化成功后，提示`WGT_DOMAIN initialization successfully.`，说明初始化成功。
   1. 按下任意键继续，则返回高级配置界面。
 
@@ -290,7 +290,7 @@
   1. 在高级配置界面中输入【5】并按下【Enter】键。
   1. 在`New password:`的提示后面，输入新的admin用户密码，并按下【Enter】键。
   1. 在`Retype new password:`的提示后面，再次输入密码，并按下【Enter】键。
-  1. 开始设置密码。设置成功后，提示`...`
+  1. 开始设置密码。设置成功后，提示`Password change Successfully. Press any key to continue.`。
   1. 按任意键返回高级配置界面。
 
   > #### 注意
@@ -311,15 +311,23 @@
 
 1. 卸载EayunOS虚拟化管理中心
 
-  在高级配置中提供了卸载选项，能够简单快速地把EayunOS 虚拟化管理中心 环境中的关联文件移除。
+  在高级配置中提供了卸载EayunOS虚拟化管理中心选项，用户可使用该选项卸载EayunOS虚拟化管理中心。
 
   1. 在高级配置界面输入【1】并按下【Enter】键。
-  1. 
+  1. 根据提示卸载EayunOS虚拟化管理中心。
 
   > #### 注意
-  > 
+  > 卸载过程中会涉及到对配置文件和数据库的操作，请谨慎操作！
 
-1. Engine Setup
+1. 配置EayunOS虚拟化管理中心
+
+  在高级配置中提供了配置EayunOS虚拟化管理中心选项，用户可使用该选项配置EayunOS虚拟化管理中心。
+
+  1. 在高级配置界面输入【2】并按下【Enter】键。
+  2. 根据提示配置EayunOS虚拟化管理中心。
+
+  > #### 注意
+  > 默认环境中EayunOS虚拟化管理中心已经进行过初始化配置。
 
 1. 输入【7】[ 7) Back ]并按下【Enter】键，可返回主配置界面。
 
@@ -338,12 +346,10 @@
 
 ### 设置Engine Console的root密码
 
-  可以使用engineadm用户登录Engine Console，设置了root密码后，也可以用root直接登录到shell界面中。
+  可以使用engineadm用户登录Engine Console，对root密码进行设置。
 
-1. 第一次使用root用户登录时，看到`Please login as 'engineadm' to configure the appliance`的提示，在`[your_hostname] login:`的提示后面输入【root】并按下【Enter】键。
-1. 提示`....`，让第一次使用root用户登录的用户设置root的密码
-1. 。。
-1. 。。
+1. 在主配置界面输入【9】并按下【Enter】键。
+1. 进入命令行，可使用"passwd"命令设置root用户密码。
 
 
 # Hosted Engine命令
