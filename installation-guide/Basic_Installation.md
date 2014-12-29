@@ -47,7 +47,7 @@
   1. 启动系统，并确定系统从安装光盘启动。
   1. 出现开机画面。如果不提供输入，EayunOS安装程序会在30秒后，使用默认的内核参数启动。
 
-  ![start_node](https://github.com/eayun/Documents/blob/master/images/Node/start_node.png)
+  ![start_node](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/start_node.png)
 
   1. 如果需要选择其他菜单，按下【Down】键，选择【Troubleshooting】，按下【Enter】键，进入菜单选项。
 
@@ -62,7 +62,7 @@
 
     或者按下【Tab】键来编辑内核参数。在编辑模式，你可以添加或删除内核参数。内核参数必须用空格分离。设置好需要的内核参数后，直接按下【Enter】键，保存设置并启动系统。如要放弃修改，也可以按下【Esc】键放弃对内核参数所做的任何修改。
 
-    ![start_node_menu](https://github.com/eayun/Documents/blob/master/images/Node/start_node_menu.png)
+    ![start_node_menu](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/start_node_menu.png)
 
     此时，EayunOS在设置的启动模式下启动了。
 
@@ -128,26 +128,26 @@
 
   1. 对存储的设置有一个预览，选择< Confirm >并按下【Enter】，确认存储设置并继续下一步操作。
 
-    ![confirm_disk](https://github.com/eayun/Documents/blob/master/images/Node/confirm_disk.png)
+    ![confirm_disk](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/confirm_disk.png)
 
     > #### 警告
     > 选定的存储设备上的所有的数据都会被破坏。
 
   1. EayunOS系统需要设置一个密码，以此来保护admin用户的控制台访问。安装时需要在Password和Confirm Password中输入锁设置的密码，两次密码的填写要一致。
 
-    ![set_password](https://github.com/eayun/Documents/blob/master/images/Node/set_password.png)
+    ![set_password](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/set_password.png)
 
     最好使用一个强壮的密码。一个强壮的密码可以是大小写字母、数字和标点字符的混合。密码最少6个字符，不能包含目录字符。
 
     选择< Install >并按下【Enter】键，开始安装Hypervisor到指定的硬盘上。
 
-    ![installing](https://github.com/eayun/Documents/blob/master/images/Node/installing.png)
+    ![installing](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/installing.png)
 
 * 结果
 
   当安装结束时，将会提示重启。选择< Reboot >按钮并按下【Enter】键，重启系统。
 
-  ![install_complete](https://github.com/eayun/Documents/blob/master/images/Node/install_complete.png)
+  ![install_complete](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/install_complete.png)
 
     > #### 注意
     > 移除启动设备，并修改系统启动项，避免重启后又进入安装流程。
@@ -231,7 +231,7 @@
     * 按下【F8】键，显示当前日志和报告文件的目的位置
     * 活跃的虚拟机个数（Running VMs）
 
-    ![node_status](https://github.com/eayun/Documents/blob/master/images/Node/node_status.png)
+    ![node_status](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_status.png)
 
 1. 状态界面也提供了一些按钮，用来观察Hypervisor的更多细节，并该变其中的部分状态。
 
@@ -262,7 +262,7 @@
     * < Ping > : 进入界面后允许你ping一个由你指定的IP地址，并且设置ping的次数。
     * < Create Bond > : Create Bond允许你创建网卡之间的绑定。
 
-  ![node_network](https://github.com/eayun/Documents/blob/master/images/Node/node_network.png)
+  ![node_network](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_network.png)
 
 
 1. 配置Hypervisor主机名
@@ -324,7 +324,7 @@
 
     在Available System NICs处选择一块网卡，并按下【Enter】键，进入网络配置页面。
 
-    ![set_network](https://github.com/eayun/Documents/blob/master/images/Node/set_network.png)
+    ![set_network](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/set_network.png)
 
     当列表中的每一项所指向的物理设备不明确的时候，Hypervisor可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择< Flash Lights to Identify >键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
 
@@ -407,7 +407,7 @@
   * 选择左侧的SNMP，切换到SNMP界面。
   * SNMP界面允许你启用和配置SNMP的密码。
 
-  ![node_SNMP](https://github.com/eayun/Documents/blob/master/images/Node/node_SNMP.png)
+  ![node_SNMP](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_SNMP.png)
 
 1. 选择`Enable SNMP`栏。
 1. 按下【Enter】键或空格键，选择启用SNMP或禁用SNMP。默认SNMP是禁用的。
@@ -426,7 +426,7 @@
   * 选择左侧的CIM，切换到CIM界面。
   * 启用和配置通用信息模型（CIM）允许你将Hypervisor连接到现有的CIM管理框架中，并监视Hypervisor上虚拟机的运行。
 
-  ![node_CIM](https://github.com/eayun/Documents/blob/master/images/Node/node_CIM.png)
+  ![node_CIM](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_CIM.png)
 
 1. 选择`Enable CIM`栏。
 1. 按下【Enter】键或空格键，选择启用CIM或禁用CIM。默认CIM是禁用的。
@@ -445,7 +445,7 @@
   * 选择左侧的Logging，切换到Logging界面。
   * Hypervisor创建并维护来大量的日志文件。Logging界面允许配置一个守护进程来自动导入这些日志到远程服务器中。
 
-  ![node_logging](https://github.com/eayun/Documents/blob/master/images/Node/node_logging.png)
+  ![node_logging](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_logging.png)
 
 1. logrotate配置
 
@@ -484,7 +484,7 @@
   * 选择左侧的Kdump，切换到Kdump界面。
   * Hypervisor支持当遇到系统失败的时候使用kdump来导出kernel dumps。
 
-  ![node_kdump](https://github.com/eayun/Documents/blob/master/images/Node/node_kdump.png)
+  ![node_kdump](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_kdump.png)
 
 1. kdump产生crash dumps可以导出到NFS或者SSH。选择一个更适合你的导出方法并按下【Enter】键或空格键启用它。
 
@@ -509,7 +509,7 @@
   * 选择左侧的Remote Storage，切换到远程存储界面。
   * 支持使用iSCSI initiator来进行远程存储。在Remote Storage界面完成对iSCSI initiator的配置。
 
-  ![node_remote_storage](https://github.com/eayun/Documents/blob/master/images/Node/node_remote_storage.png)
+  ![node_remote_storage](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_remote_storage.png)
 
 1. 在iSCSI Initiator名称栏输入initiator名称。
 
@@ -553,7 +553,7 @@
 
   1. 选择左侧的Hosted Engine，切换到Hosted Engine界面。
 
-  ![node_hosted_engine](https://github.com/eayun/Documents/blob/master/images/Node/node_hosted_engine.png)
+  ![node_hosted_engine](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/node_hosted_engine.png)
 
   1. 在Engine ISO/OVA Location一栏填写EayunOS Appliance的存放路径：`/usr/share/EayunOS-Engine-Appliance/EayunOS-Engine-Appliance-4.1-Beta-1411260328.ova.gz`。（内容需要根据最终版本进行更改）
   1. 选择< Setup Hosted Engine >并按下【Enter】键，开始部署Hosted Engine。
@@ -1188,7 +1188,7 @@
 
   如图中所示：
 
-  ![additional_node](https://github.com/eayun/Documents/blob/master/images/Node/additional_node.png)
+  ![additional_node](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/additional_node.png)
 
 1. 选择< Setup Hosted Engine >并按下【Enter】键，进入shell交互界面。
   1. 选择存储类型，要与第一台高可用节点的配置一致。
