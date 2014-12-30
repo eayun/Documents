@@ -1,4 +1,4 @@
-# 清单报表：HostsInventory
+# 清单报表：Hosts Inventory
 **Hosts Inventory** 报表列出了选定数据中心和集群中所有主机的列表。运行这个报表需要以下参数：
 
 **表22.6. Hosts Inventory 参数**

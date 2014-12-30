@@ -3,6 +3,7 @@
 **Cloud Provider Virtual Machine Inventory** 报表列出了选定数据中心和选定集群中的所有的虚拟机。云提供商需要看到这个报表来向客户收费。运行这个报表需要提供下面这些参数：
 
 **表 22.9. Cloud Provider Virtual Machine Inventory 参数**
+
 | 参数 | 描述 |
   -- | -- |
 | 显示已删除的实体？ | 报表包含了已删除的对象，例如已从环境中移除的数据中心，集群和主机。 |

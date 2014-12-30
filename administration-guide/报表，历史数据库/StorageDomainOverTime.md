@@ -1,6 +1,6 @@
-# 清单报表：StorageDomainOverTime
+# 清单报表：Storage Domain Size Over Time
 
-**Storage Domain Size Over Time** 报表显示了
+**Storage Domain Size Over Time** 报表显示了在已知时间段中一个存储域的所有可用空间和已用空间之间的对比的折线图。运行这个报表必须提供下面的参数：
 
 **表 22.7. Storage Domain Size Over Time 参数**
 
