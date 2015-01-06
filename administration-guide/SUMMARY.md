@@ -494,7 +494,7 @@
        * [服务水平报表](报表，历史数据库/服务水平报表.md)
            * [Cluster Host Uptime](报表，历史数据库/ClusterHostUptime.md)
            * [Cluster Quality of Service - Hosts](报表，历史数据库/ClusterQualityofService-Hosts.md)
-           * [Cluster Quality of Service - Virtual Machines](/clusterqualityofservice-virtualmachines.md)
+           * [Cluster Quality of Service - Virtual Machines](报表，历史数据库/Clusterqualityofservice-virtualmachines.md)
            * [Single Host Uptime](报表，历史数据库/SingleHostUptime.md)
            * [Top 10 Downtime Hosts](报表，历史数据库/Top10DowntimeHosts.md)
            * [High Availability Virtual Servers Uptime](报表，历史数据库/HighAvailabilityVirtualServersUptime.md)
