@@ -16,7 +16,7 @@
         这些安装包下载地址EayunOS，安装这些包运行以下命令：
 
             # yum install spice-usb-share km od-kspiceusb
-                                                
+
 
 2.  运行SPICE USB服务：
 
@@ -24,7 +24,7 @@
 
         # service spiceusbsrvd start
                                 # m odprobe kspiceusb
-                            
+
 
 3.  安装RHEV-Tools在虚拟机上
 

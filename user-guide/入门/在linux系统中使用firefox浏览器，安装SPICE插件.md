@@ -5,19 +5,19 @@ SPICE插件是需要运行remote-viewer打开一个连接虚拟机的图形控�
 1.  打开终端，root用户运行以下命令：
 
                                     #yum install spice-xpi
-                                
+
 
 2.  检查您的系统内是否安装virt-viewer包。
 
                                     #rpm -q virt-viewer
                                     virt-viewer-0.5.2-18.e16_4.2.x86_64
-                                    
-                                
+
+
 
     如果您已经安装了，运行以下命令：
 
                                     #yum install virt-viewer
-                                
+
 
 3.  重启Mozilla Firefox浏览器。
 

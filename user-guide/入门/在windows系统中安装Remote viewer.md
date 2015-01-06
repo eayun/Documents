@@ -4,7 +4,7 @@
 
                                     https://[your manager's address]/eayunVirt/virt-viewer-x64-0.6.0.msi
                                     https://[your manager's address]/eayunVirt/virt-viewer-x86-0.6.0.msi
-                                
+
 
 2.  打开保存文件的文件夹
 

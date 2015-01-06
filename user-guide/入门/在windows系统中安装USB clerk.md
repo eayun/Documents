@@ -6,7 +6,7 @@ USB Clerk提供一个服务，能够在客户虚拟机上安装和卸载Windows 
 
                                     https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/usbcl erk-x64 -0.0.1.1.msi
                                     https://[yo ur manager's address]/o vi rt-engi ne-fi l es/spi ce/usbcl erk-x86-0.0.1.1.msi
-                                
+
 
 2.  打开保存文件的文件夹
 
