@@ -1,9 +1,8 @@
 # 由 Foreman 提供的主机
 
-由 Foreman 提供的主机同样能够被 OVIRT
+由 Foreman 提供的主机同样能够被 EAYUNOS
 MANAGER用作虚拟化主机。首先您需要将 Foreman
-作为一个外部供应商添加到MANAGER中，然后您就可以像对待 OVIRT 主机或者
-RHEL/CentOS 主机一样添加并使用由 Foreman 提供的主机。
+作为一个外部供应商添加到MANAGER中，然后您就可以像对待 EAYUNOS 主机一样添加并使用由 Foreman 提供的主机。
 
 > **Important**
 >

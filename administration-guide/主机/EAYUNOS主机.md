@@ -12,6 +12,5 @@ EAYUNOS MANAGER；在MANAGER上只需要批准该台主机加入环境中即可�
 
 > **Important**
 >
-> EAYUNOS 主机是一个封闭的系统。如果您需要安装其它 rpm
-> 软件包，请使用普通的 RHEL/CentOS 主机。
+> EAYUNOS 主机是一个封闭的系统，无法安装其他软件包。
 
