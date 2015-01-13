@@ -1,1 +1,1 @@
-# OVIRTMANAGER重命名工具
+# EayunOS Manager重命名工具
