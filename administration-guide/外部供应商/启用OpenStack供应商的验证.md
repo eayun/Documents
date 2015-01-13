@@ -7,15 +7,15 @@
 1. 使用 root 用户登录到运行 EayunOS虚拟化管理中心 的系统上。
 2. 运行以下命令配置 Keystone 服务器的位置(包括端口号和 API 版本):
 
-           # engine-config --set KeystoneAuthUrl=http://[address to theendpoint]:35357/v2.0
+        # engine-config --set KeystoneAuthUrl=http://[address to theendpoint]:35357/v2.0
 
 3. 运行以下命令把 EayunOS 设置为只为所需的网据进行虚拟机调度:
 
-           # engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+        # engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
 
 4. 重新启动引擎服务:
 
-           # service ovirt-engine restart
+        # service ovirt-engine restart
 
 ### 结果
 
