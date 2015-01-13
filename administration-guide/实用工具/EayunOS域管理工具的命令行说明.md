@@ -84,7 +84,7 @@ engine-manage-domains -action=ACTION [options]
 
   指定域用户的密码是否手动（交互式）地提供。在*add*操作中，该选项和 ***--password-file*** 必须选择其中一个使用。
 
-***engine-manage-domains***使用方法的完整说明也可以通过下面的命令获取：
+**engine-manage-domains**使用方法的完整说明也可以通过下面的命令获取：
 
 ```
 # engine-manage-domains --help
