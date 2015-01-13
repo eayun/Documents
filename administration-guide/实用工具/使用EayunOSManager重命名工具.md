@@ -1,51 +1,35 @@
-# 使用OVIRTMANAGER重命名工具
+# 使用EayunOS Manager重命名工具
 
-使用 *ovirt-engine-rename* 命令更新MANAGER的fqdn域名记录。
+使用 **ovirt-engine-rename** 命令更新 Manager 的 FQDN 域名记录。
 
-在DNS系统中准备好MANAGER新的fqdn域名记录以及其他相关记录。
+> ##### 过程：使用 EayunOS Manager 重命名工具
 
-如果使用DHCP，修改DHCP配置。
+1. 在 DNS 系统中准备好 Manager 新的 FQDN 域名记录以及其他相关记录。
+1. 如果使用 DHCP，修改 DHCP 配置。
+1. 修改 Manager 服务器的主机名。
+1. 执行下面的命令：
 
-修改MANAGER服务器的主机名。
+```
+# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+```
 
-执行下面的命令：
+1. 出现下面的提示时，按下**回车键**，关闭 Manager：
 
-    # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+```
+During execution engine service will be stopped (OK, Cancel) [OK]:
+```
 
+1. 出现下面的提示时，输入新的 FQDN 域名：
 
-出现下面的提示时，按下*回车键*，关闭MANAGER：
+```
+New fully qualified server name:[new name]
+```
 
-    During execution engine service will be stopped (OK, Cancel) [OK]:
+> ##### 注意
+> **ovirt-engine-rename** 支持--name参数，参数后面直接指定Manager新的fqdn域名，可以省去后面提示输入域名的步骤，如：
+> `# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename --name=[new name]`
 
-出现下面的提示时，输入新的fqdn域名：
+* **结果**
 
-    New fully qualified server name:[new name]
-
-> **Note**
->
-> *ovirt-engine-rename*
-> 支持--name参数，参数后面直接指定MANAGER新的fqdn域名，可以省去后面提示输入域名的步骤，如：
->
->     # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename --name=[new name]
->
-
-*ovirt-engine-rename* 会修改以下文件关联的MANAGER域名：
-
--   /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
-
--   /etc/ovirt-engine/imageuploader.conf.d/10-engine-setup.conf
-
--   /etc/ovirt-engine/isouploader.conf.d/10-engine-setup.conf
-
--   /etc/ovirt-engine/logcollector.conf.d/10-engine-setup.conf
-
--   /etc/pki/ovirt-engine/cert.conf
-
--   /etc/pki/ovirt-engine/cert.template
-
--   /etc/pki/ovirt-engine/certs/apache.cer
-
--   /etc/pki/ovirt-engine/keys/apache.key.nopass
-
--   /etc/pki/ovirt-engine/keys/apache.p12
+  **ovirt-engine-rename** 命令更新了 Manager 的 FQDN 域名记录。
 
