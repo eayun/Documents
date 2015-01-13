@@ -978,7 +978,9 @@
 
       用户可以输入【Y】确认修改，或【R】重新配置，或【C】取消配置。
 
+
       ```
+
                 IP Address:	old-ip	==>	new-ip
                 Netmask:	old-netmask	==>	new-netmask
                 Gateway:	old-gateway	==>	new-gateway
@@ -1092,12 +1094,16 @@
 
   在Hosted Engine部署中，hosted-engine部署程序还在等待完成EayunOS虚拟化管理中心的初始化配置。
 
+  ```
+
       To continue make a selection from the options below:
       (1) Continue setup - engine installation is complete
       (2) Power off and restart the VM
       (3) Abort setup
      
       (1, 2, 3)[1]:
+
+  ```
 
   输入【1】并按下【Enter】键，告知hosted-engine部署程序EayunOS虚拟化管理中心的初始化配置已经完成，并继续进行下一步操作。
 
