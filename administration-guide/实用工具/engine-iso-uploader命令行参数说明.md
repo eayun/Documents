@@ -1,60 +1,97 @@
-# engine-iso-uploader命令行参数说明
+# engine-iso-uploader 命令行参数说明
 
-engine-iso-uploader的基本使用方法如下：
+engine-iso-uploader 的基本使用方法如下：
 
+```
     engine-iso-uploader [options] list
     engine-image-uploader [options] upload [file].[file]...[file]
+```
 
+2种操作模式：***list*** 和 ***upload***。
 
-2种操作模式：list和upload。
+* ***list*** 操作会列出 EayunOS Manager 中可用的ISO存储域。
+* ***upload*** 操作会上传 ISO 镜像文件（可以是多个，多个 ISO 镜像文件之间使用空格分隔）到指定的 ISO 存储域。默认通过 NFS 共享目录上传，也支持使用 SSH 上传。
 
--   list操作会列出OVIRTMANAGER中可用的ISO存储域。
+ISO 镜像上传工具必须指定 ***list*** 或者 ***upload*** 其中一项操作，使用 ***upload*** 操作时，最少需要提供一个待上传镜像文件的路径。
 
--   upload操作会上传ISO镜像文件（可以是多个，多个ISO镜像文件之间使用空格分隔）到指定的ISO存储域。默认通过NFS共享目录上传，也支持使用SSH上传。
+**engine-iso-uploader** 提供了一些参数对命令的行为进行控制。
 
-ISO镜像上传工具必须指定list或者upload其中一项操作，使用upload操作时，最少需要提供一个待上传镜像文件的路径。
+**常规选项**
 
-engine-iso-uploader提供了一些参数对命令的行为进行控制。
+***--version***
 
---version
-显示命令版本信息。
+  显示命令版本信息。
 
--h，--help
-显示命令帮助信息。
+***-h, --help***
 
---conf-file=配置文件路径
-指定配置文件。
+  显示命令帮助信息。
 
---quiet
-启用该选项之后,将命令的输出减少到最少。该选项默认是不启用的。
+***--conf-file=[PATH]***
 
--v，--verbose
-启用该选项之后,命令将输出尽可能详细的信息。该选项默认是不启用的。
+  指定所使用的配置文件。默认使用的配置文件是 **/etc/ovirt-engine/isouploader.conf**。
 
--f，--force
-当目标存储域中已经存在一个和将要上传的文件名字相同，则必须使用强制模式。默认开启该选项。
+***--log-file=[PATH]***
 
--u 用户名，--user=用户名
-指定上传文件时使用的用户名。用户名的格式为：user@domain。同时用户必须在OVIRTMANAGER中已经存在。
+  指定输出的日志文件的路径。默认输出的日志文件是 **/var/log/ovirt-engine/ovirt-iso-uploader/ovirt-iso-uploader[date].log**。
 
--r FQDN
-指定目标OVIRTMANAGER服务器的FQDN域名。默认是localhost，即运行该命令的服务器和OVIRTMANAGER是同一台服务器。
+***--cert-file=[PATH]***
 
-指定ISO镜像文件上传的目标ISO存储域，下面的2个选项互斥，不能同时使用。
+  指定验证 engine 的证书。默认证书是 **/etc/pki/ovirt-engine/ca.pem**。
 
--i，--iso-domain=ISO存储域
-指定ISO镜像文件上传的目标ISO存储域。
+***--insecure***
 
--n，--nfs-server=NFS共享目录
-指定ISO镜像文件上传的目标NFS共享目录。
+  指定不要尝试验证。
 
-ISO镜像上传工具默认使用NFS共享上传文件，使用下面的选项可以切换为使用SSH连接上传。
+***--nossl***
 
---ssh-user=用户名
-指定上传使用的SSH用户。
+  指定不要使用 SSL 来连接到 Manager。
 
---ssh-port=SSH服务端口
-指定远端服务器的SSH监听端口。
+***--quiet***
 
--k 公钥文件，--key-file=公钥文件
-指定SSH连接的公钥文件。不使用公钥验证时，会提示输入指定SSH用户的密码。
+  启用该选项之后,将命令的输出减少到最少。该选项默认是不启用的。
+
+***-v, --verbose***
+
+  启用该选项之后,命令将输出尽可能详细的信息。该选项默认是不启用的。
+
+***-f, --force***
+
+  当目标存储域中已经存在一个和将要上传的文件名字相同，则必须使用强制模式。默认开启该选项。
+
+**EayunOS Manager**
+
+***-u [USER], --user=[USER]***
+
+  指定上传文件时使用的用户名。用户名的格式为：*[username]@[domain]。同时用户必须在 EayunOS Manager 中已经存在。
+
+***-r [FQDN], --engine=[FQDN]***
+
+  指定目标 EayunOS Manager 服务器的 FQDN 域名。默认是 **localhost**，即运行该命令的服务器和 EayunOS Manager 是同一台服务器。
+
+**ISO 存储域选项**
+
+指定 ISO 镜像文件上传的目标 ISO 存储域，下面的2个选项互斥，不能同时使用。
+
+***-i, --iso-domain=[ISODOMAIN]***
+
+  指定 ISO 镜像文件上传的目标 ISO 存储域。
+
+***-n, --nfs-server=[NFSSERVER]***
+
+  指定 ISO 镜像文件上传的目标 NFS 共享目录。
+
+**连接选项**
+
+ISO 镜像上传工具默认使用 NFS 共享上传文件，使用下面的选项可以切换为使用 SSH 连接上传。
+
+***--ssh-user=[USER]***
+
+  指定上传使用的 SSH 用户。
+
+***--ssh-port=[PORT]***
+
+  指定远端服务器的 SSH 监听端口。
+
+***-k [KEYFILE], --key-file=[KEYFILE]***
+
+  指定 SSH 连接的公钥文件。不使用公钥验证时，会提示输入指定 SSH 用户的密码。
