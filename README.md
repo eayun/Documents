@@ -15,7 +15,10 @@ $ sudo yum install npm
 ### install gitbook & gitbook-plugins
 
 ```bash
-$ sudo npm install gitbook cheerio underscore -g
+$ git clone https://github.com/eayun/Documents.git
+$ cd Documents
+$ sudo npm install gitbook -g
+$ npm install cheerio underscore
 ```
 
 build & preview the documents
