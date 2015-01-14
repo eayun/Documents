@@ -17,4 +17,4 @@ OpenStack Networking提供了软件定义的网络。在 EayunOS 环境中,OpenS
 
 >**注意**
 >
->在把外部供应商添加到 EayunOS 环境中以前,您需要先设置所有需要添加的外部供应商。请参阅 [Deploying OpenStack: Enterprise Environments(Red Hat Enterprise Linux OpenStack Platform Installer)](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Installer_and_Foreman_Guide/index.html)来获得更多关于设置外部供应商的信息。
+>在把外部供应商添加到 EayunOS 环境中以前,您需要先设置所有需要添加的外部供应商。请参阅 [Deploying OpenStack: OpenStack Installation Guide](http://docs.openstack.org/juno/install-guide/install/yum/content/)来获得更多关于设置外部供应商的信息。
