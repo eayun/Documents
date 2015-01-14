@@ -1,26 +1,26 @@
-# OVIRTMANAGER配置项的说明、限制以及配置建议
+# EayunOS Manager 配置项的说明、限制以及配置建议
 
 |配置项|说明|数据类型|建议值（或者默认值）|备注|
 |------|----|--------|--------------------|----|
-|AsyncTaskPolling​Rate|异步事务轮询频率|整数|10|OVIRTMANAGER查询异步事务状态的频繁程度|
+|AsyncTaskPolling​Rate|异步事务轮询频率|整数|10|EayunOS Manager 查询异步事务状态的频繁程度|
 |AsyncTaskZombie​TaskLifeInMinutes|僵尸事务的生命周期（分钟）|整数|3000|事务执行多长时间之后会被认为是僵尸事务并被杀死。该配置对大规模存储操作的影响需要特别考虑。如果存储设备速度较慢而虚拟镜像体积较大，或者事务运行时间超过3000分钟（50个小时），需要适量增大该配置。|
 |AttestationPort|attestation服务的端口|整数|8443|attestation服务的监听端口。|
 |AttestationServer|attestation服务器的fqdn域名|字符串|默认是“oat-server”|attestation服务器的fqdn域名或者ip地址。|
-|AttestationTrustst​ore|和attestation服务器进行加密通信时使用的truststore文件。|字符串|TrustStore.jks|将attestation服务器*/var/lib/oat-appraiser/Certificate/*目录下的TrustStore.jks文件复制到MANAGER服务器的*/usr/share*目录下。|
+|AttestationTrustst​ore|和attestation服务器进行加密通信时使用的truststore文件。|字符串|TrustStore.jks|将attestation服务器*/var/lib/oat-appraiser/Certificate/*目录下的TrustStore.jks文件复制到Manager 服务器的*/usr/share*目录下。|
 |AttestationTrustst​orePass|访问truststore的密码|字符串|password|默认的密码是password。|
 |AttestationFirstSta​geSize|第一阶段attestation的容量|整数|10|快速初始化时使用的配置。除非有明确的原因，否则不建议修改该配置。|
 |AuditLogAgingThr​eshold|审计日志保存时限（以天为单位）|整数|30|审计日志在截断轮转之前最长的保存时限。|
 |AuditLogCleanupT​ime|检查审计是否需要清理的时间|时间|03:35:35|检查审计日志是否超过时限以及是否需要清理。|
-|AuthenticationMet​hod|OVIRTMANAGER中用户的验证方式|字符串|LDAP|OVIRTMANAGER验证用户的方式，目前支持LDAP。|
+|AuthenticationMet​hod|EayunOS Manager 中用户的验证方式|字符串|LDAP|EayunOS Manager 验证用户的方式，目前支持LDAP。|
 |BlockMigrationOn​SwapUsagePerce​ntage|NODE服务器swap使用率的限制（作为调度的依据）|整数|0|NODE服务器上允许虚拟机运行或者迁移消耗的最大swap使用率。如果服务器上swap使用率超过上限，虚拟机或者虚拟机迁移不会启动。|
-|BootstrapMinimalV​dsmVersion|支持的VDSM最低版本|字符串|4.9|将主机加入到MANAGER时，主机上安装的VDSM版本必须不低于配置项指定的版本。新版本的VDSM特性更丰富。|
-|CABaseDirectory|CA证书的目录|字符串|/etc/pki/ovirt-​engine|OVIRTMANAGER服务器上CA证书所在的目录。|
-|CertificateFileNam​e|证书文件的名称|字符串|/etc/pki/ovirt-​engine/certs/engin​e.cer|OVIRTMANAGER进行SSL/TSL通信时使用的证书文件。|
-|CpuOverCommitD​urationMinutes|CPU使用率超过集群调度策略的上限时，等待多长时间才开始进行实际的调度操作（时间以分钟为单位）。|整数|2|当集群调度策略设置为even时，如果检测到主机CPU使用超过配置上限，MANAGER会等待配置项设置的一段时间之后才开始进行虚拟机迁移。|
-|DisableFenceAtSt​artupInSec|在OVIRTMANAGER启动时禁用fence操作一段时间（以秒为单位）|整数|300|OVIRTMANAGER启动时对主机进行检测，如果主机没有响应的时间超过该配置项设置的值，则认为主机的状态为不可操作，并开始执行fence操作。如果MANAGER服务器处于低速的网络环境，则需要考虑适量增大该配置。|
+|BootstrapMinimalV​dsmVersion|支持的VDSM最低版本|字符串|4.9|将主机加入到Manager 时，主机上安装的VDSM版本必须不低于配置项指定的版本。新版本的VDSM特性更丰富。|
+|CABaseDirectory|CA证书的目录|字符串|/etc/pki/ovirt-​engine|EayunOS Manager 服务器上CA证书所在的目录。|
+|CertificateFileNam​e|证书文件的名称|字符串|/etc/pki/ovirt-​engine/certs/engin​e.cer|EayunOS Manager 进行SSL/TSL通信时使用的证书文件。|
+|CpuOverCommitD​urationMinutes|CPU使用率超过集群调度策略的上限时，等待多长时间才开始进行实际的调度操作（时间以分钟为单位）。|整数|2|当集群调度策略设置为even时，如果检测到主机CPU使用超过配置上限，Manager 会等待配置项设置的一段时间之后才开始进行虚拟机迁移。|
+|DisableFenceAtSt​artupInSec|在EayunOS Manager 启动时禁用fence操作一段时间（以秒为单位）|整数|300|EayunOS Manager 启动时对主机进行检测，如果主机没有响应的时间超过该配置项设置的值，则认为主机的状态为不可操作，并开始执行fence操作。如果Manager 服务器处于低速的网络环境，则需要考虑适量增大该配置。|
 |WANDisableEffect​s|使用SPICE连接虚拟机时关闭WAN特效|多个字符串|animation|使用SPICE连接虚拟机时要关闭哪些特效。目前支持的值有：animation、​wallpaper、​font-smooth和all。|
 |WANColorDepth|使用SPICE连接虚拟机时使用的色深|整数|16|使用SPICE连接虚拟机时使用的色深，可以配置的值有16和32。|
-|EnableSpiceRoot​CertificateValidatio​n|是否启动SPICE客户端的根证书验证|字符串|true|如果配置项的值为“true”，当客户端通过SPICE连接虚拟机时，虚拟机所在主机的证书以及MANAGER的CA证书都会发送到客户端，目的是提供额外的安全认证机制。|
+|EnableSpiceRoot​CertificateValidatio​n|是否启动SPICE客户端的根证书验证|字符串|true|如果配置项的值为“true”，当客户端通过SPICE连接虚拟机时，虚拟机所在主机的证书以及Manager 的CA证书都会发送到客户端，目的是提供额外的安全认证机制。|
 |EnableUSBAsDef​ault|是否自动将USB设备附加到虚拟机|字符串|true|-|
 |EnableVdsLoadBa​lancing|是否启用NODE负载均衡|字符串|true|该配置项可以配置是否根据集群策略中配置的规则来进行虚拟机的负载均衡调度。|
 |FreeSpaceCritical​LowInGB|磁盘剩余空间警告阈值（以GB为单位）|整数|5|当存储域的剩余空间减少到配置项指定的数值时产生一个警告。该配置项也会在判断存储相关操作是否会超过这个限制的过程中产生作用。添加或者导出磁盘镜像会因为剩余空间不足而失败。|
@@ -30,7 +30,7 @@
 |LDAPQueryTimeo​out|LDAP查询超时时间|整数|30|LDAP查询的超时限制，超过配置项指定的时间之后查询会被终止。|
 |LDAPOperationTi​meout|LDAP搜索操作的超时时间|整数|30|LDAP搜索操作的超时限制，超过配置项指定的时间之后搜索操作会被终止。|
 |LDAPConnectTim​eout|LDAP查询时连接的超时时间|整数|30|LDAP查询时连接LDAP服务器的超时限制，超过配置项指定的时间之后，连接会被终止。|
-|LocalAdminPassw​ord|admin@local用户的密码|密码|MANAGER安装时设置|admin@local用户的密码|
+|LocalAdminPassw​ord|admin@local用户的密码|密码|Manager 安装时设置|admin@local用户的密码|
 |LogPhysicalMemo​ryThresholdInMB|主机被认为内存不足的剩余内存下限（以MB为单位）|整数|1024|主机剩余内存低于配置项指定的数值时，会被认为是内存不足。当主机剩余内存低于下限时，该事件会记录到审计日志，不会对主机本身进行任何其他操作。|
 |LowUtilizationForE​venlyDistribute|使用even负载均衡策略时，运行虚拟机数目的下限|整数|0|使用even负载均衡策略时，每台主机运行虚拟机的最小数量。|
 |LowUtilizationForP​owerSave|使用PowerSave负载均衡策略时，主机CPU使用率的下限|整数|20|对于新创建的集群生效。使用PowerSave负载均衡策略时，主机CPU使用率的下限。|
@@ -53,7 +53,7 @@
 |VmPoolMaxSubse​quentFailures|使用虚拟机池时虚拟机创建失败次数的上限|整数|3|使用虚拟机池时新建虚拟机失败次数的上限。虚拟机失败次数超过限制，操作会被终止。|
 |NumberOfVmsFor​TopSizeVms|存储域的虚拟机列表中显示的虚拟机数量（按虚拟机磁盘大小排序）|整数|10|存储域的虚拟机标签中，按照使用磁盘空间大小排序对虚拟机进行列表。列表中最多显示配置项指定数目的虚拟机。|
 |NumberVmRefre​hesBeforeSave|在虚拟机数据写入到数据库之前允许的刷新次数|整数|5|2次从VDSM重新载入虚拟机信息之间主机监控操作的次数。每次主机监控操作都是根据该配置项指定的数值确定是否需要重新加载虚拟机信息。|
-|oVirtISOsReposito​ryPath|OVIRTNODE安装文件的路径|字符串|/usr/share/ovirt​-node-iso|升级OVIRTNODE时使用的ISO镜像文件的路径。|
+|oVirtISOsReposito​ryPath|EayunOS NODE安装文件的路径|字符串|/usr/share/ovirt​-node-iso|升级EayunOS NODE时使用的ISO镜像文件的路径。|
 |ProductKey2003|产品序列号（Windows 2003）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
 |ProductKey2003x​64|产品序列号（Windows 2003 x64）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
 |ProductKey2008|产品序列号（Windows 2008）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
@@ -62,7 +62,7 @@
 |ProductKey|产品序列号（Windows XP）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
 |ProductKeyWindo​w7|产品序列号（Windows 7）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
 |ProductKeyWindo​w7x64|产品序列号（Windows 7 x64）|字符串|-|使用sysprep创建Windows虚拟机模板使用的产品序列号。|
-|ProductRPMVersi​on|OVIRTMANAGER软件包版本|字符串|自动从软件包中获取|当前使用的OVIRTMANAGER软件包版本。|
+|ProductRPMVersi​on|EayunOS Manager 软件包版本|字符串|自动从软件包中获取|当前使用的EayunOS Manager 软件包版本。|
 |SANWipeAfterDel​ete|创建虚拟磁盘时重新初始化更安全，但是IO所花费的时间较长（根据磁盘大小情况而定）。|字符串|false|该配置项会影响新建虚拟磁盘时是否选中“删除后清理”（新建虚拟磁盘在SAN类型的存储域中时）。|
 |SASL\_QOP|用户认证或者LDAP查询时SASL的QoP级别|字符串|auth-conf|可选择的QoP等级有：auth，auth-int，auth-conf。|
 |SearchResultsLimi​t|搜索结果条目数量的上限|整数|100|使用web管理门户或者REST api执行查询（没有特殊参数）时，搜索结果条目数量的上限。|
@@ -99,7 +99,7 @@
 |UserRefreshRate|AD用户数据的刷新间隔时间（以秒为单位）|整数|3600|更新AD用户数据信息的间隔时间。|
 |UtilizationThre​sholdInPercent|CPU使用率的阈值（百分比）|整数|80|负载均衡策略中，判断主机负载是否过高的标准（CPU使用率方面）。该配置项可以在集群的策略配置对话框中进行配置。|
 |ValidNumOfMonito​rs|显示设备的可选数量|整数|1，2，4|启动SPICE连接的虚拟机显示设备的数量。|
-|VdcVersion|OVIRT内部版本号|字符串|安装时自动设置|-|
+|VdcVersion|EayunOS 内部版本号|字符串|安装时自动设置|-|
 |VDSAttemptsToRe​setCount|重置主机之前尝试重新连接的次数|整数|2|在对主机发起fence操作之间尝试重新连接主机的次数，该配置项和TimeoutToReset​VdsInSeconds配合使用。|
 |VdsLoadBalancin​geIntervalInMinutes|主机负载均衡状态检查间隔（以分钟为单位）|整数|1|根据主机负载情况对虚拟机运行情况做出调整的时间间隔。（该配置项也是第一次进行负载均衡调度的时间）|
 |VdsRecoveryTime​outInMintues|主机恢复时的超时时间（以分钟为单位）|整数|3|等待主机恢复正常状态的超时时间（主机状态一般显示为“初始化”或者“恢复”。|
