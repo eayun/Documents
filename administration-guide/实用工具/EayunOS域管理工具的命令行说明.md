@@ -3,7 +3,7 @@
 命令的使用方法如下：
 
 ```
-engine-manage-domains -action=ACTION [options]
+engine-manage-domains ACTION [options]
 ```
 
 可用的操作（ACTION）有：
