@@ -1,6 +1,6 @@
-# 关于ISO镜像上传工具
+# 关于 ISO 镜像上传工具
 
-OVIRTMANAGER中包含了ISO镜像上传工具，使用该工具上传ISO镜像。
+EayunOS Manager 中包含了 ISO 镜像上传工具，使用该工具上传 ISO 镜像。
 
-ISO上传工具的命令是engine-iso-uploader，必须在OVIRTMANAGER服务器上以root身份执行该命令。执行engine-iso-uploader
--h可以查看命令的帮助信息。
+ISO 上传工具的命令是 **engine-iso-uploader**，必须在 EayunOS Manager 服务器上以 root 身份执行该命令。执行 `engine-iso-uploader -h` 可以查看命令的帮助信息。
+
