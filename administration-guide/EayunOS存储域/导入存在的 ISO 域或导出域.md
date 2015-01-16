@@ -10,7 +10,7 @@
 
 2.点击**导入域**按钮，打开**导入预配置的域**窗口，如图：
 
-![导入存储域](../images/storage-import-domain.png)
+![导入存储域](../images/storage-import-domain.png)</br>
 **导入存储域**
 
 3.在**数据中心**下拉框选择一个想到导入到的数据中心。

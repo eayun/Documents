@@ -9,7 +9,7 @@ pNFS 存储域是通过兼容 POSIX 的方式来添加的，它可以为 EayunOS
 
 2.点击**新建域**打开**新建域**窗口，如图：
 
-![添加 pNFS 存储](../images/storage-add-pnfs.png)
+![添加 pNFS 存储](../images/storage-add-pnfs.png)</br>
 **添 pNFS 存储**
 
 3.输入存储域的名称，描述和注释（这两项可选）。
