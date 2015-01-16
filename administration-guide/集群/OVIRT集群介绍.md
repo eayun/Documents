@@ -16,6 +16,7 @@ OVIRT默认安装的时候会自动配置一个默认的数据中心和默认的
 
 ![集群图示](../images/EayunOS_Cluster.png)
 
+
 *请参考:*
 
 -   ?
