@@ -2,13 +2,17 @@
 
 目前 EayunOS支持以下虚拟机操作系统:
 
+
+**能够当作客户操作系统使用的操作系统**
+
 |操作系统|架构|SPICE 支持|
 |--------|----|----------|
 |Red Hat Enterprise Linux 3(或CentOS 3)|32-bit，64-bit|是|
 |Red Hat Enterprise Linux 4(或CentOS 4)|32-bit，64-bit|是|
 |Red Hat Enterprise Linux 5(或CentOS 5)|32-bit，64-bit|是|
 |Red Hat Enterprise Linux 6(或CentOS 6)|32-bit，64-bit|是|
-|SUSE Linux Enterprise Server 10|32-bit，64-bit|否|
+|Red Hat Enterprise Linux 7(或CentOS 7)|32-bit，64-bit|是|
+|SUSE Linux Enterprise Server 10（在客户操作系统中选择   **Other Linux**）|32-bit，64-bit|否|
 |SUSE Linux Enterprise Server 11|32-bit，64-bit|否|
 |Ubuntu 12.04 (Precise Pangolin LTS)|32-bit，64-bit|是|
 |Ubuntu 12.10 (Quantal Quetzal|32-bit，64-bit|是|
@@ -18,8 +22,10 @@
 |Windows 7|32-bit，64-bit|是|
 |Windows 8|32-bit，64-bit|否|
 |Windows Server 2003 Service Pack 2 and newer|32-bit，64-bit|是|
+|Windows Server 2003 R2|32-bit，64-bit|是|
 |Windows Server 2008|32-bit，64-bit|是|
 |Windows Server 2008 R2|64-bit|是|
+|Windows Server 2012|64-bit|否|
 |Windows Server 2012 R2|64-bit|否|
 
 对 Windows 8 和 Windows 2012 来讲，默认使用 RDP(Remote Desktop Protocol)
@@ -30,6 +36,6 @@ SPICE 暂时得不到最好的体验。
 >
 > 因为由于 Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4
 > 是32位内核，没有 ACPI
-> 的支持，所以用户在门户直接点击关闭的时候肯能会出现
-> 问题，这个时候需要用户右击断电来关机。
+> 的支持，所以用户在门户直接点击关闭的时候可能会出现
+> 问题，这个时候需要用户右击**断电**来关机。
 

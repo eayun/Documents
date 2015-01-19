@@ -11,9 +11,9 @@ Hook 脚本，但在本章的例子中使用的是 Python。
 Hook 只对运行在该主机上的一部分虚拟机执行，那么您必须确保 Hook
 脚本本身能够根据虚拟机的*自定义属性*处理这个需求。
 
-> **Warning**
+> **警告**
 >
-> VDSM Hook 有可能妨碍 OVIRT 的正常运行。VDSM Hook
+> VDSM Hook 有可能妨碍 EayunOS 的正常运行。VDSM Hook
 > 中存在的漏洞将有可能造成虚拟机崩溃和数据损失。VDSM Hook
 > 的实现必须谨慎，并且进行严格的测试。Hook API
 > 是新近确定的，并且在以后有可能发生明显的改变。
