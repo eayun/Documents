@@ -3,6 +3,8 @@
 事件通知器的配置文件是
 `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf`。
 
+**ovirt-engine-notifier.conf 文件中关于事件通知的参数**
+
 |变量名|默认值|备注|
 |------|------|----|
 |INTERVAL\_IN\_SECONDS|120|向订阅了事件通知的用户发送通知的时间间隔，以秒为单位。|
