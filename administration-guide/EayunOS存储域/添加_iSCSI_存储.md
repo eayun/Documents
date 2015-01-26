@@ -11,7 +11,8 @@ EayunOS 平台通过从已存在的 LUN 组成的逻辑卷组创建存储域来�
 
 2.点击**新建域**按钮打开**新建域**窗口，如图：
 
-![添加 iSCSI 存储](../images/storage-add-iscsi.png)</br>
+![添加 iSCSI 存储](../images/storage-add-iscsi.png)
+
 **添加 iSCSI 存储**
 
 3.输入存储域的**名称**。

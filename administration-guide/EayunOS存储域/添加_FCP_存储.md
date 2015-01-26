@@ -15,7 +15,8 @@ EayunOS系统管理员需要对存储域的网络有个知识概念。SAN 使用
 
 2.点击**新建域**按钮打开**新建域**窗口，如图：
 
-![添加FCP存储](../images/storage-add-fcp.png)</br>
+![添加FCP存储](../images/storage-add-fcp.png)
+
 **添加 FCP 存储**
 
 3.输入存储域的**名称**。
