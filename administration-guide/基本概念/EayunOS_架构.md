@@ -17,3 +17,5 @@ EayunOS 企业级虚拟化环境包括：
 -   **网络管理**：用于将整个虚拟环境联系在一起的网络。它包括物理网络连接(网卡)和逻辑网络。
 
 ![EayunOS 架构](../images/eayunos_architecture.png)
+
+**EayunOS 企业级虚拟化平台示意图**
