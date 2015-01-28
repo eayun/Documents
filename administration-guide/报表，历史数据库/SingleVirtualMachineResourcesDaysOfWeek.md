@@ -1,1 +1,1 @@
-
+# SingleVirtualMachineResourcesDaysOfWeek
