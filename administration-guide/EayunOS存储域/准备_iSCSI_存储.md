@@ -7,15 +7,17 @@
     # yum install -y scsi-target-utils
 
 2. 编辑 `/etc/tgt/targets.conf`
-文件，增加以下几行内容（根据你的实际情况调整）：
+   文件，增加以下几行内容（根据你的实际情况调整）：
 
+   ```
     <target iqn.2014-03.com.example:server.target0>
         backing-store /dev/sdb # LUN 1
         backing-store /dev/sdc # LUN 2
     </target>
+   ```
 
- Target
-通常由创建的年份以及月份，服务器所在的完全合格域名，服务器名称以及目标编号组成。
+   Target
+   通常由创建的年份以及月份，服务器所在的完全合格域名，服务器名称以及目标编号组成。
 
 3. 重启**tgtd** 服务。
 

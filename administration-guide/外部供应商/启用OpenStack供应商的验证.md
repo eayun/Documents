@@ -1,3 +1,5 @@
+# 启用OpenStack供应商的验证
+
 ### 介绍
 
 在您可以访问 OpenStack 供应商所提供的资源前,您需要在 Manager 中指定供应商的 Keystone 端点(endpoint)来启用这个服务器的验证机制。
