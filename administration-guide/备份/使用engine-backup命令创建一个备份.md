@@ -9,12 +9,12 @@
 1. 登录到运行 EayunOS 虚拟化管理中心的机器上。
 1. 执行以下命令，创建一个完全备份：
 
-  > ##### 示例：创建完全备份
+**创建完全备份**
   > `# engine-backup --scope=all --mode=backup --log=[file name] --file=[file name]`
 
   您也可以选择执行以下命令，仅仅备份 engine 数据库：
 
-  > ##### 示例：创建 engine 数据库备份
+**创建 engine 数据库备份**
   > `# engine-backup --scope=db --mode=backup --log=[file name] --file=[file name]`
 
 **结果**

@@ -2,7 +2,7 @@
 
 下面的示例将 virtio-win.iso、virtio-win.vfs 上传到 ISODomain 中。
 
-> ##### 示例：上传 VirtIO 和 Guest Tool 镜像文件
+**上传 VirtIO 和 Guest Tool 镜像文件**
 
 ```
     # engine-iso-uploader --iso-domain=[ISODomain] upload \

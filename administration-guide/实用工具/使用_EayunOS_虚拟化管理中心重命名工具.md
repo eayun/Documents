@@ -2,7 +2,7 @@
 
 使用 **ovirt-engine-rename** 命令更新 Manager 的 FQDN 域名记录。
 
-> ##### 过程：使用 EayunOS Manager 重命名工具
+**使用 EayunOS Manager 重命名工具**
 
 1. 在 DNS 系统中准备好 Manager 新的 FQDN 域名记录以及其他相关记录。
 1. 如果使用 DHCP，修改 DHCP 配置。
