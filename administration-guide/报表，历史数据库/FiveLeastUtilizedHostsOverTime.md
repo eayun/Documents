@@ -1,6 +1,6 @@
 # Trend Reports:Five Least Utilized Hosts(Over Time)
 
-**Five Least Utilized Hosts(Over Time)** 报表显示了在一个特定时间范围内，加权平均每日峰值负载
+**Five Least Utilized Hosts(Over Time)** 报表显示了在一个特定时间范围内，系统负载（以 CPU 和内存的使用情况衡量）最低的 5 台主机的带有权重的每日高峰负载的平均值。运行这个报表需要提供以下参数：
 
 **Five Least Utilized Hosts(Over Time) 参数**
 
