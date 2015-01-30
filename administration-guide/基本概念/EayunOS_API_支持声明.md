@@ -19,7 +19,7 @@ EayunOS 企业级虚拟化抛出了除了 EayunOS 企业级虚拟化管理中心
   由 vdsm-cli（对 node 进行操作） 和 ovirt-engine-cli（对 engine 进行操作） 软件包提供的命令行 shell 与 EayunOS 企业级虚拟化管理中心进行交互是完全被支持的。
 
 - **VDSM Hooks**
-  
+
   EayunOS 企业级虚拟化主机支持为了触发基于管理员门户中特别指定的自定义属性的虚拟机配置的变更而创建并使用 VDSM hooks。运行 EayunOS 虚拟化宿主机的虚拟主机上的 VDSM hooks 的使用现在还不被支持。
 
 ## 被支持的读访问接口
