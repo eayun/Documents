@@ -589,7 +589,6 @@
             * [Single Virtual Machine Resources (Days of Week)](报表，历史数据库/SingleVirtualMachineResourcesDaysOfWeek.md)
             * [Single Virtual Machine Resources (Hour of Day)](报表，历史数据库/SingleVirtualMachineResourcesHourOfDay.md)
             * [Single Virtual Machine Resources (Over Time)](报表，历史数据库/SingleVirtualMachineResourcesOverTime.md)
-        * [Ad Hoc 报表](报表，历史数据库/Ad Hoc 报表.md)
         * [报表模式：标签历史和 ENUM 视图(Views)](报表，历史数据库/标签历史和 ENUM 视图.md)
     * [历史数据库报表](报表，历史数据库/历史数据库报表.md)
         * [EayunOS 企业级虚拟化历史数据库](报表，历史数据库/EayunOS企业级虚拟化历史数据库.md)
