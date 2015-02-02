@@ -2,6 +2,8 @@
 
 为了添加 iSCSI 存储域，我们必须在 iSCSI 服务器上导出 iSCSI 服务。
 
+**准备 iSCSI 存储**
+
 1. 安装相关软件包。
 
     # yum install -y scsi-target-utils
@@ -37,7 +39,6 @@
     # service iptables save
 
 
-**结果**
-
+**结果**<br/>
 现在，你已经创建好了一个 iSCSI 存储了，接下来就是把它添加到EayunOS
 管理中心中了。

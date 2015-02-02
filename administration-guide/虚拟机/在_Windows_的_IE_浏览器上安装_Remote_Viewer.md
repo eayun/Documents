@@ -1,6 +1,6 @@
 # 在 Windows 的 IE 浏览器上安装 Remote Viewer
 
-**概要**<br/>
+**概述**<br/>
 需要 SPICE ActiveX 组建来运行 Remote Viewer，将会为用户提供一个图形化的访问虚拟机。Remote Viewer 是一个与 SPICE ActiveX 组建捆绑在一起的 SPICE 客户端。提供在了 **SpiceX.cab** 文件里了。
 
 
