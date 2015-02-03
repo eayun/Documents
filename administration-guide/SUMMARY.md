@@ -342,7 +342,7 @@
            * [复制模板的虚拟磁盘](模板/复制模板的虚拟磁盘.md)
        * [导入模板](模板/导入模板.md)
            * [导入模板到数据中心中](模板/导入模板到数据中心中.md)
-           * [从 OpenStack 映像服务（OpenStack Image Service）导入虚拟磁盘映像作为一个模板。](openstack.md)
+           * [从 OpenStack 映像服务（OpenStack Image Service）导入虚拟磁盘映像作为一个模板。](模板/从OpenStack映像服务导入虚拟磁盘映像作为一个模板.md)
    * [封装模板准备部署](模板/封装模板准备部署.md)
        * [手动封装 Linux 虚拟机为一个模板准备部署](模板/手动封装_Linux_虚拟机为一个模板准备部署.md)
        * [使用 sys-unconfig 封装 Linux 虚拟机为一个模板准备部署](模板/使用_sys-unconfig_封装_Linux_虚拟机为一个模板准备部署.md)
