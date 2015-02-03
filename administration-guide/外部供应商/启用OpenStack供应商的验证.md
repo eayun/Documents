@@ -1,21 +1,24 @@
 # 启用OpenStack供应商的验证
 
-### 介绍
+**概述**<br/>
+在您可以访问 OpenStack 供应商所提供的资源前,您需要在 Manager 中指定供应商的 Keystone 端点 (endpoint) 来启用这个服务器的验证机制。
 
-在您可以访问 OpenStack 供应商所提供的资源前,您需要在 Manager 中指定供应商的 Keystone 端点(endpoint)来启用这个服务器的验证机制。
-
-### 配置一个 Keystone 端点的位置
+**配置一个 Keystone 端点的位置**
 
    1. 使用 root 用户登录到运行 Red Hat Enterprise Virtualization Manager 的系统上。
    2. 运行以下命令配置 Keystone 服务器的位置(包括端口号和 API 版本):
-           # engine-config --set KeystoneAuthUrl=http://[address to theendpoint]:35357/v2.0
+
+    ```   # engine-config --set KeystoneAuthUrl=http://[address to theendpoint]:35357/v2.0```
+
    3. 运行以下命令把 EayunOS 设置为只为所需的网据进行虚拟机调度:
-           # engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+
+  ```  # engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true```
+
    4. 重新启动引擎服务:
-           # service ovirt-engine restart
 
-### 结果
+   ```  # service ovirt-engine restart```
 
+**结果**<br/>
 您配置了 OpenStack 供应商验证所需要的 Keystone 端点的位置。
 
 >**注意**
