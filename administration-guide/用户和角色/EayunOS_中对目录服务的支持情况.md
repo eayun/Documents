@@ -1,12 +1,12 @@
 # EayunOS 中对目录服务的支持情况
 
 在安装过程中，EayunOS 虚拟化管理中心创建其自己内部的管理员用户
-***admin***。这个账户是为了初始化配置环境以及排解疑难问题而设计的。要添加用户到
-EayunOS 环境中，您需要使用 EayunOS 的域管理工具 **engine-**manage-domains***
+**admin**。这个账户是为了初始化配置环境以及排解疑难问题而设计的。要添加用户到
+EayunOS 环境中，您需要使用 EayunOS 的域管理工具 **engine-manage-domains**
 来连接一个目录服务器到虚拟化管理中心
 
 一旦至少一个目录服务器连接至虚拟化管理中心，您就可以使用管理员门户来添加该目录服务器中已存在的用户并为他们指派角色。用户以格式为
-***user@domain*** 的用户主体名称（User Principal
+**user@domain** 的用户主体名称（User Principal
 Name，UPN）来区分。连接多个目录服务器到虚拟化管理中心同样被支持。
 
 EayunOS 支持如下的目录服务器：
