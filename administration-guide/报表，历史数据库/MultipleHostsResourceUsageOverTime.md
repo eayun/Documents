@@ -1,4 +1,4 @@
-# Trend Reports:Multiple Hosts Resource Usage(OverTime)
+# Trend Reports: Multiple Hosts Resource Usage(OverTime)
 
 **Multiple Hosts Resource Usage(OverTime)** 报表显示了在一个特定的时间范围内，多个主机（最多可选 5 个主机）的每日高峰负载（以 CPU 和内存的使用率的情况来衡量）。运行这个报表需要提高以下参数：
 
