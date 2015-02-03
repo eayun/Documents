@@ -1,4 +1,4 @@
-#22.1.5. Jasper Reports System Requirements
+# Jasper Reports System Requirements
 
 EayunOS 企业级虚拟化管理端 Reports 工具可支持以下浏览器：
 
