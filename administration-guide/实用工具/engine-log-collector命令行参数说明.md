@@ -7,13 +7,13 @@ engine-log-collector 的基本使用方法如下：
     engine-image-uploader [options] collect
 ```
 
-2种操作模式：***list*** 和 ***collect***。
+两种操作模式：***list*** 和 ***collect***。
 
 * ***list*** 操作会列出 EayunOS Manager 中的数据中心、集群或者主机。
 
 * ***collect*** 操作会从 EayunOS Manager 抓取相关的日志和信息，并打包放置在 **/tmp/logcollector** 目录下。
 
-如果没有指定其他参数，默认的操作是自动收集当前Manager 中所有数据中心、集群和主机相关的信息和日志，并打包。
+如果没有指定其他参数，默认的操作是自动收集当前虚拟化管理中心中所有数据中心、集群和主机相关的信息和日志，并打包。
 
 **engine-log-collector** 提供了一些参数对命令的行为进行控制。
 
@@ -53,15 +53,15 @@ engine-log-collector 的基本使用方法如下：
 
   启用该选项之后，命令将输出尽可能详细的信息。该选项默认是不启用的。
 
-**EayunOS Manager 选项**
+**EayunOS 虚拟化管理中心选项**
 
-下面这些选项可能指定访问 EayunOS Manager 时验证登录的方式、选择需要收集的日志或者信息的类型、来源等。
+下面这些选项可能指定访问 EayunOS 虚拟化管理中心 时验证登录的方式、选择需要收集的日志或者信息的类型、来源等。
 
 这些选项可以配合使用，如：
 
 **engine-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"\***
 
-将使用 **admin@internal** 登录 Manager，并收集 ClusterA 和 ClusterB 这2个集群中所有 **SaleHost** 主机的日志和信息。
+将使用 **admin@internal** 登录虚拟化管理中心，并收集 ClusterA 和 ClusterB 这2个集群中所有 **SaleHost** 主机的日志和信息。
 
 ***--no-hypervisors***
 
@@ -69,11 +69,11 @@ engine-log-collector 的基本使用方法如下：
 
 ***-u [USER], --user=[USER]***
 
-  登录Manager 时使用的用户。用户名的格式为：user@domain。同时用户必须在 EayunOS Manager 中已经存在。
+  登录虚拟化管理中心时使用的用户。用户名的格式为：user@domain。同时用户必须在 EayunOS 虚拟化管理中心中已经存在。
 
 ***-r [FQDN], --rhev=[FQDN]***
 
-  指定目标 EayunOS Manager 服务器的 FQDN 域名。默认是 localhost，即运行该命令的服务器和 EayunOS Manager 是同一台服务器。
+  指定目标 EayunOS 虚拟化管理中心服务器的 FQDN 域名。默认是 localhost，即运行该命令的服务器和 EayunOS 虚拟化管理中心是同一台服务器。
 
 ***-c [CLUSTER], --cluster=[CLUSTER]***
 
@@ -105,7 +105,7 @@ engine-log-collector 的基本使用方法如下：
 
 ***--enable-jmx***
 
-  从 EayunOS Manager 的 JMX 接口获取日志和信息。
+  从 EayunOS 虚拟化管理中心的 JMX 接口获取日志和信息。
 
 ***--jboss-user=JBOSS\_USER***
 
@@ -147,7 +147,7 @@ engine-log-collector 的基本使用方法如下：
 
 **PostgreSQL 数据库选项**
 
-如果更改了 EayunOS Manager 数据库名和数据库用户，则需要使用 ***pg-user*** 和 ***dbname*** 指定数据库用户名和数据库名。
+如果更改了 EayunOS 虚拟化管理中心 数据库名和数据库用户，则需要使用 ***pg-user*** 和 ***dbname*** 指定数据库用户名和数据库名。
 
 如果数据库不再本地，则需要通过 ***pg-hostdb*** 指定数据库所在的服务器的日志。可以使用 ***pg-host-key*** 参数来收集远程日志。需要在远程数据库上安装 SOS 插件才能成功收集日志记录。
 

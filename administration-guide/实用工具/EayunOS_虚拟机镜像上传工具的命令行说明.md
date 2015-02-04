@@ -10,6 +10,7 @@ engine-image-uploader的基本使用方法如下：
 2种操作模式：***list*** 和 ***upload***。
 
 * ***list*** 操作会列出所有可以上传镜像的export存储域。
+
 * ***upload*** 操作将指定的镜像文件上传到指定的存储域。
 
 使用 **engine-image-uploader** 时必须指定 ***list*** 或者 ***upload*** 其中一种操作。进行 ***upload*** 操作时最少提供一个镜像文件名已进行上传。

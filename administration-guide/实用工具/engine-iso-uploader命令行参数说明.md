@@ -7,9 +7,10 @@ engine-iso-uploader 的基本使用方法如下：
     engine-image-uploader [options] upload [file].[file]...[file]
 ```
 
-2种操作模式：***list*** 和 ***upload***。
+两种操作模式：***list*** 和 ***upload***。
 
-* ***list*** 操作会列出 EayunOS Manager 中可用的ISO存储域。
+* ***list*** 操作会列出 EayunOS 虚拟化管理中心中可用的ISO存储域。
+
 * ***upload*** 操作会上传 ISO 镜像文件（可以是多个，多个 ISO 镜像文件之间使用空格分隔）到指定的 ISO 存储域。默认通过 NFS 共享目录上传，也支持使用 SSH 上传。
 
 ISO 镜像上传工具必须指定 ***list*** 或者 ***upload*** 其中一项操作，使用 ***upload*** 操作时，最少需要提供一个待上传镜像文件的路径。
@@ -58,15 +59,15 @@ ISO 镜像上传工具必须指定 ***list*** 或者 ***upload*** 其中一项�
 
   当目标存储域中已经存在一个和将要上传的文件名字相同，则必须使用强制模式。默认开启该选项。
 
-**EayunOS Manager**
+**EayunOS 虚拟化管理中心**
 
 ***-u [USER], --user=[USER]***
 
-  指定上传文件时使用的用户名。用户名的格式为：*[username]@[domain]。同时用户必须在 EayunOS Manager 中已经存在。
+  指定上传文件时使用的用户名。用户名的格式为：*[username]@[domain]。同时用户必须在 EayunOS 虚拟化管理中心中已经存在。
 
 ***-r [FQDN], --engine=[FQDN]***
 
-  指定目标 EayunOS Manager 服务器的 FQDN 域名。默认是 **localhost**，即运行该命令的服务器和 EayunOS Manager 是同一台服务器。
+  指定目标 EayunOS 虚拟化管理中心服务器的 FQDN 域名。默认是 **localhost**，即运行该命令的服务器和 EayunOS 虚拟化管理中心是同一台服务器。
 
 **ISO 存储域选项**
 
