@@ -1,33 +1,42 @@
 # 为虚拟机配置qxl驱动
 
-*摘要*.
-用户可以使用下面的任何一种步骤来配置 qxl 驱动
+**介绍**<br/>
+您可以通过图形界面或命令行来配置 qxl 驱动。执行以下操作中的一个。
 
-点击系统。
 
-点击点击管理。
+**在 GNOME 中配置 qxl 驱动**
 
-点击显示。
+1. 点击**系统**。
 
-点击硬件。
+2. 点击**管理**。
 
-点击视频卡配置。
+3. 点击**显示**。
 
-选择 qxl，点击 确定。
+4. 点击**硬件**。
 
-重新登陆 X-Windows。
+5. 点击**显卡配置**。
 
-备份 /etc/X11/xorg.conf:
+6. 选择 **qxl**，点击 **OK**。
 
+7. 重新登陆 X-Windows。
+
+
+** 在命令行中配置 qxl 驱动：**
+
+1. 备份 **/etc/X11/xorg.conf** 文件：
+
+    ```
     # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
+    ```
 
+2. 在 **/etc/X11/xorg.conf** 文件的 Device 段中做以下修改：
 
-改变/etc/X11/xorg.conf相关内容为以下:
-
+    ```
     Section "Device"
     Identifier "Videocard0"
-    Driver "qxl" Endsection
+    Driver "qxl"
+    Endsection
+    ```
 
-
-*结果*.
-qxl 驱动已经配置好，现在可以使用了。
+**结果**<br/>
+qxl 驱动已经配置好，现在可以使用 SPICE 了。
