@@ -1,10 +1,8 @@
-# OVIRT MANAGER用户界面插件
+# EayunOS 企业级虚拟化用户界面插件
 
-OVIRT MANAGER支持插件来展现非标准的功能。这让OVIRT
-MANAGER与其他系统进行整合的时候变得非常容易。每一个插件接口代表了一套用户界面的扩展，并且能被打包和发布来为OVIRT
-MANAGER所使用。
+EayunOS 企业级虚拟化管理中心支持插件来展现非标准的功能。这让 EayunOS 企业级虚拟化管理中心与其他系统进行整合的时候变得非常容易。每一个插件接口代表了一套用户界面的扩展，并且能被打包和发布来为 EayunOS 企业级虚拟化管理中心所使用。
 
-OVIRT MANAGER的用户界面插件在客户端（浏览器）使用 JavaScript
+EayunOS 企业级虚拟化的用户界面插件在客户端（浏览器）使用 JavaScript
 来直接与管理门户进行集成。插件被管理门户所在的浏览器所运行的 JavaScript
 脚本调用。用户界面插件能够使用 JavaScript 语言和它的库。
 
