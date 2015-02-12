@@ -2,7 +2,7 @@
 
 当选择了 RDP 连接协议的时候，如下的选项可以在**控制台选项**窗口里设置。
 
-![](../images/vm-console-options-rdp.png)
+![控制台选项窗口](../images/vm-console-options-rdp.png)
 
 **控制台选项窗口**
 
