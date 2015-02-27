@@ -11,6 +11,8 @@ hooking 模块支持将虚拟机的 libvirt XML 读取到一个 DOM 对象中。
 被修改过的对象可以使用 hooking 模块的函数保存回至 libvirt XML 中。该
 hooking 模块提供了一下的函数以支持 Hook 开发：
 
+**hooking 模块提供的函数**
+
 |函数名|参数|功能说明|
 |------|----|--------|
 |**tobool**|字符串|将字符串“true”或者“false”转换为布尔值|

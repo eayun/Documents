@@ -17,15 +17,15 @@ Windows XP 的 Sysprep 工具程序可以从 http://www.microsoft.com/download/e
 
 4. 在那个目录中执行 sysprep.exe 命令，在 Sysprep 的欢迎界面中点 OK。
 
-5.选择下面的选择框：
+5. 选择下面的选择框：
 
    -  Don't reset grace period for activation
 
    - Use Mini-Setup
 
-6.确定 shutdown 模式被设置为 Shut down，点 Reseal。
+6. 确定 shutdown 模式被设置为 Shut down，点 Reseal。
 
-7.在弹出的窗口中确认所要做的封装过程。虚拟机会在封装完成后自动关机。
+7. 在弹出的窗口中确认所要做的封装过程。虚拟机会在封装完成后自动关机。
 
 **结果**<br/>
 Windows XP 模板被封装并可以被用来创建虚拟机。

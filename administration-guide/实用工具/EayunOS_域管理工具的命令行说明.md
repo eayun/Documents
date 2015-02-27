@@ -69,7 +69,7 @@ engine-manage-domains ACTION [options]
     > 使用 RHDS 时必须安装 ***memberof*** 插件，使用 ***memeberof*** 插件要求用户都是 ***inetuser*** 用户。
 
     * ***itds*** - IBM Tivoli Directory Server。
-    
+
     * ***oldap*** - OpenLDAP。
 
 * ***--report***

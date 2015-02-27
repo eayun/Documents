@@ -6,7 +6,7 @@
 
 1. 安装相关软件包。
 
-    # yum install -y scsi-target-utils
+    ``` yum install -y scsi-target-utils```
 
 2. 编辑 `/etc/tgt/targets.conf`
    文件，增加以下几行内容（根据你的实际情况调整）：
@@ -23,20 +23,20 @@
 
 3. 重启**tgtd** 服务。
 
-    # service tgtd restart
+    ``` service tgtd restart```
 
 4. 让 **tgtd** 服务开机启动。
 
-    # chkconfig tgtd on
+    ``` chkconfig tgtd on```
 
 5. 如果配置了 iptables 防火墙，必须把 iSCSI 用来和客户端通信的端口（默认是
 3260）打开:
 
-    # iptables -I INPUT 6 -p tcp --dport 3260 -j ACCEPT
+    ``` iptables -I INPUT 6 -p tcp --dport 3260 -j ACCEPT```
 
 6. 保存 iptables 的配置。
 
-    # service iptables save
+    ``` service iptables save```
 
 
 **结果**<br/>
