@@ -5,7 +5,8 @@
 
 **配置一个 Keystone 端点的位置**
 
-   1. 使用 root 用户登录到运行 Red Hat Enterprise Virtualization Manager 的系统上。
+   1. 使用 root 用户登录到运行 EayunOS 虚拟化管理系统上。
+
    2. 运行以下命令配置 Keystone 服务器的位置(包括端口号和 API 版本):
 
     ```   # engine-config --set KeystoneAuthUrl=http://[address to theendpoint]:35357/v2.0```
