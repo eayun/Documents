@@ -65,7 +65,7 @@ engine-manage-domains ACTION [options]
     * ***RHDS*** - Red Hat Directory Service。RHDS 不使用 Kerberos，而 EayunOS 虚拟化环境要求使用 Kerberos，因此使用 RHDS 时需要配置 Kerberos 域中的一个目录服务。
 
     >**注意**
-
+    >
     > 使用 RHDS 时必须安装 ***memberof*** 插件，使用 ***memeberof*** 插件要求用户都是 ***inetuser*** 用户。
 
     * ***itds*** - IBM Tivoli Directory Server。

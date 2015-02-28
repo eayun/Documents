@@ -29,7 +29,7 @@ New fully qualified server name:[new name]
 ```
 
 > **注意**
-
+>
 > **ovirt-engine-rename** 支持--name参数，参数后面直接指定Manager新的fqdn域名，可以省去后面提示输入域名的步骤，如：
 > `# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename --name=[new name]`
 

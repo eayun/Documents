@@ -12,7 +12,7 @@ JSON 规范。但是允许 Java/C++ 风格的注释（/\* 和 //）。
 默认情况下，插件的用户配置文件在 **$ENGINE_ETC/ui-plugins**
 下，EayunOS 本地配置文件中的默认配置有：**ENGINE_ETC=/usr/share/ovirt-engine**。用户描述文件的规则和插件描述文件一样。
 
-> **Note**
+> **重要**
 >
 > 插件的用户描述文件一般遵循 **<descriptorFileName>-config.json**
 > 命名规则。

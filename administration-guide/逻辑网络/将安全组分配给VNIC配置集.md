@@ -18,9 +18,10 @@
 6. 点击**确定**。
 
 > **注意**
+>
 > 一个安全组的标识就是它在 OpenStack 网络服务中所注册的安全组 ID。您可以在安装了 OpenStack 网络服务的系统上运行以下命令来获得安全组 ID：
 >
-`# neutron security-group-list`
+> `# neutron security-group-list`
 
 **结果**<br/>
 您已经成功的为 VNIC 配置集附加了一个安全组并且所有经过这个配置集所附加到的这个逻辑网络的流量都将根据为那个安全组定义的规则而进行过滤。

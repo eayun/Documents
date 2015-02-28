@@ -32,7 +32,7 @@
 作为访问协议，因为微软增加了一些新的改变到显示的协议上，这些改动导致
 SPICE 暂时得不到最好的体验。
 
-> **Note**
+> **重要**
 >
 > 因为由于 Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4
 > 是32位内核，没有 ACPI
