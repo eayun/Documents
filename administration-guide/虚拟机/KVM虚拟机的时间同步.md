@@ -83,6 +83,9 @@ kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet proce
 
 下表列出了 Red Hat Enterprise Linux 的版本以及在没有 constant TSC 的系统上运行的虚拟机所需要的参数
 
+
+**Red Hat Enterprise Linux 的版本以及在没有 constant TSC 的系统上运行的虚拟机所需要的参数**
+
 |CentOS|额外的虚拟机内核参数|
 |------|--------------------|
 |5.4 AMD64/Intel 64 有准虚拟化时钟（with paravirtualized clock）|不需要额外的参数|
