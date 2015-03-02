@@ -132,7 +132,6 @@
    * [EayunOS 主机简介](主机/EayunOS_主机简介.md)
    * [EayunOS 主机](主机/EayunOS_主机.md)
    * [由 Foreman 提供的主机](主机/由_Foreman_提供的主机.md)
-   * [RHEL/CentOS 主机](主机/RHEL_CentOS_主机.md)
    * [主机任务](主机/主机任务.md)
        * [添加 RHEL/CentOS 主机](主机/添加_RHEL_CentOS_主机.md)
        * [添加 Foreman 提供的主机](主机/foreman.md)
