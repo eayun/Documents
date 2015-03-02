@@ -10,9 +10,9 @@ EayunOS虚拟化管理中心要求系统防火墙开放一系列的端口以允�
 
 |端口|协议|源机器|目标机器|目的|
 |----|----|------|--------|----|
-|-|ICMP|-   EayunOS虚拟化宿主机<br/><br/>|-   EayunOS虚拟化管理中心<br/><br/>|当注册到 EayunOS虚拟化管理中心时，EayunOS虚拟化宿主机发送一个 ICMP ping 请求至EayunOS虚拟化管理中心以确认其在线。|
-|22|TCP|-   用以维护EayunOS虚拟化管理中心的系统，包括后台维护、配置和软件升级<br/><br/>|-   EayunOS虚拟化管理中心<br/><br/>|SSH（可选）|
-|80、443|TCP|-   管理员门户客户端<br/><br/>-   用户门户客户端<br/><br/>-   EayunOS虚拟化宿主机<br/><br/>-   REST API 客户端<br/><br/>|-   EayunOS虚拟化管理中心<br/><br/>|提供到 EayunOS虚拟化管理中心的 HTTP 和 HTTPS 连接。|
+|-|ICMP|<ul><li>EayunOS虚拟化宿主机</li></ul>|<ul><li>EayunOS虚拟化管理中心</li></ul>|当注册到 EayunOS虚拟化管理中心时，EayunOS虚拟化宿主机发送一个 ICMP ping 请求至EayunOS虚拟化管理中心以确认其在线。|
+|22|TCP|<ul><li>用以维护EayunOS虚拟化管理中心的系统，包括后台维护、配置和软件升级</li></ul>|<ul><li>EayunOS虚拟化管理中心</li></ul>|SSH（可选）|
+|80、443|TCP|<ul><li>管理员门户客户端</li><li>用户门户客户端</li><li>EayunOS虚拟化宿主机</li><li>REST API 客户端</li></ul>|<ul><li>EayunOS虚拟化管理中心</li></ul>|提供到 EayunOS虚拟化管理中心的 HTTP 和 HTTPS 连接。|
 
 > **重要**
 >
