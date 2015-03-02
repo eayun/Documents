@@ -39,7 +39,7 @@ chown -R 36:36 /exports/iso
 ```
 
 6. 导出存储域
-    ```# exportfs -r```
+```# exportfs -r```
 
 7. 重载 NFS 服务
 
