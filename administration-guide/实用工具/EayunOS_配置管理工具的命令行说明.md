@@ -44,4 +44,4 @@ EayunOS 虚拟化管理中心服务器上安装了配置管理工具，关于命
     # engine-config --set [KEY_NAME=KEY_VALUE] --cver=[VERSION]
 ```
 
-将* [KEY\_NAME] *替换为要设置的配置项，* [KEY\_VALUE] *替换为配置项的值，设置其他版本配置中的配置项时将* [VERSION] *替换为配置的版本。
+将*[KEY\_NAME]*替换为要设置的配置项，*[KEY\_VALUE]*替换为配置项的值，设置其他版本配置中的配置项时将*[VERSION]*替换为配置的版本。

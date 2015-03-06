@@ -18,8 +18,8 @@
     # service ovirt-engine restart
 ```
 
-> ** 重要**
-
+> **重要**
+>
 > 目前 EayunOS 已经提供了 Console 界面，可以通过 Console 界面修改 admin@internal 的密码，而不需要通过命令行执行，提供了方便。建议**使用控制台界面**进行密码的修改。
 
 **结果**<br/>

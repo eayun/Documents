@@ -60,7 +60,7 @@ term Red Hat Enterprise Linux Server (2.6.18-159.el5)
 kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet processor.max_cstate=1
 ```
 
-编辑 **/etc/sysconfig/cpuspeed** 配置文件，把 **MIN_SPEED** 和 **MAX_SPEED** 变量设置为最高的有效主频来禁用 **cpufreq**（只需要在没有 **constant_tsc** 的主机上进行）。您可以在 **/sys/devices/system/cpu/cpu*/cpufreq/scaling_available_frequencies** 文件中找到有效主频值。
+编辑 **/etc/sysconfig/cpuspeed** 配置文件，把 **MIN_SPEED** 和 **MAX_SPEED** 变量设置为最高的有效主频来禁用 **cpufreq**（只需要在没有 **constant_tsc** 的主机上进行）。您可以在 **/sys/devices/system/cpu/cpu\*/cpufreq/scaling_available_frequencies** 文件中找到有效主频值。
 
 **使用 engine-config 工具在主机不同步的时候接收警告信息。**
 

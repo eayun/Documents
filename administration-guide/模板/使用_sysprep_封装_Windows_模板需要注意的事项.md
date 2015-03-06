@@ -15,6 +15,7 @@ Sysprep 是一个用来封装 Windows 模板的工具。
  </br></br>
 如果还没有输入，以 root 用户身份在 Manager 上运行配置工具程序，并输入所需信息。您需要输入 ProductKey 和 SysPrepPath。例如，Windows 7 的配置值是 ProductKeyWindow7 和 SysPrepWindows7Path。使用以下命令设置这些值：
 
-    ```# engine-config --set ProductKeyWindow7=<validproductkey> --cver=general```
-
+```
+# engine-config --set ProductKeyWindow7=<validproductkey> --cver=general
+```
 

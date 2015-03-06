@@ -63,7 +63,7 @@ ISO 镜像上传工具必须指定 ***list*** 或者 ***upload*** 其中一项�
 
 ***-u [USER], --user=[USER]***
 
-  指定上传文件时使用的用户名。用户名的格式为：*[username]@[domain]。同时用户必须在 EayunOS 虚拟化管理中心中已经存在。
+  指定上传文件时使用的用户名。用户名的格式为：[username]@[domain]。同时用户必须在 EayunOS 虚拟化管理中心中已经存在。
 
 ***-r [FQDN], --engine=[FQDN]***
 
