@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
 * [介绍](基本概念/介绍.md)
    * [EayunOS 架构](基本概念/EayunOS_架构.md)
    * [EayunOS 系统组件](基本概念/EayunOS_系统组件.md)
