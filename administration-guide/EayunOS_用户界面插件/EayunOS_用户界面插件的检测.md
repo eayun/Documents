@@ -14,5 +14,5 @@ JSON 规范。但是允许 Java/C++ 风格的注释（/\* 和 //）。
 
 > **重要**
 >
-> 插件的用户描述文件一般遵循 **<descriptorFileName>-config.json**
+> 插件的用户描述文件一般遵循 **&lt;descriptorFileName&gt;-config.json**
 > 命名规则。
