@@ -1,6 +1,7 @@
 * [EayunOS 4.1 特性](eayunos_feature.md)
    * [虚拟机备份](vm_backup/vm_backup.md)
       * [虚拟机备份的操作界面](vm_backup/vm_backup_ui.md)
+      * [虚拟机备份列表](vm_backup/vm_backup_ui_sum.md)
    * [域控管理](manage_domain/manage_domain.md)
    * [智能调度](optimizer/optimizer.md)
    * [报表门户](reports/reports.md)
