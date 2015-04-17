@@ -3,6 +3,7 @@
       * [虚拟机备份的操作界面](vm_backup/vm_backup_ui.md)
       * [虚拟机备份列表](vm_backup/vm_backup_ui_sum.md)
    * [域控管理](manage_domain/manage_domain.md)
+      * [添加 FreeIPA 域控](manage_domain/manage_domain_add_freeipa.md)
    * [智能调度](optimizer/optimizer.md)
    * [报表门户](reports/reports.md)
    * [usb 穿透](host_usb/host_usb.md)
