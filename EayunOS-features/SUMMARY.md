@@ -7,5 +7,6 @@
    * [智能调度](optimizer/optimizer.md)
    * [报表门户](reports/reports.md)
    * [usb 穿透](host_usb/host_usb.md)
+      * [Host USB 操作界面](host_usb/host_usb_ui.md)
    * [管理节点的控制台界面](engine_console/engine_console.md)
    * [初始化驱动包](wgt_doamin/wgt_domain.md)
