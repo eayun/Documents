@@ -1,0 +1,1 @@
+# 使用 sys-unconfig 封装一台 Linux 虚拟机来为模版的部署做准备
