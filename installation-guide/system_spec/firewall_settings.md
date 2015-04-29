@@ -43,7 +43,7 @@ EayunOS 虚拟化管理中心使用的网络端口需要在防火墙中允许通
 |  端口  |  协议  |    来源地址    |    目的地址    |    用途    |
 |--------|--------|----------------|----------------|------------|
 |22      |TCP     |<ul><li> EayunOS 虚拟化管理中心</li></ul>|<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|SSH访问连接|
-|5900 - 6411|TCP     |<ul><li>访问管理门户的客户端</li><li>访问普通用户门户客户端</li></ul>|<ul><li> EayunOS 虚拟化宿主机</li></li>单独的Linux主机</li></ul>|客户端使用这些端口连接虚拟机的的VNC和SPICE接口。|
+|5900 - 6411|TCP     |<ul><li>访问管理门户的客户端</li><li>访问普通用户门户客户端</li></ul>|<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|客户端使用这些端口连接虚拟机的的VNC和SPICE接口。|
 |5989    |TCP，UDP|CIMOM           |<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|使用CIMOM监控虚拟机时需要使用该端口|
 |16514   |TCP     |<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|使用libvirt进行虚拟机迁移时需要 使用该端口|
 |49152 - 49216|TCP     |<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|<ul><li> EayunOS 虚拟化宿主机</li><li>单独的Linux主机</li></ul>|虚拟机迁移以及VDSM的fencing|
