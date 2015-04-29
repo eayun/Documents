@@ -16,7 +16,7 @@
 
    1. 在 Password 输入新的 admin 密码。 
    2. 在 Confirm Password 输入确认密码，保证 Password 和 Confirm Password 中输入的内容是一致的。 
-   3. 选择< Save >并按下【Enter】键，保存配置。 
+   3. 选择&lt; Save &gt;并按下【Enter】键，保存配置。
 
 **结果**
 

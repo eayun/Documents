@@ -22,7 +22,7 @@
 
          不用设置Management Server和Management Server Port两栏，只要密码设置了，稍后允许管理器添加Hypervisor就可以了，不需要这两栏。
 
-   5. 选择< Save & Register >并按下【Enter】键，保存配置，并将Hypervisor主机注册到 EayunOS 虚拟化管理中心里。
+   5. 选择&lt; Save & Register &gt;并按下【Enter】键，保存配置，并将Hypervisor主机注册到 EayunOS 虚拟化管理中心里。
    6. 提示`All changes were applied successfully.`，说明注册成功。
 
    **结果**

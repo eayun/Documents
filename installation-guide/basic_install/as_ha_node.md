@@ -12,7 +12,7 @@
 
    ![additional_node](https://raw.githubusercontent.com/eayun/Documents/master/images/Node/additional_node.png)
 
-3. 选择< Setup Hosted Engine >并按下【Enter】键，进入shell交互界面。
+3. 选择&lt; Setup Hosted Engine &gt;并按下【Enter】键，进入shell交互界面。
 
    1. 选择存储类型，要与第一台高可用节点的配置一致。
 

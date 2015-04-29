@@ -15,7 +15,7 @@
    >
    > iqn.2012-06.eayun.com:target1
 
-2. 选择< Save >并按下【Enter】键，保存远程存储的配置。
+2. 选择&lt; Save &gt;并按下【Enter】键，保存远程存储的配置。
 
 **结果**
 

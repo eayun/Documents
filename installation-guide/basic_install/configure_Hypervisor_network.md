@@ -13,8 +13,8 @@
 
    * 该网络配置界面也提供了一系列按钮来测试和配置网络接口：
 
-      * < Ping > : 进入界面后允许你ping一个由你指定的IP地址，并且设置ping的次数。
-      * < Create Bond > : Create Bond允许你创建网卡之间的绑定。
+      * &lt; Ping &gt; : 进入界面后允许你ping一个由你指定的IP地址，并且设置ping的次数。
+      * &lt; Create Bond &gt; : Create Bond允许你创建网卡之间的绑定。
 
    ![node_network](../images/node_network.png)
 
@@ -26,8 +26,8 @@
 Hypervisor 的主机名是可以配置的。
 
    1. 在 Network 界面下，选择 Hostname 一栏，输入主机名。
-   2. 选择< Save >并按下【Enter】键，保存主机名配置。
-   3. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
+   2. 选择&lt; Save &gt;并按下【Enter】键，保存主机名配置。
+   3. 配置成功后有相关提示，选择&lt; Close &gt;并按下【Enter】键，回到配置界面。
 
 **结果**
 
@@ -41,7 +41,7 @@ Hypervisor 支持指定一个或者多个域名服务器，在转换主机名和
 
    1. 设置或者改变主DNS服务器，选择DNS Server1那一栏，并且键入新的主DNS服务器的IP地址。
    1. 设置或者改变备选的DNS服务器，选择DNS Server2那一栏，并且键入行的备用DNS服务器的IP地址。
-   1. 选择< Save >并且按下【Enter】键来改变对DNS的配置。
+   1. 选择&lt; Save &gt;并且按下【Enter】键来改变对DNS的配置。
 
 **结果**
 
@@ -55,7 +55,7 @@ Hypervisor 支持指定一个或者多个网络时间协议服务器，以此来
 
    1. 设置或者改变主NTP服务器，选择NTP Server1那一栏，并且键入新的主NTP服务器的IP地址或者主机名。
    1. 设置或者改变备选的NTP服务器，选择NTP Server2那一栏，并且键入行的备用NTP服务器的IP地址或者主机名。
-   1. 选择< Save >并且按【Enter】键来改变对NTP的配置。
+   1. 选择&lt; Save &gt;并且按【Enter】键来改变对NTP的配置。
 
 **结果**
 
@@ -81,7 +81,7 @@ Hypervisor 支持指定一个或者多个网络时间协议服务器，以此来
 
       ![set_network](../images/set_network.png)
 
-      当列表中的每一项所指向的物理设备不明确的时候， Hypervisor 可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择< Flash Lights to Identify >键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
+      当列表中的每一项所指向的物理设备不明确的时候， Hypervisor 可以通过闪物理设备的信号灯来帮助鉴别。为了使用这个工具，选择列表中的一项后，选择&lt; Flash Lights to Identify &gt;键，并按下【Enter】。然后注意哪个物理设备的信号灯开始闪。所选设备的配置界面就会显示出来。
 
    2. IPv4 配置
 
@@ -125,8 +125,8 @@ Hypervisor 支持指定一个或者多个网络时间协议服务器，以此来
 
       当完成了为所选设备配置好所有的网络选项时，必须对配置进行保存。
 
-      1. 选择< Save >并按下【Enter】键保存网络配置。
-      2. 配置成功后有相关提示，选择< Close >并按下【Enter】键，回到配置界面。
+      1. 选择&lt; Save &gt;并按下【Enter】键保存网络配置。
+      2. 配置成功后有相关提示，选择&lt; Close &gt;并按下【Enter】键，回到配置界面。
 
 **结果**
 

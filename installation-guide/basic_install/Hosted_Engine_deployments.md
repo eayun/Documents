@@ -30,8 +30,8 @@
    ![node_hosted_engine](../images/node_hosted_engine.png)
 
    2. 在 Engine ISO/OVA Location一栏填写 EayunOS  Appliance的存放路径：`/usr/share/ EayunOS -Engine-Appliance/ EayunOS -Engine-Appliance-4.1-Beta-1411260328.ova.gz`。（内容需要根据最终版本进行更改）
-   3. 选择< Setup Hosted Engine >并按下【Enter】键，开始部署Hosted Engine。
-   4. 提示`Begin Hosted Engine Setup`，选择< Ok >并按下【Enter】键，确定部署。
+   3. 选择&lt; Setup Hosted Engine &gt;并按下【Enter】键，开始部署Hosted Engine。
+   4. 提示`Begin Hosted Engine Setup`，选择&lt; Ok &gt;并按下【Enter】键，确定部署。
    5. 进入命令行的交互界面。
 
       1. 配置存储

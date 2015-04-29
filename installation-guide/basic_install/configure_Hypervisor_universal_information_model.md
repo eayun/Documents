@@ -11,7 +11,7 @@
 2. 按下【Enter】键或空格键，选择启用 CIM 或禁用 CIM。默认 CIM 是禁用的。
 3. 在 Password 栏输入密码。你将使用这个密码来用 CIM 访问 Hypervisor。
 4. 在 Confirm Password 栏重新输入一次密码，保证两次输入密码的内容一致。
-5. 选择< Save >并按下【Enter】键，保存CIM配置。
+5. 选择&lt; Save &gt;并按下【Enter】键，保存CIM配置。
 
 **结果**
 

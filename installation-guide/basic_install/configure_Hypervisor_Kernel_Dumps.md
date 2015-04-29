@@ -17,7 +17,7 @@
 
       设置导出到 SSH，crash log 会被导出到 SSH 存储中。SSH 存储必须是完整的 SSH 登录（包括完整的域名和用户名）。
 
-2. 选择< Save >并按下【Enter】键，保存 Kdump 配置。
+2. 选择&lt; Save &gt;并按下【Enter】键，保存 Kdump 配置。
 
 **结果**
 

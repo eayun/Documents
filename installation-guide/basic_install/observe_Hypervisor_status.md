@@ -15,10 +15,10 @@
 
    按钮的解释：
 
-      * < View Host Key > : 显示了 Hypervisor 的 RSA 主机秘钥指纹，和主机秘钥。
-      * < Details > : 显示了 Hyperviosr 使用的CPU的细节，例如CPU的名称和类型。
-      * < Lock > : 进观察 Hyperviosr 的状态入锁屏界面。必须输入正确的用户名和密码才可以解锁并进行其他操作。
-      * < Log Off > : 退出当前用户。
-      * < Restart > : 重启 Hypervisor。
-      * < Power Off > : 关闭 Hypervisor 的电源。
+      * &lt; View Host Key &gt; : 显示了 Hypervisor 的 RSA 主机秘钥指纹，和主机秘钥。
+      * &lt; Details &gt; : 显示了 Hyperviosr 使用的CPU的细节，例如CPU的名称和类型。
+      * &lt; Lock &gt; : 进观察 Hyperviosr 的状态入锁屏界面。必须输入正确的用户名和密码才可以解锁并进行其他操作。
+      * &lt; Log Off &gt; : 退出当前用户。
+      * &lt; Restart &gt; : 重启 Hypervisor。
+      * &lt; Power Off &gt; : 关闭 Hypervisor 的电源。
 

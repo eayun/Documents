@@ -2,7 +2,7 @@
 
 * hosted-engine --deploy
 
-  * Hosted Engine的部署命令，与在界面上选择< Setup Hosted Engine >的作用相同。
+  * Hosted Engine的部署命令，与在界面上选择&lt; Setup Hosted Engine &gt;的作用相同。
 
 * hosted-engine --vm-start
 
