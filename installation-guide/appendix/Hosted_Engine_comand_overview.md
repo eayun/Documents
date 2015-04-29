@@ -7,6 +7,7 @@ SSH到EayunOS虚拟化管理中心的Hypervisor HA主机命令行终端，可以
 1. SSH到EayunOS虚拟化管理中心的Hypervisor HA主机命令行终端，运行命令`hosted-engine --help`。
 
    查看hosted-engine命令的帮助信息，如下：
+
    ```
       Usage: /usr/sbin/hosted-engine [--help] <command> [<command-args>]
         --help
