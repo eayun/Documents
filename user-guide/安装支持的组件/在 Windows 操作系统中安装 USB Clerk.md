@@ -5,12 +5,12 @@
 **在 Windows 系统上安装 USB Clerk**
 
 1. 打开网络浏览器并根据您的系统下载相应的安装程序。
-   *USB Clerk for 32-bit Windows：
+   * USB Clerk for 32-bit Windows：
    ```
    https://[your manager's address]/ovirtengine/services/files/spice/usbclerk-x86.msi
    ```
 
-   *USB Clerk for 64-bit Windows：
+   * USB Clerk for 64-bit Windows：
    ```
    https://[your manager's address]/ovirtengine/services/files/spice/usbclerk-x64.msi
    ```

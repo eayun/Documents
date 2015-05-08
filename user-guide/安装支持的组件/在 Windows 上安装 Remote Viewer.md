@@ -7,11 +7,11 @@ Remote Viewer 应用程序为用户提供了一个连接虚拟机的图形化控
 1. 打开网络浏览器并根据您的系统下载相应的安装程序。
    * Virt Viewer for 32-bit Windows：
    ```
-   https://[your manager's address]/ovirtengine/services/files/spice/virt-viewer-x86.msi
+   https://[your manager's address]/eayunVirt/virt-viewer-x86-2.0.msi
    ```
    * Virt Viewer for 64-bit Windows：
    ```
-   https://[your manager's address]/ovirtengine/services/files/spice/virt-viewer-x64.msi
+   https://[your manager's address]/eayunVirt/virt-viewer-x64-2.0.msi
    ```
 2. 打开下载文件所在的目录。
 
