@@ -2,8 +2,9 @@
 
 要配置 Linux 虚拟机使用 GNOME 和 KDE 图形桌面系统和 IPA（IdM）服务器实现单点登录，您需要在虚拟机上安装 rhevm-guest-agent 软件包，以及和您的 window manager 相关的软件包。
 
-> **重要**<br/>
-以下操作假设您已经有了一个可以正常工作的 IPA 设置，而且 IPA 域己经被加入到 Manager。另外，您还需要保证 Manager 上的时钟、虚拟机的时钟和 IPA（IdM）所在的系统时钟都在使用 NTP 进行同步。
+> **重要**
+>
+> 以下操作假设您已经有了一个可以正常工作的 IPA 设置，而且 IPA 域己经被加入到 Manager。另外，您还需要保证 Manager 上的时钟、虚拟机的时钟和 IPA（IdM）所在的系统时钟都在使用 NTP 进行同步。
 
 **为 Linux 虚拟机配置单点登录**
 1. 登录到 Red Hat Enterprise Linux 虚拟机。
@@ -39,7 +40,8 @@
    # ipa-client-install --permit --mkhomedir
    ```
 
-> **注意**<br/>
+> **注意**
+>
 > 在使用 DNS obfuscation 的环境中，这个命令应该是：
 > ```
   # ipa-client-install --domain=[FQDN] --server==[FQDN]

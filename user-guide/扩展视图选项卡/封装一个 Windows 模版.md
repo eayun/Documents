@@ -4,6 +4,7 @@
 在使用 Windows XP 模板创建虚拟机前，您需要使用 **Sysprep** 来封装它。
 
 > **注意**
+>
 > 您也可以使用相同的方法封装一个 Windows 2003 模板。Windows 2003 的 **Sysprep** 工具程序可以从 http://www.microsoft.com/download/en/details.aspx?id=14830 获得。
 
 **封装一个 Windows XP 模板**

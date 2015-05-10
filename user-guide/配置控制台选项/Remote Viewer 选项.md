@@ -2,7 +2,7 @@
 
 当指定了 Native 客户或浏览器插件控制台调用选项后，您将使用 Remote Viewer 和虚拟机进行连接。Remote Viewer 窗口提供了一组菜单来和所连接的虚拟机进行交互。
 
-![](../images/)<br/>
+![Remote Viewer 连接菜单](../images/remote_viewer_console_options.png)<br/>
 **Remote Viewer 连接菜单**
 
 **Remote Viewer 选项**

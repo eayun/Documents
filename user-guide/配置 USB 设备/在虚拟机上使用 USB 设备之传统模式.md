@@ -53,7 +53,8 @@ USB 重定向的老模式可以启用在 Red Hat Enterprise Virtualization 3.0 �
 **配置一个 Windows 客户端通过老模式使用 USB 重定向功能**
 如果您从一个 Windows 客户端系统进行连接，并希望在虚拟机上使用 USB 设备，您需要启用 SPICE USB 重定向功能。
 
-> **注意**<br/>
+> **注意**
+>
 > 请参阅 EayunOS 管理端发行注记 来获得与您的系统相关的频道名。
 
 **在 Windows 上启用 USB 重定向功能：**
@@ -73,8 +74,10 @@ USB 重定向的老模式可以启用在 Red Hat Enterprise Virtualization 3.0 �
    连接到您的虚拟机，为您的客户端添加一个 USB 设备。如果新添加的 USB 设备没有出现在虚拟机桌面上，在 SPICE 框上点鼠标右键，选择 USB Devices。从所显示的列表中选择您的设备。
 
 **连接的 USB 设备列表**
-> **重要**<br/>
+> **重要**
+>
 > 当一些 USB 设备被添加到 Windows 客户端系统时，autoplay 窗口会出现，客户端将完全控制新添加的设备，从而使它们无法被虚拟机使用。要避免这个问题的出现，在您的 Windows 客户端系统上禁用 USB autoplay 功能。
 
-> **注意**<br/>
+> **注意**
+>
 > 您也可以在 Windows 客户端系统上定义额外的 USB 协议来允许使用或禁止使用特定的 USB 设备。如需更多信息，请参阅 Red Hat Enterprise Virtualization 管理指南中的与 USB Filter Editor 相关的章节。

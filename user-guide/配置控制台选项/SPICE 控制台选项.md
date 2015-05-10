@@ -2,7 +2,7 @@
 
 当 SPICE 连接协议被选择时，以下选项将会在控制台选项窗口中有效。
 
-![](../images/)<br/>
+![控制台选项窗口](../images/spice_console_options.png)<br/>
 **控制台选项窗口**
 
 **控制台调用**
@@ -19,4 +19,5 @@
 * **启用 WAN 选项**：这个选项只对 Windows 虚拟机有效。它可以为虚拟机控制台启用 WAN 色彩深度和效果，选择它会设置 WAN-DisableEffects 和 WAN-ColorDepth 这两个参数。选择 Enable WAN options 选项会把 Wan-DisableEffects 设为 animation，把色彩深度设为 16 位。
 
 > **重要**
+>
 > 浏览器插件 选项只在通过 Internet Explorer 访问管理门户和用户门户时有效。这个控制台选项使用 SpiceX.cab 安装程序所提供的 Remote Viewer 版本。对于其它类型的浏览器，Native 客户是默认的控制台选项。这个控制台选项使用 virt-viewer-x86.msi 和 virt-viewer-x64.msi 安装文件所提供的 Remote Viewer 版本。

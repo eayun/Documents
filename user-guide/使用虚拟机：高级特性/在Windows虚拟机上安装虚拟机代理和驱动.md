@@ -5,15 +5,15 @@
 通过 **WGT-3.5_5.iso** 文件，EayunOS 虚拟化管理中心的虚拟机代理和驱动可以安装到 Windows 虚拟机中，这个 **WGT-3.5_5.iso** 文件是由默认的 **WGT_DOMAIN** 提供的，部署完成时已经包含在其中。这个 ISO 文件在 EayunOS 虚拟化管理中心里，其目录是 **/var/lib/exports/iso**。
 
 > **注意**
-> 
+>
 > **WGT-3.5_5.iso** ISO 文件已经默认包含在 **WGT_DOMAIN** 中，系统管理员可以对其进行初始化后，直接附加到 EayunOS 虚拟化管理中心使用。
 
 > **注意**
-> 
+>
 > 新版本的 **WGT-3.5_5.iso** ISO 文件必须手动附加到运行中的 Windows 虚拟机上，来更新工具和驱动的版本。如果在虚拟机上启用了 APT 服务，更新的 ISO 文件将被自动附加。
 
 > **注意**
-> 
+>
 > 如果您通过命令行安装虚拟机驱动或将其作为部署工具（如：Windows 部署服务）的一部分，您可以给 **WGT-3.5_5.iso** 追加 **ISSILENTMODE** 和 **ISNOREBOOT** 选项以静默安装虚拟机代理和驱动，并在安装完成重启时保护虚拟机。虚拟机会在部署过程完成后被重启。
 > `D:\RHEV-toolsSetup.exe ISSILENTMODE ISNOREBOOT`
 

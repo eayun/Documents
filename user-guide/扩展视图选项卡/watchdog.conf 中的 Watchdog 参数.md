@@ -3,6 +3,7 @@
 以下列出了 **/etc/watchdog.conf** 文件中关于配置 **watchdog** 服务的参数。要配置一个参数，您需要确保它的配置行没有被注释并在修改后重新启动 **watchdog** 服务。
 
 > **注意**
+>
 > 如需了解更多关于配置 watchdog 服务和使用 watchdog 命令的信息，请参阅 watchdog man 文档。
 
 **watchdog.conf 变量**
