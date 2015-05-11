@@ -18,6 +18,7 @@ USB 重定向的老模式可以启用在 Red Hat Enterprise Virtualization 3.0 �
 如果您通过 Red Hat Enterprise Linux 客户端系统连接到一个虚拟机，您需要先安装几个 SPICE 软件包后才可以在客户端和虚拟机间共享 USB 设备。
 
 **使用 Red Hat Enterprise Linux 客户端上的 USB 设备**
+
 1. **在客户端上安装 SPICE 软件包**
    在您的 Linux 客户端系统上安装以下软件包：
    * spice-usb-share
@@ -58,6 +59,7 @@ USB 重定向的老模式可以启用在 Red Hat Enterprise Virtualization 3.0 �
 > 请参阅 EayunOS 管理端发行注记 来获得与您的系统相关的频道名。
 
 **在 Windows 上启用 USB 重定向功能：**
+
 1. **在客户端上安装 USB 重定向软件包**
    在 Windows 客户端上安装 RHEV-USB-Client.exe。这个软件包由 Content Delivery Network 的 Red Hat Enterprise Virtualization Manager (v.3.5 x86_64) 频道所提供（在 Downloads 列表中）。
 

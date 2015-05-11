@@ -3,6 +3,7 @@
 usbredir 软件包会把 USB 从 Red Hat Enterprise Linux 客户端系统上重新定向到虚拟机上。usbredir 和 spice-xpi 软件包存在依赖关系，因此它们会被一起自动安装。<br/>
 
 **使用 Red Hat Enterprise Linux 客户端上的 USB 设备**
+
 1. 点**虚拟机**标签页，选择一个已经被配置为使用 SPICE 协议的虚拟机。
 
 2. 确定 USB 支持选项被设置为 **Native**：

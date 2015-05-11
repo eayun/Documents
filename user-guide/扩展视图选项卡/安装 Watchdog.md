@@ -4,6 +4,7 @@
 要激活虚拟机上的 watchdog 卡，您需要在虚拟机上安装 watchdog 软件包，并启动 **watchdog** 服务。
 
 **安装 Watchdog**
+
 1. 登录到 watchdog 卡所在的虚拟机。
 
 2. 运行以下命令来安装 watchdog 软件包：

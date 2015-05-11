@@ -3,6 +3,7 @@
 如果您通过 Red Hat Enterprise Linux 客户端系统连接到一个虚拟机，您需要先安装几个 SPICE 软件包后才可以在客户端和虚拟机间共享 USB 设备。
 
 **使用 Red Hat Enterprise Linux 客户端上的 USB 设备：**
+
 1. **在客户端上安装 SPICE 软件包**
    在您的 Linux 客户端系统上安装以下软件包：
    * spice-usb-share

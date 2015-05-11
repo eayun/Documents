@@ -3,6 +3,7 @@
 要为 Windows 虚拟机配置单点登录功能，您需要在虚拟机上安装 Windows guest agent。oVirt Guest Tools ISO 文件提供了这个 agent。如果您的 ISO 域中没有包括 RHEV-toolsSetup.iso 映像，请联系您的系统管理员。
 
 **为 Windows 虚拟机配置单点登录**
+
 1. 在用户门户的**扩展视图**标签页中，选 Windows 虚拟机。确定虚拟机已经被开启，然后点**更换 CD** 按钮。
 
 2. 从映像列表中选 **RHEV-toolsSetup.iso**。点**确定**。

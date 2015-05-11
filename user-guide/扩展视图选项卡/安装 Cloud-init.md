@@ -4,6 +4,7 @@
 在虚拟机上安装 Cloud-Init。
 
 **安装 Cloud-Init**
+
 1. 登录到虚拟机。
 
 2. 启用 Red Hat Common 频道。

@@ -4,6 +4,7 @@
 在使用 Windows 7 或 Windows 2008 模板创建虚拟机前，需要封装它。
 
 **封装一个 Windows 7 或 Windows 2008 模板**
+
 1. 在作为模板使用的虚拟机上，打开一个命令行终端，并输入 **regedit**。
 
 2. **Registry Editor** 窗口会被打开。在左面的框中，展开 **HKEY_LOCAL_MACHINE → SYSTEM→ SETUP**。

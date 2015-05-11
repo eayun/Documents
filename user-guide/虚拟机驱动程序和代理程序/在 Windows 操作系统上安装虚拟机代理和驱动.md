@@ -16,6 +16,7 @@
 > 如果您使用命令行或作为实施工具（如 Windows Deployment Services）的一部分安装了 guest 代理和驱动，您可以在 RHEV-toolsSetup.exe 中使用 ISSILENTMODE 和 ISNOREBOOT 选项。它们可以使 guest 代理和驱动的安装以“安静模式”进行，并可以防止机器在安装完成后马上重启。机器会在整个实施过程完全完成后才重启。```D:\ovirt-guest-toolsSetup.exe ISSILENTMODE ISNOREBOOT```
 
 **在 Windows 上安装 guest 代理**
+
 1. 登录到虚拟机。
 
 2. 选择包括 **ovirt-guest-tools-setup.iso** 文件的 CD。

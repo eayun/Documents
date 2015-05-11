@@ -4,6 +4,7 @@
 想要在 Windows 操作系统的 IE 浏览器中运行 Remote Viewer，需要 SPICE ActiveX 组件，它可以开启连接虚拟机的图形控制台。Remote Viewer 是一个和 SPICE ActiveX 组件一起安装的 SPICE 客户端程序。SpiceX.cab 文件中提供了它们。
 
 **为 Windows 上的 IE 浏览器安装 Remote Viewer**
+
 1. 打开 IE 浏览器并登录到用户门户。
 
 2. 启动一个虚拟机，并使用**浏览器插件**控制台选项连接到这个虚拟机上。

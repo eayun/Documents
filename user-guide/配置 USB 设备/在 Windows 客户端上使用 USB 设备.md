@@ -3,6 +3,7 @@
 如果需要把 Windows 客户端系统上的 USB 设备重定向到虚拟机上，您需要在 Windows 客户端上运行 usbclerk 服务。您需要确定所使用的 usbclerk 版本与客户端系统的系统相匹配。例如，64 位版的 usbclerk 必须安装在 64 位的 Windows 系统上。<br/>
 
 **使用 Windows 客户端上的 USB 设备**
+
 1. 在 **usbclerk** 服务被安装并运行后，选择一个已经被配置为使用 SPICE 协议的虚拟机。
 
 2. 确定 USB 支持选项被设置为 **Native**：

@@ -7,6 +7,7 @@
 > 请参阅 EayunOS 管理端发行注记来查阅您当前系统所需要的频道名。
 
 **Windows 上启用 USB 重定向功能：**
+
 1. **在客户端上安装 USB 重定向软件包**
    在 Windows 客户端上安装 **RHEV-USB-Client.exe**。这个软件包由 Content Delivery Network 的 **EayunOS 管理端 (v.3.5 x86_64)** 频道所提供（在 **Downloads** 列表中）。
 

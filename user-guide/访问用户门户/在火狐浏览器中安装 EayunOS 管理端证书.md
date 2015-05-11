@@ -4,6 +4,7 @@
 在您第一次登录到用户门户时,您需要安装 EayunOS 管理端所使用的证书来避免安全警告信息的出现。
 
 **火狐浏览器中安装 EayunOS 管理端证书**
+
 1. 在火狐浏览器中使用 URL 访问用户门户，会出现如下情形：
    ![loginFirstTime](../images/loginFirstTime.png)
 

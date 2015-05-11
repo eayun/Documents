@@ -6,6 +6,7 @@
 **初次在 IE 上访问用户门户**
 
 **在 IE 浏览器中安装 EayunOS 管理端证书**
+
 1. 使用以下的 URL：
    ```
    https://[your manager's address]/ca.crt
