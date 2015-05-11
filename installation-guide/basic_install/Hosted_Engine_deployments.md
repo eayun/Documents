@@ -11,10 +11,7 @@
 
    1. 以admin身份登录到 EayunOS 系统中
    2. 输入用户名 admin，按下【Enter】键。
-   3. 输入 admin 用户的密码，该密码是在你安装 EayunOS 系统过程中所设置的密码，按下【Enter】键。
-
-     （图 登录成功）
-
+   3. 输入 admin 用户的密码，该密码是在你安装 EayunOS 系统过程中所设置的密码，按下【Enter】键，登陆成功。
    4. 配置主机名（FQDN）
    5. 配置 EayunOS 系统的网络接口
    6. 配置 EayunOS 安全选项
@@ -29,7 +26,6 @@
 
    ![node_hosted_engine](../images/node_hosted_engine.png)
 
-   2. 在 Engine ISO/OVA Location一栏填写 EayunOS  Appliance的存放路径：`/usr/share/ EayunOS -Engine-Appliance/ EayunOS -Engine-Appliance-4.1-Beta-1411260328.ova.gz`。（内容需要根据最终版本进行更改）
    3. 选择&lt; Setup Hosted Engine &gt;并按下【Enter】键，开始部署Hosted Engine。
    4. 提示`Begin Hosted Engine Setup`，选择&lt; Ok &gt;并按下【Enter】键，确定部署。
    5. 进入命令行的交互界面。

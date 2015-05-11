@@ -18,7 +18,9 @@ Hypervisor 允许在本地控制台登陆，以此来便利安装后的配置过
 
 1. 输入 admin 用户的密码，该密码是在你安装 Hypervisor 过程中所设置的密码，按下【Enter】键。
 
-   （图 登录成功）
+   ![登录成功](../images/login_success.png)
+
+   **登录成功**
 
 **结果**
 

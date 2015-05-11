@@ -33,18 +33,11 @@
 
        当提示`Please enter one or more disks to use for installing  EayunOS  Hypervisor`，输入Hypervisor应该启动的块设备的名称。
 
-       > ##### 示例
-       >
-       > ```
-       > Custom Block Device
-       >
-       > Please enter one or more disks to use for installing  EayunOS  Hypervisor. Multiple devices can be separated by comma.
-       >
-       > Device path:
-       > /dev/sda__________________
-       > ```
+       **示例**
 
-        （图 使用其他设备）
+       ![使用其他设备](../images/install_use_other_device.png)
+
+       **使用其他设备**
 
        选择 &lt; Save &gt; 并按下【Enter】键，该操作将保存启动设备并继续下一步安装。
 
@@ -60,7 +53,9 @@
 
       如果选择了`Fill disk with Data partition`，Data这一项无法编辑。如果没有选择，你可以为保留空间设置一个数值。输入-1意味着占用所有的剩余空间。
 
-      （图 配置存储）
+      ![配置存储](../images/install_configure_storge.png)
+
+      **配置存储**
 
       选择 &lt; Continue &gt; 并按下【Enter】键，保存设置并继续下一步操作。
 
