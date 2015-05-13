@@ -11,31 +11,39 @@
 1. 登录到 Red Hat Enterprise Linux 虚拟机。
 
 2. 启用 Red Hat Enterprise Virtualization Agent 频道：
+
    * Red Hat Enterprise Linux 6
+
    ```
    # subscription-manager repos --enable=rhel-6-server-rhev-agentrpms
    ```
+
    * Red Hat Enterprise Linux 7
+
    ```
    # subscription-manager repos --enable=rhel-7-server-rh-commonrpms
    ```
 
 3. 运行以下命令来下载和安装 guest agent 软件包：
+
    ```
    # yum install rhevm-guest-agent-common
    ```
 
 4. 运行以下命令来安装单点登录软件包：
+
    ```
    # yum install rhev-agent-gdm-plugin-rhevcred
    ```
 
 5. 运行以下命令来安装 Samba 客户端软件包：
+
    ```
    # yum install samba-client samba-winbind samba-winbind-clients
    ```
 
 6. 修改虚拟机上的 **/etc/samba/smb.conf** 文件来包括以下内容，把 **DOMAIN** 替换为短域名，把 **REALM.LOCAL** 替换为 Active Directory realm：
+
    ```
    [global]
    workgroup = DOMAIN
@@ -58,32 +66,42 @@
    ```
 
 7. 运行以下命令把虚拟机加入到域中：
+
    ```
    net ads join -U [user name]
    ```
 
 8. 运行以下命令来启动 **winbind** 服务，并保证它会在系统引导时自动启动：
+
    ```
    # service winbind start
    # chkconfig winbind on
    ```
 
 9. 运行以下命令来确认系统可以和 Active Directory 进行交流：
+
    * 验证一个信任的关系已经被创建：
+
    ```
    # wbinfo -t
    ```
+
    * 验证您可以列出用户：
+
    ```
    # wbinfo -u
    ```
+
    * 验证您可以列出组：
+
    ```
    # wbinfo -g
    ```
 
 10. 运行以下命令来配置 NSS 和 PAM：
+
     a. 运行以下命令打开 **Authentication Configuration** 窗口：
+
     ``` 
     # authconfig-tui
     ```

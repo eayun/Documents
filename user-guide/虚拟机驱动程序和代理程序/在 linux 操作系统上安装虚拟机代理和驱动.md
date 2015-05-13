@@ -3,7 +3,8 @@
 **概述**<br/>
 使用 EayunOS Agent 频道所提供的 rhevm-guest-agent 软件包可以在 Linux 虚拟机上安装 EayunOS guest 代理和驱动。
 
-**在 Linux 虚拟机上安装 guest 代理和驱动(以红帽的操作系统为例)
+**在 Linux 虚拟机上安装 guest 代理和驱动(以红帽的操作系统为例)**
+
 1. 登录到红帽 Linux 虚拟机。
 
 2. 启用 EayunOS Agent 频道：
