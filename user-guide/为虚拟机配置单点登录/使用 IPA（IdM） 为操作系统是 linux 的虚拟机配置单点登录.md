@@ -23,22 +23,22 @@
 
 4. 运行以下命令来安装单点登录软件包：
    ```
-   # yum -y install ovirt-guest-agent-pam-module.x86_64
-   # yum -y install ovirt-guest-agent-gdm-plugin.noarch
+   # yum -y install ovirt-guest-agent-pam-module
+   # yum -y install ovirt-guest-agent-gdm-plugin
    ```
 
 5. 运行以下命令来安装 IPA 软件包：
    ```
-   # yum -y instasll ipa-client.x86_64
+   # yum -y install ipa-client
    ```
 
-6. 运行以下命令并根据提示配置 **ipa-client** 并把虚拟机加入到域中：
+6. 运行以下命令并根据提示配置 **ipa-client**，然后将虚拟机添加到域中：
    ```
    # ipa-client-install --permit --mkhomedir
    ```
 
    > **注意**
-   >
+   > 
    > 在使用 DNS obfuscation 的环境中，这个命令应该是：
    > ```
    > # ipa-client-install --domain=[FQDN] --server==[FQDN]
@@ -54,6 +54,7 @@
    在下一步中，您将需要这个信息来为 [some-ipa-user] 创建一个 home 目录。
 
 8. 为 IPA 用户创建一个 home 目录：
+
    a. 为新用户创建 home 目录：
    ```
    # mkdir /home/[some-ipa-user]
@@ -64,4 +65,4 @@
    # chown 935500010:936600001 /home/[some-ipa-user]
    ```
 > **结果**<br>
-> 您在 Red Hat Enterprise Linux 虚拟机上启用了单点登录。使用一个用户的用户名和密码登录到用户门户，然后打开启用了单点登录功能的虚拟机的控制台。您将会被自动登录到虚拟机上。
+> 您在 Linux 虚拟机上启用了单点登录。使用配置了 sso 的用户的用户名和密码登录到用户门户，并连接至开启了单点登录功能的虚拟机的控制台。您会自动登录到虚拟机中。

@@ -8,26 +8,19 @@
 
 **为 Linux 虚拟机配置单点登录**
 
-1. 登录到 Red Hat Enterprise Linux 虚拟机。
+1. 登录到 Linux 虚拟机。
 
-2. 启用 Red Hat Enterprise Virtualization Agent 频道：
-
-   * Red Hat Enterprise Linux 6
+2. 安装源：（在安装必要的源之前，建议您先更新系统）
 
    ```
-   # subscription-manager repos --enable=rhel-6-server-rhev-agentrpms
-   ```
-
-   * Red Hat Enterprise Linux 7
-
-   ```
-   # subscription-manager repos --enable=rhel-7-server-rh-commonrpms
+   yum -y update (可选)
+   yum -y install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
    ```
 
 3. 运行以下命令来下载和安装 guest agent 软件包：
 
    ```
-   # yum install rhevm-guest-agent-common
+   # yum -y install ovirt-guest-agent-common.noarch
    ```
 
 4. 运行以下命令来安装单点登录软件包：
@@ -110,4 +103,4 @@
 
 **结果**
 
-您在 Linux 虚拟机上启用了单点登录。使用一个用户的用户名和密码登录到用户门户，然后就可以使用单点登录功能连接到虚拟机的控制台。您将会被自动登录到虚拟机上。
+您已经成功的在 Linux 虚拟机上开启了单点登录功能。使用具有一定权限的用户的用户名和密码登录到用户门户，然后就可以连接到虚拟机的控制台。您将会被自动登录到虚拟机上。
