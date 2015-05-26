@@ -40,6 +40,6 @@
    **导入成功**
 
 **结果**<br/>
-您安装了 Red Hat Enterprise Virtualization Manager 使用的证书。在您下次登录到用户门户时,安全警告
+您安装了 EayunOS 管理端使用的证书。在您下次登录到用户门户时,安全警告
 信息将不会再被显示。
 
