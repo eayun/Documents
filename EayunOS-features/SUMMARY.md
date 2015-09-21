@@ -31,3 +31,8 @@
    * [查看EayunOS虚拟化宿主机的主机设备](hostdev_passthrough/list_host_devices.md)
    * [让虚拟机使用主机的设备](hostdev_passthrough/passthrough_host_devices.md)
    * [显卡设备穿透的注意事项](hostdev_passthrough/vga_passthrough_notice.md)
+* [使用 neutron 管理虚拟机网络](neutron/neutron.md)
+   * [准备工作](neutron/preparation.md)
+   * [设置 neutron 服务虚拟机](neutron/using_neutron_template.md)
+   * [导入 neutron 服务至 EayunOS](neutron/import_neutron_service.md)
+   * [设置宿主机使用 neutron 服务](neutron/host_neutron_setup.md)
