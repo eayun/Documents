@@ -1,0 +1,3 @@
+## 实现
+
+所有的方法在CloneVmCommand类中实现。由于非常类似于从快照克隆虚拟机，所以CloneVmCommand和AddVmFromSnapshotComman共同的方法被提取到公共的AddVmAndCloneImageCommand基类中。
