@@ -65,3 +65,7 @@
      [root@localhost ~(keystone_admin)]# 
 
      ```
+
+   * 更新 neutron 配置文件中的 keystone 密码：
+
+     通过 ssh 连接至 neutron 服务器，并更新 **/etc/neutron/neutron.conf** 配置文件中的 **admin_password** 属性值为上一步所设置的密码。
