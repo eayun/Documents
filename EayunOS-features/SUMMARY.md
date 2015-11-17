@@ -40,3 +40,4 @@
    * [neutron 网络搭建](#)
       * [创建 neutron 网络](neutron/net_create.md)
       * [创建 neutron 子网](neutron/subnet_create.md)
+      * [设置 neutron 外网](neutron/external_net_setup.md)
