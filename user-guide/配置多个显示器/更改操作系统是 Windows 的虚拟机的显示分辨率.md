@@ -1,6 +1,6 @@
 # 更改操作系统是 Windows 的虚拟机的显示分辨率
 
-更改一台 Windows 虚拟机的显示分辨率的方法会随着虚拟机上安装的 Windows 操作系统版本的不同而有所不同。下面介绍了如果更改运行了 Windows 7、Windows Vista 和 Windows XP 的虚拟机的显示分辨率。<br/>
+更改一台操作系统是 Windows 的虚拟机的显示分辨率的方法会根据虚拟机上安装的 Windows 操作系统版本的不同而有所不同。下面介绍了如果更改运行了 Windows 7、Windows Vista 和 Windows XP 的虚拟机的显示分辨率。<br/>
 
 **Windows 7**
 
@@ -12,15 +12,17 @@
 
 **Windows Vista**
 
-1. 在桌面上点鼠标右键，选 **Personalize** 打开 **Control Panel** 的 **Personalization** 项。
+1. 在桌面上点鼠标右键，选择**人性化**，会打开**控制面板**的**个性化**页面。
 
-2. 点 **Display Settings** 打开 **Display Settings** 窗口。
+2. 点击**显示设置**，会弹出**显示设置**窗口。
 
 3. 选择要修改分辨率的显示。
 
 4. 使用**分辨率**滑行条来改变屏幕的分辨率。
 
-5. 点**应用**使所做的改变有效。
+5. 点击**应用**使所做的改变有效。
+
+6. 在弹出的**显示设置**页面中点击**确定**。
 
 **Windows XP**
 
