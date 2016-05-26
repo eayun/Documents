@@ -9,7 +9,7 @@
 
 2. 点**添加**打开**添加服务商**窗口。
 
- ![The Add Provider Window Neutron](../images/External_Providers_the_add_provider_window_neutron.png)
+ ![The Add Provider Window Neutron](../../images/External_Providers_the_add_provider_window_neutron.png)
 
  **添加服务商窗口**
 
@@ -36,7 +36,7 @@
 
 9. 点**代理配置**标签页。
 
- ![The Agent Configuration Tab](../images/External_Providers_the_agent_configuration_tab.png)
+ ![The Agent Configuration Tab](../../images/External_Providers_the_agent_configuration_tab.png)
 
  **代理配置标签页**
 

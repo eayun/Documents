@@ -3,7 +3,7 @@
 当你指定了 **Native 客户**或者**浏览器插件**的控制台调用配置的话，将会使用 Remote Viewer
 连接到虚拟机。Remote Viewer 窗口提供了很多选项来与虚拟机的控制台交互。
 
-![Remote Viewer 连接菜单](../images/vm-remote-viewer-options.png)
+![Remote Viewer 连接菜单](../../images/vm-remote-viewer-options.png)
 
 **Remote Viewer 连接菜单**
 
