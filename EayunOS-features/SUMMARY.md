@@ -43,6 +43,8 @@
       * [设置 neutron 外网](neutron/external_net_setup.md)
 * [磁盘镜像上传](#)
    * [磁盘镜像上传](DiskImageUpload/DiskImageUpload.md)
+* [ISO文件上传](#)
+   * [ISO文件上传](ISOUpload/ISOUpload.md)
 * [AAA JDBC](#)
    * [摘要](AAA-JDBC/Summary.md)
    * [详细说明](AAA-JDBC/DetailedDescription.md)
