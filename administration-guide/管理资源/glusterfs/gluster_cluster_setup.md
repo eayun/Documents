@@ -10,7 +10,7 @@
 * 点击**编辑**按钮。
 * 在弹出窗口中，勾选**启用 Gluster 服务**：
 
-  ![](../images/gluster_cluster_setting.png)
+  ![](../../images/gluster_cluster_setting.png)
 
 * 向该集群内添加 EayunOS 宿主机，设置集群为 gluster 集群之后，向该集群添加的每一台宿主机都可以成为该 gluster 集群下的一个 gluster 节点。
 

@@ -9,7 +9,7 @@ NFS 存储域可以用来存放虚拟机镜像文件、ISO 文件或者用来作
 
 2. 点击**新建域**按钮打开**新建域**窗口。
 
-   ![添加 NFS 存储](../images/storage-add-nfs.png)
+   ![添加 NFS 存储](../../images/storage-add-nfs.png)
 
    **添加 NFS 存储**
 

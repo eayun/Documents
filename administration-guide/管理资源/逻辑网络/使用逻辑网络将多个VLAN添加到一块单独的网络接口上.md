@@ -17,7 +17,7 @@
 
 4. 将启用了 VLAN 标签的逻辑网络拖动到物理网卡旁边的**分配的逻辑网络**区域中。由于启用了 VLAN 标签，物理网卡能连接至多个已分配的逻辑网络上。
 
-   ![设立主机网络窗口](../images/Logical_Networks-Setup_Host_Networks_Window.png)
+   ![设立主机网络窗口](../../images/Logical_Networks-Setup_Host_Networks_Window.png)
 
    **设置主机网络**
 

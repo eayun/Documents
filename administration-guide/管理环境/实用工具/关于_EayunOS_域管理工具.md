@@ -2,7 +2,7 @@
 
 EayunOS 虚拟化环境使用目录服务对用户进行管理和验证。要在 EayunOS 虚拟化环境中添加用户，首先通过 **admin@internal** 用户为 EayunOS 虚拟化管理中心配置目录服务。添加、删除目录服务时使用 **engine-manage-domains** 命令。
 
-engine-manage-domains 命令只能在 Red Hat Enterprise Virtualization Manager 所在的机器上被访问，并只能使用 root 用户来执行。
+engine-manage-domains 命令只能在 EayunOS Manager 所在的机器上被访问，并只能使用 root 用户来执行。
 
 > **重要**
 >

@@ -9,7 +9,7 @@
 
 2. 点**添加**打开**添加服务商**窗口。
 
- ![The Add Provider Window Foreman](../images/External_Providers_the_add_provider_window_foreman.png)
+ ![The Add Provider Window Foreman](../../images/External_Providers_the_add_provider_window_foreman.png)
 
  **添加服务商窗口**
 

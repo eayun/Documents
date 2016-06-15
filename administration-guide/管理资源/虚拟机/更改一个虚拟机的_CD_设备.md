@@ -16,7 +16,7 @@
 
 2. 点击**更换 CD** 来打开**更换 CD** 弹出窗口。
 
-   ![更换 CD 弹出窗口](../images/vm-change-cd.png)
+   ![更换 CD 弹出窗口](../../images/vm-change-cd.png)
 
    **更换 CD 弹出窗口**
 

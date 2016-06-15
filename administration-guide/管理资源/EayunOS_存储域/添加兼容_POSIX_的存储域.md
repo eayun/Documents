@@ -9,7 +9,7 @@
 
 2. 点击**新建域**打开**新建域**窗口，如图：
 
-   ![添加 POSIX 存储](../images/storage-add-posix.png)
+   ![添加 POSIX 存储](../../images/storage-add-posix.png)
 
    **添加 POSIX 存储**
 

@@ -1,0 +1,32 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'star', 'service', '.' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly mapToRegistry name service
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/service
+8 silly mapToRegistry name .
+9 silly mapToRegistry using default registry
+10 silly mapToRegistry registry https://registry.npmjs.org/
+11 silly mapToRegistry uri https://registry.npmjs.org/
+12 verbose stack Error: Must be logged in to star/unstar packages
+12 verbose stack     at CachingRegistryClient.star (/usr/share/npm/node_modules/npm-registry-client/lib/star.js:15:14)
+12 verbose stack     at /usr/share/npm/lib/star.js:31:20
+12 verbose stack     at mapToRegistry (/usr/share/npm/lib/utils/map-to-registry.js:55:3)
+12 verbose stack     at /usr/share/npm/lib/star.js:24:5
+12 verbose stack     at /usr/share/npm/node_modules/slide/lib/async-map.js:52:35
+12 verbose stack     at Array.forEach (native)
+12 verbose stack     at /usr/share/npm/node_modules/slide/lib/async-map.js:52:11
+12 verbose stack     at Array.forEach (native)
+12 verbose stack     at asyncMap (/usr/share/npm/node_modules/slide/lib/async-map.js:51:8)
+12 verbose stack     at EventEmitter.star (/usr/share/npm/lib/star.js:23:3)
+13 verbose cwd /home/bigleg/Documents/administration-guide
+14 error Linux 4.4.0-22-generic
+15 error argv "/usr/bin/nodejs" "/usr/bin/npm" "star" "service" "."
+16 error node v4.2.6
+17 error npm  v3.5.2
+18 error code ENEEDAUTH
+19 error need auth Must be logged in to star/unstar packages
+20 error need auth You need to authorize this machine using `npm adduser`
+21 verbose exit [ 1, true ]

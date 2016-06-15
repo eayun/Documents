@@ -8,7 +8,7 @@
 1. 在树型框中选择外**部提供商**。
 
 2. 点**添加**打开**添加服务商**窗口。
-![The Add Provider Window Glance](../images/External_Providers_the_add_provider_window_glance.png)
+![The Add Provider Window Glance](../../images/External_Providers_the_add_provider_window_glance.png)
 
 3. 输入**名称**和**描述**。
 

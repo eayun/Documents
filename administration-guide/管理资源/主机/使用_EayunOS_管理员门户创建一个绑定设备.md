@@ -17,7 +17,7 @@
 
    如果所选择的设备相互不兼容，例如其中一个启用了 VLAN 标签而另一个没有，该操作将失败，并提示您如何解决兼容性的问题。
 
-   ![创建新网卡绑定窗口](../images/Hosts-Bond_Devices_Window.png)
+   ![创建新网卡绑定窗口](../../images/Hosts-Bond_Devices_Window.png)
 
    **创建新网卡绑定窗口**
 

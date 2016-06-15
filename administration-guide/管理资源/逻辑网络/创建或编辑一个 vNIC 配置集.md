@@ -12,7 +12,7 @@
 
 3. 点击**新建**按钮来打开**虚拟机接口配置集**窗口。
 
-   ![虚拟机接口配置集窗口](../images/new_vnicProfile.png)
+   ![虚拟机接口配置集窗口](../../images/new_vnicProfile.png)
 
    **虚拟机接口配置集窗口**
 

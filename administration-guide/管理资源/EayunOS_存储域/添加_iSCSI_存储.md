@@ -12,7 +12,7 @@ EayunOS 平台通过从已存在的 LUN 组成的逻辑卷组创建存储域来�
 
 2. 点击**新建域**按钮打开**新建域**窗口，如图：
 
-   ![添加 iSCSI 存储](../images/storage-add-iscsi.png)
+   ![添加 iSCSI 存储](../../images/storage-add-iscsi.png)
 
    **添加 iSCSI 存储**
 
@@ -56,6 +56,6 @@ iSCSI 的服务器地址等信息，其它的事情管理平台会自动帮你�
 **结果**<br/>
 几分钟之后，就可以看到创建好的 iSCSI 存储域名了，如图所示：
 
-![完成 iSCSI 存储域的搭建](../images/storage-add-iscsi-done.png)
+![完成 iSCSI 存储域的搭建](../../images/storage-add-iscsi-done.png)
 
 **完成 iSCSI 存储域的搭建**
