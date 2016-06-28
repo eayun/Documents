@@ -2,7 +2,7 @@
 
 以下介绍了如果关闭一个 SPICE 代理。
 
-**激活 SPICE 代理**
+**关闭 SPICE 代理**
 
 1. 登录到 EayunOS Manager：
 
