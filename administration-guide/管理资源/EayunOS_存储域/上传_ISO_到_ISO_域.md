@@ -6,22 +6,9 @@ EayunOS 管理平台提供了一个简单的脚本，用来上传 ISO 文件到 
 
 **上传 ISO 到 ISO 域**
 
-1. 首先，复制需要上传的 ISO 文件到运行 EayunOS 管理平台的系统的临时目录下。
+1. 登录EayunOS管理平台后，点击**ISO文件上传**标签。
 
-2. 使用 **root** 用户登录到EayunOS管理平台系统。
-
-3. 使用 `engine-iso-uploader` 命令查看存在的 ISO 存储域的名字：
-```
-    # engine-iso-uploader list
-```
-4. 使用 `engine-iso-uploader` 命令上传 ISO 文件：
-```
-    # engine-iso-uploader --iso-domain=ISO-DOMAIN upload /tmp/ovirt-node-iso-3.1.0-0.999.456.el6.iso
-```
-
-该命令需要一个 ISO
-存储域的名称作为参数，使用上一步的命令获取，还需要输入 ISO
-文件的完整路径，该命令会提示用户输入 REST API 的密码。
+2. 点击**上传**按钮，弹出窗口，选择想要上传的ISO文件，点击**打开**。
 
 **结果**<br/>
 ISO 上传完成并出现在命令中指定的 ISO 存储域中。同时也将出现在创建该 ISO
