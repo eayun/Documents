@@ -10,17 +10,19 @@
     # engine-config -s SpiceProxyDefault=someProxy
 ```
 
+`someProxy格式 http://[host]:[port]`
+
+`http://proxyname.example.com:3128`
+
+**someProxy**指安装了squid 的地址，squid 是安装在管理平台上的，管理平台配置了SpiceProxyDefault后spice 客户端就会去 someProxy 连接spice 服务端.
+
+
 2. 重新启动 ovirt-engine 服务：
 
 ```
 	# service ovirt-engine restart
 ```
 	
-   代理必须使用以下格式来代表：
-   
-```   
-	protocol://[host]:[port]
-```   
 
 > **注意**
 

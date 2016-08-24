@@ -9,7 +9,7 @@
 1.  在代理机器上安装 Squid：
 
 ```
-    # yum install squid
+        # yum install squid
 ```
 	
 2.  打开 /etc/squid/squid.conf，把以下内容：
@@ -23,6 +23,9 @@
 ```
 	http_access deny CONNECT !Safe_ports
 ```
+
+若是配置文件同时存在上述两条配置时，将http_access deny CONNECT !SSL_ports配置注销掉
+
    
 3.  启动代理：
 
